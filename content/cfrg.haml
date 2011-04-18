@@ -1,0 +1,26 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p
+  The
+  %span.term #{name} 
+  (#{acronym}) is a general forum for discussing and reviewing uses of cryptographic mechanisms, both for network security in general and for the IETF in particular.
+
+%p The #{acronym} serves as a bridge between theory and practice, bringing new cryptographic techniques to the Internet community and promoting an understanding of the use and applicability of these mechanisms via Informational RFCs (in the tradition of, e.g., RFC 1321 (MD5) and RFC2104 (HMAC). Our goal is to provide a forum for discussing and analyzing general cryptographic aspects of security protocols, and to offer guidance on the use of emerging mechanisms and new uses of existing mechanisms. IETF working groups developing protocols that include cryptographic elements are welcome to bring questions concerning the protocols to the #{acronym} for advice.
+
+
+
+%h2 Meetings and Membership
+
+The #{acronym} meetings, membership, and mailing list are open to all who wish to participate.

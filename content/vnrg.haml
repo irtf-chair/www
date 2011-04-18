@@ -1,0 +1,61 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p A recent trend in networking is the concurrent use of a single physical network for multiple variants or instances of networks, e.g., IPv4 and some experimental protocol suite, or VLANs. These networks, called Virtual Networks, provide isolation between network instances or types and support shared use of the same infrastructure for different purposes.
+
+%p Virtual networks attempt to better utilize networking infrastructure by reusing individual routers or links (i.e., either physical or logical networking resource) for multiple concurrent network instances, or to aggregate multiple such resources to obtain increased capabilities. These resources can be any network component, including routers, hosts, links, and services, (e.g., name mapping services). Increased capability can refer to aggregate capacity provided by bundles of links or groups of routers, or increased fault tolerance of a cluster of primary and backup service systems.
+
+%p Important properties of Virtual Networks (VNs) are
+%ul
+  %li i) that each resource can be used concurrently by multiple VN instances
+  %li ii) the clear isolation of any VN from all others, and
+  %li iii) abstraction, in which a given virtual resource (host, link, router, service) need not directly correspond to its component resources.
+
+%p These properties need to be supported down to each physical component, such that each router, host, and link supports concurrence, isolation, and abstraction.
+
+%p In the network community, "Virtual Networks" is a very broad term, including running multiple wavelengths over a fiber, MPLS, virtual routers, and overlay systems. VN technologies are widely used in parts of the Internet and other IP-based networks, but the community lacks a common understanding of the impact of virtualized networks on IP networking, or how VNs are best utilized. As a result, virtualization has been difficult to integrate across various systems, such as network operators, vendors, service providers and testbed providers (e.g., GENI, FEDERICA, etc).
+
+%p One current challenge with existing VN systems is the development of incompatible or competing networking techniques in the Internet, causing deployment issues in the future (or even now). For instance, there are numerous ways to virtualize routers and their internal resources (e.g., multiple, isolated routing and forwarding tables) and to virtualize core networks (e.g. MPLS, LISP), but the end host virtualization has not been addressed (e.g., beyond the need for virtual interfaces). Few virtual network systems allow a particular virtual machine in an end host to control its attachment to a specific private network. End host virtualization architecture also determines whether virtualization is per virtual machine, per process, or per connection – and this difference can determine exactly how the end host can participate in VNs. Similar issues arise for virtual services, virtual links, etc.
+
+%p The #{acronym} builds on the efforts of a number of IETF WGs, including encapsulated subnets (LISP at layer 3, TRILL at layer 2), subnet virtualization (PPVPN, L3VPN, L2VPN), and aspects of managing virtual components (VRRP), as well as some work in more general areas, notably on tunnels (INTAREA). A side effect of the #{acronym} is to help place these contributions in a broader context.
+
+%p
+  The
+  %span.term #{name} 
+  (#{acronym})
+  will consider the whole system of a VN and not only single components or a limited set of components; we will identify architectural challenges resulting from VNs, addressing network management of VNs, and exploring emerging technological and implementation issues.
+
+%p Initial set of work items:
+%ul
+  %li concepts/background/terminology
+  %li common parts of VN architectures
+  %li common problems/challenges in VN
+  %li descriptions of appropriate uses
+  %li some solutions (per-problem perhaps)
+
+%p The #{acronym} will initially focus on VNs but at a later stage the #{acronym} will also be open to related topics, such as system virtualization.
+
+%h2 Organization
+
+%p The #{acronym} provides a forum for interchange of ideas among a group of network researchers with an interest in network virtualization in the context of the Internet and also beyond the current Internet.
+
+%p The #{acronym} will encourage the organization of the work in smaller design teams focused on specific areas of research. The design teams will use the general mailing list in order to allow the broader community to follow the evolution of their topics.
+
+%p Most of the communication inside the #{acronym} will be done through use of mailing lists, however, the group will hold regular physical meetings at least once a year in conjunction with IETF meetings. Additional meetings may be held at IETF or other venues, such as in conjunction with related conferences and workshops. Related meetings may include research conferences and workshops, such as ACM CONEXT ReArch, IEEE Globecom FutureNet, NSF GENI Engineering Conferences, ACM SIGCOMM VISA; national research efforts, such as NSF's Find, Japan's Akari, and the EU's Trilogy, 4WARD, and Euroview, and related summer schools.
+
+%p The #{acronym} will produce Informational and Experimental RFCs in order to document the activity of the group and to formalize the outcome of the research topics carried by the group. In addition, such documentation could become input to IETF working groups. The #{acronym} will also encourage prototyping of virtual network technologies to validate this exploration.
+
+%h2 Membership
+
+%p The #{acronym} operates in an open fashion (meetings & mailing list).  

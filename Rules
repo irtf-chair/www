@@ -1,0 +1,80 @@
+#!/usr/bin/env ruby
+
+require 'compass'
+Compass.add_project_configuration 'compass/config.rb'
+
+# A few helpful tips about the Rules file:
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+compile '/style/' do
+  filter :sass, Compass.sass_engine_options
+end
+
+compile '/img/*' do
+  # just copy
+end
+
+compile '/concluded/*/' do
+  # just copy
+end
+
+compile '/htaccess/' do
+  # just copy
+end
+
+compile '/charter/' do
+  # just copy
+end
+
+compile '*' do
+  filter :rfc
+  filter :haml
+  filter :wg
+  filter :rg
+  filter :url
+  if item.identifier == '/'
+    layout 'logoright'
+  else 
+    layout 'logoleft'
+  end 
+  filter :rubypants
+end
+
+route '/style/' do
+  '/style.css'
+end
+
+route '/img/*' do
+  item.identifier.chop + '.' + @item[:extension]
+end
+
+route '/concluded/*/' do
+  item.identifier.chop + '.' + @item[:extension]
+end
+
+route '/htaccess/' do
+  '/.htaccess'
+end
+
+route '/charter/' do
+  '/charter.php'
+end
+
+route '*' do
+  if item.identifier == '/' 
+    # if item is index page 
+    '/index.html' 
+  else 
+    # routes for the rest 
+    item.identifier.chop + '.html' 
+  end 
+end
+
+layout '*', :haml, :format => :html5

@@ -1,0 +1,30 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p
+  The
+  %span.term #{name} 
+  (#{acronym})
+  is chartered to produce a series of documents on Models for the Evaluation of Transport Protocols. The documents will include a survey of models used in simulations, analysis, and experiments for the evaluation of transport protocols. The output of the #{acronym} will also include a broad set of simulation test suites, and a set of recommendations for test suites for experiments in test beds. The goal of the work is to improve our methodologies for evaluating transport protocols.
+
+%p The first set of documents will consider models for the evaluation of congestion control mechanisms. This work will include the simulation test suites and recommendations for experiments mentioned above. Later documents are expected to address models for the evaluation of other aspects of transport protocols (e.g., connection establishment, security, perhaps QoS mechanisms).
+
+%p The models produced by this group will not have any formal relationship to the IETF standards process. That is, the #{acronym} will not produce recommendations for the IETF on using simulation or experimental test suites to evaluate transport-related features for standardization. At the same time, one intended use of the test suites is for comparative evaluations of different proposed congestion control mechanisms.
+
+%p The #{acronym} is not chartered to discuss the design of new congestion control mechanisms, or to discuss modifications to existing congestion control mechanisms, except in terms of the models needed for the evaluation of such mechanisms. The group is also not chartered to produce evaluations of specific congestion control mechanisms.
+
+%h2 Membership
+
+%p Membership is open to any interested parties who intend to remain current with the published documents and mailing list issues. The group is expected to function largely through the mailing list, possibly without any face-to-face meetings.  
+  

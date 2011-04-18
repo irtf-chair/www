@@ -1,0 +1,39 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p
+  The
+  %span.term #{name} 
+  (#{acronym})
+  is chartered to explore and research techniques which improve multicast performance with respect to dimensions such as number of groups, dynamics of group membership, dynamics of the network topology, and network resource constraints. The #{acronym} will investigate approaches based on application layer multicast (ALM), overlay multicast (OM), and native IP multicast, as well as hybrid approaches. A key design consideration is the placement of multicast state information along the multicast path, including packet headers, end hosts, and network nodes, where placement may be determined adaptively.
+
+%p In SAM architectures, new protocols are expected to coexist and integrate with native IP multicast protocols while offering more flexible deployment options and scaling to support a greater number of simultaneous multicast groups. Alternative technologies such as end-system multicast and overlay multicast have been demonstrated, but these mechanisms must be integrated into a unified architecture and operational design.
+
+%p Among the challenges to be addressed are: multicasting in topologies with concatenated VPNs, such as the Global Information Grid (GIG); ability to incorporate QoS mechanisms while retaining scalability; integration with network- and application-layer security mechanisms; and adaptation schemes which consider group-related factors, such as group size, number of sources, membership dynamics, sensitivity to delay, amount of state, state update rate, application data rate, and other application-specific parameters, as well as network-related factors, such as dynamics of topology, carrying capacity, and connectivity.
+
+%p Methods will be explored for group formation and discovery that scale to large numbers of groups, accommodate highly dynamic group membership, and support user-initiated small-group multicast in which the group is defined as a set of explicitly addressed endpoints. Further challenges include efficient multicast for limited-resource nodes and access links, control mechanisms for hybrid systems, approaches to optimization in the network, including routing, and operation in mobile networks, including Mobile Ad-hoc Networks (MANET).
+
+%p Deploying, diagnosing, debugging, and managing multicast services is complex, particularly for services which span multiple administrative domains. The #{acronym} will propose and evaluate tools and strategies for deployment, operations, and management of SAM services.
+
+%p The #{acronym} will select candidates for analysis and evaluation from existing research results. Researchers are invited to submit new approaches for further investigation. Through experimentation, the #{acronym} seeks to deepen its understanding of the solution space and to enable the identification of preferred solutions as a function of dynamic network characteristics and the number of multicast sources, receivers, and groups.
+
+%p The expected findings of the #{acronym} include characterizing the problem space, including driving scenarios, comparisons and analysis of existing approaches, a SAM framework that supports multiple ALM/OM/native/hybrid protocols, analysis of network infrastructure impact when multicast traffic becomes a dominant flow in a network, and deployment scenarios which are independent of but can support and evolve with network infrastructure support for native multicast. The findings are expected to be published in technical reports, academic papers, and/or RFCs.
+
+%h2 Membership
+
+%p The #{acronym} operates in an open fashion (meetings and mailing lists) but may occasionally form restricted subgroups to facilitate the development of specific work items. Periodic status reports will be provided to the full group regarding any closed activities undertaken by the #{acronym}. The #{acronym} seeks to attract a healthy mix of academic and industry participants.
+
+%h2 Meetings
+
+%p Meetings will be held 2-3 times a year, sometimes co-located with other events (e.g., IETF meetings, conferences, etc.) and sometimes independently. In particular, the #{acronym} aims to work with the ALM/OM research community by convening special-topic meetings during academic and industry conferences in related fields. The #{acronym} also seeks input and participation from researchers involved in ongoing GIG system engineering activities.  

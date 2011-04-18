@@ -1,0 +1,41 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p
+  Problematic e-mail, informally called spam, has increased on the Internet markedly in recent years, to a point where it threatens to make e-mail unusable. The
+  %span.term #{name}
+  (#{acronym}) investigates tools and techniques to mitigate the sending and effects of spam. Its focus is on approaches that can be defined, deployed and used in the near term, by addressing underlying characteristics of spam.
+
+%p Work areas include new or improved anti-spam tools and techniques, administrative tools and techniques, evaluation frameworks and measurement, and approaches that involve changes to the existing applications and protocols. As work areas are defined, the chairs will convene subgroups to work on them.
+
+%ul
+
+  %li Anti-spam tools and techniques include those to prevent spam from being sent, to prevent spam from being received, to distinguish spam from legitimate mail, to facilitate management responses to spam activity, and to ensure that legitimate mail is delivered in the presence of other anti-spam measures.
+
+  %li Administrative tools and techniques include those to share information among server and network operators about filters and other anti-spam tools, those to help network managers identify and deal with sources of spam on their networks, and codification of best current practices in spam management.
+
+  %li Evaluation frameworks and measurement determine how well a tool or technique accomplishes its stated goal, and the costs of the tool or technique to both those who deploy it and others who may be affected by it. It may also be useful to create taxonomies of existing techniques to predict the effectiveness of new or modified techniques.
+
+%p One function of the #{acronym} is to look at well-specified problems that can be addressed by technical solutions. When formulated, with development of prototypes of the associated technology, these problem statements can then serve as a starting point for standardization efforts within the IETF. The #{acronym} will choose topics likely to lead to usable results, and to avoid those that duplicate other efforts or that have proven unproductive in the past.
+
+%p The #{acronym} will, insofar as possible, coordinate with industry groups to develop tools and techniques that both are technically sound and have sufficient industry interest to be widely deployed. Although the group's goals are technical, it may consider tools and techniques to aid the implementation of legal and other non-technical anti-spam measures.
+
+
+%h2 Membership
+
+%p The #{acronym} is an open IRTF Research Group. The meetings and the main mailing lists are open to all participants. #{acronym} subgroups may operate on either open or closed membership basis. Participants are encouraged to be deeply knowledgeable of the literature and current technologies related to spam, Internet messaging, networking, and security.
+
+%h2 Meetings
+
+%p Meetings will be held on a regular basis, sometimes co-located with other events (e.g., IETF meetings, other conferences, etc.) and sometimes independently.

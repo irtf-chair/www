@@ -1,0 +1,25 @@
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Chair#{rg.chairs.length > 1 ? "s" : ""}
+%p
+  The #{acronym} is chaired by
+  - first = rg.chairs.take(rg.chairs.length - 1).map {|x| x.hamlify }.join(", ")
+  = (first.length > 0 ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
+
+%h2 Mailing List
+%p
+  The #{acronym} mailing list is
+  -# can't use HAML here due to whitespace bug
+  <a href="mailto:#{rg.list}">#{rg.list}</a>.
+  To subscribe or access the list archives, visit the
+  <a href="#{rg.listweb}">mailman page</a>.
+
+- if rg.web.length > 0 then
+  %h2 Web Page
+  %p
+    Additional #{acronym} information is available at 
+    -# can't use HAML here due to whitespace bug
+    <a href="#{rg.web}">#{rg.web}</a>.

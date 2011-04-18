@@ -1,0 +1,39 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+%h2 Charter
+
+%p The dramatic increase in wireless and mobile devices coupled with the desire to connect them to the ever-growing Internet is leading to a Mobile Internet, where support for terminal mobility would soon be taken for granted. While basic protocol support and some enhancements are being standardized IETF, there is a need for significant research (both empirical and analytical) to better understand mobility on the Internet. For instance, a successful handover of a terminal from one point of attachment to another at least includes a new link establishment (including link-level (re)authentication), IP connectivity establishment (including network-layer (re)authentication), and new route establishment (when the handover leads to a subnet change). In addition, since a handover almost inevitably affects transport protocol performance, mechanisms to smoothen handover are of interest. These considerations become even more challenging when a terminal handovers across different access networks, such as from a Wireless LAN to CDMA or to GPRS. Hence, it would be extremely useful to understand these problems as the transition to the Mobile Internet accelerates.
+
+%p
+  The objective of the
+  %span.term #{name}
+  (#{acronym})
+  is two-fold. Establish a forum for Wireless and IP Mobility researchers to investigate key and interesting problems in the field. The findings on these problems should benefit the community at large, but especially the standardization bodies like the IETF and the IEEE. And, help establish a uniform platform or testbed that researchers could use for experimentation as common tools, scenarios and methodologies provide more accurate performance benchmarking. A more ambitious, longer-term goal is to become a catalyst for research in Mobile Inter-networking.
+
+%p The group shall address the following research topics:
+%ul
+  %li analysis of Mobile IP Route Optimization considering such parameters as traffic pattern, link conditions, topology etc. with the goal of arriving at conclusions on its usage
+  %li investigation of securing handovers by making use of access authentication parameters, focussing initially on IEEE 802 systems. And, applying the adopted security for fast Handovers designed in the MIP4 and MIP6 groups in the IETF.
+  %li improving re-authentication latency during handovers, and subsequently transport protocol performance
+  %li evaluation of existing and new mechanisms for discovering, and selecting a target base station and/or router for handover
+  %li examination of the feasibility of generic mechanisms that allow tighter integration of the link layer with the IP layer for improving handover performance
+  %li alternative mechanisms for discovering a Mobility Anchor Point (MAP) in Hierarchical Mobile IP (HMIP), as well as mechanisms for handling the effects of single point of failure
+
+%p The #{acronym} addresses questions of an evolutionary nature, starting with the current Mobile IP architecture, including handover optimizations such as Fast Handover and Hierarchical Mobile IP, though other evolutionary IP Mobility solutions are welcome. However, radical changes in the Internet architecture -- such as separation of identity and location through adding new stack layers or reorganizations of the Internet routing architecture -- are outside the scope of this group.
+
+%h2 Membership
+
+%p The #{acronym} operates in an open fashion (meetings & mailing list). If at a future date smaller meetings are necessary for working out the details of specific items to be then reported to the larger group as a whole, then we can certainly provide for such a mechanism.
+
+%h2 Meetings
+
+%p Initially, meetings will be held as required, but at a minimum the group will meet at least twice a year -- sometimes co-located with other events (e.g., IETF/IEEE meetings, conferences, etc.) and sometimes independently.

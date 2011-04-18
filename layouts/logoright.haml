@@ -1,0 +1,31 @@
+-# encoding: utf-8
+!!!
+%html{ xmlns: "http://www.w3.org/1999/xhtml" }
+  %head
+    %meta{:charset => "utf-8" }
+    %title= (item.identifier =~ $rgpat ? "IRTF &mdash; " : "") + @item[:title]
+    %link{:href => "style.css", :rel => "stylesheet", :type => "text/css"}
+
+  %body
+    .container
+      .leftbar
+        = render "leftbar_"
+      
+      .main
+        %div
+          .title
+            %h1= @item[:title]
+          .logo
+            %a{:href => "./"}
+              %img{:src => "img/irtf.png", :width => 200, :height => 139,
+                   :alt => "Internet Research Task Force (IRTF)"}
+          .clear
+  
+        = yield
+  
+      .layout_footer
+      
+    .footer
+      = render "footer_"
+
+    = render "analytics_"

@@ -1,0 +1,50 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p Key to the correct functioning of the Internet is TCP's congestion control mechanism, which serves to match offered load to available bandwidth. Congestion control also allocates available bandwidth to many flows, more or less reasonably. Since the deployment of TCP's additive-increase, multiplicative decrease (AIMD) algorithm in 1988, the Internet has changed significantly, becoming much more heterogeneous in many areas including link speeds and characteristics, and types of application. Although there is no immediate crisis, TCP's AIMD algorithm is showing its limits in a number of areas, including but not limited to:
+%ul
+  %li insufficient dynamic range to handle high-speed wide-area networks (especially with few sources using them)
+  %li poor performance over links with unpredictable characteristics, such as some forms of wireless link.
+  %li poor latency characteristics for competing real-time flows.
+
+%p The network research community has been very active in designing modifications and alternatives to TCP's basic AIMD algorithm, especially when it comes to high-speed congestion control. A non-exhaustive list of examples includes High-speed TCP, Scalable TCP, H-TCP, FAST, and XCP. However the network research community cannot, by itself, effectively evaluate any such solution for Internet-scale deployment. To do this requires the involvement of equipment vendors, network operators, and other IETF participants, in addition to the research community.
+
+%p
+  The key goal of the
+  %span.term #{name} 
+  (#{acronym}) therefore is to move towards consensus on which technologies are viable long-term solutions for the Internet congestion control architecture, and what an appropriate cost/benefit tradeoff is.
+
+%p To achieve this goal will require extensive evaluation of different mechanisms in a wide range of network conditions, using a mix of simulation, analysis, and experiment. It is unclear at this stage whether any single proposed solution is viable, or whether there needs to be a synthesis of ideas from many places.
+
+%p Such an evaluation is especially difficult, given that some mechanisms involve changes to queuing algorithms, or to packet forwarding, whereas others only require end-system modifications. It is difficult therefore to compare like with like. There is an opportunity when making any widespread change to go further than the simplest incremental modifications, but such larger changes have costs, and so critical to the relevance of any recommendations from the #{acronym} will be that any proposed solutions are considered to be economically viable. If router modifications are proposed, collecting them and the tradeoff underlying them would be an important service of the #{acronym}.
+
+%p There are many different aspects to congestion control that the #{acronym} should consider. For example, different real-time media applications have (to a greater or lesser extent) a difficult time with dynamic congestion control mechanisms, especially if changes must be made on short timescales. The rise of Internet telephony and the expected rise of high-bandwidth Internet television will therefore significantly impact the congestion control landscape. The #{acronym} should therefore consider such applications, both in terms of how to best support these various classes of application, and in terms of how this impacts the overall emerging congestion control architecture.
+
+%p Also within scope for the #{acronym} should be consideration of how congestion control interacts with QoS mechanisms, with traffic engineering, and with lower-layer technologies such as optical-burst-switching. Finally, of significant importance is the interaction between denial-of-service attacks targeted at bandwidth exhaustion, any mechanisms intended to prevent such attacks, and the congestion control architecture. Thus the context for the work of this group is necessarily wide-reaching, and touches on both architecture and mechanism.
+
+%h2 Milestones
+
+%p It is hard to forecast exactly how the consensus process will play out, and therefore precisely what milestones to expect. However, as a starting point to achieve focus for the group, the #{acronym} will produce an RFC describing the nature of the emerging congestion control problems that any future congestion control architecture must face.
+
+%p An eventual goal is to produce a recommendation to the IETF on a solution that would be appropriate for Internet-scale deployment. It is possible that more than one solution will be recommended -- this is likely if the solutions can gracefully co-exist.
+
+%p It is also expected that the #{acronym} will produce IETF AD-sponsored RFCs detailing good practice for how real-time applications might best operate in a best-effort Internet.
+
+%h2 Process
+
+%p The #{acronym} will hold 2-3 meetings per year, typically meeting for two days at a time. Critical to success is close involvement between the IETF community and the #{acronym}. To this end, the #{acronym} should make a presentation at each IETF (probably in the TSVWG) summarizing progress made, and what input is needed from the IETF.
+
+%h2 Membership Policy
+
+%p Open.

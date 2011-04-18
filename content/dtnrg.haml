@@ -1,0 +1,35 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p
+  The
+  %span.term #{name} 
+  (#{acronym}) is chartered to address the architectural and protocol design principles arising from the need to provide interoperable communications with and among extreme and performance-challenged environments where continuous end-to-end connectivity cannot be assumed. Examples of such environments include spacecraft, military/tactical, some forms of disaster response, underwater, and some forms of ad-hoc sensor/actuator networks.
+
+%p Among the challenges to be addressed are: large delay for transmissions resulting from either physical link properties or extended periods of network partitioning, routing capable of operating efficiently with frequently-disconnected, pre-scheduled, or opportunistic link availability, high per-link error rates making end-to-end reliability difficult, heterogeneous underlying network technologies (including non-IP-based internets), and application structure and security mechanisms capable of limiting network access prior to data transit in an environment where round-trip-times may be very large.
+
+%p The group intends to build upon the extended "bundling" architecture created originally for the Interplanetary Internet. This architecture proposes an alternative to the Internet TCP/IP end-to-end model and employs hop-by-hop storage and retransmission as a transport-layer overlay. It provides a messaging service interface conceptually similar to electronic mail, but generalized for application-independence and supported by specialized reliability and routing capabilities.
+
+%p The intended work products of the #{acronym} include architectural descriptions (concept documents) a bundling protocol specification, and a series of one or more network-environment-specific "profile" documents. These profile documents will include descriptions of 'convergence layers' intended to adapt the overlying messaging architecture for use in specialized networking environments (space, water, sensor networks), and are expected to be created by the study teams described in the Membership section below. One study team output will be an "Internet profile" document, developed in concert with the architectural and protocol specification documents, giving suggested naming conventions and protocols to use for transport within the public Internet.
+
+%p Members of the #{acronym} also intend to distribute source code of a reference implementation of the architecture and protocols developed.
+
+
+%h2 Membership
+
+%p Membership is open to any interested parties who intend to remain current with the published documents and mailing list issues. From time to time the primary #{acronym} will be augmented with special study teams who will address the use of DTN architectures and protocols in specific networking environments.
+
+%h2 Meetings
+
+%p Regular working meetings are typically held every 4-6 weeks at locations convenient to the majority of the participants. Presentation-oriented status/summary meetings are to be held once a year (or more frequently, at the desire of the group) concurrent with IETF.

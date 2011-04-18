@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 T//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=latin-1" />
+
+  <link href="irtf.css"  rel="stylesheet" type="text/css" />
+
+  <link rel="icon" href="irtf.bmp" />
+  <link rel="shortcut icon" href="irtf.bmp" />
+
+
+  <title>IRTF</title>
+</head>
+<body>
+  <div class="page">
+    <table border="0" margin="0" cellpadding="0" width="100%">
+            <!-- Top of page -->
+      <tr>
+	<td class="leftcolumn" valign="top" >
+	  <a href=".">
+	  <img src="images/irtf-logo-06.png"
+	     alt="irtf logotype"
+	     width="92"
+	  />
+	  </a>
+	</td>
+	<td valign="top" class="centercolumn" >
+	  <h1>Internet <span class="whitetext">Research</span> Task Force</h1>
+	</td>
+      </tr>
+
+        <!--
+	<tr>
+	  <td class="leftcolumn">
+	    <div class="pagename">buds</div>
+	  </td>
+	  <td valign="bottom" class="centercolumn" >
+	    <div class="topmenu" >
+	      <a href="./">Home</a>&nbsp;
+	      <a href="groups">Groups</a>&nbsp;
+	      <a href="old-groups">Concluded</a>&nbsp;
+	    </div>
+	  </td>
+	</tr>
+  -->
+          
+      <tr>
+        	  <td class="leftcolumn leftmenu">
+	      <div class="pagename"><a href="./index">Home</a></div>
+
+	      <div class="pagename"><a href="groups">Groups</a></div>
+	      <div >
+	      <div class='leftitem' ><a href='charter?gtype=rg&amp;group=asrg'>asrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=cfrg'>cfrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=dtnrg'>dtnrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=hiprg'>hiprg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=iccrg'>iccrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=mobopts'>mobopts</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=nmrg'>nmrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=p2prg'>p2prg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=rrg'>rrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=samrg'>samrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=tmrg'>tmrg</a></div>
+<div class='leftitem' ><a href='charter?gtype=rg&amp;group=vnrg'>vnrg</a></div>
+	      </div>
+	     <div class="pagename"><a href="chair">Chair</a></div>
+	     <div class="pagename"><a href="http://tools.ietf.org/group/irtf/trac/wiki">wiki</a></div>
+	  </td>
+    
+	<td class="centercolumn">
+	  <div class="content">
+
+	    <div class='warning'>This Research group
+		       is no longer active. <br /> The charter below
+		       is provided as a record of history.</div>
+
+<h2>Building Differentiated Services Group (BuDS) Charter</H2>
+
+<p><STRONG>Chairs:</STRONG> Victor Firoiu <A HREF="mailto:vfiroiu@nortelnetworks.com">vfiroiu@nortelnetworks.com</A> <BR>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jon
+Crowcroft <A HREF="mailto:Jon.Crowcroft@cl.cam.ac.uk">Jon.Crowcroft@cl.cam.ac.uk<BR>
+</A><STRONG>Interest-Mailing-List:</STRONG> <A HREF="mailto:buds-interest@standards.nortelnetworks.com">buds-interest@standards.nortelnetworks.com</A>
+<strong><BR>
+To subscribe to the list: </STRONG><em>Send email to</em> 
+<A HREF="mailto:listserv@standards.nortelnetworks.co">listserv@standards.nortelnetworks.com</A>
+<em>and put</em> 'subscribe buds-interest' <em>(no quotes) into the body of the
+message (no subject is needed).</em>
+<BR> 
+<STRONG>To unsubscribe: </STRONG>
+<em>Repeat the above procedure using </em>'unsubscribe buds-interest' <em>or</em>
+'signoff buds-interest' <em>in the body of the message.</em>
+<STRONG> <BR>
+Mail list archive: </STRONG><A HREF="http://standards.nortelnetworks.com/archives/buds-interest.html">http://standards.nortelnetworks.com/archives/buds-interest.html</A> or <A HREF="ftp://standards.nortelnetworks.com/buds-interest">ftp://standards.nortelnetworks.com/buds-interest</A>
+<H3>Mission</H3>
+<p>Identify major issues and investigate solutions for building, deploying and managing predictable, robust, intra- and inter-domain services based on various architectures and per-hop behaviors including those defined by the Differentiated Services IETF WG.</P>
+<H3>Motivation</H3>
+<p>The Differentiated Services IETF WG has produced a set of standards-track and informational RFCs providing a good framework for implementing Differentiated Services. These documents include a set of specifications for Per-Hop Behaviors that define local (network element) treatment of data packets [1], [2], [3], [4].
+<P>Nevertheless, these specifications alone are not sufficient for architecting, implementing and deploying a set of services in production networks. The following are major issues that need to be addressed in order to make deployment of Differentiated Services possible:</P>
+
+<UL>
+<LI>What service types are useful for applications and practical to implement, deploy and manage? </LI>
+<LI>What PHB configurations are needed to implement a given service that provides a given service level (QoS)? </LI>
+<LI>To answer the above, we need some performance models for services constructed with various PHBs and their validation through simulation and prototype/test beds; </LI>
+<LI>What other elements are needed to provide a service: traffic engineering, traffic management? </LI>
+<LI>What is the scalability of building intra- and inter-domain services? </LI>
+<LI>What are the interoperability issues for the construction of services spanning multiple administrative domains? Are there any standards needed?</LI></UL>
+
+<H3>Goals</H3>
+<P>In this group, we plan to address all the above issues. More specifically, the following are first priority goals:</P>
+
+<UL>
+<LI>Compile a comprehensive overview of current state-of-the-art (published studies and experience) including: </LI>
+
+<UL>
+<LI>What is known and useful </LI>
+<LI>What directions need further investigation</LI></UL>
+
+<LI>Determine what useful services can be built on top of existing PHBs and highlight pitfalls when concatenating PHBs. Explore the need and feasibility of other PHBs and services. </LI>
+<LI>Establish and validate models. </LI>
+<LI>Evaluate and compare two resource management paradigms: "static" provisioning versus "dynamic" signaling. </LI>
+<LI>Study the feasibility of per-domain aggregation of network characteristics, such as bandwidth, delay and loss.</LI></UL>
+
+<P>As a second priority, the following are items to work on after achieving most of the goals in the first phase. Also, the following goals need to be defined better.</P>
+
+<UL>
+<LI>Determine how service performance would be characterized and validated: </LI>
+
+<UL>
+<LI>Throughput, delay, delay variation, loss rate, other </LI>
+<LI>What to measure: performance at the user, at a link (for each class/color) </LI>
+<LI>How to measure: possibly use IPPM</LI></UL>
+
+<LI>Study interoperability issues across domains: how to build services crossing domains based on per-domain services; how to control the peering points between provider domains.</LI></UL>
+
+<P>The BuDS group will consult and collaborate with related IETF working groups such as DiffServ, Traffic Engineering, ISSLL, IPPM, Policy. Specifically, the BuDS group will receive suggestions to study issues related to building, deploying and managing Differentiated Services. The BuDS group will make recommendations to the relevant IETF groups for items to be standardized.</P>
+<H3>References</H3>
+<P>[1] An Expedited Forwarding PHB (RFC 2598).</P>
+<P>[2] Assured Forwarding PHB Group (RFC 2597).</P>
+<P>[3] An Architecture for Differentiated Services (RFC 2475).</P>
+<P>[4] Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers (RFC 2474).</P>
+<B><P>Membership Policy: </B>This group is of limited membership. A limited membership model was chosen to encourage rapid progress. Others may petition the group by sending membership requests along with goals and reasons for a membership request. The group will either approve or deny the request in a timely manner based on the current position of the group, current research requirements and the candidates request. </P>
+
+
+				       </div>
+        </td>
+      </tr>
+    </table>
+    <!-- end of page content -->
+      </div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try{ 
+var pageTracker = _gat._getTracker("UA-53860-11");
+pageTracker._trackPageview();
+} catch(err) {} 
+</script></body>

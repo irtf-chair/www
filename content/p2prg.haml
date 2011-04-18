@@ -1,0 +1,48 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+
+%h2 Charter
+
+%p Peer-to-Peer (P2P) is a way of structuring distributed applications such that the individual nodes have symmetric roles. Rather than being divided into clients and servers each with quite distinct roles (such as Web clients vs. Web servers), in P2P applications each node can act as both a client and a server. A key concept for P2P systems is therefore to permit any two peers to communicate with one another in such a way that either ought to be able to initiate the contact. P2P systems in general are highly distributed, highly scalable to large numbers of nodes and users, highly autonomous, and can lend themselves to anonymity.
+
+%p Some historical examples of P2P systems are USENET servers, built on top of NNTP, and inter-domain routing, built on top of BGP. More recent P2P systems are file sharing networks such as Gnutella, BitTorrent, eDonkey/eMule and voice-over-IP applications such as Skype.
+
+%p While P2P systems are deployed and used on a large scale, many research questions in the field of P2P remain open. For example, current P2P systems often form their overlay networks based on application layer information and ignore the structure and policies of the underlying network infrastructure. As a result, peers often connect to peers in a remote network even though an equivalent peer would be available in the local network. This can lead to the inefficient use of network resources and to conflicts between application- and network-level routing. Another problem arises from the fact that many different P2P systems are defined and deployed. It is desirable for users on one system to be able to reach users on other P2P systems without requiring applications to implement the mechanisms and protocols of all systems available. Mechanisms for interconnecting and interoperability between P2P systems are needed. Many P2P systems are based on distributed hash tables (DHTs), which implement a distributed storage for key-value pairs. While DHTs are effective in looking up a specific key, search and information retrieval in DHTs remain challenging problems. Peer nodes in a P2P network perform services for other peers. A challenge is therefore to protect a P2P network against malicious nodes which may try to alter the service or disable it. Another example for a P2P security challenge is to prevent the exploitation of P2P networks for the distribution of malware or for harvesting IP addresses. Finally, it is interesting to evaluate P2P systems that are deployed to better understand the performance of algorithms deployed and the behavior of user. Performance and usage data is an important foundation for the development of new P2P mechanisms and architectures. Mechanisms and tools that collect this information from existing p2p systems are highly desirable.
+
+%p Overall, the field of P2P technologies presents a number of interesting challenges which includes new methods for optimizing P2P application overlays, performing routing and peer selection decisions, managing traffic and discovering resources. Areas of interest are also new techniques for P2P streaming and interconnecting distinct P2P application overlays. Other challenges for P2P are related to storage, reliability, and information retrieval in P2P systems. Yet another challenging area is security, privacy, anonymity and trust. Finally, it is challenging to examine P2P systems that are deployed, for example, to measure, monitor and characterize P2P applications. In addition to these areas of research, it is of interest to investigate the requirements of new applications (e.g., real-time P2P applications or P2P applications for wireless networks) on the P2P technologies used. The #{acronym} will collaborate with academia and industry on making progress addressing these challenges.
+
+%p The IETF has formed working groups to address specific issues of P2P networking. During the development of standards for P2P networks in these working groups, new research topics may arise that exceed the working group charter and require a separate forum for discussion. The #{acronym} will provide such a forum without duplicating the work being done in the different IETF WGs. The IETF has chartered working groups related to the following topics:
+%ul
+  %li Peer-to-Peer SIP signaling (P2PSIP)
+  %li Application-Layer Traffic Optimization (ALTO)
+  %li Low Extra Delay Background Transport (LEDBAT)
+
+%h2 Organization
+
+%p
+  The
+  %span.term #{name} 
+  (#{acronym})
+  will maintain a list of prioritized topics in order to organize the activity of the #{acronym} according to agreed importance and priority.
+
+%p The #{acronym} will use an open mailing list as the main communication vehicle for the group.
+
+%p The #{acronym} will encourage the organization of the work in smaller design teams focused on specific areas of research. The design teams will use the general mailing list in order to allow the broader community to follow the evolution of their topics.
+
+%p Most of the communication inside the #{acronym} will be done through use of mailing lists, however, the group will hold regular physical meetings at least once a year in conjunction with IETF meetings. Additional meetings may be held at IETF or other venues, such as in conjunction with related academic conferences.
+
+%p The #{acronym} will produce Informational and Experimental RFCs in order to document the activity of the group and to formalize the outcome of the research topics carried by the group. In addition, such documentation could become input to IETF working groups.
+
+%h2 Membership
+
+%p The #{acronym} operates in an open fashion (meetings & mailing list).  

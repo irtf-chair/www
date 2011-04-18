@@ -1,0 +1,39 @@
+--- 
+title: Internet Research Steering Group (IRSG)
+---
+
+.rightbar
+
+  %h2 Chair
+  %p
+    The IRSG is chaired by the IRTF Chair,
+    <a href="http://fit.nokia.com/lars/">Lars Eggert</a>
+    (<a href="mailto:irtf-chair@irtf.org">irtf-chair@irtf.org</a>).
+
+    
+  %h2 Mailing Lists
+  %p
+    %a{:href => "mailman/listinfo/irsg"} irsg@irtf.org
+    is the private discussion list of the IRSG.
+
+  %h2 Wiki
+  %p The main <a href="http://trac.tools.ietf.org/group/irtf/trac/wiki">IRTF wiki</a> is used by the IRSG to manage its activities.
+  
+%p The IRTF is managed by the IRTF Chair in consultation with the Internet Research Steering Group (IRSG). The IRSG membership includes the IRTF Chair, the chairs of the various Research Groups and other individuals ("members at large") from the research or IETF communities.
+
+%p IRSG members at large are chosen by the IRTF Chair in consultation with the rest of the IRSG and on approval by the IAB.
+
+%p In addition to managing the Research Groups, the IRSG may from time to time hold topical workshops focusing on research areas of importance to the evolution of the Internet, or more general workshops to, for example, discuss research priorities from an Internet perspective.
+
+%p The IRSG also reviews and approves documents published as part of the IRTF Document Stream (RFC5743).
+
+%p The current IRSG membership includes:
+%ul
+  %li= $eggert.hamlify + ", IRTF Chair"
+
+  - $atlarge.sort.each do |p| 
+    %li= p.hamlify + ", At-Large Member"
+
+  - $rgs.values.sort.each {|r| r.chairs.sort.each {|c| 
+  %li= c.hamlify + ", " + r.url + " Chair"
+  - }}

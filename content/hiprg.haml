@@ -1,0 +1,79 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+%h2 Background
+
+%p The current Internet architecture is based on using IP addresses in two distinctive roles.
+
+%p From the network point of view, an IP address names the current topological location of an interface by which a host is attached to the network. That is, an IP address is used as a name for the location where a specific network interface can be found. If a host moves around and attaches its network interface to a different location, the IP address associated with the interface changes. This role is often called the locator role.
+
+%p From an application point of view, an IP address identifies a host. That is, an IP address is used as an identifier for the peer host. It is expected that this identifier remains stable as long as the association is active. This role is often called the identifier role.
+
+%p Due to increasing mobility and multi-homing requirements, together with other issues like IPv4 address scarcity, this dual role of IP addresses is becoming problematic. The generic phenomenon was previously studied by the IRTF NameSpace Research Group (NSRG), and the questions studied there are outside of the scope of this group.
+
+%p The Host Identity Protocol (HIP) has been developed alongside the IETF and the IRTF for a few years. Its development has been partially based on the discussions that took place within the NSRG. Basically, HIP is a concrete proposal for adding a new name space to the TCP/IP stack. The new name space consist of Host Identifiers, which are cryptographic public keys. The HIP architecture adds a new layer between the IP layer and the transport layer, thereby decoupling the layers from each other, and splitting the dual roles of IP addresses. When HIP is used, IP addresses function as pure locators. Instead of IP addresses, the applications use Host Identifiers to name peer hosts. More concise representations of Host Identifiers -- 128-bit Host Identity Tags (HITs) and 32-bit Local Scope Identifiers (LSIs) -- have been defined to represent host identities in IPv6- or IPv4-sized address structures, respectively, allowing most, but not all, legacy applications to work unmodified on top of HIP.
+
+%p The IETF Host Identity Protocol working group has been chartered to complete the short term engineering work on HIP, including the base protocol specification, basic mobility & multi-homing, basic rendezvous service, and the basic DNS records needed to store HIP related information.
+
+%h2 Charter
+
+%p
+  The primary goal of the
+  %span.term #{name} 
+  (#{acronym}) is to study the proposed Host Identity Protocol and architecture, including potential effects on the Internet. When indicated by its studies, the #{acronym} can suggest extensions and modifications to the protocol and architecture. It is also in scope for the #{acronym} to study, in a wider sense, the consequences and effects that wide-scale adoption of any type of separation of the identifier and locator roles of IP addresses is likely to have. With regard to this latter, the #{acronym} is tasked with producing an experiment report providing input to the IETF on mechanisms for separating the identifier and locator nature of IP addresses. That is, given the assumption that some kind of identifier and locator separation should be adopted, the #{acronym} will provide an analysis on baseline architectures and mechanisms upon which standardizing such a separation could be based.
+
+%p The question of whether the basic identifier/locator split assumption is valid falls beyond the scope of the #{acronym}. The group's work is based on the assumption that such a separation is needed in one form or another, and the group must not spend excessive time discussing whether such a separation of roles is needed or not. On the other hand, it is fine to discuss the technical drawbacks that such a separation might have and ways to ameliorate these.
+
+%p Within the primary guildelines discussed above, the range of topics included within the scope of the #{acronym} spans:
+
+%ul
+  %li Comparisons of HIP with other identifier/locator separation mechanisms
+  %li Comparisons of HIP with other mobility and multi-homing mechanisms
+  %li Studies of how HIP changes Internet traffic patterns
+  %li Studies of privacy and security effects that HIP may have
+  %li
+    Studies and prototype designs of additional mechanisms, such as:
+    %ul
+      %li mechanisms for referrals using HITs as host identifiers
+      %li mechanisms for security policy control using HITs
+      %li mechanisms for HIT-based overlay routing
+      %li mechanisms for HIT-based firewalls and NAT devices
+  %li Studies of how HIP might help with other current IETF design tasks, such as mobile networks (NEMO), multicast and anycast.
+  %li Development of other identifier/locator separation mechanisms besides HIP
+
+%p As discussed above, the #{acronym} is tasked with producing an "experiment report" documenting the collective experiences and lessons learned from other studies, related experimentation, and designs completed by the #{acronym}. This might include the following:
+
+%p Input to the IETF regarding possible baseline architectures and protocols for standardizing the separation of identifiers and locators, including objective comparisons of HIP with other mechanisms.
+
+%p Exploration of whether introducing an identity/locator mechanism would be architecturally sound. Since HIP and the other mechanisms propose an architectural change that is in some ways similar in scope to Network Address Translation (NAT), the consequences are far from clear. A primary task for the #{acronym} is to evaluate the degree to which the result may have notable negative effects to the Internet in the large.
+
+%p Does the HIP baseline architecture and protocol, or other identity/locator separation architectures, need any changes? The initial HIP specifications, produced by the HIP WG, are Experimental RFCs. The same is likely to be true for any other serious proposal for identity/locator separation. A primary task for the #{acronym} is to evaluate if and what kind of changes would be needed or desirable to these initial specifications.
+
+%p An initial version of the experiment report is targeted for the second quarter of 2005, and the final version for the second quarter of 2006.
+
+%h2 Relationship to IETF Working Groups
+
+%p The #{acronym} works closely with the Host Identity Protocol (HIP) working group. The #{acronym} work is in addition related to the following working groups, in rough order of relevance:
+
+%ul
+  %li Site Multihoming in IPv6 (MULTI6), for sharing many architectural aspects.
+  %li IPsec Mobility Extensions (MOBIKE), for sharing some architectural aspects.
+  %li Mobility-related WGs (MIP4, MIP6, MIPSHOP, and NEMO), since HIP addresses mobility in a way different from Mobile IP.
+  %li DNS Extensions (DNSEXT), as HIP might provide a new tool for securing DNS updates.
+  %li Next Steps in Signalling (NSIS), since HIP may have implications in middle box signalling.
+
+%h2 Membership
+
+%p The #{acronym} operates in an open fashion (meetings & mailing list), though may occasionally form closed subgroups to facilitate the development of specific work items.
+
+%h2 Meetings
+
+%p The intent is for the #{acronym} to meet in co-location with the triannual IETF meetings.

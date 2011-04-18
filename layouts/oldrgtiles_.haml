@@ -1,0 +1,9 @@
+.clear
+%ul.tiled
+  - $oldrgs.keys.sort.each do |rg|
+    %li
+      %a.oldtile{ :href => "concluded/#{rg}" }
+        -#, :title => $oldrgs[rg] }
+        %span.acronym= rg.upcase
+        %span.name= $oldrgs[rg]
+.clear

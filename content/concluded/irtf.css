@@ -1,0 +1,79 @@
+
+body {
+        font-size: 12pt;
+        max-width: 105ex;
+
+        margin-right: auto;
+        background-color: #fff78f;
+}
+
+h1      { font-size: 2em;	margin: .69em  0 ; font-weight: bold; text-align: center; font-family: "Arial Black", Helvetica;  }
+h2      { font-size: 1.20em;    margin: .80em  0; font-weight: bold; }
+h3      { font-size: 1.09em;    margin: .90em  0; font-weight: bold; text-decoration: underline; }
+h4      { font-size: 1em;       margin: 1.0em  0; font-weight: bold; }
+h5      { font-size: .91em;     margin: 1.09em 0; font-weight: bold; line-height: 1.17em; }
+h6      { font-size: .83em;     margin: 1.17em 0; font-weight: bold; }
+
+p	{ margin: 1.33em 40px; }
+
+img	{ border: 0; }
+
+table, tr, td	{ margin: 0; padding: 0; }
+td	{ vertical-align: top; padding: 0.4ex; }
+
+table.body	{ margin: 0 40px; }
+td.body		{ padding: 0; }
+
+
+.top		{
+		  position: absolute;
+		  top: 0px;
+		  left: 0px;
+		  margin: 8px;
+		  font-size: 32px;
+		  font-style: italic;
+		}
+
+.topmenu	{
+		  border-top: solid black 1px; 
+		  border-bottom: solid black 1px;
+		  text-align: center;
+		  font-family: Verdana, Optima, Helvetica, sans-serif;
+		  font-size: 9pt;
+		  width: 100%;
+		}
+.topmenu a	{ text-decoration: none; }
+
+.leftcolumn	{
+                  display: none; /* hide the menu under the new site design */
+		  padding-right: 2ex;
+		  width: 90px;
+		}
+.leftmenu	{ 
+		  text-align: left;
+		  padding: 2ex;
+		}
+.leftmenu a	{ text-decoration: none; }
+.leftitem	{ padding: 0.2ex 1ex 0.2ex 1ex; margin: 0; }
+.leftselected	{ background-color: #CCF; }
+
+
+
+.content	{ margin-top: 2ex; }
+.update		{ font-size: 9pt; font-style: italic; text-align: right; }
+.category	{ font-size: 11pt; font-style: italic; }
+.drafts		{
+		  background-color: #FFFFFF;
+		  font-family: "Times New Roman", times, serif;
+		  font-size: 12pt;
+		}
+.pagename	{ 
+		  width: 100%; 
+		  text-align: left;
+		  font-family: Verdana, Optima, Helvetica, sans-serif;
+		  font-size: 11pt;
+		  font-weight: bold;
+		  margin: 1ex 0 0 0;
+		}
+.warning	{ font-size: 13pt; font-style: italic; text-align: center; }
+

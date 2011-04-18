@@ -1,0 +1,33 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+-# set page title
+- @item[:title] = "#{name} (#{acronym})"
+
+
+%h2 Charter
+
+%p
+  The
+  %span.term #{name} 
+  (#{acronym})
+  provides a forum for researchers to explore new technologies for the management of the Internet. In particular, the #{acronym} will work on solutions for problems that are not yet considered well understood enough for engineering work within the IETF.
+
+%p The initial focus of the #{acronym} will be on higher-layer management services that interface with the current Internet management framework. This includes communication services between management systems, which may belong to different management domains, as well as customer-oriented management services. The #{acronym} is expected to identify and document requirements, to survey possible approaches, to provide specifications for proposed solutions, and to prove concepts with prototype implementations that can be tested in large-scale real-world environments.
+
+%p The IETF Operations and Management Area Directors are members of the #{acronym} mailing list and invited to #{acronym} meetings in order to ensure free flow of information in both directions, and to avoid duplication of work with the various IETF working groups.
+
+%p The group will report its progress through a publicly accessible web site and presentations at IETF meetings. Specifications developed by the #{acronym} will be submitted for publication as Experimental or Informational RFCs.
+
+%h2 Membership
+
+%p Membership is open to any interested parties who intend to remain current with the published documents and mailing list issues.
+
+%h2 Meetings
+
+%p Regular working meetings are held about three times per year at locations convenient to the majority of the participants. Working meetings typically take 1-2 days and are typically co-located with either IETF meetings or conferences related to network management.  

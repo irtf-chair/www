@@ -1,0 +1,267 @@
+@import "compass/reset";
+@import "compass/layout/sticky-footer";
+@import "compass/utilities/links/hover-link";
+@import "compass/utilities/links/unstyled-link";
+@import "compass/utilities/lists/bullets";
+
+$fs: 16px;
+$blueprint-font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
+$blueprint-font-size: $fs;
+$blueprint-liquid-container-min-width: 800px;
+
+@import "blueprint";
+@import "blueprint/liquid";
+@import "blueprint/fancy-type";
+@import "blueprint/debug";
+
+//$bc: $feedback-border-color;
+$bc: #fccf34; // the yellow used in the IRTF logo
+
+@include blueprint-typography;
+
+html {
+  font-size: $fs;
+}
+
+@mixin tile {
+    @include float-left;
+    display: block;
+    width: 8*$fs;
+    height: 8*$fs;
+    margin: 0 .5*$fs .5*$fs 0;
+    padding: .25*$fs;
+    border-radius: 2*$fs;
+}
+
+@mixin boxstyle {
+  padding-top: 2*$fs;
+  padding-bottom: 2*$fs;
+
+  h2 {
+    @include caps;
+    color: $alt-text-color;
+    margin: 3*$fs 0 .75*$fs 0;
+    line-height: 1.25*$fs;
+    padding: 0;
+  }
+  
+  h2:first-child {
+     margin-top: $fs/2;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    @include no-bullets;
+  }
+  
+  p, li {
+    margin: 0 0 .5*$fs 0;
+  }
+}
+
+a {
+  @include hover-link;
+  word-wrap: break-word;
+}
+
+.container {
+  @include container;
+//  @include showgrid;
+//  @include blueprint-debug;
+  width: 90%;
+
+  padding: 2*$fs 0 4*$fs 0;
+}
+
+.main {
+  @include column(18, true);
+  
+  h1 {
+    letter-spacing: -1px;
+  }
+ 
+  h2 {
+    margin: 1.5*$fs 0 .5*$fs 0;
+    font-size: 1.5*$fs;
+    line-height: 1.75*$fs;
+  } 
+
+  h2:first-child {
+     margin-top: $fs/2;
+  }
+  
+  p, dl, th, td, table {
+    margin: 0 0 .75*$fs 0;
+    font-weight: normal;
+  }
+  
+  th {
+    font-style: italic;
+  }
+
+  table {
+    width: auto;
+  }
+
+  th, td {
+    padding: 0 .5*$fs .5*$fs 0;
+    vertical-align: top;
+    margin: 0;
+  }
+    
+  ul, dd {
+    padding: 0 0 0 2*$fs;
+    margin: 0;
+  }
+
+  li {
+    margin: 0 0 .5*$fs 0;
+    list-style-type: square;
+  }
+
+  li ul {
+    margin-top: .5*$fs;
+  }
+
+  dt {
+    margin: .75*$fs 0 .25*$fs 0;
+  }
+  
+  .rightbar {
+    @include float-right;
+    @include boxstyle;
+    width: 33%;
+    margin: 4*$fs 0 $fs $fs;
+    padding-left: $fs;
+    border-left: 1px solid $bc; // override color
+    clear: both;
+  }
+  
+  .logo {
+    @include float-right;
+    width: 33%;
+    padding: 0 0 $fs $fs;
+  }
+  
+  .right {
+    @include float-right;
+    padding: 0 0 $fs $fs;
+  }
+  
+  .title {
+    @include float-left;
+    width: 60%;
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  .quote, .term, .latin {
+    font-style: italic;
+  }
+  
+  .news {
+    padding: $fs;
+    border-radius: 2*$fs;
+    background-color: $bc;
+  }  
+}
+
+.rgtitle {
+  .logo {
+    @include column(5);
+    @include colborder;
+    border-right: 1px none $bc; // override color
+    text-align: right;
+  }
+  
+  .title {
+    @include column(18, last);
+    h1 {
+      letter-spacing: -1px;
+    }
+  }
+
+  .clear {
+    clear: both;
+  }
+}
+
+
+.leftbar {
+  @include column(5);
+  @include colborder;
+  @include boxstyle;
+  border-right: 1px solid $bc; // override color
+  
+  text-align: right;
+  margin-top: 8*$fs;
+}
+
+.tiled {
+  display: inline;
+  text-align: center;
+   
+  a {
+    @include unstyled-link;
+  }
+
+  li {
+    list-style-type: none;
+  }
+ 
+  .tile {
+    @include tile;
+    border: 1px solid $bc;
+    &:hover {
+      background-color: $bc;
+    }    
+  }
+  .oldtile {
+    @include tile;
+    border: 1px solid #ccc;
+    &:hover {
+      background-color: #ccc;
+    }    
+  }
+  
+  .acronym {
+    @include caps;
+    line-height: 1.25*$fs;
+    margin: .5*$fs;
+    display: block;
+  }
+
+  .name {
+    margin: .25*$fs;
+    line-height: 1.25*$fs;
+    font-style: italic;
+    display: block;
+  }
+}
+
+@include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
+.footer {
+  height: 2*$fs;
+  line-height: 2*$fs;
+  width: 90%;
+  margin: auto;
+  min-width: $blueprint-liquid-container-min-width;
+
+  p {
+    border-top: 1px solid $bc;
+    font-size: .5*$fs;
+    color: $alt-text-color;
+    text-align: right;
+    margin-right: $blueprint-liquid-grid-margin;
+  }
+  
+  span {
+    margin-left: $fs;
+  }
+}
