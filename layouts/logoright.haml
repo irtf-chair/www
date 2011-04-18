@@ -1,10 +1,7 @@
 -# encoding: utf-8
 !!!
 %html{ xmlns: "http://www.w3.org/1999/xhtml" }
-  %head
-    %meta{:charset => "utf-8" }
-    %title= (item.identifier =~ $rgpat ? "IRTF &mdash; " : "") + @item[:title]
-    %link{:href => "style.css", :rel => "stylesheet", :type => "text/css"}
+  = render "head_"
 
   %body
     .container

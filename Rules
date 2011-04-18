@@ -33,6 +33,10 @@ compile '/charter/' do
   # just copy
 end
 
+compile '/sitemap/' do
+  filter :haml
+end
+
 compile '*' do
   filter :rfc
   filter :haml
@@ -65,6 +69,10 @@ end
 
 route '/charter/' do
   '/charter.php'
+end
+
+route 'sitemap' do
+  item.identifier.chop + '.xml'
 end
 
 route '*' do
