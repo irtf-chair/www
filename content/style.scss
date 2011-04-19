@@ -201,6 +201,10 @@ a {
   
   text-align: right;
   margin-top: 8*$fs;
+  
+  a img {
+    padding-top: .5*$fs;
+  }
 }
 
 .tiled {
