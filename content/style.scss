@@ -249,6 +249,15 @@ a {
   }
 }
 
+// hack
+.twitter-share-button {
+  margin-top: -5px;
+}
+
+iframe {
+  vertical-align: middle !important;
+}
+
 @include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
 .footer {
   height: 2*$fs;
@@ -256,16 +265,36 @@ a {
   width: 90%;
   margin: auto;
   min-width: $blueprint-liquid-container-min-width;
+  border-top: 1px solid $bc;
+  font-size: .5*$fs;
+  color: $alt-text-color;
 
-  p {
-    border-top: 1px solid $bc;
-    font-size: .5*$fs;
-    color: $alt-text-color;
-    text-align: right;
-    margin-right: $blueprint-liquid-grid-margin;
+  .gap {
+    @include column(5);
+    @include colborder;
+    border-right: 1px none $bc; // override color
+    height: 2*$fs;
+    line-height: 2*$fs;
   }
   
-  span {
-    margin-left: $fs;
-  }
+  .content {
+    @include column(18, true);
+    
+    .left {
+      @include float-left;
+      
+      span {
+        margin-right: $fs;
+        text-align: left;
+      }
+    }
+    
+    .right {
+      @include float-right;
+      span {
+        text-align: right;
+        margin-left: $fs;
+      }
+    }
+  }  
 }

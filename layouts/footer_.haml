@@ -1,7 +1,17 @@
-%p
-  -#  %span Thank you for using IPv6.
-  %span
-    %a{:href => "http://validator.w3.org/check/referer"} HTML
-  %span
-    %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"} CSS
-  %span Last modified #{item.mtime.strftime("%F")}
+.gap
+
+.content
+  .left
+    %span
+      %fb:like{ :href => "", :layout => "button_count", :font => "arial" }  
+
+    %span
+      %a.twitter-share-button{ :href => "http://twitter.com/share", :"data-count" => "horizontal", :"data-via" => "inretafo", :"data-related" => "larse:IRTF Chair" } Tweet
+
+  .right
+    -#  %span Thank you for using IPv6.
+    %span
+      %a{:href => "http://validator.w3.org/check/referer"} HTML
+    %span
+      %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"} CSS
+    %span Last modified #{item.mtime.strftime("%F")}
