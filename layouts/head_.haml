@@ -1,6 +1,6 @@
 - id = item.identifier[1..-2]
 - title = (id =~ $rgpat ? "IRTF " : "") + @item[:title]
-- base = @site.config[:base_url]
+- base = @site.config[:base_url] + "/"
 - email = (id =~ $rgpat ? $rgs[id].list : "irtf-chair@irtf.org")
 
 %head
@@ -12,11 +12,8 @@
   %meta{ :property => "og:title", :content => title }
   %meta{ :property => "og:type", :content => "non_profit" } 
   %meta{ :property => "og:url", :content => base + id }
-  %meta{ :property => "og:image", :content => base + "/img/irtf.png" }
+  %meta{ :property => "og:image", :content => base + "img/irtf.png" }
   %meta{ :property => "og:site_name", :content => "IRTF" }
-  %meta{ :property => "og:admins", :content => "inretafo,larse" }
-  %meta{ :property => "og:page_id", :content => "107897302628268" }
   %meta{ :property => "og:description", :content => title }
   %meta{ :property => "og:email", :content => email }
-  
-  
+  %meta{ :property => "fb:admins", :content => "584143839" }

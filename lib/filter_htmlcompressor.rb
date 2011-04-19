@@ -4,7 +4,6 @@ class HTMLCompressor < Nanoc3::Filter
   
   def run(content, params={})
     cmd = "/usr/local/bin/htmlcompressor -o #{output_filename}"
-    puts cmd
     IO.popen(cmd, 'w') { |f| f.write(content) }
     raise "htmlcompressor exited with #{$?} for '#{cmd}'" unless $? == 0
   end
