@@ -71,7 +71,7 @@ module IRTF
   )
 
   # CFRG
-  canetti = Person.new("Ran", "Canetti", "canetti@watson.ibm.com")
+  # canetti = Person.new("Ran", "Canetti", "canetti@watson.ibm.com")
   mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com")
   cfrg = RG.new(
     "cfrg",
@@ -79,7 +79,7 @@ module IRTF
     "cfrg@irtf.org",
     "",
     "", # retired "rg/cfrg/", there is nothing there that is not on the charter
-    [ canetti, mcgrew ]
+    [ mcgrew ]
   )
 
   # DTNRG
