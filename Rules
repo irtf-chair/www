@@ -13,8 +13,11 @@ Compass.add_project_configuration 'compass/config.rb'
 #   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
 #   because “*” matches zero or more characters.
 
+# compile rules
+
 compile '/style/' do
   filter :sass, Compass.sass_engine_options
+  filter :htmlcompressor
 end
 
 compile '/img/*' do
@@ -22,7 +25,7 @@ compile '/img/*' do
 end
 
 compile '/concluded/*/' do
-  # just copy
+  filter :htmlcompressor
 end
 
 compile '/htaccess/' do
@@ -35,6 +38,7 @@ end
 
 compile '/sitemap/' do
   filter :haml
+  filter :htmlcompressor
 end
 
 compile '*' do
@@ -49,7 +53,11 @@ compile '*' do
     layout 'logoleft'
   end 
   filter :rubypants
+  filter :htmlcompressor
 end
+
+
+# route rules
 
 route '/style/' do
   '/style.css'
