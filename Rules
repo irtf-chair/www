@@ -20,6 +20,11 @@ compile '/style/' do
   filter :htmlcompressor
 end
 
+compile '/ie/' do
+  filter :sass, Compass.sass_engine_options
+  filter :htmlcompressor
+end
+
 compile '/img/*' do
   # just copy
 end
@@ -61,6 +66,10 @@ end
 
 route '/style/' do
   '/style.css'
+end
+
+route '/ie/' do
+  '/ie.css'
 end
 
 route '/img/*' do

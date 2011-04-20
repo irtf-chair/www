@@ -5,22 +5,23 @@
 
   %body
     .container
-      .leftbar
-        = render "leftbar_"
-      
-      .main
-        %div
-          .title
-            %h1= @item[:title]
-          .logo
-            %a{:href => "./"}
-              %img{:src => "img/irtf.png", :width => 200, :height => 139,
-                   :alt => "Internet Research Task Force (IRTF)"}
-          .clear
-  
-        = yield
-  
-      .layout_footer
+      .content
+        .leftbar
+          = render "leftbar_"
+        
+        .main
+          %div
+            .title
+              %h1= @item[:title]
+            .logo
+              %a{:href => "./"}
+                %img{:src => "img/irtf.png", :width => 200, :height => 139,
+                     :alt => "Internet Research Task Force (IRTF)"}
+            .clear
+    
+          = yield
+    
+        .layout_footer
       
     .footer
       = render "footer_"

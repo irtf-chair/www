@@ -5,26 +5,26 @@
 
   %body
     .container
-  
-      .rgtitle
-        .logo
-          %a{:href => "./"}
-            %img{:src => "img/irtf.png", :width => 150, :height => 104,
-                 :alt => "Internet Research Task Force (IRTF)"}
-        .title
-          %h1 #{@item[:title]}
-        .clear
-  
-      .leftbar
-        = render "leftbar_"
+      .content 
+        .rgtitle
+          .logo
+            %a{:href => "./"}
+              %img{:src => "img/irtf.png", :width => 150, :height => 104,
+                   :alt => "Internet Research Task Force (IRTF)"}
+          .title
+            %h1 #{@item[:title]}
+          .clear
+    
+        .leftbar
+          = render "leftbar_"
+          
+        .main
+          - rg = $rgs[item.identifier.tr("/", "")]
+          - if rg != nil
+            .rightbar= render "rightbar_"
+          = yield
         
-      .main
-        - rg = $rgs[item.identifier.tr("/", "")]
-        - if rg != nil
-          .rightbar= render "rightbar_"
-        = yield
-      
-      .layout_footer
+        .layout_footer
       
     .footer
       = render "footer_"

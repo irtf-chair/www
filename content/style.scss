@@ -74,7 +74,10 @@ a {
 //  @include blueprint-debug;
   width: 90%;
 
-  padding: 2*$fs 0 4*$fs 0;
+  .content {
+    @include column(24, true);
+    padding: 2*$fs 0 4*$fs 0;
+  }
 }
 
 .main {
@@ -260,25 +263,24 @@ iframe {
 
 @include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
 .footer {
-  height: 2*$fs;
-  line-height: 2*$fs;
+  height: 2*$fs - 1;
+  line-height: 2*$fs - 1px;
   width: 90%;
   margin: auto;
   min-width: $blueprint-liquid-container-min-width;
   border-top: 1px solid $bc;
-  font-size: .5*$fs;
-  color: $alt-text-color;
 
   .gap {
     @include column(5);
     @include colborder;
     border-right: 1px none $bc; // override color
-    height: 2*$fs;
-    line-height: 2*$fs;
+    height: 2*$fs - 1px;
   }
   
-  .content {
+  .text {
     @include column(18, true);
+    font-size: .75*$fs;
+    color: $alt-text-color;
     
     .left {
       @include float-left;
