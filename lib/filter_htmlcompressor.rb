@@ -3,8 +3,20 @@ class HTMLCompressor < Nanoc3::Filter
   type :text => :binary
   
   def run(content, params={})
-    cmd = "/usr/local/bin/htmlcompressor -o #{output_filename}"
+    type = type_from_extension
+    cmd = "/usr/local/bin/htmlcompressor --type #{type} -o #{output_filename}"
     IO.popen(cmd, 'w') { |f| f.write(content) }
     raise "htmlcompressor exited with #{$?} for '#{cmd}'" unless $? == 0
+  end
+
+  def type_from_extension
+    case @item[:extension]
+    when /^(haml|html)/
+      "html"
+    when /^xml/
+      "xml"
+    else
+      raise "unknown type for htmlcompressor '#{@item[:extension]}'"
+    end
   end
 end

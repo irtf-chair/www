@@ -17,12 +17,12 @@ Compass.add_project_configuration 'compass/config.rb'
 
 compile '/style/' do
   filter :sass, Compass.sass_engine_options
-  filter :htmlcompressor
+  filter :yuicompressor
 end
 
 compile '/ie/' do
   filter :sass, Compass.sass_engine_options
-  filter :htmlcompressor
+  filter :yuicompressor
 end
 
 compile '/img/*' do
@@ -30,7 +30,11 @@ compile '/img/*' do
 end
 
 compile '/concluded/*/' do
-  filter :htmlcompressor
+  if @item[:extension] == "html" then
+    filter :htmlcompressor
+  else
+    filter :yuicompressor
+  end
 end
 
 compile '/htaccess/' do
