@@ -2,6 +2,7 @@
 - title = (id =~ $rgpat ? "IRTF " : "") + @item[:title]
 - base = @site.config[:base_url] + "/"
 - email = (id =~ $rgpat ? $rgs[id].list : "irtf-chair@irtf.org")
+- fb = (id =~ $rgpat ? $rgs[id].chairs.map {|x| x.fb }.compact.join(", ") : "")
 
 %head
   %meta{ :charset => "utf-8" }
@@ -20,4 +21,4 @@
   %meta{ :property => "og:site_name", :content => "IRTF" }
   %meta{ :property => "og:description", :content => title }
   %meta{ :property => "og:email", :content => email }
-  %meta{ :property => "fb:admins", :content => "584143839" }
+  %meta{ :property => "fb:admins", :content => "584143839" + (fb.length > 0 ? ", " + fb : "") }

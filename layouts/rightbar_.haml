@@ -6,8 +6,8 @@
 %h2 Chair#{rg.chairs.length > 1 ? "s" : ""}
 %p
   The #{acronym} is chaired by
-  - first = rg.chairs.take(rg.chairs.length - 1).map {|x| x.hamlify }.join(", ")
-  = (first.length > 0 ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
+  - first = rg.chairs.take(rg.chairs.length - 1).map {|x| x.hamlify }.compact.join(", ")
+  = (first ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
 
 %h2 Mailing List
 %p
@@ -17,7 +17,7 @@
   To subscribe or access the list archives, visit the
   <a href="#{rg.listweb}">mailman page</a>.
 
-- if rg.web.length > 0 then
+- if rg.web then
   %h2 Web Page
   %p
     Additional #{acronym} information is available at 
