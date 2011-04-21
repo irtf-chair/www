@@ -110,7 +110,7 @@ module IRTF
 
   # ICCRG
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", nil)
-  sridharan = Person.new("Murari", "Sridharan", "muraris@microsoft.com", "http://www.linkedin.com/pub/murari-sridharan/5/a38/153", "murari.sridharan")
+  sridharan = Person.new("Murari", "Sridharan", "muraris@microsoft.com", "http://www.linkedin.com/pub/murari-sridharan/5/a38/153", "1602611111")
   iccrg = RG.new(
     "iccrg",
     "Internet Congestion Control",
