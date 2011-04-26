@@ -42,7 +42,7 @@ module IRTF
       @list = list
       # handle IRTF lists by default
       if list =~ /irtf.org$/ then
-        @listweb = "mailman/listinfo/#{acronym.downcase}"
+        @listweb = "mailman/listinfo/" + list.split("@").first.downcase
       else
         @listweb = listweb.downcase
       end
@@ -173,7 +173,7 @@ module IRTF
   samrg = RG.new(
     "samrg",
     "Scalable Adaptive Multicast",
-    "samrg@irtf.org",
+    "sam@irtf.org",
     nil,
     "http://www.samrg.org/",
     [ buford, schmidt ]
