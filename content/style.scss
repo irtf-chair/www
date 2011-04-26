@@ -1,18 +1,18 @@
 @import "compass/reset";
 @import "compass/layout/sticky-footer";
-@import "compass/utilities/links/hover-link";
-@import "compass/utilities/links/unstyled-link";
-@import "compass/utilities/lists/bullets";
+@import "compass/typography/links/hover-link";
+@import "compass/typography/links/unstyled-link";
+@import "compass/typography/lists/bullets";
+@import "compass/typography/lists/inline-block-list";
+@import "compass/css3/border-radius";
 
 $fs: 16px;
 $blueprint-font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
 $blueprint-font-size: $fs;
 $blueprint-liquid-container-min-width: 800px;
 
-@import "blueprint";
 @import "blueprint/liquid";
 @import "blueprint/fancy-type";
-@import "blueprint/debug";
 
 //$bc: $feedback-border-color;
 $bc: #fccf34; // the yellow used in the IRTF logo
@@ -24,13 +24,13 @@ html {
 }
 
 @mixin tile {
-    @include float-left;
-    display: block;
+    @include border-radius(2*$fs);
+    @include inline-block;
+    text-align: center;
     width: 8*$fs;
     height: 8*$fs;
     margin: 0 .5*$fs .5*$fs 0;
     padding: .25*$fs;
-    border-radius: 2*$fs;
 }
 
 @mixin boxstyle {
@@ -70,8 +70,6 @@ a {
 
 .container {
   @include container;
-//  @include showgrid;
-//  @include blueprint-debug;
   width: 90%;
 
   .content {
@@ -169,8 +167,8 @@ a {
   }
   
   .news {
+    @include border-radius(2*$fs);
     padding: $fs;
-    border-radius: 2*$fs;
     background-color: $bc;
   }  
 }
@@ -210,16 +208,15 @@ a {
   }
 }
 
-.tiled {
-  display: inline;
-  text-align: center;
-   
+ul.tiled {
+  @include inline-block-list;
+
   a {
     @include unstyled-link;
   }
 
   li {
-    list-style-type: none;
+    white-space: normal;
   }
  
   .tile {
@@ -240,15 +237,14 @@ a {
   .acronym {
     @include caps;
     line-height: 1.25*$fs;
-    margin: .5*$fs;
+    margin: .25*$fs;
     display: block;
   }
 
   .name {
     margin: .25*$fs;
-    line-height: 1.25*$fs;
+    line-height: $fs;
     font-style: italic;
-    display: block;
   }
 }
 
@@ -288,6 +284,18 @@ iframe {
       span {
         margin-right: $fs;
         text-align: left;
+      }
+      
+      .facebook iframe {
+        width: 90px !important;
+        height: 25px !important;
+        min-height: 25px !important;
+      }
+
+      .twitter iframe {
+        width: 110px !important;
+        height: 20px !important;
+        min-height: 20px !important;
       }
     }
     
