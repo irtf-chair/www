@@ -5,6 +5,5 @@ sass_dir     = "content/"
 images_dir   = "/"
 
 sass_options = {
-  :style             => :compressed,
   :syntax            => :scss
 }

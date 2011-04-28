@@ -9,7 +9,7 @@
         .rgtitle
           .logo
             %a{:href => "./"}
-              %img{:src => "img/irtf.png", :width => 150, :height => 104,
+              %img{:src => "img/irtf.png", :width => 150, :height => 107,
                    :alt => "Internet Research Task Force (IRTF)"}
           .title
             %h1 #{@item[:title]}
@@ -24,7 +24,7 @@
             .rightbar= render "rightbar_"
           = yield
         
-        .layout_footer
+      .layout_footer
       
     .footer
       = render "footer_"
