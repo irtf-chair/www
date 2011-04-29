@@ -47,7 +47,12 @@ end
 
 compile '/sitemap/' do
   filter :haml
+  filter :extensionstripper
   filter :htmlcompressor
+end
+
+compile '/googlebe5e4a6e98fa7e99/' do
+  # just copy
 end
 
 compile '*' do
