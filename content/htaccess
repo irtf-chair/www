@@ -5,16 +5,16 @@ ExpiresByType image/jpeg "access plus 1 week"
 
 # these are based on Google webmaster tools reports:
 #
-RedirectPermanent routing.html				/rrg
-RedirectPermanent charters/asrg.html			/asrg
-RedirectPermanent old-groups.html			/groups
-RedirectPermanent asrg/					/asrg
-RedirectPermanent charters/servmanagement.html		/concluded/smrg
-RedirectPermanent charters/reliable-multicast.htm	/samrg
-RedirectPermanent charters/asrg.htm			/asrg
-RedirectPermanent charters/hip				/hiprg
-RedirectPermanent charters/irtf/			/
-RedirectPermanent charters/rg/cfrg/			/cfrg
-RedirectPermanent charters/aaaarch.html			concluded/aaaarch
-RedirectPermanent charters/gsec.html			concluded/gsec
-RedirectPermanent charters/namespace.html		concluded/nsrg
+RedirectMatch permanent routing.html$                     /rrg
+RedirectMatch permanent charters/asrg.html$               /asrg
+RedirectMatch permanent old-groups.html$                  /groups
+RedirectMatch permanent asrg/$                            /asrg
+RedirectMatch permanent charters/servmanagement.html$     /concluded/smrg
+RedirectMatch permanent charters/reliable-multicast.htm$  /samrg
+RedirectMatch permanent charters/asrg.htm$                /asrg
+RedirectMatch permanent charters/hip$                     /hiprg
+RedirectMatch permanent charters/irtf/$                   /
+RedirectMatch permanent charters/rg/cfrg/$                /cfrg
+RedirectMatch permanent charters/aaaarch.html$            /concluded/aaaarch
+RedirectMatch permanent charters/gsec.html$               /concluded/gsec
+RedirectMatch permanent charters/namespace.html$          /concluded/nsrg
