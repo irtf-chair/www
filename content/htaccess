@@ -18,3 +18,5 @@ RedirectMatch permanent charters/rg/cfrg/$                /cfrg
 RedirectMatch permanent charters/aaaarch.html$            /concluded/aaaarch
 RedirectMatch permanent charters/gsec.html$               /concluded/gsec
 RedirectMatch permanent charters/namespace.html$          /concluded/nsrg
+RedirectMatch permanent concluded/$                       /groups
+
