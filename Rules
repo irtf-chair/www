@@ -29,6 +29,10 @@ compile '/img/*' do
   # just copy
 end
 
+compile '/concluded/charter/' do
+  # just copy
+end
+
 compile '/concluded/*/' do
   if @item[:extension] == "html" then
     filter :htmlcompressor
