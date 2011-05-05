@@ -2,6 +2,13 @@ ExpiresActive On
 ExpiresDefault "access plus 1 day"
 ExpiresByType image/png "access plus 1 week"
 ExpiresByType image/jpeg "access plus 1 week"
+ExpiresByType text/css "access plus 1 week"
+
+SetOutputFilter DEFLATE
+SetInputFilter DEFLATE
+SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
+Header append Vary User-Agent env=!dont-vary
+Header append Vary Accept-Encoding
 
 RedirectMatch permanent ^/irtf/$                               /
 RedirectMatch permanent ^/old-groups.html?$                    /groups
