@@ -289,18 +289,6 @@ iframe {
         margin-right: $fs;
         text-align: left;
       }
-      
-      .facebook iframe {
-        width: 90px !important;
-        height: 25px !important;
-        min-height: 25px !important;
-      }
-
-      .twitter iframe {
-        width: 110px !important;
-        height: 20px !important;
-        min-height: 20px !important;
-      }
     }
     
     .right {
@@ -311,4 +299,16 @@ iframe {
       }
     }
   }  
+}
+
+.facebook iframe {
+  width: 90px !important;
+  height: 25px !important;
+  min-height: 25px !important;
+}
+
+.twitter iframe {
+  width: 110px !important;
+  height: 20px !important;
+  min-height: 20px !important;
 }
