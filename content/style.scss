@@ -337,12 +337,12 @@ iframe {
   p {
     background-color: $bc;
     font-size: 2*$fs;
-    padding: $fs 8*$fs $fs 8*$fs;
+    padding: $fs 5*$fs $fs 5*$fs;
     text-align: center;
     @include rotate(45deg);
     @include box-shadow();
     position: relative;
-    right: -8*$fs;
+    right: -5*$fs;
     top: 2*$fs;
   }
 }
