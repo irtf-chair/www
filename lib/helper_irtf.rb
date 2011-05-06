@@ -42,7 +42,7 @@ module IRTF
       @list = list
       # handle IRTF lists by default
       if list =~ /irtf.org$/ then
-        @listweb = "mailman/listinfo/" + list.split("@").first.downcase
+        @listweb = "/mailman/listinfo/" + list.split("@").first.downcase
       else
         @listweb = listweb.downcase
       end
@@ -54,9 +54,8 @@ module IRTF
       @acronym <=> other.acronym
     end
     
-    def url
-#      "<a href='#{acronym.downcase}', title='#{name}'>#{acronym}</a>"
-      "<a href='#{acronym.downcase}'>#{acronym}</a>"
+    def url(loc = "")
+      "<a href='" + loc + acronym.downcase + "'>#{acronym}</a>"
     end
   end
 

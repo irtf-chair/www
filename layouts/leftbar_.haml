@@ -1,15 +1,15 @@
 %h2 Research Groups
 %ul
   - $rgs.values.sort.each do |rg|
-    %li= rg.url
+    %li= rg.url(@loc)
 
 %h2 Internet Research Steering Group
 %ul
   %li
-    %a{ :href => "chair" } IRTF Chair
+    %a{ :href => @loc + "chair" } IRTF Chair
 %ul
   %li
-    %a{ :href => "irsg" } IRSG Members
+    %a{ :href => @loc + "irsg" } IRSG Members
 
 %h2 Sponsors
 %ul
