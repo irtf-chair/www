@@ -83,8 +83,10 @@ a {
 .container {
   @include container;
   width: 90%;
+  z-index: 1; // to fix IE z-index bug
 
   .content {
+    z-index: 1; // to fix IE z-index bug
     @include column(24, true);
     padding: 2*$fs 0 4*$fs 0;
   }
@@ -281,6 +283,7 @@ iframe {
   margin: auto;
   min-width: $blueprint-liquid-container-min-width;
   border-top: 1px solid $bc;
+  z-index: -1; // move it behind everything else
 
   .gap {
     @include column(5);
@@ -333,8 +336,10 @@ iframe {
   right: 0;
   top: 0;
   height: 15*$fs;
-
+  z-index: -1; // move it behind everything else
+  
   p {
+    z-index: -1; // move it behind everything else
     background-color: $bc;
     font-size: 2*$fs;
     padding: $fs 5*$fs $fs 5*$fs;
