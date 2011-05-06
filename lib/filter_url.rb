@@ -21,6 +21,7 @@ class URLFilter < Nanoc3::Filter
     "IAB" => "https://www.iab.org/",
     "IESG" => "http://www.iesg.org/",
     "IETF" => "http://www.ietf.org/",
+    "W3C" => "http://www.w3.org/",
     "IRTF" => "./",
     "ISOC" => "http://www.isoc.org/",
     "IRTF Chair" => "chair",

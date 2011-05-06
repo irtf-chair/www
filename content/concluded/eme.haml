@@ -1,0 +1,55 @@
+--- 
+title: End Middle End Research Group (EME)
+---
+
+%h2 Charter  
+%p BeyondIn the original Internet end-to-end architecture, a transport connection linked a pair of hosts and was bound to a globally unique IP address and locally meaningful transport port at each end host. This architecture has been progressively eroded, most notably by the use of NATs, which modify addresses, and firewalls and other middle boxes, which expect to understand the semantics behind any given port number (for instance to block or differentially handle a flow). As a result, end hosts are often not able to connect even when security policies would otherwise allow such connections. This problem will only be exacerbated with the emerging need for IPv4-IPv6 translation. Beyond this, other changes in the way the Internet is used has stressed the original unique-address:port model of transport connections. For instance, the need for robustness has resulted in a rise in multi-homing, which has led to scaling issues in BGP. The use of multiple addresses at hosts is known to alleviate this problem, but the architecture provides no good way to manage multiple addresses, either at connection establishment or when the active address has to be changed. Mobility across access networks similarly results in the need to cope with changing IP addresses during a connection. In addition, DoS attacks are increasingly a concern. There is a need for hosts to be able to control which other hosts can send packets to it, and to exercise that control deep in the network (i.e. near the attacker).
+
+  
+%p The common roots of this seemingly diverse set of problems are the following:
+
+
+%ul
+  %li The IP address is no longer globally unique, is no longer intact end-to-end, and is no longer stable over even short time periods.
+  %li The transport port number has no clear semantics outside of the end-host that opened the socket.
+  %li End hosts are often not explicitly aware of middle boxes, especially middle boxes far away from them, and therefore cannot control them much less be aware of what they are doing.
+ 
+%p Beyond the specific problems mentioned above, this erosion of the original E2E Internet mechanisms broadly results in greater application-level complexity (to cope with the erosion), network fragility and lack of robustness, poor security, and difficulty in debugging the resulting problems.
+
+  
+%p While this group is not the first to identify these problems, we do recognize that there may be a single architectural enhancement that solves them all. Namely, a higher-level DNS-based naming scheme (i.e. URIs) coupled with signaling protocols used to initiate and modify transport-level connections such as TCP, UDP, SCTP or DCCP flows. Such a protocol could provide a way for end-to-end communication to explicitly address middleboxes, so that their behavior can be understood, monitored and controlled. Such a protocol might also be used to move connections between IP addresses, as with mobility and multihoming, and to shut down unwanted communication, as with DoS attacks.
+
+  
+%p The goal of the End-Middle-End Research Group (EME) is to evaluate the feasibility and desirability of such an architectural change to the Internet. The aim is first to investigate possible designs for a strawman experimental protocol that can perform these tasks (the so-called "ideal" design) without being overly constrained by overlapping work happening in the IETF and elsewhere. Should one or more designs appear viable, then issues such as related work and incremental deployment should be considered. Should this work still appear viable, then the IESG will be consulted with regards to whether and how this should be brought into the IETF for standardization.
+
+  
+%p There are many questions that need to be answered along the way. These issues include precisely which architectural problems should be tackled and which should not, the degree to which such signaling should be on-path vs off- path and the balance between flexibility vs simplicity and efficiency. There are clear concerns about such a track that need to be evaluated. Candidate protocols should avoid falling into the virtual circuit trap, where routers lose the ability to remedy failures locally, and avoid building a mechanism that encourages the construction of walled gardens to the detriment of the Internet as a whole.
+
+%h2 Milestones
+%ul
+  %li Applicability Statement. This document would investigate possible architectural issues that resemble those described above, where there is a need to signal between end-systems and entities logically in the middle of the network, or where connections need to be bound between more than two IP addresses.
+  %li Design Choices Document. This document would describe the design choices available, so as on-path vs off-path options, signal encoding, and naming and addressing issues, both for end-systems and middleboxes.
+  %li Strawman Experimental Protocol Design.
+  %li A series of documents describing how the strawman protocol might be used to address specific architectural issues.
+  %li Incremental deployment plan. A document describing the obstacles that would be faced deploying the strawman protocol, and how these issues might be addressed.
+  %li One or more reference implementations of the strawman protocol.
+ 
+%p It is envisaged that the first three will be worked on simultaneously, with (4) through (6) following later as the strawman protocol solidifies.
+
+%h2 Process
+
+%p Meetings will be held as needed, but no less than once per year, and no more than three per year.
+
+%h2 Membership Policy
+
+The RG operates in an open fashion (meetings & mailing list). In some cases, closed "design teams" may be used to accomplish work items that would significantly benefit from a smaller group of people, or work items that cannot be accomplished in an open group (e.g., due to data sharing issues). The status of any closed activities the RG undertakes shall be reported to the entire RG periodically.
+
+%h2 Chairs
+
+%p Tilman Wolf (<A href= "mailto:wolf@ecs.umass.edu">wolf@ecs.umass.edu</A>) and Mark Williams (<A href= "mailto:Mark.Williams@rl.af.mil">Mark.Williams@rl.af.mil</A>).
+
+%h2 Mailing List
+%p The email list is <A href= "mailto:eme@irtf.org">eme@irtf.org</A>. You need to be a list member to send mail to the list. Use this web page to subscribe: <a href="https://www1.ietf.org/mailman/listinfo/eme">https://www1.ietf.org/mailman/listinfo/eme</a>.
+
+%h2 Web Site
+%p Additional information on the EME RG can be found at <A href= "http://www1.tools.ietf.org/group/irtf/trac/wiki/EME">http://www1.tools.ietf.org/group/irtf/trac/ wiki/EME</A>.   

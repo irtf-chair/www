@@ -1,13 +1,13 @@
 -# encoding: utf-8
 !!!
 %html{ xmlns: "http://www.w3.org/1999/xhtml" }
-  = render "head_"
+  = render "head_", :loc => ""
 
   %body
     .container
       .content
         .leftbar
-          = render "leftbar_"
+          = render "leftbar_", :loc => "" 
         
         .main
           %div
@@ -24,6 +24,6 @@
       .layout_footer
       
     .footer
-      = render "footer_"
+      = render "footer_", :loc => ""
 
-    = render "scripts_"
+    = render "scripts_", :loc => ""

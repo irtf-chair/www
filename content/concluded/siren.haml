@@ -1,0 +1,54 @@
+---
+title: Searchable Internet Resource Names Research Group (SIREN)
+---
+
+
+%h2 Charter
+
+%p A number of events and technology requirements explored over the last several years serve to remind us that the DNS functions well as the Internet's system for assigning static textual identifiers to host resources, but functions poorly as a set of user-visible names.  Most recently, internationalization issues -- the inherent ambiguity of natural language, problems working with Unicode in an environment that requires exact-match lookups, user desire for convenient, natural language names, the impact of trademark law, etc. -- have highlighted this distinction.  It can also be argued that an entirely different system of identifiers intended for human use is needed in addition to a system that is designed to work well for protocol elements, such as URIs. 
+
+%p This research group is chartered to examine the issues outlined above and determine whether there is a tractable problem that can be solved, and needs to be solved with additional engineering standards.  If there is, the research group will define and explain that problem to the extent needed to determine whether a layered and faceted search approach as described in the input documents being considered by the research group, or some lookup approach different from the DNS, or some other approach, represent directions the IETF should pursue, and will make recommendations to that effect. 
+
+%p Some specific questions, as examples: 
+
+%ul
+  %li There has been recent interest in solutions that involve injecting one or more layers of directory-like search (using qualified natural language strings rather than names) between user-level code/protocols and the DNS.  Is the categorization of "above DNS" systems described in the research group's input documents (i.e., a global faceted directory supplemented by localized yellow-pages-like systems) an appropriate one, or are other structures more appropriate? 
+  
+  %li Is the model of matching represented by the IETF string preparation (stringprep) [1] and name preparation (nameprep) [2] protocols appropriate for "above DNS" systems, or is additional work needed? 
+  
+  %li draft-klensin-dns-search [3], and other documents, include the assumption that a centralized name-allocating authority is undesirable and unnecessary.  Is that assumption reasonable, and, if so, what models are plausible for locating servers and navigating among them?  If the assumption is not reasonable, the research group will document why not, and explore the implications of centralized name-allocating authorities. 
+  
+  %li Much of the work that has been characterized as "maintaining a clear separation between the structure of DNS names and the complexities of internationalization issues" has been struggling to find a home and definition in the IETF.  What specific elements of that work, or of internationalization work more generally, are required to make progress on DNS alternatives for resource location by users? 
+  
+%p The output of this research group will be usable by the IETF or other standards bodies if this effort demonstrates that there is standardization work to be done.  The solution space for this research group must be within the scope of the IETF's core competencies. 
+
+%p The research group is expected to be small and very focused.  It operates in a closed fashion, and membership is by invitation.  
+
+
+%h2 Milestones
+%ul
+  %li Develop a glossary and problem statement that defines what is and isn't in scope within the broader confines of this charter.  This includes analysis of things like "just what exactly is needed in different user communities to be able to do correct matches".  It also includes analysis of the spectrum between exact match, ASCII lookup, and natural language search and where the intersections are. 
+  %li Solicit papers or proposals to address the problem statement(s) in 1) and then create an analysis of those proposed solutions. 
+  %li Delivery of the solution set(s), if any. 
+  
+%h2 References
+
+%p [1] Hoffman, P. and M. Blanchet, "Preparation of Internationalized Strings ("stringprep")", RFC 3454, December 2002.
+%p [2] Hoffman, P. and M. Blanchet, "Nameprep: A Stringprep Profile for Internationalized Domain Names (IDN)", RFC 3491, March 2003.
+
+%h2 Input Documents
+%p [3] Klensin, J., "A Search-based access model for the DNS", Work in Progress. <a href="http://www.irtf.org/siren/draft-klensin-dns-search-05.txt"> http://www.irtf.org/siren/draft-klensin-dns-search-05.txt</a>
+%p [4] Klensin, J., "Role of the Domain Name System (DNS)", RFC 3467, January 2003.
+
+%h2 Membership
+%p The RG operates in an closed fashion.  Interested potential participants should contact the RG chair.
+
+
+%h2 Chair
+%p The SIREN Chair is <a href="mailto:shollenbeck@verisign.com">Scott Hollenbeck</a>.
+
+		  
+%h2 Mail List
+%p The public email list is <a href="mailto:siren-pub@lists.verisignlabs.com">siren-pub@lists.verisignlabs.com</a>.  You need not be a list member to send mail to the list.  To subscribe, visit the <a href="http://lists.verisignlabs.com/mailman/listinfo/siren-pub"> SIREN mail page</a> or send an email to <a href="mailto:siren-pub-request@lists.verisignlabs.com">siren-pub-request@lists.verisignlabs.com</a>.
+%p An archive of the email list is available at the <a href="http://lists.verisignlabs.com/pipermail/siren-pub/">SIREN mail archive</a>.
+

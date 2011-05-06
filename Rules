@@ -34,11 +34,14 @@ compile '/concluded/charter/' do
 end
 
 compile '/concluded/*/' do
-  if @item[:extension] == "html" then
-    filter :htmlcompressor
-  else
-    filter :yuicompressor
-  end
+  filter :rfc
+  filter :haml
+  filter :wg
+  filter :rg
+  filter :url
+  layout 'historic'
+  filter :rubypants
+  filter :htmlcompressor
 end
 
 compile '/htaccess/' do
@@ -89,8 +92,12 @@ route '/img/*' do
   item.identifier.chop + '.' + @item[:extension]
 end
 
+route '/concluded/charter/' do
+  '/concluded/charter.php'
+end
+
 route '/concluded/*/' do
-  item.identifier.chop + '.' + @item[:extension]
+  item.identifier.chop + '.html'
 end
 
 route '/htaccess/' do

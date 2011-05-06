@@ -1,0 +1,49 @@
+---
+title: Public Key Next-Generation Research Group (PKNG)
+---
+
+
+%h2 Introduction
+
+%p For public key cryptography to work, one party (the "relying party") must be sure that it has the public key of a second party (the "identified party") in order to validate the authenticity of messages signed by the identified party. The relying party may have received the identified party's public key through a trusted communication, or the identified party may trust a third party to do validate the   identified party's public key.
+
+%p Public keys are typically carried in signed objects called "certificates". A certificate may be signed by the identified party (in which case it is called a "self-signed certificate"), or it may be signed by a third party (often called a "certificate authority"). Certificates typically include metadata about the public key, metadata about the identity of the identified party, and metadata   about the signature on the certificate.
+
+%p There are many formats for certificates, although by far the most commonly-used one on the Internet today is described in RFC 5280, commonly called "PKIX". The PKIX certificate format describes a bits-on-the-wire representation of information as well as the   semantics associated with the information.
+
+%p Separate from the certificate format, public key cryptography usually involves many protocols and additional message formats, together called a public key infrastructure ("PKI"). A PKI typically includes at least a mechanism for a third party to indicate to a relying party that a certificate has been revoked, as well as a way for an identified party to ask a certification authority to create a   certificate with particular metadata.
+
+%p PKIX was designed and initially deployed before there were many users on the Internet. Some of the underlying concepts from which PKIX was developed assume a single universal database (a global X.500 directory that never came to pass) as well as a strong role for public certificate-issuing authorities. While those concepts, and the PKIX certificate semantics, have translated into current deployment, they have often limited applications that rely on the PKIX standards in what kinds of certificates and infrastructure those applications can use. Current best practice for most Internet protocols is to base their use of public key cryptography on PKIX. This RG is not questioning that position, but rather is looking ahead to a next generation of support for the use of public key cryptography in Internet protocols.
+  
+%h2 Charter
+
+%p The PK Next Generation (PKNG) Research Group will look into alternate certificate formats, semantics, and PK services that could eventually replace PKIX if deployed. The PKNG design work will be from the perspective of maximizing utility for the relying party and the identified party; issues of what would be best for a certificate authorities will be given much less priority, and the features list   will be developed before format and protocol specifics are discussed.
+
+%p Given this perspective, the design work will need to take into account how users could transition from PKIX to an eventual new PKI. Different design decisions could make this transition more or less easy, and such decisions need to be explicitly laid out. Designing a PKI that would be nearly impossible to use by current PKIX users would not be a useful output from the PKNG RG.<p>
+%p The PKNG RG will first develop a detailed list of desired features for a next-generation PKI. The resulting list will explicitly exclude the format for certificates or the design of protocols to meet the desired features. It will deal with a wide range of public key issues including for example trust anchors, enrollment, revocation, and semantics of the states in the certificate lifecycle. It is hoped that the RG can agree to one list, but if there is sufficient interest in having multiple lists, they will be permitted as long as each list gets significant review from the RG as a whole. Because of the research needed for the creation of this list or lists, this is expected to be a multi-year task.
+%p After the feature list is created, the PKNG RG will develop one or more experimental instantiations of PKIs based on the desired features. This development will include extensive evaluation of how different formats, semantics, and protocols meet the desired features, particularly the requirement for a sensible transition from PKIX to the new format and protocols.  The PKNG RG may develop proposals as input to the IETF for standardization, but that is not a primary goal of this research.
+%p The research challenges expected to be faced by the PKNG RG include devising a taxonomy for PKI that is based on maximal utility for a wide variety of users; avoiding features whose genesis derive from the semantics of PKIX rather than the general use cases for public keys; issues of privacy and identification in certificates; and determining how to evaluate differences in transition strategies given that such a transition has never taken place on the Internet. The IRTF is more amenable to this type of research than, say, the IETF, where a single "requirements document" would be expected to be finished in a short period of time and a single protocol would be expected to emerge by group consensus.
+   
+%h2 Membership
+
+%p The PKNG RG is open to any interested parties who intend to remain   current with the published documents and mailing list issues.
+  
+%h2 Meetings
+
+%p The PKNG RG will meet face-to-face approximately twice a year. Once a year, it would meet as part of the IETF; the other meeting would be co-resident with other meetings that active RG participants would be attending anyway, such as research and academic conferences on the   topic of PKI, trust, and authentication.
+  
+%h2 Chair
+%p Paul Hoffman  <a href="mailto:paul.hoffman@vpnc.org">paul.hoffman@vpnc.org</a>
+
+	  
+
+%h2 Mailing List
+
+%p The email list is <a href="mailto:pkng@irtf.org">pkng@irtf.org</a>.  You need to be a list member to send mail to the list.  To subscribe, visit the <a href="http://www.irtf.org/mailman/listinfo/pkng"> PKNG mail page</a> or send an email to <a href="mailto:pkng-request@irtf.org">pkng-request@irtf.org</a>.
+
+%p An archive of the email list is available at <a href="http://www.irtf.org/mail-archive/web/pkng"> PKNG mail archive</a>.
+
+
+%h2 Wiki Site
+%p See <a href="http://trac.tools.ietf.org/group/irtf/trac/wiki/pkng">http://trac.tools.ietf.org/group/irtf/trac/wiki/pkng</a>.
+

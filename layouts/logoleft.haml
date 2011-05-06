@@ -1,7 +1,7 @@
 -# encoding: utf-8
 !!!
 %html{ xmlns: "http://www.w3.org/1999/xhtml" }
-  = render "head_"
+  = render "head_", :loc => ""
 
   %body
     .container
@@ -16,17 +16,17 @@
           .clear
     
         .leftbar
-          = render "leftbar_"
+          = render "leftbar_", :loc => ""
           
         .main
           - rg = $rgs[item.identifier.tr("/", "")]
           - if rg != nil
-            .rightbar= render "rightbar_"
+            .rightbar= render "rightbar_", :loc => ""
           = yield
         
       .layout_footer
       
     .footer
-      = render "footer_"
+      = render "footer_", :loc => ""
 
-    = render "scripts_"      
+    = render "scripts_", :loc => ""

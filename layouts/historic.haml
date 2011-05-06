@@ -1,0 +1,45 @@
+-# encoding: utf-8
+!!!
+%html{ xmlns: "http://www.w3.org/1999/xhtml" }
+  - title = @item[:title]
+  - @item[:title] = "IRTF " + title + " [CONCLUDED]"
+  = render "head_", :loc => "../"
+  - @item[:title] = title
+
+  %body
+    .container
+      .content
+        .ribbon
+          %p Concluded
+       
+        .rgtitle
+          .logo
+            %a{:href => "../"}
+              %img{:src => "../img/irtf.png", :width => 150, :height => 107,
+                   :alt => "Internet Research Task Force (IRTF)"}
+          .title.withribbon
+            %h1 #{@item[:title]}
+          .clear
+    
+        .leftbar
+          = render "leftbar_", :loc => "../"
+          
+        .main
+          .rightbar
+            .news
+              %h2 Note
+              %p This Research Group has concluded and is no longer active.
+              %p The charter and other information on this page is provided as a record of history. Email addresses and links may no longer function.
+              %p
+                For inquiries about this former Research Group, please email
+                %a{:href => "mailman/listinfo/irtf-discuss"} irtf-discuss@irtf.org.
+
+
+          = yield
+        
+      .layout_footer
+      
+    .footer
+      = render "footer_", :loc => "../"
+
+    = render "scripts_", :loc => "../"      

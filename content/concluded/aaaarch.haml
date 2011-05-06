@@ -1,0 +1,78 @@
+---
+title: Authentication Authorisation Accounting Architecture Research Group (AAAARCH)
+---
+
+%h2 Charter
+%p A number of Internet Services require Authentication, Authorization, Accounting and Audit Support. The IETF AAA Working Group is chartered with defining short term requirements for a protocol that will support such services for NASREQ and MobileIP. The work of the IETF AAA group has shown that there are a number of areas where a AAA architecture would be helpful.
+
+%p This RG will work to define a next generation
+AAA architecture that incorporates a set of interconnected "generic" AAA
+servers and an application interface that allows Application Specific Modules
+access to AAA functions.
+
+%p The architecture's focus is to support AAA services that:
+
+%ul
+  %li can inter-operate across organizational boundaries
+  %li are extensible yet common across a wide variety of Internet services
+  %li enables a concept of an AAA transaction spanning many stakeholders
+  %li provides application independent session management mechanisms
+  %li contains strong security mechanisms that be tuned to local policies
+  %li is a scalable to the size of the global Internet
+
+%p This activity grows from the work of the authorization team of the IETF AAA Working Group. The authorization team has proposed an "AAA Authorization Framework" [2] illustrated with numerous application examples [3] which in turn motivates a proposed list of authorization requirements [4]. This RG will build on the Authorization framework presented in [2] and the "generic" AAA Authorization Architecture presented in [5]. It will also draw on the work of the Policy Framework Working Group as well as security and accounting working groups. It will also work to provide a reasonable transition from existing AAA protocols and from any "interim" protocol approved by the AAA working group.
+
+%p This group will coordinate closely with the AAA WG and will report in each IETF AAA WG meeting.
+
+%h2 Goals and Milestones
+%ul
+  %li develop generic AAA model by specifically including Authentication and Accounting
+  %li develop auditability framework specification that allows the AAA system functions to be checked in a multi-organization environment
+  %li develop a model for management of a "mesh" of interconnected AAA Servers
+  %li describe interdomain issues using generic model
+  %li define in a high level and abstract way the interfaces between the different components in the architecture
+  %li define distributed AAA related policy framework
+  %li develop an accounting model that allows authorization to define the type of accounting processing required for each session.
+  %li implement a simulation model that allows experimentation with the proposed architecture
+  %li work with RAP WG to develop an Authentication Information management model.
+  %li work with GRID-Forum to align the security and AAA architectural ideas
+
+%h2 References
+%ol
+  %li Weinrib A, Postel J, "IRTF Research Group Guidelines and Procedures", RFC 2014, BCP 8, October 1996.
+  %li J. Vollbrecht et al, "AAA Authorization Framework", RFC 2904, Informational, August 2000.
+  %li J. Vollbrecht et al, "AAA Authorization Application Examples", RFC 2905, Informational, August 2000.
+  %li S. Farrell et al, "AAA Authorization Requirements", RFC 2906, Informational, August 2000.
+  %li C. de Laat et al, "Generic AAA Architecture", RFC 2903, Experimental, August 2000
+
+%h2 Membership
+-# %p Membership :== open (in any language)
+%p To join the group one is kindly asked to mail the chairs. We do adopt a open mailing list, all discussions will be on the mailing list mentioned above.
+
+%h2 Chairs
+%p
+  John Vollbrecht
+  %a{ :href => "mailto:jrv@umich.edu" } (jrv@umich.edu)
+  and Cees de Laat
+  %a{ :href => "mailto:delaat@science.uva.nl" } (delaat@science.uva.nl)
+
+%h2 Mailing List
+%p
+  %a{ :href => "mailto:aaaarch@fokus.gmd.de" } aaaarch@fokus.gmd.de
+
+%p
+  To subscribe: Send a message to
+  %a{ :href => "mailto:majordomo@fokus.gmd.de" } majordomo@fokus.gmd.de
+  with message body: subscribe aaaarch
+
+%p
+  Archive:
+  %a{ :href => "http://www.fokus.fraunhofer.de/research/cc/meteor/research/aaaarch/" } http://www.fokus.fraunhofer.de/research/cc/meteor/research/aaaarch/
+
+%p
+  Web site:
+  %a{ :href => "http://www.aaaarch.org" } http://www.aaaarch.org/
+
+
+-# %p Original: CdL - dec 10th 1999
+-# %p Revised : CdL - may 30th 2001

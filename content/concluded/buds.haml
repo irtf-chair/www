@@ -1,0 +1,74 @@
+---
+title: Building Differentiated Services Research Group (BUDS)
+---
+
+%h2 Mission
+%p Identify major issues and investigate solutions for building, deploying and managing predictable, robust, intra- and inter-domain services based on various architectures and per-hop behaviors including those defined by the Differentiated Services IETF WG.
+%h2 Motivation
+%p The Differentiated Services IETF WG has produced a set of standards-track and informational RFCs providing a good framework for implementing Differentiated Services. These documents include a set of specifications for Per-Hop Behaviors that define local (network element) treatment of data packets [1], [2], [3], [4].
+%p Nevertheless, these specifications alone are not sufficient for architecting, implementing and deploying a set of services in production networks. The following are major issues that need to be addressed in order to make deployment of Differentiated Services possible:
+
+%ul
+  %li What service types are useful for applications and practical to implement, deploy and manage? 
+  %li What PHB configurations are needed to implement a given service that provides a given service level (QoS)? 
+  %li To answer the above, we need some performance models for services constructed with various PHBs and their validation through simulation and prototype/test beds; 
+  %li What other elements are needed to provide a service: traffic engineering, traffic management? 
+  %li What is the scalability of building intra- and inter-domain services? 
+  %li What are the interoperability issues for the construction of services spanning multiple administrative domains? Are there any standards needed?
+
+%h2 Goals
+%p In this group, we plan to address all the above issues. More specifically, the following are first priority goals:
+
+%ul
+  %li
+    Compile a comprehensive overview of current state-of-the-art (published studies and experience) including: 
+
+    %ul
+      %li What is known and useful 
+      %li What directions need further investigation
+
+  %li Determine what useful services can be built on top of existing PHBs and highlight pitfalls when concatenating PHBs. Explore the need and feasibility of other PHBs and services. 
+  %li Establish and validate models. 
+  %li Evaluate and compare two resource management paradigms: "static" provisioning versus "dynamic" signaling. 
+  %li Study the feasibility of per-domain aggregation of network characteristics, such as bandwidth, delay and loss.
+
+%p As a second priority, the following are items to work on after achieving most of the goals in the first phase. Also, the following goals need to be defined better.
+
+%ul
+  %li
+    Determine how service performance would be characterized and validated: 
+
+    %ul
+      %li Throughput, delay, delay variation, loss rate, other 
+      %li What to measure: performance at the user, at a link (for each class/color) 
+      %li How to measure: possibly use IPPM
+
+  %li Study interoperability issues across domains: how to build services crossing domains based on per-domain services; how to control the peering points between provider domains.
+
+%p The BuDS group will consult and collaborate with related IETF working groups such as DiffServ, Traffic Engineering, ISSLL, IPPM, Policy. Specifically, the BuDS group will receive suggestions to study issues related to building, deploying and managing Differentiated Services. The BuDS group will make recommendations to the relevant IETF groups for items to be standardized.
+
+%h2 References
+%p [1] An Expedited Forwarding PHB (RFC 2598).
+%p [2] Assured Forwarding PHB Group (RFC 2597).
+%p [3] An Architecture for Differentiated Services (RFC 2475).
+%p [4] Definition of the Differentiated Services Field (DS Field) in the IPv4 and IPv6 Headers (RFC 2474).
+
+%h2 Membership Policy
+
+%p This group is of limited membership. A limited membership model was chosen to encourage rapid progress. Others may petition the group by sending membership requests along with goals and reasons for a membership request. The group will either approve or deny the request in a timely manner based on the current position of the group, current research requirements and the candidates request. 
+
+
+%h2 Chairs
+
+%p Victor Firoiu (<A HREF="mailto:vfiroiu@nortelnetworks.com">vfiroiu@nortelnetworks.com</A>) and Jon
+Crowcroft (<A HREF="mailto:Jon.Crowcroft@cl.cam.ac.uk">Jon.Crowcroft@cl.cam.ac.uk</A>)
+
+%h2 Mailing List
+
+%p <A HREF="mailto:buds-interest@standards.nortelnetworks.com">buds-interest@standards.nortelnetworks.com</A>
+
+%p To subscribe to the list: Send email to <A HREF="mailto:listserv@standards.nortelnetworks.co">listserv@standards.nortelnetworks.com</A> and put 'subscribe buds-interest' (no quotes) into the body of the message (no subject is needed).
+
+%p To unsubscribe: Repeat the above procedure using 'unsubscribe buds-interest' or 'signoff buds-interest' in the body of the message.
+
+%p Mail list archive: <A HREF="http://standards.nortelnetworks.com/archives/buds-interest.html">http://standards.nortelnetworks.com/archives/buds-interest.html</A> or <A HREF="ftp://standards.nortelnetworks.com/buds-interest">ftp://standards.nortelnetworks.com/buds-interest</A>

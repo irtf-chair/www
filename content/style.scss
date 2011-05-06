@@ -9,6 +9,10 @@ is_hidden: true
 @import "compass/typography/lists/bullets";
 @import "compass/typography/lists/inline-block-list";
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+@import "compass/css3/transform";
+@import "compass/css3/opacity";
 
 $fs: 16px;
 $blueprint-font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
@@ -27,14 +31,18 @@ html {
   font-size: $fs;
 }
 
+h1 {
+  letter-spacing: -1px;
+}
+
 @mixin tile {
     @include border-radius(2*$fs);
     @include inline-block;
     text-align: center;
     width: 8*$fs;
     height: 8*$fs;
-    margin: 0 .5*$fs .5*$fs 0;
-    padding: .25*$fs;
+    margin: 5px; // 5px is box-shadow default
+    padding: .5*$fs;
 }
 
 @mixin boxstyle {
@@ -84,11 +92,7 @@ a {
 
 .main {
   @include column(18, true);
-  
-  h1 {
-    letter-spacing: -1px;
-  }
- 
+   
   h2 {
     margin: 1.5*$fs 0 .5*$fs 0;
     font-size: 1.5*$fs;
@@ -99,7 +103,7 @@ a {
      margin-top: $fs/2;
   }
   
-  p, dl, th, td, table {
+  p, dl, th, td, table, ol {
     margin: 0 0 .75*$fs 0;
     font-weight: normal;
   }
@@ -123,12 +127,15 @@ a {
     margin: 0;
   }
 
-  li {
-    margin: 0 0 .5*$fs 0;
+  ul {
     list-style-type: square;
   }
 
-  li ul {
+  li {
+    margin: 0 0 .5*$fs 0;
+  }
+
+  li ul, li ol {
     margin-top: .5*$fs;
   }
 
@@ -140,7 +147,7 @@ a {
     @include float-right;
     @include boxstyle;
     width: 33%;
-    margin: 4*$fs 0 $fs $fs;
+    margin: 4*$fs 5px $fs $fs; // 5px is box-shadow width
     padding-left: $fs;
     border-left: 1px solid $bc; // override color
     clear: both;
@@ -172,6 +179,7 @@ a {
   
   .news {
     @include border-radius(2*$fs);
+    @include box-shadow();
     padding: $fs;
     background-color: $bc;
   }  
@@ -187,9 +195,10 @@ a {
   
   .title {
     @include column(18, last);
-    h1 {
-      letter-spacing: -1px;
-    }
+  }
+
+  .title.withribbon {
+    @include column(15, last);
   }
 
   .clear {
@@ -228,13 +237,16 @@ ul.tiled {
     border: 1px solid $bc;
     &:hover {
       background-color: $bc;
+      @include box-shadow();
     }    
   }
+  
   .oldtile {
     @include tile;
     border: 1px solid #ccc;
     &:hover {
       background-color: #ccc;
+      @include box-shadow();
     }    
   }
   
@@ -311,4 +323,26 @@ iframe {
   width: 110px !important;
   height: 20px !important;
   min-height: 20px !important;
+}
+
+
+.ribbon {
+  overflow: hidden;
+  /* top left corner */
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 15*$fs;
+
+  p {
+    background-color: $bc;
+    font-size: 2*$fs;
+    padding: $fs 8*$fs $fs 8*$fs;
+    text-align: center;
+    @include rotate(45deg);
+    @include box-shadow();
+    position: relative;
+    right: -8*$fs;
+    top: 2*$fs;
+  }
 }

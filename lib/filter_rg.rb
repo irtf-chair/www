@@ -8,13 +8,13 @@ class RGFilter < Nanoc3::Filter
     a = Regexp.new($boundary + '(' + $rgs.keys.join('|').upcase +
                    ')' + $boundary);
     content.gsub!(a) {
-      |rg| $1 + '<a href="' + $2.downcase + '">' + $2 + '</a>' + $3
+      |rg| $1 + '<a href="/' + $2.downcase + '">' + $2 + '</a>' + $3
     }
     
     c = Regexp.new($boundary + '(' + $oldrgs.keys.join('|').upcase +
                    ')' + $boundary);
     content.gsub!(c) {
-      |rg| $1 + '<a href="concluded/' + $2.downcase + '">' + $2 + '</a>' + $3
+      |rg| $1 + '<a href="/concluded/' + $2.downcase + '">' + $2 + '</a>' + $3
     }    
 
     return content

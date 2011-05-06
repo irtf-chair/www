@@ -8,9 +8,9 @@
   %meta{ :charset => "utf-8" }
   %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=9" }
   %title= title
-  %link{ :href => "style.css", :rel => "stylesheet", :type => "text/css" }
+  %link{ :href => @loc + "style.css", :rel => "stylesheet", :type => "text/css" }
   <!--[if lt IE 8]>
-  %link{ :href => "ie.css", :rel => "stylesheet", :type => "text/css",
+  %link{ :href => @loc + "ie.css", :rel => "stylesheet", :type => "text/css",
          :media => "screen, projection" }
   <![endif]-->
 
