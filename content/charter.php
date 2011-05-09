@@ -1,8 +1,11 @@
 <?php
-if($_GET["gtype"]=="old-rg"){
-$tgt="Location: http://".$_SERVER["HTTP_HOST"]."/concluded/".$_GET["group"];
+
+if (preg_match("/^((as|cf|dtn|hip|icc|nm|p2p|r|sam|tm|vn)rg|mobopts)$/i", $_GET["group"])) {
+	$tgt = strtolower($_GET["group"]);
 } else {
-$tgt="Location: http://".$_SERVER["HTTP_HOST"]."/".$_GET["group"];
+	$tgt = "concluded/" . strtolower($_GET["group"]);
 }
-header($tgt);
+
+header("Location: http://" . $_SERVER["HTTP_HOST"] . "/" . $tgt, true, 301);
+
 ?>
