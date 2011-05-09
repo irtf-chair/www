@@ -54,6 +54,7 @@ end
 
 compile '/ipv6/' do
   # just copy
+  filter :htmlcompressor
 end
 
 compile '/sitemap/' do

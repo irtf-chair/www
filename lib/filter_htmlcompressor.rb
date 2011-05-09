@@ -19,7 +19,7 @@ class HTMLCompressor < Nanoc3::Filter
 
   def type_from_extension
     case @item[:extension]
-    when /^(haml|html)/
+    when /^(haml|html|php)/
       "html"
     when /^xml/
       "xml"
