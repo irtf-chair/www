@@ -5,7 +5,11 @@ class HTMLCompressor < Nanoc3::Filter
   def run(content, params={})
     if @site.config[:compress] then
       type = type_from_extension
-      cmd = "/usr/local/bin/htmlcompressor --type #{type} -o #{output_filename}"
+      opt = "--type #{type} --remove-intertag-spaces --remove-quotes " +
+            "--simple-doctype --remove-style-attr --remove-link-attr " +
+            "--remove-script-attr --remove-form-attr --remove-input-attr " +
+            "--simple-bool-attr --compress-js --compress-css"
+      cmd = "/usr/local/bin/htmlcompressor #{opt} -o #{output_filename}"
     else
       cmd = "/bin/cat - > #{output_filename}"
     end
