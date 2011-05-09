@@ -305,16 +305,24 @@ iframe {
       @include float-left;
       
       span {
-        margin-right: $fs;
+        margin-right: 0;
         text-align: left;
       }
     }
     
     .right {
       @include float-right;
+      height: 2*$fs - 1;
       span {
         text-align: right;
         margin-left: $fs;
+      }
+
+      iframe {
+        height: 2*$fs - 1;
+	width: 150px;
+        seamless: "";
+        sandbox: "";
       }
     }
   }  
@@ -327,7 +335,8 @@ iframe {
 }
 
 .twitter iframe {
-  width: 110px !important;
+//  width: 110px !important;
+  width: 100px !important;
   height: 20px !important;
   min-height: 20px !important;
 }

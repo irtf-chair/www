@@ -52,6 +52,10 @@ compile '/charter/' do
   # just copy
 end
 
+compile '/ipv6/' do
+  # just copy
+end
+
 compile '/sitemap/' do
   filter :haml
   filter :extensionstripper
@@ -106,6 +110,10 @@ end
 
 route '/charter/' do
   '/charter.php'
+end
+
+route '/ipv6/' do
+  '/ipv6.php'
 end
 
 route 'sitemap' do
