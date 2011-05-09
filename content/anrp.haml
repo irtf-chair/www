@@ -4,38 +4,33 @@ title: Applied Networking Research Prize
 
 .rightbar
 
+  -# .news
+  -#   %h2 Call for Nominations Open Now!
+  -#   %p
+  -#     Submit nominations for the
+  -#     %a{ :href => "anrp"} Applied Networking Research Prize
+  -#     for
+  -#     %a{ :href => "http://www.ietf.org/meeting/81/index" } IETF-81,
+  -#     July 24-29, 2011 in Quebec City, Canada until
+  -#     %span.term May 8, 2011!
+
   .news
-    %h2 Call for Nominations Open Now!
+    %h2 Nomination Period Ended
     %p
-      Submit nominations for the
+      The nomination period for the
       %a{ :href => "anrp"} Applied Networking Research Prize
       for
       %a{ :href => "http://www.ietf.org/meeting/81/index" } IETF-81,
-      July 24-29, 2011 in Quebec City, Canada until
-      %span.term May 8, 2011!
+      July 24-29, 2011 in Quebec City, Canada has ended.
       
-  %h2 Important Dates
-  %table
-    %tr 
-      %th Applications open:
-      %td April 11, 2011
-    %tr
-      %th Applications close:
-      %td May 8, 2011
-    %tr
-      %th Notifications:
-      %td May 31, 2011
-    %tr
-      %th
-        %a{ :href => "http://www.ietf.org/meeting/81/index" } IETF-81
-        Meeting:
-      %td July 24-29, 2011
+      
+  = render "anrpdates_"
   
   %h2 How to Apply
   
-  %p
-  Applications are submitted by email to 
-  %a{ :href => "mailto:anrp@isoc.org"} anrp@isoc.org.
+  %p.done
+    Applications are submitted by email to 
+    %a{ :href => "mailto:anrp@isoc.org"} anrp@isoc.org.
 
   
 
@@ -110,7 +105,7 @@ title: Applied Networking Research Prize
     CV of the nominee
   %li optionally, any other supporting information (link to nominee's web site, etc.)
   
-%p
+%p.done
   Applications are submitted by email to 
   %a{ :href => "mailto:anrp@isoc.org"} anrp@isoc.org.
 
@@ -127,24 +122,8 @@ title: Applied Networking Research Prize
  
 %p A small selection committee comprised of individuals knowledgeable about the IRTF, IETF and the broader networking research community will evaluate the submissions against these selection criteria. The goal is to select 1-2 submissions for the Applied Networking Research Prize (ANRP) during each application period. All applicants will be notified by email.
 
- 
-%h2 Important Dates
-%table
-  %tr 
-    %th Applications open:
-    %td April 11, 2011
-  %tr
-    %th Applications close:
-    %td May 8, 2011
-  %tr
-    %th Notifications:
-    %td May 31, 2011
-  %tr
-    %th
-      %a{ :href => "http://www.ietf.org/meeting/81/index" } IETF-81
-      Meeting:
-    %td July 24-29, 2011
- 
+= render "anrpdates_"
+
  
 %h2 Sponsors
  

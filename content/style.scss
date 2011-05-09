@@ -109,6 +109,10 @@ a {
     margin: 0 0 .75*$fs 0;
     font-weight: normal;
   }
+
+  .done {
+    text-decoration: line-through;
+  }
   
   th {
     font-style: italic;
