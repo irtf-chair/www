@@ -10,6 +10,11 @@ SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
 Header append Vary User-Agent env=!dont-vary
 Header append Vary Accept-Encoding
 
+AddDefaultCharset utf-8
+AddCharset utf-8 .html .css .js .xml .json .rss
+
+Options -MultiViews -Indexes
+
 RedirectMatch permanent ^/irtf/$                               /
 RedirectMatch permanent ^/old-groups.html?$                    /groups
 RedirectMatch permanent ^/concluded/?$                         /groups
@@ -31,3 +36,24 @@ RedirectMatch permanent ^/(?:charters|historical/)siren.html?$                /c
 RedirectMatch permanent ^/charters/namespace.html?$            /concluded/nsrg
 RedirectMatch permanent ^/(.+)/$                               /$1
 RedirectMatch permanent ^/rfc/(.*).txt                         http://tools.ietf.org/html/$1
+
+RewriteEngine on
+
+# strip the .html from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+
+# strip the .php from URLs
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+# strip the www. from URLs
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+# our ssl cert is for *.irtf.org, unfortunately
+#RewriteCond %{SERVER_PORT} !^443
+#RewriteRule (.*) https://www.irtf.org/$1 [R=301,L]

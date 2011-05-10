@@ -2,7 +2,7 @@
 compress: true
 
 # The base URL for this site. This is required for XML sitemap generation. 
-base_url: http://www.irtf.org
+base_url: http://irtf.org
 
 # A list of file extensions that nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
