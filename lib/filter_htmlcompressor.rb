@@ -5,10 +5,12 @@ class HTMLCompressor < Nanoc3::Filter
   def run(content, params={})
     if @site.config[:compress] then
       type = type_from_extension
-      opt = "--type #{type} --remove-intertag-spaces --remove-quotes " +
+      # the FB meta tage break with this option: --remove-intertag-spaces
+      opt = "--type #{type} --remove-quotes " +
             "--simple-doctype --remove-style-attr --remove-link-attr " +
             "--remove-script-attr --remove-form-attr --remove-input-attr " +
-            "--simple-bool-attr --compress-js --compress-css"
+            "--simple-bool-attr --compress-js --compress-css --preserve-php " +
+            "--preserve-server-script"
       cmd = "/usr/local/bin/htmlcompressor #{opt} -o #{output_filename}"
     else
       cmd = "/bin/cat - > #{output_filename}"
