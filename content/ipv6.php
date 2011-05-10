@@ -27,11 +27,7 @@ body {
 <body>
 
 <?php
-
-if (strpos($_SERVER['REMOTE_ADDR'], ":")) {
-	echo "<p>Thank you for using IPv6.</p>";
-}
-
+if(strpos($_SERVER['REMOTE_ADDR'],":")){echo "<p>Thank you for using IPv6.</p>";}
 ?>
 </body>
 </html>
