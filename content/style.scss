@@ -287,7 +287,6 @@ iframe {
   margin: auto;
   min-width: $blueprint-liquid-container-min-width;
   border-top: 1px solid $bc;
-  z-index: -1; // move it behind everything else
 
   .gap {
     @include column(5);
