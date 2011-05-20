@@ -22,10 +22,10 @@ RedirectMatch permanent ^/(concluded|(?:old-)?groups)/groups$   /groups
 						   	        
 RedirectMatch permanent ^/(charters/)?irtf$                     /
 RedirectMatch permanent ^/index\.php$                           /
-RedirectMatch permanent ^/(?:old-)?groups/charter(.*)           /concluded/charter$1
-RedirectMatch permanent ^/(?:old-)?groups/chair$                /chair
-RedirectMatch permanent ^/(?:old-)?groups/index$                /groups
-RedirectMatch permanent ^/(?:old-)?groups\.(html?|php)$         /groups
+RedirectMatch permanent ^/(concluded|(?:old-)?groups)/charter(.*)           /concluded/charter$1
+RedirectMatch permanent ^/(concluded|(?:old-)?groups)/chair$                /chair
+RedirectMatch permanent ^/(concluded|(?:old-)?groups)/index$                /groups
+RedirectMatch permanent ^/(concluded|(?:old-)?groups)\.(html?|php)$         /groups
 
 RedirectMatch permanent ^/chairfiles/draft-irtf-rfcs-01\.html$              http://tools.ietf.org/html/draft-irtf-rfcs
 RedirectMatch permanent ^/asrg/(draft-irtf-asrg-requirements-xx-01\.txt)$   http://asrg.sp.am/about/old_site/$1
