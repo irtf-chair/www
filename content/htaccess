@@ -1,20 +1,167 @@
-ExpiresActive On
-ExpiresDefault "access plus 1 day"
-ExpiresByType image/png "access plus 1 week"
-ExpiresByType image/jpeg "access plus 1 week"
-ExpiresByType text/css "access plus 1 week"
+# ----------------------------------------------------------------------
+# Better website experience for IE users
+# ----------------------------------------------------------------------
 
-SetOutputFilter DEFLATE
-SetInputFilter DEFLATE
-SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip dont-vary
-Header append Vary User-Agent env=!dont-vary
-Header append Vary Accept-Encoding
+# Force the latest IE version, in various cases when it may fall back to IE7 mode
+#  github.com/rails/rails/commit/123eb25#commitcomment-118920
+# Use ChromeFrame if it's installed for a better experience for the poor IE folk
 
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+    BrowserMatch MSIE ie
+    Header set X-UA-Compatible "IE=Edge,chrome=1" env=ie
+  </IfModule>
+</IfModule>
+
+<IfModule mod_headers.c>
+# Because X-UA-Compatible isn't sent to non-IE (to save header bytes),
+#   We need to inform proxies that content changes based on UA
+  Header append Vary User-Agent
+# Cache control is set only if mod_headers is enabled, so that's unncessary to declare
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# Expires headers (for better cache control)
+# ----------------------------------------------------------------------
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 day"
+  ExpiresByType image/png "access plus 1 week"
+  ExpiresByType image/jpeg "access plus 1 week"
+  ExpiresByType text/css "access plus 1 week"
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# ETag removal
+# ----------------------------------------------------------------------
+
+# Since we're sending far-future expires, we don't need ETags for
+# static content.
+#   developer.yahoo.com/performance/rules.html#etags
+FileETag None
+
+
+# ----------------------------------------------------------------------
+# gzip compression
+# ----------------------------------------------------------------------
+
+<IfModule mod_deflate.c>
+
+# force deflate for mangled headers developer.yahoo.com/blogs/ydn/posts/2010/12/pushing-beyond-gzipping/
+<IfModule mod_setenvif.c>
+  <IfModule mod_headers.c>
+    SetEnvIfNoCase ^(Accept-EncodXng|X-cept-Encoding|X{15}|~{15}|-{15})$ ^((gzip|deflate)\s,?\s(gzip|deflate)?|X{4,13}|~{4,13}|-{4,13})$ HAVE_Accept-Encoding
+    RequestHeader append Accept-Encoding "gzip,deflate" env=HAVE_Accept-Encoding
+  </IfModule>
+</IfModule>
+# html, txt, css, js, json, xml, htc:
+<IfModule filter_module>
+  FilterDeclare   COMPRESS
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /text/(html|css|javascript|plain|x(ml|-component))/
+  FilterProvider  COMPRESS  DEFLATE resp=Content-Type /application/(javascript|json|xml|x-javascript)/
+  FilterChain     COMPRESS
+  FilterProtocol  COMPRESS  change=yes;byteranges=no
+</IfModule>
+
+<IfModule !mod_filter.c>
+  # Legacy versions of Apache
+  AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
+  AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
+</IfModule>
+
+# webfonts and svg:
+  <FilesMatch "\.(ttf|otf|eot|svg)$" >
+    SetOutputFilter DEFLATE
+  </FilesMatch>
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# UTF-8 encoding
+# ----------------------------------------------------------------------
+
+# use utf-8 encoding for anything served text/plain or text/html
 AddDefaultCharset utf-8
+
+# force utf-8 for a number of file formats
 AddCharset utf-8 .html .css .js .xml .json .rss
 
-Options -MultiViews -Indexes
-						   
+
+# ----------------------------------------------------------------------
+# Prevent 404 errors for non-existing redirected folders
+# ----------------------------------------------------------------------
+
+# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist 
+#   e.g. /blog/hello : webmasterworld.com/apache/3808792.htm
+
+Options -MultiViews 
+
+
+# Turning on the rewrite engine is necessary for the following rules and features.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+</IfModule>
+
+# ----------------------------------------------------------------------
+# Suppress or force the "www." at the beginning of URLs
+# ----------------------------------------------------------------------
+
+# The same content should never be available under two different URLs - especially not with and
+# without "www." at the beginning, since this can cause SEO problems (duplicate content).
+# That's why you should choose one of the alternatives and redirect the other one.
+
+# By default option 1 (no "www.") is activated. Remember: Shorter URLs are sexier.
+# no-www.org/faq.php?q=class_b
+
+# ----------------------------------------------------------------------
+
+# Option 1:
+# Rewrite "www.domain.com -> domain.com" 
+
+<IfModule mod_rewrite.c>
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+</IfModule>
+
+# get content for plain URLs from .html
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# get content for plain URLs from .php
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.php -f
+  RewriteRule ^(.*)$ $1.php [L]
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# A little more security
+# ----------------------------------------------------------------------
+
+
+# "-Indexes" will have Apache block users from browsing folders without a default document
+# Usually you should leave this activated, because you shouldn't allow everybody to surf through
+# every folder on your server (which includes rather private places like CMS system folders).
+Options -Indexes
+
+
+# Block access to "hidden" directories whose names begin with a period. This
+# includes directories used by version control systems such as Subversion or Git.
+<IfModule mod_rewrite.c>
+  RewriteRule "(^|/)\." - [F]
+</IfModule>
+
+
+
 RedirectMatch permanent ^/irtf/$                                /
 						   	        
 RedirectMatch permanent ^/concluded/?$                          /groups
@@ -22,10 +169,10 @@ RedirectMatch permanent ^/(concluded|(?:old-)?groups)/groups$   /groups
 						   	        
 RedirectMatch permanent ^/(charters/)?irtf$                     /
 RedirectMatch permanent ^/index\.php$                           /
-RedirectMatch permanent ^/(concluded|(?:old-)?groups)/charter(.*)           /concluded/charter$1
+RedirectMatch permanent ^/(?:(?:old-)?groups)/charter(.*)         /concluded/charter$1
 RedirectMatch permanent ^/(concluded|(?:old-)?groups)/chair$                /chair
 RedirectMatch permanent ^/(concluded|(?:old-)?groups)/index$                /groups
-RedirectMatch permanent ^/(concluded|(?:old-)?groups)\.(html?|php)$         /groups
+RedirectMatch permanent ^/(concluded|old-groups)\.(html?|php)$              /groups
 
 RedirectMatch permanent ^/chairfiles/draft-irtf-rfcs-01\.html$              http://tools.ietf.org/html/draft-irtf-rfcs
 RedirectMatch permanent ^/asrg/(draft-irtf-asrg-requirements-xx-01\.txt)$   http://asrg.sp.am/about/old_site/$1
@@ -41,36 +188,19 @@ RedirectMatch permanent ^/(charters/)?routing\.html?$                         /r
 RedirectMatch permanent ^/(charters/)?management\.html?$                      /nmrg
 RedirectMatch permanent ^/(charters/)?reliable-multicast\.html?$              /samrg
 RedirectMatch permanent ^/(charters/)?hip(\.html?)?$                          /hiprg
+RedirectMatch permanent ^/charters/asrg\.html?/?$                              /asrg
+RedirectMatch permanent ^/asrg/.+$                                            /asrg
 									      
-RedirectMatch permanent ^/(charters|historical)/servmanagement\.html?$        /concluded/smrg
+RedirectMatch permanent ^/(charters|historical)/servmanagement\.html?        /concluded/smrg
 RedirectMatch permanent ^/(charters|historical)/aaaarch\.html?$               /concluded/aaaarch
-RedirectMatch permanent ^/(charters|historical)/gsec\.html?$                  /concluded/gsec
+RedirectMatch permanent ^/(charters|historical)/(gsec|secure-multicast)\.html?$                  /concluded/gsec
 RedirectMatch permanent ^/(charters|historical)/siren\.html?$                 /concluded/siren
 RedirectMatch permanent ^/(charters|historical)/info-infrastructure\.html?$   /concluded/iiarg
 RedirectMatch permanent ^/(charters|historical)/end2end\.html?$               /concluded/end2end
 RedirectMatch permanent ^/(charters|historical)/namespace\.html?$             /concluded/nsrg
+RedirectMatch permanent ^/(charters|historical)/imrg\.html?$                  /concluded/imrg
+RedirectMatch permanent ^/(charters|historical)/Digital-Rights-Management\.html?$             /concluded/idrm
+
 RedirectMatch permanent ^/rm$                                                 /concluded/rmrg
 
 RedirectMatch permanent ^/([^/]+)/$                                           /$1
-
-RewriteEngine on
-
-# strip the www. from URLs
-RewriteCond %{HTTPS} !=on
-RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
-
-# our ssl cert is for *.irtf.org, unfortunately
-#RewriteCond %{SERVER_PORT} !^443
-#RewriteRule (.*) https://www.irtf.org/$1 [R=301,L]
-
-# get content for plain URLs from .html
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [L]
-
-# get content for plain URLs from .php
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.php -f
-RewriteRule ^(.*)$ $1.php [L]
-
