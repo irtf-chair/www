@@ -7,7 +7,7 @@
 %p
   The #{acronym} is chaired by
   - first = rg.chairs.take(rg.chairs.length - 1).map {|x| x.hamlify }.compact.join(", ")
-  = (first ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
+  = (first != "" ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
 
 %h2 Mailing List
 %p
