@@ -38,6 +38,7 @@ compile '/concluded/*/' do
   filter :haml
   filter :wg
   filter :rg
+  filter :meeting
   filter :url
   layout 'historic'
   filter :rubypants
@@ -72,6 +73,7 @@ compile '*' do
   filter :haml
   filter :wg
   filter :rg
+  filter :meeting
   filter :url
   if item.identifier == '/'
     layout 'logoright'
