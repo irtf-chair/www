@@ -12,14 +12,12 @@
 %h2 Mailing List
 %p
   The #{acronym} mailing list is
-  -# can't use HAML here due to whitespace bug
-  <a href="mailto:#{rg.list}">#{rg.list}</a>.
+  = link_to(rg.list, "mailto:#{rg.list}") + "."
   To subscribe or access the list archives, visit the
-  <a href="#{rg.listweb}">mailman page</a>.
-
+  = link_to("mailman page", rg.listweb) + "."
+  
 - if rg.web then
   %h2 Web Page
   %p
     Additional #{acronym} information is available at 
-    -# can't use HAML here due to whitespace bug
-    <a href="#{rg.web}">#{rg.web}</a>.
+    = link_to(rg.web, rg.web) + "."

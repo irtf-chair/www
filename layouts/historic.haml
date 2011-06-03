@@ -1,6 +1,6 @@
 -# encoding: utf-8
-!!!
-%html{ xmlns: "http://www.w3.org/1999/xhtml" }
+!!! 5
+%html{ :lang => "en" }
   - title = @item[:title]
   - @item[:title] = "IRTF " + title + " [CONCLUDED]"
   = render "head_", :loc => "../"
@@ -32,8 +32,7 @@
               %p The charter and other information on this page is provided as a record of history. Email addresses and links may no longer function.
               %p
                 For inquiries about this former Research Group, please email
-                %a{:href => "../mailman/listinfo/irtf-discuss"} irtf-discuss@irtf.org.
-
+                = link_to("irtf-discuss@irtf.org", "../mailman/listinfo/irtf-discuss") + "."
 
           = yield
         

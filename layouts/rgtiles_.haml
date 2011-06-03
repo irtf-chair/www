@@ -3,7 +3,6 @@
   - $rgs.values.sort.each do |rg|
     %li
       %a.tile{ :href => @loc + rg.acronym.downcase }
-        -#, :title => rg.name }
         %span.acronym= rg.acronym.upcase
         %span.name= rg.name
 .clear
