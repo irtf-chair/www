@@ -5,7 +5,8 @@ class RFCFilter < Nanoc3::Filter
   type :text
 
   def run(content, params={})
-    content.gsub(/RFC\s*([0-9]{1,5})/i,
-                 '<a href="http://wiki.tools.ietf.org/html/rfc\1">RFC \1</a>')
+    content.gsub(/RFC\s*([0-9]{1,5})/i) {
+      |rfc| link_to("RFC #{$1}", "http://wiki.tools.ietf.org/html/rfc#{$1}")
+    }
   end
 end

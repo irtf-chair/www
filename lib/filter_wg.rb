@@ -57,15 +57,14 @@ class WGFilter < Nanoc3::Filter
   ]
   
   def run(content, params={})
-    a = Regexp.new($boundary + '(' + @@active.join('|').upcase + ')' +
-                   $boundary);
-    content.gsub!(a) {|wg| $1 + '<a href="http://www.ietf.org/dyn/wg/charter/' +
-                           $2.downcase + '-charter">' + $2 + '</a>' + $3}
+  
+    content.gsub!(/\b(#{@@active.join('|').upcase})\b#{$boundary}/) {
+      |wg| link_to($1, "http://ietf.org/dyn/wg/charter/#{$1.downcase}-charter")
+    }
     
-    c = Regexp.new($boundary + '(' + @@concluded.join('|').upcase + ')' +
-                   $boundary);
-    content.gsub!(c) {|wg| $1 + '<a href="http://www.ietf.org/wg/concluded/' +
-                           $2.downcase + '">' + $2 + '</a>' + $3}    
+    content.gsub!(/\b(#{@@concluded.join('|').upcase})\b#{$boundary}/) {
+      |wg| link_to($1, "http://ietf.org/wg/concluded/#{$1.downcase}")
+    }
 
     return content
   end

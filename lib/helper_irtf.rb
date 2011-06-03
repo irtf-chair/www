@@ -22,12 +22,13 @@ module IRTF
     def hamlify()
       # XXX can we return HAML here instead of HTML?
       if web then
-        result = "<a href='#{web}'>#{name}</a>"
+        result = link_to(name, web)
       else
         result = name
       end
       if email then
-        result += " (<a href='mailto:#{email.downcase}'>#{email.downcase}</a>)"
+        result += " (" + link_to(email.downcase, "mailto:#{email.downcase}") +
+                  ")"
       end
       return result
     end
@@ -55,12 +56,12 @@ module IRTF
     end
     
     def url(loc = "")
-      "<a href='" + loc + acronym.downcase + "'>#{acronym}</a>"
+      link_to(acronym, loc + acronym.downcase, :title => name)
     end
   end
 
   # ASRG
-  levine = Person.new("John", "Levine", "johnl@iecc.com", "http://www.johnlevine.com/", nil)
+  levine = Person.new("John", "Levine", "johnl@iecc.com", "http://johnlevine.com/", nil)
   asrg = RG.new(
     "asrg",
     "Anti-Spam",
@@ -72,7 +73,7 @@ module IRTF
 
   # CFRG
   # canetti = Person.new("Ran", "Canetti", "canetti@watson.ibm.com")
-  mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "http://www.mindspring.com/~dmcgrew/dam.htm", nil)
+  mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "http://mindspring.com/~dmcgrew/dam.htm", nil)
   cfrg = RG.new(
     "cfrg",
     "Crypto Forum",
@@ -83,21 +84,21 @@ module IRTF
   )
 
   # DTNRG
-  fall = Person.new("Kevin", "Fall", nil, "http://www.cs.berkeley.edu/~kfall", nil)
-  farrell = Person.new("Stephen", "Farrell", nil, "http://www.cs.tcd.ie/Stephen.Farrell/", nil)
-  ott = Person.new("J&ouml;rg", "Ott", "jo@netlab.tkk.fi", "http://www.netlab.tkk.fi/~jo/", nil)
+  fall = Person.new("Kevin", "Fall", nil, "http://cs.berkeley.edu/~kfall", nil)
+  farrell = Person.new("Stephen", "Farrell", nil, "http://cs.tcd.ie/Stephen.Farrell/", nil)
+  ott = Person.new("J&ouml;rg", "Ott", "jo@netlab.tkk.fi", "http://netlab.tkk.fi/~jo/", nil)
   dtnrg = RG.new(
     "dtnrg",
     "Delay-Tolerant Networking",
     "dtn-interest@irtf.org",
     nil,
-    "http://www.dtnrg.org/",
+    "http://dtnrg.org/",
     [ fall, farrell, ott ]
   )
 
   # HIPRG
-  gurtov = Person.new("Andrei", "Gurtov", "gurtov@cs.helsinki.fi", "http://www.cs.helsinki.fi/u/gurtov/", nil)
-  henderson = Person.new("Tom", "Henderson", "thomas.r.henderson@boeing.com", "http://www.tomh.org/", nil)
+  gurtov = Person.new("Andrei", "Gurtov", "gurtov@cs.helsinki.fi", "http://cs.helsinki.fi/u/gurtov/", nil)
+  henderson = Person.new("Tom", "Henderson", "thomas.r.henderson@boeing.com", "http://tomh.org/", nil)
   hiprg = RG.new(
     "hiprg",
     "Host Identity Protocol",
@@ -109,18 +110,18 @@ module IRTF
 
   # ICCRG
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", nil)
-  sridharan = Person.new("Murari", "Sridharan", "muraris@microsoft.com", "http://www.linkedin.com/pub/murari-sridharan/5/a38/153", "1602611111")
+  sridharan = Person.new("Murari", "Sridharan", "muraris@microsoft.com", "http://linkedin.com/pub/murari-sridharan/5/a38/153", "1602611111")
   iccrg = RG.new(
     "iccrg",
     "Internet Congestion Control",
     "iccrg@cs.ucl.ac.uk",
     "http://oakham.cs.ucl.ac.uk/mailman/listinfo/iccrg",
-    "http://www.tools.ietf.org/group/irtf/trac/wiki/ICCRG",
+    "http://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
     [ welzl, sridharan ]
   )
 
   # MOBOPTS
-  koodli = Person.new("Rajeev", "Koodli", "rkoodli@cisco.com", "http://www.linkedin.com/in/rajeevkoodli", nil)
+  koodli = Person.new("Rajeev", "Koodli", "rkoodli@cisco.com", "http://linkedin.com/in/rajeevkoodli", nil)
   mobopts = RG.new(
     "mobopts",
     "IP Mobility Optimizations",
@@ -131,20 +132,20 @@ module IRTF
   )
 
   # NMRG
-  granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "http://www.inf.ufrgs.br/~granville/", nil)
-  festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "http://www.loria.fr/~festor/Site/Welcome.html", nil)
+  granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "http://inf.ufrgs.br/~granville/", nil)
+  festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "http://loria.fr/~festor/Site/Welcome.html", nil)
   nmrg = RG.new(
     "nmrg",
     "Network Management",
     "nmrg@irtf.org",
     nil,
-    "http://www.ibr.cs.tu-bs.de/projects/nmrg/",
+    "http://ibr.cs.tu-bs.de/projects/nmrg/",
     [ granville, festor ]
   )
 
   # P2PRG
   hiltl = Person.new("Volker", "Hilt", "volkerh@bell-labs.com", nil, nil)
-  previdi = Person.new("Stefano", "Previdi", "sprevidi@cisco.com", "http://www.linkedin.com/in/sprevidi", nil)
+  previdi = Person.new("Stefano", "Previdi", "sprevidi@cisco.com", "http://linkedin.com/in/sprevidi", nil)
   p2prg = RG.new(
     "p2prg",
     "Peer-to-Peer",
@@ -156,7 +157,7 @@ module IRTF
 
   # RRG
   # zhang = Person.new("Lixia", "Zhang", "lixia@CS.UCLA.EDU")
-  li = Person.new("Tony", "Li", "tony.li@tony.li", "http://www.linkedin.com/pub/tony-li/0/130/2a9", nil)
+  li = Person.new("Tony", "Li", "tony.li@tony.li", "http://linkedin.com/pub/tony-li/0/130/2a9", nil)
   rrg = RG.new(
     "rrg",
     "Routing",
@@ -174,7 +175,7 @@ module IRTF
     "Scalable Adaptive Multicast",
     "sam@irtf.org",
     nil,
-    "http://www.samrg.org/",
+    "http://samrg.org/",
     [ buford, schmidt ]
   )
 
@@ -185,12 +186,12 @@ module IRTF
     "Transport Modeling",
     "tmrg@irtf.org",
     nil,
-    "http://www.tools.ietf.org/group/irtf/trac/wiki/tmrg",
+    "http://tools.ietf.org/group/irtf/trac/wiki/tmrg",
     [ andrew ]
   )
 
   # VNRG
-  touch = Person.new("Joe", "Touch", "touch@isi.edu", "http://www.isi.edu/touch/", nil)
+  touch = Person.new("Joe", "Touch", "touch@isi.edu", "http://isi.edu/touch/", nil)
   stiemerling = Person.new("Martin", "Stiemerling", "stiemerling@nw.neclab.eu", "http://ietf.stiemerling.org/", nil)
   vnrg = RG.new(
     "vnrg",
@@ -245,10 +246,10 @@ module IRTF
 
   # IRSG
   $eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://fit.nokia.com/lars/", "584143839")
-  falk = Person.new("Aaron", "Falk", "falk@bbn.com", "http://www.linkedin.com/in/aaronfalk", nil)
+  falk = Person.new("Aaron", "Falk", "falk@bbn.com", "http://linkedin.com/in/aaronfalk", nil)
   $atlarge = [ falk ]
   
-  # boundary pattern for filters
-  $boundary = '([ .,;:\(\)/])'
+  # lookahead pattern for filter regexps to make sure we don't replace in links or headings
+  $boundary = "(?![^<']*?(?:(?:<\/(?:a|h2|h3|span|dt)>))|')"
   
 end

@@ -10,33 +10,45 @@ class URLFilter < Nanoc3::Filter
     "eDonkey" => "http://en.wikipedia.org/wiki/EDonkey_network",
     "eMule" => "http://en.wikipedia.org/wiki/Emule",
     "Skype" => "http://en.wikipedia.org/wiki/Skype",
-    "ACM" => "http://www.acm.org/",
-    "IEEE" => "http://www.ieee.org/",
-    "SIGCOMM" => "http://www.sigcomm.org/",
-    "INFOCOM" => "http://www.ieee-infocom.org/",
-    "GLOBECOM" => "http://www.ieee-globecom.org/",
-    "NSF" => "http://www.nsf.gov/",
-    "GENI" => "http://www.geni.net/",
-    "CoNEXT" => "http://www.sigcomm.org/events/conext-conference",
-    "IAB" => "https://www.iab.org/",
-    "IESG" => "http://www.iesg.org/",
-    "IETF" => "http://www.ietf.org/",
-    "W3C" => "http://www.w3.org/",
+    "ACM" => "http://acm.org/",
+    "IEEE" => "http://ieee.org/",
+    "SIGCOMM" => "http://sigcomm.org/",
+    "INFOCOM" => "http://ieee-infocom.org/",
+    "GLOBECOM" => "http://ieee-globecom.org/",
+    "NSF" => "http://nsf.gov/",
+    "GENI" => "http://geni.net/",
+    "CoNEXT" => "http://sigcomm.org/events/conext-conference",
+    "IAB" => "https://iab.org/",
+    "IESG" => "http://iesg.org/",
+    "IETF" => "http://ietf.org/",
+    "W3C" => "http://w3.org/",
     "IRTF" => "./",
-    "ISOC" => "http://www.isoc.org/",
+    "ISOC" => "http://isoc.org/",
     "IRTF Chair" => "chair",
-    "IETF meetings?" => "http://www.ietf.org/meeting/",
+    "IETF meetings?" => "http://ietf.org/meeting/",
     "IRSG" => "irsg",
     "Research Groups" => "groups",
-#    "TCP" => "http://www.ietf.org/dyn/wg/charter/tcpm-charter",
-    "RFC Editor" => "http://www.rfc-editor.org/",
-    "ANRP" => "anrp"
+#    "TCP" => "http://ietf.org/dyn/wg/charter/tcpm-charter",
+    "RFC Editor" => "http://rfc-editor.org/",
+    "ANRP" => "anrp",
+    "ICIR" => "http://icir.org/",
+    "HIIT" => "http://hiit.fi/",
+    "LabN" => "http://labn.net/",
+    "AT&T Laboratories" => "http://research.att.com/",
+    "Juniper" => "http://juniper.net/",
+    "Cisco" => "http://cisco.com/",
+    "INRIA" => "http://inria.fr/",
+    "LBL" => "http://lbl.gov/",
+    "Aalto University" => "http://aalto.fi/",
+    "Nokia Research Center" => "http://research.nokia.com/",
+    "NEC Laboratories" => "http://neclab.eu/"
   }
 
   def run(content, params={})
     @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
-      t = Regexp.new($boundary + '(' + tag + ')' + $boundary)
-      content.gsub!(t, '\1<a href="' + @@urls[tag] + '">\2</a>\3')
+      content.gsub!(/\b(#{tag})\b#{$boundary}/) {
+        |x| link_to($1, @@urls[tag])
+      } 
     end
     return content
   end
