@@ -86,7 +86,7 @@ module IRTF
   # DTNRG
   fall = Person.new("Kevin", "Fall", nil, "http://cs.berkeley.edu/~kfall", nil)
   farrell = Person.new("Stephen", "Farrell", nil, "http://cs.tcd.ie/Stephen.Farrell/", nil)
-  ott = Person.new("J&ouml;rg", "Ott", "jo@netlab.tkk.fi", "http://netlab.tkk.fi/~jo/", nil)
+  ott = Person.new("J&ouml;rg", "Ott", "jo@netlab.tkk.fi", "http://www.netlab.tkk.fi/~jo/", nil) # www is needed
   dtnrg = RG.new(
     "dtnrg",
     "Delay-Tolerant Networking",
@@ -133,13 +133,13 @@ module IRTF
 
   # NMRG
   granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "http://inf.ufrgs.br/~granville/", nil)
-  festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "http://loria.fr/~festor/Site/Welcome.html", nil)
+  festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "http://www.loria.fr/~festor/Site/Welcome.html", nil) # www is needed
   nmrg = RG.new(
     "nmrg",
     "Network Management",
     "nmrg@irtf.org",
     nil,
-    "http://ibr.cs.tu-bs.de/projects/nmrg/",
+    "http://www.ibr.cs.tu-bs.de/projects/nmrg/", # www is needed
     [ granville, festor ]
   )
 
@@ -250,6 +250,6 @@ module IRTF
   $atlarge = [ falk ]
   
   # lookahead pattern for filter regexps to make sure we don't replace in links or headings
-  $boundary = "(?![^<']*?(?:(?:<\/(?:a|h2|h3|span|dt)>))|')"
+  $boundary = "(?![^<'\"]*?(?:(?:<\/(?:a|h2|h3|span|dt)>))|['\"])"
   
 end

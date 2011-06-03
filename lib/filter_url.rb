@@ -37,11 +37,11 @@ class URLFilter < Nanoc3::Filter
     "AT&T Laboratories" => "http://research.att.com/",
     "Juniper" => "http://juniper.net/",
     "Cisco" => "http://cisco.com/",
-    "INRIA" => "http://inria.fr/",
+    "INRIA" => "http://www.inria.fr/", # www is needed
     "LBL" => "http://lbl.gov/",
     "Aalto University" => "http://aalto.fi/",
     "Nokia Research Center" => "http://research.nokia.com/",
-    "NEC Laboratories" => "http://neclab.eu/"
+    "NEC Laboratories" => "http://www.neclab.eu/" # www is needed
   }
 
   def run(content, params={})
