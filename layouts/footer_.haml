@@ -1,18 +1,17 @@
-.gap
+.left
+  %span.facebook
+    %fb:like{ :href => "", :layout => "button_count", "show-faces" => "false", :font => "arial", :width => 90 }  
 
-.text
-  .left
-    %span.facebook
-      %fb:like{ :href => "", :layout => "button_count", "show-faces" => "false", :font => "arial", :width => 90 }  
+  %span.twitter
+    %a.twitter-share-button{ :href => "http://twitter.com/share", :"data-count" => "horizontal", :"data-via" => "inretafo", :"data-related" => "larse:IRTF Chair" } Tweet
 
-    %span.twitter
-      %a.twitter-share-button{ :href => "http://twitter.com/share", :"data-count" => "horizontal", :"data-via" => "inretafo", :"data-related" => "larse:IRTF Chair" } Tweet
-
-  .right
-    %span
-      %iframe.ipv6{ :src => @loc + "ipv6" }
-    %span
-      %a{:href => "http://validator.w3.org/check/referer"} HTML
-    %span
-      %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"} CSS
-    %span Last modified #{item.mtime.strftime("%F")}
+.right
+  %span
+    %iframe.ipv6{ :src => @loc + "ipv6" }
+  %span
+    %a{:href => "http://validator.w3.org/check/referer"} HTML
+  %span
+    %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"} CSS
+  %span
+    Last modified 
+    %time{ :datetime => "#{item.mtime.strftime('%F')}", :pubdate => true } #{item.mtime.strftime('%F')}

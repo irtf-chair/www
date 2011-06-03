@@ -6,24 +6,25 @@
   %body
     .container
       .content
-        .leftbar
+        %nav
           = render "leftbar_", :loc => "" 
         
-        .main
-          %div
-            .title
-              %h1= @item[:title]
-            .logo
-              %a{:href => "./"}
-                %img{:src => "img/irtf.png", :width => 200, :height => 143,
-                     :alt => "Internet Research Task Force (IRTF)"}
-            .clear
+        %header.logoright
+          .logo
+            %a{:href => "./"}
+              %img{:src => "img/irtf.png", :width => 200, :height => 143,
+                   :alt => "Internet Research Task Force (IRTF)"}
+          .title
+            %h1 #{@item[:title]}
     
+        %section.main
+          -# Anchor for skip navigation links
+          %a{ :name => "content" } 
           = yield
     
       .layout_footer
       
-    .footer
+    %footer
       = render "footer_", :loc => ""
 
     = render "scripts_", :loc => ""

@@ -14,6 +14,8 @@ is_hidden: true
 @import "compass/css3/transform";
 @import "compass/css3/opacity";
 @import "compass/css3/columns";
+@import "compass/utilities/general/min";
+@import "compass/utilities/general/clearfix";
 
 $fs: 16px;
 $blueprint-font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
@@ -30,10 +32,6 @@ $lt: 15%;     // lighten percentage
 
 html {
   font-size: $fs;
-}
-
-h1 {
-  letter-spacing: -1px;
 }
 
 @mixin roundborder {
@@ -80,11 +78,6 @@ h1 {
   }
 }
 
-div.clear {
-  clear: both;
-}
-
-
 a {
   @include hover-link;
   word-wrap: break-word;
@@ -103,16 +96,8 @@ div.container {
 }
 
 
-div.main {
+section.main {
   @include column(18, true);
-  
-  div.colleft {
-    @include column(12);
-  }
-
-  div.colright {
-    @include column(12, true);
-  }
   
   a.title {
     font-weight: bold;
@@ -181,32 +166,20 @@ div.main {
     margin: .75*$fs 0 .25*$fs 0;
   }
   
-  div.rightbar {
+  aside.rightbar {
     @include float-right;
     @include boxstyle;
-    width: 33%;
+    width: span-fluid(7);
     margin: 4*$fs 0 $fs $fs;
     padding-left: $fs;
     border-left: 1px solid $bc; // override color
-    clear: both;
   }
   
-  div.logo {
-    @include float-right;
-    width: 33%;
-    padding: 0 0 $fs $fs;
-  }
-  
-  div.right {
+  img.right {
     @include float-right;
     padding: 0 0 $fs $fs;
   }
   
-  div.title {
-    @include float-left;
-    width: 60%;
-  }
-    
   .quote, .term, .latin {
     font-style: italic;
   }
@@ -222,7 +195,8 @@ div.main {
 
   ul.tiled {
     @include inline-block-list;
-  
+    @include clearfix;
+    
     a {
       @include unstyled-link;
     }
@@ -266,7 +240,14 @@ div.main {
 
 }
 
-div.rgtitle {
+div.title h1 {
+  letter-spacing: -1px;
+}
+
+
+header.logoleft {
+  @include clearfix;
+
   div.logo {
     @include column(5);
     @include colborder;
@@ -283,8 +264,23 @@ div.rgtitle {
   }
 }
 
+header.logoright {
+  @include clearfix;
+  
+  div.logo {
+    @include float-right;
+    min-width: 200px; // width of logo
+    padding: 0 0 $fs $fs;
+    text-align: right;
+  }
+  
+  div.title {
+    @include float-left;
+    width: span-fluid(15);
+  }
+}
 
-div.leftbar {
+nav {
   @include column(5);
   @include colborder;
   @include boxstyle;
@@ -307,65 +303,51 @@ iframe {
   vertical-align: middle !important;
 }
 
-@include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
-div.footer {
+@include sticky-footer(2*$fs, ".container", ".layout_footer", "footer");
+footer {
   height: 2*$fs - 1;
   line-height: 2*$fs - 1px;
-  width: 90%;
   margin: auto;
-  min-width: $blueprint-liquid-container-min-width;
+  width: 90%;
   border-top: 1px solid $bc;
-
-  div.gap {
-    @include column(5);
-    @include colborder;
-    border-right: 1px none $bc; // override color
-    height: 2*$fs - 1px;
+  font-size: .75*$fs;
+  color: $alt-text-color;
+  
+  div.left {
+    @include float-left;
+    margin-left: span-fluid(6);
+    span {
+      margin-right: 0;
+      text-align: left;
+    }
   }
   
-  div.text {
-    @include column(18, true);
-    font-size: .75*$fs;
-    color: $alt-text-color;
-    
-    div.left {
-      @include float-left;
-      
-      span {
-        margin-right: 0;
-        text-align: left;
-      }
+  div.right {
+    @include float-right;
+    height: 2*$fs - 1;
+    span {
+      text-align: right;
+      margin-left: $fs/4;
     }
-    
-    div.right {
-      @include float-right;
-      height: 2*$fs - 1;
-      span {
-        text-align: right;
-        margin-left: $fs;
-      }
 
-      iframe {
-        height: 2*$fs - 1;
-        width: 150px;
-        seamless: "";
-        sandbox: "";
-      }
+    iframe {
+      height: 2*$fs - 1;
+      width: 150px;
+      seamless: "";
+      sandbox: "";
     }
   }  
 }
 
 .facebook iframe {
   width: 90px !important;
-  height: 25px !important;
-  min-height: 25px !important;
+  @include min-height(25px !important);
 }
 
 .twitter iframe {
 //  width: 110px !important;
   width: 100px !important;
-  height: 20px !important;
-  min-height: 20px !important;
+  @include min-height(20px !important);
 }
 
 
@@ -390,4 +372,19 @@ div.ribbon {
     right: -5*$fs;
     top: 2*$fs;
   }
+}
+
+#skip a, #skip a:hover, #skip a:visited { 
+  position: absolute; 
+  left: 0px; 
+  top: -500px; 
+  width: 1px; 
+  height: 1px; 
+  overflow: hidden;
+} 
+
+#skip a:active, #skip a:focus { 
+  position: static; 
+  width: auto; 
+  height: auto; 
 }

@@ -6,27 +6,29 @@
   %body
     .container
       .content 
-        .rgtitle
+        %header.logoleft
           .logo
             %a{:href => "./"}
               %img{:src => "img/irtf.png", :width => 150, :height => 107,
                    :alt => "Internet Research Task Force (IRTF)"}
           .title
             %h1 #{@item[:title]}
-          .clear
     
-        .leftbar
+        %nav
           = render "leftbar_", :loc => ""
           
-        .main
+        %section.main
+          -# Anchor for skip navigation links
+          %a{ :name => "content" } 
+
           - rg = $rgs[item.identifier.tr("/", "")]
           - if rg != nil
-            .rightbar= render "rightbar_", :loc => ""
+            %aside.rightbar= render "rightbar_", :loc => ""
           = yield
         
       .layout_footer
       
-    .footer
+    %footer
       = render "footer_", :loc => ""
 
     = render "scripts_", :loc => ""

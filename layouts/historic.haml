@@ -9,23 +9,25 @@
   %body
     .container
       .content
-        .ribbon
-          %p Concluded
-       
-        .rgtitle
+        %header.logoleft
+          .ribbon
+            %p Concluded
+
           .logo
             %a{:href => "../"}
               %img{:src => "../img/irtf.png", :width => 150, :height => 107,
                    :alt => "Internet Research Task Force (IRTF)"}
           .title.withribbon
             %h1 #{@item[:title]}
-          .clear
     
-        .leftbar
+        %nav
           = render "leftbar_", :loc => "../"
           
-        .main
-          .rightbar
+        %section.main
+          -# Anchor for skip navigation links
+          %a{ :name => "content" } 
+
+          %aside.rightbar
             .news
               %h2 Note
               %p This Research Group has concluded and is no longer active.
@@ -38,7 +40,7 @@
         
       .layout_footer
       
-    .footer
+    %footer
       = render "footer_", :loc => "../"
 
     = render "scripts_", :loc => "../"      
