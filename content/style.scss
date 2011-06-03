@@ -83,7 +83,7 @@ a {
   word-wrap: break-word;
 }
 
-div.container {
+.container {
   @include container;
   width: 90%;
   z-index: 1; // to fix IE z-index bug
@@ -304,13 +304,13 @@ iframe {
 }
 
 @include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
-div.footer {
-  height: 2*$fs - 1;
+.footer {
+  height: 2*$fs - 1px;
   line-height: 2*$fs - 1px;
   margin: auto;
   width: 90%;
   border-top: 1px solid $bc;
-  font-size: .75*$fs;
+  font-size: .65*$fs;
   color: $alt-text-color;
   
   div.left {
@@ -332,7 +332,7 @@ div.footer {
 
     iframe {
       height: 2*$fs - 1;
-      width: 150px;
+      width: 160px;
       seamless: "";
       sandbox: "";
     }
