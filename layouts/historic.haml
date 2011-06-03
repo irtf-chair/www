@@ -9,7 +9,7 @@
   %body
     .container
       .content
-        %header.logoleft
+        .logoleft
           .ribbon
             %p Concluded
 
@@ -20,14 +20,14 @@
           .title.withribbon
             %h1 #{@item[:title]}
     
-        %nav
+        .nav
           = render "leftbar_", :loc => "../"
           
-        %section.main
+        .main
           -# Anchor for skip navigation links
           %a{ :name => "content" } 
 
-          %aside.rightbar
+          .rightbar
             .news
               %h2 Note
               %p This Research Group has concluded and is no longer active.
@@ -40,7 +40,7 @@
         
       .layout_footer
       
-    %footer
+    .footer
       = render "footer_", :loc => "../"
 
     = render "scripts_", :loc => "../"      

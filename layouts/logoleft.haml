@@ -6,7 +6,7 @@
   %body
     .container
       .content 
-        %header.logoleft
+        .logoleft
           .logo
             %a{:href => "./"}
               %img{:src => "img/irtf.png", :width => 150, :height => 107,
@@ -14,21 +14,21 @@
           .title
             %h1 #{@item[:title]}
     
-        %nav
+        .nav
           = render "leftbar_", :loc => ""
           
-        %section.main
+        .main
           -# Anchor for skip navigation links
           %a{ :name => "content" } 
 
           - rg = $rgs[item.identifier.tr("/", "")]
           - if rg != nil
-            %aside.rightbar= render "rightbar_", :loc => ""
+            .rightbar= render "rightbar_", :loc => ""
           = yield
         
       .layout_footer
       
-    %footer
+    .footer
       = render "footer_", :loc => ""
 
     = render "scripts_", :loc => ""

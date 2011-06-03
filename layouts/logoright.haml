@@ -6,10 +6,10 @@
   %body
     .container
       .content
-        %nav
+        .nav
           = render "leftbar_", :loc => "" 
         
-        %header.logoright
+        .logoright
           .logo
             %a{:href => "./"}
               %img{:src => "img/irtf.png", :width => 200, :height => 143,
@@ -17,14 +17,14 @@
           .title
             %h1 #{@item[:title]}
     
-        %section.main
+        .main
           -# Anchor for skip navigation links
           %a{ :name => "content" } 
           = yield
     
       .layout_footer
       
-    %footer
+    .footer
       = render "footer_", :loc => ""
 
     = render "scripts_", :loc => ""

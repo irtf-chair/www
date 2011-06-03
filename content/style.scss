@@ -96,7 +96,7 @@ div.container {
 }
 
 
-section.main {
+div.main {
   @include column(18, true);
   
   a.title {
@@ -166,7 +166,7 @@ section.main {
     margin: .75*$fs 0 .25*$fs 0;
   }
   
-  aside.rightbar {
+  div.rightbar {
     @include float-right;
     @include boxstyle;
     width: span-fluid(7);
@@ -245,7 +245,7 @@ div.title h1 {
 }
 
 
-header.logoleft {
+div.logoleft {
   @include clearfix;
 
   div.logo {
@@ -264,7 +264,7 @@ header.logoleft {
   }
 }
 
-header.logoright {
+div.logoright {
   @include clearfix;
   
   div.logo {
@@ -280,7 +280,7 @@ header.logoright {
   }
 }
 
-nav {
+div.nav {
   @include column(5);
   @include colborder;
   @include boxstyle;
@@ -303,8 +303,8 @@ iframe {
   vertical-align: middle !important;
 }
 
-@include sticky-footer(2*$fs, ".container", ".layout_footer", "footer");
-footer {
+@include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
+div.footer {
   height: 2*$fs - 1;
   line-height: 2*$fs - 1px;
   margin: auto;
