@@ -2,41 +2,90 @@
 title: Applied Networking Research Prize
 ---
 
-.rightbar
-
-  -# .news
-  -#   %h2 Call for Nominations Open Now!
-  -#   %p
-  -#     Submit nominations for the
-  -#     %a{ :href => "anrp"} Applied Networking Research Prize
-  -#     for
-  -#     %a{ :href => "http://www.ietf.org/meeting/81/index" } IETF-81,
-  -#     July 24-29, 2011 in Quebec City, Canada until
-  -#     %span.term May 8, 2011!
-
-  .news
-    %h2 Nomination Period Ended
-    %p
-      The nomination period for the
-      %a{ :href => "anrp"} Applied Networking Research Prize
-      for
-      %a{ :href => "http://www.ietf.org/meeting/81/index" } IETF-81,
-      July 24-29, 2011 in Quebec City, Canada has ended.
-      
-      
-  = render "anrpdates_"
+-# .rightbar
+-# 
+-#   -# .news
+-#   -#   %h2 Call for Nominations Open Now!
+-#   -#   %p
+-#   -#     Submit nominations for the
+-#   -#     %a{ :href => "anrp"} Applied Networking Research Prize
+-#   -#     for
+-#   -#     %a{ :href => "http://ietf.org/meeting/81/index" } IETF-81,
+-#   -#     July 24-29, 2011 in Quebec City, Canada until
+-#   -#     %span.term May 8, 2011!
+-# 
+-#   .news
+-#     %h2 ANRP Winners Selected
+-#     %p 
+-#       %a{ :href => "http://caia.swin.edu.au/cv/mrossi/" } Mattia Rossi
+-#       and 
+-#       %a{ :href => "http://cs.arizona.edu/~bzhang/" } Beichuan Zhang
+-#       are the first two winners of the Applied Networking Research Prize (ANRP).
+-#     
+-#     -# %h2 Nomination Period Ended
+-#     -# %p
+-#     -#   The nomination period for the
+-#     -#   %a{ :href => "anrp"} Applied Networking Research Prize
+-#     -#   for IETF-81, July 24-29, 2011 in Quebec City, Canada has ended.
+-#       
+-#       
+-#   -# = render "anrpdates_"
+-#   
+-#   %h2 How to Apply
+-#   
+-#   -# %p.done
+-#   -#   Applications are submitted by email to 
+-#   -#   %a{ :href => "mailto:anrp@isoc.org"} anrp@isoc.org.
+-#   
+-#   %p No nominations are currently accepted. The next nomination period will start after IETF-81.
+-# 
   
-  %h2 How to Apply
+.news
+  %h2 Prize Winners
   
-  %p.done
-    Applications are submitted by email to 
-    %a{ :href => "mailto:anrp@isoc.org"} anrp@isoc.org.
-
+  %p
+    We are extremely pleased to report that for this very first award of the Applied Networking Research Prize (ANRP), 24 nominations were received. Each submission was reviewed by 2-4 members of the
+    %a{ :href => "#committee" } selection committee
+    according to a diverse set of criteria, including scientific excellence and substance, timeliness, relevance, and potential impact on the Internet.
   
+  %p Based on this review, two submissions were awarded an Applied Networking Research Prize:
+  
+  %dl
+    %dt
+      %a{ :href => "http://caia.swin.edu.au/cv/mrossi/" } Mattia Rossi
+      for his research into reducing BGP traffic:
+    %dd
+      Geoff Huston, Mattia Rossi and Grenville Armitage.
+      %a.title{ :href => "http://dx.doi.org/10.1109/JSAC.2010.101005" } A Technique for Reducing BGP Update Announcements through Path Exploration Damping.
+      %a.venue{ :href => "http://jsac.ucsd.edu/" } IEEE Journal on Selected Areas in Communications (JSAC),
+      Vol. 28, No. 8, pp. 1271--1286, October 2010.
+    %dt 
+      %a{ :href => "http://cs.arizona.edu/~bzhang/" } Beichuan Zhang
+      for his research into "green" traffic engineering:
+    %dd
+      Mingui Zhang, Cheng Yi, Bin Liu and Beichuan Zhang.
+      %a.title{ :href => "http://dx.doi.org/10.1109/ICNP.2010.5762751" } GreenTE: Power-Aware Traffic Engineering.
+      Proc.
+      %a.venue{ :href => "http://ieee-icnp.org/" } IEEE International Conference on Network Protocols (ICNP),
+      pp. 21--30, October 2010.
 
-%h2 Overview
+  %p Both researchers have been invited to present their findings in the IRTF Open Meeting during IETF-81, July 24-29, 2011 in Quebec City, Canada. Join them there!
+
+%h2 Future Calls for Nominations
+
+%p There will be a call for nominations this summer that will target IETF-82 in Taipei, Taiwan in November 2011. For 2012, we are considering to switch to a yearly nomination/award cycle, with a call for nominations in late 2011 that will cover all three IETF meetings planned for 2012.
+
+%p
+  Please subscribe to the
+  %a{ :href => "/mailman/listinfo/irtf-announce" } IRTF-Announce mailing list
+  in order to receive future calls for ANRP nominations and
+  %a{ :href => "http://isoc.org/join" } join ISOC
+  to stay informed of other networking research initiatives.
+
+
+%h2 About the ANRP
  
-%p The Applied Networking Research Prize (ANRP) is awarded for recent results in applied networking research that are relevant for transitioning into shipping Internet products and related standardization efforts. Researchers with relevant, recently published results are encouraged to apply for this prize, which will offer them the opportunity to present and discuss their work with the engineers, network operators, policy makers and scientists that participate in the Internet Engineering Task Force (IETF) and its research arm, the Internet Research Task Force (IRTF). Third-party nominations for this prize are also encouraged. The goal of the Applied Networking Research Prize (ANRP) is to recognize the best new ideas in networking, and bring them to the IETF and IRTF especially in cases where they would not otherwise see much exposure or discussion.
+%p The Applied Networking Research Prize (ANRP) is awarded for recent results in applied networking research that are relevant for transitioning into shipping Internet products and related standardization efforts. Researchers with relevant, recently published results are encouraged to apply for this prize, which will offer them the opportunity to present and discuss their work with the engineers, network operators, policy makers and scientists that participate in the Internet Engineering Task Force (IETF) and its research arm, the Internet Research Task Force (IRTF). Third-party nominations for this prize are also encouraged. The goal of the Applied Networking Research Prize is to recognize the best new ideas in networking, and bring them to the IETF and IRTF especially in cases where they would not otherwise see much exposure or discussion.
  
 %p The Applied Networking Research Prize (ANRP) consists of:
 %ul
@@ -60,8 +109,8 @@ title: Applied Networking Research Prize
     %span.term additional travel grants
     to future IETF meetings, based on community feedback
 
-%p The Applied Networking Research Prize (ANRP) will be awarded three times per year, in conjunction with the three annual IETF meetings.
- 
+%p The Applied Networking Research Prize will be awarded three times per year, in conjunction with the three annual IETF meetings.
+
  
 %h2 How to Apply
  
@@ -105,9 +154,9 @@ title: Applied Networking Research Prize
     CV of the nominee
   %li optionally, any other supporting information (link to nominee's web site, etc.)
   
-%p.done
-  Applications are submitted by email to 
-  %a{ :href => "mailto:anrp@isoc.org"} anrp@isoc.org.
+-# %p.done
+-#   Applications are submitted by email to 
+-#   %a{ :href => "mailto:anrp@isoc.org"} anrp@isoc.org.
 
 %p
   Nominations for the Applied Networking Research Prize (ANRP) are
@@ -115,14 +164,31 @@ title: Applied Networking Research Prize
   considered to be contributions to the IETF. However, the invited talks at the IRTF Open Meeting
   %span.term are
   considered to be contributions to the IETF, and the
-  %a{ :href => "http://www.ietf.org/about/note-well.html"} IETF "Note Well"
+  %a{ :href => "http://ietf.org/about/note-well.html"} IETF "Note Well"
   does apply to them. 
  
 %h2 Selection Process
+%a{ :name => "committee" } 
  
 %p A small selection committee comprised of individuals knowledgeable about the IRTF, IETF and the broader networking research community will evaluate the submissions against these selection criteria. The goal is to select 1-2 submissions for the Applied Networking Research Prize (ANRP) during each application period. All applicants will be notified by email.
 
-= render "anrpdates_"
+%p These individuals currently serve on the ANRP selection committee:
+%ul.twocol 
+  %li Mark Allman, ICIR
+  %li Lou Berger, LabN
+  %li Ross Callon, Juniper
+  %li Lars Eggert, Nokia Research Center
+  %li Olivier Festor, INRIA
+  %li Mat Ford, ISOC
+  %li Andrei Gurtov, HIIT
+  %li Al Morton, AT&T Laboratories
+  %li Bruce Nordman, LBL
+  %li Jörg Ott, Aalto University
+  %li Stefano Previdi, Cisco
+  %li Martin Stiemerling, NEC Laboratories
+
+
+-# = render "anrpdates_"
 
  
 %h2 Sponsors

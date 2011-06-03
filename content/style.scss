@@ -13,6 +13,7 @@ is_hidden: true
 @import "compass/css3/text-shadow";
 @import "compass/css3/transform";
 @import "compass/css3/opacity";
+@import "compass/css3/columns";
 
 $fs: 16px;
 $blueprint-font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
@@ -22,8 +23,8 @@ $blueprint-liquid-container-min-width: 800px;
 @import "blueprint/liquid";
 @import "blueprint/fancy-type";
 
-//$bc: $feedback-border-color;
 $bc: #fccf34; // the yellow used in the IRTF logo
+$lt: 15%;     // lighten percentage
 
 @include blueprint-typography;
 
@@ -35,14 +36,18 @@ h1 {
   letter-spacing: -1px;
 }
 
-@mixin tile {
+@mixin roundborder {
     @include border-radius(2*$fs);
+    padding: .5*$fs;
+}
+
+@mixin tile {
+    @include roundborder;
     @include inline-block;
     text-align: center;
     width: 8*$fs;
     height: 8*$fs;
-    margin: 5px; // 5px is box-shadow default
-    padding: .5*$fs;
+    margin: 3px; // 3px is box-shadow default
 }
 
 @mixin boxstyle {
@@ -75,25 +80,47 @@ h1 {
   }
 }
 
+div.clear {
+  clear: both;
+}
+
+
 a {
   @include hover-link;
   word-wrap: break-word;
 }
 
-.container {
+div.container {
   @include container;
   width: 90%;
   z-index: 1; // to fix IE z-index bug
 
-  .content {
+  div.content {
     z-index: 1; // to fix IE z-index bug
     @include column(24, true);
     padding: 2*$fs 0 4*$fs 0;
   }
 }
 
-.main {
+
+div.main {
   @include column(18, true);
+  
+  div.colleft {
+    @include column(12);
+  }
+
+  div.colright {
+    @include column(12, true);
+  }
+  
+  a.title {
+    font-weight: bold;
+  }
+  
+  a.venue {
+    font-style: italic;
+  }
    
   h2 {
     margin: 1.5*$fs 0 .5*$fs 0;
@@ -135,10 +162,15 @@ a {
 
   ul {
     list-style-type: square;
+    list-style-position: outside;
   }
 
   li {
     margin: 0 0 .5*$fs 0;
+  }
+
+  .twocol {
+    @include column-count(2);
   }
 
   li ul, li ol {
@@ -149,71 +181,110 @@ a {
     margin: .75*$fs 0 .25*$fs 0;
   }
   
-  .rightbar {
+  div.rightbar {
     @include float-right;
     @include boxstyle;
     width: 33%;
-    margin: 4*$fs 5px $fs $fs; // 5px is box-shadow width
+    margin: 4*$fs 0 $fs $fs;
     padding-left: $fs;
     border-left: 1px solid $bc; // override color
     clear: both;
   }
   
-  .logo {
+  div.logo {
     @include float-right;
     width: 33%;
     padding: 0 0 $fs $fs;
   }
   
-  .right {
+  div.right {
     @include float-right;
     padding: 0 0 $fs $fs;
   }
   
-  .title {
+  div.title {
     @include float-left;
     width: 60%;
   }
-  
-  .clear {
-    clear: both;
-  }
-  
+    
   .quote, .term, .latin {
     font-style: italic;
   }
   
-  .news {
+  div.news {
     @include border-radius(2*$fs);
     @include box-shadow();
     padding: $fs;
-    background-color: $bc;
+    margin: 2*$fs 3px 2*$fs 3px;
+    border: 1px solid $bc;
+    background-color: lighten($bc, $lt);
   }  
+
+  ul.tiled {
+    @include inline-block-list;
+  
+    a {
+      @include unstyled-link;
+    }
+  
+    li {
+      white-space: normal;
+    }
+   
+    .tile {
+      @include tile;
+      border: 1px solid $bc;
+      &:hover {
+        background-color: lighten($bc, $lt);
+        @include box-shadow();
+      }    
+    }
+    
+    .oldtile {
+      @include tile;
+      border: 1px solid #ccc;
+      &:hover {
+        background-color: #ccc;
+        @include box-shadow();
+      }    
+    }
+    
+    .acronym {
+      @include caps;
+      line-height: 1.25*$fs;
+      margin: .25*$fs;
+      display: block;
+    }
+  
+    .name {
+      margin: .25*$fs;
+      line-height: $fs;
+      font-style: italic;
+    }
+  }
+
+
 }
 
-.rgtitle {
-  .logo {
+div.rgtitle {
+  div.logo {
     @include column(5);
     @include colborder;
     border-right: 1px none $bc; // override color
     text-align: right;
   }
   
-  .title {
+  div.title {
     @include column(18, last);
   }
 
-  .title.withribbon {
+  div.title.withribbon {
     @include column(15, last);
-  }
-
-  .clear {
-    clear: both;
   }
 }
 
 
-.leftbar {
+div.leftbar {
   @include column(5);
   @include colborder;
   @include boxstyle;
@@ -227,49 +298,6 @@ a {
   }
 }
 
-ul.tiled {
-  @include inline-block-list;
-
-  a {
-    @include unstyled-link;
-  }
-
-  li {
-    white-space: normal;
-  }
- 
-  .tile {
-    @include tile;
-    border: 1px solid $bc;
-    &:hover {
-      background-color: $bc;
-      @include box-shadow();
-    }    
-  }
-  
-  .oldtile {
-    @include tile;
-    border: 1px solid #ccc;
-    &:hover {
-      background-color: #ccc;
-      @include box-shadow();
-    }    
-  }
-  
-  .acronym {
-    @include caps;
-    line-height: 1.25*$fs;
-    margin: .25*$fs;
-    display: block;
-  }
-
-  .name {
-    margin: .25*$fs;
-    line-height: $fs;
-    font-style: italic;
-  }
-}
-
 // hack
 .twitter-share-button {
   margin-top: -5px;
@@ -280,7 +308,7 @@ iframe {
 }
 
 @include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
-.footer {
+div.footer {
   height: 2*$fs - 1;
   line-height: 2*$fs - 1px;
   width: 90%;
@@ -288,19 +316,19 @@ iframe {
   min-width: $blueprint-liquid-container-min-width;
   border-top: 1px solid $bc;
 
-  .gap {
+  div.gap {
     @include column(5);
     @include colborder;
     border-right: 1px none $bc; // override color
     height: 2*$fs - 1px;
   }
   
-  .text {
+  div.text {
     @include column(18, true);
     font-size: .75*$fs;
     color: $alt-text-color;
     
-    .left {
+    div.left {
       @include float-left;
       
       span {
@@ -309,7 +337,7 @@ iframe {
       }
     }
     
-    .right {
+    div.right {
       @include float-right;
       height: 2*$fs - 1;
       span {
@@ -319,7 +347,7 @@ iframe {
 
       iframe {
         height: 2*$fs - 1;
-	width: 150px;
+        width: 150px;
         seamless: "";
         sandbox: "";
       }
@@ -341,7 +369,7 @@ iframe {
 }
 
 
-.ribbon {
+div.ribbon {
   overflow: hidden;
   /* top left corner */
   position: absolute;
@@ -352,7 +380,7 @@ iframe {
   
   p {
     z-index: -1; // move it behind everything else
-    background-color: $bc;
+    background-color: lighten($bc, $lt);
     font-size: 2*$fs;
     padding: $fs 5*$fs $fs 5*$fs;
     text-align: center;
