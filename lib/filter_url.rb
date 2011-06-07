@@ -13,7 +13,7 @@ class URLFilter < Nanoc3::Filter
     "ACM" => "http://acm.org/",
     "IEEE" => "http://ieee.org/",
     "SIGCOMM" => "http://sigcomm.org/",
-    "INFOCOM" => "http://ieee-infocom.org/",
+    "Infocom" => "http://ieee-infocom.org/",
     "GLOBECOM" => "http://ieee-globecom.org/",
     "NSF" => "http://nsf.gov/",
     "GENI" => "http://geni.net/",
@@ -39,9 +39,13 @@ class URLFilter < Nanoc3::Filter
     "Cisco" => "http://cisco.com/",
     "INRIA" => "http://www.inria.fr/", # www is needed
     "LBL" => "http://lbl.gov/",
+    "USC" => "http://usc.edu/",
+    "ISI" => "http://isi.edu/",
+    "Nokia" => "http://nokia.com/",
     "Aalto University" => "http://aalto.fi/",
     "Nokia Research Center" => "http://research.nokia.com/",
-    "NEC Laboratories" => "http://www.neclab.eu/" # www is needed
+    "NEC Laboratories" => "http://www.neclab.eu/", # www is needed
+    "NEC" => "http://www.neclab.eu/" # www is needed
   }
 
   def run(content, params={})
