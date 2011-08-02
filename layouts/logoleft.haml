@@ -1,7 +1,10 @@
+- id = item.identifier[1..-2]
+- title = (@item[:title] ? @item[:title] : $rgs[item.identifier.tr("/", "")].name + " (" + $rgs[item.identifier.tr("/", "")].acronym + ")")
+
 -# encoding: utf-8
 !!! 5
 %html{ :lang => "en" }
-  = render "head_", :loc => ""
+  = render "head_", :concluded => false, :loc => ""
 
   %body
     .container
@@ -12,7 +15,7 @@
               %img{:src => "img/irtf.png", :width => 150, :height => 107,
                    :alt => "Internet Research Task Force (IRTF)"}
           .title
-            %h1 #{@item[:title]}
+            %h1 #{title}
     
         .nav
           = render "leftbar_", :loc => ""
