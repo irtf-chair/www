@@ -49,11 +49,12 @@ class URLFilter < Nanoc3::Filter
   }
 
   def run(content, params={})
+    c = content.dup
     @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
-      content.gsub!(/\b(#{tag})\b#{$boundary}/) {
+      c.gsub!(/\b(#{tag})\b#{$boundary}/) {
         |x| link_to($1, @@urls[tag])
       } 
     end
-    return content
+    return c
   end
 end

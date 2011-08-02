@@ -57,15 +57,13 @@ class WGFilter < Nanoc3::Filter
   ]
   
   def run(content, params={})
-  
-    content.gsub!(/\b(#{@@active.join('|').upcase})\b#{$boundary}/) {
+    c = content.dup
+    c.gsub!(/\b(#{@@active.join('|').upcase})\b#{$boundary}/) {
       |wg| link_to($1, "http://ietf.org/dyn/wg/charter/#{$1.downcase}-charter")
     }
-    
-    content.gsub!(/\b(#{@@concluded.join('|').upcase})\b#{$boundary}/) {
+    c.gsub!(/\b(#{@@concluded.join('|').upcase})\b#{$boundary}/) {
       |wg| link_to($1, "http://ietf.org/wg/concluded/#{$1.downcase}")
     }
-
-    return content
+    return c
   end
 end

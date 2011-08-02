@@ -5,14 +5,13 @@ class RGFilter < Nanoc3::Filter
   type :text
 
   def run(content, params={})
-    content.gsub!(/\b(#{$rgs.keys.join('|').upcase})\b#{$boundary}/) {
+    c = content.dup
+    c.gsub!(/\b(#{$rgs.keys.join('|').upcase})\b#{$boundary}/) {
       |rg| link_to($1, "/#{$1.downcase}")
     }
-
-    content.gsub!(/\b(#{$oldrgs.keys.join('|').upcase})\b#{$boundary}/) {
+    c.gsub!(/\b(#{$oldrgs.keys.join('|').upcase})\b#{$boundary}/) {
       |rg| link_to($1, "/concluded/#{$1.downcase}")
     }
-    
-    return content
+    return c
   end
 end
