@@ -74,7 +74,7 @@ html {
   }
   
   p, li {
-    margin: 0 0 .5*$fs 0;
+    margin: .25*$fs 0 .25*$fs 0;
   }
 }
 
@@ -118,7 +118,11 @@ div.main {
   }
   
   p, dl, th, td, table, ol {
-    margin: 0 0 .75*$fs 0;
+    margin: .5*$fs 0 .5*$fs 0;
+    font-weight: normal;
+  }
+
+  dl.papers dt {
     font-weight: normal;
   }
 
@@ -135,7 +139,7 @@ div.main {
   }
 
   th, td {
-    padding: 0 .5*$fs .5*$fs 0;
+    padding: 0 .25*$fs .25*$fs 0;
     vertical-align: top;
     margin: 0;
   }
@@ -151,15 +155,11 @@ div.main {
   }
 
   li {
-    margin: 0 0 .5*$fs 0;
+    margin: .25*$fs 0 .25*$fs 0;
   }
 
   .twocol {
     @include column-count(2);
-  }
-
-  li ul, li ol {
-    margin-top: .5*$fs;
   }
 
   dt {
