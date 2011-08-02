@@ -122,13 +122,14 @@ module IRTF
 
   # MOBOPTS
   koodli = Person.new("Rajeev", "Koodli", "rkoodli@cisco.com", "http://linkedin.com/in/rajeevkoodli", nil)
+  krishnan = Person.new("Suresh", "Krishnan", "suresh.krishnan@ericsson.com", nil, nil)
   mobopts = RG.new(
     "mobopts",
     "IP Mobility Optimizations",
     "mobopts@irtf.org",
     nil,
     nil,
-    [ koodli ]
+    [ koodli, krishnan ]
   )
 
   # NMRG
