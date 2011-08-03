@@ -45,7 +45,10 @@ class URLFilter < Nanoc3::Filter
     "Aalto University" => "http://aalto.fi/",
     "Nokia Research Center" => "http://research.nokia.com/",
     "NEC Laboratories" => "http://www.neclab.eu/", # www is needed
-    "NEC" => "http://www.neclab.eu/" # www is needed
+    "NEC" => "http://www.neclab.eu/", # www is needed,
+    "UC3M" => "http://uc3m.es/",
+    "Yale" => "http://yale.edu/",
+    "University of Glasgow" => "http://gla.ac.uk/"
   }
 
   def run(content, params={})
