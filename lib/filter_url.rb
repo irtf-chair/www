@@ -52,6 +52,7 @@ class URLFilter < Nanoc3::Filter
     "UCLA" => "http://ucla.edu/",
     "Colorado State" => "http://colostate.edu/",
     "UCL Louvain" => "http://uclouvain.be/",
+    "DARPA" => "http://www.darpa.mil/",
     "Jacobs University Bremen" => "http://www.jacobs-university.de/" # www is needed
   }
 
