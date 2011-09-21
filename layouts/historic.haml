@@ -17,7 +17,7 @@
           .title.withribbon
             %h1 #{@item[:title]}
     
-        .nav
+        .nav.noprint
           = render "leftbar_", :loc => "../"
           
         .main
@@ -37,7 +37,7 @@
         
       .layout_footer
       
-    .footer
+    .footer.noprint
       = render "footer_", :loc => "../"
 
     = render "scripts_", :loc => "../"      

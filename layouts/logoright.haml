@@ -6,7 +6,7 @@
   %body
     .container
       .content
-        .nav
+        .nav.noprint
           = render "leftbar_", :loc => "" 
         
         .logoright
@@ -24,7 +24,7 @@
     
       .layout_footer
       
-    .footer
+    .footer.noprint
       = render "footer_", :loc => ""
 
     = render "scripts_", :loc => ""

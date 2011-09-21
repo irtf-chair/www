@@ -388,3 +388,20 @@ div.ribbon {
   width: auto; 
   height: auto; 
 }
+
+// // optimized for the ANRP page
+// @media print {
+//   div.nav, div.rightbar, div.footer {
+//     display: none !important;
+//   }
+// 
+//   html {
+//     font-size: 14px;
+//   }
+// 
+//   body {
+//     line-height: 18px;
+//   }
+//   
+//   
+// }
