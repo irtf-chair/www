@@ -26,11 +26,9 @@ compile '/ie/' do
 end
 
 compile '/img/*' do
-  # just copy
 end
 
 compile '/concluded/charter/' do
-  # just copy
 end
 
 compile '/concluded/*/' do
@@ -46,15 +44,24 @@ compile '/concluded/*/' do
 end
 
 compile '/htaccess/' do
-  # just copy
+end
+
+compile '/jquery-1.6.4.min/' do
+end
+
+compile '/socialshareprivacy/' do
+end
+
+compile '/socialshareprivacy/*' do
+  if @item[:extension] == 'css'
+    filter :yuicompressor
+  end
 end
 
 compile '/charter/' do
-  # just copy
 end
 
 compile '/ipv6/' do
-  # just copy
   filter :htmlcompressor
 end
 
@@ -65,7 +72,6 @@ compile '/sitemap/' do
 end
 
 compile '/googlebe5e4a6e98fa7e99/' do
-  # just copy
 end
 
 compile '*' do
@@ -105,6 +111,18 @@ end
 
 route '/concluded/*/' do
   item.identifier.chop + '.html'
+end
+
+route '/jquery-1.6.4.min/' do
+  '/jquery-1.6.4.min.js'
+end
+
+route '/socialshareprivacy/' do
+  '/socialshareprivacy.js'
+end
+
+route '/socialshareprivacy/*' do
+  item.identifier.chop + '.' + @item[:extension]
 end
 
 route '/htaccess/' do

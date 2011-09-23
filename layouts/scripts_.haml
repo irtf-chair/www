@@ -1,8 +1,41 @@
--# Facebook
-%script{ :src => "http://connect.facebook.net/en_US/all.js#xfbml=1" }
+-# Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline
+%script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" }
+:javascript
+  window.jQuery || document.write('<script src="jquery-1.6.4.min.js"><\/script>')
 
--# Twitter
-%script{ :src => "http://platform.twitter.com/widgets.js" }          
+%script{ :src => "socialshareprivacy.js" }          
+:javascript
+  jQuery(document).ready(function($) {
+    if($('.socialshareprivacy').length > 0) {
+      $('.socialshareprivacy').socialSharePrivacy({
+        services : {
+          facebook : {
+            'app_id'      : '194983820572921',
+            'dummy_img'   : 'socialshareprivacy/images/dummy_facebook_en.png',
+            'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Facebook button. Enabling the button alone already transmits personal information to third parties.',
+            'txt_fb_off'  : 'Facebook link active',
+            'txt_fb_on'   : 'Facebook link inactive',
+            'language'    : 'en_US',
+            'action'      : 'recommend'            
+          }, 
+          twitter : {
+            'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Twitter button. Enabling the button alone already transmits personal information to third parties.',
+            'txt_fb_off'  : 'Twitter link active',
+            'txt_fb_on'   : 'Twitter link inactive',
+            'language'    : 'en'
+          },
+          gplus : {
+            'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Google+ button. Enabling the button alone already transmits personal information to third parties.',
+            'txt_fb_off'  : 'Google+ link active',
+            'txt_fb_on'   : 'Google+ link inactive',
+            'language'    : 'en'
+          }
+        },
+        'settings_perma'  : 'Permanently enable buttons and share information:',
+        'txt_help'        : 'If you enable these buttons, information will be shared with Facebook, Twitter or Google in the US and may be stored there. Click the <em>i</em> for more information.'
+      });
+    }
+  });
 
 -# Google Analytics
 -# Asynchronous google analytics: mathiasbynens.be/notes/async-analytics-snippet

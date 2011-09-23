@@ -294,15 +294,6 @@ div.nav {
   }
 }
 
-// hack
-.twitter-share-button {
-  margin-top: -5px;
-}
-
-iframe {
-  vertical-align: middle !important;
-}
-
 @include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
 .footer {
   height: 2*$fs - 1px;
@@ -315,7 +306,7 @@ iframe {
   
   div.left {
     @include float-left;
-    margin-left: span-fluid(6);
+//    margin-left: span-fluid(6);
     span {
       margin-right: 0;
       text-align: left;
@@ -331,6 +322,7 @@ iframe {
     }
 
     iframe {
+      vertical-align: middle;
       height: 2*$fs - 1;
       width: 160px;
       seamless: "";
@@ -339,15 +331,15 @@ iframe {
   }  
 }
 
-.facebook iframe {
-  width: 90px !important;
-  @include min-height(25px !important);
-}
+.socialshareprivacy .social_share_privacy_area {
+	// overrides to style the stuff correctly in the footer
+	height: 2*$fs - 1 !important;
+	margin: 8px 0 0 0 !important;
 
-.twitter iframe {
-//  width: 110px !important;
-  width: 100px !important;
-  @include min-height(20px !important);
+	li.settings_info .settings_info_menu.on {
+		top: auto;
+		bottom: 0;
+	}	
 }
 
 
