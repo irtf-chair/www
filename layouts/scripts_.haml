@@ -1,7 +1,7 @@
 -# Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline
 %script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" }
 :javascript
-  window.jQuery || document.write('<script src="#{loc}jquery-1.6.4.min.js"><\/script>')
+  window.jQuery || document.write('<script src="#{@loc}jquery-1.6.4.min.js"><\/script>')
 
 %script{ :src => @loc + "socialshareprivacy.js" }          
 :javascript
@@ -19,12 +19,14 @@
             'action'      : 'recommend'            
           }, 
           twitter : {
+            'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_twitter.png'}',
             'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Twitter button. Enabling the button alone already transmits personal information to third parties.',
             'txt_fb_off'  : 'Twitter link active',
             'txt_fb_on'   : 'Twitter link inactive',
             'language'    : 'en'
           },
           gplus : {
+            'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_gplus.png'}',
             'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Google+ button. Enabling the button alone already transmits personal information to third parties.',
             'txt_fb_off'  : 'Google+ link active',
             'txt_fb_on'   : 'Google+ link inactive',
@@ -32,7 +34,8 @@
           }
         },
         'settings_perma'  : 'Permanently enable buttons and share information:',
-        'txt_help'        : 'If you enable these buttons, information will be shared with Facebook, Twitter or Google in the US and may be stored there. Click the <em>i</em> for more information.'
+        'txt_help'        : 'If you enable these buttons, information will be shared with Facebook, Twitter or Google in the US and may be stored there. Click the <em>i</em> for more information.',
+        'css_path'        : '#{@loc + 'socialshareprivacy/socialshareprivacy.css'}'
       });
     }
   });
