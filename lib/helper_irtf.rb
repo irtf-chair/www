@@ -180,17 +180,6 @@ module IRTF
     [ buford, schmidt ]
   )
 
-  # TMRG
-  andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "http://caia.swin.edu.au/cv/landrew/", nil)
-  tmrg = RG.new(
-    "tmrg",
-    "Transport Modeling",
-    "tmrg@irtf.org",
-    nil,
-    "http://tools.ietf.org/group/irtf/trac/wiki/tmrg",
-    [ andrew ]
-  )
-
   # VNRG
   touch = Person.new("Joe", "Touch", "touch@isi.edu", "http://isi.edu/touch/", nil)
   stiemerling = Person.new("Martin", "Stiemerling", "stiemerling@nw.neclab.eu", "http://ietf.stiemerling.org/", nil)
@@ -215,7 +204,6 @@ module IRTF
     "p2prg"   => p2prg,
     "rrg"     => rrg,
     "samrg"   => samrg,
-    "tmrg"    => tmrg,
     "vnrg"    => vnrg
   }
   
@@ -236,7 +224,8 @@ module IRTF
     "psrg"    => "Privacy and Security",
     "rmrg"    => "Reliable Multicast",
     "siren"   => "Searchable Internet Resource Names",
-    "smrg"    => "Services Management"
+    "smrg"    => "Services Management",
+    "tmrg"    => "Transport Modeling"
   }
   $oldrgs.keys.each do |n|
     $oldrgs[n] += " Research Group"
