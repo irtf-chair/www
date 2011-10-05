@@ -33,7 +33,7 @@ end
 
 compile '/concluded/*/' do
   filter :rfc
-  filter :haml
+  filter :haml, :format => :html5
   filter :wg
   filter :rg
   filter :meeting
@@ -76,7 +76,7 @@ end
 
 compile '*' do
   filter :rfc
-  filter :haml
+  filter :haml, :format => :html5
   filter :wg
   filter :rg
   filter :meeting

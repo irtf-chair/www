@@ -132,6 +132,18 @@ module IRTF
     [ koodli, krishnan ]
   )
 
+  # NCRG
+  behringer = Person.new("Michael", "Behringer", "mbehring@cisco.com", "http://linkedin.com/in/mbehringer", nil)
+  huston = Person.new("Geoff", "Huston", "gih@apnic.net", "http://potaroo.net/", nil)
+  ncrg = RG.new(
+    "ncrg",
+    "Network Complexity",
+    "ncrg@irtf.org",
+    nil,
+    "http://networkcomplexity.org/",
+    [ behringer, huston ]
+  )
+
   # NMRG
   granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "http://inf.ufrgs.br/~granville/", nil)
   festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "http://www.loria.fr/~festor/Site/Welcome.html", nil) # www is needed
@@ -200,6 +212,7 @@ module IRTF
     "hiprg"   => hiprg,
     "iccrg"   => iccrg,
     "mobopts" => mobopts,
+    "ncrg"    => ncrg,
     "nmrg"    => nmrg,
     "p2prg"   => p2prg,
     "rrg"     => rrg,
@@ -238,7 +251,7 @@ module IRTF
   $eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://fit.nokia.com/lars/", "584143839")
   falk = Person.new("Aaron", "Falk", "falk@bbn.com", "http://linkedin.com/in/aaronfalk", nil)
   allman = Person.new("Mark", "Allman", "mallman@icir.org", "http://www.icir.org/mallman/", nil)
-  dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://www.linkedin.com/in/spencerdawkins", nil)
+  dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://linkedin.com/in/spencerdawkins", nil)
   $atlarge = [ falk, allman, dawkins ]
   
   # lookahead pattern for filter regexps to make sure we don't replace in links or headings
