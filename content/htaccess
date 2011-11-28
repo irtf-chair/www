@@ -160,6 +160,16 @@ Options -Indexes
   RewriteRule "(^|/)\." - [F]
 </IfModule>
 
+# ----------------------------------------------------------------------
+# IPv6 thank-you
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteCond %{REMOTE_ADDR} "\."
+  RewriteRule ipv6.json$ ipv6-no.json [L]
+
+  RewriteCond %{REMOTE_ADDR} !"\."
+  RewriteRule ipv6.json$ ipv6-yes.json [L]
+</IfModule>
 
 
 RedirectMatch permanent ^/irtf/$                                /

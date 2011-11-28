@@ -28,6 +28,12 @@ end
 compile '/img/*' do
 end
 
+compile '/ipv6-no/' do
+end
+
+compile '/ipv6-yes/' do
+end
+
 compile '/concluded/charter/' do
 end
 
@@ -46,7 +52,7 @@ end
 compile '/htaccess/' do
 end
 
-compile '/jquery-1.6.4.min/' do
+compile '/jquery-1.7.1.min/' do
 end
 
 compile '/socialshareprivacy/' do
@@ -59,10 +65,6 @@ compile '/socialshareprivacy/*' do
 end
 
 compile '/charter/' do
-end
-
-compile '/ipv6/' do
-  filter :htmlcompressor
 end
 
 compile '/sitemap/' do
@@ -105,6 +107,14 @@ route '/img/*' do
   item.identifier.chop + '.' + @item[:extension]
 end
 
+route '/ipv6-no/' do
+  '/ipv6-no.json'
+end
+
+route '/ipv6-yes/' do
+  '/ipv6-yes.json'
+end
+
 route '/concluded/charter/' do
   '/concluded/charter.php'
 end
@@ -113,8 +123,8 @@ route '/concluded/*/' do
   item.identifier.chop + '.html'
 end
 
-route '/jquery-1.6.4.min/' do
-  '/jquery-1.6.4.min.js'
+route '/jquery-1.7.1.min/' do
+  '/jquery-1.7.1.min.js'
 end
 
 route '/socialshareprivacy/' do
@@ -131,10 +141,6 @@ end
 
 route '/charter/' do
   '/charter.php'
-end
-
-route '/ipv6/' do
-  '/ipv6.php'
 end
 
 route 'sitemap' do

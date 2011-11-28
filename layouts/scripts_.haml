@@ -1,7 +1,12 @@
 -# Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline
-%script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js" }
+%script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" }
 :javascript
-  window.jQuery || document.write('<script src="#{@loc}jquery-1.6.4.min.js"><\/script>')
+  window.jQuery || document.write('<script src="#{@loc}jquery-1.7.1.min.js"><\/script>')
+  $.getJSON("ipv6.json", function(data) {
+    if (data.ipv6) {
+      $("#ipv6").append("Thank you for using IPv6.");
+    }
+  });
 
 %script{ :src => @loc + "socialshareprivacy.js" }          
 :javascript
