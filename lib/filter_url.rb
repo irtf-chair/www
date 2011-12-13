@@ -43,6 +43,7 @@ class URLFilter < Nanoc3::Filter
     "ISI" => "http://isi.edu/",
     "Nokia" => "http://nokia.com/",
     "Aalto University" => "http://aalto.fi/",
+    "NetApp" => "http://www.netapp.com/us/",
     "Nokia Research Center" => "http://research.nokia.com/",
     "NEC Laboratories" => "http://www.neclab.eu/", # www is needed
     "NEC" => "http://www.neclab.eu/", # www is needed

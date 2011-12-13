@@ -74,13 +74,14 @@ module IRTF
   # CFRG
   # canetti = Person.new("Ran", "Canetti", "canetti@watson.ibm.com")
   mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "http://mindspring.com/~dmcgrew/dam.htm", nil)
+  igoe = Person.new("Kevin", "Igoe", "kmigoe@nsa.gov", nil, nil)
   cfrg = RG.new(
     "cfrg",
     "Crypto Forum",
     "cfrg@irtf.org",
     nil,
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
-    [ mcgrew ]
+    [ mcgrew, igoe ]
   )
 
   # DTNRG
@@ -248,7 +249,7 @@ module IRTF
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
 
   # IRSG
-  $eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://fit.nokia.com/lars/", "584143839")
+  $eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://eggert.org/", "584143839")
   falk = Person.new("Aaron", "Falk", "falk@bbn.com", "http://linkedin.com/in/aaronfalk", nil)
   allman = Person.new("Mark", "Allman", "mallman@icir.org", "http://www.icir.org/mallman/", nil)
   dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://linkedin.com/in/spencerdawkins", nil)
