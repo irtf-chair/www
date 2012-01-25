@@ -153,7 +153,7 @@ module IRTF
     "Network Management",
     "nmrg@irtf.org",
     nil,
-    "http://www.ibr.cs.tu-bs.de/projects/nmrg/", # www is needed
+    "http://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
     [ granville, festor ]
   )
 
