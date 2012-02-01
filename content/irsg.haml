@@ -7,7 +7,7 @@ title: Internet Research Steering Group (IRSG)
   %h2 Chair
   %p
     The IRSG is chaired by the IRTF Chair,
-    %a{ :href => @site.config[:pers_page] } Lars Eggert
+    %a{ :href => $chair.web } Lars Eggert
     = "(" + link_to("irtf-chair@irtf.org", "mailto:irtf-chair@irtf.org") + ")."
 
     
@@ -32,7 +32,7 @@ title: Internet Research Steering Group (IRSG)
 
 %p The current IRSG membership includes:
 %ul
-  %li= $eggert.hamlify + ", IRTF Chair"
+  %li= $chair.hamlify + ", IRTF Chair"
 
   - $atlarge.sort.each do |p| 
     %li= p.hamlify + ", At-Large Member"

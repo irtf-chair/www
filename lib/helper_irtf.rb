@@ -249,7 +249,8 @@ module IRTF
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
 
   # IRSG
-  $eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://eggert.org/", "584143839")
+  eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://eggert.org/", "584143839")
+  $chair = eggert
   falk = Person.new("Aaron", "Falk", "falk@bbn.com", "http://linkedin.com/in/aaronfalk", nil)
   allman = Person.new("Mark", "Allman", "mallman@icir.org", "http://www.icir.org/mallman/", nil)
   dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://linkedin.com/in/spencerdawkins", nil)
