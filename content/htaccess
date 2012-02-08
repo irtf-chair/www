@@ -174,7 +174,7 @@ Options -Indexes
 
 # Redirects for concluded RGs
 
-RedirectMatch permanent ^/(vn|tm)rg$  /concluded/$1
+RedirectMatch permanent ^/(vn|tm)rg$  /concluded/$1rg
 
 
 # Other redirects
