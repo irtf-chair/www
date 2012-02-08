@@ -1,3 +1,5 @@
+- rg = $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")]
+
 -# encoding: utf-8
 !!! 5
 %html{ :lang => "en" }
@@ -15,7 +17,7 @@
               %img{:src => "../img/irtf.png", :width => 150, :height => 107,
                    :alt => "Internet Research Task Force (IRTF)"}
           .title.withribbon
-            %h1 #{@item[:title]}
+            %h1 #{@item[:title] ? @item[:title] : rg.name + " (" + rg.acronym + ")"}
     
         .nav.noprint
           = render "leftbar_", :loc => "../"
@@ -33,7 +35,21 @@
                 For inquiries about this former Research Group, please email
                 = link_to("irtf-discuss@irtf.org", "../mailman/listinfo/irtf-discuss") + "."
 
+              - if rg.respond_to?("name")
+                - if rg.chartered || rg.concluded then
+                  %h2 Timeline
+                - if rg.chartered && rg.concluded then
+                  %p The #{rg.acronym} was chartered on #{rg.chartered} and concluded its work on #{rg.concluded}.
+                - elsif rg.chartered then
+                  %p The #{rg.acronym} was chartered on #{rg.chartered}.
+                - elsif rg.concluded then
+                  %p The #{rg.acronym} concluded its work on #{rg.concluded}.
+
           = yield
+          
+          -# For RGs that concluded since the web site redesign, we have the rightbar info.
+          - if rg.respond_to?("name")
+            = render "historicinfo_", :loc => "../"
         
       .layout_footer
       

@@ -21,3 +21,14 @@
   %p
     Additional #{acronym} information is available at 
     = link_to(rg.web, rg.web) + "."
+
+- if rg.chartered || rg.concluded then
+  %h2 Timeline
+- if rg.chartered && rg.concluded then
+  %p The #{acronym} was chartered on #{rg.chartered} and concluded its work on #{rg.concluded}.
+- elsif rg.chartered then
+  %p The #{acronym} was chartered on #{rg.chartered}.
+- elsif rg.concluded then
+  %p The #{acronym} concluded its work on #{rg.concluded}.
+
+  

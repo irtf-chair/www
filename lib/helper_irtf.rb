@@ -35,9 +35,9 @@ module IRTF
   end
 
   class RG
-    attr_reader :acronym, :name, :list, :listweb, :web, :chairs
+    attr_reader :acronym, :name, :list, :listweb, :web, :chairs, :chartered, :concluded
   
-    def initialize(acronym, name, list, listweb, web, chairs)
+    def initialize(acronym, name, list, listweb, web, chairs, chartered, concluded)
       @acronym = acronym.upcase
       @name = name + " Research Group"
       @list = list
@@ -49,6 +49,8 @@ module IRTF
       end
       @web = web
       @chairs = chairs
+      @chartered = chartered
+      @concluded = concluded
     end
 
     def <=>(other)
@@ -68,7 +70,9 @@ module IRTF
     "asrg@irtf.org",
     nil,
     "http://asrg.sp.am/",
-    [ levine ]
+    [ levine ],
+    nil,
+    nil
   )
 
   # CFRG
@@ -81,7 +85,9 @@ module IRTF
     "cfrg@irtf.org",
     nil,
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
-    [ mcgrew, igoe ]
+    [ mcgrew, igoe ],
+    nil,
+    nil
   )
 
   # DTNRG
@@ -94,7 +100,9 @@ module IRTF
     "dtn-interest@irtf.org",
     nil,
     "http://dtnrg.org/",
-    [ fall, farrell, ott ]
+    [ fall, farrell, ott ],
+    nil,
+    nil
   )
 
   # HIPRG
@@ -106,7 +114,9 @@ module IRTF
     "hiprg@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/hiprg",
-    [ gurtov, henderson ]
+    [ gurtov, henderson ],
+    nil,
+    nil
   )
 
   # ICCRG
@@ -118,7 +128,9 @@ module IRTF
     "iccrg@cs.ucl.ac.uk",
     "http://oakham.cs.ucl.ac.uk/mailman/listinfo/iccrg",
     "http://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
-    [ welzl, sridharan ]
+    [ welzl, sridharan ],
+    nil,
+    nil
   )
 
   # MOBOPTS
@@ -130,7 +142,9 @@ module IRTF
     "mobopts@irtf.org",
     nil,
     nil,
-    [ koodli, krishnan ]
+    [ koodli, krishnan ],
+    nil,
+    nil
   )
 
   # NCRG
@@ -142,7 +156,9 @@ module IRTF
     "ncrg@irtf.org",
     nil,
     "http://networkcomplexity.org/",
-    [ behringer, huston ]
+    [ behringer, huston ],
+    "2011-10-4",
+    nil
   )
 
   # NMRG
@@ -154,7 +170,9 @@ module IRTF
     "nmrg@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
-    [ granville, festor ]
+    [ granville, festor ],
+    nil,
+    nil
   )
 
   # P2PRG
@@ -166,7 +184,9 @@ module IRTF
     "p2prg@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/PeerToPeerResearchGroup",
-    [ hiltl, previdi ]
+    [ hiltl, previdi ],
+    nil,
+    nil
   )
 
   # RRG
@@ -178,7 +198,9 @@ module IRTF
     "rrg@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/RoutingResearchGroup",
-    [ li ]
+    [ li ],
+    nil,
+    nil
   )
 
   # SAMRG
@@ -190,7 +212,22 @@ module IRTF
     "sam@irtf.org",
     nil,
     "http://samrg.org/",
-    [ buford, schmidt ]
+    [ buford, schmidt ],
+    nil,
+    nil
+  )
+
+  # TMRG
+  andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "http://caia.swin.edu.au/cv/landrew/", nil)
+  tmrg = RG.new(
+    "tmrg",
+    "Transport Modeling",
+    "tmrg@irtf.org",
+    nil,
+    "http://tools.ietf.org/group/irtf/trac/wiki/tmrg",
+    [ andrew ],
+    nil,
+    "2011-9-26"
   )
 
   # VNRG
@@ -202,7 +239,9 @@ module IRTF
     "vnrg@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/vnrg",
-    [ touch, stiemerling ]
+    [ touch, stiemerling ],
+    nil,
+    "2012-2-8"
   )
 
   # RG list
@@ -217,8 +256,7 @@ module IRTF
     "nmrg"    => nmrg,
     "p2prg"   => p2prg,
     "rrg"     => rrg,
-    "samrg"   => samrg,
-    "vnrg"    => vnrg
+    "samrg"   => samrg
   }
   
   # ls concluded/irtf.org/charter\?gtype=old-rg\&group=* | cut -f3 -d=
@@ -239,11 +277,16 @@ module IRTF
     "rmrg"    => "Reliable Multicast",
     "siren"   => "Searchable Internet Resource Names",
     "smrg"    => "Services Management",
-    "tmrg"    => "Transport Modeling"
+    "tmrg"    => "Transport Modeling",
+    
   }
   $oldrgs.keys.each do |n|
     $oldrgs[n] += " Research Group"
   end
+  
+  # These RGs concluded since the web page redesign. They are rendered based on the data in this file.
+  $oldrgs["tmrg"] = tmrg;
+  $oldrgs["vnrg"] = vnrg;
   
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);

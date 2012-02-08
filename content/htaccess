@@ -172,6 +172,13 @@ Options -Indexes
 </IfModule>
 
 
+# Redirects for concluded RGs
+
+RedirectMatch permanent ^/(vn|tm)rg$  /concluded/$1
+
+
+# Other redirects
+
 RedirectMatch permanent ^/irtf/$                                /
 						   	        
 RedirectMatch permanent ^/concluded/?$                          /groups

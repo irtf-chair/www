@@ -3,4 +3,4 @@
     %li
       %a.oldtile{ :href => @loc + "concluded/#{rg}" }
         %span.acronym= rg.upcase
-        %span.name= $oldrgs[rg]
+        %span.name= $oldrgs[rg].respond_to?("name") ? $oldrgs[rg].name : $oldrgs[rg]

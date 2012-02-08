@@ -2,7 +2,7 @@
 ---
 
 -# convenience shortcuts
-- rg = $rgs[item.identifier.tr("/", "")]
+- rg = $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")]
 - name = rg.name
 - acronym = rg.acronym.upcase
 

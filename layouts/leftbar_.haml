@@ -3,7 +3,8 @@
   %a{ :href => "#content" } Skip navigation
 
 -# Navigation
-%h2 Research Groups
+%h2 
+  %a{ :href => @loc + "groups" } Research Groups
 %ul
   - $rgs.values.sort.each do |rg|
     %li= rg.url(@loc)

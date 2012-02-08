@@ -1,5 +1,5 @@
 - id = item.identifier[1..-2]
-- title = (id =~ $rgpat || @concluded ? "IRTF " : "") + (@item[:title] ? @item[:title] : $rgs[item.identifier.tr("/", "")].name + " (" + $rgs[item.identifier.tr("/", "")].acronym + ")") + (@concluded ? " [CONCLUDED]" : "")
+- title = (id =~ $rgpat || @concluded ? "IRTF " : "") + (@item[:title] ? @item[:title] : (@concluded ? $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")].name + " (" + $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")].acronym + ")" : $rgs[item.identifier.tr("/", "")].name + " (" + $rgs[item.identifier.tr("/", "")].acronym + ")")) + (@concluded ? " [CONCLUDED]" : "")
 - base = @site.config[:base_url] + "/"
 - email = (id =~ $rgpat ? $rgs[id].list : "irtf-chair@irtf.org")
 - fb = (id =~ $rgpat ? $rgs[id].chairs.map {|x| x.fb }.compact.join(", ") : "")
