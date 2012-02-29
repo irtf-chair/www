@@ -16,6 +16,7 @@ is_hidden: true
 @import "compass/css3/columns";
 @import "compass/utilities/general/min";
 @import "compass/utilities/general/clearfix";
+@import "compass/utilities/print";
 
 $fs: 16px;
 $blueprint-font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
@@ -29,6 +30,7 @@ $bc: #fccf34; // the yellow used in the IRTF logo
 $lt: 15%;     // lighten percentage
 
 @include blueprint-typography;
+@include print-utilities(screen);
 
 html {
   font-size: $fs;
@@ -373,19 +375,14 @@ div.ribbon {
   height: auto; 
 }
 
-// // optimized for the ANRP page
-// @media print {
-//   div.nav, div.rightbar, div.footer {
-//     display: none !important;
-//   }
-// 
-//   html {
-//     font-size: 14px;
-//   }
-// 
-//   body {
-//     line-height: 18px;
-//   }
-//   
-//   
-// }
+@media print {
+	@include print-utilities;
+
+    tr, img { page-break-inside: avoid; }
+    img { max-width: 100% !important; }
+    @page { margin: 2cm; }
+    p, h2, h3 { orphans: 3; widows: 3; }
+    h2, h3 { page-break-after: avoid; }
+
+    .nav, .footer { display: none !important; }
+}
