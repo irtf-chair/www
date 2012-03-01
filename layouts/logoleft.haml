@@ -23,7 +23,7 @@
           
         .main
           -# Anchor for skip navigation links
-          %a{ :name => "content" } 
+          %a{ :id => "content" } 
 
           - rg = $rgs[item.identifier.tr("/", "")]
           - if rg != nil
