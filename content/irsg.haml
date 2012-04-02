@@ -30,7 +30,13 @@ title: Internet Research Steering Group (IRSG)
 
 %p The IRSG also reviews and approves documents published as part of the IRTF Document Stream (RFC5743).
 
-%p The current IRSG membership includes:
+%p
+  The current IRSG membership includes the IRTF Chair,
+  = $rgs.values.length
+  Research Group Chairs and
+  = $atlarge.length
+  At-Large Members:
+  
 %ul
   %li= $chair.hamlify + ", IRTF Chair"
 

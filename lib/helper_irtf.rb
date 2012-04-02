@@ -294,10 +294,11 @@ module IRTF
   # IRSG
   eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://eggert.org/", "584143839")
   $chair = eggert
-  falk = Person.new("Aaron", "Falk", "falk@bbn.com", "http://linkedin.com/in/aaronfalk", nil)
+  falk = Person.new("Aaron", "Falk", "aaron.falk@gmail.com", "http://linkedin.com/in/aaronfalk", nil)
   allman = Person.new("Mark", "Allman", "mallman@icir.org", "http://www.icir.org/mallman/", nil)
   dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://linkedin.com/in/spencerdawkins", nil)
-  $atlarge = [ falk, allman, dawkins ]
+  arkko = Person.new("Jari", "Arkko", "jari.arkko@piuha.net", "http://www.arkko.com/", nil)
+  $atlarge = [ falk, allman, dawkins, arkko ]
   
   # lookahead pattern for filter regexps to make sure we don't replace in links or headings
   $boundary = "(?![^<'\"]*?(?:(?:<\/(?:a|h2|h3|span|dt)>))|['\"])"
