@@ -76,6 +76,9 @@ end
 compile '/googlebe5e4a6e98fa7e99/' do
 end
 
+compile '/anrp-2012-flyer/' do
+end
+
 compile '*' do
   filter :rfc
   filter :haml, :format => :html5
@@ -145,6 +148,10 @@ end
 
 route 'sitemap' do
   item.identifier.chop + '.xml'
+end
+
+route 'anrp-2012-flyer' do
+  item.identifier.chop + '.pdf'
 end
 
 route '*' do
