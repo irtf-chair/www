@@ -186,6 +186,10 @@ div.main {
     font-style: italic;
   }
   
+  .nextdeadline {
+    color: red;  
+  }
+  
   div.news {
     @include border-radius(2*$fs);
     @include box-shadow();
