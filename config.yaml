@@ -1,5 +1,6 @@
 # Compress/obfuscate the output.
-compress: true
+# Now done by a rake rule; faster that way.
+#compress: true
 
 # The base URL for this site. This is required for XML sitemap generation. 
 base_url: http://irtf.org

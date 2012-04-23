@@ -1,0 +1,80 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Background
+
+%p Distributing and manipulating named information is a major application in the Internet today. In addition to web-based content distribution, other distribution technologies (such as P2P and CDN) have emerged and are promoting a communication model of accessing data by name, regardless of origin server location.
+
+%p In order to respond to increasing traffic volume in the current Internet for applications such as mobile video and cloud computing, a set of disparate technologies and distribution services are employed that employ caching, replication and content distribution in different specific ways. These approaches are currently deployed in separate silos -- different CDN providers and P2P applications rely on proprietary distribution technologies. It is not possible to uniquely and securely identify named information independently of the distribution channel; and the different distribution approaches are typically implemented as an overlay, leading to unnecessary inefficiency.
+
+%p Information-centric networking (ICN) is an approach to evolve the Internet infrastructure to directly support this use by introducing uniquely named data as a core Internet principle. Data becomes independent from location, application, storage, and means of transportation, enabling in-network caching and replication. The expected benefits are improved efficiency, better scalability with respect to information/bandwidth demand and better robustness in challenging communication scenarios. These concepts are known under different terms, including but not limited to: Network of Information (NetInf), Named Data Networking (NDN) and Publish/Subscribe Networking.
+
+%p ICN concepts can be applied to different layers of the protocol stack: name-based data access can be implemented on top of the existing IP infrastructure, e.g., by providing resource naming, ubiquitous caching and corresponding transport services, or it can be seen as a packet-level internetworking technology that would cause fundamental changes to Internet routing and forwarding. In summary, ICN is expected to evolve the Internet architecture at different layers.
+
+%h2 Research Challenges
+
+%p The research challenges for ICN include:
+%ul
+  %li Naming schemes for ICN, including scalable name resolution for flat names
+  %li Scalable routing schemes
+  %li Congestion control, QoS approaches, and caching strategies
+  %li Metrics that make it possible to evaluate ICN implementations in a consistent manner
+  %li Security and privacy, including scoping of information objects and access control to them
+  %li Application/application-protocol design and APIs
+  %li Business, legal and regulatory frameworks
+
+%p Moving the focus from nodes to information objects raises scalability issues to a new level. Currently, the Internet is addressing on the order of 10^9 nodes, whereas the number of addressable ICN objects is expected to be several orders of magnitude higher. Name-based routing and name resolution have to be designed to scale accordingly, also considering mobility support and disruption tolerance. This is related to the question how objects are actually named, e.g., using flat labels with name/content integrity or more structured, possibly aggregatable names.
+
+%p Accessing copies of named content enables new data transport concepts, such as receiver-oriented (pull-based) transport protocols. Caches in the network may play an active role in transport sessions, enabling shorter feedback loops and specific transport protocol features in challenged networks, quite different from end-to-end transport as in TCP today. Leveraging the existence of multiple copies of each object enables new transport strategies, such as parallel interaction with multiple caches. ICN may provide opportunities for better cache coordination and global management of the storage resources of multiple caches. On the other hand, once a named data object exists in multiple caches, consistent and coherent update semantics and supporting protocols have to be defined, dealing with, e.g., multiple writers updating a named object at the time when only connected via a challenged network.
+
+%p With ICN, new security models are needed. Today's host-centric trust model - retrieving data from a trusted server via a secure connection - no longer applies. Instead, security/trust/identity functions are bound to the information objects themselves, employing signed objects and and ensuring name-data integrity. Moreover, not all objects will be universally accessible, requiring authorization and scoping mechanisms.
+
+%p The ICN paradigm is also expected to require new interfaces for applications to interact with the network. For example, a new API should let application developers take advantage of location-independent naming, caching, and multi-access functionality in ICN.
+
+%p It is expected that ICN will require changes to the business, legal and regulatory landscape. Examples include changes to how peering agreements are made in a network that heavily relies on caching, or compensation schemes for user nodes contributing cache space, bandwidth and/or battery for participating in delivery of objects to third parties. The caching of objects also has implications on how the legal framework deals with caching objects in transit: are they regarded as being in the user's possession with respect to copyright and/or other legal violations?
+
+%p An ICN approach potentially has better energy efficiency than existing approaches, because data is transported, on average, over shorter distances. While more cache storage has to be powered in the network, even that might be energy-efficient, because the cooling load can be better distributed to more, but smaller installations. ICN has the potential to improve relevant metrics like invested energy per user-perceived latency.
+
+%p Finally, deploying new ICN technology requires a well defined migration path from today's networking technologies, avoiding any forklift upgrades or flag days. Migration and interworking possibilities are also required to foster large-scale experiments and thorough evaluation of ICN concepts and specific concrete approaches. The development of corresponding testbeds and experimentation facilities is potentially an important activity area of the #{acronym}.
+
+%h2 #{acronym} Objectives
+
+%p The main objective of the #{acronym} is to couple ongoing ICN research in the above areas with solutions that are relevant for evolving the Internet at large.
+
+%p The #{acronym} will produce a document that provides guidelines for experimental activities in the area of ICN so that different, alternative solutions can be compared consistently, and information sharing accomplished for experimental deployments.
+
+%p The #{acronym} will initiate discussions about the desirable interfaces/APIs to an ICN, as relevant from, e.g. the perspective the application layer and from network management.
+
+%p Specifically, the #{acronym} is focusing on the following short-term goals:
+%ul
+  %li To produce a document that provides a survey of different approaches and techniques
+  %li To produce a document that describes the ICN problem statement, the main concepts and research challenges in depth
+  %li To define reference baseline scenarios to enable performance comparisons between different approaches
+
+
+%h2 Organization
+
+%p The #{acronym} provides a forum for the exchange and analysis of ICN research ideas and proposals; work that is based on implementation experiences is given preference.
+
+%p
+  The #{acronym} uses an open
+  = link_to("mailing list", rg.listweb) 
+  as the main communication vehicle for the group.
+
+%p The group holds regular physical meetings at least once a year in conjunction with IETF meetings. Additional meetings are held at IETF or other venues, such as in conjunction with related academic conferences.
+
+%p The #{acronym} will produce Informational and Experimental RFCs in order to document the activity of the group and to formalize the outcome of the research topics carried by the group. In addition, such documentation could become input to IETF working groups. Attention will be given to avoiding overlaps with existing IETF work while informing the work with the results of ongoing research.
+
+%p
+  To focus the work of the #{acronym}, a
+  = link_to("wiki page", rg.web)
+  with currently prioritized work items will be maintained. Examples of such topics are the initial topics:
+%ul
+  %li Name resolution and routing scalability, including naming schems; and
+  %li Storage management strategies and corresponding performance optimizations.
+  

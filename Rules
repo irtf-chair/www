@@ -17,12 +17,10 @@ Compass.add_project_configuration 'compass/config.rb'
 
 compile '/style/' do
   filter :sass, Compass.sass_engine_options
-  filter :yuicompressor
 end
 
 compile '/ie/' do
   filter :sass, Compass.sass_engine_options
-  filter :yuicompressor
 end
 
 compile '/img/*' do
@@ -46,7 +44,6 @@ compile '/concluded/*/' do
   filter :url
   layout 'historic'
   filter :rubypants
-  filter :htmlcompressor
 end
 
 compile '/htaccess/' do
@@ -60,7 +57,6 @@ end
 
 compile '/socialshareprivacy/*' do
   if @item[:extension] == 'css'
-    filter :yuicompressor
   end
 end
 
@@ -70,7 +66,6 @@ end
 compile '/sitemap/' do
   filter :haml
   filter :extensionstripper
-  filter :htmlcompressor
 end
 
 compile '/googlebe5e4a6e98fa7e99/' do
@@ -92,7 +87,6 @@ compile '*' do
     layout 'logoleft'
   end 
   filter :rubypants
-  filter :htmlcompressor
 end
 
 

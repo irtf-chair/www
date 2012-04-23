@@ -93,7 +93,7 @@ module IRTF
   # DTNRG
   fall = Person.new("Kevin", "Fall", nil, "http://cs.berkeley.edu/~kfall", nil)
   farrell = Person.new("Stephen", "Farrell", nil, "http://cs.tcd.ie/Stephen.Farrell/", nil)
-  ott = Person.new("J&ouml;rg", "Ott", "jo@netlab.tkk.fi", "http://www.netlab.tkk.fi/~jo/", nil) # www is needed
+  ott = Person.new("Jörg", "Ott", "jo@netlab.tkk.fi", "http://www.netlab.tkk.fi/~jo/", nil) # www is needed
   dtnrg = RG.new(
     "dtnrg",
     "Delay-Tolerant Networking",
@@ -130,6 +130,21 @@ module IRTF
     "http://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
     [ welzl, sridharan ],
     nil,
+    nil
+  )
+
+  # ICNRG
+  kutscher = Person.new("Dirk", "Kutscher", "Dirk.Kutscher@neclab.eu", "http://dirk-kutscher.info/", nil)
+  ohlman = Person.new("Börje", "Ohlman", "borje.ohlman@ericsson.com", "http://www.linkedin.com/pub/börje-ohlman/0/270/283", nil)
+  oran = Person.new("Dave", "Oran", "oran@cisco.com", "http://www.linkedin.com/pub/david-oran/0/b7/7b4", nil)
+  icnrg = RG.new(
+    "icnrg",
+    "Information-Centric Networking",
+    "icnrg@irtf.org",
+    nil,
+    "http://trac.tools.ietf.org/group/irtf/trac/wiki/icnrg",
+    [ kutscher, ohlman, oran ],
+    "2012-4-17",
     nil
   )
 
@@ -251,6 +266,7 @@ module IRTF
     "dtnrg"   => dtnrg,
     "hiprg"   => hiprg,
     "iccrg"   => iccrg,
+    "icnrg"   => icnrg,
     "mobopts" => mobopts,
     "ncrg"    => ncrg,
     "nmrg"    => nmrg,
