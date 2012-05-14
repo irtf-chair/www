@@ -190,6 +190,10 @@ div.main {
     color: red;  
   }
   
+  .pastdeadline {
+    text-decoration: line-through;
+  }
+
   div.news {
     @include border-radius(2*$fs);
     @include box-shadow();

@@ -91,8 +91,8 @@ module IRTF
   )
 
   # DTNRG
-  fall = Person.new("Kevin", "Fall", nil, "http://cs.berkeley.edu/~kfall", nil)
-  farrell = Person.new("Stephen", "Farrell", nil, "http://cs.tcd.ie/Stephen.Farrell/", nil)
+  fall = Person.new("Kevin", "Fall", "kfall@acm.org", "http://kfall.net/ucbpage/", nil)
+  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
   ott = Person.new("Jörg", "Ott", "jo@netlab.tkk.fi", "http://www.netlab.tkk.fi/~jo/", nil) # www is needed
   dtnrg = RG.new(
     "dtnrg",
