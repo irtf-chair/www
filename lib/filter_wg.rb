@@ -6,32 +6,32 @@ class WGFilter < Nanoc3::Filter
 
   # generated via: ietf-wgs | grep -v concluded | cut -d" " -f2 | fmt
   @@active = %w[
-appsawg core eai ftpext2 httpbis hybi iri marf paws precis repute
-sieve spfbis urnbis vcarddav websec 6lowpan 6man ancp autoconf csi
-dhc dmm dnsext hip homenet intarea l2tpext lisp lwig mif mip4
-multimob netext ntp pcp pppext savi softwire tictoc trill 6renum
+appsawg core eai httpbis hybi iri marf paws precis repute sieve
+spfbis urnbis vcarddav websec weirds 6lowpan 6man ancp csi dhc dmm
+dnsext hip homenet intarea l2tpext lisp lwig mif mip4 multimob
+netext ntp pcp pppext savi softwire sunset4 tictoc trill 6renum
 adslmib armd bmwg dime dnsop eman grow ipfix mboned netconf netmod
 opsawg opsec radext v6ops atoca avtcore avtext bfcpbis bliss clue
-codec cuss dispatch drinks ecrit geopriv mediactrl mmusic p2psip
-payload rtcweb salud simple sipclf sipcore siprec soc speechsc vipr
-xmpp xrblock bfd ccamp forces idr isis karp l2vpn l3vpn manet mpls
-ospf pce pim pwe3 roll rtgwg sidr abfab dane emu hokey ipsecme jose
-kitten krb mile nea oauth pkix tls alto behave cdni conex dccp
-decade fecframe ippm ledbat mptcp nfsv4 pcn ppsp rmt storm tcpm
-tsvwg
+codec cuss dispatch drinks ecrit geopriv insipid mediactrl mmusic
+p2psip payload rtcweb salud simple sipclf sipcore siprec soc speechsc
+straw vipr xmpp xrblock bfd ccamp forces idr isis karp l2vpn l3vpn
+manet mpls nvo3 ospf pce pim pwe3 roll rtgwg sidr abfab dane emu
+hokey ipsecme jose kitten krb mile nea oauth pkix tls alto behave
+cdni conex dccp decade fecframe ippm ledbat mptcp nfsv4 pcn ppsp
+rmt storm tcpm tsvwg
   ]
 
   # generated via: ietf-wgs | grep concluded | cut -d" " -f2 | fmt
   # removed: ipr
   @@concluded = %w[
 822ext acap apex applmib asid atompub beep calsch calsify chronos
-cdi conneg crisp dasl drums edi ediint fax find ftpext html http
-httpstate idnabis ids imap imapext impp ipp ldapbis ldapext ldup
-lemonade list lsma ltru madman marid mailext mhsds mhtml mimemhs
+cdi conneg crisp dasl drums edi ediint fax find ftpext ftpext2 html
+http httpstate idnabis ids imap imapext impp ipp ldapbis ldapext
+ldup lemonade list lsma ltru madman marid mailext mhsds mhtml mimemhs
 mimesgml mixer morg msgtrk netdata netfax nntp nntpext notary npp
 oda opes osids pop prim provreg printmib quis receipt rescap schema
 smtpext tn3270e telnet tftpexts tip trade urc uri urlreg urn usefor
-vpim vwrap webdav webi whip widex wrec x400ops xmpp yam icar 
+vpim vwrap webdav webi whip widex wrec x400ops xmpp yam icar ipr
 newtrk nomcom poised poised95 poisson problem 16ng addrconf ale
 appleip catnip cip dna dns dnsind eap fddi frnetmib hostreq idn
 ifmib ion ip1394 ipae ipatm ipdvb ipfc iplpdn ipoib iporpr ippcp

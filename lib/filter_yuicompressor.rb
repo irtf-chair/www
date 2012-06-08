@@ -15,9 +15,9 @@ class YUICompressor < Nanoc3::Filter
 
   def type_from_extension
     case @item[:extension]
-    when /^(css|sass|scss)/
+    when /^(css|sass|scss)/i
       "css"
-    when /^js/
+    when /^js/i
       "js"
     else
       raise "unknown type for yuicompressor '#{@item[:extension]}'"

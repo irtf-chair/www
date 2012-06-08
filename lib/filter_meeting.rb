@@ -5,7 +5,7 @@ class MeetingFilter < Nanoc3::Filter
   type :text
 
   def run(content, params={})
-    content.gsub(/IETF-([0-9]{1,3})/i) {
+    content.gsub(/\bIETF-([0-9]{1,3}\b#{$boundary})/) {
       |rfc| link_to("IETF-#{$1}", "http://ietf.org/meeting/#{$1}/index")
     }
   end
