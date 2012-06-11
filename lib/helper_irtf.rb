@@ -159,7 +159,7 @@ module IRTF
     nil,
     [ koodli, krishnan ],
     nil,
-    nil
+    "2012-6-8"
   )
 
   # NCRG
@@ -267,7 +267,6 @@ module IRTF
     "hiprg"   => hiprg,
     "iccrg"   => iccrg,
     "icnrg"   => icnrg,
-    "mobopts" => mobopts,
     "ncrg"    => ncrg,
     "nmrg"    => nmrg,
     "p2prg"   => p2prg,
@@ -303,7 +302,8 @@ module IRTF
   # These RGs concluded since the web page redesign. They are rendered based on the data in this file.
   $oldrgs["tmrg"] = tmrg;
   $oldrgs["vnrg"] = vnrg;
-  
+  $oldrgs["mobopts"] = mobopts;
+
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
 
