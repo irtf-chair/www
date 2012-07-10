@@ -16,6 +16,7 @@ end
 
 desc 'Upload site with lftp'
 task :deploy => [ :compress ]do
+  FileUtils.chmod_R "a+rX", src  
   srv = "sftp://ftpirtf@www.ietf.org"
   dst = "www"
   sh "lftp -c 'open #{srv} ; mirror -Rv #{src} #{dst} '"
