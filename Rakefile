@@ -1,6 +1,6 @@
 require 'nanoc3/tasks'
 
-src = "~/Sites/irtf/output"
+src = "output"
 
 desc 'Compress'
 task :compress do
@@ -15,8 +15,8 @@ task :compress do
 end
 
 desc 'Upload site with lftp'
-task :deploy => [ :compress ]do
-  FileUtils.chmod_R "a+rX", src  
+task :deploy => [ :compress ] do
+  FileUtils.chmod_R "a+rX", src
   srv = "sftp://ftpirtf@www.ietf.org"
   dst = "www"
   sh "lftp -c 'open #{srv} ; mirror -Rv #{src} #{dst} '"
