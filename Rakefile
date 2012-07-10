@@ -10,10 +10,8 @@ task :compress do
   }
   # compress CSS and javascript
   sh "find -E #{src} -iregex '.*\.(css|js)$' -exec yuicompressor {} -o {} \\\;"
-  # compress PNG
-  sh "find #{src} -name \*png -exec optipng -quiet -strip all -o7 {} \\\;"
-  # compress JPEG
-  sh "find #{src} -name \*jpg -exec jpegtran -copy none -optimize -outfile {} {} \\\;"
+  # compress PNG/JPG/GIF - we do this when adding to the repository, no need to redo  
+  # sh "image_optim $(find -E #{src} -iregex '.*(jpg|gif|png)$')"
 end
 
 desc 'Upload site with lftp'
