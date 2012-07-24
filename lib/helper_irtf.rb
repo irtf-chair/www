@@ -2,7 +2,7 @@ module IRTF
 
   class Person
     attr_reader :first, :last, :email, :web, :fb
-    
+
     def initialize(first, last, email, web, fb)
       @first = first  # first name
       @last = last    # last name
@@ -10,15 +10,15 @@ module IRTF
       @web = web      # web page
       @fb = fb        # Facebook ID
     end
-    
+
     def <=>(other)
       @last <=> other.last or @first <=> other.first
     end
-    
+
     def name
       "#{first} #{last}"
     end
-    
+
     def hamlify()
       # XXX can we return HAML here instead of HTML?
       if web then
@@ -36,7 +36,7 @@ module IRTF
 
   class RG
     attr_reader :acronym, :name, :list, :listweb, :web, :chairs, :chartered, :concluded
-  
+
     def initialize(acronym, name, list, listweb, web, chairs, chartered, concluded)
       @acronym = acronym.upcase
       @name = name + " Research Group"
@@ -56,7 +56,7 @@ module IRTF
     def <=>(other)
       @acronym <=> other.acronym
     end
-    
+
     def url(loc = "")
       link_to(acronym, loc + acronym.downcase, :title => name)
     end
@@ -116,7 +116,7 @@ module IRTF
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/hiprg",
     [ gurtov, henderson ],
     nil,
-    nil
+    "2012-7-24"
   )
 
   # ICCRG
@@ -264,7 +264,6 @@ module IRTF
     "cfrg"    => cfrg,
     "asrg"    => asrg,
     "dtnrg"   => dtnrg,
-    "hiprg"   => hiprg,
     "iccrg"   => iccrg,
     "icnrg"   => icnrg,
     "ncrg"    => ncrg,
@@ -273,7 +272,7 @@ module IRTF
     "rrg"     => rrg,
     "samrg"   => samrg
   }
-  
+
   # ls concluded/irtf.org/charter\?gtype=old-rg\&group=* | cut -f3 -d=
   $oldrgs = {
     "aaaarch" => "AAA Architecture", # Authentication Authorisation Accounting
@@ -293,16 +292,17 @@ module IRTF
     "siren"   => "Searchable Internet Resource Names",
     "smrg"    => "Services Management",
     "tmrg"    => "Transport Modeling",
-    
+
   }
   $oldrgs.keys.each do |n|
     $oldrgs[n] += " Research Group"
   end
-  
+
   # These RGs concluded since the web page redesign. They are rendered based on the data in this file.
   $oldrgs["tmrg"] = tmrg;
   $oldrgs["vnrg"] = vnrg;
   $oldrgs["mobopts"] = mobopts;
+  $oldrgs["hiprg"] = hiprg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
@@ -315,8 +315,8 @@ module IRTF
   dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://linkedin.com/in/spencerdawkins", nil)
   arkko = Person.new("Jari", "Arkko", "jari.arkko@piuha.net", "http://www.arkko.com/", nil)
   $atlarge = [ falk, allman, dawkins, arkko ]
-  
+
   # lookahead pattern for filter regexps to make sure we don't replace in links or headings
   $boundary = "(?![^<'\"]*?(?:(?:<\/(?:a|h2|h3|span|dt)>))|['\"])"
-  
+
 end

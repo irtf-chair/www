@@ -1,8 +1,8 @@
---- 
+---
 ---
 
 -# convenience shortcuts
-- rg = $rgs[item.identifier.tr("/", "")]
+- rg = $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")]
 - name = rg.name
 - acronym = rg.acronym.upcase
 
@@ -24,7 +24,7 @@
 
 %p
   The primary goal of the
-  %span.term #{name} 
+  %span.term #{name}
   (#{acronym}) is to study the proposed Host Identity Protocol and architecture, including potential effects on the Internet. When indicated by its studies, the #{acronym} can suggest extensions and modifications to the protocol and architecture. It is also in scope for the #{acronym} to study, in a wider sense, the consequences and effects that wide-scale adoption of any type of separation of the identifier and locator roles of IP addresses is likely to have. With regard to this latter, the #{acronym} is tasked with producing an experiment report providing input to the IETF on mechanisms for separating the identifier and locator nature of IP addresses. That is, given the assumption that some kind of identifier and locator separation should be adopted, the #{acronym} will provide an analysis on baseline architectures and mechanisms upon which standardizing such a separation could be based.
 
 %p The question of whether the basic identifier/locator split assumption is valid falls beyond the scope of the #{acronym}. The group's work is based on the assumption that such a separation is needed in one form or another, and the group must not spend excessive time discussing whether such a separation of roles is needed or not. On the other hand, it is fine to discuss the technical drawbacks that such a separation might have and ways to ameliorate these.
