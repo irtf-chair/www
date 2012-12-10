@@ -121,14 +121,14 @@ module IRTF
 
   # ICCRG
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", nil)
-  sridharan = Person.new("Murari", "Sridharan", "muraris@microsoft.com", "http://linkedin.com/pub/murari-sridharan/5/a38/153", "1602611111")
+  ros = Person.new("David", "Ros", "david.ros@telecom-bretagne.eu", "http://www.telecom-bretagne.eu/studies/msc/professors/ros.php", nil)
   iccrg = RG.new(
     "iccrg",
     "Internet Congestion Control",
-    "iccrg@cs.ucl.ac.uk",
-    "http://oakham.cs.ucl.ac.uk/mailman/listinfo/iccrg",
+    "iccrg@irtf.org",
+    nil,
     "http://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
-    [ welzl, sridharan ],
+    [ welzl, ros ],
     nil,
     nil
   )
