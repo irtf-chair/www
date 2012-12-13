@@ -34,7 +34,7 @@ class URLFilter < Nanoc3::Filter
     "ICIR" => "http://icir.org/",
     "HIIT" => "http://hiit.fi/",
     "LabN" => "http://labn.net/",
-    "AT&T Laboratories" => "http://research.att.com/",
+    "AT&amp;T Laboratories" => "http://research.att.com/",
     "Juniper" => "http://juniper.net/",
     "Cisco" => "http://cisco.com/",
     "INRIA" => "http://www.inria.fr/", # www is needed
@@ -51,9 +51,11 @@ class URLFilter < Nanoc3::Filter
     "Yale" => "http://yale.edu/",
     "University of Glasgow" => "http://gla.ac.uk/",
     "UCLA" => "http://ucla.edu/",
+    "Ericsson" => "http://www.ericsson.com/",
     "Colorado State" => "http://colostate.edu/",
     "UCL Louvain" => "http://uclouvain.be/",
     "DARPA" => "http://www.darpa.mil/",
+    "Bell Labs" => "http://www.alcatel-lucent.com/belllabs/",
     "FEDERICA" => "http://www.fp7-federica.eu/",
     "UFRGS" => "http://www.ufrgs.br/relinter/english",
     "Jacobs University Bremen" => "http://www.jacobs-university.de/" # www is needed
