@@ -232,6 +232,20 @@ module IRTF
     nil
   )
 
+  # SDNRG
+  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "http://www.1-4-5.net/~dmm/vita.html", nil)
+  feamster = Person.new("Nick", "Feamster", "feamster@cc.gatech.edu", "http://www.cc.gatech.edu/~feamster/", nil)
+  sdnrg = RG.new(
+    "sdnrg",
+    "Software-Defined Networking",
+    "sdn@irtf.org",
+    nil,
+    "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
+    [ meyer, feamster ],
+    "2013-1-12",
+    nil
+  )
+
   # TMRG
   andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "http://caia.swin.edu.au/cv/landrew/", nil)
   tmrg = RG.new(
@@ -261,16 +275,17 @@ module IRTF
 
   # RG list
   $rgs = {
-    "cfrg"    => cfrg,
-    "asrg"    => asrg,
-    "dtnrg"   => dtnrg,
-    "iccrg"   => iccrg,
-    "icnrg"   => icnrg,
-    "ncrg"    => ncrg,
-    "nmrg"    => nmrg,
-    "p2prg"   => p2prg,
-    "rrg"     => rrg,
-    "samrg"   => samrg
+    "cfrg"  => cfrg,
+    "asrg"  => asrg,
+    "dtnrg" => dtnrg,
+    "iccrg" => iccrg,
+    "icnrg" => icnrg,
+    "ncrg"  => ncrg,
+    "nmrg"  => nmrg,
+    "p2prg" => p2prg,
+    "rrg"   => rrg,
+    "samrg" => samrg,
+    "sdnrg" => sdnrg
   }
 
   # ls concluded/irtf.org/charter\?gtype=old-rg\&group=* | cut -f3 -d=

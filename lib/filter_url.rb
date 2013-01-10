@@ -49,6 +49,12 @@ class URLFilter < Nanoc3::Filter
     "NEC" => "http://www.neclab.eu/", # www is needed
     "UC3M" => "http://uc3m.es/",
     "Yale" => "http://yale.edu/",
+    "ETSI" => "http://www.etsi.org/",
+    "ATIS" => "http://www.atis.org/",
+    "ITU-T" => "http://www.itu.int/en/ITU-T/",
+    "ONF" => "https://www.opennetworking.org/",
+    "MEF" => "http://metroethernetforum.org/",
+    "DMTF" => "http://www.dmtf.org/",
     "University of Glasgow" => "http://gla.ac.uk/",
     "UCLA" => "http://ucla.edu/",
     "Ericsson" => "http://www.ericsson.com/",

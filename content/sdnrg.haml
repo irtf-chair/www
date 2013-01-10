@@ -1,0 +1,56 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Background
+
+%p The "Moore's Law" effect has seen network hardware improve along almost all hardware oriented dimensions, including port densities, speeds and feeds, and price/bit over the past several decades. At the same time network control plane has experienced dramatically slower evolution. In fact, configuring and managing networks continues to be about network element operations (as opposed to network services). This mix of ever growing networks and ever advancing configuration requirements makes network agility, service velocity, operation, debugging increasingly difficult and expensive. This effect is seen across all network types, including enterprise, data center, and service provider networks. Software-Defined Networks (SDNs) are widely seen as a promising set of solutions to resolve these challenges. In particular, SDN promises to provide a multi-layer platform which encompasses programability not only at the forwarding and control planes, but also at the transport layers below and orchestration and services layers above the data and control planes.
+
+%p Early SDN models focused primarily on moving the control plane out of the network elements into "controllers" on the theory that the switching elements could remain simple, general-purpose, and cost-effective while at the same time allowing the control plane to rapidly evolve. A number of recent SDN models, on the other hand, include approaches in which control and data plane programability works in concert with existing and future distributed control planes.
+
+%p SDN aims to benefit all types of networks, including wireless, cellular, home, enterprise, data centers, and wide-area networks. The Software-Defined Networking Research Group (#{acronym}) investigates SDN from various perspectives with the goal of identifying the approaches that can be defined, deployed and used in the near term as well identifying future research challenges. In particular, key areas of interest include solution scalability, abstractions, and programming languages and paradigms particularly useful in the context of SDN. In addition, it is an explicit goal of the #{acronym} to provide a forum for researchers to investigate key and interesting problems in the Software-Defined Networking field.
+
+%p Finally, the #{acronym} provides objective definitions, metrics and background research with the goal of providing this information as input to protocol, network, and service design to SDOs and other standards producing organizations such as the IETF, ETSI, ATIS, ITU-T, IEEE, ONF, MEF, and DMTF.
+
+
+%h2 Areas of Interest
+
+%ol
+  %li Classification of SDN models, including
+  %ul
+    %li Definitions
+    %li Taxonomies
+    %li Relationship to work ongoing in the IETF and other	SDOs
+  %li SDN model scalability and applicability
+  %li Multi-layer programability and feedback control systems
+  %li System Complexity
+  %li Network description languages, abstractions, interfaces and compilers
+  %ul
+    %li Including methods and mechanisms for (on-line) verification of correct operation of network/node function.
+  %li Security
+
+
+%h2 Potential Work Items
+
+%ol
+  %li Survey of SDN approaches and Taxonomies
+  %li Open Issues in Software-Defined Networking Research
+
+%p 
+  The group will report progress through
+  %a{ :href => "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg" } its wiki
+  and presentations at IETF and IRTF meetings. Relevant information and research developed by the research group will be submitted for publication as Experimental or Informational RFCs.
+
+
+%h2 Membership
+
+%p Membership is open.
+
+
+%h2 Meetings
+
+%p SDNRG meetings are held at least once a year in conjunction with the IETF. At least one other yearly meeting will be held in conjunction with an academic conference. 
