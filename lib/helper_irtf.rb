@@ -242,7 +242,7 @@ module IRTF
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
     [ meyer, feamster ],
-    "2013-1-12",
+    "2013-1-14",
     nil
   )
 
