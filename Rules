@@ -68,7 +68,7 @@ compile '/sitemap/' do
   filter :extensionstripper
 end
 
-compile '/googlebe5e4a6e98fa7e99/' do
+compile '/google78560f0fdc710001/' do
 end
 
 compile '/anrp-2012-flyer/' do
