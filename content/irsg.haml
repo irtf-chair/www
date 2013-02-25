@@ -32,7 +32,9 @@ title: Internet Research Steering Group (IRSG)
 
 %p
   The current IRSG membership includes the IRTF Chair,
-  = $rgs.values.length
+  - c = 0
+  - $rgs.values.each {|r| c += r.chairs.length }
+  = c
   Research Group Chairs and
   = $atlarge.length
   At-Large Members:
