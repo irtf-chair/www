@@ -201,7 +201,7 @@ module IRTF
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/PeerToPeerResearchGroup",
     [ hiltl, previdi ],
     nil,
-    nil
+    "2013-2-25"
   )
 
   # RRG
@@ -282,7 +282,6 @@ module IRTF
     "icnrg" => icnrg,
     "ncrg"  => ncrg,
     "nmrg"  => nmrg,
-    "p2prg" => p2prg,
     "rrg"   => rrg,
     "samrg" => samrg,
     "sdnrg" => sdnrg
@@ -318,6 +317,7 @@ module IRTF
   $oldrgs["vnrg"] = vnrg;
   $oldrgs["mobopts"] = mobopts;
   $oldrgs["hiprg"] = hiprg;
+  $oldrgs["p2prg"] = p2prg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
