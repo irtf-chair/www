@@ -15,6 +15,10 @@ Compass.add_project_configuration 'compass/config.rb'
 
 # compile rules
 
+compile '/rg-contacts/' do
+  filter :haml
+end
+
 compile '/style/' do
   filter :sass, Compass.sass_engine_options
 end
@@ -94,6 +98,10 @@ end
 
 
 # route rules
+
+route '/rg-contacts/' do
+  '/pub/rg-contacts.txt'
+end
 
 route '/style/' do
   '/style.css'

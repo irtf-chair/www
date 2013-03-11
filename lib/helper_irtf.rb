@@ -60,6 +60,19 @@ module IRTF
     def url(loc = "")
       link_to(acronym, loc + acronym.downcase, :title => name)
     end
+    
+    def contacts
+      result = @acronym.downcase + "\n" +
+             "    Research Group Name:\n" +
+             "        " + @name + "\n" + 
+             "    Chair(s):\n"
+      @chairs.each {|c|
+        result += "        " + c.first + " " + c.last + " <" + c.email + ">\n"
+      }
+      result += "    List:\n" +
+                "        " + @list
+    return result      
+    end
   end
 
   # ASRG
@@ -330,6 +343,21 @@ module IRTF
   dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://linkedin.com/in/spencerdawkins", nil)
   arkko = Person.new("Jari", "Arkko", "jari.arkko@piuha.net", "http://www.arkko.com/", nil)
   $atlarge = [ falk, allman, dawkins, arkko ]
+
+  def atlarge_contacts
+    result = "irsg\n" +
+           "    Research Group Name:\n" +
+           "        Non-RG Chair IRSG members\n" + 
+           "    Chair(s):\n" +
+           "        " + $chair.first + " " + $chair.last + " <" + $chair.email + ">\n" +
+           "    Members:\n"
+    $atlarge.each {|c|
+      result += "        " + c.first + " " + c.last + " <" + c.email + ">\n"
+    }
+    result += "    List:\n" +
+              "        irsg@irtf.org"
+    return result      
+  end  
 
   # lookahead pattern for filter regexps to make sure we don't replace in links or headings
   $boundary = "(?![^<'\"]*?(?:(?:<\/(?:a|h2|h3|span|dt)>))|['\"])"
