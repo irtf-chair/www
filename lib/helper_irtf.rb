@@ -85,7 +85,7 @@ module IRTF
     "http://asrg.sp.am/",
     [ levine ],
     nil,
-    nil
+    "2013-3-18"
   )
 
   # CFRG
@@ -289,7 +289,6 @@ module IRTF
   # RG list
   $rgs = {
     "cfrg"  => cfrg,
-    "asrg"  => asrg,
     "dtnrg" => dtnrg,
     "iccrg" => iccrg,
     "icnrg" => icnrg,
@@ -331,6 +330,7 @@ module IRTF
   $oldrgs["mobopts"] = mobopts;
   $oldrgs["hiprg"] = hiprg;
   $oldrgs["p2prg"] = p2prg;
+  $oldrgs["asrg"] = asrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
