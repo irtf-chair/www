@@ -177,14 +177,15 @@ module IRTF
 
   # NCRG
   behringer = Person.new("Michael", "Behringer", "mbehring@cisco.com", "http://linkedin.com/in/mbehringer", nil)
-  huston = Person.new("Geoff", "Huston", "gih@apnic.net", "http://potaroo.net/", nil)
+  # huston = Person.new("Geoff", "Huston", "gih@apnic.net", "http://potaroo.net/", nil)
+  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "http://www.1-4-5.net/~dmm/vita.html", nil)
   ncrg = RG.new(
     "ncrg",
     "Network Complexity",
     "ncrg@irtf.org",
     nil,
     "http://networkcomplexity.org/",
-    [ behringer, huston ],
+    [ behringer, meyer ],
     "2011-10-4",
     nil
   )
@@ -246,7 +247,6 @@ module IRTF
   )
 
   # SDNRG
-  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "http://www.1-4-5.net/~dmm/vita.html", nil)
   feamster = Person.new("Nick", "Feamster", "feamster@cc.gatech.edu", "http://www.cc.gatech.edu/~feamster/", nil)
   sdnrg = RG.new(
     "sdnrg",

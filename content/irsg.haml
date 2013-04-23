@@ -32,9 +32,11 @@ title: Internet Research Steering Group (IRSG)
 
 %p
   The current IRSG membership includes the IRTF Chair,
-  - c = 0
-  - $rgs.values.each {|r| c += r.chairs.length }
-  = c
+  - chairs = {}
+  - $rgs.values.sort.each {|r| r.chairs.sort.each {|c| 
+  -   chairs[c.email] = c
+  - }}
+  = chairs.length
   Research Group Chairs and
   = $atlarge.length
   At-Large Members:
@@ -45,6 +47,6 @@ title: Internet Research Steering Group (IRSG)
   - $atlarge.sort.each do |p| 
     %li= p.hamlify + ", At-Large Member"
 
-  - $rgs.values.sort.each {|r| r.chairs.sort.each {|c| 
-  %li= c.hamlify + ", " + r.url + " Chair"
-  - }}
+  - chairs.values.each {|c|
+  %li= c.hamlify + ", " + $rgs.values.select{|r| r.chairs.include?(c)}.map{|r| r.url}.join(" & ") + " Chair"
+  - }
