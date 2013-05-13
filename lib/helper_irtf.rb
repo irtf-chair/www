@@ -148,7 +148,7 @@ module IRTF
 
   # ICNRG
   kutscher = Person.new("Dirk", "Kutscher", "Dirk.Kutscher@neclab.eu", "http://dirk-kutscher.info/", nil)
-  ohlman = Person.new("Börje", "Ohlman", "borje.ohlman@ericsson.com", "http://www.linkedin.com/pub/börje-ohlman/0/270/283", nil)
+  ohlman = Person.new("Börje", "Ohlman", "borje.ohlman@ericsson.com", "http://www.linkedin.com/pub/b%3Frje-ohlman/0/270/283", nil)
   oran = Person.new("Dave", "Oran", "oran@cisco.com", "http://www.linkedin.com/pub/david-oran/0/b7/7b4", nil)
   icnrg = RG.new(
     "icnrg",
