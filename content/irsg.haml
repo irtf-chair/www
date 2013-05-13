@@ -48,5 +48,5 @@ title: Internet Research Steering Group (IRSG)
     %li= p.hamlify + ", At-Large Member"
 
   - chairs.values.each {|c|
-  %li= c.hamlify + ", " + $rgs.values.select{|r| r.chairs.include?(c)}.map{|r| r.url}.join(" & ") + " Chair"
+  %li= c.hamlify + ", " + $rgs.values.select{|r| r.chairs.include?(c)}.map{|r| r.url}.join(" &amp; ") + " Chair"
   - }
