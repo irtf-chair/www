@@ -75,10 +75,7 @@ end
 compile '/google78560f0fdc710001/' do
 end
 
-compile '/anrp-2012-flyer/' do
-end
-
-compile '/anrp-2013-flyer/' do
+compile '/anrp-*-flyer/' do
 end
 
 compile '*' do
@@ -155,11 +152,7 @@ route 'sitemap' do
   item.identifier.chop + '.xml'
 end
 
-route 'anrp-2012-flyer' do
-  item.identifier.chop + '.pdf'
-end
-
-route 'anrp-2013-flyer' do
+route 'anrp-*-flyer' do
   item.identifier.chop + '.pdf'
 end
 
