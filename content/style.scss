@@ -54,7 +54,7 @@ html {
   padding-top: 2*$fs;
   padding-bottom: 2*$fs;
 
-  h2 {
+  h2, h3 {
     @include caps;
     color: $alt-text-color;
     margin: 3*$fs 0 .75*$fs 0;
@@ -109,11 +109,15 @@ div.main {
     font-style: italic;
   }
    
-  h2 {
+  h2, h3 {
     margin: 1.5*$fs 0 .5*$fs 0;
     font-size: 1.5*$fs;
     line-height: 1.75*$fs;
   } 
+  
+  h3 {
+    font-size: 1.15*$fs;
+  }  
 
   h2:first-child {
      margin-top: $fs/2;

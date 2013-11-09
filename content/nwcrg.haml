@@ -1,0 +1,86 @@
+--- 
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Objectives
+
+%p
+  The objective of the 
+  %span.term #{name} 
+  (#{acronym})
+  Network Coding Research Group (#{acronym}) is to research Network Coding principles and methods that can benefit Internet communication. One goal of the #{acronym} is to gather the research results and posit the open questions related to Network Coding in order to develop practical applications of Network Coding that improve Internet communication. Another goal is to gather information on the existing practical implementations of Network Coding, distill common functionalities and propose a path to standardization of Network Coding-enabled communication.
+
+%h2 Background
+
+%p Network Coding is a technique that can be used to improve a network's throughput, efficiency, latency, and scalability, as well as resilience to partition, attacks, and eavesdropping, as compared to traditional methods. In Network Coding, these benefits are achieved by exploiting computing and storage at endpoints and intermediate nodes. It has been shown that Network Coding is necessary to achieve maximum information flow in a network, based on principles of Information Theory.
+
+%p The field of Network Coding has enabled advances in communication areas including wireless networks, content distribution and peer-to-peer design.
+
+%h2 Interest Areas
+
+The following sections outline some of the interest areas of the #{acronym}. 
+
+%h3 Network Coding Research
+
+%p The #{acronym} work in this area will consider the existing theoretical and experimental results and will identify the areas in Internet communication that can benefit from Network Coding. Examples of such results are quantitative analytical bounds and experimental performance gains. The outcome of this work will be recommendations on promising Network Coding methods and their associated context. The #{acronym} will work in collaboration with other IRTF groups on common research topics such as congestion control, DTN, SDN.
+
+%p The following are topics of interest in Network Coding research:
+%ul
+  %li
+    %strong Performance and efficiency.
+    Determine expected performance gains, including multi-layer composition; computational complexity of coding; NWC network resource allocation; signaling overhead; tradeoffs between techniques such as block and sliding window coding.
+
+  %li
+    %strong Application layer.
+    Interactions between Network Coding and application-specific coding (such as video layers encoding); Joint source and network coding; combining network coding with content/information-centric networking.
+
+  %li
+    %strong Implications to data link layer. 
+    Interaction between Network Coding and data link protocols, including satellite links (regenerative coding), challenged wireless links (high loss, intermittent), optical links (replacing circuit-based redundancy with Network Coding).
+
+  %li
+    %strong Security, privacy, robustness to attacks.
+    Security implications and benefits; interaction of network coding and encryption, overhead; fundamental security properties; anonymity and robustness to blocking.
+
+  %li
+    %strong Network Coding implications on pricing and economics.
+    How to price services: on network usage or information rate; incentives to code across flows.
+
+%h3 Practical Applications of Network Coding
+
+%p The #{acronym} work in this area will consider the known practical implementations, analyze their architecture and identify best/common approaches for the promising Network Coding methods researched above. The #{acronym} will then propose a framework for Network Coding-enabled communication and a path to Network Coding standard protocols. The #{acronym} will identify the relevant IETF areas and propose draft contributions to specific IETF Working Groups. In case no IETF WG is found appropriate for a specific Network Coding protocol, the #{acronym} will propose the formation of a new IETF WG.
+
+%p The following are topics of interest in Network Coding practical application:
+%ul
+  %li
+    %strong Architectural considerations.
+    control plane, routing/forwarding plane and transport. Architectural requirements in large-scale, heterogeneous networks; relationships between data transport, control, forwarding planes and data layer.
+
+  %li
+    %strong End-to-end vs. hop-by-hop.
+    Stateful operation of Network Coding intermediate systems; richer interface requirements between routing and transport layers.
+
+  %li
+    %strong Intra-flow and inter-flow Network Coding.
+    Tradeoffs between performance gains and complexity of operation.
+
+  %li
+    %strong Service paradigms (best effort, time-bounded utility).
+    Service reliability levels using Network Coding's proactive and reactive reliability mechanisms.
+
+  %li
+    %strong Common encoding algorithms, service descriptions, and packet formats.
+    While Network Coding will be applied in different aspects of network operation, there may be utility in common encoding (and decoding) algorithms, service descriptions, and packet formats.
+
+%h2 IPR Statement
+
+%p
+  A lot of intellectual property exists in the general area of coding, and specifically, Network Coding. Research results that are covered by intellectual property rights can of course be brought to and discussed in the #{acronym}. However, the IRTF requires participants to disclose the existence of IPR in a timely manner when they bring such contributions to the #{acronym}; please see
+  %a{ :href => "http://irtf.org/ipr" } http://irtf.org/ipr
+  for details.
+
+%p One desired outcome of the #{acronym} is to transition research results in Network Coding into widely used Internet protocols and technologies. Experience has shown that this transition is much easier when research results under IPR are available without the need to obtain licenses or pay fees. This is why RFC5743 prefers "that the most liberal terms possible be made available for specifications published as IRTF Stream documents. Terms that do not require fees or licensing are preferable. Non-discriminatory terms are strongly preferred over those which discriminate among users." When publishing its results in RFC form, the #{acronym} therefore strives to make recommendations that follow this principle.

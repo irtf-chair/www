@@ -190,6 +190,20 @@ module IRTF
     nil
   )
 
+  # NWCRG
+  adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "www.linkedin.com/in/brianadamson", nil)
+  firoiu = Person.new("Victor", "Firoiu", "victor.firoiu@baesystems.com", "http://victor.firoiu.org/", nil)
+  nwcrg = RG.new(
+    "nwcrg",
+    "Network Coding",
+    "nwcrg@irtf.org",
+    nil,
+    nil,
+    [ adamson, firoiu ],
+    "2013-11-7",
+    nil
+  )
+
   # NMRG
   granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "http://inf.ufrgs.br/~granville/", nil)
   festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "http://www.loria.fr/~festor/Site/Welcome.html", nil) # www is needed
@@ -293,6 +307,7 @@ module IRTF
     "iccrg" => iccrg,
     "icnrg" => icnrg,
     "ncrg"  => ncrg,
+    "nwcrg" => nwcrg,
     "nmrg"  => nmrg,
     "rrg"   => rrg,
     "samrg" => samrg,
