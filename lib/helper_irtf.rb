@@ -133,7 +133,7 @@ module IRTF
   )
 
   # ICCRG
-  welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", nil)
+  welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", 1515901207)
   ros = Person.new("David", "Ros", "david.ros@telecom-bretagne.eu", "http://www.telecom-bretagne.eu/studies/msc/professors/ros.php", nil)
   iccrg = RG.new(
     "iccrg",
