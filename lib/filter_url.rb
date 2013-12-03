@@ -64,7 +64,10 @@ class URLFilter < Nanoc3::Filter
     "Bell Labs" => "http://www.alcatel-lucent.com/belllabs/",
     "FEDERICA" => "http://www.fp7-federica.eu/",
     "UFRGS" => "http://www.ufrgs.br/relinter/english",
-    "Jacobs University Bremen" => "http://www.jacobs-university.de/" # www is needed
+    "Jacobs University Bremen" => "http://www.jacobs-university.de/", # www is needed
+    "Trinity College Dublin" => "http://tcd.ie/",
+    "CAIDA" => "http://caida.org/",
+    "Hochschule Augsburg" => "http://hs-augsburg.de/"
   }
 
   def run(content, params={})
@@ -72,7 +75,7 @@ class URLFilter < Nanoc3::Filter
     @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
       c.gsub!(/\b(#{tag})\b#{$boundary}/) {
         |x| link_to($1, @@urls[tag])
-      } 
+      }
     end
     return c
   end
