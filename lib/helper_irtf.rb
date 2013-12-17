@@ -60,18 +60,18 @@ module IRTF
     def url(loc = "")
       link_to(acronym, loc + acronym.downcase, :title => name)
     end
-    
+
     def contacts
       result = @acronym.downcase + "\n" +
              "    Research Group Name:\n" +
-             "        " + @name + "\n" + 
+             "        " + @name + "\n" +
              "    Chair(s):\n"
       @chairs.each {|c|
         result += "        " + c.first + " " + c.last + " <" + c.email + ">\n"
       }
       result += "    List:\n" +
                 "        " + @list
-    return result      
+    return result
     end
   end
 
@@ -257,7 +257,7 @@ module IRTF
     "http://samrg.org/",
     [ buford, schmidt ],
     nil,
-    nil
+    "2013-12-17"
   )
 
   # SDNRG
@@ -310,7 +310,6 @@ module IRTF
     "nwcrg" => nwcrg,
     "nmrg"  => nmrg,
     "rrg"   => rrg,
-    "samrg" => samrg,
     "sdnrg" => sdnrg
   }
 
@@ -346,6 +345,7 @@ module IRTF
   $oldrgs["hiprg"] = hiprg;
   $oldrgs["p2prg"] = p2prg;
   $oldrgs["asrg"] = asrg;
+  $oldrgs["samrg"] = samrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
@@ -365,7 +365,7 @@ module IRTF
   def atlarge_contacts
     result = "irsg\n" +
            "    Research Group Name:\n" +
-           "        Non-RG Chair IRSG members\n" + 
+           "        Non-RG Chair IRSG members\n" +
            "    Chair(s):\n" +
            "        " + $chair.first + " " + $chair.last + " <" + $chair.email + ">\n" +
            "    Members:\n"
@@ -374,8 +374,8 @@ module IRTF
     }
     result += "    List:\n" +
               "        irsg@irtf.org"
-    return result      
-  end  
+    return result
+  end
 
   # lookahead pattern for filter regexps to make sure we don't replace in links or headings
   $boundary = "(?![^<'\"]*?(?:(?:<\/(?:a|h2|h3|span|dt)>))|['\"])"

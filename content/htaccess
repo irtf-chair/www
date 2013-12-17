@@ -69,7 +69,7 @@ FileETag None
 <IfModule !mod_filter.c>
   # Legacy versions of Apache
   AddOutputFilterByType DEFLATE text/html text/plain text/css application/json
-  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript 
+  AddOutputFilterByType DEFLATE text/javascript application/javascript application/x-javascript
   AddOutputFilterByType DEFLATE text/xml application/xml text/x-component
 </IfModule>
 
@@ -95,10 +95,10 @@ AddCharset utf-8 .html .css .js .xml .json .rss
 # Prevent 404 errors for non-existing redirected folders
 # ----------------------------------------------------------------------
 
-# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist 
+# without -MultiViews, Apache will give a 404 for a rewrite if a folder of the same name does not exist
 #   e.g. /blog/hello : webmasterworld.com/apache/3808792.htm
 
-Options -MultiViews 
+Options -MultiViews
 
 
 # Turning on the rewrite engine is necessary for the following rules and features.
@@ -120,7 +120,7 @@ Options -MultiViews
 # ----------------------------------------------------------------------
 
 # Option 1:
-# Rewrite "www.domain.com -> domain.com" 
+# Rewrite "www.domain.com -> domain.com"
 
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
@@ -174,16 +174,16 @@ Options -Indexes
 
 # Redirects for concluded RGs
 
-RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip)rg|mobopts)$  /concluded/$1
+RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip|sam)rg|mobopts)$  /concluded/$1
 
 
 # Other redirects
 
 RedirectMatch permanent ^/irtf/$                                /
-						   	        
+
 RedirectMatch permanent ^/concluded/?$                          /groups
 RedirectMatch permanent ^/(concluded|(?:old-)?groups)/groups$   /groups
-						   	        
+
 RedirectMatch permanent ^/(charters/)?irtf$                     /
 RedirectMatch permanent ^/index\.php$                           /
 RedirectMatch permanent ^/(?:(?:old-)?groups)/charter(.*)         /concluded/charter$1
@@ -208,7 +208,7 @@ RedirectMatch permanent ^/(charters/)?reliable-multicast\.html?$              /s
 RedirectMatch permanent ^/(charters/)?hip(\.html?)?$                          /hiprg
 RedirectMatch permanent ^/charters/asrg\.html?/?$                             /asrg
 RedirectMatch permanent ^/asrg/.+$                                            /asrg
-									      
+
 RedirectMatch permanent ^/(charters|historical)/servmanagement\.html?        /concluded/smrg
 RedirectMatch permanent ^/(charters|historical)/aaaarch\.html?$               /concluded/aaaarch
 RedirectMatch permanent ^/(charters|historical)/(gsec|secure-multicast)\.html?$                  /concluded/gsec

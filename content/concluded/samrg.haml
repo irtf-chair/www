@@ -1,8 +1,8 @@
---- 
+---
 ---
 
 -# convenience shortcuts
-- rg = $rgs[item.identifier.tr("/", "")]
+- rg = $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")]
 - name = rg.name
 - acronym = rg.acronym.upcase
 
@@ -10,7 +10,7 @@
 
 %p
   The
-  %span.term #{name} 
+  %span.term #{name}
   (#{acronym})
   is chartered to explore and research techniques which improve multicast performance with respect to dimensions such as number of groups, dynamics of group membership, dynamics of the network topology, and network resource constraints. The #{acronym} will investigate approaches based on application layer multicast (ALM), overlay multicast (OM), and native IP multicast, as well as hybrid approaches. A key design consideration is the placement of multicast state information along the multicast path, including packet headers, end hosts, and network nodes, where placement may be determined adaptively.
 
@@ -32,4 +32,4 @@
 
 %h2 Meetings
 
-%p Meetings will be held 2-3 times a year, sometimes co-located with other events (e.g., IETF meetings, conferences, etc.) and sometimes independently. In particular, the #{acronym} aims to work with the ALM/OM research community by convening special-topic meetings during academic and industry conferences in related fields. The #{acronym} also seeks input and participation from researchers involved in ongoing GIG system engineering activities.  
+%p Meetings will be held 2-3 times a year, sometimes co-located with other events (e.g., IETF meetings, conferences, etc.) and sometimes independently. In particular, the #{acronym} aims to work with the ALM/OM research community by convening special-topic meetings during academic and industry conferences in related fields. The #{acronym} also seeks input and participation from researchers involved in ongoing GIG system engineering activities.
