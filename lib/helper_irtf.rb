@@ -134,7 +134,7 @@ module IRTF
 
   # ICCRG
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", 1515901207)
-  ros = Person.new("David", "Ros", "david.ros@telecom-bretagne.eu", "http://www.telecom-bretagne.eu/studies/msc/professors/ros.php", nil)
+  ros = Person.new("David", "Ros", "dros@simula.no", "http://simula.no/people/dros", nil)
   iccrg = RG.new(
     "iccrg",
     "Internet Congestion Control",
