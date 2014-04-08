@@ -661,3 +661,90 @@ FileETag None
 #        SetOutputFilter INCLUDES
 #    </FilesMatch>
 # </IfModule>
+
+
+
+
+
+
+
+
+
+
+# get content for plain URLs from .html
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+</IfModule>
+
+# get content for plain URLs from .php
+<IfModule mod_rewrite.c>
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME}\.php -f
+  RewriteRule ^(.*)$ $1.php [L]
+</IfModule>
+
+
+# ----------------------------------------------------------------------
+# IPv6 thank-you
+# ----------------------------------------------------------------------
+<IfModule mod_rewrite.c>
+  RewriteCond %{REMOTE_ADDR} "\."
+  RewriteRule ipv6.json$ ipv6-no.json [L]
+
+  RewriteCond %{REMOTE_ADDR} !"\."
+  RewriteRule ipv6.json$ ipv6-yes.json [L]
+</IfModule>
+
+
+# Redirects for concluded RGs
+
+RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip|sam)rg|mobopts)$  /concluded/$1
+
+
+# Other redirects
+
+RedirectMatch permanent ^/irtf/$                                /
+
+RedirectMatch permanent ^/concluded/?$                          /groups
+RedirectMatch permanent ^/(concluded|(?:old-)?groups)/groups$   /groups
+
+RedirectMatch permanent ^/(charters/)?irtf$                     /
+RedirectMatch permanent ^/index\.php$                           /
+RedirectMatch permanent ^/(?:(?:old-)?groups)/charter(.*)         /concluded/charter$1
+RedirectMatch permanent ^/(concluded|(?:old-)?groups)/chair$                /chair
+RedirectMatch permanent ^/(concluded|(?:old-)?groups)/index$                /groups
+RedirectMatch permanent ^/(concluded|old-groups)\.(html?|php)$              /groups
+
+RedirectMatch permanent ^/chairfiles/draft-irtf-rfcs-01\.html$              http://tools.ietf.org/html/draft-irtf-rfcs
+RedirectMatch permanent ^/asrg/(draft-irtf-asrg-requirements-xx-01\.txt)$   http://asrg.sp.am/about/old_site/$1
+RedirectMatch permanent ^/asrg/(draft-vixie-repudiating-mail-from.txt)$     http://asrg.sp.am/about/old_site/$1
+RedirectMatch permanent ^/rfc/(.*)\.txt$                                    http://tools.ietf.org/html/$1
+
+
+RedirectMatch permanent ^/charters/(?:rg/)?((?:as|cf|dtn|hip|icc|nm|p2p|r|sam|tm|vn)rg|mobopts)\.html?$   /$1
+RedirectMatch permanent ^/rg/((?:as|cf|dtn|hip|icc|nm|p2p|r|sam|tm|vn)rg|mobopts)$                        /$1
+RedirectMatch permanent ^/(eme|imrg)$                                                                     /concluded/$1
+
+RedirectMatch permanent ^/rg/cfrg/$                                           /cfrg
+RedirectMatch permanent ^/(charters/)?routing\.html?$                         /rrg
+RedirectMatch permanent ^/(charters/)?management\.html?$                      /nmrg
+RedirectMatch permanent ^/(charters/)?reliable-multicast\.html?$              /samrg
+RedirectMatch permanent ^/(charters/)?hip(\.html?)?$                          /hiprg
+RedirectMatch permanent ^/charters/asrg\.html?/?$                             /asrg
+RedirectMatch permanent ^/asrg/.+$                                            /asrg
+
+RedirectMatch permanent ^/(charters|historical)/servmanagement\.html?        /concluded/smrg
+RedirectMatch permanent ^/(charters|historical)/aaaarch\.html?$               /concluded/aaaarch
+RedirectMatch permanent ^/(charters|historical)/(gsec|secure-multicast)\.html?$                  /concluded/gsec
+RedirectMatch permanent ^/(charters|historical)/siren\.html?$                 /concluded/siren
+RedirectMatch permanent ^/(charters|historical)/info-infrastructure\.html?$   /concluded/iiarg
+RedirectMatch permanent ^/(charters|historical)/end2end\.html?$               /concluded/end2end
+RedirectMatch permanent ^/(charters|historical)/namespace\.html?$             /concluded/nsrg
+RedirectMatch permanent ^/(charters|historical)/imrg\.html?$                  /concluded/imrg
+RedirectMatch permanent ^/(charters|historical)/Digital-Rights-Management\.html?$             /concluded/idrm
+
+RedirectMatch permanent ^/rm$                                                 /concluded/rmrg
+
+RedirectMatch permanent ^/([^/]+)/$                                           /$1
