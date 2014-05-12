@@ -57,11 +57,11 @@ html {
   h2, h3 {
     @include caps;
     color: $alt-text-color;
-    margin: 3*$fs 0 .75*$fs 0;
+    margin: 2*$fs 0 .75*$fs 0;
     line-height: 1.25*$fs;
     padding: 0;
   }
-  
+
   h2:first-child {
      margin-top: $fs/2;
   }
@@ -70,11 +70,11 @@ html {
     margin: 0;
     padding: 0;
   }
-  
+
   li {
     @include no-bullets;
   }
-  
+
   p, li {
     margin: .25*$fs 0 .25*$fs 0;
   }
@@ -100,29 +100,29 @@ a {
 
 div.main {
   @include column(18, true);
-  
+
   a.title {
     font-weight: bold;
   }
-  
+
   a.venue {
     font-style: italic;
   }
-   
+
   h2, h3 {
     margin: 1.5*$fs 0 .5*$fs 0;
     font-size: 1.5*$fs;
     line-height: 1.75*$fs;
-  } 
-  
+  }
+
   h3 {
     font-size: 1.15*$fs;
-  }  
+  }
 
   h2:first-child {
      margin-top: $fs/2;
   }
-  
+
   p, dl, th, td, table, ol {
     margin: .5*$fs 0 .5*$fs 0;
     font-weight: normal;
@@ -135,7 +135,7 @@ div.main {
   .done {
     text-decoration: line-through;
   }
-  
+
   th {
     font-style: italic;
   }
@@ -149,7 +149,7 @@ div.main {
     vertical-align: top;
     margin: 0;
   }
-    
+
   ul, dd {
     padding: 0 0 0 2*$fs;
     margin: 0;
@@ -171,7 +171,7 @@ div.main {
   dt {
     margin: .75*$fs 0 .25*$fs 0;
   }
-  
+
   div.rightbar {
     @include float-right;
     @include boxstyle;
@@ -180,20 +180,20 @@ div.main {
     padding-left: $fs;
     border-left: 1px solid $bc; // override color
   }
-  
+
   img.right {
     @include float-right;
     padding: 0 0 $fs $fs;
   }
-  
+
   .quote, .term, .latin {
     font-style: italic;
   }
-  
+
   .nextdeadline {
-    color: red;  
+    color: red;
   }
-  
+
   .pastdeadline {
     text-decoration: line-through;
   }
@@ -205,45 +205,45 @@ div.main {
     margin: 2*$fs 3px 2*$fs 3px;
     border: 1px solid $bc;
     background-color: lighten($bc, $lt);
-  }  
+  }
 
   ul.tiled {
     @include inline-block-list;
     @include clearfix;
-    
+
     a {
       @include unstyled-link;
     }
-  
+
     li {
       white-space: normal;
     }
-   
+
     .tile {
       @include tile;
       border: 1px solid $bc;
       &:hover {
         background-color: lighten($bc, $lt);
         @include box-shadow();
-      }    
+      }
     }
-    
+
     .oldtile {
       @include tile;
       border: 1px solid #ccc;
       &:hover {
         background-color: #ccc;
         @include box-shadow();
-      }    
+      }
     }
-    
+
     .acronym {
       @include caps;
       line-height: 1.25*$fs;
       margin: .25*$fs;
       display: block;
     }
-  
+
     .name {
       margin: .25*$fs;
       line-height: $fs;
@@ -268,7 +268,7 @@ div.logoleft {
     border-right: 1px none $bc; // override color
     text-align: right;
   }
-  
+
   div.title {
     @include column(18, last);
   }
@@ -280,14 +280,14 @@ div.logoleft {
 
 div.logoright {
   @include clearfix;
-  
+
   div.logo {
     @include float-right;
     min-width: 200px; // width of logo
     padding: 0 0 $fs $fs;
     text-align: right;
   }
-  
+
   div.title {
     @include float-left;
     width: span-fluid(15);
@@ -299,10 +299,10 @@ div.nav {
   @include colborder;
   @include boxstyle;
   border-right: 1px solid $bc; // override color
-  
+
   text-align: right;
   margin-top: 8*$fs;
-  
+
   a img {
     padding-top: .5*$fs;
   }
@@ -317,7 +317,7 @@ div.nav {
   border-top: 1px solid $bc;
   font-size: .65*$fs;
   color: $alt-text-color;
-  
+
   div.left {
     @include float-left;
 //    margin-left: span-fluid(6);
@@ -326,7 +326,7 @@ div.nav {
       text-align: left;
     }
   }
-  
+
   div.right {
     @include float-right;
     height: 2*$fs - 1;
@@ -334,7 +334,7 @@ div.nav {
       text-align: right;
       margin-left: $fs/4;
     }
-  }  
+  }
 }
 
 .socialshareprivacy .social_share_privacy_area {
@@ -345,7 +345,7 @@ div.nav {
 	li.settings_info .settings_info_menu.on {
 		top: auto;
 		bottom: 0;
-	}	
+	}
 }
 
 
@@ -357,7 +357,7 @@ div.ribbon {
   top: 0;
   height: 15*$fs;
   z-index: -1; // move it behind everything else
-  
+
   p {
     z-index: -1; // move it behind everything else
     background-color: lighten($bc, $lt);
@@ -372,19 +372,19 @@ div.ribbon {
   }
 }
 
-#skip a, #skip a:hover, #skip a:visited { 
-  position: absolute; 
-  left: 0px; 
-  top: -500px; 
-  width: 1px; 
-  height: 1px; 
+#skip a, #skip a:hover, #skip a:visited {
+  position: absolute;
+  left: 0px;
+  top: -500px;
+  width: 1px;
+  height: 1px;
   overflow: hidden;
-} 
+}
 
-#skip a:active, #skip a:focus { 
-  position: static; 
-  width: auto; 
-  height: auto; 
+#skip a:active, #skip a:focus {
+  position: static;
+  width: auto;
+  height: auto;
 }
 
 @media print {
