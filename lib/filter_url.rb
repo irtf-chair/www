@@ -67,6 +67,7 @@ class URLFilter < Nanoc3::Filter
     "Jacobs University Bremen" => "http://www.jacobs-university.de/", # www is needed
     "Trinity College Dublin" => "http://tcd.ie/",
     "CAIDA" => "http://caida.org/",
+    "Stanford" => "http://stanford.edu/",
     "Hochschule Augsburg" => "http://hs-augsburg.de/"
   }
 
