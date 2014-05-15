@@ -68,6 +68,7 @@ class URLFilter < Nanoc3::Filter
     "Trinity College Dublin" => "http://tcd.ie/",
     "CAIDA" => "http://caida.org/",
     "Stanford" => "http://stanford.edu/",
+    "Boston University" => "http://www.bu.edu",
     "Hochschule Augsburg" => "http://hs-augsburg.de/"
   }
 
