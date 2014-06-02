@@ -90,15 +90,18 @@ module IRTF
 
   # CFRG
   # canetti = Person.new("Ran", "Canetti", "canetti@watson.ibm.com")
-  mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "http://mindspring.com/~dmcgrew/dam.htm", nil)
+  # mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "http://mindspring.com/~dmcgrew/dam.htm", nil)
   igoe = Person.new("Kevin", "Igoe", "kmigoe@nsa.gov", nil, nil)
+  paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "http://www.isg.rhul.ac.uk/~kp/", nil)
+  melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", "http://www.melnikov.ca", nil)
+
   cfrg = RG.new(
     "cfrg",
     "Crypto Forum",
     "cfrg@irtf.org",
     nil,
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
-    [ mcgrew, igoe ],
+    [ igoe, paterson, melnikov ],
     nil,
     nil
   )
