@@ -246,7 +246,7 @@ module IRTF
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/RoutingResearchGroup",
     [ li ],
     nil,
-    nil
+    "2014-6-10"
   )
 
   # SAMRG
@@ -312,7 +312,6 @@ module IRTF
     "ncrg"  => ncrg,
     "nwcrg" => nwcrg,
     "nmrg"  => nmrg,
-    "rrg"   => rrg,
     "sdnrg" => sdnrg
   }
 
@@ -335,8 +334,8 @@ module IRTF
     "siren"   => "Searchable Internet Resource Names",
     "smrg"    => "Services Management",
     "tmrg"    => "Transport Modeling",
-
   }
+
   $oldrgs.keys.each do |n|
     $oldrgs[n] += " Research Group"
   end
@@ -349,6 +348,7 @@ module IRTF
   $oldrgs["p2prg"] = p2prg;
   $oldrgs["asrg"] = asrg;
   $oldrgs["samrg"] = samrg;
+  $oldrgs["rrg"] = rrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);

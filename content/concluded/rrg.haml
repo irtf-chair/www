@@ -1,8 +1,8 @@
---- 
+---
 ---
 
 -# convenience shortcuts
-- rg = $rgs[item.identifier.tr("/", "")]
+- rg = $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")]
 - name = rg.name
 - acronym = rg.acronym.upcase
 
@@ -10,7 +10,7 @@
 
 %p
   The
-  %span.term #{name} 
+  %span.term #{name}
   (#{acronym})
   is chartered to explore routing and addressing problems that are important to the development of the Internet but are not yet mature enough for engineering work within the IETF. As the Internet continues to evolve, the challenges in providing a scalable and robust global routing system will also change over time. At the moment, the Internet routing and addressing architecture is facing challenges in scalability, mobility, multi-homing, and inter-domain traffic engineering. Thus the #{acronym} proposes to focus its effort on designing an alternate architecture to meet these challenges. Although Internet routing is a broad and active research area, a focused effort at this time is necessary to assure rapid progress towards reaching the goal.
 
@@ -38,4 +38,4 @@
 
 %h2 Membership
 
-%p Open.  
+%p Open.

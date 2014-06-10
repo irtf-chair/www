@@ -700,7 +700,7 @@ FileETag None
 
 # Redirects for concluded RGs
 
-RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip|sam)rg|mobopts)$  /concluded/$1
+RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip|sam|r)rg|mobopts)$  /concluded/$1
 
 
 # Other redirects

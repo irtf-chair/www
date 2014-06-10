@@ -7,7 +7,8 @@
 %p
   The #{acronym} was chaired by
   - first = rg.chairs.take(rg.chairs.length - 1).map {|x| x.hamlify }.compact.join(", ")
-  = (first != "" ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
+  = (first != "" ? "#{first} and " : "") + rg.chairs.last.hamlify
+  when it closed.
 
 %h2 Mailing List
 %p
@@ -15,9 +16,9 @@
   = link_to(rg.list, "mailto:#{rg.list}") + "."
   To access the list archives, visit the
   = link_to("mailman page", rg.listweb) + "."
-  
+
 - if rg.web then
   %h2 Web Page
   %p
-    Additional #{acronym} information is (or was) available at 
+    Additional #{acronym} information is (or was) available at
     = link_to(rg.web, rg.web) + "."
