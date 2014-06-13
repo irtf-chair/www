@@ -190,7 +190,7 @@ module IRTF
     "http://networkcomplexity.org/",
     [ behringer, meyer ],
     "2011-10-4",
-    nil
+    "2014-6-13"
   )
 
   # NWCRG
@@ -303,13 +303,12 @@ module IRTF
     "2012-2-8"
   )
 
-  # RG list
+  # Active RGs
   $rgs = {
     "cfrg"  => cfrg,
     "dtnrg" => dtnrg,
     "iccrg" => iccrg,
     "icnrg" => icnrg,
-    "ncrg"  => ncrg,
     "nwcrg" => nwcrg,
     "nmrg"  => nmrg,
     "sdnrg" => sdnrg
@@ -349,6 +348,7 @@ module IRTF
   $oldrgs["asrg"] = asrg;
   $oldrgs["samrg"] = samrg;
   $oldrgs["rrg"] = rrg;
+  $oldrgs["ncrg"] = ncrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);

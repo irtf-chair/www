@@ -1,0 +1,47 @@
+---
+---
+
+-# convenience shortcuts
+- rg = $oldrgs[item.identifier.sub("/concluded/", "").tr("/","")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Charter
+
+%p
+  The
+  %span.term #{name}
+  (#{acronym})
+  aims at defining and analyzing the complexity of IP-based networks.
+
+%p Complexity has been researched from a number of different angles, for example software complexity, or graph complexity. There is however no good, objective understanding of the complexity of a real IP network, including its operational aspects. When two competing approaches (e.g., protocols, network architectures) are discussed there is generally no measurable metric for complexity.
+
+%p There is a general perception that unnecessary complexity should be avoided, and when deciding between two approaches in networking, complexity is usual an important factor. However, the term "complexity" is rarely well defined, and decisions on complexity are mostly made on subjective terms.
+
+%p It would be highly desirable to have such metrics for network complexity to objectively compare IP networking approaches. The goal of this research group is to gain a better understanding of the underlying metrics of network complexity.
+
+%p The #{acronym} provides objective definitions, metrics and background research to help making decisions where complexity is a factor. The ultimate goal is to provide factual and objective information and metrics to be used in network design and protocol design. It is highly desirable to have practical and objective information on network complexity as an input into the IETF process.
+
+%p Areas of interest include:
+%ol
+  %li Research with the goal of defining "network complexity", and defining relevant metrics.
+  %li Research on how to differentiate complexity between various network architectures, protocols or approaches.
+  %li Methods and ideas to contain, control, or reduce complexity in IP based networks.
+  %li Collect use cases regarding specific network designs or failure cases where complexity played a role.
+
+%p
+  The group will report progress through
+  %a{ :href => "http://networkcomplexity.org/"} http://networkcomplexity.org/
+  and presentations at IETF and IRTF meetings. Relevant information and
+  research developed by the research group will be submitted for
+  publication as Experimental or Informational RFCs.
+
+
+%h2 Membership
+
+Membership is open.
+
+
+%h2 Meetings
+
+#{acronym} meetings are held at least once a year in conjunction with the IETF. Another yearly meeting should be held, e.g., in conjunction with an academic conference.
