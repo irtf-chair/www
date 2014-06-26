@@ -69,7 +69,9 @@ class URLFilter < Nanoc3::Filter
     "CAIDA" => "http://caida.org/",
     "Stanford" => "http://stanford.edu/",
     "Boston University" => "http://www.bu.edu",
-    "Hochschule Augsburg" => "http://hs-augsburg.de/"
+    "Hochschule Augsburg" => "http://hs-augsburg.de/",
+    "University of Twente" => "http://www.utwente.nl/en/",
+    "Georgia Tech" => "http://www.gatech.edu"
   }
 
   def run(content, params={})
