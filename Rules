@@ -1,7 +1,10 @@
 #!/usr/bin/env ruby
 
-require 'compass'
-Compass.add_project_configuration 'compass/config.rb'
+unless defined? LOADED_DEFAULT_CONFIG
+  LOADED_DEFAULT_CONFIG = true
+  require 'compass'
+  Compass.add_project_configuration 'compass/config.rb'
+end
 
 # A few helpful tips about the Rules file:
 #
@@ -87,9 +90,9 @@ compile '*' do
   filter :url
   if item.identifier == '/'
     layout 'logoright'
-  else 
+  else
     layout 'logoleft'
-  end 
+  end
   filter :rubypants
 end
 
@@ -157,13 +160,13 @@ route 'anrp-*-flyer' do
 end
 
 route '*' do
-  if item.identifier == '/' 
-    # if item is index page 
-    '/index.html' 
-  else 
-    # routes for the rest 
-    item.identifier.chop + '.html' 
-  end 
+  if item.identifier == '/'
+    # if item is index page
+    '/index.html'
+  else
+    # routes for the rest
+    item.identifier.chop + '.html'
+  end
 end
 
 layout '*', :haml, :format => :html5
