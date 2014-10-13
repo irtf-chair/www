@@ -121,6 +121,19 @@ module IRTF
     nil
   )
 
+  # GAIA
+  sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "http://www.cl.cam.ac.uk/~as2330/", nil)
+  gaia = RG.new(
+    "gaia",
+    "Global Access to the Internet for All",
+    "gaia@irtf.org",
+    nil,
+    "http://trac.tools.ietf.org/group/irtf/trac/wiki/gaia",
+    [ sathiaseelan ],
+    "2014-10-13",
+    nil
+  )
+
   # HIPRG
   gurtov = Person.new("Andrei", "Gurtov", "gurtov@cs.helsinki.fi", "http://cs.helsinki.fi/u/gurtov/", nil)
   henderson = Person.new("Tom", "Henderson", "thomas.r.henderson@boeing.com", "http://tomh.org/", nil)
@@ -307,6 +320,7 @@ module IRTF
   $rgs = {
     "cfrg"  => cfrg,
     "dtnrg" => dtnrg,
+    "gaia" => gaia,
     "iccrg" => iccrg,
     "icnrg" => icnrg,
     "nwcrg" => nwcrg,
