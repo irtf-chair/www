@@ -8,7 +8,7 @@
     }
   });
 
-%script{ :src => @loc + "socialshareprivacy.js" }          
+%script{ :src => @loc + "socialshareprivacy.js" }
 :javascript
   jQuery(document).ready(function($) {
     if($('.socialshareprivacy').length > 0) {
@@ -21,8 +21,8 @@
             'txt_fb_off'  : 'Facebook link active',
             'txt_fb_on'   : 'Facebook link inactive',
             'language'    : 'en_US',
-            'action'      : 'recommend'            
-          }, 
+            'action'      : 'recommend'
+          },
           twitter : {
             'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_twitter.png'}',
             'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Twitter button. Enabling the button alone already transmits personal information to third parties.',
@@ -49,7 +49,7 @@
   var _gaq = _gaq || [];
   var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
   _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-37834978-1']);
+  _gaq.push(['_setAccount', 'UA-53860-11']);
   _gaq.push(['_trackPageview']);
   (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
