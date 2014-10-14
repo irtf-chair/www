@@ -123,13 +123,14 @@ module IRTF
 
   # GAIA
   sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "http://www.cl.cam.ac.uk/~as2330/", nil)
+  ford = Person.new("Mat", "Ford", "ford@isoc.org", "http://www.internetsociety.org/who-we-are/people/mr-mat-ford", nil)
   gaia = RG.new(
     "gaia",
     "Global Access to the Internet for All",
     "gaia@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/gaia",
-    [ sathiaseelan ],
+    [ sathiaseelan, ford ],
     "2014-10-13",
     nil
   )
