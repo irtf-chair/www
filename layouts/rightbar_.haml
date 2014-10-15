@@ -5,7 +5,7 @@
 
 %h2 Chair#{rg.chairs.length > 1 ? "s" : ""}
 %p
-  The #{acronym} is chaired by
+  #{acronym} is chaired by
   - first = rg.chairs.take(rg.chairs.length - 1).map {|x| x.hamlify }.compact.join(", ")
   = (first != "" ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
 
@@ -15,11 +15,11 @@
   = link_to(rg.list, "mailto:#{rg.list}") + "."
   To subscribe or access the list archives, visit the
   = link_to("mailman page", rg.listweb) + "."
-  
+
 - if rg.web then
   %h2 Web Page
   %p
-    Additional #{acronym} information is available at 
+    Additional #{acronym} information is available at
     = link_to(rg.web, rg.web) + "."
 
 - if rg.chartered || rg.concluded then
@@ -31,4 +31,4 @@
 - elsif rg.concluded then
   %p The #{acronym} concluded its work on #{rg.concluded}.
 
-  
+
