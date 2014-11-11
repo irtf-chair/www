@@ -278,14 +278,15 @@ module IRTF
   )
 
   # SDNRG
-  feamster = Person.new("Nick", "Feamster", "feamster@cc.gatech.edu", "http://www.cc.gatech.edu/~feamster/", nil)
+  # feamster = Person.new("Nick", "Feamster", "feamster@cc.gatech.edu", "http://www.cc.gatech.edu/~feamster/", nil)
+  king = Person.new("Daniel", "King", "d.king@lancaster.ac.uk", "http://www.research.lancs.ac.uk/portal/en/people/daniel-king", nil)
   sdnrg = RG.new(
     "sdnrg",
     "Software-Defined Networking",
     "sdn@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
-    [ meyer, feamster ],
+    [ meyer, king ],
     "2013-1-14",
     nil
   )
