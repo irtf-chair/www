@@ -129,7 +129,7 @@ module IRTF
     "Global Access to the Internet for All",
     "gaia@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/gaia",
+    "https://sites.google.com/site/irtfgaia/",
     [ sathiaseelan, ford ],
     "2014-10-15",
     nil
