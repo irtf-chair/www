@@ -35,9 +35,9 @@ module IRTF
   end
 
   class RG
-    attr_reader :acronym, :name, :list, :listweb, :web, :chairs, :chartered, :concluded
+    attr_reader :acronym, :name, :list, :listweb, :web, :chairs, :secretaries, :chartered, :concluded
 
-    def initialize(acronym, name, list, listweb, web, chairs, chartered, concluded)
+    def initialize(acronym, name, list, listweb, web, chairs, secretaries, chartered, concluded)
       @acronym = acronym.upcase
       @name = name + " Research Group"
       @list = list
@@ -49,6 +49,7 @@ module IRTF
       end
       @web = web
       @chairs = chairs
+      @secretaries = secretaries
       @chartered = chartered
       @concluded = concluded
     end
@@ -85,6 +86,7 @@ module IRTF
     "http://asrg.sp.am/",
     [ levine ],
     nil,
+    nil,
     "2013-3-18"
   )
 
@@ -103,6 +105,7 @@ module IRTF
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
     [ igoe, paterson, melnikov ],
     nil,
+    nil,
     nil
   )
 
@@ -118,6 +121,7 @@ module IRTF
     "http://dtnrg.org/",
     [ fall, farrell, ott ],
     nil,
+    nil,
     nil
   )
 
@@ -131,6 +135,7 @@ module IRTF
     nil,
     "https://sites.google.com/site/irtfgaia/",
     [ sathiaseelan, ford ],
+    nil,
     "2014-10-15",
     nil
   )
@@ -146,6 +151,7 @@ module IRTF
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/hiprg",
     [ gurtov, henderson ],
     nil,
+    nil,
     "2012-7-24"
   )
 
@@ -159,6 +165,7 @@ module IRTF
     nil,
     "http://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
     [ welzl, ros ],
+    nil,
     nil,
     nil
   )
@@ -174,6 +181,7 @@ module IRTF
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/icnrg",
     [ kutscher, ohlman, oran ],
+    nil,
     "2012-4-17",
     nil
   )
@@ -189,6 +197,7 @@ module IRTF
     nil,
     [ koodli, krishnan ],
     nil,
+    nil,
     "2012-6-8"
   )
 
@@ -203,8 +212,25 @@ module IRTF
     nil,
     "http://networkcomplexity.org/",
     [ behringer, meyer ],
+    nil,
     "2011-10-4",
     "2014-6-13"
+  )
+
+  # NFVRG
+  lopez = Person.new("Diego", "Lopez", "diego.r.lopez@telefonica.com", "http://people.tid.es/diego.lopez/", nil)
+  ramki = Person.new("Ramki", "Krishnan", "ramk@brocade.com", "http://www.linkedin.com/pub/ram-krishnan/0/a10/2ba", nil)
+  krishnaswamy = Person.new("Dilip", "Krishnaswamy", "dilip@ieee.org", "https://sites.google.com/site/dilip1/home", nil)
+  nfvrg = RG.new(
+    "nfvrg",
+    "Network Function Virtualization",
+    "nfvrg@irtf.org",
+    nil,
+    "http://trac.tools.ietf.org/group/irtf/trac/wiki/nfvrg",
+    [ lopez, ramki ],
+    [ krishnaswamy ],
+    "2015-1-20",
+    nil
   )
 
   # NWCRG
@@ -217,6 +243,7 @@ module IRTF
     nil,
     nil,
     [ adamson, firoiu ],
+    nil,
     "2013-11-13",
     nil
   )
@@ -232,6 +259,7 @@ module IRTF
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
     [ granville, festor ],
     nil,
+    nil,
     nil
   )
 
@@ -245,6 +273,7 @@ module IRTF
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/PeerToPeerResearchGroup",
     [ hiltl, previdi ],
+    nil,
     nil,
     "2013-2-25"
   )
@@ -260,6 +289,7 @@ module IRTF
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/RoutingResearchGroup",
     [ li ],
     nil,
+    nil,
     "2014-6-10"
   )
 
@@ -274,6 +304,7 @@ module IRTF
     "http://samrg.org/",
     [ buford, schmidt ],
     nil,
+    nil,
     "2013-12-17"
   )
 
@@ -287,6 +318,7 @@ module IRTF
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
     [ meyer, king ],
+    nil,
     "2013-1-14",
     nil
   )
@@ -300,6 +332,7 @@ module IRTF
     nil,
     "http://tools.ietf.org/group/irtf/trac/wiki/tmrg",
     [ andrew ],
+    nil,
     nil,
     "2011-9-26"
   )
@@ -315,6 +348,7 @@ module IRTF
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/vnrg",
     [ touch, stiemerling ],
     nil,
+    nil,
     "2012-2-8"
   )
 
@@ -325,6 +359,7 @@ module IRTF
     "gaia" => gaia,
     "iccrg" => iccrg,
     "icnrg" => icnrg,
+    "nfvrg" => nfvrg,
     "nwcrg" => nwcrg,
     "nmrg"  => nmrg,
     "sdnrg" => sdnrg

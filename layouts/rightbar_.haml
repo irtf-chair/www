@@ -5,9 +5,17 @@
 
 %h2 Chair#{rg.chairs.length > 1 ? "s" : ""}
 %p
-  #{acronym} is chaired by
+  #{rg.acronym =~ /rg$/i ? "The" : ""} #{acronym} is chaired by
   - first = rg.chairs.take(rg.chairs.length - 1).map {|x| x.hamlify }.compact.join(", ")
   = (first != "" ? "#{first} and " : "") + rg.chairs.last.hamlify + "."
+
+- if rg.secretaries
+  %h2 Secretar#{rg.secretaries.length > 1 ? "ies" : "y"}
+  %p
+    - first = rg.secretaries.take(rg.secretaries.length - 1).map {|x| x.hamlify }.compact.join(", ")
+    = (first != "" ? "#{first} and " : "") + rg.secretaries.last.hamlify
+    act#{rg.secretaries.length > 1 ? "" : "s"}
+    as group secretar#{rg.secretaries.length > 1 ? "ies" : "y"}.
 
 %h2 Mailing List
 %p
