@@ -1,0 +1,72 @@
+---
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Charter
+
+%p
+  Network Function Virtualization (NFV) is a key emerging area for network operators, hardware and software vendors, cloud service providers, and in general network practitioners and researchers. This area requires exploring new directions and working collaboratively on how to create network services that utilize a virtualized infrastructure. Network functions that are traditionally implemented in dedicated hardware appliances will need to be decomposed and executed in software elements running on cloud-based infrastructures. One essential goal of this new approach is to reduce capital and operating expenditures for future deployments for networks and associated services. Another important goal is for the network operators to be able to offer value added cloud services to their customers. Finally, new business models will open for the provision of network services.
+
+%p
+  The technologies enabling the virtualization of network functions (NFs) are currently in an early stage, and they need researchers to develop new architectures, systems, and software, and to explore trade-offs and possibilities for leveraging virtualized infrastructure to provide support for network functions. The #{name} (#{acronym}) will bring together researchers and grow the community around the world in both academia and industry to explore this new research area. Beyond the direct activity through the IRTF collaboration tools it will organize research group meetings and workshops at premier conferences (such as IEEE ICC, IEEE GLOBECOM) and inviting special issues in well-known publications.
+
+%p
+  The #{acronym} will focus on research problems associated with NFV-related topics and on bringing a research community together that can jointly address them, concentrating on problems that relate not just to networking but also to computing and storage aspects in such environments. It is hoped that the outcome of the research will benefit research efforts in other groups within the IRTF (and especially the SDNRG) and standardization activities of IETF WGs (like the ones going in SFC). Specific results can also spawn activities via IRTF & IETF BoF meetings and/or provide useful input to other related efforts in the ETSI NFV ISG or other standards bodies.
+
+
+%h2 Areas of Interest
+
+%ul
+  %li New network architectures based on virtualized network functions (VNFs), including NF building from virtualized components
+  %li NFV challenges in various cloud architectures (e.g., VNF intra- and inter-cloud mobility)
+  %li Network and service function chaining: architecture and implementation (e.g., automation of VNF chain building, chaining of VNFs and non-virtual NFs)
+  %li Autonomous orchestration and optimization
+  %li Requirements and mechanisms to ensure reliable virtual network functions and services, in particular in what relates to failure characterization and representation
+  %li New operational models associated with NFV
+  %li Infrastructure and NF description and programming (languages, APIs, frameworks for combined processing, network and storage programming, policy languages, etc.)
+  %li Coexistence with non-virtualized infrastructure and services
+  %li Virtualized network economics and business modeling
+  %li Security, trust and service verification
+  %li Performance modeling
+  %li Real-time big data analytics and data-centric management of virtualized infrastructure
+  %li New application domains enabled by virtualized infrastructure and services, including use cases across heterogeneous infrastructures (wired, optical, cellular, satellite)
+  %li End to end and system-wide optimization of compute, storage, network and energy efficiency
+  %li Exploration of infrastructure and service abstractions enabled by virtualization
+  %li Real-time and novel monitoring techniques (for performance guarantees, error and anomaly detection, smarter auto-scaling and optimization in general, etc.)
+
+%p
+  The group will report progress through its wiki and presentations at IETF and IRTF meetings. Relevant information and research developed by the research group will be submitted for publication as Experimental or Informational RFCs.
+
+
+%h2 Near-Term Work Items
+
+%p
+  The group shall focus on a concrete list of near-term work items. For each of the items mentioned below, the goal is to explore system architecture, optimization, and open interfaces across components, through experimental results, simulations, and/or real-world implementations.
+
+%ol
+  %li
+    %h3 Policy-Based Resource Management
+    %p
+      NFV Point of Presence (PoP) will be likely constrained in compute and storage capacity. Since practically all NFV PoPs are foreseen to be distributed, inter-datacenter network capacity is also a constraint. Additionally, energy is also a constraint, both as a general concern for NFV operators, and in particular for specific-purpose NFV PoPs such as those in mobile base stations. This work item will focus on optimized resource management and workload distribution based on policy.
+  %li
+    %h3 Analytics for Visibility and Orchestration
+    %p
+      Network functions should be supportable on general purpose commodity hardware. Real-time monitoring and analytics providing insight into various components such as compute (e.g., dynamic CPU utilization), storage (e.g., dynamic capacity usage), network (e.g., dynamic bandwidth utilization), energy (e.g., dynamic power consumption) are key to not only providing visibility into the NFV infrastructure but also optimizing resource usage for the purposes of orchestration. This work item will contemplate techniques for the applicability of real-time analytics.
+  %li
+    %h3 Virtual Network Function (VNF) Performance Modeling to Facilitate Transition to NFV
+    %p
+      When migrating from hardware network appliances, which are typically custom and monolithic, to virtualized software implementations running on commodity hardware a challenge which is often faced is the need for an equivalence model, especially in terms of performance. The work item will consider this modeling.
+  %li
+    %h3 Service Verification with Regards to Security and Resiliency
+    %p
+      Reliability and security issues and relevant solutions related to the nature of VNFs are the objectives of this work item.
+    %p
+      NFV configuration is expected to be dynamic especially in the edge NFV PoP where capacity is limited; a good example is the handling of viral events such as mobile gaming application. While autonomic networking techniques could be used to automate the configuration process including modular updates, one needs to take into account that incomplete and/or inconsistent configuration may lead to security and reliability issues.
+    %p
+      Accidental failures or intentional events such as distributed denial of service (DDoS) attacks are "familiar" threats that could compromise heavily the system, due to the dependency of NFV on a distributed infrastructure. Thus the use of VNFs may well introduce additional challenges to ensure the support of carrier grade reliability. In the event of network and/or service degradation or failure, there must be suitable coordination, fail-over, and recovery. These reliable NFV mechanisms will also need tools and mechanisms to deploy and manage capability, and close coordination with NFV resource management and performance analytics is also expected. Elasticity of VNFs entails dynamic scale up/down/out/in with awareness of the resiliency considerations, a new scope as compared to the monolithic implementation approach.
+    %p
+      Furthermore, the envisaged deployment of arbitrary third-party VNF applications on the network infrastructure of service providers raises significant security concerns and poses challenges for VNF verification in terms of functionality, security and stability under well-defined procedures.
