@@ -111,7 +111,6 @@ module IRTF
 
   # DTNRG
   fall = Person.new("Kevin", "Fall", "kfall@acm.org", "http://kfall.net/ucbpage/", nil)
-  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
   ott = Person.new("Jörg", "Ott", "jo@netlab.tkk.fi", "http://www.netlab.tkk.fi/~jo/", nil) # www is needed
   dtnrg = RG.new(
     "dtnrg",
@@ -119,7 +118,7 @@ module IRTF
     "dtn-interest@irtf.org",
     nil,
     "http://dtnrg.org/",
-    [ fall, farrell, ott ],
+    [ fall, ott ],
     nil,
     nil,
     nil
@@ -414,7 +413,8 @@ module IRTF
   li = Person.new("Xing", "Li", "xing@cernet.edu.cn", "http://www.net-glyph.org/lixing/", nil)
   lear = Person.new("Eliot", "Lear", "lear@cisco.com", "http://www.linkedin.com/pub/eliot-lear/0/81/b0a", nil)
   housley = Person.new("Russ", "Housley", "housley@vigilsec.com", "http://www.linkedin.com/pub/russ-housley/0/69/419", nil)
-  $atlarge = [ falk, allman, dawkins, li, lear, housley ]
+  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
+  $atlarge = [ falk, allman, dawkins, li, lear, housley, farrell]
 
   def atlarge_contacts
     result = "irsg\n" +
