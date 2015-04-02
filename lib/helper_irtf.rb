@@ -410,11 +410,11 @@ module IRTF
   allman = Person.new("Mark", "Allman", "mallman@icir.org", "http://www.icir.org/mallman/", nil)
   dawkins = Person.new("Spencer", "Dawkins", "spencer@wonderhamster.org", "http://linkedin.com/in/spencerdawkins", nil)
   # arkko = Person.new("Jari", "Arkko", "jari.arkko@piuha.net", "http://www.arkko.com/", nil)
-  li = Person.new("Xing", "Li", "xing@cernet.edu.cn", "http://www.net-glyph.org/lixing/", nil)
-  lear = Person.new("Eliot", "Lear", "lear@cisco.com", "http://www.linkedin.com/pub/eliot-lear/0/81/b0a", nil)
+  # li = Person.new("Xing", "Li", "xing@cernet.edu.cn", "http://www.net-glyph.org/lixing/", nil)
+  # lear = Person.new("Eliot", "Lear", "lear@cisco.com", "http://www.linkedin.com/pub/eliot-lear/0/81/b0a", nil)
   housley = Person.new("Russ", "Housley", "housley@vigilsec.com", "http://www.linkedin.com/pub/russ-housley/0/69/419", nil)
   farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
-  $atlarge = [ falk, allman, dawkins, li, lear, housley, farrell]
+  $atlarge = [ falk, allman, dawkins, housley, farrell]
 
   def atlarge_contacts
     result = "irsg\n" +
