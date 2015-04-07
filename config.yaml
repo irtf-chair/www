@@ -2,8 +2,8 @@
 # Now done by a rake rule; faster that way.
 #compress: true
 
-# The base URL for this site. This is required for XML sitemap generation. 
-base_url: http://irtf.org
+# The base URL for this site. This is required for XML sitemap generation.
+base_url: https://irtf.org
 
 # A list of file extensions that nanoc will consider to be textual rather than
 # binary. If an item with an extension not in this list is found,  the file
@@ -57,5 +57,5 @@ data_sources:
     # same as the items root, but applies to layouts rather than items.
     layouts_root: /
 
-    config: 
-      allow_periods_in_identifiers: true 
+    config:
+      allow_periods_in_identifiers: true
