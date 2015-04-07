@@ -258,6 +258,11 @@ div.title h1 {
   letter-spacing: -1px;
 }
 
+h1 small {
+  font-size: 66%;
+  color: grey;
+}
+
 
 div.logoleft {
   @include clearfix;
