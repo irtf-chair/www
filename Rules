@@ -24,10 +24,12 @@ end
 
 compile '/style/' do
   filter :sass, Compass.sass_engine_options
+  filter :relativize_paths, :type => :css
 end
 
 compile '/ie/' do
   filter :sass, Compass.sass_engine_options
+  filter :relativize_paths, :type => :css
 end
 
 compile '/img/*' do
@@ -51,6 +53,7 @@ compile '/concluded/*/' do
   filter :url
   layout 'historic'
   filter :rubypants
+  filter :relativize_paths, :type => :html
 end
 
 compile '/htaccess/' do
@@ -88,6 +91,7 @@ compile '*' do
   filter :rg
   filter :meeting
   filter :url
+  filter :relativize_paths, :type => :html
   if item.identifier == '/'
     layout 'logoright'
   else
