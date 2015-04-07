@@ -24,6 +24,7 @@ class URLFilter < Nanoc3::Filter
     "W3C" => "http://w3.org/",
     "IRTF" => "./",
     "ISOC" => "http://isoc.org/",
+    "Internet Society" => "http://isoc.org/",
     "IRTF Chair" => "chair",
     "IETF meetings?" => "http://ietf.org/meeting/",
     "IRSG" => "irsg",
@@ -71,7 +72,10 @@ class URLFilter < Nanoc3::Filter
     "Boston University" => "http://www.bu.edu",
     "Hochschule Augsburg" => "http://hs-augsburg.de/",
     "University of Twente" => "http://www.utwente.nl/en/",
-    "Georgia Tech" => "http://www.gatech.edu"
+    "Georgia Tech" => "http://www.gatech.edu",
+    "ETHZ" => "https://www.ethz.ch/",
+    "IIJ" => "http://www.iij.ad.jp/",
+    "Microsoft Research" => "http://research.microsoft.com/"
   }
 
   def run(content, params={})
