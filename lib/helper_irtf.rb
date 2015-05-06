@@ -43,7 +43,11 @@ module IRTF
       @list = list
       # handle IRTF lists by default
       if list =~ /irtf.org$/ then
-        @listweb = "/mailman/listinfo/" + list.split("@").first.downcase
+        if concluded then
+          @listweb = "https://www.ietf.org/mail-archive/web/" + list.split("@").first.downcase
+        else
+          @listweb = "/mailman/listinfo/" + list.split("@").first.downcase
+        end
       else
         @listweb = listweb.downcase
       end
@@ -233,7 +237,7 @@ module IRTF
   )
 
   # NWCRG
-  adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "www.linkedin.com/in/brianadamson", nil)
+  adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "https://linkedin.com/in/brianadamson", nil)
   firoiu = Person.new("Victor", "Firoiu", "vfiroiu@acm.org", "http://victor.firoiu.org/", nil)
   nwcrg = RG.new(
     "nwcrg",
