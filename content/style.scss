@@ -299,6 +299,10 @@ div.logoright {
   }
 }
 
+img.logo {
+  margin-right:50px;
+}
+
 div.nav {
   @include column(5);
   @include colborder;

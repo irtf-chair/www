@@ -3,7 +3,7 @@
   %a{ :href => "#content" } Skip navigation
 
 -# Navigation
-%h2 
+%h2
   %a{ :href => @loc + "groups" } Research Groups
 %ul
   - $rgs.values.sort.each do |rg|
@@ -32,9 +32,9 @@
 %ul
   %li
     %a{ :href => "http://ietf.org/" }
-      %img{ :src => @loc + "img/ietf.png", :width => 100, :height => 53,
+      %img{ :src => @loc + "img/ietf.png", :width => 100,
             :alt => "Internet Engineering Task Force (IETF)" }
   %li
     %a{ :href => "http://isoc.org/" }
-      %img{ :src => @loc + "img/isoc.png", :width => 100, :height => 40,
+      %img{ :src => @loc + "img/isoc.png", :width => 100,
             :alt => "Internet Society (ISOC)" }
