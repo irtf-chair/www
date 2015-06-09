@@ -75,7 +75,8 @@ class URLFilter < Nanoc3::Filter
     "Georgia Tech" => "http://www.gatech.edu",
     "ETHZ" => "https://www.ethz.ch/",
     "IIJ" => "http://www.iij.ad.jp/",
-    "Microsoft Research" => "http://research.microsoft.com/"
+    "Microsoft Research" => "http://research.microsoft.com/",
+    "University of Melbourne" => "http://unimelb.edu.au/"
   }
 
   def run(content, params={})
