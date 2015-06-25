@@ -312,7 +312,6 @@ module IRTF
   )
 
   # SDNRG
-  # feamster = Person.new("Nick", "Feamster", "feamster@cc.gatech.edu", "http://www.cc.gatech.edu/~feamster/", nil)
   king = Person.new("Daniel", "King", "d.king@lancaster.ac.uk", "http://www.research.lancs.ac.uk/portal/en/people/daniel-king", nil)
   sdnrg = RG.new(
     "sdnrg",
@@ -420,7 +419,8 @@ module IRTF
   farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
   droms = Person.new("Ralph", "Droms", "rdroms.ietf@gmail.com", "https://www.linkedin.com/pub/ralph-droms/0/493/a10", nil)
   nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
-  $atlarge = [ falk, allman, dawkins, housley, farrell, droms, nordmark ]
+  feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "http://www.cs.princeton.edu/~feamster/", nil)
+  $atlarge = [ falk, allman, dawkins, housley, farrell, droms, nordmark, feamster ]
 
   def atlarge_contacts
     result = "irsg\n" +
