@@ -420,7 +420,8 @@ module IRTF
   droms = Person.new("Ralph", "Droms", "rdroms.ietf@gmail.com", "https://www.linkedin.com/pub/ralph-droms/0/493/a10", nil)
   nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
   feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "http://www.cs.princeton.edu/~feamster/", nil)
-  $atlarge = [ falk, allman, dawkins, housley, farrell, droms, nordmark, feamster ]
+  teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
+  $atlarge = [ falk, allman, dawkins, housley, farrell, droms, nordmark, feamster, teixeira ]
 
   def atlarge_contacts
     result = "irsg\n" +
