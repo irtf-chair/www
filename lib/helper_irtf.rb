@@ -319,7 +319,7 @@ module IRTF
     "sdn@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
-    [ meyer, king ],
+    [ king ],
     nil,
     "2013-1-14",
     nil
