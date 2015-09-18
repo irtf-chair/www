@@ -145,9 +145,17 @@ div.main {
   }
 
   th, td {
-    padding: 0 .25*$fs .25*$fs 0;
+    padding: 0 .5*$fs .25*$fs 0;
     vertical-align: top;
     margin: 0;
+  }
+
+  .border {
+    border-bottom: 1px dotted black;
+  }
+
+  td.grey {
+    color: grey;
   }
 
   ul, dd {

@@ -65,8 +65,11 @@ end
 compile '/socialshareprivacy/' do
 end
 
+compile '/raim-2015-papers/*' do
+end
+
 compile '/socialshareprivacy/*' do
-  if @item[:extension] == 'css'
+  if item[:extension] == 'css'
   end
 end
 
@@ -103,6 +106,10 @@ end
 
 # route rules
 
+route %r{^/raim-2015-papers/irtf_raim-(.+)/} do |id|
+  "/raim-2015/raim-2015-#{id[0]}" + '.' + item[:extension]
+end
+
 route '/rg-contacts/' do
   '/pub/rg-contacts.txt'
 end
@@ -116,7 +123,7 @@ route '/ie/' do
 end
 
 route '/img/*' do
-  item.identifier.chop + '.' + @item[:extension]
+  item.identifier.chop + '.' + item[:extension]
 end
 
 route '/ipv6-no/' do
@@ -144,7 +151,7 @@ route '/socialshareprivacy/' do
 end
 
 route '/socialshareprivacy/*' do
-  item.identifier.chop + '.' + @item[:extension]
+  item.identifier.chop + '.' + item[:extension]
 end
 
 route '/htaccess/' do
