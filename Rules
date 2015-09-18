@@ -107,7 +107,7 @@ end
 # route rules
 
 route %r{^/raim-2015-papers/irtf_raim-(.+)/} do |id|
-  "/raim-2015/raim-2015-#{id[0]}" + '.' + item[:extension]
+  "/raim-2015-papers/raim-2015-#{id[0]}" + '.' + item[:extension]
 end
 
 route '/rg-contacts/' do
