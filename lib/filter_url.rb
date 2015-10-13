@@ -76,7 +76,8 @@ class URLFilter < Nanoc3::Filter
     "ETHZ" => "https://www.ethz.ch/",
     "IIJ" => "http://www.iij.ad.jp/",
     "Microsoft Research" => "http://research.microsoft.com/",
-    "University of Melbourne" => "http://unimelb.edu.au/"
+    "University of Melbourne" => "http://unimelb.edu.au/",
+    "UTS" => "http://www.uts.edu.au/"
   }
 
   def run(content, params={})
