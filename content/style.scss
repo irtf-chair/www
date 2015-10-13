@@ -154,8 +154,12 @@ div.main {
     border-bottom: 1px dotted black;
   }
 
-  td.grey {
+  .grey {
     color: grey;
+  }
+
+  .nowrap {
+    white-space: nowrap;
   }
 
   ul, dd {
