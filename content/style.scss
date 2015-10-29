@@ -1,421 +1,102 @@
----
-is_hidden: true
----
+// Overrides for bootstrap defaults
+$font-family-serif:       Georgia, "Times New Roman", Times, serif !default;
+$font-family-base:        $font-family-serif !default;
+$font-size-base:          16px !default;
+$font-size-h1:            floor(($font-size-base * 3)) !default; // ~48px
+$font-size-h2:            floor(($font-size-base * 1.5)) !default; // ~24px
 
-@import "compass/reset";
-@import "compass/layout/sticky-footer";
-@import "compass/typography/links/hover-link";
-@import "compass/typography/links/unstyled-link";
-@import "compass/typography/lists/bullets";
-@import "compass/typography/lists/inline-block-list";
-@import "compass/css3/border-radius";
-@import "compass/css3/box-shadow";
-@import "compass/css3/text-shadow";
-@import "compass/css3/transform";
-@import "compass/css3/opacity";
-@import "compass/css3/columns";
-@import "compass/utilities/general/min";
-@import "compass/utilities/general/clearfix";
-@import "compass/utilities/print";
+$bs: #fccf34;  // the yellow used in the IRTF logo
+$brand-warning: lighten($bs, 25%);
+$well-bg: $brand-warning;
+$well-border: $brand-warning;
 
-$fs: 16px;
-$blueprint-font-family: Georgia, Palatino, Times, 'Times New Roman', serif;
-$blueprint-font-size: $fs;
-$blueprint-liquid-container-min-width: 800px;
+@import "bootstrap";
+@import "bootstrap/theme";
 
-@import "blueprint/liquid";
-@import "blueprint/fancy-type";
+@media (min-width: $screen-sm-min) {
+  .rightbar {
+  	h2 {
+  		font-variant: small-caps;
+  		font-size: floor(($font-size-base * 1.25));
+  		text-transform: lowercase;
+  		font-weight: bold;
+  		color: $gray;
+  }
 
-$bc: #fccf34; // the yellow used in the IRTF logo
-$lt: 15%;     // lighten percentage
+  a {
+      word-wrap: break-word;
+  }
 
-@include blueprint-typography;
-@include print-utilities(screen);
+  border-left: 1px $brand-warning solid;
+  // margin-left: 15px;
+  margin-top: 4*$font-size-base;
+
+  }
+}
+
+img.pull-right {
+  margin: 0 0 $font-size-base $font-size-base;
+}
+
+// Add spacing in definition lists
+dt, dd {
+  margin: 0 0 ($line-height-computed / 2) !important;
+}
+
+// Indent definition descriptions
+dd  {
+  margin-left: (2 * $font-size-base) !important;
+}
+
+.thumbnail {
+  min-height: 6em;
+}
 
 html {
-  font-size: $fs;
+  position: relative;
+  min-height: 100%;
 }
 
-@mixin roundborder {
-    @include border-radius(2*$fs);
-    padding: .5*$fs;
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 180px;
+  padding-top: 70px;
 }
 
-@mixin tile {
-    @include roundborder;
-    @include inline-block;
-    text-align: center;
-    width: 8*$fs;
-    height: 8*$fs;
-    margin: 3px; // 3px is box-shadow default
-}
-
-@mixin boxstyle {
-  padding-top: 2*$fs;
-  padding-bottom: 2*$fs;
-
-  h2, h3 {
-    @include caps;
-    color: $alt-text-color;
-    margin: 2*$fs 0 .75*$fs 0;
-    line-height: 1.25*$fs;
-    padding: 0;
-  }
-
-  h2:first-child {
-     margin-top: $fs/2;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    @include no-bullets;
-  }
-
-  p, li {
-    margin: .25*$fs 0 .25*$fs 0;
-  }
-}
-
-a {
-  @include hover-link;
-  word-wrap: break-word;
-}
-
-.container {
-  @include container;
-  width: 90%;
-  z-index: 1; // to fix IE z-index bug
-
-  div.content {
-    z-index: 1; // to fix IE z-index bug
-    @include column(24, true);
-    padding: 2*$fs 0 4*$fs 0;
-  }
-}
-
-
-div.main {
-  @include column(18, true);
-
-  a.title {
-    font-weight: bold;
-  }
-
-  a.venue {
-    font-style: italic;
-  }
-
-  h2, h3 {
-    margin: 1.5*$fs 0 .5*$fs 0;
-    font-size: 1.5*$fs;
-    line-height: 1.75*$fs;
-  }
-
-  h3 {
-    font-size: 1.15*$fs;
-  }
-
-  h2:first-child {
-     margin-top: $fs/2;
-  }
-
-  p, dl, th, td, table, ol {
-    margin: .5*$fs 0 .5*$fs 0;
-    font-weight: normal;
-  }
-
-  dl.papers dt {
-    font-weight: normal;
-  }
-
-  .done {
-    text-decoration: line-through;
-  }
-
-  th {
-    font-style: italic;
-  }
-
-  table {
-    width: auto;
-  }
-
-  th, td {
-    padding: 0 .5*$fs .25*$fs 0;
-    vertical-align: top;
-    margin: 0;
-  }
-
-  .border {
-    border-bottom: 1px dotted black;
-  }
-
-  .grey {
-    color: grey;
-  }
-
-  .nowrap {
-    white-space: nowrap;
-  }
-
-  ul, dd {
-    padding: 0 0 0 2*$fs;
-    margin: 0;
-  }
-
-  ul {
-    list-style-type: square;
-    list-style-position: outside;
-  }
-
-  li {
-    margin: .25*$fs 0 .25*$fs 0;
-  }
-
-  .twocol {
-    @include column-count(2);
-  }
-
-  dt {
-    margin: .75*$fs 0 .25*$fs 0;
-  }
-
-  div.rightbar {
-    @include float-right;
-    @include boxstyle;
-    width: span-fluid(7);
-    margin: 4*$fs 0 $fs $fs;
-    padding-left: $fs;
-    border-left: 1px solid $bc; // override color
-  }
-
-  img.right {
-    @include float-right;
-    padding: 0 0 $fs $fs;
-  }
-
-  .quote, .term, .latin {
-    font-style: italic;
-  }
-
-  .nextdeadline {
-    color: red;
-  }
-
-  .pastdeadline {
-    text-decoration: line-through;
-  }
-
-  div.news {
-    @include border-radius(2*$fs);
-    @include box-shadow();
-    padding: $fs;
-    margin: 2*$fs 3px 2*$fs 3px;
-    border: 1px solid $bc;
-    background-color: lighten($bc, $lt);
-  }
-
-  ul.tiled {
-    @include inline-block-list;
-    @include clearfix;
-
-    a {
-      @include unstyled-link;
-    }
-
-    li {
-      white-space: normal;
-    }
-
-    .tile {
-      @include tile;
-      border: 1px solid $bc;
-      &:hover {
-        background-color: lighten($bc, $lt);
-        @include box-shadow();
-      }
-    }
-
-    .oldtile {
-      @include tile;
-      border: 1px solid #ccc;
-      &:hover {
-        background-color: #ccc;
-        @include box-shadow();
-      }
-    }
-
-    .acronym {
-      @include caps;
-      line-height: 1.25*$fs;
-      margin: .25*$fs;
-      display: block;
-    }
-
-    .name {
-      margin: .25*$fs;
-      line-height: $fs;
-      font-style: italic;
-    }
-  }
-
-
-}
-
-div.title h1 {
-  letter-spacing: -1px;
-}
-
-h1 small {
-  font-size: 66%;
-  color: grey;
-}
-
-
-div.logoleft {
-  @include clearfix;
-
-  div.logo {
-    @include column(5);
-    @include colborder;
-    border-right: 1px none $bc; // override color
-    text-align: right;
-  }
-
-  div.title {
-    @include column(18, last);
-  }
-
-  div.title.withribbon {
-    @include column(15, last);
-  }
-}
-
-div.logoright {
-  @include clearfix;
-
-  div.logo {
-    @include float-right;
-    min-width: 200px; // width of logo
-    padding: 0 0 $fs $fs;
-    text-align: right;
-  }
-
-  div.title {
-    @include float-left;
-    width: span-fluid(15);
-  }
-}
-
-img.logo {
-  margin-right:50px;
-}
-
-div.nav {
-  @include column(5);
-  @include colborder;
-  @include boxstyle;
-  border-right: 1px solid $bc; // override color
-
-  text-align: right;
-  margin-top: 8*$fs;
-
-  a img {
-    padding-top: .5*$fs;
-  }
-}
-
-@include sticky-footer(2*$fs, ".container", ".layout_footer", ".footer");
 .footer {
-  height: 2*$fs - 1px;
-  line-height: 2*$fs - 1px;
-  margin: auto;
-  width: 90%;
-  border-top: 1px solid $bc;
-  font-size: .65*$fs;
-  color: $alt-text-color;
-
-  div.left {
-    @include float-left;
-//    margin-left: span-fluid(6);
-    span {
-      margin-right: 0;
-      text-align: left;
-    }
-  }
-
-  div.right {
-    @include float-right;
-    height: 2*$fs - 1;
-    span {
-      text-align: right;
-      margin-left: $fs/4;
-    }
-  }
-}
-
-.socialshareprivacy .social_share_privacy_area {
-	// overrides to style the stuff correctly in the footer
-	height: 2*$fs - 1 !important;
-	margin: 8px 0 0 0 !important;
-
-	li.settings_info .settings_info_menu.on {
-		top: auto;
-		bottom: 0;
-	}
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 120px;
+  background-color: #f5f5f5;
+  padding-top: $font-size-base;
+  // vertical-align: center;
+  // display: flex;
+  // align-items: center;
 }
 
 
-div.ribbon {
+.ribbon {
   overflow: hidden;
   /* top left corner */
   position: absolute;
   right: 0;
   top: 0;
-  height: 15*$fs;
-  z-index: -1; // move it behind everything else
+  height: 15*$font-size-base;
+  z-index: 10; // move it behind everything else
 
   p {
-    z-index: -1; // move it behind everything else
-    background-color: lighten($bc, $lt);
-    font-size: 2*$fs;
-    padding: $fs 5*$fs $fs 5*$fs;
+    z-index: 10; // move it behind everything else
+    background:rgba($bs, 0.25);
+    font-size: 2*$font-size-base;
+    padding: $font-size-base 5*$font-size-base $font-size-base 5*$font-size-base;
     text-align: center;
     @include rotate(45deg);
     @include box-shadow();
     position: relative;
-    right: -5*$fs;
-    top: 2*$fs;
+    right: -5*$font-size-base;
+    top: 2*$font-size-base;
   }
 }
 
-#skip a, #skip a:hover, #skip a:visited {
-  position: absolute;
-  left: 0px;
-  top: -500px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-}
-
-#skip a:active, #skip a:focus {
-  position: static;
-  width: auto;
-  height: auto;
-}
-
-@media print {
-	@include print-utilities;
-
-    tr, img { page-break-inside: avoid; }
-    img { max-width: 100% !important; }
-    @page { margin: 2cm; }
-    p, h2, h3 { orphans: 3; widows: 3; }
-    h2, h3 { page-break-after: avoid; }
-
-    .nav, .footer { display: none !important; }
-}

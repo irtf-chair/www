@@ -6,55 +6,42 @@
   = render "head_", :concluded => true, :loc => "../"
 
   %body
-    = render "chromeframe_", :loc => ""
-    .container
-      .content
-        .logoleft
-          .ribbon
-            %p Concluded
+    = render "menu_", :loc => "../"
+    .ribbon.hidden-xs
+      %p Concluded
+    .container-fluid
+      .col-sm-8
+        %h1
+          #{@item[:title] ? @item[:title] : rg.name}
+          %small #{@item[:title] ? "" : rg.acronym}
+        %h2
+          %span.label.label-warning.visible-xs Concluded
 
-          .logo
-            %a{:href => "../"}
-              %img{:src => "../img/irtf.png", :width => 150, :height => 107,
-                   :alt => "Internet Research Task Force (IRTF)"}
-          .title.withribbon
-            %h1 #{@item[:title] ? @item[:title] : rg.name + " (" + rg.acronym + ")"}
-    
-        .nav.noprint
-          = render "leftbar_", :loc => "../"
-          
-        .main
-          -# Anchor for skip navigation links
-          %a{ :id => "content" } 
+      .col-sm-8
+        = yield
 
-          .rightbar
-            .news
-              %h2 Note
-              %p This Research Group has concluded and is no longer active.
-              %p The charter and other information on this page is provided as a record of history. Email addresses and links may no longer function.
-              %p
-                For inquiries about this former Research Group, please email
-                = link_to("irtf-discuss@irtf.org", "../mailman/listinfo/irtf-discuss") + "."
+      .col-sm-4.col-12-xs.rightbar
+        .well
+          %h2 Note
+          %p This Research Group has concluded and is no longer active.
+          %p The charter and other information on this page is provided as a record of history. Email addresses and links may no longer function.
+          %p
+            For inquiries about this former Research Group, please email
+            = link_to("irtf-discuss@irtf.org", "../mailman/listinfo/irtf-discuss") + "."
 
-              - if rg.respond_to?("name")
-                - if rg.chartered || rg.concluded then
-                  %h2 Timeline
-                - if rg.chartered && rg.concluded then
-                  %p The #{rg.acronym} was chartered on #{rg.chartered} and concluded its work on #{rg.concluded}.
-                - elsif rg.chartered then
-                  %p The #{rg.acronym} was chartered on #{rg.chartered}.
-                - elsif rg.concluded then
-                  %p The #{rg.acronym} concluded its work on #{rg.concluded}.
+        - if rg.respond_to?("name")
+          - if rg.chartered || rg.concluded then
+            %h2 Timeline
+          - if rg.chartered && rg.concluded then
+            %p The #{rg.acronym} was chartered on #{rg.chartered} and concluded its work on #{rg.concluded}.
+          - elsif rg.chartered then
+            %p The #{rg.acronym} was chartered on #{rg.chartered}.
+          - elsif rg.concluded then
+            %p The #{rg.acronym} concluded its work on #{rg.concluded}.
 
-          = yield
-          
-          -# For RGs that concluded since the web site redesign, we have the rightbar info.
-          - if rg.respond_to?("name")
-            = render "historicinfo_", :loc => "../"
-        
-      .layout_footer
-      
-    .footer.noprint
-      = render "footer_", :loc => "../"
+        -# For RGs that concluded since the web site redesign, we have the rightbar info.
+        - if rg.respond_to?("name")
+          = render "historicinfo_", :loc => "../"
 
-    = render "scripts_", :loc => "../"      
+    = render "footer_", :loc => "../"
+    = render "scripts_", :loc => "../"

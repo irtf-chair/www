@@ -1,12 +1,22 @@
-.left
-  .socialshareprivacy
+%footer.footer
+  .container-fluid
+    .row
+      .col-xs-2.text-muted.small
+        IRTF sponsors:
+      .col-xs-2.text-muted.small
+        %a{ :href => "http://ietf.org/" }
+          %img.img-responsive{ :src => @loc + "img/ietf.png", :width => 100,
+                :alt => "Internet Engineering Task Force (IETF)" }
+      .col-xs-2.text-muted.small
+        %a{ :href => "http://isoc.org/" }
+          %img.img-responsive{ :src => @loc + "img/isoc.png", :width => 100,
+                :alt => "Internet Society (ISOC)" }
 
-.right
-  %span#ipv6
-  %span
-    %a{:href => "http://validator.w3.org/check/referer"} HTML
-  %span
-    %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"} CSS
-  %span
-    Modified: 
-    %time{ :datetime => "#{item[:mtime].strftime('%F')}" } #{item[:mtime].strftime('%F')}
+      .col-xs-6.text-right.text-muted.small
+        %span#ipv6
+        -# %a{:href => "http://validator.w3.org/check/referer"} HTML
+        -# |
+        -# %a{:href => "http://jigsaw.w3.org/css-validator/check/referer"} CSS
+        Modified:
+        %time{ :datetime => "#{item[:mtime].strftime('%F')}" }
+          #{item[:mtime].strftime('%F')}

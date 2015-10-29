@@ -1,58 +1,58 @@
 -# Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline
-%script{ :src => "//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" }
+%script{ :src => @loc + "js/jquery.min.js" }
+%script{ :src => @loc + "js/bootstrap.js" }
 :javascript
-  window.jQuery || document.write('<script src="#{@loc}jquery-1.7.1.min.js"><\/script>')
   $.getJSON("ipv6.json", function(data) {
     if (data.ipv6) {
       $("#ipv6").append("Thank you for using IPv6.");
     }
   });
 
-%script{ :src => @loc + "socialshareprivacy.js" }
-:javascript
-  jQuery(document).ready(function($) {
-    if($('.socialshareprivacy').length > 0) {
-      $('.socialshareprivacy').socialSharePrivacy({
-        services : {
-          facebook : {
-            'app_id'      : '194983820572921',
-            'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_facebook_en.png'}',
-            'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Facebook button. Enabling the button alone already transmits personal information to third parties.',
-            'txt_fb_off'  : 'Facebook link active',
-            'txt_fb_on'   : 'Facebook link inactive',
-            'language'    : 'en_US',
-            'action'      : 'recommend'
-          },
-          twitter : {
-            'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_twitter.png'}',
-            'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Twitter button. Enabling the button alone already transmits personal information to third parties.',
-            'txt_fb_off'  : 'Twitter link active',
-            'txt_fb_on'   : 'Twitter link inactive',
-            'language'    : 'en'
-          },
-          gplus : {
-            'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_gplus.png'}',
-            'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Google+ button. Enabling the button alone already transmits personal information to third parties.',
-            'txt_fb_off'  : 'Google+ link active',
-            'txt_fb_on'   : 'Google+ link inactive',
-            'language'    : 'en'
-          }
-        },
-        'settings_perma'  : 'Permanently enable buttons and share information:',
-        'txt_help'        : 'If you enable these buttons, information will be shared with Facebook, Twitter or Google in the US and may be stored there. Click the i for more information.',
-        'css_path'        : '#{@loc + 'socialshareprivacy/socialshareprivacy.css'}'
-      });
-    }
-  });
+-# %script{ :src => @loc + "socialshareprivacy.js" }
+-# :javascript
+-#   jQuery(document).ready(function($) {
+-#     if($('.socialshareprivacy').length > 0) {
+-#       $('.socialshareprivacy').socialSharePrivacy({
+-#         services : {
+-#           facebook : {
+-#             'app_id'      : '194983820572921',
+-#             'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_facebook_en.png'}',
+-#             'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Facebook button. Enabling the button alone already transmits personal information to third parties.',
+-#             'txt_fb_off'  : 'Facebook link active',
+-#             'txt_fb_on'   : 'Facebook link inactive',
+-#             'language'    : 'en_US',
+-#             'action'      : 'recommend'
+-#           },
+-#           twitter : {
+-#             'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_twitter.png'}',
+-#             'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Twitter button. Enabling the button alone already transmits personal information to third parties.',
+-#             'txt_fb_off'  : 'Twitter link active',
+-#             'txt_fb_on'   : 'Twitter link inactive',
+-#             'language'    : 'en'
+-#           },
+-#           gplus : {
+-#             'dummy_img'   : '#{@loc + 'socialshareprivacy/images/dummy_gplus.png'}',
+-#             'txt_info'    : 'Two clicks for more online privacy: Click here to enable the Google+ button. Enabling the button alone already transmits personal information to third parties.',
+-#             'txt_fb_off'  : 'Google+ link active',
+-#             'txt_fb_on'   : 'Google+ link inactive',
+-#             'language'    : 'en'
+-#           }
+-#         },
+-#         'settings_perma'  : 'Permanently enable buttons and share information:',
+-#         'txt_help'        : 'If you enable these buttons, information will be shared with Facebook, Twitter or Google in the US and may be stored there. Click the i for more information.',
+-#         'css_path'        : '#{@loc + 'socialshareprivacy/socialshareprivacy.css'}'
+-#       });
+-#     }
+-#   });
 
-:javascript
-  var _gaq = _gaq || [];
-  var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
-  _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
-  _gaq.push(['_setAccount', 'UA-53860-11']);
-  _gaq.push(['_trackPageview']);
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+-# :javascript
+-#   var _gaq = _gaq || [];
+-#   var pluginUrl = '//www.google-analytics.com/plugins/ga/inpage_linkid.js';
+-#   _gaq.push(['_require', 'inpage_linkid', pluginUrl]);
+-#   _gaq.push(['_setAccount', 'UA-53860-11']);
+-#   _gaq.push(['_trackPageview']);
+-#   (function() {
+-#     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+-#     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+-#     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+-#   })();

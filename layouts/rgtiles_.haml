@@ -1,6 +1,10 @@
-%ul.tiled
+.row
   - $rgs.values.sort.each do |rg|
-    %li
-      %a.tile{ :href => @loc + rg.acronym.downcase }
-        %span.acronym= rg.acronym.upcase
-        %span.name= rg.name
+    .col-lg-2.col-md-3.col-sm-4.col-xs-6
+      %a{ :href => @loc + rg.acronym.downcase }
+        .thumbnail
+          .text-center
+            %b= rg.acronym.upcase
+          .text-center
+            %small
+              %em=rg.name

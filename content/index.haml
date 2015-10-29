@@ -1,13 +1,63 @@
 ---
-title: Internet Research Task Force (IRTF)
+title: Internet Research Task Force
 ---
 
-%h2 Mission
+.col-sm-12
+  %p.lead The Internet Research Task Force (IRTF) promotes research of importance to the evolution of the Internet by creating focused, long-term Research Groups working on topics related to Internet protocols, applications, architecture and technology.
 
-%p.quote The Internet Research Task Force (IRTF) promotes research of importance to the evolution of the Internet by creating focused, long-term Research Groups working on topics related to Internet protocols, applications, architecture and technology.
+.col-sm-8
+  %h2 Overview
 
-.rightbar
-  .news
+  %p
+    The
+    %span.term Internet Research Task Force
+    (IRTF) focuses on longer term research issues related to the Internet while the parallel organization, the
+    %span.term Internet Engineering Task Force
+    (IETF), focuses on the shorter term issues of engineering and standards making.
+
+  %p
+    The IRTF is a composed of a number of focused and long-term
+    %span.term Research Groups.
+    These groups work on topics related to Internet protocols, applications, architecture and technology. Research Groups have the stable long term membership needed to promote the development of research collaboration and teamwork in exploring research issues.  Participation is by individual contributors, rather than by representatives of organizations.
+
+  %p
+    The IRTF is managed by the
+    %span.term IRTF Chair
+    in consultation with the
+    %span.term Internet Research Steering Group
+    (IRSG). The IRSG membership includes the IRTF Chair, the chairs of the various Research Groups and other individuals ("members at large") from the research community selected by the IRTF Chair.
+
+  %p
+    The RFC Editor publishes documents from the IRTF and its Research Groups on the
+    %span.term IRTF Stream
+    (RFC5743).
+
+  %h2 More Information
+
+  %p The detailed IRTF Research Group guidelines and procedures are described in RFC2014. In RFC4440, the Internet Architecture Board (IAB) further details the role of the IRTF.
+
+  %p The procedures for publishing documents on the IRTF RFC Stream are defined in RFC5743, with additional details found in RFC5742. The concept of RFC Streams is defined in RFC4844.
+
+  %p
+    The IRTF follows the IETF
+    %a{ :href => "ipr" } Intellectual Property Rights
+    (IPR) disclosure rules. Also see Section 3.2 of RFC5743.
+
+  %p
+    The
+    %a{ :href => "http://www.ietf.org/iesg/statement/ietf-anti-harassment-policy.html" } IETF Anti-Harassment Policy
+    also applies to the IRTF.
+
+
+  %h2 Current Research Groups
+
+  %p These #{$rgs.count} Research Groups are currently chartered:
+
+  = render "rgtiles_", :loc => ""
+
+
+.col-sm-4.rightbar
+  .well
     %h2 2015 ANRP Awards for IETF-94
     %p
       Two
@@ -51,54 +101,4 @@ title: Internet Research Task Force (IRTF)
   %p
     A wiki with more information about the IRTF is
     = link_to("here", "http://trac.tools.ietf.org/group/irtf/trac/wiki") + "."
-
-
-%h2 Overview
-
-%p
-  The
-  %span.term Internet Research Task Force
-  (IRTF) focuses on longer term research issues related to the Internet while the parallel organization, the
-  %span.term Internet Engineering Task Force
-  (IETF), focuses on the shorter term issues of engineering and standards making.
-
-%p
-  The IRTF is a composed of a number of focused and long-term
-  %span.term Research Groups.
-  These groups work on topics related to Internet protocols, applications, architecture and technology. Research Groups have the stable long term membership needed to promote the development of research collaboration and teamwork in exploring research issues.  Participation is by individual contributors, rather than by representatives of organizations.
-
-%p
-  The IRTF is managed by the
-  %span.term IRTF Chair
-  in consultation with the
-  %span.term Internet Research Steering Group
-  (IRSG). The IRSG membership includes the IRTF Chair, the chairs of the various Research Groups and other individuals ("members at large") from the research community selected by the IRTF Chair.
-
-%p
-  The RFC Editor publishes documents from the IRTF and its Research Groups on the
-  %span.term IRTF Stream
-  (RFC5743).
-
-%h2 More Information
-
-%p The detailed IRTF Research Group guidelines and procedures are described in RFC2014. In RFC4440, the Internet Architecture Board (IAB) further details the role of the IRTF.
-
-%p The procedures for publishing documents on the IRTF RFC Stream are defined in RFC5743, with additional details found in RFC5742. The concept of RFC Streams is defined in RFC4844.
-
-%p
-  The IRTF follows the IETF
-  %a{ :href => "ipr" } Intellectual Property Rights
-  (IPR) disclosure rules. Also see Section 3.2 of RFC5743.
-
-%p
-  The
-  %a{ :href => "http://www.ietf.org/iesg/statement/ietf-anti-harassment-policy.html" } IETF Anti-Harassment Policy
-  also applies to the IRTF.
-
-
-%h2 Current Research Groups
-
-%p These #{$rgs.count} Research Groups are currently chartered:
-
-= render "rgtiles_", :loc => ""
 

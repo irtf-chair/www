@@ -1,6 +1,5 @@
 # Compress/obfuscate the output.
-# Now done by a rake rule; faster that way.
-#compress: true
+compress: true
 
 # The base URL for this site. This is required for XML sitemap generation.
 base_url: https://irtf.org
@@ -41,6 +40,9 @@ prune:
 # there is only a single data source that reads data from the “content/” and
 # “layout/” directories in the site directory.
 data_sources:
+  -
+    type: static
+    items_root: /static/
   -
     # The type is the identifier of the data source. By default, this will be
     # `filesystem_unified`.

@@ -1,0 +1,34 @@
+- id = item.identifier[1..-2]
+- title = @item[:title] ? @item[:title] : $rgs[item.identifier.tr("/", "")].name
+- abbrev = @item[:title] ? "" :$rgs[item.identifier.tr("/", "")].acronym
+
+-# encoding: utf-8
+!!! 5
+%html{ :lang => "en" }
+  = render "head_", :concluded => false, :loc => ""
+
+  %body
+    -# = render "chromeframe_", :loc => ""
+    = render "menu_", :loc => ""
+    .container-fluid
+      .row
+        .col-sm-8.col-xs-12
+          %h1
+            #{title}
+            %small #{abbrev}
+        .col-sm-4.hidden-xs
+          %a{:href => "./"}
+            %img.img-responsive.pull-right{:src => "img/irtf.png",
+                 :alt => "Internet Research Task Force (IRTF)"}
+      .row
+        - rg = $rgs[item.identifier.tr("/", "")]
+        - if rg != nil
+          .col-sm-8
+            = yield
+          .col-sm-4.rightbar
+            = render "rightbar_", :loc => ""
+        - else
+          = yield
+
+    = render "footer_", :loc => ""
+    = render "scripts_", :loc => ""

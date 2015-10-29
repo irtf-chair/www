@@ -1,110 +1,46 @@
 #!/usr/bin/env ruby
 
-unless defined? LOADED_DEFAULT_CONFIG
-  LOADED_DEFAULT_CONFIG = true
-  require 'compass'
-  Compass.add_project_configuration 'compass/config.rb'
-end
-
-# A few helpful tips about the Rules file:
-#
-# * The order of rules is important: for each item, only the first matching
-#   rule is applied.
-#
-# * Item identifiers start and end with a slash (e.g. “/about/” for the file
-#   “content/about.html”). To select all children, grandchildren, … of an
-#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
-#   because “*” matches zero or more characters.
-
 # compile rules
 
 compile '/rg-contacts/' do
   filter :haml
 end
 
-compile '/style/' do
-  filter :sass, Compass.sass_engine_options
-  filter :relativize_paths, :type => :css
-end
-
-compile '/ie/' do
-  filter :sass, Compass.sass_engine_options
-  filter :relativize_paths, :type => :css
-end
-
-compile '/img/*' do
-end
-
-compile '/ipv6-no/' do
-end
-
-compile '/ipv6-yes/' do
-end
-
-compile '/concluded/charter/' do
-end
-
-compile '/concluded/*/' do
-  filter :rfc
-  filter :haml, :format => :html5
-  filter :wg
-  filter :rg
-  filter :meeting
-  filter :url
-  layout 'historic'
-  filter :rubypants
-  filter :relativize_paths, :type => :html
-end
-
-compile '/htaccess/' do
-end
-
-compile '/jquery-1.7.1.min/' do
-end
-
-compile '/socialshareprivacy/' do
-end
-
-compile '/raim-2015-papers/*' do
-end
-
-compile '/socialshareprivacy/*' do
-  if item[:extension] == 'css'
-  end
-end
-
-compile '/charter/' do
-end
-
-compile '/sitemap/' do
-  filter :haml
-  filter :extensionstripper
-end
-
-compile '/google78560f0fdc710001/' do
-end
-
-compile '/anrp-*-flyer/' do
-end
+# This is input to gulp only
+ignore '/style/'
 
 compile '*' do
-  filter :rfc
-  filter :haml, :format => :html5
-  filter :wg
-  filter :rg
-  filter :meeting
-  filter :url
-  filter :relativize_paths, :type => :html
-  if item.identifier == '/'
-    layout 'logoright'
+  # print item.identifier + "\n"
+  if item.binary?
+    # don’t filter binary items
   else
-    layout 'logoleft'
+    case item[:extension]
+      when 'txt'
+        # just copy
+      when 'haml'
+        filter :rfc
+        filter :haml, :format => :html5
+        filter :wg
+        filter :rg
+        filter :meeting
+        filter :url
+        filter :relativize_paths, :type => :html
+        if /concluded/.match(item.identifier)
+          layout 'historic'
+        else
+          layout 'default'
+        end
+        filter :rubypants
+        filter :htmlcompressor
+    end
   end
-  filter :rubypants
 end
 
-
 # route rules
+
+route '/static/*' do
+  item.identifier[7..-2]
+end
 
 route %r{^/raim-2015-papers/irtf_raim-(.+)/} do |id|
   "/raim-2015-papers/raim-2015-#{id[0]}" + '.' + item[:extension]
@@ -114,69 +50,26 @@ route '/rg-contacts/' do
   '/pub/rg-contacts.txt'
 end
 
-route '/style/' do
-  '/style.css'
-end
-
-route '/ie/' do
-  '/ie.css'
-end
-
-route '/img/*' do
-  item.identifier.chop + '.' + item[:extension]
-end
-
-route '/ipv6-no/' do
-  '/ipv6-no.json'
-end
-
-route '/ipv6-yes/' do
-  '/ipv6-yes.json'
-end
-
-route '/concluded/charter/' do
-  '/concluded/charter.php'
-end
-
-route '/concluded/*/' do
-  item.identifier.chop + '.html'
-end
-
-route '/jquery-1.7.1.min/' do
-  '/jquery-1.7.1.min.js'
-end
-
-route '/socialshareprivacy/' do
-  '/socialshareprivacy.js'
-end
-
-route '/socialshareprivacy/*' do
-  item.identifier.chop + '.' + item[:extension]
-end
-
 route '/htaccess/' do
   '/.htaccess'
 end
 
-route '/charter/' do
-  '/charter.php'
-end
-
-route 'sitemap' do
-  item.identifier.chop + '.xml'
-end
-
-route 'anrp-*-flyer' do
-  item.identifier.chop + '.pdf'
-end
-
 route '*' do
-  if item.identifier == '/'
-    # if item is index page
-    '/index.html'
+  # print item.identifier + "\n"
+  if item.binary?
+    # Write item with identifier /foo/ to /foo.ext
+    item.identifier.chop + '.' + item[:extension]
   else
-    # routes for the rest
-    item.identifier.chop + '.html'
+    if item.identifier == '/'
+      # if item is index page
+      '/index.html'
+    elsif item[:extension] == 'haml'
+      # haml files become html files
+      item.identifier.chop + '.html'
+    else
+      # keep original extension
+      item.identifier.chop + '.' + item[:extension]
+    end
   end
 end
 
