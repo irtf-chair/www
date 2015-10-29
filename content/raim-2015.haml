@@ -1,12 +1,15 @@
 ---
 title: <small><a href="/">IRTF</a> & <a href="https://www.internetsociety.org/">ISOC</a> Workshop on </small><br>Research and Applications of Internet Measurements (RAIM)<br><small>in Cooperation with <a href="http://www.sigcomm.org/">ACM SIGCOMM</a></small>
 ---
+.col-sm-4.hidden-
+  %a{ :href => "./"}
+    %img.text-center{ :src => "img/irtf.png", :alt => "IRTF", :height => 75 }
 .col-sm-4.hidden-xs
-  %img.text-center{ :src => "img/irtf.png", :alt => "IRTF", :height => 75 }
+  %a{ :href => "https://www.internetsociety.org/"}
+    %img.text-center{ :src => "img/isoc.png", :alt => "Internet Society", :height => 75 }
 .col-sm-4.hidden-xs
-  %img.text-center{ :src => "img/isoc.png", :alt => "Internet Society", :height => 75 }
-.col-sm-4.hidden-xs
-  %img.text-center{ :src => "img/acm.png", :alt => "ACM SIGCOMM", :height => 75 }
+  %a{ :href => "http://www.sigcomm.org/"}
+    %img.text-center{ :src => "img/acm.png", :alt => "ACM SIGCOMM", :height => 75 }
 
 .col-sm-12
   %h2
@@ -56,7 +59,7 @@ title: <small><a href="/">IRTF</a> & <a href="https://www.internetsociety.org/">
         %del Notifications:
       %td
         %del Friday, August 28, 2015
-    %tr.nextdeadline
+    %tr.text-danger
       %th Lightning talks due:
       %td Friday, October 30, 2015
 
@@ -76,7 +79,7 @@ title: <small><a href="/">IRTF</a> & <a href="https://www.internetsociety.org/">
         %td.nowrap
           %em Welcome & logistics
         %td L. Eggert
-      %tr
+      %tr.warning
         %td
         %td
         %td{ :colspan => 2 }
@@ -85,8 +88,10 @@ title: <small><a href="/">IRTF</a> & <a href="https://www.internetsociety.org/">
         %td 9:15
         %td 45
         %td.nowrap
-          %em Session keynote
-        %td B. Trammell
+          %em
+            %a{ :href => "raim-2015-slides/keynote-trammell.pdf"} Session keynote
+        %td
+          %a{ :href => "raim-2015-slides/keynote-trammell.pdf"} B. Trammell
       %tr
         %td 10:00
         %td 120
@@ -100,7 +105,7 @@ title: <small><a href="/">IRTF</a> & <a href="https://www.internetsociety.org/">
         %td 12:00
         %td 90
         %td.grey{ :colspan => 2 } Lunch break
-      %tr
+      %tr.warning
         %td
         %td
         %td{ :colspan => 2 }
@@ -121,7 +126,7 @@ title: <small><a href="/">IRTF</a> & <a href="https://www.internetsociety.org/">
         %td 15:45
         %td 30
         %td.grey{ :colspan => 2 } Break
-      %tr
+      %tr.warning
         %td
         %td
         %td{ :colspan => 2 }
