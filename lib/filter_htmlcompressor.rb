@@ -10,7 +10,7 @@ class HTMLCompressor < Nanoc3::Filter
             "--simple-doctype --remove-style-attr --remove-link-attr " +
             "--remove-script-attr --remove-form-attr --remove-input-attr " +
             "--simple-bool-attr --compress-js --compress-css --preserve-php " +
-            "--preserve-server-script --remove-intertag-spaces"
+            "--preserve-server-script "
       cmd = "/usr/local/bin/htmlcompressor #{opt} -o #{output_filename}"
     else
       cmd = "/bin/cat - > #{output_filename}"
