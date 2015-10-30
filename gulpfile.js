@@ -5,29 +5,26 @@ var uglify = require('gulp-uglify');
 var exec = require('child_process').execSync;
 var runSequence = require('run-sequence');
 
-var config = {
-  bowerDir: './bower_components',
-  publicDir: './static',
-  outputDir: './output'
+var conf = {
+  bower: './bower_components',
+  public: './static',
+  output: './output'
 };
 
 gulp.task('fonts', function() {
   return gulp.src([
-    config.bowerDir + '/bootstrap-sass/assets/fonts/**/*',
+    conf.bower + '/bootstrap-sass/assets/fonts/**/*',
   ])
-  .pipe(gulp.dest(config.publicDir + '/fonts'));
+  .pipe(gulp.dest(conf.public + '/fonts'));
 });
 
 gulp.task('js', function() {
   return gulp.src([
-    config.bowerDir + '/jquery/dist/jquery.min.js',
-    config.bowerDir + '/bootstrap-sass/assets/javascripts/bootstrap.js',
+    conf.bower + '/jquery/dist/jquery.min.js',
+    conf.bower + '/bootstrap-sass/assets/javascripts/bootstrap.js',
   ])
-  .pipe(uglify('app.js', {
-    compress: true,
-    outSourceMap: true,
-  }))
-  .pipe(gulp.dest(config.publicDir + '/js'));
+  .pipe(uglify())
+  .pipe(gulp.dest(conf.public + '/js'));
 });
 
 gulp.task('css', function() {
@@ -35,26 +32,25 @@ gulp.task('css', function() {
   .pipe(sourcemaps.init())
   .pipe(sass({
     outputStyle: 'compressed',
-    includePaths: [config.bowerDir + '/bootstrap-sass/assets/stylesheets'],
+    includePaths: [conf.bower + '/bootstrap-sass/assets/stylesheets'],
   }))
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest(config.publicDir + '/css'));
+  .pipe(gulp.dest(conf.public + '/css'));
 });
 
 gulp.task('nanoc', function(cb) {
-  exec('nanoc co', { stdio: 'inherit' }, function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
+  exec('nanoc co', { stdio: 'inherit' }, function (err) {
+    cb(err);
+  });
+  exec('chmod -R a+rX ' + conf.output, { stdio: 'inherit' }, function (err) {
     cb(err);
   });
 });
 
 gulp.task('upload', function(cb) {
-  exec('lftp -c "open sftp://ftpirtf@ietf.org ; mirror -Rv ' +
-       config.outputDir + ' www"', { stdio: 'inherit' },
-       function (err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
+  var sftp = 'sftp://ftpirtf@ietf.org';
+  exec('lftp -c "open ' + sftp + '; mirror -Rv ' + conf.output + ' www"',
+       { stdio: 'inherit' }, function (err) {
     cb(err);
   });
 });
