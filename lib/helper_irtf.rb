@@ -313,7 +313,7 @@ module IRTF
 
   # SDNRG
   king = Person.new("Daniel", "King", "d.king@lancaster.ac.uk", "http://www.research.lancs.ac.uk/portal/en/people/daniel-king", nil)
-  king = Person.new("Kohei", "Shiomoto", "shiomoto.kohei@lab.ntt.co.jp", "https://jp.linkedin.com/pub/kohei-shiomoto/0/bb5/676", nil)
+  shiomoto = Person.new("Kohei", "Shiomoto", "shiomoto.kohei@lab.ntt.co.jp", "https://jp.linkedin.com/pub/kohei-shiomoto/0/bb5/676", nil)
 
   sdnrg = RG.new(
     "sdnrg",
@@ -321,7 +321,7 @@ module IRTF
     "sdn@irtf.org",
     nil,
     "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
-    [ king ],
+    [ king, shiomoto ],
     nil,
     "2013-1-14",
     nil
