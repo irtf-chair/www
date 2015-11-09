@@ -41,6 +41,7 @@ img.pull-right {
 // Add spacing in definition lists
 dt, dd {
   margin: 0 0 ($line-height-computed / 2) !important;
+  font-weight: normal !important;
 }
 
 // Indent definition descriptions
