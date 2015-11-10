@@ -2,7 +2,7 @@
 %script{ :src => @loc + "js/bootstrap.js" }
 
 :javascript
-  $.getJSON("ipv6.json", function(data) {
+  $.getJSON("#{@loc}ipv6.json", function(data) {
     if (data.ipv6) {
       $("#ipv6").append("Thank you for using IPv6.");
     }
