@@ -83,13 +83,13 @@ body {
   /* top left corner */
   position: absolute;
   right: 0;
-  top: 0;
+  top: 50px;
   height: 15*$font-size-base;
   z-index: 10; // move it behind everything else
 
   p {
     z-index: 10; // move it behind everything else
-    background:rgba($bs, 0.25);
+    background: $brand-warning;
     font-size: 2*$font-size-base;
     padding: $font-size-base 5*$font-size-base $font-size-base 5*$font-size-base;
     text-align: center;
