@@ -34,6 +34,12 @@ $well-border: $brand-warning;
   }
 }
 
+table.anrp {
+  td, th {
+    padding-right: 1em;
+  }
+}
+
 img.pull-right {
   margin: 0 0 $font-size-base $font-size-base;
 }
