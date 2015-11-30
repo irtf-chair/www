@@ -158,6 +158,21 @@ module IRTF
     "2012-7-24"
   )
 
+  # HRPC
+  tenoever = Person.new("Niels", "ten Oever", "niels@article19.org", "http://nielstenoever.net/", nil)
+  doria = Person.new("Avri", "Doria", "avri@acm.org", "https://www.linkedin.com/in/doriavr", nil)
+  hrpc = RG.new(
+    "hrpc",
+    "Human Rights Protocol Considerations",
+    "hrpc@irtf.org",
+    nil,
+    nil,
+    [ tenoever, doria ],
+    nil,
+    "2015-11-30",
+    nil
+  )
+
   # ICCRG
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", 1515901207)
   ros = Person.new("David", "Ros", "dros@simula.no", "http://simula.no/people/dros", nil)
@@ -362,6 +377,7 @@ module IRTF
     "cfrg"  => cfrg,
     "dtnrg" => dtnrg,
     "gaia" => gaia,
+    "hrpc" => hrpc,
     "iccrg" => iccrg,
     "icnrg" => icnrg,
     "nfvrg" => nfvrg,
