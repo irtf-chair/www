@@ -1,0 +1,169 @@
+---
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%p
+  The #{name} (#{acronym}) will investigate open research issues in
+  turning a true "Internet of Things" into reality, an Internet where
+  low-resource nodes ("things", "constrained nodes") can communicate among
+  themselves and with the wider Internet, in order to partake in
+  permissionless innovation. The focus of the #{acronym} are on
+  issues that touch opportunities for standardization in the IETF, i.e.,
+  it will start at the adaptation layer connecting devices to IP, and end
+  at the application layer with architectures and APIs for communicating
+  and making data and management functions (including security functions)
+  available.
+
+
+%h2 Motivation
+
+%p
+  A first wave of IoT standards has been completed by the IETF. Consortia are
+  now forming to build infrastructure and industry agreements around those.
+  This generates new requirements for research, based on actual usage of the
+  standards now available.
+
+%p
+  In parallel, W3C has set up an IG (Interest Group) on the
+  %a{ :href => "http://www.w3.org/WoT/IG/" } Web of Things (WoT);
+  this is operating on a similar timeline as an RG does in the IRTF. A parallel
+  activity associated with the IETF/IRTF can help ensure the common work does
+  not stop at the traditional boundaries of the W3C, but considers networking
+  issues as well. IETF WGs are also active on these topics, but an IRTF RG can
+  provide a more long-term perspective to the collaboration.
+
+
+%h2 Areas of Interest
+
+%p A number of areas of interest have been identified:
+%ul
+  %li
+    Understanding the motivation for single-purpose silos and gateways;
+    facilitating a move towards small pieces loosely joined (hence
+    "thing-to-thing"); enabling scaling the number of applications in a single
+    network
+  %li
+    Deployment considerations; scaling considerations; cost of ownership
+  %li
+    Management and operation of "things"
+  %li
+    Lifecycle aspects (including, but not limited to, security considerations)
+  %li
+    Cooperation with W3C, e.g., on data models, formats, and semantics
+
+%p More exploratory areas of interest include:
+%ul
+  %li
+    Operating "things" that have multiple masters/stakeholders (including
+    understanding role definitions of devices, owners, operators, etc.)
+  %li
+    Exploring the duality of state- and event-based approaches
+  %li
+    Aspects of distribution (cf. "fog computing"); reliability and scalability
+    considerations
+  %li
+    Containerization and other forms of mobile code
+
+
+%h2 Other Objectives
+
+%p
+  Besides facilitating communication between researchers in its areas of
+  interest, #{acronym} pursues a number of additional objectives:
+%ul
+  %li
+    Definition of "benchmark" or "reference" environments:
+    %ul
+      %li to enable regular plugfests, and
+      %li as a basis for repeatable, comparable research.
+  %li
+    Description of practical, real world, cross domain applications of connected
+    "things"
+  %li
+    Taxonomy, technology survey, and best practice documents
+  %li
+    Fostering collaboration with industry fora and other organizations on
+    networking of "things"
+
+%p
+  These objectives will be achieved making use of a close involvement between
+  the IETF community and the #{acronym}. For the IETF, some RG documents may
+  simplify the generation of (or even serve as) use case documents or other
+  informational references. Close contact will be maintained with the IETF's
+  IoT-related WGs and its
+  %a{ :href => "http://trac.tools.ietf.org/area/int/trac/wiki/IOTDirWiki" }
+    IoT directorate,
+  as well as related IRTF research groups.
+
+
+%h2 Name and Organization
+
+%p
+  In the context of this RG, thing refers to a connected object that is also
+  defined by its interface to the physical world. Some "things" may be connected
+  only using a local interconnect, but the RG's focus is on "things" that are part
+  of the Internet. Not all "things" are highly constrained, but IoT architectures
+  generally need to enable the inclusion of constrained nodes.
+
+%p
+  The #{name} plays on a reminiscence to the End-to-End Research Group
+  (END2END), which accompanied the evolution of the Internet for its first three
+  decades. (The #{acronym} is certainly not intended to literally exclude the
+  communication of constrained nodes with the wider Internet or with more than
+  one other constrained node.)
+
+%p
+  The charter of the END2END RG mentioned that "the specific topics of interest
+  (...) have changed as network research has advanced, but it is generally
+  concerned with end-to-end services and protocols implemented in hosts" -- a
+  focus similar to that of the #{acronym}, except that the concern for packet
+  forwarding and network building may be closer to a constrained node than it
+  was to a traditional Internet host.
+
+%p
+  Also, #{acronym} will not be a closed RG, but employ an open membership policy
+  towards all interested researchers, taking its clues from the way that, say,
+  the DTNRG or the ICNRG have been and are being run.
+
+
+%h2 Meetings
+
+%p
+  Meetings will often take place co-located with IETF meetings, and/or with
+  meetings of related organizations such as
+  %a{ :href => "http://www.w3.org/WoT/IG/" } W3C WoT IG.
+  Organizing Workshops at research conferences is also envisioned.
+
+%p
+  Specific meetings of the #{acronym} will pick focus items that much of the
+  discussion of the meeting should revolve around. The stated focus for the
+  initial meetings was on three immediate areas of interest:
+%ul
+  %li Management and Operation of networks involving constrained nodes
+  %li Security and Lifecycle aspects in constrained nodes
+  %li REST and pub/sub: Exploring the state-event duality
+
+%p
+  Future work items may include:
+%ul
+  %li
+    Documents
+    %ul
+      %li Guidance for designing REST-based IoT Applications ("cookbook")
+      %li Security considerations for the IoT
+      %li A survey of security bootstrapping approaches
+  %li
+    Activities
+    %ul
+      %li
+        Preparing and running "plugRESTs" (with support from the documents
+        above, in cooperation with the
+        %a{ :href => "http://www.w3.org/WoT/IG/" } W3C IG WoT;
+        preparing work on reference and evaluation frameworks), eventually
+        leading to:
+        %ul
+          %li plugRESTs: lessons learned

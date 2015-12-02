@@ -357,6 +357,21 @@ module IRTF
     "2011-9-26"
   )
 
+  # T2TRG
+  bormann = Person.new("Carsten", "Bormann", "cabo@tzi.org", "http://www.informatik.uni-bremen.de/~cabo/", nil)
+  keranen = Person.new("Ari", "Keränen", "ari.keranen@ericsson.com", "https://www.linkedin.com/in/akeranen", nil)
+  t2trg = RG.new(
+    "t2trg",
+    "Thing-to-Thing",
+    "t2trg@irtf.org",
+    nil,
+    "https://github.com/t2trg",
+    [ bormann, keranen ],
+    nil,
+    "2015-12-2",
+    nil
+  )
+
   # VNRG
   touch = Person.new("Joe", "Touch", "touch@isi.edu", "http://isi.edu/touch/", nil)
   stiemerling = Person.new("Martin", "Stiemerling", "stiemerling@nw.neclab.eu", "http://ietf.stiemerling.org/", nil)
@@ -383,7 +398,8 @@ module IRTF
     "nfvrg" => nfvrg,
     "nwcrg" => nwcrg,
     "nmrg"  => nmrg,
-    "sdnrg" => sdnrg
+    "sdnrg" => sdnrg,
+    "t2trg" => t2trg
   }
 
   # ls concluded/irtf.org/charter\?gtype=old-rg\&group=* | cut -f3 -d=
