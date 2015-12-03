@@ -49,7 +49,9 @@ gulp.task('nanoc', function(cb) {
 
 gulp.task('upload', function(cb) {
   var sftp = 'sftp://ftpirtf@ietf.org';
-  exec('lftp -c "open ' + sftp + '; mirror -RvPe ' + conf.output + ' www"',
+  var opts = '--reverse --delete --parallel=10 --exclude=usagedata' +
+             ' --exclude=hotcrp -v ';
+  exec('lftp -c "open ' + sftp + '; mirror ' + opts + conf.output + ' www"',
        { stdio: 'inherit' }, function (err) {
     cb(err);
   });
