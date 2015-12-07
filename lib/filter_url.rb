@@ -73,6 +73,7 @@ class URLFilter < Nanoc3::Filter
     "Hochschule Augsburg" => "http://hs-augsburg.de/",
     "University of Twente" => "http://www.utwente.nl/en/",
     "Georgia Tech" => "http://www.gatech.edu",
+    "Princeton" => "https://www.princeton.edu/",
     "ETHZ" => "https://www.ethz.ch/",
     "IIJ" => "http://www.iij.ad.jp/",
     "Microsoft Research" => "http://research.microsoft.com/",
