@@ -175,14 +175,15 @@ module IRTF
 
   # ICCRG
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", 1515901207)
-  ros = Person.new("David", "Ros", "dros@simula.no", "http://simula.no/people/dros", nil)
+  iyengar = Person.new("Jana", "Iyengar", "jri@google.com", "https://www.linkedin.com/in/jana-iyengar-2121252", nil)
+  # ros = Person.new("David", "Ros", "dros@simula.no", "http://simula.no/people/dros", nil)
   iccrg = RG.new(
     "iccrg",
     "Internet Congestion Control",
     "iccrg@irtf.org",
     nil,
     "http://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
-    [ welzl, ros ],
+    [ welzl, iyengar ],
     nil,
     nil,
     nil
