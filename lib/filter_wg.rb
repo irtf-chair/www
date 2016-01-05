@@ -1,6 +1,6 @@
 # replace any mention of an IETF WG with a link to its charter
 
-class WGFilter < Nanoc3::Filter
+class WGFilter < Nanoc::Filter
   identifier :wg
   type :text
 

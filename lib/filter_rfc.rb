@@ -1,6 +1,6 @@
 # replace any mention of an RFC with a link to it
 
-class RFCFilter < Nanoc3::Filter
+class RFCFilter < Nanoc::Filter
   identifier :rfc
   type :text
 

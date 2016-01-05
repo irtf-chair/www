@@ -1,6 +1,6 @@
 # strip .html from irtf.org URLs
 
-class ExtensionStripperFilter < Nanoc3::Filter
+class ExtensionStripperFilter < Nanoc::Filter
   identifier :extensionstripper
   type :text
 

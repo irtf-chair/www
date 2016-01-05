@@ -1,6 +1,6 @@
 # replace any mention of an IETF meeting with a link to its web site
 
-class MeetingFilter < Nanoc3::Filter
+class MeetingFilter < Nanoc::Filter
   identifier :meeting
   type :text
 

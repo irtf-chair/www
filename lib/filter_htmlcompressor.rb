@@ -1,9 +1,9 @@
-class HTMLCompressor < Nanoc3::Filter
+class HTMLCompressor < Nanoc::Filter
   identifier :htmlcompressor
   type :text => :binary
 
   def run(content, params={})
-    if @site.config[:compress] then
+    if @config[:compress] then
       type = type_from_extension
       # the FB meta tage break with this option: --remove-intertag-spaces
       opt = "--type #{type} --remove-quotes " +

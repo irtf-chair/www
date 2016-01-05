@@ -1,6 +1,6 @@
 # replace any mention of an IRTF RG with a link to its charter
 
-class RGFilter < Nanoc3::Filter
+class RGFilter < Nanoc::Filter
   identifier :rg
   type :text
 

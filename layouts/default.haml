@@ -1,14 +1,14 @@
-- id = item.identifier[1..-2]
-- title = @item[:title] ? @item[:title] : $rgs[item.identifier.tr("/", "")].name
-- abbrev = @item[:title] ? "" :$rgs[item.identifier.tr("/", "")].acronym
+- id = item.identifier.without_ext.sub("/concluded/", "").tr("/", "")
+- title = @item[:title] ? @item[:title] : $rgs[id].name
+- abbrev = @item[:title] ? "" :$rgs[id].acronym
 
 -# encoding: utf-8
 !!! 5
 %html{ :lang => "en" }
-  = render "head_", :concluded => false, :loc => ""
+  = render "/head_.*", :concluded => false, :loc => ""
 
   %body
-    = render "menu_", :loc => ""
+    = render "/menu_.*", :loc => ""
     .container-fluid
       .row
         .col-sm-8.col-xs-12
@@ -20,14 +20,14 @@
             %img.img-responsive.pull-right{:src => "img/irtf.png",
                  :alt => "Internet Research Task Force (IRTF)"}
       .row
-        - rg = $rgs[item.identifier.tr("/", "")]
+        - rg = $rgs[id]
         - if rg != nil
           .col-sm-8
             = yield
           .col-sm-4.rightbar
-            = render "rightbar_", :loc => ""
+            = render "/rightbar_.*", :loc => ""
         - else
           = yield
 
-    = render "footer_", :loc => ""
-    = render "scripts_", :loc => ""
+    = render "/footer_.*", :loc => ""
+    = render "/scripts_.*", :loc => ""

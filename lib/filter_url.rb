@@ -1,6 +1,6 @@
 # replace a few commonly used terms with hyperlinks
 
-class URLFilter < Nanoc3::Filter
+class URLFilter < Nanoc::Filter
   identifier :url
   type :text
 
