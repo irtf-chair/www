@@ -17,7 +17,7 @@ compile "/**/*.haml" do
     layout "/default.*"
   end
   filter :rubypants
-  # filter :htmlcompressor
+  filter :htmlcompressor
   # haml files become html files
   write item.identifier.without_ext + ".html"
 end
