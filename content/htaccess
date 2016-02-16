@@ -1060,5 +1060,3 @@ RedirectMatch permanent ^/(charters|historical)/imrg\.html?$                  /c
 RedirectMatch permanent ^/(charters|historical)/Digital-Rights-Management\.html?$             /concluded/idrm
 
 RedirectMatch permanent ^/rm$                                                 /concluded/rmrg
-
-RedirectMatch permanent ^/([^/]+)/$                                           /$1
