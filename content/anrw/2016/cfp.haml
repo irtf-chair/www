@@ -6,13 +6,34 @@ is_hidden: true
 
 %h1 Call for Papers
 
-%p.lead
-  ANRW particularly encourages the submission of results that could form the
-  basis for future engineering work in the IETF, that could change operational
-  practices, that can help better specify Internet protocols, or that could
-  influence further research and experimentation in the IRTF.
+%p
+  The Applied Networking Research Workshop 2016 (ANRW&nbsp;'16) is an academic
+  workshop that provides a forum for researchers, vendors, network operators and
+  the Internet standards community to present and discuss emerging results in
+  applied networking research. It is organized by the Internet Research Task
+  Force (IRTF) and the Internet Society (ISOC), in cooperation with ACM SIGCOMM.
 
-%p Topics of interest include, but are not limited to, applied work relating to:
+%p
+  Researchers should consider submitting early emerging results that illustrate
+  the scientific and engineering principles underlying the Internet
+  architecture, protocols and applications; that demonstrate new capabilities,
+  features, or extensions to the Internet protocol layers; that enhance our
+  understanding of how Internet protocols work in real-world deployments or
+  realistic testbeds; or that improve Internet security and privacy,
+  scalability, performance, and robustness.
+
+%p
+  The ANRW&nbsp;'16 particularly encourages the submission of results that could
+  form the basis for future engineering work in the IETF, that could change
+  operational Internet practices, that can help better specify Internet
+  protocols, or that could influence further research and experimentation in the
+  IRTF.
+
+%h2 Topics of Interest
+
+%p
+  Topics of interest include, but are not limited to, applied work in the
+  following areas:
 
 %ul
   %li Evolution of the Internet architecture and deployment of new Internetworking paradigms
@@ -32,8 +53,10 @@ is_hidden: true
 %h2 Submission Types
 
 %p
-  The ANRW accepts three types of submissions: short papers, letters and
-  posters.
+  The ANRW accepts three types of submissions:
+  %b short papers, letters
+  and
+  %b posters.
 
 %ul
   %li
@@ -42,11 +65,12 @@ is_hidden: true
     may contain up to
     %em six pages
     of technical content including figures, tables,
-    any appendices, etc. optionally followed by a single additional page for
-    references
+    any appendices, etc., optionally followed by a single additional page for
+    references and acknowledgments
     %em only.
     Accepted papers will be presented and discussed at the
-    workshop and published in the ACM Digital Library.
+    workshop and published in the
+    %a{ :href => "http://libraries.acm.org/digital-library" } ACM Digital Library.
 
   %li
     %b Letter
@@ -56,12 +80,12 @@ is_hidden: true
     vessels, etc.). They may contain up to
     %em two pages
     of content including
-    figures, tables, any appendices, etc. optionally followed by a single
-    additional page for references
+    figures, tables, any appendices, etc., optionally followed by a single
+    additional page for references and acknowledgments
     %em only.
     Accepted letters will be briefly
-    presented and discussed at the workshop and published in the ACM Digital
-    Library.
+    presented and discussed at the workshop and published in the
+    %a{ :href => "http://libraries.acm.org/digital-library" } ACM Digital Library.
 
   %li
     %b Poster
@@ -74,6 +98,8 @@ is_hidden: true
     %em not
     be published.
 
+%a.btn.btn-primary{ :href => "submit/" } Start a submission »
+
 
 %h2 Formatting
 
@@ -84,7 +110,22 @@ is_hidden: true
   %a{ :href => "https://www.acm.org/publications/proceedings-template"}
     ACM SIG Proceedings Templates.
 
-%a.btn.btn-primary{ :href => "https://www.acm.org/binaries/content/assets/publications/article-templates/sig-proceedings-template-may2015-zip.zip" } Download templates »
+%a.btn.btn-default{ :href => "https://www.acm.org/binaries/content/assets/publications/article-templates/sig-proceedings-template-may2015-zip.zip" } Download templates »
 
 %h2 Important Dates
 = render "/anrw/2016/dates_.*", :loc => "#{@item[:loc]}"
+
+%h2 Paper Novelty
+
+%p
+  Under no circumstances should authors submit previously published work, submit
+  the same work simultaneously to multiple venues, or submit papers that
+  plagiarize the work of other authors. The
+  %a{ :href => "http://www.acm.org/publications/policies/plagiarism_policy" }
+    ACM Policy and Procedures on Plagiarism
+  applies to the ANRW, and action will be taken against submitters who have
+  engaged in such practices.
+
+%p
+  Papers accompanied by nondisclosure agreement requests will not be considered
+  for review or publication, nor ever be disclosed.

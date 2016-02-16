@@ -1,0 +1,23 @@
+- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
+
+%p
+  The ANRW&nbsp;'16 receives financial support from these organizations:
+
+.row
+  .col-sm-4.text-center
+    %p
+      %a{ :href => "https://www.akamai.com/"}
+        %img{ :src => "#{loc}img/Akamai-Logo-RGB.png", :alt => "Akamai", :height => 75 }
+  -# .col-sm-4.text-center
+  -#   %p
+  -#     %a{ :href => "https://www.internetsociety.org/"}
+  -#       %img{ :src => "#{loc}img/isoc.png", :alt => "Internet Society", :height => 75 }
+  -# .col-sm-4.text-center
+  -#   %p
+  -#     %a{ :href => "http://www.sigcomm.org/"}
+  -#       %img{ :src => "#{loc}img/acm.png", :alt => "SIGCOMM", :height => 75 }
+
+%p
+  Please contact
+  %a{ :href => "mailto:irtf-chair@irtf.org"} the Steering Committee
+  if you are interested in supporting the ANRW&nbsp;'16.
