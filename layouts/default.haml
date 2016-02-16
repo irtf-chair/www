@@ -1,14 +1,15 @@
 - id = item.identifier.without_ext.sub("/concluded/", "").tr("/", "")
 - title = @item[:title] ? @item[:title] : $rgs[id].name
 - abbrev = @item[:title] ? "" :$rgs[id].acronym
+- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
 
 -# encoding: utf-8
 !!! 5
 %html{ :lang => "en" }
-  = render "/head_.*", :concluded => false, :loc => ""
+  = render "/head_.*", :concluded => false, :loc => "#{loc}"
 
   %body.irtf
-    = render "/menu_.*", :loc => ""
+    = render "/menu_.*", :loc => "#{loc}"
     .container-fluid
       .row
         .col-sm-8.col-xs-12
@@ -17,7 +18,7 @@
             %small #{abbrev}
         .col-sm-4.hidden-xs
           %a{:href => "./"}
-            %img.img-responsive.pull-right{:src => "img/irtf.png",
+            %img.img-responsive.pull-right{:src => "#{loc}img/irtf.png",
                  :alt => "Internet Research Task Force (IRTF)"}
       .row
         - rg = $rgs[id]
@@ -25,9 +26,9 @@
           .col-sm-8
             = yield
           .col-sm-4.rightbar
-            = render "/rightbar_.*", :loc => ""
+            = render "/rightbar_.*", :loc => "#{loc}"
         - else
           = yield
 
-    = render "/footer_.*", :loc => "", :irtf => true
-    = render "/scripts_.*", :loc => ""
+    = render "/footer_.*", :loc => "#{loc}", :irtf => true
+    = render "/scripts_.*", :loc => "#{loc}"

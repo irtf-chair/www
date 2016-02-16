@@ -36,7 +36,7 @@ is_hidden: true
   %a.btn.btn-primary.btn-lg{ :href => "cfp", :role => "button" } Call for Papers »
 
 %h2 Important Dates
-#{@items['/anrw/2016/dates_.*'].compiled_content}
+= render "/anrw/2016/dates_.*"
 
 %h2 Sponsors
-#{@items['/anrw/sponsors_.*'].compiled_content.gsub(/src="img/, 'src="../../img')}
+= render "/anrw/sponsors_.*"

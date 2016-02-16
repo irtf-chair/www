@@ -1,0 +1,19 @@
+- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
+
+%p
+  The ANRW is sponsored and/or organized in cooperation with the following
+  organizations:
+
+.row
+  .col-sm-4.text-center
+    %p
+      %a{ :href => "#{loc}"}
+        %img{ :src => "#{loc}img/irtf.png", :alt => "IRTF", :height => 75 }
+  .col-sm-4.text-center
+    %p
+      %a{ :href => "https://www.internetsociety.org/"}
+        %img{ :src => "#{loc}img/isoc.png", :alt => "Internet Society", :height => 75 }
+  .col-sm-4.text-center
+    %p
+      %a{ :href => "http://www.sigcomm.org/"}
+        %img{ :src => "#{loc}img/acm.png", :alt => "SIGCOMM", :height => 75 }

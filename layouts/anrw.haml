@@ -3,17 +3,18 @@ is_hidden: true
 ---
 
 - year = item.path.split("/")[2]
+- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
 
 !!! 5
 %html{ :lang => "en" }
-  = render "/head_.*", :loc => "../../"
+  = render "/head_.*", :loc => "#{loc}"
 
   %body
     %nav.navbar.navbar-default
       .container-fluid
         %h1 <small>IRTF & Internet Society, in Cooperation with ACM SIGCOMM</small> <br>Applied Networking Research Workshop #{year}
         .navbar-header
-          %a.navbar-brand{ :href => "../../anrw" } ANRW Series
+          %a.navbar-brand{ :href => "#{loc}anrw/" } ANRW Series
           %button.navbar-toggle.collapsed{ :type => "button", "data-toggle" => "collapse", "data-target" => "#anrw-collapse", "aria-expanded" => "false" }
             %span.sr-only Toggle navigation
             %span.icon-bar
@@ -29,5 +30,5 @@ is_hidden: true
     .container-fluid
       = yield
 
-    = render "/footer_.*", :loc => "../../"
-    = render "/scripts_.*", :loc => "../../"
+    = render "/footer_.*", :loc => "#{loc}"
+    = render "/scripts_.*", :loc => "#{loc}"

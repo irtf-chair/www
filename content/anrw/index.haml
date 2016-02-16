@@ -15,18 +15,26 @@ is_hidden: true
     summer), and will be organized in a way that allows ample time for
     discussion and interaction, and not just paper presentations.
 
-  %h2 Sponsors
-  #{@items['/anrw/sponsors_.*'].compiled_content}
-
   %h2 Past and Upcoming ANRWs
-  .media
+  .row
     - @items.find_all(%r{anrw/(\d+)/index.*}).each do |item|
-      %a{ :href => item.path }
-        .media-left
-          %img.img-thumbnail.media-object{ :src => "anrw/#{item.path.split("/")[-1]}/photo.jpg", :width => 144}
-        .media-body
-          .media-heading
-            %h4 #{item[:menu]} at #{item[:ietf]}
-            #{item[:location]}
-            %br
-            #{item[:date]}
+      .col-xs-6.col-sm-4.col-md-3.col-lg-2
+        .thumbnail
+          %a{ :href => item.path }
+            %img.img-responsive{ :src => "#{item.path.split("/")[-1]}/photo.jpg" }
+            .caption
+              %h4 #{item[:menu]} at #{item[:ietf]}
+              %p
+                #{item[:location]}
+                %br
+                #{item[:date]}
+
+  .row
+    .col-lg-6
+      %h2 Sponsors
+      = render "/anrw/sponsors_.*"
+
+    .col-lg-6
+      %h2 Steering Committee
+      %p These individuals currently serve on the ANRW steering committee:
+      = render "/anrw/2016/sc_.*"

@@ -78,15 +78,19 @@ class URLFilter < Nanoc::Filter
     "IIJ" => "http://www.iij.ad.jp/",
     "Microsoft Research" => "http://research.microsoft.com/",
     "University of Melbourne" => "http://unimelb.edu.au/",
-    "ANRW" => "anrw",
+    "ANRW" => "anrw/",
     "ETH Z.rich" => "https://www.ethz.ch/"
   }
 
   def run(content, params={})
+    loc = ""
+    if @item.path and @item.path !~ /^\/[^\/]*$/
+      loc = @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
+    end
     c = content.dup
     @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
       c.gsub!(/\b(#{tag})\b#{$boundary}/) {
-        |x| link_to($1, @@urls[tag])
+        |x| link_to(x, (@@urls[tag] =~ /^http/ ? "" : loc) + @@urls[tag])
       }
     end
     return c

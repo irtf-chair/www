@@ -87,4 +87,4 @@ is_hidden: true
 %a.btn.btn-primary{ :href => "https://www.acm.org/binaries/content/assets/publications/article-templates/sig-proceedings-template-may2015-zip.zip" } Download templates »
 
 %h2 Important Dates
-#{@items['/anrw/2016/dates_.*'].compiled_content}
+= render "/anrw/2016/dates_.*", :loc => "#{@item[:loc]}"

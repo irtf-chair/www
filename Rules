@@ -3,18 +3,6 @@
 # This is input to gulp only
 ignore "/style.*"
 
-# Compile but don't route any partials (ending in underscore)
-compile "/**/*_.*" do
-  filter :rfc
-  filter :haml, :format => :html5
-  filter :wg
-  filter :rg
-  filter :meeting
-  filter :url
-  filter :relativize_paths, :type => :html
-  filter :rubypants
-end
-
 compile "/**/*.haml" do
   filter :rfc
   filter :haml, :format => :html5
@@ -26,7 +14,7 @@ compile "/**/*.haml" do
   case
   when /concluded/.match(item.identifier.to_s)
     layout "/historic.*"
-  when /anrw\//.match(item.identifier.to_s)
+  when /anrw\/\d+\//.match(item.identifier.to_s)
     layout "/anrw.*"
   else
     layout "/default.*"
@@ -51,6 +39,7 @@ end
 
 compile "/sitemap.*" do
   filter :haml, :format => :html5
+  filter :htmlcompressor
   write "/sitemap" + "." + item.identifier.ext
 end
 

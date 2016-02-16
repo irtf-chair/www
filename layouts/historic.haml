@@ -1,12 +1,13 @@
 - rg = $oldrgs[item.identifier.without_ext.sub("/concluded/", "").tr("/", "")]
+- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
 
 -# encoding: utf-8
 !!! 5
 %html{ :lang => "en" }
-  = render "/head_.*", :concluded => true, :loc => "../"
+  = render "/head_.*", :concluded => true, :loc => "#{loc}"
 
   %body.irtf
-    = render "/menu_.*", :loc => "../"
+    = render "/menu_.*", :loc => "#{loc}"
     .ribbon.hidden-xs
       %p Concluded
     .container-fluid
@@ -41,7 +42,7 @@
 
         -# For RGs that concluded since the web site redesign, we have the rightbar info.
         - if rg.respond_to?("name")
-          = render "/historicinfo_.*", :loc => "../"
+          = render "/historicinfo_.*", :loc => "#{loc}"
 
-    = render "/footer_.*", :loc => "../", :irtf => true
-    = render "/scripts_.*", :loc => "../"
+    = render "/footer_.*", :loc => "#{loc}", :irtf => true
+    = render "/scripts_.*", :loc => "#{loc}"
