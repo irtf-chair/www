@@ -57,6 +57,13 @@ gulp.task('upload', function(cb) {
   });
 });
 
+gulp.task("linkcheck", function(cb) {
+  exec("linklint -doc report -https -net -host irtf.org /@",
+       { stdio: "inherit" }, function (err) {
+    cb(err);
+  });
+});
+
 gulp.task('default', function(callback) {
   runSequence(['css', 'js', 'fonts'], 'nanoc');
 });

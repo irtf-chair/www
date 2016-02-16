@@ -1,7 +1,7 @@
 %nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     .navbar-header
-      %button.navbar-toggle.collapsed{ :type => "button", "data-toggle" => "collapse", "data-target" => "#bs-example-navbar-collapse-1", "aria-expanded" => "false" }
+      %button.navbar-toggle.collapsed{ :type => "button", "data-toggle" => "collapse", "data-target" => "#menu-collapse", "aria-expanded" => "false" }
         %span.sr-only Toggle navigation
         %span.icon-bar
         %span.icon-bar
@@ -10,11 +10,11 @@
         IRTF
         -# %img{ :alt => "IRTF", :src => "img/irtf-horiz.png", :height => 25}
 
-    .collapse.navbar-collapse#bs-example-navbar-collapse-1
+    .collapse.navbar-collapse#menu-collapse
       %ul.nav.navbar-nav
         %li
         %li.dropdown
-          %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
+          %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
             Research Groups
             %span.caret
           %ul.dropdown-menu
@@ -25,7 +25,7 @@
               %a{ :href => "groups" } All groups
 
         %li.dropdown
-          %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
+          %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
             People
             %span.caret
           %ul.dropdown-menu
@@ -35,7 +35,7 @@
               %a{ :href => @loc + "irsg" } Steering Group
 
         %li.dropdown
-          %a.dropdown-toggle{ :href => "#", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
+          %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
             Other
             %span.caret
           %ul.dropdown-menu

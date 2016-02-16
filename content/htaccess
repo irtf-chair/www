@@ -69,7 +69,7 @@
 # http://www.w3.org/TR/resource-timing/
 # http://www.stevesouders.com/blog/2014/08/21/resource-timing-practical-tips/
 
-# XXX eggert.org
+# XXX irtf.org
 <IfModule mod_headers.c>
     Header set Timing-Allow-Origin: "*"
 </IfModule>
@@ -350,7 +350,7 @@ AddDefaultCharset utf-8
 # Redirect from the `http://` to the `https://` version of the URL.
 # https://wiki.apache.org/httpd/RewriteHTTPToHTTPS
 
-# XXX eggert.org
+# XXX irtf.org
 <IfModule mod_rewrite.c>
    RewriteEngine On
    RewriteCond %{HTTPS} !=on
@@ -441,7 +441,7 @@ AddDefaultCharset utf-8
 # http://blogs.msdn.com/b/ieinternals/archive/2010/03/30/combating-clickjacking-with-x-frame-options.aspx
 # https://www.owasp.org/index.php/Clickjacking
 
-# XXX eggert.org
+# XXX irtf.org
 <IfModule mod_headers.c>
     Header set X-Frame-Options "DENY"
     # `mod_headers` cannot match based on the content-type, however,
@@ -473,7 +473,7 @@ AddDefaultCharset utf-8
 # http://www.html5rocks.com/en/tutorials/security/content-security-policy/
 # https://w3c.github.io/webappsec-csp/
 
-# XXX eggert.org
+# XXX irtf.org
 <IfModule mod_headers.c>
     Header set Content-Security-Policy: "default-src 'self' data:; script-src 'self' data: 'unsafe-inline' https://*.google-analytics.com"
     # Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
@@ -578,7 +578,7 @@ AddDefaultCharset utf-8
 # https://tools.ietf.org/html/draft-ietf-websec-strict-transport-sec-14#section-6.1
 # http://blogs.msdn.com/b/ieinternals/archive/2014/08/18/hsts-strict-transport-security-attacks-mitigations-deployment-https.aspx
 
-# XXX eggert.org
+# XXX irtf.org
 <IfModule mod_headers.c>
     Header always set Strict-Transport-Security "max-age=16070400; includeSubDomains"
 </IfModule>
@@ -639,7 +639,7 @@ AddDefaultCharset utf-8
 # http://blogs.msdn.com/b/ieinternals/archive/2011/01/31/controlling-the-internet-explorer-xss-filter-with-the-x-xss-protection-http-header.aspx
 # https://www.owasp.org/index.php/Cross-site_Scripting_%28XSS%29
 
-# XXX eggert.org
+# XXX irtf.org
 <IfModule mod_headers.c>
     #                           (1)    (2)
     Header set X-XSS-Protection "1; mode=block"
@@ -807,7 +807,7 @@ ServerSignature Off
 #
 # https://developers.google.com/speed/pagespeed/module/configuration#notransform
 
-# XXX eggert.org
+# XXX irtf.org
 <IfModule mod_headers.c>
     Header merge Cache-Control "no-transform"
 </IfModule>
@@ -1031,10 +1031,10 @@ RedirectMatch permanent ^/(concluded|(?:old-)?groups)/chair$                /cha
 RedirectMatch permanent ^/(concluded|(?:old-)?groups)/index$                /groups
 RedirectMatch permanent ^/(concluded|old-groups)\.(html?|php)$              /groups
 
-RedirectMatch permanent ^/chairfiles/draft-irtf-rfcs-01\.html$              http://tools.ietf.org/html/draft-irtf-rfcs
+RedirectMatch permanent ^/chairfiles/draft-irtf-rfcs-01\.html$              https://tools.ietf.org/html/draft-irtf-rfcs
 RedirectMatch permanent ^/asrg/(draft-irtf-asrg-requirements-xx-01\.txt)$   http://asrg.sp.am/about/old_site/$1
 RedirectMatch permanent ^/asrg/(draft-vixie-repudiating-mail-from.txt)$     http://asrg.sp.am/about/old_site/$1
-RedirectMatch permanent ^/rfc/(.*)\.txt$                                    http://tools.ietf.org/html/$1
+RedirectMatch permanent ^/rfc/(.*)\.txt$                                    https://tools.ietf.org/html/$1
 
 
 RedirectMatch permanent ^/charters/(?:rg/)?((?:as|cf|dtn|hip|icc|nm|p2p|r|sam|tm|vn)rg|mobopts)\.html?$   /$1

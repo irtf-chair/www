@@ -81,13 +81,13 @@ module IRTF
   end
 
   # ASRG
-  levine = Person.new("John", "Levine", "johnl@iecc.com", "http://johnlevine.com/", nil)
+  levine = Person.new("John", "Levine", "johnl@iecc.com", "https://johnlevine.com/", nil)
   asrg = RG.new(
     "asrg",
     "Anti-Spam",
     "asrg@irtf.org",
     nil,
-    "http://asrg.sp.am/",
+    "https://asrg.sp.am/",
     [ levine ],
     nil,
     nil,
@@ -96,10 +96,10 @@ module IRTF
 
   # CFRG
   # canetti = Person.new("Ran", "Canetti", "canetti@watson.ibm.com")
-  # mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "http://mindspring.com/~dmcgrew/dam.htm", nil)
+  # mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "https://mindspring.com/~dmcgrew/dam.htm", nil)
   # igoe = Person.new("Kevin", "Igoe", "kmigoe@nsa.gov", nil, nil)
-  paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "http://www.isg.rhul.ac.uk/~kp/", nil)
-  melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", "http://www.melnikov.ca", nil)
+  paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "https://www.isg.rhul.ac.uk/~kp/", nil)
+  melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", "https://www.melnikov.ca", nil)
 
   cfrg = RG.new(
     "cfrg",
@@ -114,14 +114,14 @@ module IRTF
   )
 
   # DTNRG
-  fall = Person.new("Kevin", "Fall", "kfall@acm.org", "http://kfall.net/ucbpage/", nil)
-  ott = Person.new("Jörg", "Ott", "jo@netlab.tkk.fi", "http://www.netlab.tkk.fi/~jo/", nil) # www is needed
+  fall = Person.new("Kevin", "Fall", "kfall@acm.org", "https://kfall.net/ucbpage/", nil)
+  ott = Person.new("Jörg", "Ott", "jo@netlab.tkk.fi", "https://www.netlab.tkk.fi/~jo/", nil) # www is needed
   dtnrg = RG.new(
     "dtnrg",
     "Delay-Tolerant Networking",
     "dtn-interest@irtf.org",
     nil,
-    "http://dtnrg.org/",
+    "https://dtnrg.org/",
     [ fall, ott ],
     nil,
     nil,
@@ -129,8 +129,8 @@ module IRTF
   )
 
   # GAIA
-  sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "http://www.cl.cam.ac.uk/~as2330/", nil)
-  ford = Person.new("Mat", "Ford", "ford@isoc.org", "http://www.internetsociety.org/who-we-are/people/mr-mat-ford", nil)
+  sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "https://www.cl.cam.ac.uk/~as2330/", nil)
+  ford = Person.new("Mat", "Ford", "ford@isoc.org", "https://www.internetsociety.org/who-we-are/people/mr-mat-ford", nil)
   gaia = RG.new(
     "gaia",
     "Global Access to the Internet for All",
@@ -144,14 +144,14 @@ module IRTF
   )
 
   # HIPRG
-  gurtov = Person.new("Andrei", "Gurtov", "gurtov@cs.helsinki.fi", "http://cs.helsinki.fi/u/gurtov/", nil)
-  henderson = Person.new("Tom", "Henderson", "thomas.r.henderson@boeing.com", "http://tomh.org/", nil)
+  gurtov = Person.new("Andrei", "Gurtov", "gurtov@cs.helsinki.fi", "https://www.cs.helsinki.fi/u/gurtov/", nil)
+  henderson = Person.new("Tom", "Henderson", "thomas.r.henderson@boeing.com", "https://tomh.org/", nil)
   hiprg = RG.new(
     "hiprg",
     "Host Identity Protocol",
     "hiprg@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/hiprg",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/hiprg",
     [ gurtov, henderson ],
     nil,
     nil,
@@ -159,7 +159,7 @@ module IRTF
   )
 
   # HRPC
-  tenoever = Person.new("Niels", "ten Oever", "niels@article19.org", "http://nielstenoever.net/", nil)
+  tenoever = Person.new("Niels", "ten Oever", "niels@article19.org", "https://nielstenoever.net/", nil)
   doria = Person.new("Avri", "Doria", "avri@acm.org", "https://www.linkedin.com/in/doriavr", nil)
   hrpc = RG.new(
     "hrpc",
@@ -174,15 +174,15 @@ module IRTF
   )
 
   # ICCRG
-  welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "http://heim.ifi.uio.no/michawe/", 1515901207)
+  welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
   iyengar = Person.new("Jana", "Iyengar", "jri@google.com", "https://www.linkedin.com/in/jana-iyengar-2121252", nil)
-  # ros = Person.new("David", "Ros", "dros@simula.no", "http://simula.no/people/dros", nil)
+  # ros = Person.new("David", "Ros", "dros@simula.no", "https://simula.no/people/dros", nil)
   iccrg = RG.new(
     "iccrg",
     "Internet Congestion Control",
     "iccrg@irtf.org",
     nil,
-    "http://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
+    "https://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
     [ welzl, iyengar ],
     nil,
     nil,
@@ -190,7 +190,7 @@ module IRTF
   )
 
   # ICNRG
-  kutscher = Person.new("Dirk", "Kutscher", "Dirk.Kutscher@neclab.eu", "http://dirk-kutscher.info/", nil)
+  kutscher = Person.new("Dirk", "Kutscher", "Dirk.Kutscher@neclab.eu", "https://dirk-kutscher.info/", nil)
   ohlman = Person.new("Börje", "Ohlman", "borje.ohlman@ericsson.com", "https://linkedin.com/pub/b%3Frje-ohlman/0/270/283", nil)
   oran = Person.new("Dave", "Oran", "oran@cisco.com", "https://linkedin.com/pub/david-oran/0/b7/7b4", nil)
   icnrg = RG.new(
@@ -198,7 +198,7 @@ module IRTF
     "Information-Centric Networking",
     "icnrg@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/icnrg",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/icnrg",
     [ kutscher, ohlman, oran ],
     nil,
     "2012-4-17",
@@ -222,14 +222,14 @@ module IRTF
 
   # NCRG
   behringer = Person.new("Michael", "Behringer", "mbehring@cisco.com", "https://linkedin.com/in/mbehringer", nil)
-  # huston = Person.new("Geoff", "Huston", "gih@apnic.net", "http://potaroo.net/", nil)
-  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "http://www.1-4-5.net/~dmm/vita.html", nil)
+  # huston = Person.new("Geoff", "Huston", "gih@apnic.net", "https://potaroo.net/", nil)
+  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "https://www.1-4-5.net/~dmm/vita.html", nil)
   ncrg = RG.new(
     "ncrg",
     "Network Complexity",
     "ncrg@irtf.org",
     nil,
-    "http://networkcomplexity.org/",
+    "https://networkcomplexity.org/",
     [ behringer, meyer ],
     nil,
     "2011-10-4",
@@ -237,7 +237,7 @@ module IRTF
   )
 
   # NFVRG
-  lopez = Person.new("Diego", "Lopez", "diego.r.lopez@telefonica.com", "http://people.tid.es/diego.lopez/", nil)
+  lopez = Person.new("Diego", "Lopez", "diego.r.lopez@telefonica.com", "https://people.tid.es/diego.lopez/", nil)
   ramki = Person.new("Ramki", "Krishnan", "Ramki_Krishnan@Dell.com", "https://linkedin.com/pub/ram-krishnan/0/a10/2ba", nil)
   krishnaswamy = Person.new("Dilip", "Krishnaswamy", "dilip@ieee.org", "https://sites.google.com/site/dilip1/home", nil)
   nfvrg = RG.new(
@@ -245,7 +245,7 @@ module IRTF
     "Network Function Virtualization",
     "nfvrg@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/nfvrg",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/nfvrg",
     [ lopez, ramki ],
     [ krishnaswamy ],
     "2015-1-20",
@@ -254,7 +254,7 @@ module IRTF
 
   # NWCRG
   adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "https://linkedin.com/in/brianadamson", nil)
-  firoiu = Person.new("Victor", "Firoiu", "vfiroiu@acm.org", "http://victor.firoiu.org/", nil)
+  firoiu = Person.new("Victor", "Firoiu", "vfiroiu@acm.org", "https://victor.firoiu.org/", nil)
   nwcrg = RG.new(
     "nwcrg",
     "Network Coding",
@@ -268,15 +268,15 @@ module IRTF
   )
 
   # NMRG
-  granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "http://inf.ufrgs.br/~granville/", nil)
-  # festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "http://www.loria.fr/~festor/Site/Welcome.html", nil) # www is needed
+  granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "https://inf.ufrgs.br/~granville/", nil)
+  # festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "https://www.loria.fr/~festor/Site/Welcome.html", nil) # www is needed
   ciavaglia = Person.new("Laurent", "Ciavaglia", "Laurent.Ciavaglia@alcatel-lucent.com", "https://www.linkedin.com/in/laurentciavaglia", nil)
   nmrg = RG.new(
     "nmrg",
     "Network Management",
     "nmrg@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
     [ granville, ciavaglia ],
     nil,
     nil,
@@ -291,7 +291,7 @@ module IRTF
     "Peer-to-Peer",
     "p2prg@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/PeerToPeerResearchGroup",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/PeerToPeerResearchGroup",
     [ hiltl, previdi ],
     nil,
     nil,
@@ -306,7 +306,7 @@ module IRTF
     "Routing",
     "rrg@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/RoutingResearchGroup",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/RoutingResearchGroup",
     [ li ],
     nil,
     nil,
@@ -314,14 +314,14 @@ module IRTF
   )
 
   # SAMRG
-  buford = Person.new("John", "Buford", "buford@samrg.org", "http://samrg.org/buford/index.html", nil)
-  schmidt = Person.new("Thomas", "Schmidt", "schmidt@informatik.haw-hamburg.de", "http://users.informatik.haw-hamburg.de/~schmidt/", nil)
+  buford = Person.new("John", "Buford", "buford@samrg.org", "https://samrg.org/buford/index.html", nil)
+  schmidt = Person.new("Thomas", "Schmidt", "schmidt@informatik.haw-hamburg.de", "https://users.informatik.haw-hamburg.de/~schmidt/", nil)
   samrg = RG.new(
     "samrg",
     "Scalable Adaptive Multicast",
     "sam@irtf.org",
     nil,
-    "http://samrg.org/",
+    "https://samrg.org/",
     [ buford, schmidt ],
     nil,
     nil,
@@ -329,7 +329,7 @@ module IRTF
   )
 
   # SDNRG
-  king = Person.new("Daniel", "King", "d.king@lancaster.ac.uk", "http://www.research.lancs.ac.uk/portal/en/people/daniel-king", nil)
+  king = Person.new("Daniel", "King", "d.king@lancaster.ac.uk", "https://www.research.lancs.ac.uk/portal/en/people/daniel-king", nil)
   shiomoto = Person.new("Kohei", "Shiomoto", "shiomoto.kohei@lab.ntt.co.jp", "https://jp.linkedin.com/pub/kohei-shiomoto/0/bb5/676", nil)
 
   sdnrg = RG.new(
@@ -337,7 +337,7 @@ module IRTF
     "Software-Defined Networking",
     "sdn@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
     [ king, shiomoto ],
     nil,
     "2013-1-14",
@@ -345,13 +345,13 @@ module IRTF
   )
 
   # TMRG
-  andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "http://caia.swin.edu.au/cv/landrew/", nil)
+  andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "https://caia.swin.edu.au/cv/landrew/", nil)
   tmrg = RG.new(
     "tmrg",
     "Transport Modeling",
     "tmrg@irtf.org",
     nil,
-    "http://tools.ietf.org/group/irtf/trac/wiki/tmrg",
+    "https://tools.ietf.org/group/irtf/trac/wiki/tmrg",
     [ andrew ],
     nil,
     nil,
@@ -359,7 +359,7 @@ module IRTF
   )
 
   # T2TRG
-  bormann = Person.new("Carsten", "Bormann", "cabo@tzi.org", "http://www.informatik.uni-bremen.de/~cabo/", nil)
+  bormann = Person.new("Carsten", "Bormann", "cabo@tzi.org", "https://www.informatik.uni-bremen.de/~cabo/", nil)
   keranen = Person.new("Ari", "Keränen", "ari.keranen@ericsson.com", "https://www.linkedin.com/in/akeranen", nil)
   t2trg = RG.new(
     "t2trg",
@@ -374,14 +374,14 @@ module IRTF
   )
 
   # VNRG
-  touch = Person.new("Joe", "Touch", "touch@isi.edu", "http://isi.edu/touch/", nil)
-  stiemerling = Person.new("Martin", "Stiemerling", "stiemerling@nw.neclab.eu", "http://ietf.stiemerling.org/", nil)
+  touch = Person.new("Joe", "Touch", "touch@isi.edu", "https://isi.edu/touch/", nil)
+  stiemerling = Person.new("Martin", "Stiemerling", "mls.ietf@gmail.com", "https://www.fbi.h-da.de/organisation/personen/stiemerling-martin/", nil)
   vnrg = RG.new(
     "vnrg",
     "Virtual Networks",
     "vnrg@irtf.org",
     nil,
-    "http://trac.tools.ietf.org/group/irtf/trac/wiki/vnrg",
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/vnrg",
     [ touch, stiemerling ],
     nil,
     nil,
@@ -443,19 +443,19 @@ module IRTF
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
 
   # IRSG
-  eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "http://eggert.org/", "584143839")
+  eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "https://eggert.org/", "584143839")
   $chair = eggert
   falk = Person.new("Aaron", "Falk", "aaron.falk@gmail.com", "https://linkedin.com/in/aaronfalk", nil)
-  allman = Person.new("Mark", "Allman", "mallman@icir.org", "http://www.icir.org/mallman/", nil)
+  allman = Person.new("Mark", "Allman", "mallman@icir.org", "https://www.icir.org/mallman/", nil)
   dawkins = Person.new("Spencer", "Dawkins", "spencerdawkins.ietf@gmail.com", "https://linkedin.com/in/spencerdawkins", nil)
-  # arkko = Person.new("Jari", "Arkko", "jari.arkko@piuha.net", "http://www.arkko.com/", nil)
-  # li = Person.new("Xing", "Li", "xing@cernet.edu.cn", "http://www.net-glyph.org/lixing/", nil)
+  # arkko = Person.new("Jari", "Arkko", "jari.arkko@piuha.net", "https://www.arkko.com/", nil)
+  # li = Person.new("Xing", "Li", "xing@cernet.edu.cn", "https://www.net-glyph.org/lixing/", nil)
   # lear = Person.new("Eliot", "Lear", "lear@cisco.com", "https://linkedin.com/pub/eliot-lear/0/81/b0a", nil)
   housley = Person.new("Russ", "Housley", "housley@vigilsec.com", "https://linkedin.com/pub/russ-housley/0/69/419", nil)
   farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
   droms = Person.new("Ralph", "Droms", "rdroms.ietf@gmail.com", "https://www.linkedin.com/pub/ralph-droms/0/493/a10", nil)
   nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
-  feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "http://www.cs.princeton.edu/~feamster/", nil)
+  feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
   teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   $atlarge = [ falk, allman, dawkins, housley, farrell, droms, nordmark, feamster, teixeira ]
 
