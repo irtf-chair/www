@@ -1,16 +1,19 @@
 %footer.footer
   .container-fluid
     .row
-      .col-xs-2.text-muted.small
-        IRTF sponsors:
-      .col-xs-2.text-muted.small
-        %a{ :href => "http://ietf.org/" }
-          %img.img-responsive{ :src => @loc + "img/ietf.png", :width => 100,
-                :alt => "Internet Engineering Task Force (IETF)" }
-      .col-xs-2.text-muted.small
-        %a{ :href => "http://isoc.org/" }
-          %img.img-responsive{ :src => @loc + "img/isoc.png", :width => 100,
-                :alt => "Internet Society (ISOC)" }
+      - if @irtf
+        .col-xs-2.text-muted.small
+          IRTF sponsors:
+        .col-xs-2.text-muted.small
+          %a{ :href => "http://ietf.org/" }
+            %img.img-responsive{ :src => @loc + "img/ietf.png", :width => 100,
+                  :alt => "Internet Engineering Task Force (IETF)" }
+        .col-xs-2.text-muted.small
+          %a{ :href => "http://isoc.org/" }
+            %img.img-responsive{ :src => @loc + "img/isoc.png", :width => 100,
+                  :alt => "Internet Society (ISOC)" }
+      - else
+        .col-xs-6
 
       .col-xs-6.text-right.text-muted.small
         %span#ipv6

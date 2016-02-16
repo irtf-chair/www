@@ -6,7 +6,7 @@ class MeetingFilter < Nanoc::Filter
 
   def run(content, params={})
     content.gsub(/\bIETF-([0-9]{1,3}\b#{$boundary})/) {
-      |rfc| link_to("IETF-#{$1}", "http://ietf.org/meeting/#{$1}/index")
+      |rfc| link_to("IETF-#{$1}", "https://ietf.org/meeting/#{$1}/index")
     }
   end
 end

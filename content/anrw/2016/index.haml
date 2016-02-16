@@ -1,0 +1,42 @@
+---
+title: Applied Networking Research Workshop (ANRW ‘16)
+menu: ANRW ‘16
+location: Berlin, Germany
+date: Saturday, July 17, 2016
+ietf: IETF-96
+is_hidden: true
+---
+
+.hidden-xs.pull-right.col-sm-4
+  %img.img-thumbnail.img-responsive{ :src => "photo.jpg", :alt => "#{@item[:location]}"}
+  %p.text-muted
+    %small
+      %a{ :href => "https://www.flickr.com/photos/tinto/13307364495/in/photolist-mgVHQT-8pMuXt-8pj7aA-bogdRu-mD99LH-pEEW8e-jY2gti-mwFUXZ-fvUwqA-6vATzU-mwFcKF-qBgvMz-enaA8G-msS5ZC-6DxC83-cjF2xb-whbeBQ-cu374o-EUnsw-rawuq4-nMDKfW-4zVoT-njLLnq-JjeEo-nCm3mK-BxAiNN-9KVSpt-qsrVvZ-msQJ92-y25cuE-nwjGv9-6bVctW-6HYr2e-cruqxA-7Xz4TJ-rok6Go-qbWEjx-hDbKq3-qDnr5r-NhFgW-xHi5fk-r7HJm5-oV9Sz6-6N4g6t-B7FJEQ-oVMd5V-wWVxfe-xMP3xD-qNwaav-65znao"} "Berlin" by Jörg Schubert
+      %a{ :href => "https://creativecommons.org/licenses/by/2.0/"} (CC BY 2.0)
+
+%p
+  The Applied Networking Research Workshop (ANRW) provides a forum for
+  researchers, vendors, network operators and the Internet standards community
+  to present and discuss emerging results in applied networking research.
+
+%p
+  Researchers should consider submitting
+  early emerging results that illustrate the scientific and engineering
+  principles underlying the Internet architecture, protocols and applications;
+  that demonstrate new capabilities, features, or extensions to the Internet
+  protocol layers; that enhance our understanding of how Internet protocols work
+  in real-world deployments or realistic testbeds; or that improve Internet
+  security and privacy, scalability, performance, and robustness.
+
+%p.lead
+  Co-located with the #{@item[:ietf]}
+  meeting in #{@item[:location]} on #{@item[:date]}.
+
+%p
+  %a.btn.btn-primary.btn-lg{ :href => "cfp", :role => "button" } Call for Papers »
+
+%h2 Important Dates
+#{@items['/anrw/2016/dates_.*'].compiled_content}
+
+%h2 Sponsors
+#{@items['/anrw/sponsors_.*'].compiled_content.gsub(/src="img/, 'src="../../img')}

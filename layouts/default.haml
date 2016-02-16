@@ -7,7 +7,7 @@
 %html{ :lang => "en" }
   = render "/head_.*", :concluded => false, :loc => ""
 
-  %body
+  %body.irtf
     = render "/menu_.*", :loc => ""
     .container-fluid
       .row
@@ -29,5 +29,5 @@
         - else
           = yield
 
-    = render "/footer_.*", :loc => ""
+    = render "/footer_.*", :loc => "", :irtf => true
     = render "/scripts_.*", :loc => ""

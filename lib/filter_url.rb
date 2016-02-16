@@ -46,7 +46,7 @@ class URLFilter < Nanoc::Filter
     "Aalto University" => "http://aalto.fi/",
     "NetApp" => "http://www.netapp.com/us/",
     "Nokia Research Center" => "http://research.nokia.com/",
-    "NEC Laboratories" => "http://www.neclab.eu/", # www is needed
+    "NEC Laboratories( Europe)?" => "http://www.neclab.eu/", # www is needed
     "NEC" => "http://www.neclab.eu/", # www is needed
     "UC3M" => "http://uc3m.es/",
     "Yale" => "http://yale.edu/",
@@ -77,7 +77,9 @@ class URLFilter < Nanoc::Filter
     "ETHZ" => "https://www.ethz.ch/",
     "IIJ" => "http://www.iij.ad.jp/",
     "Microsoft Research" => "http://research.microsoft.com/",
-    "University of Melbourne" => "http://unimelb.edu.au/"
+    "University of Melbourne" => "http://unimelb.edu.au/",
+    "ANRW" => "anrw",
+    "ETH Z.rich" => "https://www.ethz.ch/"
   }
 
   def run(content, params={})

@@ -5,7 +5,7 @@
 %html{ :lang => "en" }
   = render "/head_.*", :concluded => true, :loc => "../"
 
-  %body
+  %body.irtf
     = render "/menu_.*", :loc => "../"
     .ribbon.hidden-xs
       %p Concluded
@@ -43,5 +43,5 @@
         - if rg.respond_to?("name")
           = render "/historicinfo_.*", :loc => "../"
 
-    = render "/footer_.*", :loc => "../"
+    = render "/footer_.*", :loc => "../", :irtf => true
     = render "/scripts_.*", :loc => "../"
