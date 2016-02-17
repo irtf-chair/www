@@ -35,6 +35,4 @@ is_hidden: true
       = render "/anrw/sponsors_.*"
 
     .col-lg-6
-      %h2 Steering Committee
-      %p These individuals currently serve on the ANRW steering committee:
-      = render "/anrw/2016/sc_.*"
+      = render "/anrw/2016/sc_.*", :blurb => true

@@ -5,10 +5,11 @@ is_hidden: true
 ---
 
 .col-md-6
-  %table.table
-    %thead
-      %tr
-        %th{ :colspan => 3 } Program Committee
+  %h2 Program Committee
+  %table.table.table-striped
+    -# %thead
+    -#   %tr
+    -#     %th{ :colspan => 3 } Program Committee
     %tbody
       %tr
         %td Lars Eggert
@@ -23,7 +24,7 @@ is_hidden: true
       %tr
         %td{ :colspan => 2 } Stephen Farrell
         %td Trinity College Dublin
-      %tr 
+      %tr
         %td{ :colspan => 2 } Jana Iyengar
         %td Google
       %tr
@@ -36,11 +37,14 @@ is_hidden: true
         %td{ :colspan => 2 } Jörg Ott
         %td Technische Universität München
       %tr
-        %td{ :colspan => 2 } Arjuna Sathiaseelan 
+        %td{ :colspan => 2 } Arjuna Sathiaseelan
         %td University of Cambridge
       %tr
         %td{ :colspan => 2 } Brian Trammell
         %td ETH Zürich
+
+  -# %a.btn.btn-default{ :href => "mailto:anrw-tpc@irtf.org", :role => "button" }
+  -#   Email the program committee »
 
 .col-md-6
   = render "/anrw/2016/sc_.*"
