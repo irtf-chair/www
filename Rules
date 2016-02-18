@@ -14,7 +14,7 @@ compile "/**/*.haml" do
   case
   when /concluded/.match(item.identifier.to_s)
     layout "/historic.*"
-  when /anrw\/\d+\//.match(item.identifier.to_s)
+  when /anrw[^\/]*\/\d+\//.match(item.identifier.to_s)
     layout "/anrw.*"
   else
     layout "/default.*"

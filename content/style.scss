@@ -40,8 +40,9 @@ table.anrp {
   }
 }
 
-img.pull-right {
+.pull-right {
   margin: 0 0 $font-size-base $font-size-base;
+  padding-right: 0;
 }
 
 // Add spacing in definition lists

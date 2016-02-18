@@ -8,7 +8,7 @@ class URLFilter < Nanoc::Filter
     "Aalto University" => "https://www.aalto.fi/",
     "ACM" => "https://www.acm.org/",
     "ANRP" => "anrp",
-    "ANRW" => "anrw/",
+    # "ANRW" => "anrw/",
     "AT&amp;T Laboratories" => "http://www.research.att.com/",
     "ATIS" => "https://www.atis.org/",
     "Bell Labs" => "https://www.alcatel-lucent.com/bell-labs",
