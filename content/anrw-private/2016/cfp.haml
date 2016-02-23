@@ -103,23 +103,8 @@ is_hidden: true
       Authors of accepted letters may also bring a poster presenting its content
       to the workshop, for display and more in-depth discussion with interested participants during the breaks.
 
-
 %a.btn.btn-primary{ :href => "submit/" } Start a submission »
 
-
-%h2 Formatting
-
-%p
-  Submissions of all three types (papers, letters, poster descriptions)
-  %em must
-  be formatted according to the
-  %a{ :href => "https://www.acm.org/publications/proceedings-template"}
-    ACM SIG Proceedings Templates.
-
-%a.btn.btn-default{ :href => "https://www.acm.org/binaries/content/assets/publications/article-templates/sig-proceedings-template-may2015-zip.zip" } Download templates »
-
-%h2 Important Dates
-= render "/anrw/2016/dates_.*", :loc => "#{@item[:loc]}"
 
 %h2 Paper Novelty
 
@@ -135,3 +120,46 @@ is_hidden: true
 %p
   Papers accompanied by nondisclosure agreement requests will not be considered
   for review or publication, nor ever be disclosed.
+
+
+%h2 Formatting
+
+%p
+  Submissions of all three types (papers, letters, poster descriptions)
+  %em must
+  be formatted according to the
+  %a{ :href => "https://www.acm.org/publications/proceedings-template"}
+    ACM SIG Proceedings Templates.
+
+%a.btn.btn-default{ :href => "https://www.acm.org/binaries/content/assets/publications/article-templates/sig-proceedings-template-may2015-zip.zip" } Download templates »
+
+
+%h2 Reviews
+
+%p
+  All submissions will be peer reviewed (single-blind). Reviews will be shared
+  with the authors.
+
+%p
+  Authors and TPC members provide conflict-of-interest information. It is
+  important that all authors of a submission are indicated in the submission
+  system and enter any conflict-of-interests. Broadly, a conflict of interest
+  exists when:
+
+%ul
+  %li
+    You are currently employed at the same organization, have been previously
+    employed at the same organization within the last twelve months, or are
+    going to begin employment at the same organization.
+
+  %li
+    You have a past or present professional relationship, such as thesis
+    advisement, collaboration on a project, publication, or grant proposal
+    within the past two years.
+
+%p
+  These are examples -- use your own good judgment.
+
+
+%h2 Important Dates
+= render "/anrw/2016/dates_.*", :loc => "#{@item[:loc]}"
