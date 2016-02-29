@@ -121,7 +121,7 @@ module IRTF
     "Delay-Tolerant Networking",
     "dtn-interest@irtf.org",
     nil,
-    "https://dtnrg.org/",
+    "https://sites.google.com/site/dtnresgroup/",
     [ fall, ott ],
     nil,
     nil,
