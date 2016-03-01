@@ -5,10 +5,12 @@ class URLFilter < Nanoc::Filter
   type :text
 
   @@urls = {
+    "(Technische Universit.t|TU) M.nchen" => "https://www.tum.de/en/",
     "Aalto University" => "https://www.aalto.fi/",
     "ACM" => "https://www.acm.org/",
+    "Akamai" => "https://www.akamai.com/",
     "ANRP" => "anrp",
-    # "ANRW" => "anrw/",
+    "ANRW" => "anrw-private/",
     "AT&amp;T Laboratories" => "http://www.research.att.com/",
     "ATIS" => "https://www.atis.org/",
     "Bell Labs" => "https://www.alcatel-lucent.com/bell-labs",
@@ -68,7 +70,6 @@ class URLFilter < Nanoc::Filter
     "Skype" => "https://en.wikipedia.org/wiki/Skype",
     "Stanford" => "https://stanford.edu/",
     "Trinity College Dublin" => "https://www.tcd.ie/",
-    "(Technische Universit.t|TU) M.nchen" => "https://www.tum.de/en/",
     "UC3M" => "https://uc3m.es/",
     "UCL Louvain" => "https://uclouvain.be/",
     "UCLA" => "https://www.ucla.edu/",
@@ -78,6 +79,7 @@ class URLFilter < Nanoc::Filter
     "University of Melbourne" => "https://unimelb.edu.au/",
     "University of Twente" => "https://www.utwente.nl/en/",
     "USC" => "https://www.usc.edu/",
+    "UTS" => "https://www.uts.edu.au/",
     "W3C" => "https://www.w3.org/",
     "Yale" => "https://yale.edu/",
   }

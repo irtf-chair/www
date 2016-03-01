@@ -475,6 +475,6 @@ module IRTF
   end
 
   # lookahead pattern for filter regexps to make sure we don't replace in links or headings
-  $boundary = "(?![^<'\"]*?(?:<\/(?:a|h2|h3|h4|span|dt|b|img)>)| ?['\"])"
+  $boundary = "(?![^<'\"]*?(?:<\/(?:a|h2|h3|h4|span|dt|b|img)>)| ?['\"-])"
 
 end
