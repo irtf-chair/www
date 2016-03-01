@@ -28,7 +28,9 @@ is_hidden: true
                   %a{ :href => "." + item.path.split(year)[-1] } #{item[:menu]}
 
     .container-fluid
-      .alert.alert-danger
+      .alert.alert-danger.alert-dismissible
+        %button{ :type => "button", :class => "close", "data-dismiss" => "alert", "aria-label" => "Close"}
+          %span{ "aria-hidden" => "true"} &times
         %span.glyphicon.glyphicon-alert{ "aria-hidden" => "true" }
         Do not share URL with others yet!
       = yield
