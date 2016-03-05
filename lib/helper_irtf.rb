@@ -166,7 +166,7 @@ module IRTF
     "Human Rights Protocol Considerations",
     "hrpc@irtf.org",
     nil,
-    nil,
+    "https://hrpc.io/",
     [ tenoever, doria ],
     nil,
     "2015-11-30",
