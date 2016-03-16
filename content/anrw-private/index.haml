@@ -42,7 +42,7 @@ logo_hidden: true
     .col-xs-6.col-sm-4.col-md-3.col-lg-2
       .thumbnail
         %a{ :href => item.path }
-          %img.img-responsive{ :src => "#{item.path.split("/")[-1]}/photo.jpg" }
+          %img.img-responsive{ :src => "#{item.path.split("/")[-1]}/photo.jpg", :alt => "Berlin" }
           .caption
             %h4 #{item[:menu]} at #{item[:ietf]}
             %p

@@ -8,7 +8,8 @@ var runSequence = require('run-sequence');
 var conf = {
   bower: './bower_components',
   public: './static',
-  output: './output'
+  output: './output',
+  vnu: '~/Documents/Code/validator/build/dist/vnu.jar'
 };
 
 gulp.task('fonts', function() {
@@ -43,6 +44,13 @@ gulp.task('nanoc', function(cb) {
     cb(err);
   });
   exec('chmod -R a+rX ' + conf.output, { stdio: 'inherit' }, function (err) {
+    cb(err);
+  });
+});
+
+gulp.task('validate', function(cb) {
+  exec('java -jar ' + conf.vnu + ' --skip-non-html ' + conf.output,
+       { stdio: 'inherit' }, function (err) {
     cb(err);
   });
 });
