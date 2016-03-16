@@ -2,107 +2,107 @@
 title: Internet Research Task Force
 ---
 
-.col-sm-12
-  %p.lead The Internet Research Task Force (IRTF) promotes research of importance to the evolution of the Internet by creating focused, long-term Research Groups working on topics related to Internet protocols, applications, architecture and technology.
+%p.lead The Internet Research Task Force (IRTF) promotes research of importance to the evolution of the Internet by creating focused, long-term Research Groups working on topics related to Internet protocols, applications, architecture and technology.
 
-.col-sm-8
-  %h2 Overview
+.row
+  .col-sm-8
+    %h2 Overview
 
-  %p
-    The
-    %span.term Internet Research Task Force
-    (IRTF) focuses on longer term research issues related to the Internet while the parallel organization, the
-    %span.term Internet Engineering Task Force
-    (IETF), focuses on the shorter term issues of engineering and standards making.
-
-  %p
-    The IRTF is a composed of a number of focused and long-term
-    %span.term Research Groups.
-    These groups work on topics related to Internet protocols, applications, architecture and technology. Research Groups have the stable long term membership needed to promote the development of research collaboration and teamwork in exploring research issues.  Participation is by individual contributors, rather than by representatives of organizations.
-
-  %p
-    The IRTF is managed by the
-    %span.term IRTF Chair
-    in consultation with the
-    %span.term Internet Research Steering Group
-    (IRSG). The IRSG membership includes the IRTF Chair, the chairs of the various Research Groups and other individuals ("members at large") from the research community selected by the IRTF Chair.
-
-  %p
-    The RFC Editor publishes documents from the IRTF and its Research Groups on the
-    %span.term IRTF Stream
-    (RFC5743).
-
-  %h2 More Information
-
-  %p The detailed IRTF Research Group guidelines and procedures are described in RFC2014. In RFC4440, the Internet Architecture Board (IAB) further details the role of the IRTF.
-
-  %p The procedures for publishing documents on the IRTF RFC Stream are defined in RFC5743, with additional details found in RFC5742. The concept of RFC Streams is defined in RFC4844.
-
-  %p
-    The IRTF follows the IETF
-    %a{ :href => "ipr" } Intellectual Property Rights
-    (IPR) disclosure rules. Also see Section 3.2 of RFC5743.
-
-  %p
-    The
-    %a{ :href => "https://www.ietf.org/iesg/statement/ietf-anti-harassment-policy.html" } IETF Anti-Harassment Policy
-    also applies to the IRTF.
-
-
-  %h2 Current Research Groups
-
-  %p These #{$rgs.count} Research Groups are currently chartered:
-
-  = render "/rgtiles_.*", :loc => ""
-
-
-.col-sm-4.rightbar
-  .well
-    -# %h2 New Research Groups
-    -# %p New "Thing-to-Thing" (T2TRG) research group chartered.
-    -# %p New "Human Rights Protocol Considerations" (HRPC) research group chartered.
-
-    %h2 2016 ANRP Awards for IETF-95
     %p
-      Two
-      %a{ :href => "anrp" } Applied Networking Research Prizes
-      for 2016 will be awarded at IETF-95 and go to
-      %a{ :href => "https://www.cs.princeton.edu/~rensafi/", :name => "ietf95" }
-        %b Roya Ensafi
-      and
-      %a{ :href => "https://zakird.com/", :name => "ietf95" }
-        %b Zakir Durumeric
+      The
+      %span.term Internet Research Task Force
+      (IRTF) focuses on longer term research issues related to the Internet while the parallel organization, the
+      %span.term Internet Engineering Task Force
+      (IETF), focuses on the shorter term issues of engineering and standards making.
 
-    -# %h2 2016 ANRP Nominations Open
-    -# %p
-    -#   %a{ :href => "anrp/2016"} Submit nominations
-    -#   for the 2016 award period of the
-    -#   %a{ :href => "anrp"} Applied Networking Research Prize
-    -#   until
-    -#   %span.term November 6, 2015!
+    %p
+      The IRTF is a composed of a number of focused and long-term
+      %span.term Research Groups.
+      These groups work on topics related to Internet protocols, applications, architecture and technology. Research Groups have the stable long term membership needed to promote the development of research collaboration and teamwork in exploring research issues.  Participation is by individual contributors, rather than by representatives of organizations.
 
-    -# %h2 RAIM Workshop
-    -# %p
-    -#   IRTF & ISOC workshop on
-    -#   %a{ :href => "raim-2015" } Research and Applications of Internet Measurements (RAIM)
-    -#   in cooperation with ACM SIGCOMM before IETF-94 in Yokohama.
+    %p
+      The IRTF is managed by the
+      %span.term IRTF Chair
+      in consultation with the
+      %span.term Internet Research Steering Group
+      (IRSG). The IRSG membership includes the IRTF Chair, the chairs of the various Research Groups and other individuals ("members at large") from the research community selected by the IRTF Chair.
 
-  %h2 Chair
-  %p
-    The current IRTF Chair is
-    %a{ :href => $chair.web } Lars Eggert
-    = "(" + link_to("irtf-chair@irtf.org", "mailto:irtf-chair@irtf.org") + ")."
+    %p
+      The RFC Editor publishes documents from the IRTF and its Research Groups on the
+      %span.term IRTF Stream
+      (RFC5743).
 
-  %h2 Mailing Lists
-  %p
-    %a{:href => "/mailman/listinfo/irtf-announce"} irtf-announce@irtf.org
-    is a low-volume announcement list for Research Group creations and conclusions, IRTF RFC publication, etc.
-  %p
-    %a{:href => "/mailman/listinfo/irtf-discuss"} irtf-discuss@irtf.org
-    is the main discussion list for general IRTF topics.
+    %h2 More Information
 
-  %h2 Wiki
-  %p
-    A wiki with more information about the IRTF is
-    = link_to("here", "https://trac.tools.ietf.org/group/irtf/trac/wiki") + "."
+    %p The detailed IRTF Research Group guidelines and procedures are described in RFC2014. In RFC4440, the Internet Architecture Board (IAB) further details the role of the IRTF.
+
+    %p The procedures for publishing documents on the IRTF RFC Stream are defined in RFC5743, with additional details found in RFC5742. The concept of RFC Streams is defined in RFC4844.
+
+    %p
+      The IRTF follows the IETF
+      %a{ :href => "ipr" } Intellectual Property Rights
+      (IPR) disclosure rules. Also see Section 3.2 of RFC5743.
+
+    %p
+      The
+      %a{ :href => "https://www.ietf.org/iesg/statement/ietf-anti-harassment-policy.html" } IETF Anti-Harassment Policy
+      also applies to the IRTF.
+
+
+    %h2 Current Research Groups
+
+    %p These #{$rgs.count} Research Groups are currently chartered:
+
+    = render "/rgtiles_.*", :loc => ""
+
+
+  .col-sm-4.rightbar
+    .well
+      -# %h2 New Research Groups
+      -# %p New "Thing-to-Thing" (T2TRG) research group chartered.
+      -# %p New "Human Rights Protocol Considerations" (HRPC) research group chartered.
+
+      %h2 2016 ANRP Awards for IETF-95
+      %p
+        Two
+        %a{ :href => "anrp" } Applied Networking Research Prizes
+        for 2016 will be awarded at IETF-95 and go to
+        %a{ :href => "https://www.cs.princeton.edu/~rensafi/", :name => "ietf95" }
+          %b Roya Ensafi
+        and
+        %a{ :href => "https://zakird.com/", :name => "ietf95" }
+          %b Zakir Durumeric
+
+      -# %h2 2016 ANRP Nominations Open
+      -# %p
+      -#   %a{ :href => "anrp/2016"} Submit nominations
+      -#   for the 2016 award period of the
+      -#   %a{ :href => "anrp"} Applied Networking Research Prize
+      -#   until
+      -#   %span.term November 6, 2015!
+
+      -# %h2 RAIM Workshop
+      -# %p
+      -#   IRTF & ISOC workshop on
+      -#   %a{ :href => "raim-2015" } Research and Applications of Internet Measurements (RAIM)
+      -#   in cooperation with ACM SIGCOMM before IETF-94 in Yokohama.
+
+    %h2 Chair
+    %p
+      The current IRTF Chair is
+      %a{ :href => $chair.web } Lars Eggert
+      = "(" + link_to("irtf-chair@irtf.org", "mailto:irtf-chair@irtf.org") + ")."
+
+    %h2 Mailing Lists
+    %p
+      %a{:href => "/mailman/listinfo/irtf-announce"} irtf-announce@irtf.org
+      is a low-volume announcement list for Research Group creations and conclusions, IRTF RFC publication, etc.
+    %p
+      %a{:href => "/mailman/listinfo/irtf-discuss"} irtf-discuss@irtf.org
+      is the main discussion list for general IRTF topics.
+
+    %h2 Wiki
+    %p
+      A wiki with more information about the IRTF is
+      = link_to("here", "https://trac.tools.ietf.org/group/irtf/trac/wiki") + "."
 

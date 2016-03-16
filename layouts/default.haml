@@ -12,23 +12,31 @@
     = render "/menu_.*", :loc => "#{loc}"
     .container-fluid
       .row
-        .col-sm-8.col-xs-12
-          %h1
-            #{title}
-            %small #{abbrev}
-        .col-sm-4.hidden-xs
-          %a{:href => "./"}
-            %img.img-responsive.pull-right{:src => "#{loc}img/irtf.png",
-                 :alt => "Internet Research Task Force (IRTF)"}
-      .row
-        - rg = $rgs[id]
-        - if rg != nil
+        - if not @item[:logo_hidden]
+          .col-sm-8.col-xs-12
+            %h1
+              #{title}
+              %small #{abbrev}
+        - else
+          .col-sm-12
+            %h1
+              #{title}
+              %small #{abbrev}
+
+        - if not @item[:logo_hidden]
+          .col-sm-4.hidden-xs
+            %a{:href => "./"}
+              %img.img-responsive.pull-right{:src => "#{loc}img/irtf.png",
+                   :alt => "Internet Research Task Force (IRTF)"}
+
+      - if $rgs[id] != nil
+        .row
           .col-sm-8
             = yield
           .col-sm-4.rightbar
             = render "/rightbar_.*", :loc => "#{loc}"
-        - else
-          = yield
+      - else
+        = yield
 
     = render "/footer_.*", :loc => "#{loc}", :irtf => true
     = render "/scripts_.*", :loc => "#{loc}"

@@ -1,44 +1,58 @@
 ---
-title: Applied Networking Research Workshop
+title: <small>ACM, IRTF & ISOC</small><br> Applied Networking Research Workshop
 is_hidden: true
+logo_hidden: true
 ---
 
-.col-sm-12
-  .alert.alert-danger.alert-dismissible
-    %button{ :type => "button", :class => "close", "data-dismiss" => "alert", "aria-label" => "Close"}
-      %span{ "aria-hidden" => "true"} &times;
-    %span.glyphicon.glyphicon-alert{ "aria-hidden" => "true" }
-    Do not share URL with others yet!
+- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
+.row
+  .col-sm-4.text-center
+    %p
+      %a{ :href => "http://www.sigcomm.org/"}
+        %img{ :src => "#{loc}img/acm.png", :alt => "SIGCOMM", :height => 75 }
+  .col-sm-4.text-center
+    %p
+      %a{ :href => "#{loc}"}
+        %img{ :src => "#{loc}img/irtf.png", :alt => "IRTF", :height => 75 }
+  .col-sm-4.text-center
+    %p
+      %a{ :href => "https://www.internetsociety.org/"}
+        %img{ :src => "#{loc}img/isoc.png", :alt => "Internet Society", :height => 75 }
 
-  %p.lead
-    The Applied Networking Research Workshop (ANRW) provides a forum for
-    researchers, vendors, network operators and the Internet standards community
-    to present and discuss emerging results in applied networking research.
+.alert.alert-danger.alert-dismissible
+  %button{ :type => "button", :class => "close", "data-dismiss" => "alert", "aria-label" => "Close"}
+    %span{ "aria-hidden" => "true"} &times;
+  %span.glyphicon.glyphicon-alert{ "aria-hidden" => "true" }
+  Do not share URL with others yet!
 
-  %p
-    In order to foster this cross-community collaboration, the workshops will be
-    co-located with IETF standards meetings once a year (typically in the
-    summer), and will be organized in a way that allows ample time for
-    discussion and interaction, and not just paper presentations.
+%p.lead
+  The ACM, IRTF & ISOC Applied Networking Research Workshops (ANRW) provide a forum for
+  researchers, vendors, network operators and the Internet standards community
+  to present and discuss emerging results in applied networking research.
 
-  %h2 Past and Upcoming ANRWs
-  .row
-    - @items.find_all(%r{./(\d+)/index.*}).each do |item|
-      .col-xs-6.col-sm-4.col-md-3.col-lg-2
-        .thumbnail
-          %a{ :href => item.path }
-            %img.img-responsive{ :src => "#{item.path.split("/")[-1]}/photo.jpg" }
-            .caption
-              %h4 #{item[:menu]} at #{item[:ietf]}
-              %p
-                #{item[:location]}
-                %br
-                #{item[:date]}
+%p
+  In order to foster this cross-community collaboration, the workshops will be
+  co-located with IETF standards meetings once a year (typically in the
+  summer), and will be organized in a way that allows ample time for
+  discussion and interaction, and not just paper presentations.
 
-  .row
-    .col-lg-6
-      %h2 Sponsors
-      = render "/anrw/sponsors_.*"
+%h2 Upcoming and Past ANRWs
+.row
+  - @items.find_all(%r{./(\d+)/index.*}).each do |item|
+    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+      .thumbnail
+        %a{ :href => item.path }
+          %img.img-responsive{ :src => "#{item.path.split("/")[-1]}/photo.jpg" }
+          .caption
+            %h4 #{item[:menu]} at #{item[:ietf]}
+            %p
+              #{item[:location]}
+              %br
+              #{item[:date]}
 
-    .col-lg-6
-      = render "/anrw/2016/sc_.*", :blurb => true
+.row
+  .col-lg-6
+    = render "/anrw/2016/sc_.*", :blurb => true
+  .col-lg-6
+    %h2 Sponsors
+    = render "/anrw/sponsors_.*"
