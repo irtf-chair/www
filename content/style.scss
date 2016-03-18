@@ -112,3 +112,21 @@ body.irtf footer {
   @extend h1;
 
 }
+
+.logo {
+  height: 75px;
+  white-space: nowrap;
+  text-align: center; margin: 1em 0;
+}
+
+.valign-helper {
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+}
+
+img.valign {
+  vertical-align: middle;
+  max-height: 75px;
+}
+

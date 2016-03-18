@@ -5,19 +5,8 @@ logo_hidden: true
 ---
 
 - loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
-.row
-  .col-sm-4.text-center
-    %p
-      %a{ :href => "http://www.sigcomm.org/"}
-        %img{ :src => "#{loc}img/acm.png", :alt => "SIGCOMM", :height => 75 }
-  .col-sm-4.text-center
-    %p
-      %a{ :href => "#{loc}"}
-        %img{ :src => "#{loc}img/irtf.png", :alt => "IRTF", :height => 75 }
-  .col-sm-4.text-center
-    %p
-      %a{ :href => "https://www.internetsociety.org/"}
-        %img{ :src => "#{loc}img/isoc.png", :alt => "Internet Society", :height => 75 }
+
+= render "/anrw/sponsors_.*", :noblurb => true
 
 .alert.alert-danger.alert-dismissible
   %button{ :type => "button", :class => "close", "data-dismiss" => "alert", "aria-label" => "Close"}
