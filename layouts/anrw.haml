@@ -1,9 +1,8 @@
 - year = item.path.split("/")[2]
-- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
 
 !!! 5
 %html{ :lang => "en" }
-  = render "/head_.*", :loc => "#{loc}"
+  = render "/head_.*"
 
   %body
     %nav.navbar.navbar-default
@@ -34,5 +33,5 @@
       -#   Do not share URL with others yet!
       = yield
 
-    = render "/footer_.*", :loc => "#{loc}"
-    = render "/scripts_.*", :loc => "#{loc}"
+    = render "/footer_.*"
+    = render "/scripts_.*"

@@ -6,11 +6,11 @@
           IRTF sponsors:
         .col-xs-2.text-muted.small
           %a{ :href => "https://ietf.org/" }
-            %img.img-responsive{ :src => @loc + "img/ietf.png", :width => 100,
+            %img.img-responsive{ :src => relative_path_to("/img/ietf.png"), :width => 100,
                   :alt => "Internet Engineering Task Force (IETF)" }
         .col-xs-2.text-muted.small
           %a{ :href => "https://www.internetsociety.org/" }
-            %img.img-responsive{ :src => @loc + "img/isoc.png", :width => 100,
+            %img.img-responsive{ :src => relative_path_to("/img/isoc.png"), :width => 100,
                   :alt => "Internet Society (ISOC)" }
       - else
         .col-xs-6

@@ -1,8 +1,8 @@
 .row
   - $oldrgs.keys.sort.each do |rg|
     .col-lg-2.col-md-3.col-sm-4.col-xs-6
-      %a{ :href => @loc + "concluded/#{rg}" }
-        .thumbnail
+      %a{ :href => relative_path_to("/concluded/#{rg}") }
+        .thumbnail.rg
           .text-center
             %b= rg.upcase
           .text-center

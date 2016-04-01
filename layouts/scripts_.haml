@@ -1,8 +1,8 @@
-%script{ :src => @loc + "js/jquery.min.js" }
-%script{ :src => @loc + "js/bootstrap.js" }
+%script{ :src => relative_path_to("/js/jquery.min.js") }
+%script{ :src => relative_path_to("/js/bootstrap.js") }
 
 :javascript
-  $.getJSON("#{@loc}ipv6.json", function(data) {
+  $.getJSON("#{relative_path_to("/ipv6.json")}", function(data) {
     if (data.ipv6) {
       $("#ipv6").append("Thank you for using IPv6.");
     }

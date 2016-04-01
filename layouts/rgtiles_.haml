@@ -1,8 +1,8 @@
 .row
   - $rgs.values.sort.each do |rg|
     .col-lg-2.col-md-3.col-sm-4.col-xs-6
-      %a{ :href => @loc + rg.acronym.downcase }
-        .thumbnail
+      %a{ :href => relative_path_to("/" + rg.acronym.downcase) }
+        .thumbnail.rg
           .text-center
             %b= rg.acronym.upcase
           .text-center

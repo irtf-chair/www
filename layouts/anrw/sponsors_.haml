@@ -1,5 +1,3 @@
-- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
-
 - if not @noblurb
   %p
     The ANRW workshop series is sponsored by the following organizations:
@@ -9,14 +7,14 @@
     %span.valign-helper
     -# %p
     -#   %a{ :href => "http://www.acm.org/"}
-    -#     %img{ :src => "#{loc}img/ACM-In-Cooperation_medium.jpg", :alt => "ACM", :height => 75 }
+    -#     %img{ :src => relative_path_to("/img/ACM-In-Cooperation_medium.jpg"), :alt => "ACM", :height => 75 }
     %a{ :href => "http://www.sigcomm.org/"}
-      %img.valign{ :src => "#{loc}img/acm.png", :alt => "SIGCOMM", :height => 75 }
+      %img.valign{ :src => relative_path_to("/img/acm.png"), :alt => "SIGCOMM", :height => 75 }
   .col-sm-4.logo
     %span.valign-helper
-    %a{ :href => "#{loc}"}
-      %img.valign{ :src => "#{loc}img/irtf.png", :alt => "IRTF", :height => 75 }
+    %a{ :href => relative_path_to("/")}
+      %img.valign{ :src => relative_path_to("/img/irtf.png"), :alt => "IRTF", :height => 75 }
   .col-sm-4.logo
     %span.valign-helper
     %a{ :href => "https://www.internetsociety.org/"}
-      %img.valign{ :src => "#{loc}img/isoc.png", :alt => "Internet Society", :height => 70 }
+      %img.valign{ :src => relative_path_to("/img/isoc.png"), :alt => "Internet Society", :height => 70 }
