@@ -1,7 +1,3 @@
----
-is_hidden: true
----
-
 - year = item.path.split("/")[2]
 - loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
 
