@@ -10,7 +10,7 @@ class URLFilter < Nanoc::Filter
     "ACM" => "https://www.acm.org/",
     "Akamai" => "https://www.akamai.com/",
     "ANRP" => "anrp",
-    "ANRW" => "anrw-private/",
+    "ANRW" => "anrw/",
     "AT&amp;T( Laboratories)?" => "http://www.research.att.com/",
     "ATIS" => "https://www.atis.org/",
     "Bell Labs" => "https://www.alcatel-lucent.com/bell-labs",
