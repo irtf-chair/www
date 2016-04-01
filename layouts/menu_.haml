@@ -6,7 +6,7 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.navbar-brand{ :href => @loc + "./" }
+      %a.navbar-brand{ :href => relative_path_to("/") }
         IRTF
         -# %img{ :alt => "IRTF", :src => "img/irtf-horiz.png", :height => 25}
 
@@ -19,10 +19,10 @@
             %span.caret
           %ul.dropdown-menu
             - $rgs.values.sort.each do |rg|
-              %li= rg.url(@loc)
+              %li= rg.url(relative_path_to("/"))
             %li.divider
             %li
-              %a{ :href => "groups" } All groups
+              %a{ :href => relative_path_to("/groups") } All groups
 
         %li.dropdown
           %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
@@ -30,9 +30,9 @@
             %span.caret
           %ul.dropdown-menu
             %li
-              %a{ :href => @loc + "chair" } IRTF Chair
+              %a{ :href => relative_path_to("/chair") } IRTF Chair
             %li
-              %a{ :href => @loc + "irsg" } Steering Group
+              %a{ :href => relative_path_to("/irsg") } Steering Group
 
         %li.dropdown
           %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
@@ -40,11 +40,20 @@
             %span.caret
           %ul.dropdown-menu
             %li
-              %a{ :href => @loc + "anrp" } Applied Networking Research Prize
-            %li
-              %a{ :href => @loc + "raim-2015" } RAIM 2015 Workshop
+              %a{ :href => relative_path_to("/anrp") } Applied Networking Research Prize
+            %li.dropdown-submenu
+              %a{ :href => relative_path_to("/anrw/"), :tabindex => "-1" } Applied Networking Research Workshops
+              %ul.dropdown-menu
+                - @items.find_all(%r{/anrw/(\d+)/index}).each do |item|
+                  %li
+                    %a{ :href => relative_path_to(item) } #{item[:menu]}
+            %li.dropdown-submenu
+              %a{ :href => "#", :tabindex => "-1" } Other Workshops
+              %ul.dropdown-menu
+                %li
+                  %a{ :href => relative_path_to("/raim-2015") } RAIM 2015
             %li.divider
             %li
-              %a{ :href => @loc + "ipr" } Intellectual Property Rights
+              %a{ :href => relative_path_to("/ipr") } Intellectual Property Rights
               %a{ :href => "https://www.ietf.org/iesg/statement/ietf-anti-harassment-policy.html" } Anti-Harassment Policy
 
