@@ -1,0 +1,98 @@
+    ACM, IRTF & ISOC Applied Networking Research Workshop 2016
+
+                        Berlin, Germany
+                    Saturday, July 16, 2016
+                  https://irtf.org/anrw/2016/
+
+
+*** CALL FOR PAPERS ***
+
+The inaugural ACM, IRTF & ISOC Applied Networking Research Workshop
+2016 (ANRW’16) is an academic workshop that provides a forum for
+researchers, vendors, network operators and the Internet standards
+community to present and discuss emerging results in applied
+networking research. It is sponsored by ACM SIGCOMM, the Internet
+Research Task Force (IRTF ) and the Internet Society (ISOC).
+
+Researchers should consider submitting early emerging results that
+illustrate the scientific and engineering principles underlying the
+Internet architecture, protocols and applications; that demonstrate
+new capabilities, features, or extensions to the Internet protocol
+layers; that enhance our understanding of how Internet protocols work
+in real-world deployments or realistic testbeds; or that improve
+Internet security and privacy, scalability, performance, and
+robustness.
+
+The ANRW’16 particularly encourages the submission of results that
+could form the basis for future engineering work in the IETF, that
+could change operational Internet practices, that can help better
+specify Internet protocols, or that could influence further research
+and experimentation in the IRTF.
+
+
+*** TOPICS OF INTEREST ***
+
+Topics of interest include, but are not limited to, applied work in the
+following areas:
+
+  * Evolution of the Internet architecture and deployment of new
+    Internetworking paradigms
+  * Naming, addressing, and routing for the future Internet
+  * Development and deployment of new and improved transport protocols
+  * Congestion control for heterogeneous networks and novel
+    applications
+  * Improvements to the security and privacy of Internet protocols
+  * Studies that characterize Internet security, privacy or censorship
+  * Measuring and understanding the behavior and transparency of the
+    Internet
+  * Internetworking and semantic interoperability for
+    resource-constrained devices
+  * New approaches to network management, operations, and control
+  * Better ways of specifying protocols, including usable techniques
+    for protocol verification
+  * Enabling global access to the Internet
+  * Improving the energy efficiency of the Internet
+  * Protocols and APIs for new Internet applications
+  * New approaches to decentralized mobility management
+  * Application of network programmability to the Internet
+
+
+*** SUBMISSION TYPES ***
+
+The ANRW accepts two types of submissions: full papers and short
+papers.
+
+* Full papers
+
+  Full paper submissions should be complete academic papers on the
+  topics above and may contain up to six pages of technical content,
+  including figures, tables, any appendices, etc., optionally followed
+  by a single additional page for references and acknowledgments only.
+
+  Accepted full papers will be presented and discussed in depth at the
+  workshop, and will be published in the ACM Digital Library.
+
+* Short papers
+
+  Short paper submissions are suitable for short position papers, for
+  starting a discussion on new technical ideas, to present very early
+  results, or to present other topics of interest to the community
+  (software and tools, research initiatives or collaborative projects,
+  major new funding vessels, etc.). They may contain up to two pages
+  of content including figures, tables, any appendices, etc.,
+  optionally followed by a single additional page for references and
+  acknowledgments only.
+
+  Accepted short papers will be briefly presented during the workshop
+  and, and will be published in the ACM Digital Library.
+
+  Authors of accepted short papers may also bring a poster presenting
+  its content to the workshop, for display and more in-depth
+  discussion with interested participants during the breaks.
+
+
+*** IMPORTANT DATES ***
+
+Submission deadline:     May 16, 2016
+Notification deadline:   June 17, 2016
+Camera-ready deadline:   June 24, 2016

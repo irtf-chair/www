@@ -47,7 +47,7 @@ compile "/static/**/*" do
   write item.identifier.to_s.sub(/\A\/static/, '')
 end
 
-passthrough "/**/*.{php,html,png,jpg,json,cls,doc}"
+passthrough "/**/*.{php,html,png,jpg,json,cls,doc,txt}"
 passthrough "/*.pdf"
 passthrough "/raim-2015-slides/**/*.pdf"
 
