@@ -96,3 +96,26 @@ papers.
 Submission deadline:     May 16, 2016
 Notification deadline:   June 17, 2016
 Camera-ready deadline:   June 24, 2016
+
+
+*** ORGANISING COMMITTEE *** 
+
+Programme chairs:
+
+  * Lars Eggert (NetApp)
+  * Colin Perkins (University of Glasgow)
+
+Technical Programme Committee:
+
+  * Aaron Falk (Akamai)
+  * Gorry Fairhurst (University of Aberdeen)
+  * Stephen Farrell (Trinity College Dublin)
+  * Jana Iyengar (Google)
+  * Dirk Kutscher (NEC Laboratories Europe)
+  * Mirja Kühlewind (ETH Zürich)
+  * Al Morton (AT&T)
+  * Jörg Ott (Technische Universität München)
+  * Arjuna Sathiaseelan (University of Cambridge)
+  * Brian Trammell  (ETH Zürich)
+  * Lixia Zhang (UCLA)
+
