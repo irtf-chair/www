@@ -125,7 +125,7 @@ module IRTF
     [ fall, ott ],
     nil,
     nil,
-    nil
+    "2016-4-5"
   )
 
   # GAIA
@@ -391,7 +391,6 @@ module IRTF
   # Active RGs
   $rgs = {
     "cfrg"  => cfrg,
-    "dtnrg" => dtnrg,
     "gaia" => gaia,
     "hrpc" => hrpc,
     "iccrg" => iccrg,
@@ -438,6 +437,7 @@ module IRTF
   $oldrgs["samrg"] = samrg;
   $oldrgs["rrg"] = rrg;
   $oldrgs["ncrg"] = ncrg;
+  $oldrgs["dtnrg"] = dtnrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);

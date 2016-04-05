@@ -1014,7 +1014,7 @@ FileETag None
 
 # Redirects for concluded RGs
 
-RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip|sam|r|nc)rg|mobopts)$  /concluded/$1
+RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip|sam|r|nc|dtn)rg|mobopts)$  /concluded/$1
 
 
 # Other redirects

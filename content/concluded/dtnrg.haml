@@ -1,8 +1,8 @@
---- 
+---
 ---
 
 -# convenience shortcuts
-- rg = $rgs[item.identifier.without_ext.tr("/", "")]
+- rg = $oldrgs[item.identifier.without_ext.sub("/concluded/", "")]
 - name = rg.name
 - acronym = rg.acronym.upcase
 
@@ -10,7 +10,7 @@
 
 %p
   The
-  %span.term #{name} 
+  %span.term #{name}
   (#{acronym}) is chartered to address the architectural and protocol design principles arising from the need to provide interoperable communications with and among extreme and performance-challenged environments where continuous end-to-end connectivity cannot be assumed. Examples of such environments include spacecraft, military/tactical, some forms of disaster response, underwater, and some forms of ad-hoc sensor/actuator networks.
 
 %p Among the challenges to be addressed are: large delay for transmissions resulting from either physical link properties or extended periods of network partitioning, routing capable of operating efficiently with frequently-disconnected, pre-scheduled, or opportunistic link availability, high per-link error rates making end-to-end reliability difficult, heterogeneous underlying network technologies (including non-IP-based internets), and application structure and security mechanisms capable of limiting network access prior to data transit in an environment where round-trip-times may be very large.
@@ -32,8 +32,8 @@
 
 %h2 Additional Mailing Lists
 
-%p 
-  In addition to the main 
+%p
+  In addition to the main
   %a{:href => "/mailman/listinfo/dtn-interest"} dtn-interest@irtf.org
   mailing list, the #{acronym} maintains two additional mailing lists:
 %ul
@@ -43,4 +43,4 @@
   %li
     %a{:href => "/mailman/listinfo/dtn-users"} dtn-users@irtf.org
     for developers and users of the DTN reference implementation, for any questions about configuration, architecture, installation, bugs, and development
-      
+
