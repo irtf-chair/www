@@ -83,8 +83,8 @@ papers.
   optionally followed by a single additional page for references and
   acknowledgements only.
 
-  Accepted short papers will be briefly presented during the workshop
-  and, and will be published in the ACM Digital Library.
+  Accepted short papers will be briefly presented during the workshop,
+  and will be published in the ACM Digital Library.
 
   Authors of accepted short papers may also bring a poster presenting
   its content to the workshop, for display and more in-depth
@@ -98,7 +98,7 @@ Notification deadline:   June 17, 2016
 Camera-ready deadline:   June 24, 2016
 
 
-*** ORGANISING COMMITTEE *** 
+*** ORGANISING COMMITTEE ***
 
 Programme chairs:
 
