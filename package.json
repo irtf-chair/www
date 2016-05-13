@@ -1,4 +1,8 @@
 {
+  "repository": {
+    "type": "svn",
+    "url": "https://svn.tools.ietf.org/svn/group/irtf/www"
+  },
   "devDependencies": {
     "gulp": "^3.9.0",
     "gulp-bower": "0.0.10",
