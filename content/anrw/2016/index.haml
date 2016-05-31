@@ -35,7 +35,8 @@ ietf: IETF-96
   meeting in #{@item[:location]} on #{@item[:date]}.
 
 %p
-  %a.btn.btn-primary.btn-lg{ :href => "cfp", :role => "button" } Call for Papers »
+  -# %a.btn.btn-primary.btn-lg{ :href => "cfp", :role => "button" } Call for Papers »
+  %a.btn.btn-primary.btn-lg{ :href => "https://www.internetsociety.org/form/anrw", :role => "button" } Register & participate »
 
 %h2 Important Dates
 = render "/anrw/2016/dates_.*"

@@ -1,18 +1,21 @@
-%table.table.table-striped
+%table.table
   %tbody
-    %tr.warning
-      %td{ :style => 'width: "33%"' }
-        %b Submission deadline
-      %td
-        %del May 16, 2016
-        %span.text-danger May 23, 2016 (hard)
     %tr
+      %td{ :style => 'width: "33%"' }
+        %em Submission deadline
       %td
-        %em Notification deadline
+        %del
+          May 16, 2016
       %td
-        June 17, 2016
+        %span.text-danger
+          %del May 23, 2016 (hard)
+    %tr.warning
+      %td
+        %b Notification deadline
+      %td{ :colspan => 2 }
+        %b June 17, 2016
     %tr
       %td
         %em Camera-ready deadline
-      %td
+      %td{ :colspan => 2 }
         June 24, 2016
