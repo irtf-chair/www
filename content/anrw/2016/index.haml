@@ -30,13 +30,13 @@ ietf: IETF-96
   in real-world deployments or realistic testbeds; or that improve Internet
   security and privacy, scalability, performance, and robustness.
 
-%p.lead
-  Co-located with the #{@item[:ietf]}
-  meeting in #{@item[:location]} on #{@item[:date]}.
+%p.lead= render "/anrw/2016/place_.*"
 
 %p
   -# %a.btn.btn-primary.btn-lg{ :href => "cfp", :role => "button" } Call for Papers »
   %a.btn.btn-primary.btn-lg{ :href => "https://www.internetsociety.org/form/anrw", :role => "button" } Register & participate »
+  %a.btn.btn-success.btn-lg{ :href => "program", :role => "button" } Workshop program »
+  %a.btn.btn-info.btn-lg{ :href => "travelgrants", :role => "button" } Student travel grants »
 
 %h2 Important Dates
 = render "/anrw/2016/dates_.*"

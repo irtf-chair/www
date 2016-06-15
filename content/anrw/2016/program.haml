@@ -3,8 +3,98 @@ title: ANRW&nbsp;‘16 Program
 menu: Program
 ---
 
-%h1 Program
+%h1 Workshop Program
+
+%p= render "/anrw/2016/place_.*"
 
 %p
-  The technical program of the workshop will be announced after the camera-ready
-  deadline.
+  The workshop is open to all;
+  %a{ :href => "https://www.internetsociety.org/form/anrw" }
+    registration and payment of the registration fee
+  is however required.
+
+%p
+  The ANRW&nbsp;‘16 is being recorded and
+  %a{ :href => "http://www.meetecho.com/ietf96/anrw/" } live-streamed.
+  The recordings will be made available on this page after the event.
+
+%p
+  %a.btn.btn-primary{ :href => "https://www.internetsociety.org/form/anrw", :role => "button" } Register & participate »
+  %a.btn.btn-success{ :href => "http://www.meetecho.com/ietf96/anrw/", :role => "button" } Tune into live stream »
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th
+        Time
+      %th
+        Session
+  %tbody
+    %tr
+      %td
+        %h4 9:00
+      %td
+        %h4 Opening
+    %tr
+      %td
+        %h4 9:15
+      %td
+        %h4 Topic XYZ (Full Papers)
+
+        %p 3x 30 min
+
+        -# .row
+        -#   .col-xs-9
+        -#     %p
+        -#       %b
+        -#         %a{ :href => "#", :role => "button" }
+        -#           StackMap: Low-Latency Networking with the OS Stack and Dedicated NICs.
+        -#       %br
+        -#       Kenichi Yasukata, Michio Honda, Douglas Santry, and Lars Eggert.
+        -#   .col-xs-3
+        -#     %p.btn-toolbar.pull-right
+        -#       %a.btn.btn-default.btn-sm{ :href => "#", :role => "button" } Paper
+        -#       %a.btn.btn-default.btn-sm{ :href => "#", :role => "button" } Slides
+
+    %tr
+      %td
+        %h4 10:45
+      %td
+        %h4 Break
+        30 min
+    %tr
+      %td
+        %h4 11:15
+      %td
+        %h4 Lightning Talks (Short Papers)
+        8x 5 min
+    %tr
+      %td
+        %h4 12:00
+      %td
+        %h4 Lunch & Posters
+        90 min
+    %tr
+      %td
+        %h4 13:30
+      %td
+        %h4 Topic XYZ (Full Papers)
+        3x 30 min
+    %tr
+      %td
+        %h4 15:00
+      %td
+        %h4 Break & Posters
+        30 min
+    %tr
+      %td
+        %h4 15:30
+      %td
+        %h4 Topic XYZ (Full Papers)
+        3x 30 min
+    %tr
+      %td
+        %h4 17:00
+      %td
+        %h4 Closing
+

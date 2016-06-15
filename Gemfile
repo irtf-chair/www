@@ -1,0 +1,5 @@
+gem 'guard-nanoc'
+gem 'haml'
+gem 'nokogiri'
+gem 'rubypants'
+gem 'builder'

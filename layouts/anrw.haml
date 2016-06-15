@@ -21,9 +21,20 @@
         .collapse.navbar-collapse#anrw-collapse
           %ul.nav.navbar-nav
             - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : "" end).each do |item|
-              - if (item.path =~ %r{(/|html)$} and not item[:menu_hidden])
+              - if (item.path =~ %r{(/|html)$} and not item[:menu_hidden] and not item[:other])
                 %li{ :class => ("active" if item[:menu] == @item[:menu])}
                   %a{ :href => "." + item.path.split(year)[-1] } #{item[:menu]}
+            %li.dropdown{ :class => ("active" if @items.find_all(%r{./#{year}}).count{|x| x[:other] and x[:menu] == @item[:menu]} > 0)}
+              %a.dropdown-toggle{ "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
+                Other
+                %span.caret
+              %ul.dropdown-menu
+                - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : "" end).each do |item|
+                  - if (item.path =~ %r{(/|html)$} and not item[:menu_hidden] and item[:other])
+                    %li{ :class => ("active" if item[:menu] == @item[:menu])}
+                      %a{ :href => "." + item.path.split(year)[-1] } #{item[:menu]}
+
+
 
     .container-fluid
       -# .alert.alert-danger.alert-dismissible

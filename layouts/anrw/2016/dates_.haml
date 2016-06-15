@@ -1,21 +1,36 @@
 %table.table
   %tbody
-    %tr
-      %td{ :style => 'width: "33%"' }
-        %em Submission deadline
-      %td
-        %del
-          May 16, 2016
-      %td
-        %span.text-danger
-          %del May 23, 2016 (hard)
-    %tr.warning
-      %td
-        %b Notification deadline
-      %td{ :colspan => 2 }
-        %b June 17, 2016
-    %tr
-      %td
-        %em Camera-ready deadline
-      %td{ :colspan => 2 }
-        June 24, 2016
+    -if @which == nil or @which == "papers"
+      %tr
+        %td{ :style => 'width: "33%"' }
+          %em
+            %del Paper submission deadline
+        %td
+          %del
+            May 16, 2016
+        %td
+          %span.text-danger
+            %del May 23, 2016 (hard)
+      %tr.warning
+        %td
+          %b Paper notification deadline
+        %td{ :colspan => 2 }
+          %b June 17, 2016
+    -if @which == nil or @which == "grants"
+      %tr.warning
+        %td
+          %b Travel grants submission deadline
+        %td{ :colspan => 2 }
+          %b June 24, 2016
+    -if @which == nil or @which == "papers"
+      %tr
+        %td
+          %em Camera-ready paper deadline
+        %td{ :colspan => 2 }
+          June 24, 2016
+    -if @which == nil or @which == "grants"
+      %tr
+        %td
+          %em Travel grants notification deadline
+        %td{ :colspan => 2 }
+          June 28, 2016
