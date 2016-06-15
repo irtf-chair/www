@@ -40,7 +40,7 @@ gulp.task('css', function() {
 });
 
 gulp.task('nanoc', function(cb) {
-  exec('nanoc co', { stdio: 'inherit' }, function (err) {
+  exec('bundle exec nanoc', { stdio: 'inherit' }, function (err) {
     cb(err);
   });
   exec('chmod -R a+rX ' + conf.output, { stdio: 'inherit' }, function (err) {
