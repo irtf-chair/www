@@ -39,62 +39,82 @@ menu: Program
       %td
         %h4 9:15
       %td
-        %h4 Topic XYZ (Full Papers)
+        %h4 Session: Multipath
 
-        %p 3x 30 min
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 16)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 21)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 3)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 19)
 
-        -# .row
-        -#   .col-xs-9
-        -#     %p
-        -#       %b
-        -#         %a{ :href => "#", :role => "button" }
-        -#           StackMap: Low-Latency Networking with the OS Stack and Dedicated NICs.
-        -#       %br
-        -#       Kenichi Yasukata, Michio Honda, Douglas Santry, and Lars Eggert.
-        -#   .col-xs-3
-        -#     %p.btn-toolbar.pull-right
-        -#       %a.btn.btn-default.btn-sm{ :href => "#", :role => "button" } Paper
-        -#       %a.btn.btn-default.btn-sm{ :href => "#", :role => "button" } Slides
+
+    %tr
+      %td
+        %h4 10:25
+      %td
+        %h4 Break
 
     %tr
       %td
         %h4 10:45
       %td
-        %h4 Break
-        30 min
+        %h4 Session: Routing and Peering
+        %p
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 15)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 24)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 5)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 6)
+
     %tr
       %td
-        %h4 11:15
-      %td
-        %h4 Lightning Talks (Short Papers)
-        8x 5 min
-    %tr
-      %td
-        %h4 12:00
+        %h4 11:55
       %td
         %h4 Lunch & Posters
-        90 min
+
     %tr
       %td
-        %h4 13:30
+        %h4 13:00
       %td
-        %h4 Topic XYZ (Full Papers)
-        3x 30 min
+        %h4 Session: Transport Quality and "Happy Eyeballs"
+        %p
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 9)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 27)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 28)
+
     %tr
       %td
-        %h4 15:00
+        %h4 14:05
+      %td
+        %h4 Session: Measurement
+        %p
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 12)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 13)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 29)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 17)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 2)
+
+    %tr
+      %td
+        %h4 14:55
       %td
         %h4 Break & Posters
-        30 min
-    %tr
-      %td
-        %h4 15:30
-      %td
-        %h4 Topic XYZ (Full Papers)
-        3x 30 min
-    %tr
-      %td
-        %h4 17:00
-      %td
-        %h4 Closing
 
+    %tr
+      %td
+        %h4 15:45
+      %td
+        %h4 Session: Internet Media
+        %p
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 14)
+        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 25)
+
+    %tr
+      %td
+        %h4 16:45
+      %td
+        %h4 Closing Keynote
+
+    %tr
+      %td
+        %h4 17:15
+      %td
+        %h4 Wrap-Up, Discussion and Closing
