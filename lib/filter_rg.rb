@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 # replace any mention of an IRTF RG with a link to its charter
 
 class RGFilter < Nanoc::Filter
@@ -5,13 +7,16 @@ class RGFilter < Nanoc::Filter
   type :text
 
   def run(content, params={})
-    c = content.dup
-    c.gsub!(/\b(#{$rgs.keys.join('|').upcase})\b#{$boundary}/) {
-      |rg| link_to($1, "/#{$1.downcase}")
-    }
-    c.gsub!(/\b(#{$oldrgs.keys.join('|').upcase})\b#{$boundary}/) {
-      |rg| link_to($1, "/concluded/#{$1.downcase}")
-    }
-    return c
+    doc = Nokogiri::HTML(content.dup)
+    elements = doc.xpath('//text()') - doc.xpath('//a/text()')
+    elements.each do |element|
+      element.content = element.content.gsub(/\b(#{$rgs.keys.join('|').upcase})\b/) {
+        |rg| link_to($1, "/#{$1.downcase}")
+      }
+      element.content = element.content.gsub(/\b(#{$oldrgs.keys.join('|').upcase})\b/) {
+        |rg| link_to($1, "/concluded/#{$1.downcase}")
+      }
+    end
+    return doc.xpath('//body')[0].inner_html.gsub("&lt;", "<").gsub("&gt;", ">")
   end
 end

@@ -4,8 +4,8 @@
 ignore "/style.*"
 
 compile "/**/*.haml" do
-  filter :rfc
   filter :haml, :format => :html5
+  filter :rfc
   filter :wg
   filter :rg
   filter :meeting

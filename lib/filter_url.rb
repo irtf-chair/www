@@ -1,3 +1,5 @@
+require 'nokogiri'
+
 # replace a few commonly used terms with hyperlinks
 
 class URLFilter < Nanoc::Filter
@@ -90,12 +92,15 @@ class URLFilter < Nanoc::Filter
     if @item.path and @item.path !~ /^\/[^\/]*$/
       loc = @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
     end
-    c = content.dup
-    @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
-      c.gsub!(/\b(#{tag})\b#{$boundary}/) {
-        |x| link_to(x, (@@urls[tag] =~ /^http/ ? "" : loc) + @@urls[tag])
-      }
+    doc = Nokogiri::HTML(content.dup)
+    elements = doc.xpath('//text()') - doc.xpath('//a/text()')
+    elements.each do |element|
+      @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
+        element.content = element.content.gsub(/\b(#{tag})\b/) {
+          |x| link_to(x, (@@urls[tag] =~ /^http/ ? "" : loc) + @@urls[tag])
+        }
+      end
     end
-    return c
+    return doc.xpath('//body')[0].inner_html.gsub("&lt;", "<").gsub("&gt;", ">")
   end
 end
