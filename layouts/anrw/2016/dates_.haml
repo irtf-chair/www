@@ -11,11 +11,12 @@
         %td
           %span.text-danger
             %del May 23, 2016 (hard)
-      %tr.warning
+      %tr
         %td
-          %b Paper notification deadline
+          %em
+            %del Paper notification deadline
         %td{ :colspan => 2 }
-          %b June 17, 2016
+          %del June 17, 2016
     -if @which == nil or @which == "grants"
       %tr.warning
         %td
@@ -23,11 +24,12 @@
         %td{ :colspan => 2 }
           %b June 24, 2016
     -if @which == nil or @which == "papers"
-      %tr
+      %tr.warning
         %td
-          %em Camera-ready paper deadline
+          %b Camera-ready paper deadline
         %td{ :colspan => 2 }
-          June 24, 2016
+          %b
+            June 24, 2016
     -if @which == nil or @which == "grants"
       %tr
         %td
