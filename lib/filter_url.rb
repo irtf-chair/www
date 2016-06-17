@@ -92,15 +92,17 @@ class URLFilter < Nanoc::Filter
     if @item.path and @item.path !~ /^\/[^\/]*$/
       loc = @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
     end
-    doc = Nokogiri::HTML(content.dup)
-    elements = doc.xpath('//text()') - doc.xpath('//a/text()')
-    elements.each do |element|
-      @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
+    c = content.dup
+    @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
+      doc = Nokogiri::HTML(c)
+      elements = doc.xpath('//text()') - doc.xpath('//a/text()')
+      elements.each do |element|
         element.content = element.content.gsub(/\b(#{tag})\b/) {
           |x| link_to(x, (@@urls[tag] =~ /^http/ ? "" : loc) + @@urls[tag])
         }
       end
+      c = doc.xpath('//body')[0].inner_html.gsub("&lt;", "<").gsub("&gt;", ">")
     end
-    return doc.xpath('//body')[0].inner_html.gsub("&lt;", "<").gsub("&gt;", ">")
+    return c
   end
 end
