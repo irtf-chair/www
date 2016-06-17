@@ -6,19 +6,10 @@ module ANRW
   def htmlify_paper(json, nr)
     papers = JSON.parse(File.read(json))
     p = papers.select{ |p| p["pid"] == nr }[0]
-
-    if p["options"]["type"] =~ /full/
-      label = "success"
-    else
-      label = "default"
-    end
-
+    label =  p["options"]["type"] =~ /full/ ? "success" : "default"
     names = p["authors"].map { |a|
-      n = a["first"] + " " + a["last"]
-      if a.key?("affiliation")
-        n += " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>"
-      end
-      n
+      a["first"] + " " + a["last"] + (a.key?("affiliation") ?
+        " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
 
     # XXX use this for camera ready
@@ -44,7 +35,7 @@ module ANRW
 
       <div class="col-xs-9">
         <p>
-          <b>#{p["title"]}.</b>
+          <b>#{p["title"] =~ /[[:punct:]]$/ ? p["title"] : p["title"] + "."}</b>
           <span class="label label-#{label}">#{p["options"]["type"].titleize}</span>
           <br>
           #{names.to_sentence + "."}
