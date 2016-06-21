@@ -43,13 +43,10 @@
         "options": {
             "type": "short paper",
             "poster": true,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "dirk.kutscher@neclab.eu": "confirmed",
@@ -90,13 +87,10 @@
         "options": {
             "type": "short paper",
             "poster": true,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "gorry@erg.abdn.ac.uk": "collaborator",
@@ -106,7 +100,7 @@
     },
     {
         "pid": 5,
-        "title": "SIXPACK: Securing Internet eXchange Points Against Curious onlooKers",
+        "title": "Towards Securing Internet eXchange Points Against Curious onlooKers",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1462992302,
@@ -115,21 +109,21 @@
                 "email": "marco.chiesa@uclouvain.be",
                 "first": "Marco",
                 "last": "Chiesa",
-                "affiliation": "Universite catholique de Louvain",
+                "affiliation": "Université catholique de Louvain",
                 "contact": true
             },
             {
                 "email": "daniel.demmler@crisp-da.de",
                 "first": "Daniel",
                 "last": "Demmler",
-                "affiliation": "Technische Universitat Darmstadt",
+                "affiliation": "Technische Universität Darmstadt",
                 "contact": true
             },
             {
                 "email": "marco.canini@uclouvain.be",
                 "first": "Marco",
                 "last": "Canini",
-                "affiliation": "Universite catholique de Louvain",
+                "affiliation": "Université catholique de Louvain",
                 "contact": true
             },
             {
@@ -143,7 +137,7 @@
                 "email": "thomas.schneider@crisp-da.de",
                 "first": "Thomas",
                 "last": "Schneider",
-                "affiliation": "Technische Universitat Darmstadt",
+                "affiliation": "Technische Universität Darmstadt",
                 "contact": true
             }
         ],
@@ -151,18 +145,136 @@
         "submission": {
             "mimetype": "application\/pdf",
             "sha1": "d21a96a80140bfc2c34b8bd8d3a32c44ca97fca9",
-            "timestamp": 1463329582
+            "timestamp": 1463329582,
+            "filename": "main.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1463782108,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        52,
+                        52,
+                        304,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                52,
+                                72,
+                                52
+                            ],
+                            "d": 53681
+                        },
+                        {
+                            "margin": [
+                                52,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 76364
+                        },
+                        {
+                            "margin": [
+                                52,
+                                316,
+                                304,
+                                56
+                            ],
+                            "columns": 1,
+                            "d": 22715
+                        }
+                    ]
+                }
+            }
         },
+        "final": {
+            "mimetype": "application\/pdf",
+            "sha1": "26801b1cf87c69dd010657ebe9684f5b305831e3",
+            "timestamp": 1466512768,
+            "filename": "sixpack-camera-ready-anrw.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1466421871,
         "options": {
             "type": "short paper",
             "poster": true,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Real-Time-Statistics AMS-IX. <a href=\"https:\/\/ams-ix.net\/technical\/statistics\/real-time-stats\">https:\/\/ams-ix.net\/technical\/statistics\/real-time-stats<\/a>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "B. Ager, N. Chatzis, A. Feldmann, N. Sarrar, S. Uhlig, and W. Willinger. Anatomy of a Large European IXP. In <i>SIGCOMM'12<\/i>, 2012."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "D. Demmler, T. Schneider, and M. Zohner. ABY – A Framework for Efficient Mixed-Protocol Secure Two-Party Computation. In <i>NDSS'15<\/i>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "O. Goldreich, S. Micali, and A. Wigderson. How to Play any Mental Game or A Completeness Theorem for Protocols with Honest Majority. In <i>STOC'87<\/i>."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "A. Gupta, R. MacDavid, R. Birkner, M. Canini, N. Feamster, J. Rexford, and L. Vanbever†. An Industrial-Scale Software Defined Internet Exchange Point. In <i>NSDI'16<\/i>."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "D. Gupta, A. Segal, A. Panda, G. Segev, M. Schapira, J. Feigenbaum, J. Rexford, and S. Shenker. A new approach to interdomain routing based on secure multi-party computation. In <i>HotNets'12<\/i>."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "C. Labovitz, A. Ahuja, A. Bose, and F. Jahanian. Delayed Internet Routing Convergence. In <i>SIGCOMM'00<\/i>."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "S. Machiraju and R. H. Katz. Reconciling Cooperation with Confidentiality in Multi-Provider Distributed Systems. Technical report, EECS Department, University of California, Berkeley, Aug 2004."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Z. M. Mao, R. Bush, T. Griffin, and M. Roughan. BGP Beacons. In <i>IMC'03<\/i>."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "P. Richter, G. Smaragdakis, A. Feldmann, N. Chatzis, J. Boettger, and W. Willinger. Peering at Peerings: On the Role of IXP Route Servers. In <i>IMC'14<\/i>."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "A. C. Yao. How to Generate and Exchange Secrets. In <i>FOCS'86<\/i>."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10002991.10002995",
+                    "concept_desc": "Security and privacy~Privacy-preserving protocols",
+                    "concept_significance": 500
+                },
+                {
+                    "concept_id": "10003033.10003083.10011739",
+                    "concept_desc": "Networks~Network privacy and anonymity",
+                    "concept_significance": 500
+                }
+            ],
+            "acm-keywords": [
+                "internet exchange points",
+                "routing",
+                "privacy",
+                "secure multiparty"
+            ],
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         }
     },
     {
@@ -190,18 +302,227 @@
         "submission": {
             "mimetype": "application\/pdf",
             "sha1": "58c5139c2bf784b7d432358961782b8712e54878",
-            "timestamp": 1463156691
+            "timestamp": 1463156691,
+            "filename": "CustomerCones.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1463156700,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "textblock": [
+                        664,
+                        504
+                    ],
+                    "margin": [
+                        52,
+                        56,
+                        76,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "textblock": [
+                                648,
+                                504
+                            ],
+                            "margin": [
+                                72,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 51973
+                        },
+                        {
+                            "margin": [
+                                56,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 68394
+                        },
+                        {
+                            "textblock": [
+                                276,
+                                488
+                            ],
+                            "margin": [
+                                52,
+                                68,
+                                464,
+                                56
+                            ],
+                            "d": 25359
+                        }
+                    ]
+                }
+            }
         },
+        "final": {
+            "mimetype": "application\/pdf",
+            "sha1": "f6d68d16efea1384fb4f649d6dc869b7f6d17a25",
+            "timestamp": 1466433635,
+            "filename": "CustomerCones.pdf",
+            "metadata": {
+                "npages": 3,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1466433687,
+                    "npages": 3
+                },
+                "banal": {
+                    "at": 1466433687,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        52,
+                        56,
+                        76,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 51973
+                        },
+                        {
+                            "margin": [
+                                56,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 68394
+                        },
+                        {
+                            "margin": [
+                                52,
+                                68,
+                                464,
+                                56
+                            ],
+                            "d": 25350
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1466433635,
         "options": {
             "type": "short paper",
             "poster": true,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "<i>CAIDA AS Rank Project<\/i>. http:\/\/as-rank.caida.org."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "<i>CAIDA's AS Relationship Inference Dataset<\/i>. http:\/\/data.caida.org\/datasets\/as-relationships\/serial-1\/."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "<i>Packet Clearing House<\/i>. https:\/\/www.pch.net\/."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "<i>PeeringDB<\/i>. https:\/\/www.peeringdb.com."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "<i>Tier-1 network<\/i>. http:\/\/en.wikipedia.org\/wiki\/Tier1network."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "G. Di Battista, M. Patrignani, and M. Pizzonia. Computing the types of the relationships between autonomous systems. In <i>IEEE INFOCOM<\/i>, volume 1, pages 156–165, 2003."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "A. D'Ignazio and E. Giovannetti. Antitrust analysis for the Internet upstream market: A border gateway protocol approach. <i>Journal of Comppetition Law and Economics<\/i>, 2(1):43–69, 2006."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "X. Dimitropoulos, D. Krioukov, M. Fomenkov, B. Huffaker, Y. Hyun, k. claffy, and G. Riley. AS relationships: inference and validation. <i>ACM SIGCOMM Computer Communication Review<\/i>, 37(1):29–40, 2007."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "L. Gao. On inferring autonomous system relationships in the Internet. <i>IEEE\/ACM Transactions on Networking<\/i>, 9(6):733–745, 2001."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "V. Giotsas, M. Luckie, B. Huffaker, et al. Inferring complex AS relationships. In <i>The Internet Measurement Conference<\/i>, pages 23–30, 2014."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "M. Luckie, B. Huffaker, A. Dhamdhere, V. Giotsas, and kc claffy. AS relationships, customer cones, and validation. In <i>ACM IMC<\/i>, pages 243–256, 2013."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "R. Oliveira, D. Pei, W. Willinger, B. Zhang, and L. Zhang. The (in)completeness of the observed Internet AS-level structure. <i>IEEE\/ACM Transactions on Networking<\/i>, 18(1):109–122, 2010."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "L. Subramanian, S. Agarwal, J. Rexford, and R. H. Katz. Characterizing the Internet hierarchy from multiple vantage points. In <i>IEEE INFOCOM<\/i>, volume 2, pages 618–627, 2002."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "J. Varghese and L. Ruan. A machine learning approach to edge type inference in Internet AS graphs. In <i>8th IEEE International Workshop on Network Science for Communication Networks (INFOCOM Workshop)<\/i>, pages 725–730, April 2016."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "J. Xia and L. Gao. On the evaluation of AS relationship inferences. In <i>IEEE Global Telecommunications Conference<\/i>, volume 3, pages 1373–1377, 2004."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003083.10003090.10003091",
+                    "concept_desc": "Networks~Topology analysis and generation",
+                    "concept_significance": 500
+                },
+                {
+                    "concept_id": "10003033.10003106.10010924",
+                    "concept_desc": "Networks~Public Internet",
+                    "concept_significance": 500
+                }
+            ],
+            "acm-keywords": [
+                "Customer cones",
+                "IXPs"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/x-zip-compressed",
+                    "sha1": "4025a605508f4fb78b0f4cab3719fe0e0662cc60",
+                    "timestamp": 1466433635,
+                    "filename": "sources.zip",
+                    "metadata": {
+                        "archive_listing": [
+                            "sources\/as_infer.bib",
+                            "sources\/CustomerCones.tex"
+                        ]
+                    }
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
         }
     },
     {
@@ -235,13 +556,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "ott@in.tum.de": "confirmed"
@@ -313,13 +631,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "ott@in.tum.de": "confirmed"
@@ -370,13 +685,10 @@
         "options": {
             "type": "short paper",
             "poster": true,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "arjuna.sathiaseelan@cl.cam.ac.uk": "collaborator",
@@ -432,13 +744,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         }
     },
     {
@@ -479,13 +788,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         }
     },
     {
@@ -517,13 +823,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "ott@in.tum.de": "confirmed"
@@ -562,18 +865,78 @@
         "submission": {
             "mimetype": "application\/pdf",
             "sha1": "27e69593714cc5024649bd35ff954cbee648a3fd",
-            "timestamp": 1464021634
+            "timestamp": 1464021634,
+            "filename": "fling_short.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1464021639,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        52,
+                        56,
+                        92,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 53960
+                        },
+                        {
+                            "margin": [
+                                52,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 62085
+                        },
+                        {
+                            "margin": [
+                                52,
+                                60,
+                                340,
+                                56
+                            ],
+                            "d": 40959
+                        }
+                    ]
+                }
+            }
         },
+        "final": {
+            "mimetype": "application\/pdf",
+            "sha1": "079a979dd7d9b2a3f4d04bcb8253cdbde050fa3f",
+            "timestamp": 1466512140,
+            "filename": "fling_short.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1466510313,
         "options": {
             "type": "short paper",
             "poster": true,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "acm-keywords": [
+                "Middlebox Measurement",
+                "ECN",
+                "DSCP",
+                "Evil Bit"
+            ],
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "gorry@erg.abdn.ac.uk": "collaborator",
@@ -620,13 +983,10 @@
         "options": {
             "type": "short paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         }
     },
     {
@@ -672,13 +1032,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "dirk.kutscher@neclab.eu": "collaborator",
@@ -719,18 +1076,234 @@
         "submission": {
             "mimetype": "application\/pdf",
             "sha1": "609645a828af0c3f709d670bb3df58055da73923",
-            "timestamp": 1464014606
+            "timestamp": 1464014606,
+            "filename": "composition.pdf",
+            "metadata": {
+                "npages": 6,
+                "banal": {
+                    "at": 1466060532,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        52,
+                        56,
+                        72,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 45071
+                        },
+                        {
+                            "d": 58199
+                        },
+                        {
+                            "margin": [
+                                48,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 41429
+                        },
+                        {
+                            "margin": [
+                                56,
+                                56,
+                                80,
+                                52
+                            ],
+                            "d": 73849
+                        },
+                        {
+                            "d": 65533
+                        },
+                        {
+                            "margin": [
+                                56,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 54130
+                        }
+                    ]
+                }
+            }
         },
+        "final": {
+            "mimetype": "application\/pdf",
+            "sha1": "7f1752d20ddb8c06392e29c9fa43bfc14c9809a7",
+            "timestamp": 1466432841,
+            "filename": "composition.pdf",
+            "metadata": {
+                "npages": 6,
+                "banal": {
+                    "at": 1466432907,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        52,
+                        56,
+                        76,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 45071
+                        },
+                        {
+                            "margin": [
+                                52,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 59306
+                        },
+                        {
+                            "margin": [
+                                48,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 43037
+                        },
+                        {
+                            "margin": [
+                                52,
+                                56,
+                                80,
+                                52
+                            ],
+                            "d": 71319
+                        },
+                        {
+                            "margin": [
+                                56,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 64736
+                        },
+                        {
+                            "margin": [
+                                56,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 66384
+                        }
+                    ]
+                },
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1466432907,
+                    "npages": 6
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1466432828,
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Joshua Reich, Christopher Monsanto, Nate Foster, Jennifer Rexford, and David Walker. Modular SDN Programming with Pyretic. <i>USENIX ;login<\/i>, 38(5):128–134, Oct. 2013."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Rob Sherwood, Michael Chan, Adam Covington, Glen Gibb, Mario Flajslik, Nikhil Handigol, Te-Yuan Huang, Peyman Kazemian, Masayoshi Kobayashi, Jad Naous, et al. Carving research slices out of your production networks with OpenFlow. <i>ACM SIGCOMM Computer Communication Review<\/i>, 40(1):129–130, 2010."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Ali Al-Shabibi, Marc De Leenheer, Matteo Gerola, Ayaka Koshibe, Guru Parulkar, Elio Salvadori, and Bill Snow. OpenVirteX: Make your virtual SDNs programmable. In <i>Proceedings of the third workshop on Hot topics in software defined networking<\/i>, 2014."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Nate Foster, Michael J. Freedman, Rob Harrison, Jennifer Rexford, Matthew L. Meola, and David Walker. Frenetic: A high-level language for openflow networks. In <i>Proceedings of the Workshop on Programmable Routers for Extensible Services of Tomorrow<\/i>, 2010."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Xin Jin, Jennifer Gossels, Jennifer Rexford, and David Walker. Covisor: A compositional hypervisor for software-defined networks. In <i>12th USENIX Symposium on Networked Systems Design and Implementation (NSDI 15)<\/i>, pages 87–101, Oakland, CA, May 2015. USENIX Association."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Maciej Kuzniar, Peter Peresini, Marco Canini, Daniele Venzano, and Dejan Kostic. A SOFT way for OpenFlow switch interoperability testing. In <i>Proceedings of the 8th international conference on Emerging networking experiments and technologies<\/i>, 2012."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Marco Canini, Daniele Venzano, Peter Peresini, Dejan Kostic, Jennifer Rexford, et al. A NICE Way to Test OpenFlow Applications. In <i>NSDI<\/i>, 2012."
+                }
+            ],
+            "acm-keywords": [
+                "SDN",
+                "composition",
+                "OpenFlow"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/x-tar",
+                    "sha1": "93007f4313385c71c16683a5646eaa8e96181f97",
+                    "timestamp": 1466432828,
+                    "filename": "comp.tar",
+                    "metadata": {
+                        "archive_listing": [
+                            "comp\/",
+                            "comp\/acmcopyright.sty",
+                            "comp\/acronyms.tex",
+                            "comp\/composition-conflict.tex",
+                            "comp\/composition-intro.tex",
+                            "comp\/composition-parallel.pdf",
+                            "comp\/composition-parallel.svg",
+                            "comp\/composition-strategies.tex",
+                            "comp\/composition-types.tex",
+                            "comp\/composition.tex",
+                            "comp\/definitions.tex",
+                            "comp\/future.tex",
+                            "comp\/i2rs-arch.pdf",
+                            "comp\/i2rs-arch.svg",
+                            "comp\/middleboxes.pdf",
+                            "comp\/netide.tex",
+                            "comp\/openflow.tex",
+                            "comp\/overlay.pdf",
+                            "comp\/parallelids.pdf",
+                            "comp\/references.bib",
+                            "comp\/related.tex",
+                            "comp\/sig-alternate-05-2015.cls"
+                        ]
+                    }
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
         }
     },
     {
@@ -778,13 +1351,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "csp@csperkins.org": "author",
@@ -859,13 +1429,10 @@
         "options": {
             "type": "full paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "gorry@erg.abdn.ac.uk": "collaborator",
@@ -904,13 +1471,10 @@
         "options": {
             "type": "short paper",
             "poster": true,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "gorry@erg.abdn.ac.uk": "collaborator",
@@ -951,13 +1515,10 @@
         "options": {
             "type": "short paper",
             "poster": false,
-            "references": null,
-            "acm-computing-classification": null,
-            "acm-keywords": null,
-            "source-files": null,
-            "supplements": null,
-            "auxiliary-material": null,
-            "final-paper-preparation": null
+            "references": false,
+            "source-files": false,
+            "supplements": false,
+            "auxiliary-material": false
         },
         "pc_conflicts": {
             "csp@csperkins.org": "collaborator"
