@@ -28,10 +28,20 @@ menu: Program
   Society Chapter Members.
 
 %p
+  Participants in the ANRW&nbsp;‘16 are also invited to the
+  %a{ :href => "http://ietf96-warmup.realmv6.org/" } IETF Warm-Up! BBQ
+  hosted by the
+  Freie Universität Berlin.
+  %a{ :href => "https://www.eventbrite.com/e/ietf-warm-up-bbqfreie-universitat-berlin-tickets-25924176911"} Registration
+  is required, but attendance is free of charge.
+
+%p.btn-toolbar
   %a.btn.btn-primary{ :href => "https://www.internetsociety.org/form/anrw", :role => "button" } Register & participate »
   %a.btn.btn-success{ :href => "http://www.meetecho.com/ietf96/anrw/", :role => "button" } Tune into live stream »
+  %a.btn.btn-info{ :href => "http://ietf96-warmup.realmv6.org/", :role => "button" } Attend BBQ at FU Berlin »
   %a.btn.btn-default{ :href => "https://ietf.org/meeting/96/guest-day.html", :role => "button" } Get free IETF guest pass »
 
+- json = "content/anrw/2016/anrw16-data.json"
 %table.table.table-striped
   %thead
     %tr
@@ -51,10 +61,10 @@ menu: Program
       %td
         %h4.text-danger Session: Multipath
 
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 16)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 21)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 3)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 19)
+        .row= htmlify_paper(json, 16)
+        .row= htmlify_paper(json, 21)
+        .row= htmlify_paper(json, 3)
+        .row= htmlify_paper(json, 19)
 
 
     %tr
@@ -69,10 +79,10 @@ menu: Program
       %td
         %h4.text-danger Session: SDN, Routing and Peering
         %p
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 15)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 24)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 5)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 6)
+        .row= htmlify_paper(json, 15)
+        .row= htmlify_paper(json, 24)
+        .row= htmlify_paper(json, 5)
+        .row= htmlify_paper(json, 6)
 
     %tr
       %td
@@ -86,9 +96,9 @@ menu: Program
       %td
         %h4.text-danger Session: Transport Quality and "Happy Eyeballs"
         %p
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 9)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 27)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 28)
+        .row= htmlify_paper(json, 9)
+        .row= htmlify_paper(json, 27)
+        .row= htmlify_paper(json, 28)
 
     %tr
       %td
@@ -96,11 +106,11 @@ menu: Program
       %td
         %h4.text-danger Session: Measurement
         %p
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 12)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 13)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 29)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 17)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 2)
+        .row= htmlify_paper(json, 12)
+        .row= htmlify_paper(json, 13)
+        .row= htmlify_paper(json, 29)
+        .row= htmlify_paper(json, 17)
+        .row= htmlify_paper(json, 2)
 
     %tr
       %td
@@ -114,8 +124,8 @@ menu: Program
       %td
         %h4.text-danger Session: Internet Media
         %p
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 14)
-        .row= htmlify_paper("content/anrw/2016/anrw16-data.json", 25)
+        .row= htmlify_paper(json, 14)
+        .row= htmlify_paper(json, 25)
 
     %tr
       %td
@@ -128,3 +138,16 @@ menu: Program
         %h4.text-danger 17:15
       %td
         %h4.text-danger Wrap-Up, Discussion and Closing
+
+    %tr
+      %td.text-center &#8942;
+      %td
+
+    %tr
+      %td
+        %h4.text-danger 19:00
+      %td
+        %h4.text-danger IETF Warm-Up! BBQ
+        %p
+          Hosted by the Freie Universität Berlin, free but
+          %a{ :href => "http://ietf96-warmup.realmv6.org/" } registration required.
