@@ -11,23 +11,31 @@ module ANRW
       a["first"] + " " + a["last"] + (a.key?("affiliation") ?
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
+    pdf = File.join(File.dirname(json), p["final"]["content_file"])
 
-    # XXX use this for camera ready
-    # <b><a href="#">#{p["title"]}.</a></b>
     html = %{
-      <div class="modal" id="modal#{nr}" tabindex="-1" role="dialog" aria-labelledby="modallabel#{nr}">
+      <div class="modal" id="modal#{nr}" tabindex="-1" role="dialog"
+           aria-labelledby="modallabel#{nr}">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="modallabel#{nr}"><b>#{p["title"]}</b></h4>
+              <button type="button" class="close" data-dismiss="modal"
+                      aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="modallabel#{nr}">
+                <b>#{p["title"]}</b>
+              </h4>
               #{names.to_sentence}
             </div>
             <div class="modal-body">
               #{p["abstract"]}
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-default"
+                      data-dismiss="modal">
+                Close
+              </button>
             </div>
           </div>
         </div>
@@ -35,7 +43,9 @@ module ANRW
 
       <div class="col-xs-9">
         <p>
-          <b>#{p["title"] =~ /[[:punct:]]$/ ? p["title"] : p["title"] + "."}</b>
+          <b>
+            #{p["title"] =~ /[[:punct:]]$/ ? p["title"] : p["title"] + "."}
+          </b>
           <span class="label label-#{label}">#{p["options"]["type"].titleize}</span>
           <br>
           #{names.to_sentence + "."}
@@ -43,9 +53,15 @@ module ANRW
       </div>
       <div class="col-xs-3">
         <p class="btn-toolbar pull-right">
-          <button class="btn btn-default btn-sm" type="button" data-toggle="modal" data-target="#modal#{nr}">Abstract</button>
-          <a href="#" class="btn btn-default btn-sm" disabled="disabled" role="button">Paper</a>
-          <a href="#" class="btn btn-default btn-sm" disabled="disabled" role="button">Slides</a>
+          <button class="btn btn-default btn-sm" type="button"
+                  data-toggle="modal" data-target="#modal#{nr}">
+            Abstract
+          </button>
+          <a href="#{File.exist?(pdf) ? File.basename(pdf) : "#"}"
+             class="btn btn-default btn-sm" role="button"
+             #{File.exist?(pdf) ? "" : "disabled=\"disabled\""}>
+            Paper
+          </a>
         </p>
       </div>
     }
