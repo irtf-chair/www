@@ -55,11 +55,13 @@ module ANRW
         <p class="btn-toolbar pull-right">
           <button class="btn btn-default btn-sm" type="button"
                   data-toggle="modal" data-target="#modal#{nr}">
+            <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
             Abstract
           </button>
           <a href="#{File.exist?(pdf) ? File.basename(pdf) : "#"}"
              class="btn btn-default btn-sm" role="button"
              #{File.exist?(pdf) ? "" : "disabled=\"disabled\""}>
+            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
             Paper
           </a>
         </p>
