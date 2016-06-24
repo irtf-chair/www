@@ -1,3 +1,5 @@
+source 'https://rubygems.org'
+
 gem 'guard-nanoc'
 gem 'haml'
 gem 'nokogiri'
