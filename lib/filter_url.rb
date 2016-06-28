@@ -95,7 +95,7 @@ class URLFilter < Nanoc::Filter
     c = content.dup
     @@urls.keys.sort_by {|x| x.length}.reverse.each do |tag|
       doc = Nokogiri::HTML(c)
-      elements = doc.xpath('//*[local-name() != "a" and not(ancestor::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")])]/text()')
+      elements = doc.xpath('//*[local-name() != "a" and not(ancestor::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")]) and not(self::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")])]/text()')
       elements.each do |element|
         element.content = element.content.gsub(/\b(#{tag})\b/) {
           |x| link_to(x, (@@urls[tag] =~ /^http/ ? "" : loc) + @@urls[tag])
