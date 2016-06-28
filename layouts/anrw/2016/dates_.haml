@@ -18,21 +18,21 @@
         %td{ :colspan => 2 }
           %del June 17, 2016
     -if @which == nil or @which == "grants"
-      %tr.warning
-        %td
-          %b Travel grants submission deadline
-        %td{ :colspan => 2 }
-          %b June 24, 2016
-    -if @which == nil or @which == "papers"
-      %tr.warning
-        %td
-          %b Camera-ready paper deadline
-        %td{ :colspan => 2 }
-          %b
-            June 24, 2016
-    -if @which == nil or @which == "grants"
       %tr
         %td
-          %em Travel grants notification deadline
+          %del Travel grants submission deadline
+        %td{ :colspan => 2 }
+          %del June 24, 2016
+    -if @which == nil or @which == "papers"
+      %tr
+        %td
+          %del Camera-ready paper deadline
+        %td{ :colspan => 2 }
+          %del
+            June 24, 2016
+    -if @which == nil or @which == "grants"
+      %tr.warning
+        %td
+          %b Travel grants notification deadline
         %td{ :colspan => 2 }
           June 28, 2016
