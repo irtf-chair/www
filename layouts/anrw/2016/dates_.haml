@@ -1,4 +1,4 @@
-%table.table
+%table.table.table-condensed
   %tbody
     -if @which == nil or @which == "papers"
       %tr
@@ -31,8 +31,14 @@
           %del
             June 24, 2016
     -if @which == nil or @which == "grants"
+      %tr
+        %td
+          %del Travel grants notification deadline
+        %td{ :colspan => 2 }
+          %del June 28, 2016
       %tr.warning
         %td
-          %b Travel grants notification deadline
+          %b
+            Workshop
         %td{ :colspan => 2 }
-          June 28, 2016
+          %b July 16, 2016
