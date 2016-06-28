@@ -39,6 +39,7 @@
             "mimetype": "application\/pdf",
             "sha1": "95f06f6866416aed3b3250ac3cc68f23740e9435",
             "timestamp": 1464002917,
+            "size": 168548,
             "filename": "anrw2016.pdf",
             "metadata": {
                 "npages": 3,
@@ -80,13 +81,14 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "6ecbf565baee4a4d11ce418f24a0fee35097febf",
-            "timestamp": 1466673712,
+            "sha1": "7bbdb2241c1adcd90df8ef201b17a610469c6abb",
+            "timestamp": 1467027526,
+            "size": 194129,
             "filename": "anrw2016.pdf",
             "metadata": {
                 "npages": 3,
                 "banal": {
-                    "at": 1466751951,
+                    "at": 1467031493,
                     "papersize": [
                         792,
                         612
@@ -94,7 +96,7 @@
                     "margin": [
                         52,
                         56,
-                        228,
+                        76,
                         52
                     ],
                     "bodyfontsize": 9,
@@ -120,13 +122,19 @@
                             "d": 70145
                         },
                         {
+                            "margin": [
+                                52,
+                                56,
+                                256,
+                                52
+                            ],
                             "d": 43275
                         }
                     ]
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466751953,
+                    "at": 1467031499,
                     "npages": 3
                 }
             },
@@ -234,8 +242,9 @@
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "bf5466bffa10898d8f9fa7243e3b63616b1863a8",
-                    "timestamp": 1466673712,
+                    "sha1": "d65af4340bd81294e9b45a6d6357e3d7d4580f09",
+                    "timestamp": 1467027526,
+                    "size": 29490,
                     "filename": "paper.zip",
                     "metadata": {
                         "archive_listing": [
@@ -291,6 +300,7 @@
             "mimetype": "application\/pdf",
             "sha1": "521119c38b6f56734566a11e0b46fe23587be064",
             "timestamp": 1463044351,
+            "size": 156762,
             "filename": "paper.pdf",
             "metadata": {
                 "npages": 3,
@@ -356,13 +366,14 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "609260142060f009a984d945f6e32a464f2fa809",
-            "timestamp": 1466582442,
+            "sha1": "ac9ebcdf063c53658e047675dd5d7399df818925",
+            "timestamp": 1467027137,
+            "size": 166444,
             "filename": "paper.pdf",
             "metadata": {
                 "npages": 3,
                 "banal": {
-                    "at": 1466583014,
+                    "at": 1467027203,
                     "papersize": [
                         792,
                         612
@@ -370,7 +381,7 @@
                     "margin": [
                         52,
                         56,
-                        216,
+                        560,
                         52
                     ],
                     "bodyfontsize": 9,
@@ -384,31 +395,25 @@
                                 68,
                                 52
                             ],
-                            "d": 55421
+                            "d": 49770
                         },
                         {
                             "margin": [
-                                196,
+                                184,
                                 56,
-                                72,
+                                76,
                                 52
                             ],
-                            "d": 62070
+                            "d": 63632
                         },
                         {
-                            "margin": [
-                                52,
-                                56,
-                                564,
-                                52
-                            ],
-                            "d": 16758
+                            "d": 16777
                         }
                     ]
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466583014,
+                    "at": 1467027224,
                     "npages": 3
                 }
             },
@@ -465,8 +470,9 @@
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "0113c80f10f519f18a1d5f75d0236f3bc292ae14",
-                    "timestamp": 1466582887,
+                    "sha1": "9402e685750d58ae620c78b3ae48ccd8d4d26100",
+                    "timestamp": 1467027137,
+                    "size": 164418,
                     "filename": "paper.zip",
                     "metadata": {
                         "archive_listing": [
@@ -541,6 +547,7 @@
             "mimetype": "application\/pdf",
             "sha1": "d21a96a80140bfc2c34b8bd8d3a32c44ca97fca9",
             "timestamp": 1463329582,
+            "size": 232956,
             "filename": "main.pdf",
             "metadata": {
                 "npages": 3,
@@ -595,13 +602,19 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "26801b1cf87c69dd010657ebe9684f5b305831e3",
-            "timestamp": 1466512768,
-            "filename": "sixpack-camera-ready-anrw.pdf",
+            "sha1": "553e0b6921261384b09995a0ebb798adebc9c66c",
+            "timestamp": 1467030925,
+            "size": 252820,
+            "filename": "main.pdf",
             "metadata": {
                 "npages": 3,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1467030932,
+                    "npages": 3
+                },
                 "banal": {
-                    "at": 1466524670,
+                    "at": 1467030933,
                     "papersize": [
                         792,
                         612
@@ -623,7 +636,7 @@
                                 68,
                                 52
                             ],
-                            "d": 54032
+                            "d": 51169
                         },
                         {
                             "margin": [
@@ -632,23 +645,18 @@
                                 72,
                                 52
                             ],
-                            "d": 77998
+                            "d": 78254
                         },
                         {
                             "margin": [
                                 52,
                                 56,
-                                476,
+                                480,
                                 52
                             ],
-                            "d": 25777
+                            "d": 25655
                         }
                     ]
-                },
-                "acmfinal": {
-                    "ok": true,
-                    "at": 1466583015,
-                    "npages": 3
                 }
             },
             "content_file": "anrw16-final5.pdf"
@@ -725,13 +733,15 @@
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "12f8a7bd90b37978546cdbf9fbb102a097107830",
-                    "timestamp": 1466753913,
+                    "sha1": "e76d488721aabb729c51eb3f56440ff1c4d6ce21",
+                    "timestamp": 1467030989,
+                    "size": 115078,
                     "filename": "sixpack.zip",
                     "metadata": {
                         "archive_listing": [
                             "000-abstract.tex",
                             "100-introduction.tex",
+                            "200-architecture.log",
                             "200-architecture.tex",
                             "300-implementation.tex",
                             "400-future-work.tex",
@@ -779,6 +789,7 @@
             "mimetype": "application\/pdf",
             "sha1": "58c5139c2bf784b7d432358961782b8712e54878",
             "timestamp": 1463156691,
+            "size": 151566,
             "filename": "CustomerCones.pdf",
             "metadata": {
                 "npages": 3,
@@ -844,18 +855,19 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "f13723913e3e7dda3c3db5f4e9263d577e2cef02",
-            "timestamp": 1466776437,
+            "sha1": "2cda2a7098ffb5c6b0f9ffe38d4f1701f33f37f6",
+            "timestamp": 1466803123,
+            "size": 187335,
             "filename": "CustomerCones.pdf",
             "metadata": {
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466776458,
+                    "at": 1466854190,
                     "npages": 3
                 },
                 "banal": {
-                    "at": 1466776458,
+                    "at": 1466803130,
                     "papersize": [
                         792,
                         612
@@ -877,7 +889,7 @@
                                 68,
                                 52
                             ],
-                            "d": 51973
+                            "d": 46678
                         },
                         {
                             "margin": [
@@ -886,7 +898,7 @@
                                 72,
                                 52
                             ],
-                            "d": 68828
+                            "d": 69655
                         },
                         {
                             "margin": [
@@ -988,8 +1000,9 @@
             "source-files": [
                 {
                     "mimetype": "application\/x-zip-compressed",
-                    "sha1": "b5fc22712b17f491d99ef2ed6f710eefeb5f6b6c",
-                    "timestamp": 1466776437,
+                    "sha1": "699b64d134e661d4f285ca0970469e3cc21853b3",
+                    "timestamp": 1466803123,
+                    "size": 11185,
                     "filename": "sources.zip",
                     "metadata": {
                         "archive_listing": [
@@ -1030,6 +1043,7 @@
             "mimetype": "application\/pdf",
             "sha1": "4b340e2f6f27b9cf495d2f5bbc8d6bbb96887b6e",
             "timestamp": 1463651028,
+            "size": 1276723,
             "filename": "index.pdf",
             "metadata": {
                 "npages": 7,
@@ -1108,18 +1122,19 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "83f9fa48957b919ad02846b7f1432a570bfcfcd6",
-            "timestamp": 1466773122,
+            "sha1": "3a53106c4e7a062cc9e8509ae745aa489a7201e8",
+            "timestamp": 1467029753,
+            "size": 1481064,
             "filename": "happy-eyeballs-anrw-2016.pdf",
             "metadata": {
                 "npages": 7,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466773828,
+                    "at": 1467029793,
                     "npages": 7
                 },
                 "banal": {
-                    "at": 1466773829,
+                    "at": 1467029807,
                     "papersize": [
                         792,
                         612
@@ -1141,7 +1156,7 @@
                                 68,
                                 52
                             ],
-                            "d": 44011
+                            "d": 44387
                         },
                         {
                             "margin": [
@@ -1150,7 +1165,7 @@
                                 72,
                                 52
                             ],
-                            "d": 63078
+                            "d": 63769
                         },
                         {
                             "margin": [
@@ -1159,7 +1174,7 @@
                                 72,
                                 52
                             ],
-                            "d": 62032
+                            "d": 62421
                         },
                         {
                             "margin": [
@@ -1168,7 +1183,7 @@
                                 72,
                                 52
                             ],
-                            "d": 46769
+                            "d": 47059
                         },
                         {
                             "margin": [
@@ -1177,7 +1192,7 @@
                                 72,
                                 52
                             ],
-                            "d": 52424
+                            "d": 52656
                         },
                         {
                             "margin": [
@@ -1186,7 +1201,7 @@
                                 72,
                                 52
                             ],
-                            "d": 50143
+                            "d": 50364
                         },
                         {
                             "margin": [
@@ -1195,8 +1210,8 @@
                                 192,
                                 52
                             ],
-                            "columns": 3,
-                            "d": 42898
+                            "columns": 4,
+                            "d": 54120
                         }
                     ]
                 }
@@ -1357,8 +1372,9 @@
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "23d7ae6b4d87948010f00e0c3f309bbe44a73940",
-                    "timestamp": 1466773122,
+                    "sha1": "9d7242c471489fd921feada519a0f7db57ff193c",
+                    "timestamp": 1467029753,
+                    "size": 2804814,
                     "filename": "happy-eyeballs-anrw-2016.zip",
                     "metadata": {
                         "archive_listing": [
@@ -1437,6 +1453,7 @@
             "mimetype": "application\/pdf",
             "sha1": "175f29920aab933124ccb992501329ade9d9b8ce",
             "timestamp": 1464046976,
+            "size": 303725,
             "filename": "main.pdf",
             "metadata": {
                 "npages": 7,
@@ -1514,13 +1531,14 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "e3c387ecd01a49f63856b43ead564893d9058193",
-            "timestamp": 1466709371,
+            "sha1": "4029dd65206216a1a4490a6a9e41a0262d38b7b6",
+            "timestamp": 1467031362,
+            "size": 307899,
             "filename": "main.pdf",
             "metadata": {
                 "npages": 7,
                 "banal": {
-                    "at": 1466751951,
+                    "at": 1467031492,
                     "papersize": [
                         792,
                         612
@@ -1542,13 +1560,13 @@
                                 68,
                                 52
                             ],
-                            "d": 49425
+                            "d": 49439
                         },
                         {
                             "d": 80426
                         },
                         {
-                            "d": 79659
+                            "d": 79673
                         },
                         {
                             "margin": [
@@ -1575,22 +1593,22 @@
                                 72,
                                 52
                             ],
-                            "d": 76840
+                            "d": 78428
                         },
                         {
                             "margin": [
                                 56,
                                 68,
-                                80,
+                                160,
                                 52
                             ],
-                            "d": 56242
+                            "d": 55398
                         }
                     ]
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466751952,
+                    "at": 1467031495,
                     "npages": 7
                 }
             },
@@ -1678,6 +1696,9 @@
                     "ref_text": "Metro Ethernet Forum. MEF 14: Abstract Test Suite for Traffic Management Phase 1, 2005."
                 },
                 {
+                    "ref_text": "MoonGen RFC 2544 Benchmark Reports. <a href=\"http:\/\/net.in.tum.de\/pub\/router-benchmarking\/\">http:\/\/net.in.tum.de\/pub\/router-benchmarking\/<\/a>. (visited 16\/20\/05)."
+                },
+                {
                     "ref_text": "NetFPGA. <a href=\"http:\/\/netfpga.org\/\">http:\/\/netfpga.org\/<\/a>. (visited 16\/20\/05)."
                 },
                 {
@@ -1736,19 +1757,15 @@
             ],
             "source-files": [
                 {
-                    "mimetype": "application\/save-as",
-                    "sha1": "34544a1556d625d98de7f43923b4e9d7fa99b9bb",
-                    "timestamp": 1466753778,
+                    "mimetype": "application\/zip",
+                    "sha1": "22f2206bc5fdb7fcaf670cf12d5c85ae197daea3",
+                    "timestamp": 1467031362,
+                    "size": 689420,
                     "filename": "src.zip",
                     "metadata": {
                         "archive_listing": [
-                            "acmcopyright.sty",
-                            "fig\/{freebsd_frameloss_percent.tex, freebsd_latency_64.tex, freebsd_latency_1024.tex, imc-poisson.tex, ipv4_per_packet.tex, linux_frameloss_percent.tex, linux_latency_64.tex, linux_latency_1518.tex, mikrotik_frameloss_percent.tex, mikrotik_latency_64.tex, mikrotik_latency_128.tex, plot_backtoback.tex, plot_throughput_mbps.tex, plot_throughput_mpps.tex, setup.tex}",
-                            "lit.bib",
-                            "main.tex",
-                            "sig-alternate.cls",
-                            "tumcolors.sty",
-                            "tumlang.sty"
+                            "src\/{acmcopyright.sty, fig\/{flower-bimodal.pdf, freebsd_frameloss_percent.tex, freebsd_latency_64.aux, freebsd_latency_64.log, freebsd_latency_64.pdf, freebsd_latency_64.synctex.gz, freebsd_latency_64.tex, freebsd_latency_1024.tex, imc-poisson.tex, ipv4_per_packet.aux, ipv4_per_packet.log, ipv4_per_packet.pdf, ipv4_per_packet.synctex.gz, ipv4_per_packet.tex, linux_frameloss_percent.tex, linux_latency_64.tex, linux_latency_1518.tex, mikrotik_frameloss_percent.pdf, mikrotik_frameloss_percent.tex, mikrotik_latency_64.pdf, mikrotik_latency_64.tex, mikrotik_latency_128.pdf, mikrotik_latency_128.tex, plot_backtoback.pdf, plot_backtoback.tex, plot_throughput_mbps.pdf, plot_throughput_mbps.tex, plot_throughput_mpps.pdf, plot_throughput_mpps.tex, setup.tex, tumcolors.sty}, lit.bib, main.bbl, main.pdf, main.tex, sig-alternate.cls, tumcolors.sty, tumlang.sty}",
+                            "…"
                         ]
                     },
                     "content_file": "anrw16-paper12-source-files\/src.zip"
@@ -1802,6 +1819,7 @@
             "mimetype": "application\/pdf",
             "sha1": "119d77e296adf479fb5bf2bf69afd43ee0167ec0",
             "timestamp": 1463870598,
+            "size": 181766,
             "filename": "anrw2016-pathspider.pdf",
             "metadata": {
                 "npages": 3,
@@ -1855,18 +1873,14 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "27473086988adf8ce1628f19051910e481e8e4ff",
-            "timestamp": 1466674992,
+            "sha1": "8259b281514583da65479c4e2f249b4d8df92998",
+            "timestamp": 1467031076,
+            "size": 185515,
             "filename": "anrw2016-pathspider.pdf",
             "metadata": {
                 "npages": 3,
-                "acmfinal": {
-                    "ok": true,
-                    "at": 1466675002,
-                    "npages": 3
-                },
                 "banal": {
-                    "at": 1466675002,
+                    "at": 1467031492,
                     "papersize": [
                         792,
                         612
@@ -1874,11 +1888,11 @@
                     "margin": [
                         52,
                         56,
-                        384,
+                        76,
                         52
                     ],
                     "bodyfontsize": 9,
-                    "leading": 10.4,
+                    "leading": 10.5,
                     "columns": 2,
                     "pages": [
                         {
@@ -1897,18 +1911,23 @@
                                 72,
                                 52
                             ],
-                            "d": 68633
+                            "d": 68537
                         },
                         {
                             "margin": [
                                 52,
-                                72,
-                                384,
+                                64,
+                                396,
                                 52
                             ],
-                            "d": 35527
+                            "d": 35548
                         }
                     ]
+                },
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1467031497,
+                    "npages": 3
                 }
             },
             "content_file": "anrw16-final13.pdf"
@@ -2003,8 +2022,9 @@
             "source-files": [
                 {
                     "mimetype": "application\/x-xz",
-                    "sha1": "eb0eca88b3a52c7a4c85b89c0d618f197f7a3c3e",
-                    "timestamp": 1466674992,
+                    "sha1": "90820aae56f27fb04ce6818e74167338dfa8967e",
+                    "timestamp": 1467030927,
+                    "size": 312444,
                     "filename": "anrw2016-pathspider.tar.xz",
                     "metadata": {
                         "archive_listing": [
@@ -2073,6 +2093,7 @@
             "mimetype": "application\/pdf",
             "sha1": "b2266171d2aaf478259ecc81cfc6d5797b3c490f",
             "timestamp": 1464044191,
+            "size": 1294911,
             "filename": "gcc_wireless.pdf",
             "metadata": {
                 "npages": 7,
@@ -2166,24 +2187,25 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "fe5af2de77fd6b850403b4184ab94cb0c6ac8faf",
-            "timestamp": 1466789412,
+            "sha1": "a70a5886d007ad818c2824eb558443e369856963",
+            "timestamp": 1467034099,
+            "size": 873172,
             "filename": "camera_ready_with_png.pdf",
             "metadata": {
-                "npages": 6,
+                "npages": 7,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466789703,
-                    "npages": 6
+                    "at": 1467034111,
+                    "npages": 7
                 },
                 "banal": {
-                    "at": 1466789703,
+                    "at": 1467034112,
                     "papersize": [
                         792,
                         612
                     ],
                     "margin": [
-                        52,
+                        56,
                         56,
                         72,
                         52
@@ -2199,10 +2221,10 @@
                                 68,
                                 52
                             ],
-                            "d": 51895
+                            "d": 49905
                         },
                         {
-                            "d": 66886
+                            "d": 71870
                         },
                         {
                             "margin": [
@@ -2211,7 +2233,7 @@
                                 72,
                                 52
                             ],
-                            "d": 51539
+                            "d": 55791
                         },
                         {
                             "margin": [
@@ -2220,21 +2242,29 @@
                                 72,
                                 52
                             ],
-                            "d": 37603
+                            "d": 44285
                         },
                         {
-                            "d": 41050
+                            "d": 46345
                         },
                         {
                             "margin": [
                                 224,
                                 56,
-                                80,
+                                72,
                                 52
                             ],
-                            "bodyfontsize": 8,
-                            "leading": 9,
-                            "d": 23235,
+                            "d": 39719
+                        },
+                        {
+                            "margin": [
+                                56,
+                                316,
+                                620,
+                                68
+                            ],
+                            "columns": 1,
+                            "d": 6178,
                             "pagetype": "bib"
                         }
                     ]
@@ -2318,12 +2348,13 @@
             "source-files": [
                 {
                     "mimetype": "application\/gzip",
-                    "sha1": "13639bfbbab9ab180bea58f71c8e7728fd56605b",
-                    "timestamp": 1466789646,
+                    "sha1": "4ae7c68acdfe8a95b7b3f93451fee9040630bb89",
+                    "timestamp": 1467034228,
+                    "size": 1589649,
                     "filename": "latex.tar.gz",
                     "metadata": {
                         "archive_listing": [
-                            "latex\/{0_home_gaetano_paper_gcc_wireless_webrtc_cc.tex, 7_home_gaetano_paper_gcc_wireless_introduction.tex, 8_home_gaetano_paper_gcc_wireless_related_work.tex, 9_home_gaetano_paper_gcc_wireless_figures_cong_contr_scheme_testbed_video_control_new.png, 10_home_gaetano_paper_gcc_wireless_figures_delay_frame.png, 11_home_gaetano_paper_gcc_wireless_figures_cong_contr_scheme_equazioni_in_stati.png, 12_home_gaetano_paper_gcc_wireless_issues.tex, 13_home_gaetano_paper_gcc_wireless_figures_new_outage_groups_no_grouping.png, 14_home_gaetano_paper_gcc_wireless_figures_results_arrival_frames.png, 15_home_gaetano_paper_gcc_wireless_figures_results_hist.png, 16_home_gaetano_paper_gcc_wireless_solution.tex, 17_home_gaetano_paper_gcc_wireless_figures_new_outage_groups.png, 18_home_gaetano_paper_gcc_wireless_figures_results_hist_group.png, 19_home_gaetano_paper_gcc_wireless_figures_results_PacerGoogleNoGroup.png, 20_home_gaetano_paper_gcc_wireless_figures_results_PacerGoogleGroup.png, 21_home_gaetano_paper_gcc_wireless_figures_results_single_flow_bar.png, 22_home_gaetano_paper_gcc_wireless_conc.tex, 23_home_gaetano_paper_gcc_wireless_bibliographies_c3lab.bib, 24_home_gaetano_paper_gcc_wireless_bibliographies_PhDThesisGaetano.bib, 25_home_gaetano_paper_gcc_wireless_bibliographies_vid_ctrl_plane.bib, 26_home_gaetano_paper_gcc_wireless_bibliographies_gcc_journal.bib, 27_home_gaetano_paper_gcc_wireless_bibliographies_cong_control.bib, main.aux, main.bbl, main.blg, main.log, main.out, main.pdf, main.tex, main.tex.dep}"
+                            "latex\/{10_home_gaetano_Dottorato_papers_gcc_wireless_f___cong_contr_scheme_testbed_video_control_new.png, 11_home_gaetano_Dottorato_papers_gcc_wireless_figures_delay_frame.png, 12_home_gaetano_Dottorato_papers_gcc_wireless_figures_cong_contr_scheme_equazioni_in_stati.png, 14_home_gaetano_Dottorato_papers_gcc_wireless_figures_new_outage_groups_no_grouping.png, 15_home_gaetano_Dottorato_papers_gcc_wireless_figures_results_arrival_frames.png, 16_home_gaetano_Dottorato_papers_gcc_wireless_figures_results_hist.png, 17_home_gaetano_Dottorato_papers_gcc_wireless_figures_new_outage_groups.png, 18_home_gaetano_Dottorato_papers_gcc_wireless_figures_results_hist_group.png, 19_home_gaetano_Dottorato_papers_gcc_wireless_figures_results_PacerGoogleNoGroup.png, 20_home_gaetano_Dottorato_papers_gcc_wireless_figures_results_PacerGoogleGroup.png, 21_home_gaetano_Dottorato_papers_gcc_wireless_figures_results_single_flow_bar.png, 23_home_gaetano_Dottorato_papers_gcc_wireless_bibliographies_c3lab.bib, 24_home_gaetano_Dottorato_papers_gcc_wireless_bibliographies_PhDThesisGaetano.bib, 25_home_gaetano_Dottorato_papers_gcc_wireless_bibliographies_vid_ctrl_plane.bib, 26_home_gaetano_Dottorato_papers_gcc_wireless_bibliographies_gcc_journal.bib, 27_home_gaetano_Dottorato_papers_gcc_wireless_bibliographies_cong_control.bib, acmcopyright.sty, conc.tex, introduction.tex, issues.tex, main.aux, main.bbl, main.blg, main.dvi, main.log, main.out, main.pdf, main.tex, main.tex.dep, related_work.tex, sig-alternate-05-2015.cls, solution.tex, webrtc_cc.tex}"
                         ]
                     },
                     "content_file": "anrw16-paper14-source-files\/latex.tar.gz"
@@ -2367,6 +2398,7 @@
             "mimetype": "application\/pdf",
             "sha1": "71d3d44c13d154862826bada574a2bcbca9f6b7c",
             "timestamp": 1463784479,
+            "size": 278212,
             "filename": "main.pdf",
             "metadata": {
                 "npages": 7,
@@ -2438,18 +2470,22 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "8dfea30f4e4889b7b2220cfe451dcf9ccf363618",
-            "timestamp": 1466759465,
-            "filename": "ez-segway.anrw16.pdf",
+            "sha1": "7ccb00f6c7639119cf6e3e451b38fb5762d0abb1",
+            "timestamp": 1467029922,
+            "size": 349080,
             "metadata": {
+                "embedfonts": {
+                    "at": 1467029937,
+                    "version": 0
+                },
                 "npages": 7,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466761818,
+                    "at": 1467030019,
                     "npages": 7
                 },
                 "banal": {
-                    "at": 1466761818,
+                    "at": 1467030021,
                     "papersize": [
                         792,
                         612
@@ -2471,31 +2507,31 @@
                                 68,
                                 52
                             ],
-                            "d": 57287
+                            "d": 54698
                         },
                         {
-                            "d": 74331
+                            "d": 75351
                         },
                         {
                             "margin": [
-                                92,
+                                88,
                                 56,
                                 72,
                                 52
                             ],
-                            "d": 68254
-                        },
-                        {
-                            "d": 72345
+                            "d": 71091
                         },
                         {
                             "margin": [
                                 56,
-                                56,
+                                52,
                                 68,
                                 52
                             ],
-                            "d": 83616
+                            "d": 75383
+                        },
+                        {
+                            "d": 82921
                         },
                         {
                             "margin": [
@@ -2504,16 +2540,16 @@
                                 72,
                                 52
                             ],
-                            "d": 67583
+                            "d": 68254
                         },
                         {
                             "margin": [
+                                52,
                                 56,
-                                56,
-                                88,
+                                132,
                                 52
                             ],
-                            "d": 62869
+                            "d": 60337
                         }
                     ]
                 }
@@ -2674,14 +2710,14 @@
             ],
             "acm-keywords": [
                 "Software-defined networking",
-                "network update",
-                "decentralized algorithm"
+                "decentralized network update"
             ],
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "48277ddd46a027af22ff2f4864f813155153b0da",
-                    "timestamp": 1466754650,
+                    "sha1": "0b1a7ad0d6069d7b4c41b1c20cf9e8451534eb62",
+                    "timestamp": 1466857563,
+                    "size": 119909,
                     "filename": "ezsegway.zip",
                     "metadata": {
                         "archive_listing": [
@@ -2698,8 +2734,7 @@
                             "references.bib",
                             "related-work.tex",
                             "sig-alternate-05-2015.cls",
-                            "summary.tex",
-                            "…"
+                            "summary.tex"
                         ]
                     },
                     "content_file": "anrw16-paper15-source-files\/ezsegway.zip"
@@ -2736,6 +2771,7 @@
             "mimetype": "application\/pdf",
             "sha1": "ae404951bc29fe277b4ef672f39df60f0c292e6c",
             "timestamp": 1464044498,
+            "size": 207899,
             "filename": "main.pdf",
             "metadata": {
                 "npages": 7,
@@ -2813,52 +2849,47 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "6dfd8d70000390d50e64a744c0f0489b2d6c28cc",
-            "timestamp": 1466775384,
+            "sha1": "2cbe521d54c96b17741ab601602de0118c8151db",
+            "timestamp": 1467039686,
+            "size": 245824,
             "filename": "main.pdf",
             "metadata": {
-                "npages": 7,
+                "npages": 6,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466775390,
-                    "npages": 7
+                    "at": 1467040753,
+                    "npages": 6
                 },
                 "banal": {
-                    "at": 1466775391,
+                    "at": 1467040753,
                     "papersize": [
                         792,
                         612
                     ],
                     "margin": [
-                        56,
+                        52,
                         56,
                         72,
                         52
                     ],
-                    "bodyfontsize": 10,
-                    "leading": 11.5,
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
                     "columns": 2,
                     "pages": [
                         {
                             "margin": [
-                                76,
+                                72,
                                 56,
                                 68,
                                 52
                             ],
-                            "d": 50885
+                            "d": 52189
                         },
                         {
-                            "d": 61243
+                            "d": 60629
                         },
                         {
-                            "margin": [
-                                52,
-                                56,
-                                72,
-                                52
-                            ],
-                            "d": 61024
+                            "d": 69691
                         },
                         {
                             "margin": [
@@ -2867,28 +2898,19 @@
                                 72,
                                 52
                             ],
-                            "d": 55059
+                            "d": 59702
+                        },
+                        {
+                            "d": 77788
                         },
                         {
                             "margin": [
-                                52,
+                                56,
                                 56,
                                 72,
                                 52
                             ],
-                            "d": 60303
-                        },
-                        {
-                            "d": 74535
-                        },
-                        {
-                            "margin": [
-                                56,
-                                56,
-                                84,
-                                52
-                            ],
-                            "d": 51885
+                            "d": 68878
                         }
                     ]
                 }
@@ -2989,6 +3011,7 @@
                     "mimetype": "application\/gzip",
                     "sha1": "5f5da7ca77eb24636dfb59ac14ed72b7341667ad",
                     "timestamp": 1466775708,
+                    "size": 56846,
                     "filename": "paper.tar.gz",
                     "metadata": {
                         "archive_listing": [
@@ -3005,6 +3028,27 @@
                         ]
                     },
                     "content_file": "anrw16-paper16-source-files\/paper.tar.gz"
+                },
+                {
+                    "mimetype": "application\/gzip",
+                    "sha1": "23b6191f670e0c6b7f56b3e2e3e23f851d4d9b80",
+                    "timestamp": 1466804525,
+                    "size": 39461,
+                    "filename": "paper.tar.gz",
+                    "metadata": {
+                        "archive_listing": [
+                            "abstract.tex",
+                            "api.tex",
+                            "conclusion.tex",
+                            "figures\/socket.pdf",
+                            "intro.tex",
+                            "main.bbl",
+                            "main.tex",
+                            "results.tex",
+                            "stateoftheart.tex"
+                        ]
+                    },
+                    "content_file": "anrw16-paper16-source-files\/paper.tar (1).gz"
                 }
             ],
             "supplements": false,
@@ -3048,6 +3092,7 @@
             "mimetype": "application\/pdf",
             "sha1": "27e69593714cc5024649bd35ff954cbee648a3fd",
             "timestamp": 1464021634,
+            "size": 97934,
             "filename": "fling_short.pdf",
             "metadata": {
                 "npages": 3,
@@ -3101,18 +3146,19 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "3743decf0a2052e13f66302f459916011004b246",
-            "timestamp": 1466761223,
+            "sha1": "58ff6ef8f8e220d448ea566bc0be7505d98eb6a5",
+            "timestamp": 1467031128,
+            "size": 110348,
             "filename": "anrw16_17.pdf",
             "metadata": {
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466761448,
+                    "at": 1467031137,
                     "npages": 3
                 },
                 "banal": {
-                    "at": 1466761448,
+                    "at": 1467031138,
                     "papersize": [
                         792,
                         612
@@ -3134,7 +3180,7 @@
                                 68,
                                 52
                             ],
-                            "d": 54696
+                            "d": 52689
                         },
                         {
                             "margin": [
@@ -3143,16 +3189,16 @@
                                 72,
                                 52
                             ],
-                            "d": 62488
+                            "d": 66046
                         },
                         {
                             "margin": [
                                 52,
-                                60,
+                                64,
                                 304,
                                 52
                             ],
-                            "d": 44632
+                            "d": 44654
                         }
                     ]
                 }
@@ -3228,22 +3274,34 @@
             ],
             "acm-computing-classification": [
                 {
+                    "concept_id": "10003033.10003058.10003063",
+                    "concept_desc": "Networks~Middle boxes \/ network appliances",
+                    "concept_significance": 500
+                },
+                {
                     "concept_id": "10003033.10003079.10011704",
                     "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500
+                },
+                {
+                    "concept_id": "10003033.10003106.10010924",
+                    "concept_desc": "Networks~Public Internet",
                     "concept_significance": 500
                 }
             ],
             "acm-keywords": [
-                "Middlebox",
-                "Evil bit",
+                "Middleboxes",
+                "Measurements",
+                "IPv4",
                 "DSCP",
-                "ECN"
+                "TCP"
             ],
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "3a56310439b793bb5ffb3e864c803aedc9f4f173",
-                    "timestamp": 1466761223,
+                    "sha1": "f7adc0938153d97c40defc498f328cd44af33e05",
+                    "timestamp": 1467031128,
+                    "size": 5549737,
                     "filename": "anrw16#17.zip",
                     "metadata": {
                         "archive_listing": [
@@ -3299,6 +3357,7 @@
             "mimetype": "application\/pdf",
             "sha1": "a30b963b895474de863ec79bf483f7e7169df2f0",
             "timestamp": 1463952316,
+            "size": 109860,
             "filename": "submission-2016-05-22.pdf",
             "metadata": {
                 "npages": 3,
@@ -3347,18 +3406,19 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "2404a5f1f0ecf5eca16469d2cf0c53733f843776",
-            "timestamp": 1466697446,
-            "filename": "anrw16-short19.camready.2016-06-23.pdf",
+            "sha1": "09cd85c990b7d8240c47f4e7bee836efbd50c12b",
+            "timestamp": 1467044491,
+            "size": 118632,
+            "filename": "anrw16-short19.camready.2016-06-27.pdf",
             "metadata": {
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466697449,
+                    "at": 1467044495,
                     "npages": 3
                 },
                 "banal": {
-                    "at": 1466697449,
+                    "at": 1467044495,
                     "papersize": [
                         792,
                         612
@@ -3366,7 +3426,7 @@
                     "margin": [
                         52,
                         56,
-                        88,
+                        84,
                         52
                     ],
                     "bodyfontsize": 9,
@@ -3377,10 +3437,10 @@
                             "margin": [
                                 72,
                                 56,
-                                68,
+                                64,
                                 52
                             ],
-                            "d": 48906
+                            "d": 49925
                         },
                         {
                             "margin": [
@@ -3389,13 +3449,13 @@
                                 72,
                                 52
                             ],
-                            "d": 75890
+                            "d": 76227
                         },
                         {
                             "margin": [
                                 52,
                                 88,
-                                412,
+                                416,
                                 52
                             ],
                             "d": 28649
@@ -3493,17 +3553,12 @@
             ],
             "source-files": [
                 {
-                    "mimetype": "application\/x-gzip",
-                    "sha1": "79714d52248f34d69a8c0ccf6384d1acedd01e89",
-                    "timestamp": 1466697581,
-                    "filename": "anrw16-short19.camready.2016-06-23.src.tar.gz",
-                    "metadata": {
-                        "archive_listing": [
-                            "anrw16-multi-homed-on-a-single-link\/{acmcopyright.sty, figures\/{multi-access-link.eps, multi-access-link.svg}, main.bib, main.tex, Makefile, rfc.bib, sig-alternate-05-2015.cls}",
-                            "…"
-                        ]
-                    },
-                    "content_file": "anrw16-paper19-source-files\/anrw16-short19.camready.2016-06-23.src.tar.gz"
+                    "mimetype": "application\/pdf",
+                    "sha1": "09cd85c990b7d8240c47f4e7bee836efbd50c12b",
+                    "timestamp": 1467044491,
+                    "size": 118632,
+                    "filename": "anrw16-short19.camready.2016-06-27.pdf",
+                    "content_file": "anrw16-paper19-source-files\/anrw16-short19.camready.2016-06-27.pdf"
                 }
             ],
             "supplements": false,
@@ -3549,6 +3604,7 @@
             "mimetype": "application\/pdf",
             "sha1": "d8ac5568bc3eda5a1e30a690b558e3e4a523cc70",
             "timestamp": 1463994452,
+            "size": 459514,
             "filename": "udp-bonding-anrw.pdf",
             "metadata": {
                 "npages": 7,
@@ -3638,18 +3694,14 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "8df13a8741724a2084c4173602a6dc3481961d6b",
-            "timestamp": 1466765151,
+            "sha1": "e4b45ae8565d9d73a3e0311fcd3434e33dedf04b",
+            "timestamp": 1467036757,
+            "size": 449275,
             "filename": "udp-bonding-anrw.pdf",
             "metadata": {
                 "npages": 6,
-                "acmfinal": {
-                    "ok": true,
-                    "at": 1466765155,
-                    "npages": 6
-                },
                 "banal": {
-                    "at": 1466765156,
+                    "at": 1467062880,
                     "papersize": [
                         792,
                         612
@@ -3657,7 +3709,7 @@
                     "margin": [
                         56,
                         56,
-                        72,
+                        172,
                         52
                     ],
                     "bodyfontsize": 9,
@@ -3671,13 +3723,25 @@
                                 68,
                                 52
                             ],
-                            "d": 55661
+                            "d": 52007
                         },
                         {
-                            "d": 68691
+                            "margin": [
+                                56,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 70838
                         },
                         {
-                            "d": 63729
+                            "margin": [
+                                52,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 61126
                         },
                         {
                             "margin": [
@@ -3686,7 +3750,7 @@
                                 72,
                                 52
                             ],
-                            "d": 48473
+                            "d": 49340
                         },
                         {
                             "margin": [
@@ -3695,18 +3759,23 @@
                                 72,
                                 52
                             ],
-                            "d": 50850
+                            "d": 51011
                         },
                         {
                             "margin": [
                                 56,
                                 56,
-                                144,
+                                92,
                                 52
                             ],
-                            "d": 45602
+                            "d": 50110
                         }
                     ]
+                },
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1467062880,
+                    "npages": 6
                 }
             },
             "content_file": "anrw16-final21.pdf"
@@ -3792,8 +3861,9 @@
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "ffcdbf1760b05b2239f668c5c1a98b153117d36d",
-                    "timestamp": 1466764914,
+                    "sha1": "e8c3c05d89afeb633623c6a715a5068922a61276",
+                    "timestamp": 1466854218,
+                    "size": 319882,
                     "filename": "udp-bonding-anrw.zip",
                     "metadata": {
                         "archive_listing": [
@@ -3806,6 +3876,22 @@
                         ]
                     },
                     "content_file": "anrw16-paper21-source-files\/udp-bonding-anrw.zip"
+                },
+                {
+                    "mimetype": "application\/zip",
+                    "sha1": "edc9a47945289769bd020e6e3308d57d4206cbf2",
+                    "timestamp": 1467036757,
+                    "size": 315334,
+                    "filename": "udp-bonding-anrw.zip",
+                    "metadata": {
+                        "archive_listing": [
+                            "acmcopyright.sty",
+                            "figures\/{architecture.pdf, experiment_setup_new.png, multiple_varying.png, scheduled_flows.png, tcp2_throughput.png, variableFlow_throughput.png}",
+                            "sig-alternate-05-2015.cls",
+                            "udp-bonding-anrw.tex"
+                        ]
+                    },
+                    "content_file": "anrw16-paper21-source-files\/udp-bonding-anrw (1).zip"
                 }
             ],
             "supplements": false,
@@ -3851,6 +3937,7 @@
             "mimetype": "application\/pdf",
             "sha1": "609645a828af0c3f709d670bb3df58055da73923",
             "timestamp": 1464014606,
+            "size": 848468,
             "filename": "composition.pdf",
             "metadata": {
                 "npages": 6,
@@ -3919,21 +4006,22 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "975dee7f98e2547e16a36af81259c5155009c4f6",
-            "timestamp": 1466524425,
+            "sha1": "f1ff0998e4d3e168eb0bff35cffa711b6cc32659",
+            "timestamp": 1467023414,
+            "size": 868339,
             "filename": "composition.pdf",
             "metadata": {
                 "npages": 6,
                 "banal": {
-                    "at": 1466524670,
+                    "at": 1467027204,
                     "papersize": [
                         792,
                         612
                     ],
                     "margin": [
-                        52,
                         56,
-                        76,
+                        56,
+                        72,
                         52
                     ],
                     "bodyfontsize": 9,
@@ -3947,16 +4035,10 @@
                                 68,
                                 52
                             ],
-                            "d": 45071
+                            "d": 43068
                         },
                         {
-                            "margin": [
-                                52,
-                                56,
-                                72,
-                                52
-                            ],
-                            "d": 59306
+                            "d": 60717
                         },
                         {
                             "margin": [
@@ -3965,7 +4047,7 @@
                                 72,
                                 52
                             ],
-                            "d": 43037
+                            "d": 43560
                         },
                         {
                             "margin": [
@@ -3974,31 +4056,25 @@
                                 80,
                                 52
                             ],
-                            "d": 71319
+                            "d": 72753
                         },
                         {
-                            "margin": [
-                                56,
-                                56,
-                                72,
-                                52
-                            ],
                             "d": 64736
                         },
                         {
                             "margin": [
                                 56,
                                 56,
-                                72,
+                                140,
                                 52
                             ],
-                            "d": 66384
+                            "d": 66357
                         }
                     ]
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466583015,
+                    "at": 1467027227,
                     "npages": 6
                 }
             },
@@ -4054,38 +4130,19 @@
             "acm-keywords": [
                 "SDN",
                 "composition",
-                "OpenFlow"
+                "OpenFlow",
+                "conflict resolution"
             ],
             "source-files": [
                 {
                     "mimetype": "application\/x-tar",
-                    "sha1": "bc11fac7e7e05210dc3489923ec65ccc33d2184e",
-                    "timestamp": 1466524503,
+                    "sha1": "91e834b693669155e09309e3712f5a039356fa0c",
+                    "timestamp": 1467023414,
+                    "size": 1024000,
                     "filename": "comp.tar",
                     "metadata": {
                         "archive_listing": [
-                            "comp\/",
-                            "comp\/acmcopyright.sty",
-                            "comp\/acronyms.tex",
-                            "comp\/composition-conflict.tex",
-                            "comp\/composition-intro.tex",
-                            "comp\/composition-parallel.pdf",
-                            "comp\/composition-parallel.svg",
-                            "comp\/composition-strategies.tex",
-                            "comp\/composition-types.tex",
-                            "comp\/composition.tex",
-                            "comp\/definitions.tex",
-                            "comp\/future.tex",
-                            "comp\/i2rs-arch.pdf",
-                            "comp\/i2rs-arch.svg",
-                            "comp\/middleboxes.pdf",
-                            "comp\/netide.tex",
-                            "comp\/openflow.tex",
-                            "comp\/overlay.pdf",
-                            "comp\/parallelids.pdf",
-                            "comp\/references.bib",
-                            "comp\/related.tex",
-                            "comp\/sig-alternate-05-2015.cls"
+                            "comp\/{acmcopyright.sty, acronyms.tex, composition-conflict.tex, composition-intro.tex, composition-parallel.pdf, composition-parallel.svg, composition-strategies.tex, composition-types.tex, composition.tex, definitions.tex, future.tex, i2rs-arch.pdf, i2rs-arch.svg, middleboxes.pdf, netide.tex, openflow.tex, overlay.pdf, parallelids.pdf, references.bib, related.tex, sig-alternate-05-2015.cls}"
                         ]
                     },
                     "content_file": "anrw16-paper24-source-files\/comp.tar"
@@ -4136,6 +4193,7 @@
             "mimetype": "application\/pdf",
             "sha1": "433e7c7bd7b0e4bc268470905ebda0a8c7dc585b",
             "timestamp": 1464043423,
+            "size": 134701,
             "filename": "paper.pdf",
             "metadata": {
                 "npages": 7,
@@ -4203,6 +4261,7 @@
             "mimetype": "application\/pdf",
             "sha1": "e082138ada6b20f7b6b35c7f36a154bf1427ab4e",
             "timestamp": 1466689415,
+            "size": 217548,
             "filename": "hollywood-anrw2016-camera-ready.pdf",
             "metadata": {
                 "npages": 7,
@@ -4271,7 +4330,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466751953,
+                    "at": 1466854194,
                     "npages": 7
                 }
             },
@@ -4383,6 +4442,7 @@
                     "mimetype": "application\/x-gzip",
                     "sha1": "0a9563bfeb232278920a93f8b0f910244fd4cef4",
                     "timestamp": 1466689415,
+                    "size": 85623,
                     "filename": "hollywood-anrw2016.tar.gz",
                     "metadata": {
                         "archive_listing": [
@@ -4469,6 +4529,7 @@
             "mimetype": "application\/pdf",
             "sha1": "fa0e0913c77255fd26caf7b34d04b82d146296a0",
             "timestamp": 1464043818,
+            "size": 404281,
             "filename": "he_eval.pdf",
             "metadata": {
                 "npages": 7,
@@ -4550,18 +4611,14 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "70019ab37d45594d825b467964cde2e0e05e5d51",
-            "timestamp": 1466756166,
+            "sha1": "cda040c9631d627c14028b98958785d987137c74",
+            "timestamp": 1467026227,
+            "size": 429640,
             "filename": "he_eval.pdf",
             "metadata": {
                 "npages": 7,
-                "acmfinal": {
-                    "ok": true,
-                    "at": 1466756193,
-                    "npages": 7
-                },
                 "banal": {
-                    "at": 1466756196,
+                    "at": 1467027223,
                     "papersize": [
                         792,
                         612
@@ -4583,7 +4640,7 @@
                                 68,
                                 52
                             ],
-                            "d": 46600
+                            "d": 43717
                         },
                         {
                             "margin": [
@@ -4592,7 +4649,7 @@
                                 72,
                                 52
                             ],
-                            "d": 78165
+                            "d": 77004
                         },
                         {
                             "margin": [
@@ -4601,27 +4658,32 @@
                                 72,
                                 52
                             ],
-                            "d": 59309
+                            "d": 60770
                         },
                         {
-                            "d": 57486
+                            "d": 56742
                         },
                         {
-                            "d": 44503
+                            "d": 45495
                         },
                         {
-                            "d": 26047
+                            "d": 25730
                         },
                         {
                             "margin": [
                                 56,
-                                56,
-                                576,
-                                72
+                                60,
+                                552,
+                                52
                             ],
-                            "d": 15979
+                            "d": 19614
                         }
                     ]
+                },
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1467027230,
+                    "npages": 7
                 }
             },
             "content_file": "anrw16-final27.pdf"
@@ -4712,17 +4774,18 @@
             ],
             "source-files": [
                 {
-                    "mimetype": "application\/zip",
-                    "sha1": "e97c70ac16b7426263d69ed11470e2016e1ec171",
-                    "timestamp": 1466789863,
-                    "filename": "he_eval.zip",
+                    "mimetype": "application\/x-gzip",
+                    "sha1": "063274d61d74a7790b730d02ff0189c5c8bd9400",
+                    "timestamp": 1467026749,
+                    "size": 1195567,
+                    "filename": "submission.tar.gz",
                     "metadata": {
                         "archive_listing": [
-                            "he_eval\/{acmcopyright.sty, figures\/{basic-cpu.pdf, basic-mem.pdf, breakdown-cpu-35k-he.pdf, cache-cpu-1k.pdf, cache-cpu-35k.pdf, cache-tls-cpu-1k.pdf, cache-tls-cpu-35k.pdf, exp-setup.pdf, happy-eyeballs.pdf, tls-cpu.pdf, tls-mem.pdf}, he_eval.tex, Makefile, sig-alternate-05-2015.cls}",
+                            "he_eval\/{acmcopyright.sty, figures\/{backup from accepted paper\/{breakdown-cpu-35k-he-bw.pdf, cache-cpu-1k.pdf, cache-cpu-35k.pdf, cache-tls-cpu-1k.pdf, cache-tls-cpu-35k.pdf, tls-cpu.pdf, tls-mem.pdf}, basic-cpu.pdf, basic-mem.pdf, breakdown-cpu-35k-he.pdf, cache-cpu-1k.pdf, cache-cpu-35k.pdf, cache-tls-cpu-1k.pdf, cache-tls-cpu-35k.pdf, exp-setup.pdf, happy-eyeballs.graffle, happy-eyeballs.pdf, not_used_anymore\/{basic-cpu-1k.pdf, basic-cpu-35k.pdf, basic-cpu.png, basic-mem-1k.pdf, basic-mem-35k.pdf, basic-mem.png, breakdown-cpu-35k-he.png, cache-cpu-1k.pdf, cache-tls-cpu-1k.pdf, tls-breakdown-cpu-35k-he.pdf, tls-cpu-1k.pdf, tls-cpu-35k.pdf, tls-cpu.png, tls-mem-1k.pdf, tls-mem-35k.pdf, tls-mem.png}, placeholder.pdf, tls-cpu.pdf, tls-mem.pdf}, he_eval.bib, he_eval.tex, Makefile, rfc.bib, sig-alternate-05-2015.cls}",
                             "…"
                         ]
                     },
-                    "content_file": "anrw16-paper27-source-files\/he_eval.zip"
+                    "content_file": "anrw16-paper27-source-files\/submission.tar.gz"
                 }
             ],
             "supplements": false,
@@ -4761,6 +4824,7 @@
             "mimetype": "application\/pdf",
             "sha1": "0055213de293a22b4128a18f5dc7c3934d59053a",
             "timestamp": 1464073065,
+            "size": 364842,
             "filename": "anrw-2016.pdf",
             "metadata": {
                 "npages": 3,
@@ -4814,18 +4878,19 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "c7209669b04c730d4e1a8952a7a11ec8a16b41f2",
-            "timestamp": 1466698261,
+            "sha1": "9b5487089371754086b52b9fd9badb7c99f77254",
+            "timestamp": 1466957438,
+            "size": 411080,
             "filename": "anrw-2016.pdf",
             "metadata": {
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466698646,
+                    "at": 1467030020,
                     "npages": 3
                 },
                 "banal": {
-                    "at": 1466698646,
+                    "at": 1467030022,
                     "papersize": [
                         792,
                         612
@@ -4847,7 +4912,7 @@
                                 68,
                                 52
                             ],
-                            "d": 56082
+                            "d": 53483
                         },
                         {
                             "margin": [
@@ -4856,16 +4921,16 @@
                                 72,
                                 52
                             ],
-                            "d": 54914
+                            "d": 56976
                         },
                         {
                             "margin": [
                                 52,
-                                60,
+                                64,
                                 444,
                                 52
                             ],
-                            "d": 28249
+                            "d": 28311
                         }
                     ]
                 }
@@ -4879,7 +4944,7 @@
             "poster": true,
             "references": [
                 {
-                    "ref_text": "A. Aggarwal, S. Savage, and T. Anderson. Understanding the performance of tcp pacing. In <i>INFOCOM 2000. Nineteenth Annual Joint Conference of the IEEE Computer and Communications Societies. Proceedings. IEEE<\/i>, volume 3, pages 1157–1165 vol.3, Mar 2000."
+                    "ref_text": "A. Aggarwal, S. Savage, and T. Anderson. Understanding the performance of TCP pacing. In <i>INFOCOM 2000. Nineteenth Annual Joint Conference of the IEEE Computer and Communications Societies. Proceedings. IEEE<\/i>, volume 3, pages 1157–1165 vol.3, Mar 2000."
                 },
                 {
                     "ref_text": "H. Balakrishnan, H. Rahul, and S. Seshan. An integrated congestion manager architecture for internet hosts. In <i>Proc. ACM SIGCOMM<\/i>, 1999."
@@ -4891,13 +4956,13 @@
                     "ref_text": "J. Chu, N. Dukkipati, Y. Cheng, and M. Mathis. Increasing TCP's Initial Window. RFC 6928 (Experimental), Apr. 2013."
                 },
                 {
-                    "ref_text": "N. Dukkipati, T. Refice, Y. Cheng, J. Chu, T. Herbert, A. Agarwal, A. Jain, and N. Sutin. An argument for increasing tcp's initial congestion window. <i>ACM SIGCOMM Computer Communications Review<\/i>, 40:27–33, 2010."
+                    "ref_text": "N. Dukkipati, T. Refice, Y. Cheng, J. Chu, T. Herbert, A. Agarwal, A. Jain, and N. Sutin. An argument for increasing TCP's initial congestion window. <i>ACM SIGCOMM Computer Communications Review<\/i>, 40:27–33, 2010."
                 },
                 {
                     "ref_text": "L. Eggert, J. Heidemann, and J. Touch. Effects of ensemble TCP. <i>USC\/Information Sciences Institute<\/i>, 7(1), December 1999."
                 },
                 {
-                    "ref_text": "S. Islam, M. Welzl, S. Gjessing, and N. Khademi. Coupled congestion control for rtp media. <i>SIGCOMM Comput. Commun. Rev.<\/i>, 44(4):–, Aug. 2014."
+                    "ref_text": "S. Islam, M. Welzl, S. Gjessing, and N. Khademi. Coupled congestion control for RTP media. <i>SIGCOMM Comput. Commun. Rev.<\/i>, 44(4):–, Aug. 2014."
                 },
                 {
                     "ref_text": "J. Iyengar, I. Swett, R. Hamilton, and A. Wilk. QUIC: A UDP-Based Secure and Reliable Transport for HTTP\/2. I-D draft-tsvwg-quic-protocol-02, IETF, Jan. 2016. Work in Progress."
@@ -4926,18 +4991,19 @@
                 }
             ],
             "acm-keywords": [
-                "TCP pacing, congestion control, coupling"
+                "TCP pacing",
+                "coupled congestion control"
             ],
             "source-files": [
                 {
                     "mimetype": "application\/zip",
-                    "sha1": "4395797b9e60fd223f0400e2b6bbfb2014d7fb4f",
-                    "timestamp": 1466755839,
-                    "filename": "anrw-2016-safiqul.zip",
+                    "sha1": "589cfc4cd69ea407b52328b141a0128bd083875f",
+                    "timestamp": 1466957438,
+                    "size": 602122,
+                    "filename": "safiqul-new-anrw-source.zip",
                     "metadata": {
                         "archive_listing": [
                             "abstract.tex",
-                            "acm-update.pdf",
                             "acmcopyright.sty",
                             "anrw-2016.tex",
                             "background.tex",
@@ -4955,7 +5021,7 @@
                             "…"
                         ]
                     },
-                    "content_file": "anrw16-paper28-source-files\/anrw-2016-safiqul.zip"
+                    "content_file": "anrw16-paper28-source-files\/safiqul-new-anrw-source.zip"
                 }
             ],
             "supplements": false,
@@ -4996,6 +5062,7 @@
             "mimetype": "application\/pdf",
             "sha1": "b44e8956841a6461b2cacacf472d0f91986c9b94",
             "timestamp": 1464046534,
+            "size": 293030,
             "filename": "paper.pdf",
             "metadata": {
                 "npages": 3,
@@ -5050,18 +5117,14 @@
         },
         "final": {
             "mimetype": "application\/pdf",
-            "sha1": "ccd4c6bef9e66b85067038953f4730761633dd9d",
-            "timestamp": 1466793212,
+            "sha1": "1e92c9173ecabe309b8cf7f0268246a18e4e01ac",
+            "timestamp": 1466807046,
+            "size": 315144,
             "filename": "paper.pdf",
             "metadata": {
                 "npages": 3,
-                "acmfinal": {
-                    "ok": true,
-                    "at": 1466793230,
-                    "npages": 3
-                },
                 "banal": {
-                    "at": 1466793230,
+                    "at": 1466854189,
                     "papersize": [
                         792,
                         612
@@ -5083,7 +5146,7 @@
                                 68,
                                 52
                             ],
-                            "d": 34578
+                            "d": 31643
                         },
                         {
                             "margin": [
@@ -5092,7 +5155,7 @@
                                 72,
                                 52
                             ],
-                            "d": 46225
+                            "d": 50435
                         },
                         {
                             "margin": [
@@ -5105,6 +5168,11 @@
                             "d": 12851
                         }
                     ]
+                },
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1466854193,
+                    "npages": 3
                 }
             },
             "content_file": "anrw16-final29.pdf"
@@ -5139,14 +5207,14 @@
             ],
             "acm-computing-classification": [
                 {
-                    "concept_id": "10003033.10003079.10011704",
-                    "concept_desc": "Networks~Network measurement",
+                    "concept_id": "10003033.10003039.10003045",
+                    "concept_desc": "Networks~Network layer protocols",
                     "concept_significance": 500
                 },
                 {
-                    "concept_id": "10003033.10003039.10003045",
-                    "concept_desc": "Networks~Network layer protocols",
-                    "concept_significance": 300
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500
                 }
             ],
             "acm-keywords": [
@@ -5156,8 +5224,9 @@
             "source-files": [
                 {
                     "mimetype": "application\/x-gzip",
-                    "sha1": "81cbf79026acf32d2ecf8251fd4f6017251e9d75",
-                    "timestamp": 1466793212,
+                    "sha1": "eee5d7547cbd9d52d9a1adce08c55043821dab0c",
+                    "timestamp": 1466807046,
+                    "size": 499006,
                     "filename": "anrw.tar.gz",
                     "metadata": {
                         "archive_listing": [
