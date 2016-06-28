@@ -1,17 +1,44 @@
 require "json"
 require "active_support/core_ext/string/inflections"
 require "active_support/core_ext/array/conversions"
+require 'active_support/core_ext/hash'
+# require 'pp'
 
 module ANRW
-  def htmlify_paper(json, nr)
-    papers = JSON.parse(File.read(json))
-    p = papers.select{ |p| p["pid"] == nr }[0]
-    label =  p["options"]["type"] =~ /full/ ? "success" : "default"
+  def htmlify_paper(file, nr)
+    p = case File.extname(file)
+    when ".json"
+      JSON.parse(File.read(file)).select{ |x| x["pid"] == nr }[0]
+    when ".xml"
+      p = Hash.from_xml(File.read(file))["proceeding"]["content"]["section"].each{ |s|
+        # pp nr, s["section_title"]
+        a = s["article_rec"].find{ |x| x["seq_no"].to_i == nr }
+        # pp nr, a["title"]
+        return a
+      }
+      # pp nr, p
+      {
+        "options": { "type": (p["pages"].to_i > 4 ? "Full" : "Short") + " Paper" },
+        "final": { "content_file": p["fulltext"]["file"]["fname"] },
+        "authors": p["authors"]["au"].map { |a|
+          {
+            "first": a["first_name"],
+            "last": a["last_name"],
+            "affiliation": a["affiliation"]
+          }
+        },
+        "title": p["title"],
+        "abstract": p["abstract"].values.join(" ")
+      }.deep_stringify_keys
+    else
+      raise "Don't know how to handle #{file}"
+    end
+    label = p["options"]["type"] =~ /full/i ? "success" : "default"
     names = p["authors"].map { |a|
       a["first"] + " " + a["last"] + (a.key?("affiliation") ?
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
-    pdf = File.join(File.dirname(json), p["final"]["content_file"])
+    pdf = File.join(File.dirname(file), p["final"]["content_file"])
 
     html = %{
       <div class="modal" id="modal#{nr}" tabindex="-1" role="dialog"
@@ -29,7 +56,7 @@ module ANRW
               #{names.to_sentence}
             </div>
             <div class="modal-body">
-              #{p["abstract"]}
+              #{p["abstract"].gsub(/([[:alpha:]])-[[:space:]]+/, '\1')}
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default"

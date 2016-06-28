@@ -3,8 +3,8 @@
 # This is input to gulp only
 ignore "/style.*"
 
-# Don't upload the hotcrp json files
-ignore "/anrw/*/*.json"
+# Don't upload the hotcrp json and xml files
+ignore "/anrw/*/*.{xml,json}"
 
 compile "/**/*.haml" do
   filter :haml, :format => :html5

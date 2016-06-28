@@ -43,6 +43,7 @@ menu: Program
   %a.btn.btn-default{ :href => "https://ietf.org/meeting/96/guest-day.html", :role => "button" } Get free IETF guest pass »
 
 - json = "content/anrw/2016/anrw16-data.json"
+- xml = "content/anrw/2016/anrw16_jul16_16.xml"
 %table.table.table-striped.no-urlify
   %thead
     %tr
@@ -61,6 +62,11 @@ menu: Program
         %h4.text-danger 9:15
       %td
         %h4.text-danger Session: Multipath
+
+        -# .row= htmlify_paper(xml, 1)
+        -# .row= htmlify_paper(xml, 2)
+        -# .row= htmlify_paper(xml, 3)
+        -# .row= htmlify_paper(xml, 4)
 
         .row= htmlify_paper(json, 16)
         .row= htmlify_paper(json, 21)
