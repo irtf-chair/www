@@ -8,7 +8,7 @@ class MeetingFilter < Nanoc::Filter
 
   def run(content, params={})
     doc = Nokogiri::HTML(content.dup)
-    elements = doc.xpath('//text()') - doc.xpath('//a/text()')
+    elements = doc.xpath('//*[local-name() != "a" and not(ancestor::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")])]/text()')
     elements.each do |element|
       element.content = element.content.gsub(/\bIETF-([0-9]{1,3}\b)/) {
         |rfc| link_to("IETF-#{$1}", "https://ietf.org/meeting/#{$1}/index")

@@ -69,12 +69,11 @@ rohc rserpool rsvp rtfm seamoby spirits storm tcpimpl tcplw tcpsat
 arts disi fyiup harts iafa iiir isn iup nir nisi noctool2 noctools
 run ssh stdguide trainmat userdoc userdoc2 userglos weird wnils
 uswg
-
   ]
 
   def run(content, params={})
     doc = Nokogiri::HTML(content.dup)
-    elements = doc.xpath('//text()') - doc.xpath('//a/text()')
+    elements = doc.xpath('//*[local-name() != "a" and not(ancestor::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")])]/text()')
     elements.each do |element|
       element.content = element.content.gsub(/\b(#{@@active.join('|').upcase})\b/) {
         |wg| link_to($1, "https://datatracker.ietf.org/wg/#{$1.downcase}/charter/")
