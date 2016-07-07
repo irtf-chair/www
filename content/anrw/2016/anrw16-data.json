@@ -14,6 +14,12 @@
                 "contact": true
             },
             {
+                "email": "Roman.Muuntener@zhaw.ch",
+                "first": "Roman",
+                "last": "Müntener",
+                "affiliation": "Zürcher Hochschule für Angewandte Wissenschaften"
+            },
+            {
                 "email": "korian.edeline@ulg.ac.be",
                 "first": "Korian",
                 "last": "Edeline",
@@ -134,7 +140,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467031499,
+                    "at": 1467763062,
                     "npages": 3
                 }
             },
@@ -413,7 +419,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467027224,
+                    "at": 1467763058,
                     "npages": 3
                 }
             },
@@ -610,7 +616,7 @@
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467030932,
+                    "at": 1467763059,
                     "npages": 3
                 },
                 "banal": {
@@ -863,7 +869,7 @@
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466854190,
+                    "at": 1467763059,
                     "npages": 3
                 },
                 "banal": {
@@ -1130,7 +1136,7 @@
                 "npages": 7,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467029793,
+                    "at": 1467763060,
                     "npages": 7
                 },
                 "banal": {
@@ -1608,7 +1614,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467031495,
+                    "at": 1467763061,
                     "npages": 7
                 }
             },
@@ -1926,7 +1932,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467031497,
+                    "at": 1467763061,
                     "npages": 3
                 }
             },
@@ -2195,7 +2201,7 @@
                 "npages": 7,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467034111,
+                    "at": 1467763062,
                     "npages": 7
                 },
                 "banal": {
@@ -2481,7 +2487,7 @@
                 "npages": 7,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467030019,
+                    "at": 1467763059,
                     "npages": 7
                 },
                 "banal": {
@@ -2857,7 +2863,7 @@
                 "npages": 6,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467040753,
+                    "at": 1467763057,
                     "npages": 6
                 },
                 "banal": {
@@ -3154,7 +3160,7 @@
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467031137,
+                    "at": 1467763062,
                     "npages": 3
                 },
                 "banal": {
@@ -3414,7 +3420,7 @@
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467044495,
+                    "at": 1467763058,
                     "npages": 3
                 },
                 "banal": {
@@ -3774,7 +3780,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467062880,
+                    "at": 1467763058,
                     "npages": 6
                 }
             },
@@ -4074,7 +4080,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467027227,
+                    "at": 1467763059,
                     "npages": 6
                 }
             },
@@ -4330,7 +4336,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466854194,
+                    "at": 1467763063,
                     "npages": 7
                 }
             },
@@ -4682,7 +4688,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467027230,
+                    "at": 1467763060,
                     "npages": 7
                 }
             },
@@ -4886,7 +4892,7 @@
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1467030020,
+                    "at": 1467763061,
                     "npages": 3
                 },
                 "banal": {
@@ -5171,7 +5177,7 @@
                 },
                 "acmfinal": {
                     "ok": true,
-                    "at": 1466854193,
+                    "at": 1467763062,
                     "npages": 3
                 }
             },
