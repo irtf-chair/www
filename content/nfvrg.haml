@@ -40,33 +40,3 @@
 
 %p
   The group will report progress through its wiki and presentations at IETF and IRTF meetings. Relevant information and research developed by the research group will be submitted for publication as Experimental or Informational RFCs.
-
-
-%h2 Near-Term Work Items
-
-%p
-  The group shall focus on a concrete list of near-term work items. For each of the items mentioned below, the goal is to explore system architecture, optimization, and open interfaces across components, through experimental results, simulations, and/or real-world implementations.
-
-%ol
-  %li
-    %b Policy-Based Resource Management
-    %p
-      NFV Point of Presence (PoP) will be likely constrained in compute and storage capacity. Since practically all NFV PoPs are foreseen to be distributed, inter-datacenter network capacity is also a constraint. Additionally, energy is also a constraint, both as a general concern for NFV operators, and in particular for specific-purpose NFV PoPs such as those in mobile base stations. This work item will focus on optimized resource management and workload distribution based on policy.
-  %li
-    %b Analytics for Visibility and Orchestration
-    %p
-      Network functions should be supportable on general purpose commodity hardware. Real-time monitoring and analytics providing insight into various components such as compute (e.g., dynamic CPU utilization), storage (e.g., dynamic capacity usage), network (e.g., dynamic bandwidth utilization), energy (e.g., dynamic power consumption) are key to not only providing visibility into the NFV infrastructure but also optimizing resource usage for the purposes of orchestration. This work item will contemplate techniques for the applicability of real-time analytics.
-  %li
-    %b Virtual Network Function (VNF) Performance Modeling to Facilitate Transition to NFV
-    %p
-      When migrating from hardware network appliances, which are typically custom and monolithic, to virtualized software implementations running on commodity hardware a challenge which is often faced is the need for an equivalence model, especially in terms of performance. The work item will consider this modeling.
-  %li
-    %b Service Verification with Regards to Security and Resiliency
-    %p
-      Reliability and security issues and relevant solutions related to the nature of VNFs are the objectives of this work item.
-    %p
-      NFV configuration is expected to be dynamic especially in the edge NFV PoP where capacity is limited; a good example is the handling of viral events such as mobile gaming application. While autonomic networking techniques could be used to automate the configuration process including modular updates, one needs to take into account that incomplete and/or inconsistent configuration may lead to security and reliability issues.
-    %p
-      Accidental failures or intentional events such as distributed denial of service (DDoS) attacks are "familiar" threats that could compromise heavily the system, due to the dependency of NFV on a distributed infrastructure. Thus the use of VNFs may well introduce additional challenges to ensure the support of carrier grade reliability. In the event of network and/or service degradation or failure, there must be suitable coordination, fail-over, and recovery. These reliable NFV mechanisms will also need tools and mechanisms to deploy and manage capability, and close coordination with NFV resource management and performance analytics is also expected. Elasticity of VNFs entails dynamic scale up/down/out/in with awareness of the resiliency considerations, a new scope as compared to the monolithic implementation approach.
-    %p
-      Furthermore, the envisaged deployment of arbitrary third-party VNF applications on the network infrastructure of service providers raises significant security concerns and poses challenges for VNF verification in terms of functionality, security and stability under well-defined procedures.
