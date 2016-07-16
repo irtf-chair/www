@@ -38,7 +38,8 @@ module ANRW
       a["first"] + " " + a["last"] + (a.key?("affiliation") ?
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
-    pdf = File.join(File.dirname(file), p["final"]["content_file"])
+    paper = File.join(File.dirname(file), p["final"]["content_file"])
+    slides = File.join(File.dirname(file), "slides-" + p["final"]["content_file"])
 
     html = %{
       <div class="modal" id="modal#{nr}" tabindex="-1" role="dialog"
@@ -68,7 +69,7 @@ module ANRW
         </div>
       </div>
 
-      <div class="col-xs-9">
+      <div class="col-lg-8">
         <p>
           <b>
             #{p["title"] =~ /[[:punct:]]$/ ? p["title"] : p["title"] + "."}
@@ -78,22 +79,36 @@ module ANRW
           #{names.to_sentence + "."}
         </p>
       </div>
-      <div class="col-xs-3">
-        <p class="btn-toolbar pull-right">
-          <button class="btn btn-default btn-sm" type="button"
+      <div class="col-lg-4">
+        <p class="btn-toolbar">
+          <button class="btn btn-default btn-xs" type="button"
                   data-toggle="modal" data-target="#modal#{nr}">
             <span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span>
             Abstract
           </button>
-          <a href="#{File.exist?(pdf) ? File.basename(pdf) : "#"}"
-             class="btn btn-default btn-sm" role="button"
-             #{File.exist?(pdf) ? "" : "disabled=\"disabled\""}>
-            <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-            Paper
-          </a>
-        </p>
-      </div>
     }
+
+    if File.exist?(paper)
+      html += %{
+            <a href="#{File.basename(paper)}"
+               class="btn btn-default btn-xs" role="button">
+              <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+              Paper
+            </a>
+      }
+    end
+
+    if File.exist?(slides)
+      html += %{
+          <a href="#{File.basename(slides)}"
+             class="btn btn-default btn-xs" role="button">
+            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+            Slides
+          </a>
+      }
+    end
+
+    html += "</p></div>"
     return html
   end
 end
