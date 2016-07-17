@@ -475,7 +475,7 @@ AddDefaultCharset utf-8
 
 # XXX irtf.org
 <IfModule mod_headers.c>
-    Header set Content-Security-Policy: "default-src 'self' data:; script-src 'self' data: 'unsafe-inline' https://*.google-analytics.com"
+    Header set Content-Security-Policy: "default-src 'self' data:; script-src 'self' data: 'unsafe-inline' https://*.google-analytics.com; child-src https://*.youtube.com; style-src 'self' data: 'unsafe-inline';"
     # Header set Content-Security-Policy "script-src 'self'; object-src 'self'"
     # `mod_headers` cannot match based on the content-type, however,
     # the `Content-Security-Policy` response header should be send
