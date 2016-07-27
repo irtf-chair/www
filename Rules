@@ -37,6 +37,7 @@ compile "/htaccess" do
 end
 
 compile "/rg-contacts.*" do
+  filter :haml, :format => :html5
   write "/pub/rg-contacts" + "." + item.identifier.ext
 end
 
