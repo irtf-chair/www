@@ -205,6 +205,21 @@ module IRTF
     nil
   )
 
+  # maprg
+  kuhlewind = Person.new("Mirja", "Kühlewind", "mirja.kuehlewind@tik.ee.ethz.ch", "http://www.csg.ethz.ch/people/mirjak", nil)
+  plonka = Person.new("Dave", "Plonka", "dave@plonka.us", "http://pages.cs.wisc.edu/~plonka/", nil)
+  maprg = RG.new(
+    "maprg",
+    "Measurement and Analysis for Protocols",
+    "maprg@irtf.org",
+    nil,
+    "https://trac.tools.ietf.org/group/irtf/trac/wiki/map",
+    [ kuhlewind, plonka ],
+    nil,
+    "2016-8-22",
+    nil
+  )
+
   # MOBOPTS
   koodli = Person.new("Rajeev", "Koodli", "rkoodli@cisco.com", "https://linkedin.com/in/rajeevkoodli", nil)
   krishnan = Person.new("Suresh", "Krishnan", "suresh.krishnan@ericsson.com", nil, nil)
@@ -395,9 +410,10 @@ module IRTF
     "hrpc" => hrpc,
     "iccrg" => iccrg,
     "icnrg" => icnrg,
+    "maprg" => maprg,
     "nfvrg" => nfvrg,
-    "nwcrg" => nwcrg,
     "nmrg"  => nmrg,
+    "nwcrg" => nwcrg,
     "sdnrg" => sdnrg,
     "t2trg" => t2trg
   }
