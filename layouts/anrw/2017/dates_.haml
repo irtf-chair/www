@@ -1,0 +1,44 @@
+-# %table.table.table-condensed
+-#   %tbody
+-#     -if @which == nil or @which == "papers"
+-#       %tr
+-#         %td{ :style => 'width: "33%"' }
+-#           %em
+-#             %del Paper submission deadline
+-#         %td
+-#           %del
+-#             May 16, 2016
+-#         %td
+-#           %span.text-danger
+-#             %del May 23, 2016 (hard)
+-#       %tr
+-#         %td
+-#           %em
+-#             %del Paper notification deadline
+-#         %td{ :colspan => 2 }
+-#           %del June 17, 2016
+-#     -if @which == nil or @which == "grants"
+-#       %tr
+-#         %td
+-#           %del Travel grants submission deadline
+-#         %td{ :colspan => 2 }
+-#           %del June 24, 2016
+-#     -if @which == nil or @which == "papers"
+-#       %tr
+-#         %td
+-#           %del Camera-ready paper deadline
+-#         %td{ :colspan => 2 }
+-#           %del
+-#             June 24, 2016
+-#     -if @which == nil or @which == "grants"
+-#       %tr
+-#         %td
+-#           %del Travel grants notification deadline
+-#         %td{ :colspan => 2 }
+-#           %del June 28, 2016
+-#       %tr.warning
+-#         %td
+-#           %b
+-#             Workshop
+-#         %td{ :colspan => 2 }
+-#           %b July 16, 2016

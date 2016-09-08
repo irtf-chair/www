@@ -26,8 +26,8 @@ logo_hidden: true
 
 %h2 Upcoming and Past ANRWs
 .row
-  - @items.find_all(%r{./(\d+)/index.*}).each do |item|
-    .col-xs-6.col-sm-4.col-md-3.col-lg-2
+  - @items.find_all(%r{./(\d+)/index.*}).reverse.each do |item|
+    .col-xs-6.col-sm-4.col-md-3.col-lg-3
       .thumbnail
         %a{ :href => item.path }
           %img.img-responsive{ :src => "#{item.path.split("/")[-1]}/photo.jpg", :alt => "Berlin" }
@@ -40,7 +40,7 @@ logo_hidden: true
 
 .row
   .col-lg-6
-    = render "/anrw/2016/sc_.*", :blurb => true
+    = render "/anrw/2017/sc_.*", :blurb => true
   .col-lg-6
     %h2 Sponsors
     = render "/anrw/sponsors_.*"
