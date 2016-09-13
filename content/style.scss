@@ -29,10 +29,15 @@ $well-border: $brand-warning;
 
   border-left: 1px $brand-warning solid;
   // margin-left: 15px;
-  margin-top: 4*$font-size-base;
 
   }
+
+  .pushed-down {
+    margin-top: 4*$font-size-base;
+  }
 }
+
+
 
 table.anrp {
   td, th {
