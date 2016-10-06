@@ -268,15 +268,16 @@ module IRTF
   )
 
   # NWCRG
-  adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "https://linkedin.com/in/brianadamson", nil)
+  # adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "https://linkedin.com/in/brianadamson", nil)
   firoiu = Person.new("Victor", "Firoiu", "vfiroiu@acm.org", "https://victor.firoiu.org/", nil)
+  roca = Person.new("Vincent", "Roca", "vincent.roca@inria.fr", "https://planete.inrialpes.fr/~roca/", nil)
   nwcrg = RG.new(
     "nwcrg",
     "Network Coding",
     "nwcrg@irtf.org",
     nil,
     nil,
-    [ adamson, firoiu ],
+    [ roca, firoiu ],
     nil,
     "2013-11-13",
     nil
