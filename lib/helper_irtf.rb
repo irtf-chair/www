@@ -253,7 +253,7 @@ module IRTF
 
   # NFVRG
   lopez = Person.new("Diego", "Lopez", "diego.r.lopez@telefonica.com", "https://people.tid.es/diego.lopez/", nil)
-  ramki = Person.new("Ramki", "Krishnan", "Ramki_Krishnan@Dell.com", "https://linkedin.com/pub/ram-krishnan/0/a10/2ba", nil)
+  ramki = Person.new("Ramki", "Krishnan", "ramkri123@gmail.com", "https://linkedin.com/pub/ram-krishnan/0/a10/2ba", nil)
   # krishnaswamy = Person.new("Dilip", "Krishnaswamy", "dilip@ieee.org", "https://sites.google.com/site/dilip1/home", nil)
   banks = Person.new("Sarah", "Banks", "sbanks@encrypted.net", "https://www.linkedin.com/in/sbanks", nil)
   nfvrg = RG.new(
