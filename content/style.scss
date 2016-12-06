@@ -80,6 +80,10 @@ body {
   background-color: #f5f5f5;
   padding-top: 15px;
   padding-bottom: 15px;
+
+  img {
+    max-height: 45px;
+  }
 }
 
 body.irtf {
