@@ -358,7 +358,7 @@ module IRTF
     [ king, shiomoto ],
     nil,
     "2013-1-14",
-    nil
+    "2017-1-6"
   )
 
   # TMRG
@@ -416,7 +416,6 @@ module IRTF
     "nfvrg" => nfvrg,
     "nmrg"  => nmrg,
     "nwcrg" => nwcrg,
-    "sdnrg" => sdnrg,
     "t2trg" => t2trg
   }
 
@@ -456,6 +455,7 @@ module IRTF
   $oldrgs["rrg"] = rrg;
   $oldrgs["ncrg"] = ncrg;
   $oldrgs["dtnrg"] = dtnrg;
+  $oldrgs["sdnrg"] = sdnrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
