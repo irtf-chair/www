@@ -6,6 +6,9 @@ ignore "/style.*"
 # Don't upload the hotcrp json and xml files
 ignore "/anrw/*/*.{xml,json}"
 
+# Ignore any yaml files
+ignore "/**/*.yaml"
+
 compile "/**/*.haml" do
   filter :haml, :format => :html5
   filter :rfc
