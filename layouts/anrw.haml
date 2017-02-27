@@ -8,9 +8,10 @@
     %nav.navbar.navbar-default
       .container-fluid
         .navbar-heading
-          %small ACM, IRTF & ISOC
-          %br
-          Applied Networking Research Workshop #{year}
+          %img{:src => "../../img/anrp_logo_#{year}.png", height: "100vh"} 
+        -#%small ACM, IRTF & ISOC
+        -#%br
+        -#Applied Networking Research Workshop #{year}
         .navbar-header
           %a.navbar-brand{ :href => "../" } ANRW Series
           %button.navbar-toggle.collapsed{ :type => "button", "data-toggle" => "collapse", "data-target" => "#anrw-collapse", "aria-expanded" => "false" }
