@@ -1,4 +1,5 @@
 - year = item.path.split("/")[2]
+- path = "/content/img/anrp_logo_#{year}.png"
 
 !!! 5
 %html{ :lang => "en" }
@@ -8,10 +9,12 @@
     %nav.navbar.navbar-default
       .container-fluid
         .navbar-heading
-          %img{:src => "../../img/anrp_logo_#{year}.png", height: "100vh"} 
-        -#%small ACM, IRTF & ISOC
-        -#%br
-        -#Applied Networking Research Workshop #{year}
+          - if File.file?(Dir.pwd + path)
+            %img{:src => relative_path_to("/img/anrp_logo_#{year}.png"), height: "100vh"}
+          - else
+            %small ACM, IRTF & ISOC
+            %br
+            Applied Networking Research Workshop #{year}
         .navbar-header
           %a.navbar-brand{ :href => "../" } ANRW Series
           %button.navbar-toggle.collapsed{ :type => "button", "data-toggle" => "collapse", "data-target" => "#anrw-collapse", "aria-expanded" => "false" }
