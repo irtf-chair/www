@@ -3,20 +3,22 @@ title: <small>ACM, IRTF & ISOC</small><br> Applied Networking Research Workshop
 logo_hidden: true
 ---
 
-- loc = @item.path =~ /^\/[^\/]*$/ ? "" : @item.path.gsub(/\w+\.\w+$/, "").gsub(/[^\/\.]+/, "..").gsub(/^\//, "")
+- loc = @item.path =~ /^\/[^\/]*$/ ? '' : @item.path.gsub(/\w+\.\w+$/, '').gsub(/[^\/\.]+/, "..").gsub(/^\//, '')
 
-= render "/anrw/sponsors_.*", :noblurb => true
+%p.lead
+  %img.img-responsive.center-block{ src: relative_path_to("/img/anrp_logo.png") }
 
 -# .alert.alert-danger.alert-dismissible
--#   %button{ :type => "button", :class => "close", "data-dismiss" => "alert", "aria-label" => "Close"}
--#     %span{ "aria-hidden" => "true"} &times;
--#   %span.glyphicon.glyphicon-alert{ "aria-hidden" => "true" }
+-#   %button{ type: 'button', class: 'close', 'datadismiss': 'alert', 'arialabel': 'Close'}
+-#     %span{ 'ariahidden': 'true'} &times;
+-#   %span.glyphicon.glyphicon-alert{ 'ariahidden': 'true' }
 -#   Do not share URL with others yet!
 
 %p.lead
-  The ACM, IRTF & ISOC Applied Networking Research Workshops (ANRW) provide a forum for
-  researchers, vendors, network operators and the Internet standards community
-  to present and discuss emerging results in applied networking research.
+  The ACM, IRTF & ISOC Applied Networking Research Workshops (ANRW) provide a
+  forum for researchers, vendors, network operators and the Internet standards
+  community to present and discuss emerging results in applied networking
+  research.
 
 %p
   In order to foster this cross-community collaboration, the workshops will be
@@ -29,18 +31,18 @@ logo_hidden: true
   - @items.find_all(%r{./(\d+)/index.*}).reverse.each do |item|
     .col-xs-6.col-sm-4.col-md-3.col-lg-3
       .thumbnail
-        %a{ :href => item.path }
-          %img.img-responsive{ :src => "#{item.path.split("/")[-1]}/photo.jpg", :alt => "Berlin" }
+        %a{ href: item.path }
+          %img.img-responsive{ src: "#{item.path.split("/")[-1]}/photo.jpg", alt: 'Berlin' }
           .caption
             %h4 #{item[:menu]} at #{item[:ietf]}
             %p
-              #{item[:location]}
+              #{item[:location].to_s}
               %br
-              #{item[:date]}
+              #{item[:date].to_s}
 
 .row
   .col-lg-6
-    = render "/anrw/2017/sc_.*", :blurb => true
+    = render '/anrw/2017/sc_.*', blurb: true
   .col-lg-6
     %h2 Sponsors
-    = render "/anrw/sponsors_.*"
+    = render '/anrw/sponsors_.*'
