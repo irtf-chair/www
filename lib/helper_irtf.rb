@@ -463,20 +463,20 @@ module IRTF
   # IRSG
   eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "https://eggert.org/", "584143839")
   $chair = eggert
-  falk = Person.new("Aaron", "Falk", "aaron.falk@gmail.com", "https://linkedin.com/in/aaronfalk", nil)
-  allman = Person.new("Mark", "Allman", "mallman@icir.org", "https://www.icir.org/mallman/", nil)
-  dawkins = Person.new("Spencer", "Dawkins", "spencerdawkins.ietf@gmail.com", "https://linkedin.com/in/spencerdawkins", nil)
+  # falk = Person.new("Aaron", "Falk", "aaron.falk@gmail.com", "https://linkedin.com/in/aaronfalk", nil)
+  # allman = Person.new("Mark", "Allman", "mallman@icir.org", "https://www.icir.org/mallman/", nil)
+  # dawkins = Person.new("Spencer", "Dawkins", "spencerdawkins.ietf@gmail.com", "https://linkedin.com/in/spencerdawkins", nil)
   # arkko = Person.new("Jari", "Arkko", "jari.arkko@piuha.net", "https://www.arkko.com/", nil)
   # li = Person.new("Xing", "Li", "xing@cernet.edu.cn", "https://www.net-glyph.org/lixing/", nil)
   # lear = Person.new("Eliot", "Lear", "lear@cisco.com", "https://linkedin.com/pub/eliot-lear/0/81/b0a", nil)
-  housley = Person.new("Russ", "Housley", "housley@vigilsec.com", "https://linkedin.com/pub/russ-housley/0/69/419", nil)
-  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
-  droms = Person.new("Ralph", "Droms", "rdroms.ietf@gmail.com", "https://www.linkedin.com/pub/ralph-droms/0/493/a10", nil)
-  nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
-  feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
-  teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
+  # housley = Person.new("Russ", "Housley", "housley@vigilsec.com", "https://linkedin.com/pub/russ-housley/0/69/419", nil)
+  # farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
+  # droms = Person.new("Ralph", "Droms", "rdroms.ietf@gmail.com", "https://www.linkedin.com/pub/ralph-droms/0/493/a10", nil)
+  # nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
+  # feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
+  # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   $mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://www.linkedin.com/in/allisonmankin", nil)
-  $atlarge = [ falk, allman, dawkins, housley, farrell, droms, nordmark, feamster, teixeira, $mankin ]
+  $atlarge = [ $mankin ]
 
   def atlarge_contacts
     result = "irsg\n" +
