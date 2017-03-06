@@ -7,13 +7,13 @@ ietf: IETF-99
 ---
 
 .hidden-xs.pull-right.col-sm-4
-  %img.img-thumbnail.img-responsive{ :src => "photo.jpg", :alt => "#{@item[:location]}"}
+  %img.img-thumbnail.img-responsive{ src: 'photo.jpg', alt: "#{@item[:location]}" }
   %p.text-muted
     %small
-      %a{ :href => "https://www.flickr.com/photos/bradhammonds/9651948027/"} "Prague Castle"
+      %a{ href: 'https://www.flickr.com/photos/bradhammonds/9651948027/' } 'Prague Castle'
       by
-      %a{ :href => "https://bradhammonds.eu/"} Brad Hammonds
-      %a{ :href => "https://creativecommons.org/licenses/by-nc/2.0/"} (CC BY-NC 2.0)
+      %a{ href: 'https://bradhammonds.eu/' } Brad Hammonds
+      %a{ href: 'https://creativecommons.org/licenses/by-nc/2.0/' } (CC BY-NC 2.0)
 
 %p
   The ACM, IRTF & ISOC Applied Networking Research Workshop 2017
@@ -30,17 +30,20 @@ ietf: IETF-99
   in real-world deployments or realistic testbeds; or that improve Internet
   security and privacy, scalability, performance, and robustness.
 
-%p.lead= render "/anrw/2017/place_.*"
+%p.lead= render '/anrw/2017/place_.*'
 
 %p.btn-toolbar
-%a.btn.btn-primary.btn-lg{ :href => "cfp", :role => "button" } Call for Papers »
--#   %a.btn.btn-primary.btn-lg{ :href => "https://www.internetsociety.org/form/anrw", :role => "button" } Register & participate »
--#   %a.btn.btn-success.btn-lg{ :href => "program", :role => "button" } Workshop program »
--#   %a.btn.btn-info.btn-lg{ :href => "travelgrants", :role => "button" } Student travel grants »
+%a.btn.btn-primary.btn-lg{ href: 'cfp', role: 'button' } Call for Papers »
+%a.btn.btn-primary.btn-lg{ href: 'https://anrw17.hotcrp.com/', role: 'button' }
+  Start a submission »
+
+-#   %a.btn.btn-primary.btn-lg{ href: 'https://www.internetsociety.org/form/anrw', role: 'button' } Register & participate »
+-#   %a.btn.btn-success.btn-lg{ href: 'program', role: 'button' } Workshop program »
+-#   %a.btn.btn-info.btn-lg{ href: 'travelgrants', role: 'button' } Student travel grants »
 
 %h2 Important Dates
-= render "/anrw/2017/dates_.*"
+= render '/anrw/2017/dates_.*'
 
 %h2 Supporters and Sponsors
-= render "/anrw/2017/supporters_.*"
-= render "/anrw/sponsors_.*"
+= render '/anrw/2017/supporters_.*'
+= render '/anrw/sponsors_.*'
