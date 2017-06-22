@@ -12,7 +12,7 @@ menu: Program
   %a{ :href => "https://www.internetsociety.org/form/anrw" }
     registration and payment of the registration fee
   is however required.
-  
+
 
 %h2 Program
 
@@ -39,6 +39,19 @@ menu: Program
         %h4.text-danger 9:15
       %td
         %h4.text-danger Session: Measurements
+        %table.no-urlify
+          %tr
+            %td
+              %h5.strong Measurement Vantage Point Selection Using A Similarity Metric
+              %h6 <em>T. Holterbach, E. Aben, C. Pelsser, R. Bush, L. Vanbever</em>
+          %tr
+            %td
+              %h5 Characterizing User-to-User Connectivity with RIPE Atlas
+              %h6 <em>P. Gigis, V. Kotronis, E. Aben, S. Strowes, X. Dimitropoulos</em>
+          %tr
+            %td
+              %h5 CheesePi: Research, Results, and the Regulator
+              %h6 <em>I. Marsh</em>
 
         -# .row= htmlify_paper(json, 16)
         -# .row= htmlify_paper(json, 21)
@@ -55,7 +68,23 @@ menu: Program
         %h4.text-danger 11:15
       %td
         %h4.text-danger Session: Transport
-        %p
+        %table.no-urlify
+          %tr
+            %td
+              %h5.strong copycat: Testing Differential Treatment of New Transport Protocols in the Wild
+              %h6 <em>K. Edeline, M. Kühlewind, B. Trammell, B. Donnet</em>
+          %tr
+            %td
+              %h5 Tracking transport-layer evolution with PATHspider
+              %h6 <em>B. Trammell, M. Kühlewind, P. De Vaere, I. Learmonth, G. Fairhurst</em>
+          %tr
+            %td
+              %h5 Take your own share of the PIE
+              %h6 <em>S. Laki, G. Gombos, S. Nádas, Z. Turányi</em>
+          %tr
+            %td
+              %h5 Demo: A NEAT Way to Browse the Web
+              %h6 <em>F. Weinrank, K. Grinnemo, Z. Bozakov, A. Brunstrom, T. Dreibholz, G. Fairhurst, P. `Hurtig, N. Khademi, M. Tüxen</em>
         -# .row= htmlify_paper(json, 15)
         -# .row= htmlify_paper(json, 24)
         -# .row= htmlify_paper(json, 5)
@@ -64,14 +93,26 @@ menu: Program
       %td
         %h4.text-danger 12:45
       %td
-        %h4.text-danger Lunch Break 
+        %h4.text-danger Lunch Break
 
     %tr
       %td
         %h4.text-danger 14:00
       %td
         %h4.text-danger Session: Implementation & Operations
-        %p
+        %table.no-urlify
+          %tr
+            %td
+              %h5.strong Implementing IPv6 Segment Routing in the Linux Kernel
+              %h6.italic <em>D. Lebrun, O. Bonaventure</em>
+          %tr
+            %td
+              %h5 Manage resource-constrained IoT devices through dynamically generated and deployed YANG models
+              %h6 <em>T. Scheffler, O. Bonneß</em>
+          %tr
+            %td
+              %h5 No domain left behind: is Let's Encrypt democratizing encryption?
+              %h6 <em>M. Aertsen, M. Korczyński, G. Moura, S. Tajalizadehkhoob, J. Berg</em>
         -# .row= htmlify_paper(json, 9)
         -# .row= htmlify_paper(json, 27)
         -# .row= htmlify_paper(json, 28)
@@ -80,14 +121,18 @@ menu: Program
       %td
         %h4.text-danger 15:30
       %td
-        %h4.text-danger Coffee Break 
+        %h4.text-danger Coffee Break
 
     %tr
       %td
         %h4.text-danger 16:00
       %td
         %h4.text-danger Panel: Internet Health Metrics
-        %p
+        %table.no-urlify
+          %tr
+            %td
+              %h5.strong Panel: Internet Health Metrics
+              %h6.italic <em>Panel chair: Leslie Daigle</em>
         -# .row= htmlify_paper(json, 12)
 
     %tr
@@ -95,4 +140,3 @@ menu: Program
         %h4.text-danger 17:00
       %td
         %h4.text-danger Adjourn
-

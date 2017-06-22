@@ -19,17 +19,6 @@
       %td{ :colspan => 2 }
         %del
           June 2, 2017
-  -if @which == nil or @which == "grants"
-    %tr
-      %td
-        Travel grants submission deadline
-      %td{ :colspan => 2 }
-        June 30, 2017
-    %tr
-      %td
-        Travel grants notification deadline
-      %td{ :colspan => 2 }
-        July 6, 2017
   -if @which == nil or @which == "papers"
     %tr
       %td
@@ -42,6 +31,17 @@
         Early registration deadline
       %td{ :colspan => 2 }
         June 26, 2017
+  -if @which == nil or @which == "grants"
+    %tr
+      %td
+        Travel grants submission deadline
+      %td{ :colspan => 2 }
+        June 30, 2017
+    %tr
+      %td
+        Travel grants notification deadline
+      %td{ :colspan => 2 }
+        July 6, 2017
 
 -# %table.table.table-condensed
 -#   %tbody
