@@ -1,0 +1,98 @@
+---
+title: ANRW&nbsp;’17 Program
+menu: Program
+---
+
+%h1 Workshop Program
+
+%p= render "/anrw/2017/place_.*"
+
+%p
+  The workshop is open to all;
+  %a{ :href => "https://www.internetsociety.org/form/anrw" }
+    registration and payment of the registration fee
+  is however required.
+  
+
+%h2 Program
+
+%p
+  The program is still WIP. Some information might be missing.
+
+- json = "content/anrw/2017/anrw17-data.json"
+- xml = "content/anrw/2017/anrw17_jul17_17.xml"
+%table.table.table-striped.no-urlify
+  %thead
+    %tr
+      %th
+        Time
+      %th
+        Session
+  %tbody
+    %tr
+      %td
+        %h4.text-danger 9:00
+      %td
+        %h4.text-danger Opening
+    %tr
+      %td
+        %h4.text-danger 9:15
+      %td
+        %h4.text-danger Session: Measurements
+
+        -# .row= htmlify_paper(json, 16)
+        -# .row= htmlify_paper(json, 21)
+        -# .row= htmlify_paper(json, 3)
+
+    %tr
+      %td
+        %h4.text-danger 10:45
+      %td
+        %h4.text-danger Coffee Break
+
+    %tr
+      %td
+        %h4.text-danger 11:15
+      %td
+        %h4.text-danger Session: Transport
+        %p
+        -# .row= htmlify_paper(json, 15)
+        -# .row= htmlify_paper(json, 24)
+        -# .row= htmlify_paper(json, 5)
+
+    %tr
+      %td
+        %h4.text-danger 12:45
+      %td
+        %h4.text-danger Lunch Break 
+
+    %tr
+      %td
+        %h4.text-danger 14:00
+      %td
+        %h4.text-danger Session: Implementation & Operations
+        %p
+        -# .row= htmlify_paper(json, 9)
+        -# .row= htmlify_paper(json, 27)
+        -# .row= htmlify_paper(json, 28)
+
+    %tr
+      %td
+        %h4.text-danger 15:30
+      %td
+        %h4.text-danger Coffee Break 
+
+    %tr
+      %td
+        %h4.text-danger 16:00
+      %td
+        %h4.text-danger Panel: Internet Health Metrics
+        %p
+        -# .row= htmlify_paper(json, 12)
+
+    %tr
+      %td
+        %h4.text-danger 17:00
+      %td
+        %h4.text-danger Adjourn
+
