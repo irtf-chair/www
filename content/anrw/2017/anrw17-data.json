@@ -1,0 +1,3187 @@
+[
+    {
+        "pid": 9,
+        "title": "Measurement Vantage Point Selection Using A Similarity Metric",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492111795,
+        "authors": [
+            {
+                "email": "thomahol@ethz.ch",
+                "first": "Thomas",
+                "last": "Holterbach",
+                "affiliation": "ETH Zürich",
+                "contact": true
+            },
+            {
+                "email": "emile.aben@ripe.net",
+                "first": "Emile",
+                "last": "Aben",
+                "affiliation": "RIPE NCC",
+                "contact": true
+            },
+            {
+                "email": "pelsser@unistra.fr",
+                "first": "Cristel",
+                "last": "Pelsser",
+                "affiliation": "University of Strasbourg",
+                "contact": true
+            },
+            {
+                "email": "randy@psg.com",
+                "first": "Randy",
+                "last": "Bush",
+                "affiliation": "Internet Initiative Japan",
+                "contact": true
+            },
+            {
+                "email": "lvanbever@ethz.ch",
+                "first": "Laurent",
+                "last": "Vanbever",
+                "affiliation": "ETH Zürich",
+                "contact": true
+            }
+        ],
+        "abstract": "In a measurement platform with a wide selection of vantage points, it can become a challenge to select the most appropriate vantage points for a given measurement. We propose a novel means of selecting vantage points, which is not based on categorical properties (like origin ASN, or geographical location), but is based on the topological (dis)similarity between vantage points. We describe a similarity metric between RIPE Atlas probes and how it performs better for the purpose of topology discovery, than the probe selection mechanism that is built into RIPE Atlas.",
+        "topics": {
+            "Network management, diagnosis, and operations": true,
+            "Network measurements": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-8cc2e13193b44e7c10cb71da72962355f716139cd033103991cc944dbbe3fdb9",
+            "timestamp": 1492111795,
+            "size": 579589,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1492125018,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        104,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 45275
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 51066
+                        },
+                        {
+                            "margin": [
+                                60,
+                                316,
+                                612,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 5434,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper9.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-eb752221c08c5cf4eb26738b0613e6423624e93a2cf2ff568ab8426423e5e39e",
+            "timestamp": 1498645055,
+            "size": 754473,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 3,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498645061,
+                    "npages": 3
+                },
+                "banal": {
+                    "at": 1498645061,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 48089
+                        },
+                        {
+                            "d": 53784
+                        },
+                        {
+                            "margin": [
+                                60,
+                                316,
+                                636,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 3817,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final9.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1497526684,
+        "options": {
+            "short-paper": true,
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "RIPE Atlas - User-Defined Measurements."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "RIPE NCC. RIPE Atlas."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "I. Cunha, P. Marchetta, M. Calder, Y.-C. Chiu, B. Schlinker, B. V. A. Machado, A. Pescapè, V. Giotsas, H. V. Madhyastha, and E. Katz-Bassett. Sibyl: A practical Internet route oracle. In <i>Proc. USENIX NSDI, 2016<\/i>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "T. Holterbach, C. Pelsser, R. Bush, and L. Vanbever. Quantifying interference between measurements on the ripe atlas platform. In <i>Proc. ACM IMC, 2015<\/i>."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                },
+                {
+                    "concept_id": "10003033.10003099.10003105",
+                    "concept_desc": "Networks~Network monitoring",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003105
+                    ],
+                    "expected_concept_desc": "Networks~Network monitoring"
+                }
+            ],
+            "acm-keywords": [
+                "RIPE Atlas",
+                "Internet Measurements",
+                "Monitoring"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/x-tex",
+                    "hash": "sha2-0a586932f6bbf46848af00cc8b92f79751ee9cd6c28507a412ccd49cf13fa135",
+                    "timestamp": 1498136114,
+                    "size": 10132,
+                    "filename": "paper.tex",
+                    "content_file": "anrw17-paper9-source-files\/paper.tex"
+                },
+                {
+                    "mimetype": "application\/x-tex",
+                    "hash": "sha2-adb87ce356603ecdaea0d73e9dc05023953e0b858b45ec59391c36e5395b519b",
+                    "timestamp": 1498136114,
+                    "size": 7031,
+                    "filename": "prob_sim_experiment.tex",
+                    "content_file": "anrw17-paper9-source-files\/prob_sim_experiment.tex"
+                },
+                {
+                    "mimetype": "application\/x-tex",
+                    "hash": "sha2-b0a289fc4b050f8a3f06918ed63ede499ab61b887678b84cd78617d90bdbc037",
+                    "timestamp": 1498136114,
+                    "size": 9985,
+                    "filename": "topology_redundancy.tex",
+                    "content_file": "anrw17-paper9-source-files\/topology_redundancy.tex"
+                },
+                {
+                    "mimetype": "application\/x-tex",
+                    "hash": "sha2-9c25c1bc8d687e3c4d296e8b5c5adacb601bac2d8a10ac5d25d30155b784a9ab",
+                    "timestamp": 1498136114,
+                    "size": 721,
+                    "filename": "Conclusions.tex",
+                    "content_file": "anrw17-paper9-source-files\/Conclusions.tex"
+                },
+                {
+                    "mimetype": "image\/png",
+                    "hash": "sha2-7ff82f0242f800aee2794893e0dfce34ebbba2330f0ee0f7001225154d525001",
+                    "timestamp": 1498645200,
+                    "size": 330953,
+                    "filename": "jaccard-cdf.max-probe.v4v6-crop.png",
+                    "content_file": "anrw17-paper9-source-files\/jaccard-cdf.max-probe.v4v6-crop.png"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "feamster@CS.Princeton.EDU": "confirmed",
+            "kc@caida.org": "collaborator",
+            "mirja.kuehlewind@tik.ee.ethz.ch": "collaborator",
+            "nweaver@icsi.berkeley.edu": "collaborator",
+            "Olivier.Bonaventure@uclouvain.be": "collaborator",
+            "randy@psg.com": "author"
+        }
+    },
+    {
+        "pid": 7,
+        "title": "Characterizing User-to-User Connectivity with RIPE Atlas",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492030105,
+        "authors": [
+            {
+                "email": "gkigkis@ics.forth.gr",
+                "first": "Petros",
+                "last": "Gigis",
+                "affiliation": "RIPE NCC, Netherlands & FORTH-ICS, Greece",
+                "contact": true
+            },
+            {
+                "email": "vkotronis@ics.forth.gr",
+                "first": "Vasileios",
+                "last": "Kotronis",
+                "affiliation": "FORTH-ICS, Greece",
+                "contact": true
+            },
+            {
+                "email": "emile.aben@ripe.net",
+                "first": "Emile",
+                "last": "Aben",
+                "affiliation": "RIPE NCC, Netherlands",
+                "contact": true
+            },
+            {
+                "email": "sds@ripe.net",
+                "first": "Stephen D.",
+                "last": "Strowes",
+                "affiliation": "RIPE NCC, Netherlands",
+                "contact": true
+            },
+            {
+                "email": "fontas@ics.forth.gr",
+                "first": "Xenofontas",
+                "last": "Dimitropoulos",
+                "affiliation": "FORTH-ICS, Greece",
+                "contact": true
+            }
+        ],
+        "abstract": "Characterizing the interconnectivity of networks at a country level\r\nis an interesting but non-trivial task. The IXP Country Jedi [8]\r\nis an existing prototype that uses RIPE Atlas probes in order to\r\nexplore interconnectivity at a country level, taking into account all\r\nAutonomous Systems (AS) where RIPE Atlas probes are deployed.\r\nIn this work, we build upon this basis and specifically focus on\r\n“eyeball” networks, i.e. the user-facing networks with the largest\r\nuser populations in any given country, and explore to what extent\r\nwe can provide insights on their interconnectivity. In particular,\r\nwith a focused user-to-user (and\/or user-to-content) version of\r\nthe IXP Country Jedi we work towards meaningful statistics and\r\ncomparisons between countries\/economies. This is something that\r\na general-purpose probe-to-probe version is not able to capture.\r\nWe present our preliminary work on the estimation of RIPE Atlas\r\ncoverage in eyeball networks, as well as an approach to measure\r\nand visualize user interconnectivity with our Eyeball Jedi tool.",
+        "topics": {
+            "Network management, diagnosis, and operations": true,
+            "Network measurements": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-5be562b27922c5db79ee2f674f9d5499e1ac56c46b16966f90a329a7427388d1",
+            "timestamp": 1492030105,
+            "size": 330123,
+            "filename": "characterizing-user-user.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1492030121,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        84,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "nummargin": 73,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 57704
+                        },
+                        {
+                            "margin": [
+                                88,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 60944
+                        },
+                        {
+                            "margin": [
+                                84,
+                                316,
+                                332,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 21614,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper7.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-dba2c7520b9af706c2221b62eff772d31c56211a810ca6fe89603c084a39f3b6",
+            "timestamp": 1498137748,
+            "size": 361938,
+            "filename": "gigis_characterizing_user_user.pdf",
+            "metadata": {
+                "npages": 3,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498137757,
+                    "npages": 3
+                },
+                "banal": {
+                    "at": 1498137757,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        84,
+                        52,
+                        300,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "nummargin": 73,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 49460
+                        },
+                        {
+                            "margin": [
+                                88,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 64567
+                        },
+                        {
+                            "margin": [
+                                84,
+                                316,
+                                300,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 24393,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final7.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1498137748,
+        "options": {
+            "short-paper": true,
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "APNIC Labs AS population data. <a href=\"https:\/\/stats.labs.apnic.net\/aspop\/\">https:\/\/stats.labs.apnic.net\/aspop\/<\/a>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "APNIC Labs IPv6 measurement campaign. <a href=\"https:\/\/labs.apnic.net\/measureipv6\/\">https:\/\/labs.apnic.net\/measureipv6\/<\/a>."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Internet Users from Internet Live Stats. <a href=\"http:\/\/www.internetlivestats.com\/internet-users\/\">http:\/\/www.internetlivestats.com\/internet-users\/<\/a>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "RIPE Atlas API Reference. <a href=\"https:\/\/atlas.ripe.net\/docs\/api\/v2\/reference\/\">https:\/\/atlas.ripe.net\/docs\/api\/v2\/reference\/<\/a>."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "RIPE ATLAS Home. <a href=\"https:\/\/atlas.ripe.net\/\">https:\/\/atlas.ripe.net\/<\/a>."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "RIPEstat. <a href=\"https:\/\/stat.ripe.net\/\">https:\/\/stat.ripe.net\/<\/a>."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "<scp>Aben, E.<\/scp> Improving RIPE Atlas Coverage - Which Networks Are Missing? <a href=\"https:\/\/labs.ripe.net\/Members\/emileaben\/improving-ripe-atlas-coverage-what-networks-are-missing\">https:\/\/labs.ripe.net\/Members\/emileaben\/improving-ripe-atlas-coverage-what-networks-are-missing<\/a>."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "<scp>Aben, E.<\/scp> IXP Country Jedi. <a href=\"https:\/\/github.com\/emileaben\/ixp-country-jedi\">https:\/\/github.com\/emileaben\/ixp-country-jedi<\/a>."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "<scp>Chiu, Y.-C., Schlinker, B., Radhakrishnan, A. B., Katz-Bassett, E., and Govindan, R.<\/scp> Are We One Hop Away from a Better Internet? In <i>Proceedings of the 2015 ACM Conference on Internet Measurement Conference<\/i> (2015), ACM, pp. 523–529."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "<scp>Gigis, P.<\/scp> Eyeball Jedi github repository. <a href=\"https:\/\/github.com\/pgigis\/eyeball-jedi\">https:\/\/github.com\/pgigis\/eyeball-jedi<\/a>."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "<scp>Gigis, P., Aben, E., and Kotronis, V.<\/scp> Eyeball Jedi. <a href=\"http:\/\/www.inspire.edu.gr\/eyeball-jedi\/\">http:\/\/www.inspire.edu.gr\/eyeball-jedi\/<\/a>. Also accessible via: <a href=\"http:\/\/sg-pub.ripe.net\/petros\/eyeball-jedi\/\">http:\/\/sg-pub.ripe.net\/petros\/eyeball-jedi\/<\/a>."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "<scp>Gigis, P., Aben, E., and Kotronis, V.<\/scp> Eyeball networks coverage: An estimation of Internet users being covered by RIPE Atlas probes (Online data in tabular format). <a href=\"http:\/\/sg-pub.ripe.net\/petros\/population_coverage\/table.html\">http:\/\/sg-pub.ripe.net\/petros\/population_coverage\/table.html<\/a>."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "<scp>Gigis, P., Aben, E., and Kotronis, V.<\/scp> Eyeball networks coverage: An estimation of Internet users being covered by RIPE Atlas probes (Online data on world map). <a href=\"http:\/\/sg-pub.ripe.net\/petros\/population_coverage\/map.html?version=4&amp;public_only=false\">http:\/\/sg-pub.ripe.net\/petros\/population_coverage\/map.html?version=4&amp;public_only=false<\/a>."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "<scp>Gigis, P., Aben, E., and Kotronis, V.<\/scp> RIPE Atlas Coverage in Eyeball Networks. <a href=\"https:\/\/labs.ripe.net\/Members\/petros_gigis\/ripe-atlas-coverage-in-eyeball-networks\">https:\/\/labs.ripe.net\/Members\/petros_gigis\/ripe-atlas-coverage-in-eyeball-networks<\/a>."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "<scp>Gupta, A., Calder, M., Feamster, N., Chetty, M., Calandro, E., and Katz-Bassett, E.<\/scp> Peering at the Internet's Frontier: A First Look at ISP Interconnectivity in Africa. In <i>International Conference on Passive and Active Network Measurement<\/i> (2014), Springer, pp. 204–213."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "<scp>Labovitz, C., Iekel-Johnson, S., McPherson, D., Oberheide, J., and Jahanian, F.<\/scp> Internet Inter-Domain Traffic. In <i>ACM SIGCOMM Computer Communication Review<\/i> (2010), vol. 40, ACM, pp. 75–86."
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "<scp>Nygren, E., Sitaraman, R. K., and Sun, J.<\/scp> The Akamai network: a platform for high-performance internet applications. <i>ACM SIGOPS Operating Systems Review 44<\/i>, 3 (2010), 2–19."
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "<scp>Obar, J., and Clement, A.<\/scp> Internet Surveillance and Boomerang Routing: A Call for Canadian Network Sovereignty. In <i>TEM 2013: Proceedings of the Technology & Emerging Media Track, Annual Conference of the Canadian Communication Association<\/i> (2013), p. 2."
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "<scp>RIPE Atlas Community<\/scp>. OpenIPMap: Geolocating Internet Infrastructure. <a href=\"https:\/\/github.com\/RIPE-Atlas-Community\/openipmap\">https:\/\/github.com\/RIPE-Atlas-Community\/openipmap<\/a>."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                },
+                {
+                    "concept_id": "10003033.10003083",
+                    "concept_desc": "Networks~Network properties",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003083
+                    ],
+                    "expected_concept_desc": "Networks~Network properties"
+                }
+            ],
+            "acm-keywords": [
+                "Measurement",
+                "Traceroute",
+                "User Coverage",
+                "Eyeball Networks"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-3ee7612fc638522c06a74b890e8554753a80503598c9abb866d7d272bdf70499",
+                    "timestamp": 1498137748,
+                    "size": 209525,
+                    "filename": "gigis_characterizing_user_user_latex_source.zip",
+                    "content_file": "anrw17-paper7-source-files\/gigis_characterizing_user_user_latex_source.zip"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "csp@csperkins.org": "collaborator",
+            "kc@caida.org": "collaborator",
+            "mirja.kuehlewind@tik.ee.ethz.ch": "collaborator",
+            "randy@psg.com": "collaborator"
+        }
+    },
+    {
+        "pid": 17,
+        "title": "CheesePi: Research, Results, and the Regulator",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492123787,
+        "authors": [
+            {
+                "email": "ian.marsh@ris.se",
+                "first": "Ian",
+                "last": "Marsh",
+                "affiliation": "RISE AB"
+            }
+        ],
+        "contacts": [
+            {
+                "email": "ian.marsh@ri.se",
+                "first": "Ian",
+                "last": "Marsh",
+                "affiliation": "RISE AB"
+            }
+        ],
+        "abstract": "In October 2015 we presented CheesePi at the Research and Applications\r\nof Internet Measurements (RAIM) workshop in Yokohama, Japan.  In this\r\nfollowup paper, 18 months on, we present our findings. These range\r\nfrom simple round trip delay measurements to entire quality campaigns\r\nover several weeks.  A significant portion of the research has been\r\ndone in conjunction with the Swedish regulator, which we bring to the\r\nfore.  CheesePi is a lightweight platform with the goal of performing\r\nmeasurements from within users' homes.  Since the goal is to measure\r\nInternet quality delivered by ISPs, measurement fairness is of prime\r\nconcern.  This paper covers the regulator's demands, ISPs feedback,\r\nour research interests, the users' needs of nearly two years work.",
+        "topics": {
+            "Networked applications (video streaming, web, etc.)": true,
+            "Network measurements": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-735ed5147451e0ad8b7d206fca80fddf520ef86efcfff5e13627112a97b6c335",
+            "timestamp": 1492153241,
+            "size": 2214698,
+            "filename": "anrnw2017_long.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1492185153,
+                    "papersize": [
+                        840,
+                        596
+                    ],
+                    "margin": [
+                        56,
+                        40,
+                        120,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "nummargin": 753,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                40,
+                                116,
+                                52
+                            ],
+                            "d": 48662
+                        },
+                        {
+                            "d": 27780
+                        },
+                        {
+                            "d": 31076
+                        },
+                        {
+                            "margin": [
+                                56,
+                                32,
+                                120,
+                                52
+                            ],
+                            "d": 40416
+                        },
+                        {
+                            "margin": [
+                                160,
+                                40,
+                                120,
+                                52
+                            ],
+                            "bodyfontsize": 3,
+                            "leading": 0.3,
+                            "columns": 1,
+                            "d": 856225,
+                            "pagetype": "bib"
+                        },
+                        {
+                            "margin": [
+                                56,
+                                44,
+                                120,
+                                52
+                            ],
+                            "d": 65091
+                        },
+                        {
+                            "margin": [
+                                56,
+                                316,
+                                764,
+                                104
+                            ],
+                            "d": 1046,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper17.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-8f1f242c4d18356c3e19e6d2d551b75663df591b1632c551aed43a92cd8c7a5f",
+            "timestamp": 1498489399,
+            "size": 5740270,
+            "filename": "embedall_ianmarsh.pdf",
+            "metadata": {
+                "npages": 6,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1499964968,
+                    "npages": 6
+                },
+                "banal": {
+                    "at": 1499964968,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        0,
+                        612,
+                        792,
+                        0
+                    ],
+                    "bodyfontsize": null,
+                    "leading": 0,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "bodyfontsize": 9,
+                            "leading": 11,
+                            "d": 51027
+                        },
+                        {
+                            "bodyfontsize": 0,
+                            "columns": 0,
+                            "d": 0,
+                            "pagetype": "figure"
+                        },
+                        {
+                            "bodyfontsize": 0,
+                            "columns": 0,
+                            "d": 0,
+                            "pagetype": "figure"
+                        },
+                        {
+                            "bodyfontsize": 0,
+                            "columns": 0,
+                            "d": 0,
+                            "pagetype": "figure"
+                        },
+                        {
+                            "bodyfontsize": 0,
+                            "columns": 0,
+                            "d": 0,
+                            "pagetype": "figure"
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                164,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 44119
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final17.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1497286908,
+        "options": {
+            "short-paper": false,
+            "references": [
+                {
+                    "ref_text": "Leone year2015. titleEU 7th Framework program, Large-Scale Measurement Platforms. howpublished<a href=\"http:\/\/www.leone-project.eu\">http:\/\/www.leone-project.eu<\/a>. (dateApril year2015). [Online; accessed 01-August-2015]."
+                },
+                {
+                    "ref_text": "bajpai_et_al:DR:2016:5807 authorpersonVaibhav Bajpai, personArthur W. Berger, personPhilip Eardley, personJörg Ott, and personJürgen Schönwälder. year2016. Global Measurements: Practice and Experience (Dagstuhl Seminar 16012). journal<i>Dagstuhl Reports<\/i> volume6, number1 (year2016), pages15–33. 2192-5283 <a href=\"https:\/\/doi.org\/10.4230\/DagRep.6.1.15\">https:\/\/doi.org\/10.4230\/DagRep.6.1.15<\/a>"
+                },
+                {
+                    "ref_text": "Bajpai:Ripe2015 authorpersonVaibhav Bajpai, personSteffie Jacob Eravuchira, and personJürgen Schönwälder. year2015. Lessons Learned From Using the RIPE Atlas Platform for Measurement Research. journal<i>SIGCOMM Comput. Commun. Rev.<\/i> volume45, number3 (dateJuly year2015), pages35–42. 0146-4833 <a href=\"https:\/\/doi.org\/10.1145\/2805789.2805796\">https:\/\/doi.org\/10.1145\/2805789.2805796<\/a>"
+                },
+                {
+                    "ref_text": "Bajpai2015 authorpersonV. Bajpai and personJ. Schonwalder. year2015. A Survey on Internet Performance Measurement Platforms and Related Standardization Efforts. journal<i>Communications Surveys Tutorials, IEEE<\/i> volumePP, number99 (year2015), pages1–1. 1553-877X <a href=\"https:\/\/doi.org\/10.1109\/COMST.2015.2418435\">https:\/\/doi.org\/10.1109\/COMST.2015.2418435<\/a>"
+                },
+                {
+                    "ref_text": "ARK authorpersonK. Claffy, personD. Clark, and personM. Wittie. year2014. The 6th Workshop on Active Internet Measurements (AIMS6) Report. journal<i>ACM SIGCOMM Computer Communication Review (CCR)<\/i> volume44, number5 (dateOct year2014), pages39–44."
+                },
+                {
+                    "ref_text": "Clark:AIMS2017 authorpersonDavid Clark. year2017. Policy impact of measurement. In booktitle<i>Workshop on Active Internet Measurements<\/i>. <a href=\"http:\/\/www.caida.org\/workshops\/aims\/1703\/abstracts.xml\">http:\/\/www.caida.org\/workshops\/aims\/1703\/abstracts.xml<\/a>"
+                },
+                {
+                    "ref_text": "CK06 authorpersonMark Crovella and personBalachander Krishnamurthy. year2006. booktitle<i>Internet Measurement: Infrastructure, Traffic and Applications<\/i>. publisherJohn Wiley & Sons, Inc., addressNew York, NY, USA. 047001461X"
+                },
+                {
+                    "ref_text": "Dhawan2012 authorpersonMohan Dhawan, personJustin Samuel, personRenata Teixeira, personChristian Kreibich, personMark Allman, personNicholas Weaver, and personVern Paxson. year2012. Fathom: A Browser-based Network Measurement Platform. In booktitle<i>Proceedings of the 2012 ACM Conference on Internet Measurement Conference<\/i> <i>(seriesIMC '12)<\/i>. publisherACM, addressNew York, NY, USA, pages73–86. 978-1-4503-1705-4 <a href=\"https:\/\/doi.org\/10.1145\/2398776.2398786\">https:\/\/doi.org\/10.1145\/2398776.2398786<\/a>"
+                },
+                {
+                    "ref_text": "Duffield2012:Fair authorpersonNick Duffield. year2012. Fair Sampling Across Network Flow Measurements. journal<i>SIGMETRICS Perform. Eval. Rev.<\/i> volume40, number1 (dateJune year2012), pages367–378. 0163-5999 <a href=\"https:\/\/doi.org\/10.1145\/2318857.2254800\">https:\/\/doi.org\/10.1145\/2318857.2254800<\/a>"
+                },
+                {
+                    "ref_text": "7194075 authorpersonJ. Garcia, personS. Alfredsson, and personA. Brunstrom. year2015. Delay metrics and delay characteristics: A study of four Swedish HSDPA+ and LTE networks. In booktitle<i>2015 European Conference on Networks and Communications (EuCNC)<\/i>. pages234–238. <a href=\"https:\/\/doi.org\/10.1109\/EuCNC.2015.7194075\">https:\/\/doi.org\/10.1109\/EuCNC.2015.7194075<\/a>"
+                },
+                {
+                    "ref_text": "Hochreiter1997:LSTM authorpersonSepp Hochreiter and personJürgen Schmidhuber. year1997. Long Short-Term Memory. journal<i>Neural Comput.<\/i> volume9, number8 (dateNov. year1997), pages1735–1780. 0899-7667 <a href=\"https:\/\/doi.org\/10.1162\/neco.1997.9.8.1735\">https:\/\/doi.org\/10.1162\/neco.1997.9.8.1735<\/a>"
+                },
+                {
+                    "ref_text": "LMAP authorpersonIETF. year2015. titleLarge-Scale Measurement Platforms. howpublished<a href=\"http:\/\/datatracker.ietf.org\/wg\/lmap\/charter\/\">http:\/\/datatracker.ietf.org\/wg\/lmap\/charter\/<\/a>. (year2015). [Online; accessed 01-August-2015]."
+                },
+                {
+                    "ref_text": "emodel authorpersonITU-T. year2014. booktitle<i>The E-model: a computational model for use in transmission planning<\/i>. typeTechnical Report. institutionInternational Telecommunication Union."
+                },
+                {
+                    "ref_text": "Joumblatt2011:Hostview authorpersonDiana Joumblatt, personRenata Teixeira, personJaideep Chandrashekar, and personNina Taft. year2011. HostView: Annotating End-host Performance Measurements with User Feedback. journal<i>SIGMETRICS Perform. Eval. Rev.<\/i> volume38, number3 (dateJan. year2011), pages43–48. 0163-5999 <a href=\"https:\/\/doi.org\/10.1145\/1925019.1925028\">https:\/\/doi.org\/10.1145\/1925019.1925028<\/a>"
+                },
+                {
+                    "ref_text": "McNamara2015:CheesePi authorpersonLiam MacNamara and personIan Marsh. year2015. CheesePi: A Raspberry Pi based measurement platform. In booktitle<i>IRTF and ISOC Workshop on Research and Applications of Internet Measurements (RAIM)<\/i>."
+                },
+                {
+                    "ref_text": "klaus authorpersonK. Nieminen. year2017. titleNet Neutrality Measurements: Regulatory Use Case and Problem Statement. (dateFeb. year2017). <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-nieminen-ippm-nn-measurements\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-nieminen-ippm-nn-measurements<\/a>"
+                },
+                {
+                    "ref_text": "BEREC authorpersonBody of European Regulators for Electronic Communications. year2014. titleEU Regulator: Monitoring quality of Internet access services in the context of net neutrality. (dateMarch year2014). [Online; accessed 01-August-2015]."
+                },
+                {
+                    "ref_text": "Portelli2016:Thesis authorpersonRebecca Portelli. year2016. titleCheesePi: Delay Characterisation through TCP-based analysis from End-to-End Monitoring. (year2016), numpages107 pages. <a href=\"http:\/\/kth.diva-portal.org\/smash\/record.jsf?pid=diva2:1039071\">http:\/\/kth.diva-portal.org\/smash\/record.jsf?pid=diva2:1039071<\/a>"
+                },
+                {
+                    "ref_text": "Rubenstein2002 authorpersonD. Rubenstein, personJ. Kurose, and personD. Towsley. year2002. Detecting shared congestion of flows via end-to-end measurement. journal<i>Networking, IEEE\/ACM Transactions on<\/i> volume10, number3 (dateJun year2002), pages381–395. 1063-6692 <a href=\"https:\/\/doi.org\/10.1109\/TNET.2002.1012369\">https:\/\/doi.org\/10.1109\/TNET.2002.1012369<\/a>"
+                },
+                {
+                    "ref_text": "Sagar2017:Thesis authorpersonSagar Sharma. year2017. titleAccurate traffic generation within the CheesePi network. (year2017), numpages107 pages."
+                },
+                {
+                    "ref_text": "DBLP:journals\/spic\/TavakoliBGG15 authorpersonSamira Tavakoli, personKjell Brunnström, personJesús Gutiérrez, and personNarciso N. García. year2015. Quality of Experience of adaptive video streaming. journal<i>Sig. Proc.: Image Comm.<\/i> volume39 (year2015), pages432–443. <a href=\"https:\/\/doi.org\/10.1016\/j.image.2015.05.001\">https:\/\/doi.org\/10.1016\/j.image.2015.05.001<\/a>"
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                },
+                {
+                    "concept_id": "10003033.10003106.10003108",
+                    "concept_desc": "Networks~Home networks",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003106,
+                        10003108
+                    ],
+                    "expected_concept_desc": "Networks~Home networks"
+                }
+            ],
+            "acm-keywords": [
+                "Measurements",
+                "Home networking"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/gzip",
+                    "hash": "sha2-f1ba10c087027bb8309eb706c7453fdfae87c73ca658681d0d84315949e7112c",
+                    "timestamp": 1498485973,
+                    "size": 42091928,
+                    "filename": "ANRNW2017_long.tar.gz",
+                    "content_file": "anrw17-paper17-source-files\/ANRNW2017_long.tar.gz"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "Olivier.Bonaventure@uclouvain.be": "confirmed"
+        }
+    },
+    {
+        "pid": 5,
+        "title": "copycat: Testing Differential Treatment of New Transport Protocols in the Wild",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1491488171,
+        "authors": [
+            {
+                "email": "korian.edeline@ulg.ac.be",
+                "first": "Korian",
+                "last": "Edeline",
+                "affiliation": "Université de Liège",
+                "contact": true
+            },
+            {
+                "email": "mirja.kuehlewind@tik.ee.ethz.ch",
+                "first": "Mirja",
+                "last": "Kühlewind",
+                "affiliation": "ETH Zurich",
+                "contact": true
+            },
+            {
+                "email": "trammell@tik.ee.ethz.ch",
+                "first": "Brian",
+                "last": "Trammell",
+                "affiliation": "ETH Zurich",
+                "contact": true
+            },
+            {
+                "email": "benoit.donnet@ulg.ac.be",
+                "first": "Benoit",
+                "last": "Donnet",
+                "affiliation": "Université de Liège",
+                "contact": true
+            }
+        ],
+        "abstract": "Recent years have seen the development of multiple transport solutions to address the ossification of TCP in the Internet, and to ease transport-layer extensibility and deployability. Recent approaches such as PLUS and Google's QUIC introduce an upper transport layer atop UDP; their deployment therefore relies on UDP not being disadvantaged with respect to TCP by the Internet.\r\n\r\nThis paper introduces copycat, a generic transport protocol testing tool that highlights differential treatment by the path in terms of connectivity and QoS between TCP and a non-TCP transport protocol. copycat generates TCP-shaped traffic with custom headers, and compares its performance in terms of loss and delay with TCP. We present a proof-of-concept case study (UDP vs. TCP) in order to answer questions about the deployability of current transport evolution approaches, and demonstrate the extent of copycat's capabilities and possible applications.\r\n\r\nWhile the vast majority of UDP impairments are found to be access-network linked, and subtle impairment is rare, middleboxes might adapt to new protocols that would then perform differently in the wild compared to early deployments or controlled environment testing.",
+        "topics": {
+            "Protocol specification and verification": true,
+            "Transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-681fcf1ebc62b9b15d9e7e3fb7b20d3563c47eacd64263525eb64de1bf266586",
+            "timestamp": 1491490186,
+            "size": 976238,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1491490190,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        88,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 46325
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 73583
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 51198
+                        },
+                        {
+                            "margin": [
+                                68,
+                                52,
+                                76,
+                                52
+                            ],
+                            "d": 41750
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                76,
+                                52
+                            ],
+                            "d": 43162
+                        },
+                        {
+                            "margin": [
+                                68,
+                                52,
+                                76,
+                                52
+                            ],
+                            "d": 58073
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                528,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 24650,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper5.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-ac88db8f2b72e726303d498541e104bbda53d5f140c3f679f299b5be9ae608b0",
+            "timestamp": 1498124015,
+            "size": 1108323,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498124021,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1498124021,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        88,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 46376
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 73323
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 51271
+                        },
+                        {
+                            "margin": [
+                                68,
+                                52,
+                                72,
+                                52
+                            ],
+                            "d": 41777
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                76,
+                                52
+                            ],
+                            "d": 46032
+                        },
+                        {
+                            "margin": [
+                                68,
+                                52,
+                                76,
+                                52
+                            ],
+                            "d": 55254
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                528,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 24157,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final5.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1498124015,
+        "options": {
+            "short-paper": false,
+            "references": [
+                {
+                    "ref_text": "rfc7540 authorpersonM. Belshe, personR. Peon, and personM. Thomson. year2015. booktitle<i>Hypertext Transfer Protocol Version 2 (HTTP\/2)<\/i>. typeRFC 7540. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "bruno2008throughput authorpersonR. Bruno, personM. Conti, and personE. Gregori. year2008. Throughput Analysis and Measurements in IEEE 802.11 WLANs with TCP and UDP Traffic Flows. journal<i>IEEE Transactions on Mobile Computing<\/i> volume7, number2 (dateFebruary year2008), pages171–186."
+                },
+                {
+                    "ref_text": "digital_ocean authorpersonDigital Ocean. year2017. titleSimple Cloud Computing, Built for Developpers. (year2017). See <a href=\"https:\/\/www.digitalocean.com\">https:\/\/www.digitalocean.com<\/a>."
+                },
+                {
+                    "ref_text": "rfc6182 authorpersonA. Ford, personC. Raiciu, personM. Handley, personS. Barre, and personJ. Iyengar. year2011. booktitle<i>Architectural Guidelines for Multipath TCP Development<\/i>. typeRFC 6182. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "rfc6824 authorpersonA. Ford, personC. Raiciu, personM. Handley, and personO. Bonaventure. year2013. booktitle<i>TCP Extensions for Multipath Operation with Multiple Addresses<\/i>. typeRFC 6824. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "draft-hamilton-early-deployment-quic-00 authorpersonR. Hamilton, personJ. Iyengar, personI. Swett, and personA. Wilk. year2016. booktitle<i>QUIC: A UDP-Based Secure and Reliable Transport for HTTP\/2<\/i>. typeInternet Draft (Work in Progress) draft-hamilton-early-deployment-quic-00. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "Haetoenen2010 authorpersonS. Hätönen, personA. Nyrhinen, personL. Eggert, personS. Strowes, personP. Sarolahti, and personM. Kojo. year2010. An Experimental Study of Home Gateway Characteristics. In booktitle<i>Proc. ACM Internet Measurement Conference (IMC)<\/i>. pages260–266."
+                },
+                {
+                    "ref_text": "natSCTP authorpersonD. A. Hayes, personJ. But, and personG. Armitage. year2009. Issues with Network Address Translation for SCTP. journal<i>ACM SIGCOMM Computer Communication Review<\/i> volume39, number1 (dateJanuary year2009), pages23–33."
+                },
+                {
+                    "ref_text": "TCPExposure authorpersonM. Honda, personY. Nishida, personC. Raiciu, personA. Greenhalgh, personM. Handley, and personH. Tokuda. year2011. Is It Still Possible to Extend TCP. In booktitle<i>Proc. ACM Internet Measurement Conference (IMC)<\/i>. pages181–194."
+                },
+                {
+                    "ref_text": "draft-ietf-rtcweb-data-channel authorpersonR. Jesup, personS. Loreto, and personM. Tuexen. year2015. booktitle<i>WebRTC Data Channels<\/i>. typeInternet Draft (Work in Progress) draft-ietf-rtcweb-data-channel-13. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "rfc4340 authorpersonE. Kohler, personM. Handley, and personS. Floyd. year2006. booktitle<i>Datagram Congestion Control Protocol (DCCP)<\/i>. typeRFC 4340. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "kreibich2010netalyzr authorpersonC. Kreibich, personN. Weaver, personB. Nechaev, and personV. Paxson. year2010. Netalyzr: illuminating the edge network. In booktitle<i>Proc. ACM Internet Measurement Conference (IMC)<\/i>. pages246–259."
+                },
+                {
+                    "ref_text": "learmonth2016pathspider authorpersonI. R. Learmonth, personB. Trammell, personM. Külewind, and personG. Fairhust. year2016. PATHSpider: A Tool for Active Measurement of Path Transparency. In booktitle<i>Proc. Applied Networking Research Workshop (ANRW)<\/i>. pages62–64."
+                },
+                {
+                    "ref_text": "medina2005measuring authorpersonA. Medina, personM. Allman, and personS. Floyd. year2004. Measuring Interactions Between Transport Protocols and Middleboxes. In booktitle<i>Proc. ACM Internet Measurement Conference (IMC)<\/i>. pages336–341."
+                },
+                {
+                    "ref_text": "handover authorpersonT. Melia, personR. Schmitz, and personT. Bohnert. year2004. TCP and UDP Performance Measurements in Presence of Fast Handovers in an IPv6-Based Mobility Environment. In booktitle<i>Proc. World Telecommunications Congress (WTC)<\/i>."
+                },
+                {
+                    "ref_text": "Pahdye2001 authorpersonJ. Pahdye and personS. Floyd. year2001. On Inferring TCP Behavior. In booktitle<i>Proc. ACM SIGCOMM<\/i>."
+                },
+                {
+                    "ref_text": "papastergiou2016cost authorpersonG. Papastergiou, personK.-J. Grinnmo, personA. Brunstrom, personD. Ros, personM. Tüxen, personN. Khademi, and personP. Hurtig. year2016. On the Cost of Using Happy Eyeballs for Transport Protocol Selection. In booktitle<i>Proc. Applied Networking Research Workshop (ANRW)<\/i>."
+                },
+                {
+                    "ref_text": "Paxson1997 authorpersonV. Paxson. year1997. End-to-End Internet Packet Dynamics. In booktitle<i>Proc. ACM SIGCOMM<\/i>."
+                },
+                {
+                    "ref_text": "tcp_revisited authorpersonF. Qian, personA. Gerber, personZ. Mao, personS. Sen, personO. Spatscheck, and personW. Willinger. year2009. TCP Revisited: a Fresh Look at TCP in the Wild. In booktitle<i>Proc. ACM Internet Measurement Conference (IMC)<\/i>. pages76–89."
+                },
+                {
+                    "ref_text": "sarma2013performance authorpersonM. P. Sarma. year2013. Performance Measurement of TCP and UDP Using Different Queuing Algorithm in High Speed Local Area Network. journal<i>International Journal of Future Computer and Communication<\/i> volume2, number6 (year2013), pages682."
+                },
+                {
+                    "ref_text": "rfc4960 authorpersonR. Stewart. year2007. booktitle<i>Stream Control Transmission Protocol<\/i>. typeRFC 4960. institutionInternet Engineering Task Force. 2070-1721"
+                },
+                {
+                    "ref_text": "ietf96_quic authorpersonI. Swett. year2016. titleQUIC Deployment Experience @Google. (dateJuly year2016). See <a href=\"https:\/\/www.ietf.org\/proceedings\/96\/slides\/slides-96-quic-3.pdf\">https:\/\/www.ietf.org\/proceedings\/96\/slides\/slides-96-quic-3.pdf<\/a>."
+                },
+                {
+                    "ref_text": "tirumala2005iperf authorpersonA. Tirumala, personF. Qin, personJ. Dugan, personJ. Ferguson, and personK. Gibbs. year2005. titleIperf: the TCP\/UDP Bandwidth Measurement Tool. (year2005). See <a href=\"http:\/\/dast.nlanr.net\/Projects\">http:\/\/dast.nlanr.net\/Projects<\/a>."
+                },
+                {
+                    "ref_text": "udp-options authorpersonJ. Touch. year2016. booktitle<i>Transport Options for UDP<\/i>. typeInternet Draft (Work in Progress) draft-touch-tsvwg-udp-options-02. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "plus authorpersonB. Trammell and personM. Kühlewind. year2016. booktitle<i>Path Layer UDP Substrate Specification<\/i>. typeInternet Draft (Work in Progress) draft-trammell-plus-spec-00. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "rfc6083 authorpersonM. Tuexen, personR. Seggelmann, and personE. Rescorla. year2011. booktitle<i>Datagram Transport Layer Security (DTLS) for Stream Control Transmission Protocol (SCTP)<\/i>. typeRFC 6083. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "rfc6555 authorpersonD. Wing and personA. Yourtchenko. year2012. booktitle<i>Happy Eyeballs: Success with Dual-Stack Hosts<\/i>. typeRFC 6555. institutionInternet Engineering Task Force."
+                },
+                {
+                    "ref_text": "Xu2014 authorpersonY. Xu, personZ. Wang, personW. K. Leong, and personB. Leong. year2014. An End-to-End Measurement Study of Modern Cellular Data Networks. In booktitle<i>Proc. Passive and Active Measurement Conference (PAM)<\/i>. publisherSpringer, pages34–45."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003039.10003048",
+                    "concept_desc": "Networks~Transport protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003048
+                    ],
+                    "expected_concept_desc": "Networks~Transport protocols"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                }
+            ],
+            "acm-keywords": [
+                "copycat",
+                "differential treatment",
+                "UDP",
+                "ossification"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-788d13b91bd3a63bf4853b33a8c6fc0388abcfbab268ba7f3f53f14f1595df4d",
+                    "timestamp": 1498124015,
+                    "size": 948189,
+                    "filename": "anrw17-copycat.zip",
+                    "content_file": "anrw17-paper5-source-files\/anrw17-copycat.zip"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "csp@csperkins.org": "collaborator",
+            "marcelo@it.uc3m.es": "collaborator",
+            "mirja.kuehlewind@tik.ee.ethz.ch": "author",
+            "Olivier.Bonaventure@uclouvain.be": "collaborator",
+            "ott@in.tum.de": "collaborator",
+            "philip.eardley@bt.com": "collaborator",
+            "spencerdawkins.ietf@gmail.com": "collaborator",
+            "steve.uhlig@qmul.ac.uk": "collaborator"
+        }
+    },
+    {
+        "pid": 16,
+        "title": "Tracking transport-layer evolution with PATHspider",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492112043,
+        "authors": [
+            {
+                "email": "trammell@tik.ee.ethz.ch",
+                "first": "Brian",
+                "last": "Trammell",
+                "affiliation": "ETH Zurich",
+                "contact": true
+            },
+            {
+                "email": "mirja.kuehelwind@tik.ee.ethz.ch",
+                "first": "Mirja",
+                "last": "Kühlewind",
+                "affiliation": "ETH Zurich"
+            },
+            {
+                "email": "piet@devae.re",
+                "first": "Piet",
+                "last": "De Vaere",
+                "affiliation": "ETH Zurich"
+            },
+            {
+                "email": "iain@erg.abdn.ac.uk",
+                "first": "Iain R.",
+                "last": "Learmonth",
+                "affiliation": "University of Aberdeen",
+                "contact": true
+            },
+            {
+                "email": "gorry@erg.abdn.ac.uk",
+                "first": "Gorry",
+                "last": "Fairhurst",
+                "affiliation": "University of Aberdeen",
+                "contact": true
+            }
+        ],
+        "contacts": [
+            {
+                "email": "mirja.kuehlewind@tik.ee.ethz.ch",
+                "first": "Mirja",
+                "last": "Kühlewind",
+                "affiliation": "ETH Zürich"
+            }
+        ],
+        "abstract": "The ossification of the Internet protocol stack, due in large part to mangling of packets by middleboxes, has led to a relatively slow rate of change in today's Internet. We have developed the PATHspider active Internet measurement tool which performs one-sided measurements of a variety of transport-layer features and extensions, to investigate these impairments to protocol evolution along an Internet path. Data collected with PATHspider can be used both to determine the degree of support for these features, as well as to detect connectivity issues caused by attempting to use them. The wider aim of this effort is to provide quantifiable input to protocol design and deployment choices that can be based on the level of impairment present in the Internet.\r\n\r\nThis paper details PATHspider's design, and applies it to trace the evolution of deployment of two extensions to TCP, Explicit Congestion Notification (ECN) and the newer TCP Fast Open (TFO); as well as the degree of interference with the DiffServ codepoint carried in the IP header. Our ECN results, in particular, expand on a long-term study beginning in 2012, and show continued linear adoption of ECN. Automating PATHspider measurements has allowed us to collect far more data than in previous campaigns, allowing us to better distinguish ECN-linked connectivity failures from transient effects. Interestingly, we observe a correlation between ECN-linked connectivity failure in the core of the network with the presence of large-scale, heterogeneous Internet censorship infrastructure.",
+        "topics": {
+            "Network measurements": true,
+            "Transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-8a8288e16594e25e267b37206ecff5ab78cb7c630c1bb67cd3d20cda360232b9",
+            "timestamp": 1492112043,
+            "size": 596820,
+            "filename": "pathspider-anrw17.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1492185147,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "nummargin": 86,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 55863
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 64879
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 69977
+                        },
+                        {
+                            "d": 50465
+                        },
+                        {
+                            "d": 59782
+                        },
+                        {
+                            "d": 53791
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                84,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 40417,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper16.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-849cad7dcd9dab745466156d22a1912f94f19323ed67ee60e356c10d16593db1",
+            "timestamp": 1498488325,
+            "size": 607344,
+            "filename": "pathspider-anrw17.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498488339,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1498488339,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 50578
+                        },
+                        {
+                            "margin": [
+                                60,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 73927
+                        },
+                        {
+                            "d": 64451
+                        },
+                        {
+                            "d": 58902
+                        },
+                        {
+                            "d": 49579
+                        },
+                        {
+                            "d": 53684
+                        },
+                        {
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 45197,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final16.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1497615005,
+        "options": {
+            "short-paper": false,
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Learmonth, I., Trammell, B., Kühlewind, M., Fairhurst, G.: PATHspider: A tool for active measurement of path transparency. In: First ACM\/IRTF Applied Networking Research Workshop, Berlin, Germany (Jul 2016)"
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Detal, G., Hesmans, B., Bonaventure, O., Vanaubel, Y., Donnet, B.: Revealing Middlebox Interference with Tracebox. In: Proceedings of the 2013 Conference on Internet Measurement Conference. IMC '13, Barcelona, Spain, ACM (2013) 1–8"
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Ramakrishnan, K., Floyd, S., Black, D.: The addition of explicit congestion notification (ecn) to ip. RFC 3168, RFC Editor (September 2001) <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc3168.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc3168.txt<\/a>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Cheng, Y., Chu, J., Radhakrishnan, S., Jain, A.: Tcp fast open. RFC 7413, RFC Editor (December 2014) <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc7413.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc7413.txt<\/a>."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Nichols, K., Blake, S., Baker, F., Black, D.L.: Definition of the differentiated services field (ds field) in the ipv4 and ipv6 headers. RFC 2474, RFC Editor (December 1998) <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc2474.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc2474.txt<\/a>."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Kühlewind, M., Neuner, S., Trammell, B.: On the state of ECN and TCP options on the Internet. In: Passive and Active Measurement Conference, Hong Kong, China (2013) 135–144"
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Trammell, B., Kühlewind, M., Boppart, D., Learmonth, I., Fairhurst, G., Scheffenegger, R.: Enabling internet-wide deployment of explicit congestion notification. In: Passive and Active Measurement Conference, New York, USA (2015) 193–205"
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "Jones, P., Dhesikan, S., Jennings, C., Druta, D.: Dscp and other packet markings for webrtc qos. Internet-Draft draft-ietf-tsvwg-rtcweb-qos-14, IETF Secretariat (March 2016)"
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Geib, R., Black, D.: Diffserv-interconnection classes and practice. Internet-Draft draft-ietf-tsvwg-diffserv-intercon-06, IETF Secretariat (June 2016) <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-tsvwg-diffserv-intercon-06.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-tsvwg-diffserv-intercon-06.txt<\/a>."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Paasch, C.: Network support for TCP Fast Open. Presentation at NANOG 67 (January 2016)"
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Honda, M., Nishida, Y., Raiciu, C., Greenhalgh, A., Handley, M., Tokuda, H.: Is It Still Possible to Extend TCP? In: Proceedings of the 2011 ACM SIGCOMM Conference on Internet Measurement Conference. IMC '11, Berlin, Germany, ACM (2011) 181–194"
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "Bauer, S., Beverly, R., Berger, A.: Measuring the state of ecn readiness in servers, clients,and routers. In: Proceedings of the 2011 ACM SIGCOMM Conference on Internet Measurement Conference. IMC '11, Berlin, Germany, ACM (2011)"
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "McQuistin, S., Perkins, C.S.: Is explicit congestion notification usable with udp? In: Proceedings of the 2015 ACM Conference on Internet Measurement Conference. IMC '15, New York, NY, USA, ACM (2015) 63–69"
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "Mandalari, A.M., Bagnulo, M., Lutu, A.: TCP Fast Open: initial measurements. In: Proceedings of the ACM CoNext 2015 Student Workshop, Heidelberg, Germany (December 2015)"
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "Barik, R., Welzl, M., Elmokashfi, A.: How to say that you’re special: Can we use bits in the IPv4 header? In: First ACM\/IRTF Applied Networking Research Workshop, Berlin, Germany (Jul 2016)"
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "Pahdye, J., Floyd, S.: On inferring tcp behavior. SIGCOMM Comput. Commun. Rev. <b>31<\/b>(4) (August 2001) 287–298"
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "Medina, A., Allman, M., Floyd, S.: Measuring interactions between transport protocols and middleboxes. In: Proceedings of the 4th ACM SIGCOMM Conference on Internet Measurement. IMC '04, New York, NY, USA, ACM (2004) 336–341"
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "Mellia, M., Carpani, A., Cigno, R.L.: Measuring ip and tcp behavior on edge nodes. In: Global Telecommunications Conference, 2002. GLOBECOM '02. IEEE. Volume 3. (Nov 2002) 2533–2537 vol.3"
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "Neuhaus, S., Edeline, K., Donnet, B., Gubser, E.: Towards an observatory for network transparency research. In: Proceedings of the Applied Networking Research Workshop (ANRW'16), ACM (2016)"
+                },
+                {
+                    "ref_id": "20",
+                    "ref_text": "Spring, N., Wetherall, D., Ely, D.: Robust explicit congestion notification (ecn) signaling with nonces. RFC 3540, RFC Editor (June 2003)"
+                },
+                {
+                    "ref_id": "21",
+                    "ref_text": "Black, D.: Explicit congestion notification (ecn) experimentation. Internet-Draft draft-ietf-tsvwg-ecn-experimentation-00, IETF Secretariat (December 2016) <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-tsvwg-ecn-experimentation-00.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-tsvwg-ecn-experimentation-00.txt<\/a>."
+                },
+                {
+                    "ref_id": "22",
+                    "ref_text": "Schepper, K.D., Briscoe, B., Tsang, I.: Identifying modified explicit congestion notification (ecn) semantics for ultra-low queuing delay. Internet-Draft draft-briscoe-tsvwg-ecn-l4s-id-02, IETF Secretariat (October 2016) <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-briscoe-tsvwg-ecn-l4s-id-02.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-briscoe-tsvwg-ecn-l4s-id-02.txt<\/a>."
+                },
+                {
+                    "ref_id": "23",
+                    "ref_text": "Ensafi, R., Winter, P., Mueen, A., Crandall, J.R.: Analyzing the Great Firewall of China Over Space and Time. In: Proceedings on Privacy Enhancing Technologies 2015, Philadelphia, USA (June 2015)"
+                },
+                {
+                    "ref_id": "24",
+                    "ref_text": "Kim, P.: Studying the Internet Censorship in South Korea. A Slice of Kimchi - IT Security Blog (October 2016)"
+                },
+                {
+                    "ref_id": "25",
+                    "ref_text": "Association, G.: Guidelines for ipx provider networks version 12.0. (2016) http:\/\/www.gsma.com\/newsroom\/wp-content\/uploads\/IR.34-v12.0.pdf."
+                },
+                {
+                    "ref_id": "26",
+                    "ref_text": "Hamilton, R., Iyengar, J., Swett, I., A.Wilk: QUIC: A UDP-Based Multiplexed and Secure Transport. Internet-Draft draft-hamilton-quic-transport-protocol-00, IETF (July 2016)"
+                },
+                {
+                    "ref_id": "27",
+                    "ref_text": "Trammell, B.: Can we run the Internet over UDP? Measurement and Analysis of Protocols Research Group, IETF 95 (April 2016)"
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                },
+                {
+                    "concept_id": "10003033.10003039.10003048",
+                    "concept_desc": "Networks~Transport protocols",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003048
+                    ],
+                    "expected_concept_desc": "Networks~Transport protocols"
+                }
+            ],
+            "acm-keywords": [
+                "Explicit Congestion Notification (ECN)",
+                "TCP Fast Open (TFO)",
+                "Differentiated Services (DSCP)",
+                "TCP Extensions",
+                "Transport Protocol Evolution",
+                "Internet Measurement"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "text\/plain",
+                    "hash": "sha2-1ccc04e31f24f6eefba06c1208d2bf34ba807de85ec04927e927777ab28f27f3",
+                    "timestamp": 1497615005,
+                    "size": 26651,
+                    "filename": "pathspider.bib",
+                    "content_file": "anrw17-paper16-source-files\/pathspider.bib"
+                },
+                {
+                    "mimetype": "application\/pdf",
+                    "hash": "sha2-62e5cacb3dfc2d4b7a10d26a4647a3ac65c3660154e0bca568dea358b9b6de04",
+                    "timestamp": 1498137324,
+                    "size": 122581,
+                    "filename": "architecture_full.pdf",
+                    "content_file": "anrw17-paper16-source-files\/architecture_full.pdf"
+                },
+                {
+                    "mimetype": "application\/pdf",
+                    "hash": "sha2-94f2c8aa440666354773c3c73d1fa478484d028082a8ee461f495501b296f991",
+                    "timestamp": 1498137324,
+                    "size": 16261,
+                    "filename": "ecn_rel_geo_path_dep.pdf",
+                    "content_file": "anrw17-paper16-source-files\/ecn_rel_geo_path_dep.pdf"
+                },
+                {
+                    "mimetype": "application\/pdf",
+                    "hash": "sha2-6a7b4ca3ed2b3a9e1c6c8eee7588e95b7db8f2a98e4493d5a4d3912b0b6aeb99",
+                    "timestamp": 1498137324,
+                    "size": 48346,
+                    "filename": "dscp_codepoints_both.pdf",
+                    "content_file": "anrw17-paper16-source-files\/dscp_codepoints_both.pdf"
+                },
+                {
+                    "mimetype": "application\/x-tex",
+                    "hash": "sha2-29760b69261ae7f12114d941970a5c214e0d3a387f759b52b1f793f66a10acd5",
+                    "timestamp": 1498137324,
+                    "size": 43458,
+                    "filename": "pathspider-anrw17.tex",
+                    "content_file": "anrw17-paper16-source-files\/pathspider-anrw17.tex"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "csp@csperkins.org": "collaborator",
+            "marcelo@it.uc3m.es": "collaborator",
+            "mirja.kuehlewind@tik.ee.ethz.ch": "author",
+            "philip.eardley@bt.com": "collaborator",
+            "spencerdawkins.ietf@gmail.com": "collaborator"
+        }
+    },
+    {
+        "pid": 8,
+        "title": "Take your own share of the PIE",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492005877,
+        "authors": [
+            {
+                "email": "lakis@inf.elte.hu",
+                "first": "Sándor",
+                "last": "Laki",
+                "affiliation": "Eötvös Loránd University, Budapest, Hungary",
+                "contact": true
+            },
+            {
+                "email": "ggombos@inf.elte.hu",
+                "first": "Gergo",
+                "last": "Gombos",
+                "affiliation": "Eötvös Loránd University, Budapest, Hungary",
+                "contact": true
+            },
+            {
+                "email": "szilveszter.nadas@ericsson.com",
+                "first": "Szilveszter",
+                "last": "Nádas",
+                "affiliation": "Ericsson Research, Budapest, Hungary",
+                "contact": true
+            },
+            {
+                "email": "zoltan.turanyi@ericsson.com",
+                "first": "Zoltán",
+                "last": "Turányi",
+                "affiliation": "Ericsson Research, Budapest, Hungary",
+                "contact": true
+            }
+        ],
+        "abstract": "In this paper, we propose the PVPIE Active Queue Management (AQM) method that\r\ncombines the packet scheduling and dropping algorithms of PIE AQM and the packet marking-based\r\nresource sharing of the Per Packet Value (PPV) concept.\r\nThe algorithm calculates dropping probabilities needed for keeping the queueing\r\ndelay at a predefined level using the PIE algorithm.\r\nThen instead of applying this drop probability directly on incoming packets it\r\ntranslates the dropping probability to a Congestion Threshold Value (CTV) filter\r\nand drops (or marks) all incoming packets with Packet Value\r\nsmaller than the threshold.\r\nThe translation is based on statistics collected about Packet Values of incoming\r\npackets.\r\nOur evaluation based on simulations shows that PVPIE AQM combines the benefits\r\nof PIE and PPV concepts, keeping a target queueing delay and\r\nimplementing policy-based resource sharing at the same time.\r\nThe motivation for the proposed algorithm is simplicity and ease of deployment\r\nin real networks, since the schedulers of the original PPV approach need to\r\nperform drops from the middle of the queue. Such drops may be costly and may\r\nnot be supported by current hardware.",
+        "topics": {
+            "Network management, diagnosis, and operations": true,
+            "Transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-2157b52bcf6a1b9a038c716b4c148b3d7d0cbfdf3620b4f3eb9e7123a16ac956",
+            "timestamp": 1492005794,
+            "size": 1248905,
+            "filename": "PPOV-AQM.pdf",
+            "metadata": {
+                "npages": 6,
+                "banal": {
+                    "at": 1492005799,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 53252
+                        },
+                        {
+                            "d": 67174
+                        },
+                        {
+                            "d": 56245
+                        },
+                        {
+                            "margin": [
+                                60,
+                                68,
+                                96,
+                                72
+                            ],
+                            "leading": 11.4,
+                            "columns": 3,
+                            "d": 8479
+                        },
+                        {
+                            "d": 42243
+                        },
+                        {
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 16840,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper8.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-2e5b9e157b4216d8cb4291fa205be4d8bfd2d48ed47e2a5edab91510795db765",
+            "timestamp": 1498050804,
+            "size": 1311296,
+            "filename": "PPOV-AQM-final.pdf",
+            "metadata": {
+                "npages": 6,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498050833,
+                    "npages": 6
+                },
+                "banal": {
+                    "at": 1498050833,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 49719
+                        },
+                        {
+                            "d": 66066
+                        },
+                        {
+                            "d": 55052
+                        },
+                        {
+                            "margin": [
+                                60,
+                                68,
+                                96,
+                                72
+                            ],
+                            "leading": 11.4,
+                            "columns": 3,
+                            "d": 8524
+                        },
+                        {
+                            "d": 43408
+                        },
+                        {
+                            "d": 21937
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final8.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1498050804,
+        "options": {
+            "short-paper": false,
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Study on architecture for next generation system. 3GPP TR 23.799, February 2016."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Z. Cao, E. Zegura, and Z. Wang. Rainbow fair queueing: theory and applications. <i>Computer Networks<\/i>, 47(3):367 – 392, 2005."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "K. De Schepper, O. Bondarenko, I.-J. Tsang, and B. Briscoe. Pi2: A linearized aqm for both classic and scalable tcp. In <i>CoNEXT '16<\/i>, pages 105–119, New York, NY, USA, 2016. ACM."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "S. Floyd and V. Jacobson. Random early detection gateways for congestion avoidance. <i>IEEE\/ACM Trans. Netw.<\/i>, 1(4):397–413, Aug. 1993."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "S. Ha, I. Rhee, and L. Xu. Cubic: A new tcp-friendly high-speed tcp variant. <i>SIGOPS Oper. Syst. Rev.<\/i>, 42(5):64–74, July 2008."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "T. R. Henderson, M. Lacage, G. F. Riley, C. Dowell, and J. Kopena. Network simulations with the ns-3 simulator. In <i>Sigcomm (Demo)<\/i>, volume 14, 2008."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "S. Jansen and A. McGregor. Simulation with real world network stacks. In <i>Simulation Conference, 2005 Proceedings of the Winter<\/i>, pages 10–pp. IEEE, Dec 2005."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "S. Nádas, Z. R. Turányi, and S. Rácz. Per packet value: A practical concept for network resource sharing. In <i>IEEE Globecom 2016<\/i>, 2016."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "K. Nichols and V. Jacobson. Controlling queue delay. <i>Commun. ACM<\/i>, 55(7):42–50, July 2012."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "R. Pan, P. Natarajan, C. Piglione, M. S. Prabhu, V. Subramanian, F. Baker, and B. VerSteeg. Pie: A lightweight control scheme to address the bufferbloat problem. In <i>IEEE HPSR<\/i>, pages 148–155, July 2013."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "D. Papadimitriou, M. Welzl, M. Scharf, and B. Briscoe. Open research issues in internet congestion control. Technical report, IRTF RFC 6077, February 2011."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "I. Stoica, S. Shenker, and H. Zhang. Core-stateless fair queueing: A scalable architecture to approximate fair bandwidth allocations in high-speed networks. <i>IEEE\/ACM Trans. Netw.<\/i>, 11(1):33–46, Feb. 2003."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003068.10003069.10003072",
+                    "concept_desc": "Networks~Packet scheduling",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003068,
+                        10003069,
+                        10003072
+                    ],
+                    "expected_concept_desc": "Networks~Packet scheduling"
+                }
+            ],
+            "acm-keywords": [
+                "PIE",
+                "PPV",
+                "AQM",
+                "resource sharing"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-4da91a0db6112fcafc476b5e20ede336b0b33d8262efab4bc7a2c152451dfced",
+                    "timestamp": 1498050804,
+                    "size": 642735,
+                    "filename": "pvpie-source.zip",
+                    "content_file": "anrw17-paper8-source-files\/pvpie-source.zip"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "Gonzalo.Camarillo@ericsson.com": "collaborator"
+        }
+    },
+    {
+        "pid": 13,
+        "title": "A NEAT Way to Browse the Web",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492098526,
+        "authors": [
+            {
+                "email": "weinrank@fh-muenster.de",
+                "first": "Felix",
+                "last": "Weinrank",
+                "affiliation": "Münster University of Applied Sciences"
+            },
+            {
+                "email": "karl-johan.grinnemo@kau.se",
+                "first": "Karl-Johan",
+                "last": "Grinnemo",
+                "affiliation": "Karlstad University",
+                "contact": true
+            },
+            {
+                "email": "Zdravko.Bozakov@dell.com",
+                "first": "Zdravko",
+                "last": "Bozakov",
+                "affiliation": "Dell EMC Research Europe",
+                "contact": true
+            },
+            {
+                "email": "anna.brunstrom@kau.se",
+                "first": "Anna",
+                "last": "Brunstrom",
+                "affiliation": "Karlstad University",
+                "contact": true
+            },
+            {
+                "email": "dreibh@simula.no",
+                "first": "Thomas",
+                "last": "Dreibholz",
+                "affiliation": "Simula Research Laboratory",
+                "contact": true
+            },
+            {
+                "email": "gorry@erg.abdn.ac.uk",
+                "first": "Gorry",
+                "last": "Fairhurst",
+                "affiliation": "University of Aberdeen",
+                "contact": true
+            },
+            {
+                "email": "per.hurtig@kau.se",
+                "first": "Per",
+                "last": "Hurtig",
+                "affiliation": "Karlstad University",
+                "contact": true
+            },
+            {
+                "email": "naeemk@ifi.uio.no",
+                "first": "Naeem",
+                "last": "Khademi",
+                "affiliation": "University of Oslo",
+                "contact": true
+            },
+            {
+                "email": "tuexen@fh-muenster.de",
+                "first": "Michael",
+                "last": "Tüxen",
+                "affiliation": "Münster University of Applied Sciences",
+                "contact": true
+            }
+        ],
+        "abstract": "There is a growing concern that the Internet transport layer has become ossified in the face of emerging novel applications, and that further evolution has become very difficult. The NEAT system introduces a novel and evolvable transport API that decouples applications from the underlying transport layer and network services. The API is fully aligned with ongoing work within the TAPS IETF working group. This paper provides an overview of the NEAT API from a programmer's perspective and exemplifies its use through a simple client application.",
+        "topics": {
+            "Transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-20bff42ce234d320cd9524e6749241e92b6a6ffd30a834d00076bd263c46fec6",
+            "timestamp": 1492098526,
+            "size": 383880,
+            "filename": "anrw2017-neatlib.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1492185129,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "nummargin": 467,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 45416
+                        },
+                        {
+                            "d": 47750
+                        },
+                        {
+                            "margin": [
+                                60,
+                                316,
+                                472,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 11255,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper13.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-63fb47f8a4d2e4ef8c684cebae6c2709a32a79b172b32986a38209f1b47fbead",
+            "timestamp": 1498245429,
+            "size": 426773,
+            "filename": "anrw2017-neatlib.pdf",
+            "metadata": {
+                "npages": 2,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498245459,
+                    "npages": 2
+                },
+                "banal": {
+                    "at": 1498245459,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        60,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 39134
+                        },
+                        {
+                            "d": 36279
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final13.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1497598184,
+        "options": {
+            "short-paper": true,
+            "references": [
+                {
+                    "ref_text": "Carbone10 authorpersonMarta Carbone and personLuigi Rizzo. year2010. Dummynet Revisited. journal<i>SIGCOMM Comput. Commun. Rev.<\/i> volume40, number2 (dateApril year2010), pages12–20. 0146-4833 <a href=\"http:\/\/dx.doi.org\/10.1145\/1764873.1764876\">http:\/\/dx.doi.org\/10.1145\/1764873.1764876<\/a>"
+                },
+                {
+                    "ref_text": "grinnemo-taps-he-02 authorpersonKarl-Johan Grinnemo, personAnna Brunstrom, personPer Hurtig, personNaeem Khademi, and personZdravko Bozakov. year2017. booktitle<i>Happy Eyeballs for Transport Selection<\/i>. typeInternet-Draft draft-grinnemo-taps-he-02. institutionInternet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-grinnemo-taps-he-02\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-grinnemo-taps-he-02<\/a> Work in Progress."
+                },
+                {
+                    "ref_text": "Iyengar06 authorpersonJ. R. Iyengar, personP. D. Amer, and personR. Stewart. year2006. Concurrent Multipath Transfer Using SCTP Multihoming Over Independent End-to-End Paths. journal<i>IEEE\/ACM Transactions on Networking<\/i> volume14, number5 (dateOct year2006), pages951–964. 1063-6692"
+                },
+                {
+                    "ref_text": "Khademi17 authorpersonN. Khademi, personD. Ros, personM. Welzl, personZ. Bozakov, personA. Brunstrom, personG. Fairhurst, personK. J. Grinnemo, personD. Hayes, personP. Hurtig, personT. Jones, personS. Mangiante, personM. Tuxen, and personF. Weinrank. year2017. NEAT: A Platform- and Protocol-Independent Internet Transport API. journal<i>IEEE Communications Magazine<\/i> volume55, number6 (year2017), pages46–54. 0163-6804"
+                },
+                {
+                    "ref_text": "papastergiou16 authorpersonG. Papastergiou, personK.-J. Grinnemo, personA. Brunstrom, personD. Ros, personM. Tüxen, personN. Khademi, and personP. Hurtig. year2016. On the Cost of Using Happy Eyeballs for Transport Protocol Selection. In booktitle<i>Proceedings of the 2016 Applied Networking Research Workshop (ANRW)<\/i>. addressBerlin, pages45–51."
+                },
+                {
+                    "ref_text": "rfc768 authorpersonJ. Postel. year1980. titleUser Datagram Protocol. howpublishedRFC 768 (INTERNET STANDARD). (dateAug. year1980). <a href=\"http:\/\/www.ietf.org\/rfc\/rfc768.txt\">http:\/\/www.ietf.org\/rfc\/rfc768.txt<\/a>"
+                },
+                {
+                    "ref_text": "rfc793 authorpersonJ. Postel. year1981. titleTransmission Control Protocol. howpublishedRFC 793 (INTERNET STANDARD). (dateSept. year1981). <a href=\"http:\/\/www.ietf.org\/rfc\/rfc793.txt\">http:\/\/www.ietf.org\/rfc\/rfc793.txt<\/a> Updated by RFCs 1122, 3168, 6093, 6528."
+                },
+                {
+                    "ref_text": "neat:github authorpersonNEAT Project. year2017. titleNEAT GitHub Repository. (year2017). <a href=\"https:\/\/github.com\/NEAT-project\/neat\/\">https:\/\/github.com\/NEAT-project\/neat\/<\/a> Accessed on June 22, 2017."
+                },
+                {
+                    "ref_text": "rfc4960 authorpersonR. Stewart. year2007. titleStream Control Transmission Protocol. howpublishedRFC 4960 (Proposed Standard). (dateSept. year2007). <a href=\"http:\/\/www.ietf.org\/rfc\/rfc4960.txt\">http:\/\/www.ietf.org\/rfc\/rfc4960.txt<\/a> Updated by RFCs 6096, 6335, 7053."
+                },
+                {
+                    "ref_text": "taps authorpersonTAPS. year2015. titleIETF Transport Services (TAPS) Working Group Charter. (year2015). <a href=\"https:\/\/datatracker.ietf.org\/doc\/charter-ietf-taps\/\">https:\/\/datatracker.ietf.org\/doc\/charter-ietf-taps\/<\/a>"
+                },
+                {
+                    "ref_text": "thttpdpatch authorpersonMichael Tuexen. year2017. titlethttpd with SCTP Support. (year2017). <a href=\"https:\/\/github.com\/nplab\/thttpd\">https:\/\/github.com\/nplab\/thttpd<\/a>"
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003034",
+                    "concept_desc": "Networks~Network architectures",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003034
+                    ],
+                    "expected_concept_desc": "Networks~Network architectures"
+                },
+                {
+                    "concept_id": "10003033.10003034.10003035",
+                    "concept_desc": "Networks~Network design principles",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003034,
+                        10003035
+                    ],
+                    "expected_concept_desc": "Networks~Network design principles"
+                },
+                {
+                    "concept_id": "10003033.10003034.10003038",
+                    "concept_desc": "Networks~Programming interfaces",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003034,
+                        10003038
+                    ],
+                    "expected_concept_desc": "Networks~Programming interfaces"
+                },
+                {
+                    "concept_id": "10003033.10003039",
+                    "concept_desc": "Networks~Network protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039
+                    ],
+                    "expected_concept_desc": "Networks~Network protocols"
+                },
+                {
+                    "concept_id": "10003033.10003039.10003048",
+                    "concept_desc": "Networks~Transport protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003048
+                    ],
+                    "expected_concept_desc": "Networks~Transport protocols"
+                }
+            ],
+            "acm-keywords": [
+                "NEAT",
+                "ossification",
+                "transport selection",
+                "transport service",
+                "SCTP",
+                "TCP"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/gzip",
+                    "hash": "sha2-69abb5460efc54f85b17275091ac354a483cd0f16038e9551848469ea562b6ce",
+                    "timestamp": 1498491942,
+                    "size": 530031,
+                    "filename": "anrw2017-NeatLib.tgz",
+                    "content_file": "anrw17-paper13-source-files\/anrw2017-NeatLib.tgz"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "acmorton@att.com": "collaborator",
+            "csp@csperkins.org": "collaborator",
+            "mirja.kuehlewind@tik.ee.ethz.ch": "collaborator",
+            "philip.eardley@bt.com": "collaborator"
+        }
+    },
+    {
+        "pid": 3,
+        "title": "Implementing IPv6 Segment Routing in the Linux Kernel",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1491364340,
+        "authors": [
+            {
+                "email": "david.lebrun@uclouvain.be",
+                "first": "David",
+                "last": "Lebrun",
+                "affiliation": "UCLouvain",
+                "contact": true
+            },
+            {
+                "email": "Olivier.Bonaventure@uclouvain.be",
+                "first": "Olivier",
+                "last": "Bonaventure",
+                "affiliation": "UCLouvain",
+                "contact": true
+            }
+        ],
+        "abstract": "IPv6 Segment Routing is a major IPv6 extension that provides a modern\r\nversion of source routing that is currently being developed\r\nwithin the Internet Engineering Task Force (IETF). We propose the \r\nfirst open-source implementation of IPv6 Segment Routing in the Linux\r\nkernel. We first describe it in details and explain how it can be used\r\non both endhosts and routers. We then evaluate and compare its performance\r\nwith plain IPv6 packet forwarding in a lab environment. Our\r\nmeasurements indicate that the performance penalty of inserting \r\nIPv6 Segment Routing Headers or encapsulating packets is limited to\r\nless than 15\\%. On the other hand, the optional HMAC security feature\r\nof IPv6 Segment Routing is costly in a pure software implementation. \r\nSince our implementation has been included in the official Linux 4.10\r\nkernel, we expect that it will be extended by other researchers for\r\nnew use cases.",
+        "topics": {
+            "Network programmability": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-2338c0ea89c1b4f5c20264efacb26c4c2e97f9c51485d1b1765277cbaf0c0aaf",
+            "timestamp": 1492093195,
+            "size": 409121,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1492093218,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        68,
+                        52,
+                        68,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                88,
+                                52,
+                                72,
+                                52
+                            ],
+                            "d": 56097
+                        },
+                        {
+                            "margin": [
+                                140,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 56002
+                        },
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 61139
+                        },
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 70387
+                        },
+                        {
+                            "d": 66521
+                        },
+                        {
+                            "d": 37444
+                        },
+                        {
+                            "margin": [
+                                72,
+                                192,
+                                68,
+                                52
+                            ],
+                            "d": 39817
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper3.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-a6764eb503c1316c846014cecb66b5858967c590cf2aab4955502e62fb6fe441",
+            "timestamp": 1497087652,
+            "size": 410384,
+            "filename": "paper_CAMERA.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1497087658,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1497087659,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        72,
+                        52,
+                        68,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                88,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 56097
+                        },
+                        {
+                            "margin": [
+                                140,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 56002
+                        },
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 61132
+                        },
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                68,
+                                52
+                            ],
+                            "d": 70437
+                        },
+                        {
+                            "d": 66515
+                        },
+                        {
+                            "d": 37443
+                        },
+                        {
+                            "margin": [
+                                72,
+                                192,
+                                68,
+                                52
+                            ],
+                            "d": 39817
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final3.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1497084403,
+        "options": {
+            "short-paper": false,
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Clarence Filsfils et al. Segment Routing Architecture. Internet-Draft draft-ietf-spring-segment-routing-08, Internet Engineering Task Force, May 2016. Work in Progress."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Clarence Filsfils et al. The segment routing architecture. In <i>2015 IEEE Global Communications Conference (GLOBECOM)<\/i>, pages 1–6. IEEE, 2015."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Clarence Filsfils et al. Segment Routing with MPLS data plane. Internet-Draft draft-ietf-spring-segment-routing-mpls-07, Internet Engineering Task Force, February 2017. Work in Progress."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Stefano Previdi, Clarence Filsfils, Brian Field, Ida Leung, J. Linkova, Ebben Aries, Tomoya Kosugi, Eric Vyncke, David Lebrun, John Leddy, Kamran Raza, daniel.voyer@bell.ca, daniel.bernier@bell.ca, Satoru Matsushima, Dirk Steinberg, and Robert Raszuk. IPv6 Segment Routing Header (SRH). Internet-Draft draft-ietf-6man-segment-routing-header-06, Internet Engineering Task Force, March 2017. Work in Progress."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Renaud Hartert, Stefano Vissicchio, et al. A declarative and expressive approach to control forwarding paths in carrier-grade networks. In <i>ACM SIGCOMM Computer Communication Review<\/i>, volume 45, pages 15–28. ACM, 2015."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Fang Hao, Murali Kodialam, and TV Lakshman. Optimizing restoration with segment routing. In <i>Computer Communications, IEEE INFOCOM 2016-The 35th Annual IEEE International Conference on<\/i>, pages 1–9. IEEE, 2016."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "François Aubry, David Lebrun, Yves Deville, and Olivier Bonaventure. Traffic duplication through segmentable disjoint paths. In <i>IFIP Networking Conference (IFIP Networking), 2015<\/i>, pages 1–9. IEEE, 2015."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "Randeep Bhatia, Fang Hao, Murali Kodialam, and TV Lakshman. Optimized network traffic engineering using segment routing. In <i>Computer Communications (INFOCOM), 2015 IEEE Conference on<\/i>, pages 657–665. IEEE, 2015."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Stefano Salsano et al. PMSR: Poor Man's Segment Routing, a minimalistic approach to Segment Routing and a Traffic Engineering use case. In <i>Network Operations and Management Symposium (NOMS), 2016 IEEE\/IFIP<\/i>, pages 598–604. IEEE, 2016."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Francois Aubry, David Lebrun, Stefano Vissicchio, Minh Thanh Khong, Yves Deville, and Olivier Bonaventure. Scmon: Leveraging segment routing to improve network monitoring. In <i>35th Annual IEEE International Conference on Computer Communications, INFOCOM 2016, San Francisco, CA, USA, April 10-14, 2016<\/i>, pages 1–9, 2016."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Steve Deering. Internet Protocol, Version 6 (IPv6) Specification. RFC 2460, December 1998."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "Linux Torvalds. Linux 4.10 networking merge commit. <a href=\"https:\/\/git.kernel.org\/cgit\/linux\/kernel\/git\/torvalds\/linux.git\/commit\/?id=ce38aa9cbed3d109355b0169b520362c409c0541\">https:\/\/git.kernel.org\/cgit\/linux\/kernel\/git\/torvalds\/linux.git\/commit\/?id=ce38aa9cbed3d109355b0169b520362c409c0541<\/a>, December 2016."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "Linux community. Linux 4.10 ChangeLog. <a href=\"https:\/\/kernelnewbies.org\/Linux\\_4.10\">https:\/\/kernelnewbies.org\/Linux\\_4.10<\/a>, February 2017."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "D. Boyer et al. Insertion of IPv6 Segment Routing Headers in a Controlled Domain. Internet draft draft-voyer-6man-extension-header-insertion-00, work in progress, March 2017."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "Robert Olsson. Pktgen the linux packet generator. In <i>Proceedings of the Linux Symposium, Ottawa, Canada<\/i>, volume 2, pages 11–24, 2005."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "C. Filsfils et al. SRv6 Network Programming. Internet draft, draft-filsfils-spring-srv6-network-programming-00, work in progress, March 2017."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003039.10003045.10003046",
+                    "concept_desc": "Networks~Routing protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003045,
+                        10003046
+                    ],
+                    "expected_concept_desc": "Networks~Routing protocols"
+                },
+                {
+                    "concept_id": "10003033.10003034.10003038",
+                    "concept_desc": "Networks~Programming interfaces",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003034,
+                        10003038
+                    ],
+                    "expected_concept_desc": "Networks~Programming interfaces"
+                }
+            ],
+            "acm-keywords": [
+                "ipv6",
+                "segment routing",
+                "linux kernel",
+                "implementation"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/gzip",
+                    "hash": "sha2-01e6b0d3f64e0badb118b79979359e279e5d0ad56c1ea0033686724330f08912",
+                    "timestamp": 1497087728,
+                    "size": 646721,
+                    "filename": "acm-upload.tar.gz",
+                    "content_file": "anrw17-paper3-source-files\/acm-upload.tar.gz"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        },
+        "pc_conflicts": {
+            "Olivier.Bonaventure@uclouvain.be": "author",
+            "steve.uhlig@qmul.ac.uk": "collaborator"
+        }
+    },
+    {
+        "pid": 6,
+        "title": "Manage resource-constrained IoT devices through dynamically generated and deployed YANG models",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492000875,
+        "authors": [
+            {
+                "email": "scheffler@beuth-hochschule.de",
+                "first": "Thomas",
+                "last": "Scheffler",
+                "affiliation": "Beuth Hochschule für Technik Berlin",
+                "contact": true
+            },
+            {
+                "email": "olaf.bonness@telekom.de",
+                "first": "Olaf",
+                "last": "Bonneß",
+                "affiliation": "Deutsche Telekom AG"
+            }
+        ],
+        "abstract": "This paper presents an experimental design approach that allows the standardized management protocol NETCONF to handle dynamically changing networks found in the IoT and Home-Networking domain.\r\nManagement of such networks is challenging, because they usually grow out of spontaneous device assemblies, rather than an engineering blueprint. Network membership may be highly dynamic and the devices might only possess very limited computation and communication budgets.\r\nIt is our goal to develop methods and strategies for automatic device discovery and configuration maintenance in such networks. In our experiment we dynamically generate YANG data models and NETCONF RPCs from device profiles written in JSON and map these to configuration commands in the lightweight MQTT protocol.",
+        "topics": {
+            "Network management, diagnosis, and operations": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-e15a4303d9faac6bd5db394ebc4f88ce983f7c0390de37d6f49f7f6d95b18c76",
+            "timestamp": 1491769848,
+            "size": 327050,
+            "filename": "scheffler_7.4.pdf",
+            "metadata": {
+                "npages": 6,
+                "banal": {
+                    "at": 1492000700,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        56,
+                        72,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "nummargin": 71,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 49831
+                        },
+                        {
+                            "d": 70331
+                        },
+                        {
+                            "margin": [
+                                220,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 51117
+                        },
+                        {
+                            "d": 45802
+                        },
+                        {
+                            "d": 56268
+                        },
+                        {
+                            "margin": [
+                                56,
+                                316,
+                                72,
+                                52
+                            ],
+                            "d": 43397
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper6.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-084796b8e168d4a3ff8a5dae9e026806811c3d3b8ba791d5247e5a82cb081cc9",
+            "timestamp": 1498253291,
+            "size": 403669,
+            "filename": "scheffler_final_version.pdf",
+            "metadata": {
+                "npages": 6,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498253307,
+                    "npages": 6
+                },
+                "banal": {
+                    "at": 1498253307,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        56,
+                        72,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 10.5,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                72,
+                                56,
+                                68,
+                                52
+                            ],
+                            "d": 48855
+                        },
+                        {
+                            "d": 70102
+                        },
+                        {
+                            "margin": [
+                                220,
+                                56,
+                                72,
+                                52
+                            ],
+                            "d": 50957
+                        },
+                        {
+                            "d": 44419
+                        },
+                        {
+                            "d": 58730
+                        },
+                        {
+                            "d": 67633
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final6.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1498240668,
+        "options": {
+            "short-paper": false,
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "A. Bierman. Network Configuration Protocol (NETCONF) Base Notifications. RFC 6470, Internet Engineering Task Force, Feb. 2012."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "M. Bjorklund. YANG - A Data Modeling Language for the Network Configuration Protocol (NETCONF). RFC 6020, Internet Engineering Task Force, Oct. 2010."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "S. Chisholm and H. Trevino. NETCONF Event Notifications. RFC 5277, Internet Engineering Task Force, July 2008."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "R. Enns, M. Bjorklund, J. Schoenwaelder, and A. Bierman. Network Configuration Protocol (NETCONF). RFC 6241, Internet Engineering Task Force, June 2011."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "R. T. Fielding. <i>Architectural Styles and the Design of Network-based Software Architectures<\/i>. PhD thesis, University of California, Irvine, 2000."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "K. Hartke. Observing Resources in the Constrained Application Protocol (CoAP). RFC 7641, Internet Engineering Task Force, Sept. 2015."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Oasis Standard - MQTT Version 3.1.1. <a href=\"http:\/\/docs.oasis-open.org\/mqtt\/mqtt\/v3.1.1\/os\/mqtt-v3.1.1-os.pdf\">http:\/\/docs.oasis-open.org\/mqtt\/mqtt\/v3.1.1\/os\/mqtt-v3.1.1-os.pdf<\/a>, Oct. 2014."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "V. Perelman, J. Schoenwaelder, M. Ersue, and K. Watsen. Network Configuration Protocol Light (NETCONF Light). Internet-draft (expired), Internet Engineering Task Force, Jan. 2012."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "M. Scott and M. Bjorklund. YANG Module for NETCONF Monitoring. RFC 6022, Internet Engineering Task Force, Oct. 2010."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "A. Sehgal, V. Perelman, S. Kuryla, and J. Schönwälder. Management of resource constrained devices in the Internet of Things. <i>IEEE Communications Magazine<\/i>, 50(12):144 –149, Dec. 2012."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Z. Shelby, K. Hartke, and C. Bormann. Constrained Application Protocol (CoAP). RFC 7252, Internet Engineering Task Force, June 2014."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "P. van der Stok, A. Bierman, M. Veillette, and A. Pelov. CoAP Management Interface. Internet-draft, Internet Engineering Task Force, Jan. 2017."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "M. Veillette, A. Pelov, A. Somaraju, R. Turner, and A. Minaburo. CBOR Encoding of Data Modeled with YANG. Internet-draft, Internet Engineering Task Force, Feb. 2017."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003099.10003104",
+                    "concept_desc": "Networks~Network management",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003104
+                    ],
+                    "expected_concept_desc": "Networks~Network management"
+                }
+            ],
+            "acm-keywords": [
+                "Constrained Devices",
+                "IoT",
+                "NETCONF",
+                "YANG",
+                "MQTT",
+                "Data Modeling"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-196300f374e32e9e1a8afa194da4264db022c02abf56ffc7b58a1c9b10c318a1",
+                    "timestamp": 1498253291,
+                    "size": 526811,
+                    "filename": "scheffler_final.zip",
+                    "content_file": "anrw17-paper6-source-files\/scheffler_final.zip"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        }
+    },
+    {
+        "pid": 20,
+        "title": "No domain left behind: is Let's Encrypt democratizing encryption?",
+        "status": "submitted",
+        "submitted": true,
+        "submitted_at": 1492150303,
+        "authors": [
+            {
+                "email": "maarten@rtsn.nl",
+                "first": "Maarten",
+                "last": "Aertsen",
+                "affiliation": "Delft University of Technology",
+                "contact": true
+            },
+            {
+                "email": "maciej.korczynski@tudelft.nl",
+                "first": "Maciej",
+                "last": "Korczyński",
+                "affiliation": "Delft University of Technology",
+                "contact": true
+            },
+            {
+                "email": "giovane.moura@sidn.nl",
+                "first": "Giovane C. M.",
+                "last": "Moura",
+                "affiliation": "SIDN Labs",
+                "contact": true
+            },
+            {
+                "email": "S.T.Tajalizadehkhoob@tudelft.nl",
+                "first": "Samaneh",
+                "last": "Tajalizadehkhoob",
+                "affiliation": "Delft University of Technology",
+                "contact": true
+            },
+            {
+                "first": "Jan van den",
+                "last": "Berg",
+                "affiliation": "Delft University of Technology"
+            }
+        ],
+        "abstract": "The 2013 National Security Agency revelations of pervasive monitoring have led to an ``encryption rush'' across the computer and Internet industry. To push back against massive surveillance and protect users' privacy, vendors, hosting and cloud providers have widely deployed encryption on their hardware, communication links, and applications. \r\nAs a consequence, most web connections nowadays are encrypted. However, there is still a significant part of Internet traffic that is not encrypted. It has been argued that both \\textit{costs} and \\textit{complexity} associated with obtaining and deploying X.509 certificates are major barriers for widespread encryption, since these certificates are required to establish encrypted connections. To address these issues, the Electronic Frontier Foundation, Mozilla Foundation, the University of Michigan and a number of partners have set up \\textit{Let's Encrypt} (\\LEs), a certificate authority that provides both free X.509 certificates and software that automates the deployment of these certificates. \r\nIn this paper, we investigate \\textit{if} \\LE has been successful in democratizing encryption: \r\nwe analyze certificate issuance in the first year of \\LE and show from various perspectives that \\LE adoption has an upward trend and it is in fact being successful in covering the lower-cost end of the hosting market.",
+        "topics": {
+            "Naming and addressing": true,
+            "Network measurements": true,
+            "Network security and privacy": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-e1698b8345eed03c769e90ac6d7259a3dd0272edcba7f92e2d58e313b5d40f45",
+            "timestamp": 1492152976,
+            "size": 529996,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1492157155,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 52305
+                        },
+                        {
+                            "d": 65996
+                        },
+                        {
+                            "d": 43118
+                        },
+                        {
+                            "d": 44255
+                        },
+                        {
+                            "d": 50323
+                        },
+                        {
+                            "d": 64242
+                        },
+                        {
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 49242,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-paper20.pdf"
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-6da7dc41103432e3a3a16758cd37c7dcd8a434b710f00989f133b17d13949742",
+            "timestamp": 1497885148,
+            "size": 309494,
+            "filename": "no_domain_left_behind.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1498137701,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1498137701,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        80,
+                        52
+                    ],
+                    "bodyfontsize": 9,
+                    "leading": 11,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                76,
+                                52,
+                                80,
+                                52
+                            ],
+                            "d": 45868
+                        },
+                        {
+                            "d": 63619
+                        },
+                        {
+                            "d": 44043
+                        },
+                        {
+                            "d": 35898
+                        },
+                        {
+                            "d": 57582
+                        },
+                        {
+                            "d": 46126
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                480,
+                                52
+                            ],
+                            "bodyfontsize": 7,
+                            "leading": 8,
+                            "d": 25526,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            },
+            "content_file": "anrw17-final20.pdf"
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1497885148,
+        "options": {
+            "short-paper": false,
+            "references": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Alexa Top 1,000,000 Sites. <a href=\"http:\/\/s3.amazonaws.com\/alexa-static\/top-1m.csv.zip\">http:\/\/s3.amazonaws.com\/alexa-static\/top-1m.csv.zip<\/a>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Certificate Transparency - Known logs. <a href=\"https:\/\/www.certificate-transparency.org\/known-logs\">https:\/\/www.certificate-transparency.org\/known-logs<\/a>."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Google transparency report - https - https usage. <a href=\"https:\/\/www.google.com\/transparencyreport\/https\/metrics\/?hl=en\">https:\/\/www.google.com\/transparencyreport\/https\/metrics\/?hl=en<\/a>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "R. Barnes, J. Hoffman-Andrews, and J. Kasten. Automatic Certificate Management Environment (ACME). draft-ietf-acme-acme-03, July 2016."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "X. Cai, J. Heidemann, B. Krishnamurthy, and W. Willinger. Towards an AS-to-organization map. In <i>Proc. of IMC<\/i>, pages 199–205. ACM, 2010."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "D. Cooper, S. Santesson, S. Farrell, S. Boeyen, R. Housley, and W. Polk. Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile. RFC 5280 (Proposed Standard), May 2008. Updated by RFC 6818."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "T. Dierks and E. Rescorla. The Transport Layer Security (TLS) Protocol Version 1.2. RFC 5246 (Proposed Standard), Aug. 2008. Updated by RFCs 5746, 5878, 6176, 7465, 7507, 7568, 7627, 7685."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "X. Dimitropoulos, D. Krioukov, G. Riley, and k. claffy. Revealing the Autonomous System Taxonomy: The Machine Learning Approach. In <i>PAM<\/i>, 2006."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Z. Durumeric, D. Adrian, A. Mirian, M. Bailey, and J. A. Halderman. A Search Engine Backed by Internet-Wide Scanning. In <i>Proc. of ACM CCS<\/i>, 2015."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Z. Durumeric, J. Kasten, M. Bailey, and J. A. Halderman. Analysis of the HTTPS certificate ecosystem. In <i>Proc. of IMC<\/i>, pages 291–304, 2013."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Fairsight. DNSDB. <a href=\"https:\/\/www.dnsdb.info\/\">https:\/\/www.dnsdb.info\/<\/a>."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "C. Farivar. Apple expands data encryption under iOS 8, making handover to cops moot. <a href=\"https:\/\/arstechnica.com?post_type=post\\&amp;p=540095\">https:\/\/arstechnica.com?post_type=post\\&amp;p=540095<\/a>, 2014."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "S. Farrell and H. Tschofenig. Pervasive Monitoring Is an Attack. RFC 7258 (Best Current Practice), 2014."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "G. Gebhart and S. Schoen. Is Let’s Encrypt the Largest Certificate Authority on the Web? <a href=\"https:\/\/www.eff.org\/deeplinks\/2016\/10\/lets-encrypt-largest-certificate-authority-web\">https:\/\/www.eff.org\/deeplinks\/2016\/10\/lets-encrypt-largest-certificate-authority-web<\/a>, Oct 2016."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "M. Gelbmann. The impact of Let's Encrypt on the SSL certificate market. <a href=\"https:\/\/w3techs.com\/blog\/entry\/the_impact_of_lets_encrypt_on_the_ssl_certificate_market\">https:\/\/w3techs.com\/blog\/entry\/the_impact_of_lets_encrypt_on_the_ssl_certificate_market<\/a>, Sep 2016."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "S. Helme. Security headers in the Alexa Top 1 Million - Let's Encrypt Usage. <a href=\"https:\/\/scotthelme.co.uk\/security-headers-alexa-top-million\/\">https:\/\/scotthelme.co.uk\/security-headers-alexa-top-million\/<\/a>, Feb 2016."
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "R. Holz, L. Braun, N. Kammenhuber, and G. Carle. The SSL landscape: a thorough analysis of the X.509 PKI using active and passive measurements. In <i>Proc. of IMC<\/i>, pages 427–444, Nov 2011."
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "ISRG. Let's Encrypt Stats. <a href=\"https:\/\/letsencrypt.org\/stats\/\">https:\/\/letsencrypt.org\/stats\/<\/a>, 2016."
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "J. Jones. Blog series on growth of Let's Encrypt. <a href=\"https:\/\/tacticalsecret.com\/tag\/letsencrypt\/\">https:\/\/tacticalsecret.com\/tag\/letsencrypt\/<\/a>, 2016."
+                },
+                {
+                    "ref_id": "20",
+                    "ref_text": "E. L. Kaplan and P. Meier. Nonparametric estimation from incomplete observations. <i>Journal of the American statistical association<\/i>, 53(282):457–481, 1958."
+                },
+                {
+                    "ref_id": "21",
+                    "ref_text": "J. D. Kasten Jr. <i>Server Authentication on the Past, Present, and Future Internet<\/i>. PhD thesis, The University of Michigan, 2015."
+                },
+                {
+                    "ref_id": "22",
+                    "ref_text": "M. Korczyński and A. Duda. Markov chain fingerprinting to classify encrypted traffic. In <i>Proc. of IEEE INFOCOM<\/i>, pages 781–789, April 2014."
+                },
+                {
+                    "ref_id": "23",
+                    "ref_text": "M. Korczyński, S. Tajalizadehkhoob, A. Noroozian, M. Wullink, C. Hesselman, and M. van Eeten. Reputation metrics design to improve intermediary incentives for security of TLDs. In <i>2017 IEEE European Symposium on Security and Privacy (Euro SP)<\/i>, April 2017."
+                },
+                {
+                    "ref_id": "24",
+                    "ref_text": "A. Langley. No, don't enable revocation checkign. <a href=\"https:\/\/www.imperialviolet.org\/2014\/04\/19\/revchecking.html\">https:\/\/www.imperialviolet.org\/2014\/04\/19\/revchecking.html<\/a>, Apr 2014."
+                },
+                {
+                    "ref_id": "25",
+                    "ref_text": "B. Laurie, A. Langley, E. Kasper, E. Messeri, and R. Stradling. Certificate Transparency. RFC 6962-bis-19 (Internet-Draft), Aug. 2016."
+                },
+                {
+                    "ref_id": "26",
+                    "ref_text": "Let's Encrypt. Free SSL\/TLS Certificates. <a href=\"https:\/\/letsencrypt.org\/\">https:\/\/letsencrypt.org\/<\/a>."
+                },
+                {
+                    "ref_id": "27",
+                    "ref_text": "O. Levillain, A. Ébalard, B. Morin, and H. Debar. One year of SSL Internet measurement. In <i>Proc. of ACSAC<\/i>, pages 11–20. ACM, Dec 2012."
+                },
+                {
+                    "ref_id": "28",
+                    "ref_text": "S. Liu, I. Foster, S. Savage, G. M. Voelker, and L. K. Saul. Who is .Com?: Learning to Parse WHOIS Records. In <i>Proc. of IMC<\/i>, pages 369–380, 2015."
+                },
+                {
+                    "ref_id": "29",
+                    "ref_text": "Y. Liu, A. Sarabi, J. Zhang, P. Naghizadeh, M. Karir, M. Bailey, and M. Liu. Cloudy with a chance of breach: Forecasting cyber security incidents. In <i>USENIX Security<\/i>, pages 1009–1024, 2015."
+                },
+                {
+                    "ref_id": "30",
+                    "ref_text": "Maxmind. GeoIP2 ISP Database. <a href=\"https:\/\/www.maxmind.com\/en\/geoip2-isp-database\">https:\/\/www.maxmind.com\/en\/geoip2-isp-database<\/a>, 2016."
+                },
+                {
+                    "ref_id": "31",
+                    "ref_text": "P. Mockapetris. Domain names - concepts and facilities. RFC 1034, Nov. 1987."
+                },
+                {
+                    "ref_id": "32",
+                    "ref_text": "Mozilla. Firefox telemetry. <a href=\"https:\/\/telemetry.mozilla.org\/\">https:\/\/telemetry.mozilla.org\/<\/a>, Oct 2016."
+                },
+                {
+                    "ref_id": "33",
+                    "ref_text": "S. Tajalizadehkhoob, M. Korczyński, A. Noroozian, C. Gañán, and M. van Eeten. Apples, oranges and hosting providers: Heterogeneity and security in the hosting market. In <i>Proc. of NOMS<\/i>, Apr 2016."
+                },
+                {
+                    "ref_id": "34",
+                    "ref_text": "B. VanderSloot, J. Amann, M. Bernhard, Z. Durumeric, M. Bailey, and J. A. Halderman. Towards a Complete View of the Certificate Ecosystem. In <i>Proc. of IMC<\/i>, pages 543–549, 2016."
+                },
+                {
+                    "ref_id": "35",
+                    "ref_text": "M. Vasek, J. Wadleigh, and T. Moore. Hacking Is Not Random: A Case-Control Study of Webserver-Compromise Risk. <i>IEEE Transactions on Dependable and Secure Computing<\/i>, 13(2):206–219, 2016."
+                },
+                {
+                    "ref_id": "36",
+                    "ref_text": "W3Techs. Changes in the usage of IdenTrust. <a href=\"https:\/\/w3techs.com\/technologies\/changes\/sc-identrust\">https:\/\/w3techs.com\/technologies\/changes\/sc-identrust<\/a>, Nov 2016."
+                },
+                {
+                    "ref_id": "37",
+                    "ref_text": "C. Welch. Google encrypts Gmail between data centers to keep the NSA out of your inbox. <a href=\"http:\/\/www.theverge.com\/2014\/3\/20\/5530072\/google-encrypts-gmail-between-data-centers-to-keep-out-nsa\">http:\/\/www.theverge.com\/2014\/3\/20\/5530072\/google-encrypts-gmail-between-data-centers-to-keep-out-nsa<\/a>, 2014."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003106.10010924",
+                    "concept_desc": "Networks~Public Internet",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003106,
+                        10010924
+                    ],
+                    "expected_concept_desc": "Networks~Public Internet"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                },
+                {
+                    "concept_id": "10002978.10002979.10002980",
+                    "concept_desc": "Security and privacy~Key management",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10002978,
+                        10002979,
+                        10002980
+                    ],
+                    "expected_concept_desc": "Security and privacy~Key management"
+                },
+                {
+                    "concept_id": "10002978.10003014",
+                    "concept_desc": "Security and privacy~Network security",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003014
+                    ],
+                    "expected_concept_desc": "Security and privacy~Network security"
+                },
+                {
+                    "concept_id": "10002978.10002991.10002992",
+                    "concept_desc": "Security and privacy~Authentication",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10002978,
+                        10002991,
+                        10002992
+                    ],
+                    "expected_concept_desc": "Security and privacy~Authentication"
+                }
+            ],
+            "acm-keywords": [
+                "Let's Encrypt",
+                "Certificate Authority",
+                "Internet Measurement",
+                "x509 certificates",
+                "HTTPS"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/gzip",
+                    "hash": "sha2-bcc47dbff996654d29e0964f2c9e9cd8b273b7dba0815c1ada91bf8552e566c2",
+                    "timestamp": 1497885148,
+                    "size": 591220,
+                    "filename": "submission.tar.gz",
+                    "content_file": "anrw17-paper20-source-files\/submission.tar.gz"
+                }
+            ],
+            "supplements": false,
+            "auxiliary-material": false
+        }
+    }
+]
