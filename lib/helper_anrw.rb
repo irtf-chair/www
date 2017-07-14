@@ -126,7 +126,7 @@ module ANRW
       }
       # pp nr, p
       {
-        "options": { "type": (p["short-paper"] == true ? "Full" : "Short") + " Paper" },
+        "options": { "type": (p["short-paper"] == true ? "Short" : "Full") + " Paper" },
         "final": { "content_file": p["fulltext"]["file"]["fname"] },
         "authors": p["authors"]["au"].map { |a|
           {
@@ -183,7 +183,7 @@ module ANRW
           <b>
             #{p["title"] =~ /[[:punct:]]$/ ? p["title"] : p["title"] + "."}
           </b>
-          <span class="label label-#{label}">#{(p["options"]["short-paper"] == true ? "Full" : "Short") + " Paper"}</span>
+          <span class="label label-#{label}">#{(p["options"]["short-paper"] == true ? "Short" : "Full") + " Paper"}</span>
           <br>
           #{names.to_sentence + "."}
         </p>
