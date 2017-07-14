@@ -141,7 +141,7 @@ module ANRW
     else
       raise "Don't know how to handle #{file}"
     end
-    label = p["options"]["short-paper"] == true ? "success" : "default"
+    label = p["options"]["short-paper"] == true ? "default" : "success"
     names = p["authors"].map { |a|
       a["first"] + " " + a["last"] + (a.key?("affiliation") ?
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
