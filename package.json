@@ -8,5 +8,11 @@
     "gulp-bower": "",
     "gulp-sass": "",
     "run-sequence": ""
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "yuicompressor": "^2.4.8"
   }
 }

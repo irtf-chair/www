@@ -130,14 +130,14 @@ module IRTF
 
   # GAIA
   sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "https://www.cl.cam.ac.uk/~as2330/", nil)
-  ford = Person.new("Mat", "Ford", "ford@isoc.org", "https://www.internetsociety.org/who-we-are/people/mr-mat-ford", nil)
+  coffin = Person.new("Jane", "Coffin", "coffin@isoc.org", "https://www.internetsociety.org/who-we-are/people/jane-coffin", nil)
   gaia = RG.new(
     "gaia",
     "Global Access to the Internet for All",
     "gaia@irtf.org",
     nil,
     "https://sites.google.com/site/irtfgaia/",
-    [ sathiaseelan, ford ],
+    [ sathiaseelan, coffin ],
     nil,
     "2014-10-15",
     nil
@@ -461,8 +461,7 @@ module IRTF
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
 
   # IRSG
-  eggert = Person.new("Lars", "Eggert", "irtf-chair@irtf.org", "https://eggert.org/", "584143839")
-  $chair = eggert
+  eggert = Person.new("Lars", "Eggert", "lars@netapp.com", "https://eggert.org/", "584143839")
   # falk = Person.new("Aaron", "Falk", "aaron.falk@gmail.com", "https://linkedin.com/in/aaronfalk", nil)
   # allman = Person.new("Mark", "Allman", "mallman@icir.org", "https://www.icir.org/mallman/", nil)
   # dawkins = Person.new("Spencer", "Dawkins", "spencerdawkins.ietf@gmail.com", "https://linkedin.com/in/spencerdawkins", nil)
@@ -475,7 +474,8 @@ module IRTF
   # nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
   # feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
-  $mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://www.linkedin.com/in/allisonmankin", nil)
+  $mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
+  $chair = $mankin 
   $atlarge = [ $mankin ]
 
   def atlarge_contacts
