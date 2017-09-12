@@ -34,7 +34,9 @@ logo_hidden: true
         %a{ href: item.path }
           %img.img-responsive{ src: "#{item.path.split("/")[-1]}/photo.jpg", alt: 'Berlin' }
           .caption
-            %h4 #{item[:menu]} at #{item[:ietf]}
+            %h4
+              %a{ href: item.path }
+                #{item[:menu]} at #{item[:ietf]}
             %p
               #{item[:location].to_s}
               %br
