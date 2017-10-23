@@ -1,0 +1,86 @@
+---
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.without_ext.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Background
+
+%p
+  The Internet architecture assumes a division between the end-to-end
+  functionality of the transport layer and the properties of the path
+  between the endpoints. The path is assumed to be invisible, homogeneous,
+  singular, with dynamics solely determined by the connectivity of the
+  endpoints and the Internet control plane. Endpoints have very little
+  information about the paths over which their traffic is carried, and
+  no control at all beyond the destination address.
+
+%p
+  Increased diversity in access networks, and ubiquitous mobile connectivity,
+  have made this architecture's assumptions about paths less tenable. Multipath
+  protocols taking advantage of this mobile connectivity begin to show us a way
+  forward, though: if endpoints cannot control the path, at least they can
+  determine the properties of the path by choosing among paths available to them.
+
+%p
+  This proposed research group aims to support research in bringing path
+  awareness to transport and application layer protocols, and to bring
+  research in this space to the attention of the Internet engineering and
+  protocol design community.
+
+%p
+  The scope of work within the proposed RG includes, but is not strictly limited to:
+
+%ul
+  %li
+    communication and discovery of information about the properties of a path on
+    local networks and in internetworks, exploration of trust and risk models
+    associated with this information, and algorithms for path selection at
+    endpoints based on this information.
+  %li
+    algorithms for making transport-layer scheduling decisions based on
+    information about path properties.
+  %li
+    algorithms for reconciling path selection at endpoints with widely deployed
+    routing protocols and network operations best practices.
+
+%p
+  The group's scope overlaps with existing IETF and IRTF efforts (and also with 
+  some past efforts. Of the existing overlaps, the group will collaborate
+  with WGs and RGs chartered to work on multipath transport protocols
+  (MPTCP, QUIC, TSVWG), congestion control in multiply-connected environments
+  (ICCRG), and alternate routing architectures (e.g. LISP). The charter is also
+  related to the questions discussed in a number of past BoF sessions, e.g. SPUD, PLUS, BANANA).
+
+%p
+  The group will target 2-3 IETFs per year, initially 3, and also will collocate
+  with academic workshops about once per year as appropriate. 
+
+%h2 Membership
+
+%p
+  Membership in the #{acronym} is open to all interested parties.
+
+%h2 Meetings
+
+%p
+  The #{acronym} will meet one to three times per year, as deemed
+  necessary by the chairs and according to demand. At least one #{acronym}
+  meeting will be co-located with an IETF meeting per year. Given the
+  #{acronym}'s charter to bridge the gap between Internet standards and
+  measurement communities, the #{acronym} may also meet collocated with
+  relevant academic conferences or network operator forums, as
+  appropriate.
+
+%p
+  Meetings are by default open with open attendance and published
+  proceedings, with remote participation and recording as provided by
+  the meeting venue, according to the IRTF's IPR policy. This is
+  always the case with at least one #{acronym} meeting co-located with an
+  IETF meeting noted above. However, as deemed necessary, the chairs
+  may hold virtual or physical meetings with restricted attendance to
+  discuss observations which cannot be shared openly, provided that
+  some outcome of such a meeting may be openly shared with the
+  community.

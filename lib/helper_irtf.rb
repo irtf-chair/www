@@ -300,6 +300,21 @@ module IRTF
     nil
   )
 
+  # PANRG 
+  trammell = Person.new("Brian", "Trammell", "ietf@trammell.ch", "https://trammell.ch/", nil)
+  linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil) 
+  panrg = RG.new(
+    "panrg",
+    "Path Aware Networking",
+    "panrg@irtf.org",
+    nil,
+    nil,
+    [ linkova, trammell ],
+    nil,
+    nil,
+    nil
+  )
+
   # P2PRG
   hiltl = Person.new("Volker", "Hilt", "volkerh@bell-labs.com", nil, nil)
   previdi = Person.new("Stefano", "Previdi", "sprevidi@cisco.com", "https://linkedin.com/in/sprevidi", nil)
@@ -416,6 +431,7 @@ module IRTF
     "nfvrg" => nfvrg,
     "nmrg"  => nmrg,
     "nwcrg" => nwcrg,
+    "panrg" => panrg, 
     "t2trg" => t2trg
   }
 
@@ -464,8 +480,8 @@ module IRTF
   eggert = Person.new("Lars", "Eggert", "lars@netapp.com", "https://eggert.org/", "584143839")
   ford = Person.new("Mat", "Ford", "ford@isoc.org", "https://www.internetsociety.org/who-we-are/people/mr-mat-ford", nil) 
   atlas = Person.new("Alia", "Atlas", "akatlas@gmail.com", "https://www.ietf.org/iesg/bio/alia-atlas.html", nil)
-  trammell = Person.new("Brian", "Trammell", "ietf@trammell.ch", "https://trammell.ch/", nil)
-  linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil) 
+  # trammell = Person.new("Brian", "Trammell", "ietf@trammell.ch", "https://trammell.ch/", nil)
+  # linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil) 
   # falk = Person.new("Aaron", "Falk", "aaron.falk@gmail.com", "https://linkedin.com/in/aaronfalk", nil)
   # allman = Person.new("Mark", "Allman", "mallman@icir.org", "https://www.icir.org/mallman/", nil)
   dawkins = Person.new("Spencer", "Dawkins", "spencerdawkins.ietf@gmail.com", "https://linkedin.com/in/spencerdawkins", nil)
