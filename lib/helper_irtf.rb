@@ -113,6 +113,21 @@ module IRTF
     nil
   )
 
+  # DINRG
+  kutscher = Person.new("Dirk", "Kutscher", "ietf@dkutscher.net", "https://dirk-kutscher.info/", nil)
+  shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil) 
+  dinrg = RG.new(
+    "dinrg",
+    "Decentralized Internet Infrastructure Proposed",
+    "din@irtf.org",
+    nil,
+    "https://trac.ietf.org/trac/irtf/wiki/blockchain-federation",
+    [ kutscher, shore ],
+    nil,
+    nil,
+    nil 
+  )
+
   # DTNRG
   fall = Person.new("Kevin", "Fall", "kfall@acm.org", "https://kfall.net/ucbpage/", nil)
   ott = Person.new("Jörg", "Ott", "jo@netlab.tkk.fi", "https://www.netlab.tkk.fi/~jo/", nil) # www is needed
@@ -190,9 +205,8 @@ module IRTF
   )
 
   # ICNRG
-  kutscher = Person.new("Dirk", "Kutscher", "Dirk.Kutscher@neclab.eu", "https://dirk-kutscher.info/", nil)
   ohlman = Person.new("Börje", "Ohlman", "borje.ohlman@ericsson.com", "https://linkedin.com/pub/b%3Frje-ohlman/0/270/283", nil)
-  oran = Person.new("Dave", "Oran", "oran@cisco.com", "https://linkedin.com/pub/david-oran/0/b7/7b4", nil)
+  oran = Person.new("Dave", "Oran", "daveoran@orandom.net", "https://linkedin.com/pub/david-oran/0/b7/7b4", nil)
   icnrg = RG.new(
     "icnrg",
     "Information-Centric Networking",
@@ -305,7 +319,7 @@ module IRTF
   linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil) 
   panrg = RG.new(
     "panrg",
-    "Path Aware Networking",
+    "Path Aware Networking Proposed",
     "panrg@irtf.org",
     nil,
     nil,
@@ -423,6 +437,7 @@ module IRTF
   # Active RGs
   $rgs = {
     "cfrg"  => cfrg,
+    "dinrg" => dinrg, 
     "gaia" => gaia,
     "hrpc" => hrpc,
     "iccrg" => iccrg,
