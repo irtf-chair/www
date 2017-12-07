@@ -189,7 +189,7 @@ module IRTF
   )
 
   # ICCRG
-  welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
+  # welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
   iyengar = Person.new("Jana", "Iyengar", "jri@google.com", "https://www.linkedin.com/in/jana-iyengar-2121252", nil)
   # ros = Person.new("David", "Ros", "dros@simula.no", "https://simula.no/people/dros", nil)
   iccrg = RG.new(
@@ -198,7 +198,7 @@ module IRTF
     "iccrg@irtf.org",
     nil,
     "https://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
-    [ welzl, iyengar ],
+    [ iyengar ],
     nil,
     nil,
     nil
@@ -284,15 +284,16 @@ module IRTF
 
   # NWCRG
   # adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "https://linkedin.com/in/brianadamson", nil)
-  firoiu = Person.new("Victor", "Firoiu", "vfiroiu@acm.org", "https://victor.firoiu.org/", nil)
+  # firoiu = Person.new("Victor", "Firoiu", "vfiroiu@acm.org", "https://victor.firoiu.org/", nil)
+  montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", "http://web.mit.edu/~mariejo/www/mjm.html", nil)
   roca = Person.new("Vincent", "Roca", "vincent.roca@inria.fr", "https://planete.inrialpes.fr/~roca/", nil)
   nwcrg = RG.new(
     "nwcrg",
-    "Network Coding",
+    "NetWork Coding for Efficient Network Communications",
     "nwcrg@irtf.org",
     nil,
     nil,
-    [ roca, firoiu ],
+    [ roca, montpetit ],
     nil,
     "2013-11-13",
     nil
