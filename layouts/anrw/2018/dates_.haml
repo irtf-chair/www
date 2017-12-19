@@ -1,0 +1,93 @@
+-# %table.table.table-condensed
+-#   %tbody
+-#   -if @which == nil or @which == "papers"
+-#     %tr
+-#       %td{ :style => 'width: "33%"' }
+-#         %em
+-#         Paper submission deadline
+-#       %td
+-#         %del
+-#           April 3, 2017
+-#       %td
+-#         %span.text-danger
+-#           %del
+-#             April 13, 2017 (extended)
+-#     %tr
+-#       %td
+-#         %em
+-#         Paper notification deadline
+-#       %td{ :colspan => 2 }
+-#         %del
+-#           June 2, 2017
+-#   -if @which == nil or @which == "papers"
+-#     %tr
+-#       %td
+-#         Camera-ready paper deadline
+-#       %td{ :colspan => 2 }
+-#         %del
+-#           June 23, 2017
+-#     %tr
+-#       %td
+-#         %em
+-#         Early registration deadline
+-#       %td{ :colspan => 2 }
+-#         %del
+-#           June 26, 2017
+-#   -if @which == nil or @which == "grants"
+-#     %tr
+-#       %td
+-#         Travel grants submission deadline
+-#       %td{ :colspan => 2 }
+-#         %del
+-#           June 30, 2017
+-#     %tr
+-#       %td
+-#         Travel grants notification deadline
+-#       %td{ :colspan => 2 }
+-#         %del
+-#           July 6, 2017
+
+-# %table.table.table-condensed
+-#   %tbody
+-#     -if @which == nil or @which == "papers"
+-#       %tr
+-#         %td{ :style => 'width: "33%"' }
+-#           %em
+-#             %del Paper submission deadline
+-#         %td
+-#           %del
+-#             May 16, 2016
+-#         %td
+-#           %span.text-danger
+-#             %del May 23, 2016 (hard)
+-#       %tr
+-#         %td
+-#           %em
+-#             %del Paper notification deadline
+-#         %td{ :colspan => 2 }
+-#           %del June 17, 2016
+-#     -if @which == nil or @which == "grants"
+-#       %tr
+-#         %td
+-#           %del Travel grants submission deadline
+-#         %td{ :colspan => 2 }
+-#           %del June 24, 2016
+-#     -if @which == nil or @which == "papers"
+-#       %tr
+-#         %td
+-#           %del Camera-ready paper deadline
+-#         %td{ :colspan => 2 }
+-#           %del
+-#             June 24, 2016
+-#     -if @which == nil or @which == "grants"
+-#       %tr
+-#         %td
+-#           %del Travel grants notification deadline
+-#         %td{ :colspan => 2 }
+-#           %del June 28, 2016
+-#       %tr.warning
+-#         %td
+-#           %b
+-#             Workshop
+-#         %td{ :colspan => 2 }
+-#           %b July 16, 2016

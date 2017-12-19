@@ -1,0 +1,47 @@
+---
+title: Applied Networking Research Workshop (ANRW&nbsp;’18)
+menu: ANRW&nbsp;’18
+location: Montreal, Quebec, Canada 
+date: Monday, July 15, 2018
+ietf: IETF-102
+---
+
+.hidden-xs.pull-right.col-sm-4
+  %img.img-thumbnail.img-responsive{ src: 'photo.jpg', alt: "#{@item[:location]}" }
+-#   %p.text-muted
+-#     %small
+-#       %a{ href: 'https://www.flickr.com/photos/bradhammonds/9651948027/' } 'Prague Castle'
+-#       by
+-#       %a{ href: 'https://bradhammonds.eu/' } Brad Hammonds
+-#       %a{ href: 'https://creativecommons.org/licenses/by-nc/2.0/' } (CC BY-NC 2.0)
+
+%p
+  The ACM, IRTF & ISOC Applied Networking Research Workshop 2018
+  (#{@item[:menu]}) provides a forum for researchers, vendors, network operators
+  and the Internet standards community to present and discuss emerging results
+  in applied networking research.
+
+%p
+  Researchers should consider submitting
+  early emerging results that illustrate the scientific and engineering
+  principles underlying the Internet architecture, protocols and applications;
+  that demonstrate new capabilities, features, or extensions to the Internet
+  protocol layers; that enhance our understanding of how Internet protocols work
+  in real-world deployments or realistic testbeds; or that improve Internet
+  security and privacy, scalability, performance, and robustness.
+
+%p.lead= render '/anrw/2018/place_.*'
+
+-# %p.btn-toolbar
+-#   %a.btn.btn-primary.btn-lg{ href: 'https://www.internetsociety.org/form/anrw', role: 'button' } Attend »
+-#   %a.btn.btn-primary.btn-lg{ href: 'cfp', role: 'button' } Call for Papers »
+-#   %a.btn.btn-primary.btn-lg{ href: 'https://anrw17.hotcrp.com/', role: 'button' } Start a submission »
+-#   %a.btn.btn-success.btn-lg{ href: 'program', role: 'button' } Workshop program »
+-#   %a.btn.btn-info.btn-lg{ href: 'travelgrants', role: 'button' } Student travel grants »
+
+%h2 Important Dates
+= render '/anrw/2018/dates_.*'
+
+%h2 Supporters and Sponsors
+= render '/anrw/2018/supporters_.*'
+= render '/anrw/sponsors_.*'
