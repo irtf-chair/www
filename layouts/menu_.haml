@@ -44,7 +44,7 @@
             %li.dropdown-submenu
               %a{ :href => relative_path_to("/anrw/"), :tabindex => "-1" } Applied Networking Research Workshops
               %ul.dropdown-menu
-                - @items.find_all(%r{/anrw/(\d+)/index}).each do |item|
+                - @items.find_all(%r{/anrw/(\d+)/index.*}).sort_by{ |item| item[:order] }.each do |item|
                   %li
                     %a{ :href => relative_path_to(item) } #{item[:menu]}
             %li.dropdown-submenu
