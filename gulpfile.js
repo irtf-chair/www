@@ -66,7 +66,7 @@ gulp.task('upload', function(cb) {
 });
 
 gulp.task("linkcheck", function(cb) {
-  exec("linklint -doc report -https -net -host irtf.org /@",
+  exec("linklint -doc report -http -net -host irtf.org /@",
        { stdio: "inherit" }, function (err) {
     cb(err);
   });

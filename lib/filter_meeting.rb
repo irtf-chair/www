@@ -11,7 +11,7 @@ class MeetingFilter < Nanoc::Filter
     elements = doc.xpath('//*[local-name() != "a" and not(ancestor::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")]) and not(self::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")])]/text()')
     elements.each do |element|
       element.content = element.content.gsub(/\bIETF-([0-9]{1,3}\b)/) {
-        |rfc| link_to("IETF-#{$1}", "https://ietf.org/meeting/#{$1}/index")
+        |rfc| link_to("IETF-#{$1}", "https://ietf.org/how/meetings/past/#{$1}/")
       }
     end
     return doc.xpath('//body')[0].inner_html.gsub("&lt;", "<").gsub("&gt;", ">")
