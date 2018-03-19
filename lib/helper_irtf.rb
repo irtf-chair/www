@@ -190,7 +190,7 @@ module IRTF
 
   # ICCRG
   # welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
-  iyengar = Person.new("Jana", "Iyengar", "jri@google.com", "https://www.linkedin.com/in/jana-iyengar-2121252", nil)
+  iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://www.linkedin.com/in/jana-iyengar-2121252", nil)
   # ros = Person.new("David", "Ros", "dros@simula.no", "https://simula.no/people/dros", nil)
   iccrg = RG.new(
     "iccrg",
