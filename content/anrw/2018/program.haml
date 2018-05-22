@@ -3,91 +3,186 @@ title: ANRW&nbsp;’18 Program
 menu: Program
 ---
 
-%h1 Workshop Program
-
-%p= render "/anrw/2018/place_.*"
-
-%h2 Invited Talks
-
-%table.table.table-striped.no-urlify
-  %tbody
-    %tr
-      %td.row
-        %p
-          %b
-            %a{ href: 'https://arxiv.org/abs/1710.11583' } Why (and How) Networks Should Run Themselves
-          %br
-          %em.text-muted
-            Speaker: Nick Feamster (Princeton University)
-
-    %tr
-      %td.row
-        %p
-          %b
-            %a{ href: 'http://www.inspire.edu.gr/artemis/paper2017.pdf' } ARTEMIS: Neutralizing BGP Hijacking within a Minute
-          %br
-          %em.text-muted
-            Speaker: Alberto Dainotti (CAIDA)
-
-    %tr
-      %td.row
-        %p
-          %b
-            %a{ href: 'https://www.microsoft.com/en-us/research/publication/run-walk-crawl-towards-dynamic-link-capacities/' } Run, Walk, Crawl: Towards Dynamic Link Capacities
-          %br
-          %em.text-muted
-            Speaker: Monia Ghobadi (Microsoft Research)
-
-    %tr
-      %td.row
-        %p
-          %b
-            %a{ href: 'https://conferences.sigcomm.org/imc/2017/papers/imc17-final99.pdf' } TCP Congestion Signatures
-          %br
-          %em.text-muted
-            Speaker: Srikanth Sundaresan (UC Berkeley) or Amogh Dhamdhere (CAIDA)
-
-    %tr
-      %td.row
-        %p
-          %b
-            Measuring Adoption of Security Additions to the HTTPS Ecosystem
-          %br
-          %em.text-muted
-            Speaker: Quirin Scheitle (Technical University of Munich)
-
-%p
-  Submitted talks and submitted papers to be added after May 14, 2018!
-
 -# %p
 -#   The workshop is open to all;
 -#   %a{ :href => "https://www.internetsociety.org/form/anrw" }
 -#     registration and payment of the registration fee
 -#   is however required.
 
+%h1 Workshop Program
+
+%p= render "/anrw/2018/place_.*"
+
+%h2 Program
+
+- json = "content/anrw/2018/anrw18-data.json"
+%table.table.table-striped.no-urlify
+  %thead
+    %tr
+      %th
+        Time
+      %th
+        Session
+      %th
+        Session Chair
+  %tbody
+    %tr
+      %td
+        %h4.text-danger 9:30am
+      %td
+        %h4.text-danger Welcome and Opening Remarks
+      %td
+
+    %tr
+      %td
+        %h4.text-danger 9:40am
+      %td
+        %h4.text-danger TLS
+        %p
+          %b
+            Measuring Adoption of Security Additions to the HTTPS Ecosystem
+            <span class="label label-danger">Invited talk</span>
+          %br
+          %em.text-muted
+            Speaker: Quirin Scheitle (Technical University of Munich)
+        .row= htmlify_paper_new2(json, 22)
+        .row= htmlify_paper_new2(json, 62)
+        .row= htmlify_paper_new2(json, 45)
+      %td
+        %h5.text-danger
+
+    %tr
+      %td
+        %h4.text-danger 11:00am
+      %td
+        %h4.text-danger Routing
+        %p
+          %b
+            %a{ href: 'http://www.inspire.edu.gr/artemis/paper2017.pdf' } ARTEMIS: Neutralizing BGP Hijacking within a Minute
+            <span class="label label-danger">Invited talk</span>
+          %br
+          %em.text-muted
+            Speaker: Alberto Dainotti (CAIDA)
+        .row= htmlify_paper_new2(json, 32)
+        .row= htmlify_paper_new2(json, 29)
+      %td
+        %h5.text-danger
+
+    %tr
+      %td
+        %h4.text-danger 12:00pm
+      %td
+        %h4.text-danger Lunch Break
+      %td
+
+    %tr
+      %td
+        %h4.text-danger 1:30pm
+      %td
+        %h4.text-danger Internet Infrastructure
+        %p
+          %b
+            %a{ href: 'https://www.microsoft.com/en-us/research/publication/run-walk-crawl-towards-dynamic-link-capacities/' } Run, Walk, Crawl: Towards Dynamic Link Capacities
+            <span class="label label-danger">Invited talk/span>
+          %br
+          %em.text-muted
+            Speaker: Monia Ghobadi (Microsoft Research)
+        .row= htmlify_paper_new2(json, 41)
+        .row= htmlify_paper_new2(json, 35)
+        .row= htmlify_paper_new2(json, 26)
+      %td
+        %h5.text-danger
+
+    %tr
+      %td
+        %h4.text-danger 2:50pm
+      %td
+        %h4.text-danger Congestion Control
+        %p
+          %b
+            %a{ href: 'https://conferences.sigcomm.org/imc/2017/papers/imc17-final99.pdf' } TCP Congestion Signatures
+            <span class="label label-danger">Invited talk</span>
+          %br
+          %em.text-muted
+            Speaker: Srikanth Sundaresan (UC Berkeley) or Amogh Dhamdhere (CAIDA)
+        .row= htmlify_paper_new2(json, 50)
+      %td
+        %h5.text-danger
+
+    %tr
+      %td
+        %h4.text-danger 3:30pm
+      %td
+        %h4.text-danger Beverage Break
+      %td
+
+    %tr
+      %td
+        %h4.text-danger 3:50pm
+      %td
+        %h4.text-danger Traffic Engineering
+        %p
+          %b
+            %a{ href: 'https://arxiv.org/abs/1710.11583' } Why (and How) Networks Should Run Themselves
+            <span class="label label-danger">Invited talk</span>
+          %br
+          %em.text-muted
+            Speaker: Nick Feamster (Princeton University)
+        .row= htmlify_paper_new2(json, 47)
+      %td
+        %h5.text-danger
+
+    %tr
+      %td
+        %h4.text-danger 4:30pm
+      %td
+        %h4.text-danger Anonymous Communications
+        %p
+        .row= htmlify_paper_new2(json, 58)
+        .row= htmlify_paper_new2(json, 57)
+      %td
+        %h5.text-danger
+
+    %tr
+      %td
+        %h4.text-danger 5:20pm
+      %td
+        %h4.text-danger Beverage Break
+      %td
+
+
+    %tr
+      %td
+        %h4.text-danger 5:40pm
+      %td
+        %h4.text-danger Posters
+        %p
+      %td
+        %h5.text-danger
+
 -# %h2 Recordings
--# 
+-#
 -# %p
 -#   The recordings from the workshop are available on YouTube in four parts.
--# 
+-#
 -# %div{ :style => "width: 24%; display: inline-block;" }
 -#   .embed-responsive.embed-responsive-4by3
 -#     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/F09I7OCD7_Y"}
--# 
+-#
 -# %div{ :style => "width: 24%; display: inline-block;" }
 -#   .embed-responsive.embed-responsive-4by3
 -#     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/r1gIdO0ZbuE"}
--# 
+-#
 -# %div{ :style => "width: 24%; display: inline-block;" }
 -#   .embed-responsive.embed-responsive-4by3
 -#     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/uQmMNmuMe0Q"}
--# 
+-#
 -# %div{ :style => "width: 24%; display: inline-block;" }
 -#   .embed-responsive.embed-responsive-4by3
 -#     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/KdxKQK9NYDQ"}
--# 
+-#
 -# %h2 Program
--# 
+-#
 -# - json = "content/anrw/2017/anrw17-data.json"
 -# - xml = "content/anrw/2017/anrw17.xml"
 -# %table.table.table-striped.no-urlify
@@ -106,7 +201,7 @@ menu: Program
 -#       %td
 -#         %h4.text-danger Opening
 -#       %td
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 9:15
@@ -118,14 +213,14 @@ menu: Program
 -#         .row= htmlify_paper_new(json, 17)
 -#       %td
 -#         %h5.text-danger Mirja Kühlewind
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 10:45
 -#       %td
 -#         %h4.text-danger Coffee Break
 -#       %td
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 11:15
@@ -138,14 +233,14 @@ menu: Program
 -#         .row= htmlify_paper_new(json, 13)
 -#       %td
 -#         %h5.text-danger Spencer Dawkins
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 13:00
 -#       %td
 -#         %h4.text-danger Lunch Break
 -#       %td
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 14:00
@@ -157,19 +252,19 @@ menu: Program
 -#         .row= htmlify_paper_new(json, 20)
 -#       %td
 -#         %h5.text-danger Aaron Falk
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 15:30
 -#       %td
 -#         %h4.text-danger Coffee Break
 -#       %td
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 16:00
 -#       %td
--#         %h4.text-danger Panel - Instrumenting Networks: Measurements to Track Network and Internet Health 
+-#         %h4.text-danger Panel - Instrumenting Networks: Measurements to Track Network and Internet Health
 -#         %p
 -#         %h5 Moderator: Leslie Daigle
 -#         %p
@@ -183,7 +278,7 @@ menu: Program
 -#         %p
 -#         This panel will explore the challenges of establishing a measurement collection framework within an operational network — instrumenting it for the purpose of tracking the network’s state as well as contributing to a picture of the overall Internet state of health. Apart from narrowing down what “Internet health” actually means, challenges include: choosing measurements that are meaningful markers of user experience, carrying out measurements within the network without otherwise impacting the network’s performance or perturbing any target resources at which measurement traffic is aimed. These and other challenges and insights will be discussed by panelists from operators to infrastructure operators and network architects.
 -#       %td
--# 
+-#
 -#     %tr
 -#       %td
 -#         %h4.text-danger 17:00

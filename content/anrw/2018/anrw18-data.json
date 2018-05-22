@@ -1,0 +1,815 @@
+[
+    {
+        "pid": 22,
+        "title": "Push Away Your Privacy: Precise User Tracking Based on TLS Client Certificate Authentication",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1523552879,
+        "authors": [
+            {
+                "email": "wachs@net.in.tum.de",
+                "first": "Matthias",
+                "last": "Wachs",
+                "affiliation": "Technical University of Munich (TUM)",
+                "contact": true
+            },
+            {
+                "email": "scheitle@net.in.tum.de",
+                "first": "Quirin",
+                "last": "Scheitle",
+                "affiliation": "Technical University of Munich (TUM)",
+                "contact": true
+            },
+            {
+                "email": "carle@net.in.tum.de",
+                "first": "Georg",
+                "last": "Carle",
+                "affiliation": "Technical University of Munich (TUM)",
+                "contact": true
+            }
+        ],
+        "abstract": "The design and implementation of cryptographic systems offer\r\nmany subtle pitfalls. One such pitfall is that cryptography\r\nmay create unique identifiers potentially usable to repeatedly\r\nand precisely re-identify and hence track users. This work\r\ninvestigates TLS Client Certificate Authentication (CCA),\r\nwhich currently transmits certificates in plain text. We demonstrate\r\nCCA’s impact on client traceability using Apple’s Apple\r\nPush Notification service (APNs) as an example. APNs\r\nis used by all Apple products, employs plain-text CCA, and\r\naims to be constantly connected to its backend. Its novel combination\r\nof large device count, constant connections, device\r\nproximity to users and unique client certificates provides for\r\nprecise client traceability. We show that passive eavesdropping\r\nallows to precisely re-identify and track users and that\r\nonly ten interception points are required to track more than 80\r\npercent of APNs users due to global routing characteristics.\r\nWe conduct our work under strong ethical guidelines, responsibly\r\ndisclose our findings, and can confirm a working patch\r\nby Apple for the highlighted issue. We aim for this work to\r\nprovide the necessary factual and quantified evidence about\r\nnegative implications of plain-text CCA to boost deployment\r\nof encrypted CCA as in TLS 1.3.",
+        "topics": {
+            "applied cryptography that is relevant to IETF": true,
+            "measurement": true,
+            "privacy": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-195623551effd750c75b9296df473b39d3b7bfe2ba8a09ce5e308838f28fdb05",
+            "timestamp": 1523552879,
+            "size": 131814
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "previous-publication-venue": "This paper has been presented at TMA'17. It has received the Best Paper Award at TMA'17, and the IEEE ComSoc ITC Best Paper Award for 2017 [1].\r\n\r\n[1] http:\/\/itc.committees.comsoc.org\/awards\/"
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "r.m.vanrijswijk@utwente.nl": "collaborator"
+        }
+    },
+    {
+        "pid": 26,
+        "title": "Preventing (Network) Time Travel with Chronos",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1523955195,
+        "authors": [
+            {
+                "email": "neta.r.schiff@gmail.com",
+                "first": "Neta Rozen",
+                "last": "Schiff",
+                "affiliation": "The Hebrew University of Jerusalem",
+                "contact": true
+            },
+            {
+                "email": "schapiram@huji.ac.il",
+                "first": "Michael",
+                "last": "Schapira",
+                "affiliation": "The Hebrew University of Jerusalem",
+                "contact": true
+            },
+            {
+                "email": "danny.dolev@mail.huji.ac.il",
+                "first": "Danny",
+                "last": "Dolev",
+                "affiliation": "The Hebrew University of Jerusalem",
+                "contact": true
+            },
+            {
+                "email": "omermaya@gmail.com",
+                "first": "Omer",
+                "last": "Deutsch",
+                "affiliation": "The Hebrew University of Jerusalem"
+            }
+        ],
+        "abstract": "The Network Time Protocol (NTP) synchronizes time across computer systems over the Internet. Unfortunately, NTP is highly vulnerable to ``time shifting attacks'', in which the attacker's goal is to shift forward\/backward the local time at an NTP client. NTP's security vulnerabilities have severe implications for time-sensitive applications and for security mechanisms, including TLS certificates, DNS and DNSSEC, RPKI, Kerberos, BitCoin, and beyond. While technically NTP supports cryptographic authentication, it is very rarely used in practice and, worse yet, \\emph{timeshifting attacks on NTP are possible even if all NTP communications are encrypted and authenticated}. \r\n\t\t\r\n\t\tWe present \\emph{Chronos}, a new NTP client that achieves good synchronization even in the presence of powerful attackers who are in direct control of a large number of NTP servers. Importantly, Chronos is \\emph{backwards compatible} with legacy NTP and involves no changes whatsoever to NTP servers.  Chronos leverages ideas from distributed computing literature on clock synchronization in the presence of adversarial (Byzantine) behavior. A Chronos client iteratively ``crowdsources'' time queries across multiple NTP servers and applies a provably secure algorithm for eliminating ``suspicious'' responses and averaging over the remaining responses. Chronos is carefully engineered to minimize communication overhead so as to avoid overloading NTP servers. \r\n\t\t\r\n\t\tWe evaluate Chronos' security and network efficiency guarantees via a combination of theoretical analyses and experiments with a prototype implementation. Our results indicate that to succeed in shifting time at a Chronos client by over $100$ms from the UTC, even a powerful man-in-the-middle attacker requires over $20$ years of effort in expectation.",
+        "topics": {
+            "new secure protocols": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-90fb1de6aca5a4775f87f0a39a58a2345fe4175e40e3f4a0c9d140193267fa21",
+            "timestamp": 1523955195,
+            "size": 444092
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "previous-publication-venue": "The work was published in NDSS 2018 conference"
+        },
+        "pc_conflicts": {
+            "goldbe@cs.bu.edu": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 29,
+        "title": "Methodologies for Measuring Route Origin Validation",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524000614,
+        "authors": [
+            {
+                "first": "Tomas",
+                "last": "Hlavacek",
+                "affiliation": "Fraunhofer SIT"
+            },
+            {
+                "first": "Amir",
+                "last": "Herzberg",
+                "affiliation": "University of Conecticut and Bar Ilan"
+            },
+            {
+                "email": "haya.shulman@sit.fraunhofer.de",
+                "first": "Haya",
+                "last": "Shulman",
+                "affiliation": "Fraunhofer SIT",
+                "contact": true
+            },
+            {
+                "first": "Michael",
+                "last": "Waidner",
+                "affiliation": "Fraunhofer SIT"
+            }
+        ],
+        "abstract": "Performing Route Origin Validation (ROV) to filter BGP announcements, which contradict Route Origin Authorizations (ROAs) is critical for protection against BGP prefix hijacks. Recent works quantified ROV enforcing Autonomous Systems (ASes) using control-plane experiments. \r\n\r\nIn this work we show that control-plane experiments do not provide accurate information about ROV-enforcing ASes. We devise data-plane approaches for evaluating ROV in the Internet and perform both control and data-plane experiments using different data acquisition sources. We analyze and correlate the results of our study to identify the number of ASes enforcing ROV, and hence protected with RPKI.\r\n\r\nWe perform simulations with the ROV-enforcing ASes that we identified, and find that their impact on the Internet security against prefix hijacks is negligible. As a countermeasure we provide recommendations how to cope with the main factor hindering wide adoption of ROV.",
+        "topics": {
+            "measurement": true,
+            "routing": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-2a5add38b976d9b9252469a3ae84e0534d0aed5edfd6ef519cd6e12c5c74e680",
+            "timestamp": 1524001049,
+            "size": 79219
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "previous-publication-venue": "DSN 2018"
+        },
+        "pc_conflicts": {
+            "goldbe@cs.bu.edu": "personal"
+        }
+    },
+    {
+        "pid": 32,
+        "title": "Towards a Rigorous Methodology for Measuring Adoption of RPKI Route Validation and Filtering",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524507890,
+        "authors": [
+            {
+                "email": "andreas.reuter@fu-berlin.de",
+                "first": "Andreas",
+                "last": "Reuter",
+                "affiliation": "Freie Universität Berlin",
+                "contact": true
+            },
+            {
+                "email": "randy@psg.com",
+                "first": "Randy",
+                "last": "Bush",
+                "affiliation": "IIJ \/ Dragon Research",
+                "contact": true
+            },
+            {
+                "email": "cunha@dcc.ufmg.br",
+                "first": "Italo",
+                "last": "Cunha",
+                "affiliation": "UMFG",
+                "contact": true
+            },
+            {
+                "email": "ethan@ee.columbia.edu",
+                "first": "Ethan",
+                "last": "Katz-Bassett",
+                "affiliation": "Columbia University",
+                "contact": true
+            },
+            {
+                "email": "t.schmidt@haw-hamburg.de",
+                "first": "Thomas C.",
+                "last": "Schmdit",
+                "affiliation": "HAW Hamburg",
+                "contact": true
+            },
+            {
+                "email": "m.waehlisch@fu-berlin.de",
+                "first": "Matthias",
+                "last": "Wählisch",
+                "affiliation": "Freie Universität Berlin",
+                "contact": true
+            }
+        ],
+        "abstract": "In this talk, we will report on our recent article ``Towards a Rigorous\r\nMethodology for Measuring Adoption of RPKI Route Validation and\r\nFiltering'', published in ACM Computer Communication Review, January 2018.\r\nWe will also present new results that arise from ongoing deployment of RPKI route origin validation (\\eg default filtering at IXP route servers), and introduce a publicly available measurement platform for daily monitoring of the state of deployment.",
+        "topics": {
+            "measurement": true,
+            "new secure protocols": true,
+            "routing": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-45ff38b1b7c3565a2b1733e75823eb03e19bceb70ffc1a8e9b1bdb084bf270e6",
+            "timestamp": 1524507890,
+            "size": 475899
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-f5dbe0792a4fb22b515e13af6310784c3e0e52fd76ad2da1b31c53febfdb621f",
+                "timestamp": 1524507890,
+                "size": 558804,
+                "filename": "rov-measurement-ccr-acmart.pdf"
+            },
+            "previous-publication-venue": "Andreas Reuter, Randy Bush, \\'Italo Cunha, Ethan Katz-Bassett, Thomas C. Schmidt, Matthias Wählisch, Towards a Rigorous Methodology for Measuring Adoption of RPKI Route Validation and Filtering, Sigcomm Computer Communication Review, Vol. 48, No. 1, p. 19–27, April 2018."
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "pelsser@unistra.fr": "confirmed"
+        }
+    },
+    {
+        "pid": 35,
+        "title": "Comments On DNS Robustness",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524516368,
+        "authors": [
+            {
+                "email": "mallman@icir.org",
+                "first": "Mark",
+                "last": "Allman",
+                "affiliation": "ICSI",
+                "contact": true
+            }
+        ],
+        "abstract": "In this work we explore the robustness of the DNS ecosystem.  This includes both the setup of DNS zones, as well as the shared infrastructure that serves DNS requests.",
+        "topics": {
+            "measurement": true,
+            "security": true,
+            "wide area services (DNS, anycast, CDNs, etc)": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-14953817b22e57515bd38a27a1524f33d3303e466dddc1d132367c82aaf13b0e",
+            "timestamp": 1524516368,
+            "size": 92139
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "previous-publication-venue": "Paper to be submitted to IMC 2018."
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 41,
+        "title": "Lights Out: Climate Change Risk to Internet Infrastructure",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524479186,
+        "authors": [
+            {
+                "email": "ram@cs.uoregon.edu",
+                "first": "Ramakrishnan",
+                "last": "Durairajan",
+                "affiliation": "University of Oregon",
+                "contact": true
+            },
+            {
+                "email": "clbarford@wisc.edu",
+                "first": "Carol",
+                "last": "Barford",
+                "affiliation": "University of Wisconsin - Madison"
+            },
+            {
+                "email": "pb@cs.wisc.edu",
+                "first": "Paul",
+                "last": "Barford",
+                "affiliation": "University of Wisconsin - Madison and comScore Inc.",
+                "contact": true
+            }
+        ],
+        "abstract": "In this paper we consider the risks to Internet infrastructure in the US due to sea level rise. Our study is based on sea level incursion projections from the National Oceanic and Atmospheric Administration (NOAA) and Internet infrastructure deployment data from Internet Atlas. We align the data formats and assess risks in terms of the amount and type of infrastructure that will be under water in di er- ent time intervals over the next 100 years. We  nd that 4,067 miles of  ber conduit will be under water and 1,101 nodes (e.g., points of presence and colocation centers) will be surrounded by water in the next 15 years. We further quantify the risks of sea level rise by defining a metric that considers the combination of geographic scope and Internet infrastructure density. We use this metric to examine different regions and find that the New York, Miami, and Seattle metropolitan areas are at highest risk. We also quantify the risks to individual service provider infrastructures and find that Level3, Inteliquent, and AT&T are at highest risk. While it is difficult to project the impact of countermeasures such as sea walls, our results suggest the urgency of developing mitigation strategies and alternative infrastructure deployments.",
+        "topics": {
+            "interconnection": true,
+            "measurement": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-034a5fbcc5d38c29435b49e19acf3e191706a290ef04b7c5fa4e97594805d978",
+            "timestamp": 1524479186,
+            "size": 7560872
+        },
+        "options": {
+            "paper-talk": "Paper",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-034a5fbcc5d38c29435b49e19acf3e191706a290ef04b7c5fa4e97594805d978",
+                "timestamp": 1524478797,
+                "size": 7560872,
+                "filename": "paper.pdf"
+            }
+        },
+        "pc_conflicts": {
+            "wwillinger@niksun.com": "collaborator"
+        }
+    },
+    {
+        "pid": 45,
+        "title": "Studying TLS Usage in Android Apps",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524501776,
+        "authors": [
+            {
+                "email": "arazaghpanah@cs.stonybrook.edu",
+                "first": "Abbas",
+                "last": "Razaghpanah",
+                "affiliation": "Stony Brook University",
+                "contact": true
+            },
+            {
+                "email": "arian@cs.umass.edu",
+                "first": "Arian Akhavan",
+                "last": "Niaki",
+                "affiliation": "UMass-Amherst"
+            },
+            {
+                "email": "narseo.vallina@imdea.org",
+                "first": "Narseo",
+                "last": "Vallina-Rodriguez",
+                "affiliation": "IMDEA Networks Institute\/ICSI",
+                "contact": true
+            },
+            {
+                "email": "srknth.s@gmail.com",
+                "first": "Srikanth",
+                "last": "Sundaresan",
+                "affiliation": "Facebook",
+                "contact": true
+            },
+            {
+                "email": "johanna@icir.org",
+                "first": "Johanna",
+                "last": "Amann",
+                "affiliation": "ICSI\/Corelight",
+                "contact": true
+            },
+            {
+                "email": "phillipa@cs.umass.edu",
+                "first": "Philippa",
+                "last": "Gill",
+                "affiliation": "UMass-Amherst",
+                "contact": true
+            }
+        ],
+        "abstract": "Transport Layer Security (TLS), has become the de-facto standard for secure Internet communication. When used correctly, it provides secure data transfer, but used incorrectly, it can leave users vulnerable to attacks while giving them a false sense of security. Numerous efforts have studied the adoption of TLS (and its predecessor, SSL) and its use in the desktop ecosystem, attacks, and vulnerabilities in both desktop clients and servers. However, there is a dearth of knowledge of how TLS is used in mobile platforms. In this paper we use data collected by Lumen, a mobile measurement platform, to analyze how 7,258 Android apps use TLS in the wild. We analyze and fingerprint handshake messages  to characterize the TLS APIs and libraries that apps use, and also evaluate weaknesses. We see that about 84% of apps use default OS APIs for TLS. Many apps use third-party TLS libraries; in some cases they are forced to do so because of restricted Android capabilities. Our analysis shows that both approaches have limitations, and that improving TLS security in mobile is not straightforward. Apps that use \r\ntheir own TLS configurations may have vulnerabilities due to developer inexperience, but \r\napps that use OS defaults are vulnerable to certain attacks if the OS is out of date,  even if the apps themselves are up to date. We also study certificate verification, and see low prevalence of security measures such as certificate pinning, even among high-risk apps such as those providing financial services, though we did observe major third-party tracking and advertisement services deploying certificate pinning.",
+        "topics": {
+            "applied cryptography that is relevant to IETF": true,
+            "measurement": true,
+            "new secure protocols": true,
+            "protocols and APIs for new Internet applications": true,
+            "security": true,
+            "technology adoption": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-6f4612f094fa109ebdfe245990910448916810b88e8fb047044cab3806a5ca3b",
+            "timestamp": 1524510058,
+            "size": 373137
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-6e373b6381d45dda6cfb00fe902b9a6138e540a49c8e1be7c1e2d06b036b5336",
+                "timestamp": 1524490007,
+                "size": 539834,
+                "filename": "TLSAndroid.pdf"
+            },
+            "previous-publication-venue": "ACM CoNEXT 2017"
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "phillipa@cs.umass.edu": "author"
+        }
+    },
+    {
+        "pid": 47,
+        "title": "Semi-Oblivious Traffic Engineering with SMORE",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524520612,
+        "authors": [
+            {
+                "email": "praveenk@cs.cornell.edu",
+                "first": "Praveen",
+                "last": "Kumar",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "yy528@cornell.edu",
+                "first": "Yang",
+                "last": "Yuan",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "christoy@cs.cmu.edu",
+                "first": "Chris",
+                "last": "Yu",
+                "affiliation": "CMU",
+                "contact": true
+            },
+            {
+                "email": "jnfoster@cs.cornell.edu",
+                "first": "Nate",
+                "last": "Foster",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "rdk@cs.cornell.edu",
+                "first": "Robert",
+                "last": "Kleinberg",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "petr@fb.com",
+                "first": "Petr",
+                "last": "Lapukhov",
+                "affiliation": "Facebook",
+                "contact": true
+            },
+            {
+                "email": "chiunlin@fb.com",
+                "first": "Chiun Lin",
+                "last": "Lim",
+                "affiliation": "Facebook",
+                "contact": true
+            },
+            {
+                "email": "robert.soule@usi.ch",
+                "first": "Robert",
+                "last": "Soulé",
+                "affiliation": "Università della Svizzera italiana",
+                "contact": true
+            }
+        ],
+        "abstract": "Wide-area networks are expected to deliver high performance while ensuring reliability in the presence of various operational constraints and failures. Existing traffic engineering (TE) approaches, often, are unable to achieve both simultaneously. A key factor that governs the quality of a TE system is the set of routing paths used. This paper proposes SMORE - a semi-oblivious TE system which combines oblivious routing to select a good set of paths with dynamic rate adaptation. Through extensive evaluation, we show that SMORE achieves near-optimal performance while ensuring good reliability in practical settings.",
+        "topics": {
+            "routing": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-44a2a9786c244082df94396a878abaed421877e602e22d9ce843961c34621d87",
+            "timestamp": 1524542236,
+            "size": 433694
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-dfa557530fcb477618fe75439e3576ec0cc08b575bd413322f01ea03c00ca546",
+                "timestamp": 1524498520,
+                "size": 3402258,
+                "filename": "nsdi18-smore.pdf"
+            },
+            "previous-publication-venue": "15th USENIX Symposium on Networked Systems Design and Implementation (NSDI ’18)"
+        }
+    },
+    {
+        "pid": 50,
+        "title": "Copa: Practical Delay-Based Congestion Control for the Internet",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524508570,
+        "authors": [
+            {
+                "email": "venkatar@mit.edu",
+                "first": "Venkat",
+                "last": "Arun",
+                "affiliation": "CSAIL, MIT",
+                "contact": true
+            },
+            {
+                "email": "hari@mit.edu",
+                "first": "Hari",
+                "last": "Balakrishnan",
+                "affiliation": "CSAIL, MIT",
+                "contact": true
+            }
+        ],
+        "contacts": [
+            {
+                "email": "venkatarun95@gmail.com",
+                "first": "Venkat",
+                "last": "Arun",
+                "affiliation": "MIT CSAIL"
+            }
+        ],
+        "abstract": "This paper introduces Copa, an end-to-end congestion control algorithm that uses three ideas. First, it shows that a target rate equal to $1\/(\\delta d_q)$, where $d_q$ is the (measured) queueing delay, optimizes a natural function of throughput and delay under a Markovian packet arrival model. Second, it adjusts its congestion window in the direction of this target rate, converging quickly to the correct fair rates even in the face of significant flow churn. These two ideas enable a group of Copa flows to maintain high utilization with low queuing delay. However, when the bottleneck is shared with loss-based congestion-controlled flows that fill up buffers, Copa, like other delay-sensitive schemes, achieves low throughput. To combat this problem, Copa uses a third idea: detect the presence of buffer-fillers by observing the delay evolution, and respond with additive-increase\/multiplicative decrease on the $\\delta$ parameter. Experimental results show that Copa outperforms Cubic (similar throughput, much lower delay, fairer with diverse RTTs), BBR and PCC (significantly fairer, lower delay), and co-exists well with Cubic unlike BBR and PCC. Copa is also robust to non-congestive loss and large bottleneck buffers, and outperforms other schemes on long-RTT paths.",
+        "topics": {
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-a40e57cc7d04f80419a131d85cce6d72811edc3785fd243fa1b829cac3f930c8",
+            "timestamp": 1524508840,
+            "size": 180646
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-bbb0f8ffe90e7ab03929fc4bf6c10d00983051b54e223e857a389d82156e1497",
+                "timestamp": 1524508570,
+                "size": 543121,
+                "filename": "copa.pdf"
+            },
+            "previous-publication-venue": "USENIX NSDI 2018"
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "advisor"
+        }
+    },
+    {
+        "pid": 57,
+        "title": "Characterizing the Nature and Dynamics of Tor Exit Blocking",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524536153,
+        "authors": [
+            {
+                "email": "rachee@cs.umass.edu",
+                "first": "Rachee",
+                "last": "Singh",
+                "affiliation": "UMass Amherst",
+                "contact": true
+            },
+            {
+                "email": "rishab@datasociety.net",
+                "first": "Rishab",
+                "last": "Nithyanand",
+                "affiliation": "Data & Society Research Institute",
+                "contact": true
+            },
+            {
+                "email": "sadia@icsi.berkeley.edu",
+                "first": "Sadia",
+                "last": "Afroz",
+                "affiliation": "UC Berkeley and International Computer Science Institute",
+                "contact": true
+            },
+            {
+                "email": "pearce@cs.berkeley.edu",
+                "first": "Paul",
+                "last": "Pearce",
+                "affiliation": "UC Berkeley",
+                "contact": true
+            },
+            {
+                "email": "mct@icsi.berkeley.edu",
+                "first": "Michael Carl",
+                "last": "Tschantz",
+                "affiliation": "International Computer Science Institute",
+                "contact": true
+            },
+            {
+                "email": "phillipa@cs.umass.edu",
+                "first": "Phillipa",
+                "last": "Gill",
+                "affiliation": "UMass Amherst",
+                "contact": true
+            },
+            {
+                "email": "vern@cs.berkeley.edu",
+                "first": "Vern",
+                "last": "Paxson",
+                "affiliation": "UC Berkeley and International Computer Science Institute",
+                "contact": true
+            }
+        ],
+        "abstract": "Facing abusive traffic from the Tor anonymity network, online service providers discriminate against Tor users. In this study, we characterize not only the extent of such discrimination but also the nature of the undesired traffic originating from the Tor network – a task complicated by Tor’s need to maintain user anonymity. We address this challenge by lever- aging multiple independent data sources: email complaints sent to exit operators, commercial IP blacklists, webpage crawls via Tor, and privacy-sensitive measurements of our own Tor exit nodes. As part of our study, we also develop methods for classifying email complaints and an interactive crawler to  find subtle forms of discrimination, and deploy our own exits in various configurations to understand which are prone to discrimination. We find that conservative exit policies are ineffective in preventing the blacklisting of exit relays. However, a majority of the attacks originating from Tor generate high traffic volume, suggesting the possibility of detection and prevention without violating Tor users’ privacy.",
+        "topics": {
+            "censorship": true,
+            "measurement": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-52e5b6e2734d94ef099a7ab68889a77d54fb35b19341eb8b869ef707594aae26",
+            "timestamp": 1524536153,
+            "size": 161668
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "previous-publication-venue": "USENIX Security 2017"
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "goldbe@cs.bu.edu": "collaborator",
+            "phillipa@cs.umass.edu": "author"
+        }
+    },
+    {
+        "pid": 58,
+        "title": "An ISP-Scale Deployment of TapDance",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524538986,
+        "authors": [
+            {
+                "first": "Sergey",
+                "last": "Frolov",
+                "affiliation": "University of Colorado Boulder"
+            },
+            {
+                "first": "Eric",
+                "last": "Wustrow",
+                "affiliation": "University of Colorado Boulder"
+            },
+            {
+                "first": "Fred",
+                "last": "Douglas",
+                "affiliation": "Google"
+            },
+            {
+                "first": "Will",
+                "last": "Scott",
+                "affiliation": "University of Michigan"
+            },
+            {
+                "first": "Allison",
+                "last": "McDonald",
+                "affiliation": "University of Michigan"
+            },
+            {
+                "first": "Benjamin",
+                "last": "VanderSloot",
+                "affiliation": "University of Michigan"
+            },
+            {
+                "first": "Rod",
+                "last": "Hynes",
+                "affiliation": "Psiphon"
+            },
+            {
+                "first": "Adam",
+                "last": "Kruger",
+                "affiliation": "Psiphon"
+            },
+            {
+                "first": "Michalis",
+                "last": "Kallitsis",
+                "affiliation": "Merit Network"
+            },
+            {
+                "first": "David G.",
+                "last": "Robinson",
+                "affiliation": "Upturn"
+            },
+            {
+                "first": "Steve",
+                "last": "Schultze",
+                "affiliation": "Georgetown University Law Center"
+            },
+            {
+                "first": "Nikita",
+                "last": "Borisov",
+                "affiliation": "University of Illinois"
+            },
+            {
+                "first": "J. Alex",
+                "last": "Halderman",
+                "affiliation": "University of Michigan"
+            }
+        ],
+        "contacts": [
+            {
+                "email": "nikita@illinois.edu",
+                "first": "Nikita",
+                "last": "Borisov",
+                "affiliation": "UIUC"
+            }
+        ],
+        "abstract": "In this talk, we will report initial results from the world’s first ISP-scale field trial of a refraction networking system. Refraction networking is a next-generation censorship circumvention approach that locates proxy functionality in the middle of the network, at participating ISPs or other network operators. We built a high-performance implementation of the TapDance refraction networking scheme and deployed it on four ISP uplinks with an aggregate bandwidth of 100 Gbps. Over one week of operation, our deployment served more than 50,000 real users. The experience demonstrates that TapDance can be practically realized at ISP scale with good performance and at a reasonable cost, potentially paving the way for long-term, large-scale deployments of TapDance or other refraction networking schemes in the future. We will close by discussing interactions between refraction networking and emerging web standards.",
+        "topics": {
+            "censorship": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-27581abcf10bbb2582995942cc296cd9c67e5d4172ce780a91dffcbaaf6f7b0a",
+            "timestamp": 1524538986,
+            "size": 336637
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-02e1cfd87e7ea34650e455786382442761b4b9faa95649f3cc3d71e1f5294674",
+                "timestamp": 1524538986,
+                "size": 489064,
+                "filename": "foci17-paper-frolov_0-2.pdf"
+            },
+            "previous-publication-venue": "7th USENIX Workshop on Free and Open Communications on the Internet (FOCI'17)"
+        },
+        "pc_conflicts": {
+            "nick@cloudflare.com": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 62,
+        "title": "Cloud Strife: Mitigating the Security Risks of Domain Validated Certificates",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524663694,
+        "authors": [
+            {
+                "email": "kevinbo@cs.ucsb.edu",
+                "first": "Kevin",
+                "last": "Borgolte",
+                "affiliation": "UC Santa Barbara",
+                "contact": true
+            },
+            {
+                "email": "t.fiebig@tudelft.nl",
+                "first": "Tobias",
+                "last": "Fiebig",
+                "affiliation": "TU Delft",
+                "contact": true
+            },
+            {
+                "email": "shao@utdallas.edu",
+                "first": "Shuang",
+                "last": "Hao",
+                "affiliation": "UT Dallas",
+                "contact": true
+            },
+            {
+                "email": "chris@cs.ucsb.edu",
+                "first": "Christopher",
+                "last": "Kruegel",
+                "affiliation": "UC Santa Barbara",
+                "contact": true
+            },
+            {
+                "email": "vigna@cs.ucsb.edu",
+                "first": "Giovanni",
+                "last": "Vigna",
+                "affiliation": "UC Santa Barbara",
+                "contact": true
+            }
+        ],
+        "abstract": "Infrastructure-as-a-Service (IaaS), and more generally the “cloud,” like Amazon Web Services (AWS) or Microsoft Azure, have changed the landscape of system operations on the Internet. Their elasticity allows operators to rapidly allocate and use resources as needed, from virtual machines, to storage, to bandwidth, and even to IP addresses, which is what made them popular and spurred innovation.\r\nIn this paper, we show that the dynamic component paired with recent developments in trust-based ecosystems (e.g., TLS certificates) creates so far unknown attack vectors. We discover a substantial number of stale DNS records that point to available IP addresses in clouds, yet, are still actively attempted to be accessed. We demonstrate that it is practical, and time and cost efficient for attackers to allocate IP addresses to which stale DNS records point. Considering the ubiquity of domain validation in trust ecosystems, like TLS certificates, an attacker can impersonate the service using a valid certificate trusted by all major operating systems and browsers. The attacker can then also exploit residual trust in the domain name for phishing, receiving and sending emails, or possibly distribute code to clients that load remote code from the domain (e.g., loading of native code by mobile apps, or JavaScript libraries by websites).\r\nEven worse, an aggressive attacker could execute the attack in less than 70 seconds, well below common time-to-live (TTL) for DNS records. In turn, it means an attacker could exploit normal service migrations in the cloud to obtain a valid TLS certificate for domains owned and managed by others, and, worse, that she might not actually be bound by DNS records being (temporarily) stale, but that she can exploit caching instead.\r\nWe introduce a new authentication method for trust-based domain validation that mitigates staleness issues without incurring additional certificate requester effort by incorporating existing trust of a name into the validation process. Furthermore, we provide recommendations for domain name owners and cloud operators to reduce their and their clients’ exposure to DNS staleness issues and the resulting domain takeover attacks.",
+        "topics": {
+            "interactions between emergent applications and existing networks": true,
+            "measurement": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-40bc99d169d71e85c883a24be9e041a1f5389c345f7a47c05a4695f25da20a5b",
+            "timestamp": 1524663694,
+            "size": 52925
+        },
+        "options": {
+            "paper-talk": "Talk",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-17d5736ae16b1e8b42e764b2f4a2a949a0d460012095170058d7b178b78f40dd",
+                "timestamp": 1524663694,
+                "size": 1022108,
+                "filename": "ndss2018-cloud-strife.pdf"
+            },
+            "previous-publication-venue": "Proceedings of the 25th Network and Distributed Systems Security Symposium (NDSS), February 2018"
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "advisor"
+        }
+    }
+]
