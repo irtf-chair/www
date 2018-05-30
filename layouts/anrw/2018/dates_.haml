@@ -15,7 +15,7 @@
       %td
         Paper notification deadline
       %td{ colspan:  2 }
-        %del 
+        %del
           May 14, 2018
   -if @which == nil or @which == 'papers'
     %tr
@@ -30,19 +30,19 @@
     /   %td{ :colspan => 2 }
     /     %del
     /       June 26, 2017
-    / -if @which == nil or @which == "grants"
-    /   %tr
-    /     %td
-    /       Travel grants submission deadline
-    /     %td{ :colspan => 2 }
-    /       %del
-    /         June 30, 2017
-    /   %tr
-    /     %td
-    /       Travel grants notification deadline
-    /     %td{ :colspan => 2 }
-    /       %del
-    /         July 6, 2017
+  -if @which == nil or @which == "grants"
+    %tr
+      %td
+        Travel grants submission deadline
+      %td{ :colspan => 2 }
+        / %del
+        June 15, 2018
+    %tr
+      %td
+        Travel grants notification deadline
+      %td{ :colspan => 2 }
+        / %del
+        June 22, 2018
 
     %tr.warning
       %td
