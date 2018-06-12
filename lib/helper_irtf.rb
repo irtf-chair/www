@@ -512,7 +512,7 @@ module IRTF
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   $mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
   $chair = $mankin 
-  $atlarge = [ eggert, ford, atlas, trammell, linkova, dawkins, farrell, nordmark ]
+  $atlarge = [ eggert, ford, atlas, dawkins, farrell, nordmark ]
 
   def atlarge_contacts
     result = "irsg\n" +
