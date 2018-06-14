@@ -115,7 +115,7 @@ module IRTF
 
   # DINRG
   kutscher = Person.new("Dirk", "Kutscher", "ietf@dkutscher.net", "https://dirk-kutscher.info/", nil)
-  shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil) 
+  shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
   dinrg = RG.new(
     "dinrg",
     "Decentralized Internet Infrastructure Proposed",
@@ -125,7 +125,7 @@ module IRTF
     [ kutscher, shore ],
     nil,
     nil,
-    nil 
+    nil
   )
 
   # DTNRG
@@ -144,7 +144,8 @@ module IRTF
   )
 
   # GAIA
-  sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "https://www.cl.cam.ac.uk/~as2330/", nil)
+  navarro = Person.new("Leandro", "Navarro", "leandro@ac.upc.edu", "http://people.ac.upc.edu/leandro/", nil)
+  # sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "https://www.cl.cam.ac.uk/~as2330/", nil)
   coffin = Person.new("Jane", "Coffin", "coffin@isoc.org", "https://www.internetsociety.org/who-we-are/people/jane-coffin", nil)
   gaia = RG.new(
     "gaia",
@@ -152,7 +153,7 @@ module IRTF
     "gaia@irtf.org",
     nil,
     "https://sites.google.com/site/irtfgaia/",
-    [ sathiaseelan, coffin ],
+    [ navarro, coffin ],
     nil,
     "2014-10-15",
     nil
@@ -315,9 +316,9 @@ module IRTF
     nil
   )
 
-  # PANRG 
+  # PANRG
   trammell = Person.new("Brian", "Trammell", "ietf@trammell.ch", "https://trammell.ch/", nil)
-  linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil) 
+  linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil)
   panrg = RG.new(
     "panrg",
     "Path Aware Networking Proposed",
@@ -438,7 +439,7 @@ module IRTF
   # Active RGs
   $rgs = {
     "cfrg"  => cfrg,
-    "dinrg" => dinrg, 
+    "dinrg" => dinrg,
     "gaia" => gaia,
     "hrpc" => hrpc,
     "iccrg" => iccrg,
@@ -447,7 +448,7 @@ module IRTF
     "nfvrg" => nfvrg,
     "nmrg"  => nmrg,
     "nwcrg" => nwcrg,
-    "panrg" => panrg, 
+    "panrg" => panrg,
     "t2trg" => t2trg
   }
 
@@ -494,10 +495,10 @@ module IRTF
 
   # IRSG
   eggert = Person.new("Lars", "Eggert", "lars@netapp.com", "https://eggert.org/", "584143839")
-  ford = Person.new("Mat", "Ford", "ford@isoc.org", "https://www.internetsociety.org/who-we-are/people/mr-mat-ford", nil) 
+  ford = Person.new("Mat", "Ford", "ford@isoc.org", "https://www.internetsociety.org/who-we-are/people/mr-mat-ford", nil)
   atlas = Person.new("Alia", "Atlas", "akatlas@gmail.com", "https://www.ietf.org/iesg/bio/alia-atlas.html", nil)
   # trammell = Person.new("Brian", "Trammell", "ietf@trammell.ch", "https://trammell.ch/", nil)
-  # linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil) 
+  # linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil)
   # falk = Person.new("Aaron", "Falk", "aaron.falk@gmail.com", "https://linkedin.com/in/aaronfalk", nil)
   # allman = Person.new("Mark", "Allman", "mallman@icir.org", "https://www.icir.org/mallman/", nil)
   dawkins = Person.new("Spencer", "Dawkins", "spencerdawkins.ietf@gmail.com", "https://linkedin.com/in/spencerdawkins", nil)
@@ -511,7 +512,7 @@ module IRTF
   # feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   $mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
-  $chair = $mankin 
+  $chair = $mankin
   $atlarge = [ eggert, ford, atlas, dawkins, farrell, nordmark ]
 
   def atlarge_contacts
