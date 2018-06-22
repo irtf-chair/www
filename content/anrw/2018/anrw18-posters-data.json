@@ -1,0 +1,3696 @@
+[
+    {
+        "pid": 19,
+        "title": "Building a Threshold Cryptographic Distributed HSM with Docker Containers",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1522461886,
+        "authors": [
+            {
+                "email": "caterina.munoz@inria.cl",
+                "first": "Caterina",
+                "last": "Munoz",
+                "affiliation": "INRIA Chile"
+            },
+            {
+                "email": "montoto@niclabs.cl",
+                "first": "Francisco",
+                "last": "Montoto",
+                "affiliation": "NIC Labs, Universidad de Chile",
+                "contact": true
+            },
+            {
+                "email": "francisco@niclabs.cl",
+                "first": "Francisco",
+                "last": "Cifuentes",
+                "affiliation": "NIC Labs, Universidad de Chile",
+                "contact": true
+            },
+            {
+                "email": "jbustos@niclabs.cl",
+                "first": "Javier",
+                "last": "Bustos-Jiménez",
+                "affiliation": "NIC Labs, Universidad de Chile",
+                "contact": true
+            }
+        ],
+        "abstract": "In this work we will present an implementation of the threshold cryptography system theoretically presented by Victor Shoup at EUROCRYPT 2000.  Our implementation relies on the implementation of a  standard PKCS#11 interface API, ZeroMQ messages over TCP, and Docker containers for the key-shares. Docker allowed us to make deployments simpler, without requiring a deep intervention of the servers. This is very important when we look for the system to be used by worldwide third parties.\r\n\r\nBased on work published at [1].",
+        "topics": {
+            "applied cryptography that is relevant to IETF": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-4b2f5abb690cd7a20ca1c5fd5fde49e230b5065cb6ab6e0448c7bd43bd759cdf",
+            "timestamp": 1522461886,
+            "size": 578344
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1527083456,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "[1] Caterina Munoz, Francisco Montoto, Francisco Cifuentes, and Javier Bustos-Jiménez. 2017. Building a threshold cryptographic distributed HSM with docker containers. In Proceedings of the Chilean Conference on Electrical, Electronics Engineering, Information and Communication Technologies (CHILECON). IEEE. DOI:https:\/\/doi.org\/10.1109\/CHILECON.2017.8229747",
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Caterina Munoz, Francisco Montoto, Francisco Cifuentes, and Javier Bustos-Jiménez. 2017. Building a threshold cryptographic distributed HSM with docker containers. In Proceedings of the Chilean Conference on Electrical, Electronics Engineering, Information and Communication Technologies (CHILECON). IEEE. DOI:https:\/\/doi.org\/10.1109\/CHILECON.2017.8229747"
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10002979.10002980",
+                    "concept_desc": "Security and privacy~Key management",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10002979,
+                        10002980
+                    ],
+                    "expected_concept_desc": "Security and privacy~Key management"
+                }
+            ],
+            "acm-keywords": [
+                "E.3 DATA ENCRYPTION"
+            ]
+        }
+    },
+    {
+        "pid": 20,
+        "title": "RobE: Robust Connection Establishment for Multipath TCP",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1523546620,
+        "authors": [
+            {
+                "email": "markus.amend@telekom.de",
+                "first": "Markus",
+                "last": "Amend",
+                "affiliation": "Deutsche Telekom",
+                "contact": true
+            },
+            {
+                "email": "Veselin.Rakocevic.1@city.ac.uk",
+                "first": "Veseling",
+                "last": "Rakocevic",
+                "affiliation": "City University of London"
+            },
+            {
+                "email": "andreas.p.matz@iem.thm.de",
+                "first": "Andreas",
+                "last": "Matz",
+                "affiliation": "THM University of Applied Sciences"
+            },
+            {
+                "email": "Eckard.Bogenfeld@telekom.de",
+                "first": "Eckard",
+                "last": "Bogenfeld",
+                "affiliation": "Deutsche Telekom"
+            }
+        ],
+        "abstract": "Over the past decade, the way that devices connect to the Internet has changed drastically. The introduction of high-speed mobile networks and the omnipresence of wireless access points led to a situation where most devices offer multiple network interfaces, such as cellular and WiFi radios. However the most prevalent Layer 4 protocol, TCP, is not multipath capable and thus limited to using one interface at a time. Multipath TCP, which is based on the classic TCP, resolves this problem by spreading the data flow across multiple paths. When a new connection is established, an initial subflow is created for backwards compatibility to TCP; afterwards, additional subflows can be created and MPTCP offers resilience against link failures. Depending on the first flow to create a new connection prevents MPTCP from exploiting multi-link capabilities during the establishment phase. Therefore, if the initial subflow is not successful, a connection cannot be established. In this paper an extension to the existing MPTCP standard is proposed: MPTCP RobE. This solution extends the inherent resiliency of MPTCP against link failures to the establishment phase by introducing the concept of several potentially initial subflows, which tremendously increases the chance to build a successful initial subflow, and at the same time improves end-to-end latency during the establishment phase significantly. In this paper, three different concepts for MPTCP RobE are proposed and discussed with regard to technical aspects and MPTCP standard integration. Finally, a protoype is used to verify the performance of MPTCP RobE  with respect to robustness and latency gains in different scenarios.",
+        "topics": {
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-147d86a1a07dcef1902a0bdb22cc8f0764430e1d0d687b123dac96bdea7b21ad",
+            "timestamp": 1523546620,
+            "size": 1305290
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528385142,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Christoph Paasch. October 30, 2014. <i>Improving Multipath TCP<\/i>. Dissertation. Louvain School of Engineering, Louvain. <a href=\"http:\/\/inl.info.ucl.ac.be\/system\/files\/phd-thesis_1.pdf\">http:\/\/inl.info.ucl.ac.be\/system\/files\/phd-thesis_1.pdf<\/a>"
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "A. Ford, C. Raiciu, M. Handley, and O. Bonaventure. 2013. <i>TCP Extensions for Multipath Operation with Multiple Addresses<\/i>. RFC 6824. RFC Editor. 2070-1721 <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc6824.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc6824.txt<\/a> <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc6824.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc6824.txt<\/a>."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Internet Engineering Task Force. 1992-05. TCP Extensions for High Performance. <a href=\"http:\/\/tools.ietf.org\/html\/rfc1323\">http:\/\/tools.ietf.org\/html\/rfc1323<\/a>"
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Olivier Bonaventure. 2013. Decoupling TCP from IP with Multipath TCP. <a href=\"http:\/\/multipath-tcp.org\/data\/MultipathTCP-netsys.pdf\">http:\/\/multipath-tcp.org\/data\/MultipathTCP-netsys.pdf<\/a>"
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Jon Postel. 1981. <i>Transmission Control Protocol<\/i>. STD 7. RFC Editor. 2070-1721 <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc793.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc793.txt<\/a> <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc793.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc793.txt<\/a>."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "S. Barre et al. 2016. The Linux\/MPTCP v0.90 Implementation. <a href=\"http:\/\/multipath-tcp.org\/pmwiki.php?n=Main.Release90\">http:\/\/multipath-tcp.org\/pmwiki.php?n=Main.Release90<\/a>"
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "SimilarWeb Team. 2016. The top 10 websites as of November 2016. <a href=\"https:\/\/pro.similarweb.com\/#\/industry\/topsites\/All\/999\/1m?webSource=Total\">https:\/\/pro.similarweb.com\/#\/industry\/topsites\/All\/999\/1m?webSource=Total<\/a>"
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "The Linux networking team. 2013a. The accept() Linux manual page. <a href=\"https:\/\/linux.die.net\/man\/2\/accept\">https:\/\/linux.die.net\/man\/2\/accept<\/a>"
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "The Linux networking team. 2013b. The connect() Linux manual page. <a href=\"http:\/\/linux.die.net\/man\/2\/connect\">http:\/\/linux.die.net\/man\/2\/connect<\/a>"
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "The Linux networking team. 2013c. The socket() Linux manual page. <a href=\"http:\/\/linux.die.net\/man\/2\/socket\">http:\/\/linux.die.net\/man\/2\/socket<\/a>"
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003039.10003048",
+                    "concept_desc": "Networks~Transport protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003048
+                    ],
+                    "expected_concept_desc": "Networks~Transport protocols"
+                },
+                {
+                    "concept_id": "10003033.10003039.10003040",
+                    "concept_desc": "Networks~Network protocol design",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003040
+                    ],
+                    "expected_concept_desc": "Networks~Network protocol design"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011672",
+                    "concept_desc": "Networks~Network performance analysis",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011672
+                    ],
+                    "expected_concept_desc": "Networks~Network performance analysis"
+                }
+            ],
+            "acm-keywords": [
+                "Multi-Path TCP",
+                "MPTCP",
+                "Connection Establishment",
+                "Next generation networking",
+                "Computer network reliability",
+                "Disruption tolerant networking",
+                "Measurements."
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-01c3cb16a96d3349f7f48cb90224d33ed1c2f232dbfbd0b86f776e97d9238558",
+                    "timestamp": 1529596404,
+                    "size": 6673993,
+                    "filename": "MPTCP RobE.zip"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 23,
+        "title": "Metrics for access network selection",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524497130,
+        "authors": [
+            {
+                "email": "theresa@inet.tu-berlin.de",
+                "first": "Theresa",
+                "last": "Enghardt",
+                "affiliation": "TU Berlin",
+                "contact": true
+            },
+            {
+                "email": "philipp@inet.tu-berlin.de",
+                "first": "Philipp S.",
+                "last": "Tiesel",
+                "affiliation": "TU Berlin",
+                "contact": true
+            },
+            {
+                "email": "anja@mpi-inf.mpg.de",
+                "first": "Anja",
+                "last": "Feldmann",
+                "affiliation": "Max Planck Institute for Informatics"
+            }
+        ],
+        "abstract": "Today, most mobile devices can connect to the Internet via multiple access networks. To make an informed choice of which network to use, a host requires accurate and up to date performance metrics. However, so far such network characteristics are typically not readily available and can be highly volatile.\r\nWe explore what performance metrics are available on a host by monitoring and aggregating them within our Socket Intents prototype. These metrics then feed into our access network selection policies to improve page load time in a testbed emulating various network characteristics.\r\nWe find that minimum and median Smoothed Round Trip Time and maximum observed download rate are useful metrics in the sense that they enable us to speed up web page load times by up to 65% compared to using a single interface.",
+        "topics": {
+            "decentralizing and democratizing the Internet": true,
+            "Internet access in challenging environments": true,
+            "measurement": true,
+            "programmable networking in the wide area": true,
+            "protocols and APIs for new Internet applications": true,
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-16a19cdedf60490d2d9f2548e5873c13f08b7bef9be27a4c1bff36abd595b3da",
+            "timestamp": 1524539261,
+            "size": 762523,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1527050326,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 75,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 53672
+                        },
+                        {
+                            "d": 57086
+                        },
+                        {
+                            "d": 51694
+                        },
+                        {
+                            "d": 53678
+                        },
+                        {
+                            "d": 59129
+                        },
+                        {
+                            "d": 35906
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                348,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 32709,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-6c5ba643b8d23bdd680bf309b2665b6a676a92beb1027cfea2dd1a46eb9afb50",
+            "timestamp": 1529583014,
+            "size": 783223,
+            "filename": "23_Metrics_for_access_network_selection_CAMREADY.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529583490,
+                    "npages": 7,
+                    "errf": [
+                        "fonttype"
+                    ],
+                    "fmt_errors": [
+                        [
+                            "fonttype",
+                            "Bad font: unnamed Type3 fonts first referenced on page 4."
+                        ]
+                    ]
+                },
+                "banal": {
+                    "at": 1529583491,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 44288
+                        },
+                        {
+                            "d": 58660
+                        },
+                        {
+                            "d": 49902
+                        },
+                        {
+                            "d": 58122
+                        },
+                        {
+                            "d": 57099
+                        },
+                        {
+                            "d": 36102
+                        },
+                        {
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 33785,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528720708,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-6c5ba643b8d23bdd680bf309b2665b6a676a92beb1027cfea2dd1a46eb9afb50",
+                "timestamp": 1528969362,
+                "size": 783223,
+                "filename": "23_Metrics_for_access_network_selection_CAMREADY.pdf"
+            },
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Adnan Aijaz, Hamid Aghvami, and Mojdeh Amani. 2013. A survey on mobile data offloading: technical and business perspectives. <i>IEEE Transactions on Wireless Communications<\/i> 20, 2 (2013), 104–112."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Apple Inc. 2016. About Wi-Fi Assist. <a href=\"https:\/\/support.apple.com\/en-us\/HT205296\">https:\/\/support.apple.com\/en-us\/HT205296<\/a>"
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Yung-Chih Chen, Yeon-sup Lim, Richard J Gibbens, Erich M Nahum, Ramin Khalili, and Don Towsley. 2013. A measurement-based study of multipath tcp performance over wireless networks. In <i>ACM IMC<\/i>. ACM, 455–468."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Shuo Deng, Ravi Netravali, Anirudh Sivaraman, and Hari Balakrishnan. 2014. Wifi, lte, or both?: Measuring multi-homed wireless internet performance. In <i>ACM IMC<\/i>. ACM, 181–194."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "IETF TAPS Working Group. 2018. Transport Services (TAPS) Charter. <a href=\"https:\/\/datatracker.ietf.org\/group\/taps\/charter\/\">https:\/\/datatracker.ietf.org\/group\/taps\/charter\/<\/a>, accessed in June 2018."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Rick Hofstede, Pavel Čeleda, Brian Trammell, Idilio Drago, Ramin Sadre, Anna Sperotto, and Aiko Pras. 2014. Flow monitoring explained: From packet capture to data analysis with netflow and ipfix. <i>IEEE Comm. Surveys and Tutorials<\/i> 16, 4 (2014), 2037–2064."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Alexey Kuznetsov and Stephan Hemminger. 2018. iproute2 utilities for controlling TCP\/IP networking and traffic in Linux. <a href=\"https:\/\/wiki.linuxfoundation.org\/networking\/iproute2\">https:\/\/wiki.linuxfoundation.org\/networking\/iproute2<\/a>, accessed in April 2018."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "David Miller. 2018. ethtool - utility for controlling network drivers and hardware. <a href=\"http:\/\/www.kernel.org\/pub\/software\/network\/ethtool\/\">http:\/\/www.kernel.org\/pub\/software\/network\/ethtool\/<\/a>, accessed in April 2018."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Kevin Phemius and Mathieu Bouet. 2013. Monitoring latency with openflow. In <i>Network and Service Management (CNSM), 2013 9th International Conference on<\/i>. IEEE, 122–125."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Costin Raiciu, Christoph Paasch, Sebastien Barre, Alan Ford, Michio Honda, Fabien Duchene, Olivier Bonaventure, and Mark Handley. 2012. How hard can it be? designing and implementing a deployable multipath TCP. In <i>USENIX NSDI<\/i>. USENIX Association, 29–29."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Claudio Rossi, Narseo Vallina-Rodriguez, Vijay Erramilli, Yan Grunenberger, Laszlo Gyarmati, Nikolaos Laoutaris, Rade Stanojevic, Konstantina Papagiannaki, and Pablo Rodriguez. 2013. 3GOL: Power-boosting ADSL using 3G OnLoading. In <i>ACM CoNEXT<\/i>. ACM, 187–198."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "Philipp S. Schmidt, Theresa Enghardt, Ramin Khalili, and Anja Feldmann. 2013. Socket Intents: Leveraging Application Awareness for Multi-access Connectivity. In <i>ACM CoNEXT<\/i>. ACM, New York, NY, USA, 295–300. <a href=\"https:\/\/doi.org\/10.1145\/2535372.2535405\">https:\/\/doi.org\/10.1145\/2535372.2535405<\/a>"
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "Joel Sommers and Paul Barford. 2012. Cell vs. WiFi: On the Performance of Metro Area Mobile Connections. In <i>ACM IMC<\/i>. ACM."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "Kaixin Sui, Mengyu Zhou, Dapeng Liu, Minghua Ma, Dan Pei, Youjian Zhao, Zimu Li, and Thomas Moscibroda. 2016. Characterizing and improving wifi latency in large-scale operational networks. In <i>ACM MobiSys<\/i>. ACM, 347–360."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "Srikanth Sundaresan, Nick Feamster, and Renata Teixeira. 2016. Home network or access link? locating last-mile downstream throughput bottlenecks. In <i>PAM<\/i>. Springer, 111–123."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "Philipp S. Tiesel, Theresa Enghardt, Mirko Palmer, and Anja Feldmann. 2018. Socket Intents: OS Support for Using Multiple Access Networks and its Benefits for Web Browsing. arXiv:1804.08484"
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "Niels LM Van Adrichem, Christian Doerr, and Fernando A Kuipers. 2014. Opennetmon: Network monitoring in openflow software-defined networks. In <i>Network Operations and Management Symposium (NOMS), 2014 IEEE<\/i>. IEEE, 1–8."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011672",
+                    "concept_desc": "Networks~Network performance analysis",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011672
+                    ],
+                    "expected_concept_desc": "Networks~Network performance analysis"
+                },
+                {
+                    "concept_id": "10003033.10003083.10003094",
+                    "concept_desc": "Networks~Network dynamics",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003083,
+                        10003094
+                    ],
+                    "expected_concept_desc": "Networks~Network dynamics"
+                },
+                {
+                    "concept_id": "10003033.10003099.10003105",
+                    "concept_desc": "Networks~Network monitoring",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003105
+                    ],
+                    "expected_concept_desc": "Networks~Network monitoring"
+                },
+                {
+                    "concept_id": "10003033.10003106.10003119.10011661",
+                    "concept_desc": "Networks~Wireless local area networks",
+                    "concept_significance": 100,
+                    "concept_path": [
+                        10003033,
+                        10003106,
+                        10003119,
+                        10011661
+                    ],
+                    "expected_concept_desc": "Networks~Wireless local area networks"
+                }
+            ],
+            "acm-keywords": [
+                "Access networks",
+                "Performance Monitoring",
+                "Network Properties",
+                "Multi-Access Connectivity"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/gzip",
+                    "hash": "sha2-ef267e12acb0bf00ec3fedb60fdd3311b25f97f47378b0f73756ce775e90fff8",
+                    "timestamp": 1528969362,
+                    "size": 356193,
+                    "filename": "23_Metrics_for_access_network_selection.tar.gz"
+                }
+            ]
+        },
+        "pc_conflicts": {
+            "pelsser@unistra.fr": "confirmed",
+            "wwillinger@niksun.com": "collaborator"
+        }
+    },
+    {
+        "pid": 25,
+        "title": "Practical Challenge-Response for DNS",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1523931647,
+        "authors": [
+            {
+                "email": "rxa271@case.edu",
+                "first": "Rami",
+                "last": "Al-Dalky",
+                "affiliation": "Case Western Reserve University",
+                "contact": true
+            },
+            {
+                "email": "michael.rabinovich@case.edu",
+                "first": "Michael",
+                "last": "Rabinovich",
+                "affiliation": "Case Western Reserve University",
+                "contact": true
+            },
+            {
+                "email": "mallman@icir.org",
+                "first": "Mark",
+                "last": "Allman",
+                "affiliation": "ICSI",
+                "contact": true
+            }
+        ],
+        "abstract": "Authoritative DNS nameservers are vulnerable to being used in\r\n  denial of service attacks whereby an attacker sends DNS queries\r\n  while masquerading as a victim---hence coaxing the DNS server to\r\n  send the responses to the victim.  Reflecting off innocent DNS\r\n  servers both hides the attackers identity and often amplifies the\r\n  attackers traffic by turning small DNS requests sent to the\r\n  nameserver into large DNS answers sent to the victim.  In this\r\n  poster we discuss a practical challenge-response technique that\r\n  establishes a requester's identity before sending a full answer.\r\n  Unlike previous schemes, our work deals with so-called \"resolver\r\n  pools\"---or groups of DNS resolvers that work together to lookup\r\n  records in the DNS.  In these cases a challenge transmitted to a\r\n  resolver N1 may be dealt with by a different resolver N2, thus\r\n  leaving an authoritative DNS server wondering whether N2 is\r\n  another resolver in the pool or a victim.  We propose a technique\r\n  called \"challenge chains\" to establish identity in the face of\r\n  resolver pools.  We show that the cost of our scheme in terms of\r\n  added delay is small.  This work appears in [1].\r\n\r\n  [1] Rami Al-Dalky, Michael Rabinovich, Mark Allman.  Practical\r\n      Challenge-Response for DNS.  ACM Computer Communication\r\n      Review, 48(3), July 2018.",
+        "topics": {
+            "new secure protocols": true,
+            "security": true,
+            "wide area services (DNS, anycast, CDNs, etc)": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-4c511d8b946fe336ee136b06f8455ea913dc88e53d35389ee3a2a8a867dc5a98",
+            "timestamp": 1524514944,
+            "size": 230326
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529408812,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "Accepted for publication in CCR in July 2018.",
+            "non-publications-only-url": "https:\/\/www.icir.org\/mallman\/pubs\/ARA18\/",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-2399b0df481e3efd1da5c7b890ea3dff5f2caa48d05079c740ffef8fc1efcb6d",
+                "timestamp": 1523931603,
+                "size": 233713,
+                "filename": "cr-abs.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003039.10003040",
+                    "concept_desc": "Networks~Network protocol design",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003040
+                    ],
+                    "expected_concept_desc": "Networks~Network protocol design"
+                },
+                {
+                    "concept_id": "10003033.10003099.10003037",
+                    "concept_desc": "Networks~Naming and addressing",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003037
+                    ],
+                    "expected_concept_desc": "Networks~Naming and addressing"
+                }
+            ],
+            "acm-keywords": [
+                "DNS",
+                "measurement",
+                "security",
+                "performance"
+            ]
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 27,
+        "title": "User Space Network Drivers",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524517268,
+        "authors": [
+            {
+                "email": "emmericp@net.in.tum.de",
+                "first": "Paul",
+                "last": "Emmerich",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            },
+            {
+                "email": "pudelko@in.tum.de",
+                "first": "Maximilian",
+                "last": "Pudelko",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            },
+            {
+                "email": "bauersi@net.in.tum.de",
+                "first": "Simon",
+                "last": "Bauer",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            },
+            {
+                "email": "carle@net.in.tum.de",
+                "first": "Georg",
+                "last": "Carle",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            }
+        ],
+        "abstract": "Did you ever wonder how a full user space driver like DPDK actually works beneath the covers?\r\nOr what's the difference between DPDK and netmap?\r\nEver wanted to write your own network driver?\r\n\r\nThis talk will answer these questions based on our educational driver ixy: https:\/\/github.com\/emmericp\/ixy\r\nixy is a simplified user space driver that's designed to be as easy and understandable as possible. You can use it to learn how a network driver works or to test out a new feature.\r\nWe are using it ixy to test individual performance optimizations in isolation.\r\n\r\nixy is also relevant for security: drivers are growing bigger and more complex with every new hardware generation and they represent a huge attack surface.\r\nixy is not only significantly smaller (~1000 lines of code vs > 20k), there is also being work done in ixy to build safe and secure drivers:\r\n\r\n1. The IOMMU can be used to isolate the NIC and driver from the rest of the system in hardware.\r\n2. We are working on re-implementing the whole driver in different programming languages (Rust, OCaml, C#, go, Python, and Kotlin) to investigate trade-offs when using a better programming language than C for drivers.\r\n\r\n\r\nI've previously presented ixy at 34C3, a recording of my talk there is available at https:\/\/media.ccc.de\/v\/34c3-9159-demystifying_network_cards\r\nIt was a quite tight fit in that 25 minute slot. But I can skip a lot of basics for the audience at ANRW, so I won't have to talk as fast as I did on this recording.",
+        "topics": {
+            "measurement": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-32ff637879e15547d136759ad9f21c29ed86ac13e749bf40e2032752901ca113",
+            "timestamp": 1524517268,
+            "size": 413625,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1527050326,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 75,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 52672
+                        },
+                        {
+                            "d": 58448
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                456,
+                                56
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 25238,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-ca646fcf1d64188480d633933e2a3337c012482ef8ad4c22d4ce050790880cea",
+            "timestamp": 1529583577,
+            "size": 422964,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 3,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529583580,
+                    "npages": 3
+                },
+                "banal": {
+                    "at": 1529583580,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        108,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 74,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 45197
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 56920
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                476,
+                                56
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 24466,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529372559,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "non-publications-only-url": "https:\/\/github.com\/emmericp\/ixy",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-902b3a915cec943ebf9104e159da064f37574c9e77bcdc8e76d68f52436c6612",
+                "timestamp": 1524517268,
+                "size": 274820,
+                "filename": "paper.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Tom Barbette, Cyril Soldani, and Laurent Mathy. 2015. Fast userspace packet processing. In <i>ACM\/IEEE ANCS<\/i>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "N. Bonelli, S. Giordano, and G. Procissi. 2016. Network Traffic Processing With PFQ. <i>IEEE Journal on Selected Areas in Communications<\/i> 34, 6 (June 2016), 1819–1833. 0733-8716 DOI:<a href=\"https:\/\/doi.org\/10.1109\/JSAC.2016.2558998\">https:\/\/doi.org\/10.1109\/JSAC.2016.2558998<\/a>"
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "DPDK Project. 2018. DPDK Website. (2018). <a href=\"http:\/\/dpdk.org\/\">http:\/\/dpdk.org\/<\/a>. Last visited 2018-02-01."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Paul Emmerich. 2018a. ixy code. (2018). <a href=\"https:\/\/github.com\/emmericp\/ixy\">https:\/\/github.com\/emmericp\/ixy<\/a>."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Paul Emmerich. 2018b. Scripts used for the performance evaluation. (2018). <a href=\"https:\/\/github.com\/emmericp\/ixy-perf-measurements\/tree\/full-paper\">https:\/\/github.com\/emmericp\/ixy-perf-measurements\/tree\/full-paper<\/a>."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Emmerich, Paul and Pudelko, Maximilian and Bauer, Simon and Carle, Georg. 2018. User Space Network Drivers. In <i>Draft available at <a href=\"https:\/\/www.net.in.tum.de\/fileadmin\/bibtex\/publications\/papers\/ixy_paper_draft2.pdf\">https:\/\/www.net.in.tum.de\/fileadmin\/bibtex\/publications\/papers\/ixy_paper_draft2.pdf<\/a><\/i>."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Gorrie, L et al. . Snabb: Simple and fast packet networking. (). <a href=\"https:\/\/github.com\/snabbco\/snabb\">https:\/\/github.com\/snabbco\/snabb<\/a>."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "Jim Thompson. 2017. DPDK, VPP & pfSense 3.0. In <i>DPDK Summit Userspace<\/i>."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Jonathan Corbet. 2017. User-space networking with Snabb. In <i>LWN.net<\/i>."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Linux Foundation. 2017. Networking Industry Leaders Join Forces to Expand New Open Source Community to Drive Development of the DPDK Project. (April 2017). Press release."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Robert Morris, Eddie Kohler, John Jannotti, and M Frans Kaashoek. 1999. The Click modular router. In <i>Operating Systems Review - SIGOPS<\/i>, Vol. 33. 217–231."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "ntop. 2018. PFRING ZC (Zero Copy). (2018). <a href=\"http:\/\/www.ntop.org\/products\/packet-capture\/pf_ring\/pf_ring-zc-zero-copy\/\">http:\/\/www.ntop.org\/products\/packet-capture\/pf_ring\/pf_ring-zc-zero-copy\/<\/a>. Last visited 2017-11-30."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "Open vSwitch Project. 2018. Open vSwitch with DPDK. (2018). <a href=\"http:\/\/docs.openvswitch.org\/en\/latest\/intro\/install\/dpdk\/\">http:\/\/docs.openvswitch.org\/en\/latest\/intro\/install\/dpdk\/<\/a> Last visited 2018-02-01."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "Ben Pfaff, Justin Pettit, Teemu Koponen, Ethan Jackson, Andy Zhou, Jarno Rajahalme, Jesse Gross, Alex Wang, Joe Stringer, Pravin Shelar, Keith Amidon, and Martin Casado. 2015. The Design and Implementation of Open vSwitch. In <i>12th USENIX Symposium on Networked Systems Design and Implementation (NSDI 15)<\/i>. USENIX Association, Oakland, CA, 117–130. <a href=\"https:\/\/www.usenix.org\/conference\/nsdi15\/technical-sessions\/presentation\/pfaff\">https:\/\/www.usenix.org\/conference\/nsdi15\/technical-sessions\/presentation\/pfaff<\/a>"
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "Luigi Rizzo. 2012. netmap: A Novel Framework for Fast Packet I\/O.. In <i>USENIX Annual Technical Conference<\/i>. 101–112."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "Snort Project. 2016. Snort 3 User Manual. (2016). <a href=\"https:\/\/www.snort.org\/downloads\/snortplus\/snort_manual.pdf\">https:\/\/www.snort.org\/downloads\/snortplus\/snort_manual.pdf<\/a> Last visited 2018-02-01."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10003082",
+                    "concept_desc": "Networks~Network experimentation",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10003082
+                    ],
+                    "expected_concept_desc": "Networks~Network experimentation"
+                }
+            ],
+            "acm-keywords": [
+                "driver",
+                "network card",
+                "performance"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-09f052963d9741c23a07674cbe76c660d9ab6281bb8eb07922ab211de161fdc0",
+                    "timestamp": 1529372727,
+                    "size": 1285094,
+                    "filename": "very-short-paper.zip"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 30,
+        "title": "Automated Attack Discovery in TCP Congestion Control Using a Model-guided Approach",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524062959,
+        "authors": [
+            {
+                "email": "sjero@purdue.edu",
+                "first": "Samuel",
+                "last": "Jero",
+                "affiliation": "Purdue University",
+                "contact": true
+            },
+            {
+                "email": "ehoque@fiu.edu",
+                "first": "Endadul",
+                "last": "Hoque",
+                "affiliation": "Florida International University",
+                "contact": true
+            },
+            {
+                "email": "choffnes@ccs.neu.edu",
+                "first": "David",
+                "last": "Choffnes",
+                "affiliation": "Northeastern University",
+                "contact": true
+            },
+            {
+                "email": "amislove@ccs.neu.edu",
+                "first": "Alan",
+                "last": "Mislove",
+                "affiliation": "Northeastern University",
+                "contact": true
+            },
+            {
+                "email": "c.nitarotaru@neu.edu",
+                "first": "Cristina",
+                "last": "Nita-Rotaru",
+                "affiliation": "Northeastern University",
+                "contact": true
+            }
+        ],
+        "abstract": "In this work, we propose an automated method to find attacks against TCP congestion control implementations that combines the generality of implementation-agnostic fuzzing with the precision of runtime analysis. It uses a model-guided approach to generate abstract attack strategies by leveraging a state machine model of congestion control to find vulnerable state machine paths that an attacker could exploit to increase or decrease the throughput of a connection. These abstract strategies are then mapped to concrete attack strategies, which consist of sequences of actions such as injection or modification of acknowledgements. We design and implement a virtualized platform, TCPwn, that consists of a proxy-based attack injector to inject these concrete attack strategies. We evaluated 5 TCP implementations from 4 Linux distributions and Windows 8.1. Overall, we found 11 classes of attacks, of which 8 are new.",
+        "topics": {
+            "security": true,
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-d8f1da84d1910da80cd64cd823d5dc5740a86a3b2e6cf7b117f9311121217753",
+            "timestamp": 1524498696,
+            "size": 374757
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529278045,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "Samuel Jero, et al. 2018. Automated Attack Discovery in TCP Congestion Control Using a Model-guided Approach. In Proceedings of the Network and Distributed System Security Symposium (NDSS).",
+            "field-is-outdated-not": "Talk"
+        },
+        "pc_conflicts": {
+            "c.nitarotaru@neu.edu": "author",
+            "choffnes@ccs.neu.edu": "author",
+            "feamster@cs.princeton.edu": "collaborator",
+            "goldbe@cs.bu.edu": "collaborator",
+            "nick@cloudflare.com": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator",
+            "r.m.vanrijswijk@utwente.nl": "collaborator"
+        }
+    },
+    {
+        "pid": 31,
+        "title": "Restructuring Endpoint Congestion Control",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524261277,
+        "authors": [
+            {
+                "email": "akshayn@csail.mit.edu",
+                "first": "Akshay",
+                "last": "Narayan",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "frankc@csail.mit.edu",
+                "first": "Frank",
+                "last": "Cangialosi",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "deeptir@csail.mit.edu",
+                "first": "Deepti",
+                "last": "Raghavan",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "prateesh@csail.mit.edu",
+                "first": "Prateesh",
+                "last": "Goyal",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "alephtwo@csail.mit.edu",
+                "first": "Srinivas",
+                "last": "Narayana",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "radhika@eecs.berkeley.edu",
+                "first": "Radhika",
+                "last": "Mittal",
+                "affiliation": "UC Berkeley",
+                "contact": true
+            },
+            {
+                "email": "alizadeh@csail.mit.edu",
+                "first": "Mohammad",
+                "last": "Alizadeh",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "hari@csail.mit.edu",
+                "first": "Hari",
+                "last": "Balakrishnan",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            }
+        ],
+        "abstract": "The Congestion Control Plane (CCP) is a new way to structure congestion control functions at the sender by removing them from the datapath. With CCP, each datapath such as the Linux Kernel TCP, UDP-based QUIC, or kernel-bypass transports like mTCP\/DPDK summarizes information about the round-trip time, packet receptions, losses, ECN, etc. via a well-defined interface, and algorithms running atop CCP can use this information to control the datapath's congestion window or pacing rate. CCP improves both the pace of development and ease of maintenance of congestion control algorithms by providing better, modular abstractions, and enables new capabilities such as sophisticated congestion control using signal processing techniques running on Linux TCP and aggregate congestion control across groups of connections, all with one-time changes to datapaths. We propose a set of congestion control primitives datapaths should expose to support a broad class of congestion control algorithms; this set of primitives could eventually be standardized as a reference for future datapath developers' support for congestion control in their datapaths. Based on work published at [1].\r\n\r\n[1] Akshay Narayan, Frank Cangialosi, Deepti Raghavan, Prateesh Goyal, Srinivas Narayana, Radhika Mittal, Mohammad Alizadeh, Hari Balakrishnan. \"Restructuring Endpoint Congestion Control\". SIGCOMM 2018.",
+        "topics": {
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-e6c8e0cd4fb87fa5098e4e8443405e444c6bb0f3beb05aca133350b437d47eab",
+            "timestamp": 1524261263,
+            "size": 284342
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529277620,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "This work is under submission at SIGCOMM.",
+            "field-is-outdated-not": "Talk"
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "advisor"
+        }
+    },
+    {
+        "pid": 33,
+        "title": "Elasticity Detection: A Building Block for Delay-Sensitive Congestion Control",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524776112,
+        "authors": [
+            {
+                "email": "prateesh@csail.mit.edu",
+                "first": "Prateesh",
+                "last": "Goyal",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "akshayn@csail.mit.edu",
+                "first": "Akshay",
+                "last": "Narayan",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "frank@csail.mit.edu",
+                "first": "Frank",
+                "last": "Cangialosi",
+                "affiliation": "MIT CSAIL"
+            },
+            {
+                "email": "deeptir@mit.edu",
+                "first": "Deepti",
+                "last": "Raghavan",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "alephtwo@csail.mit.edu",
+                "first": "Srinivas",
+                "last": "Narayana",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "alizadeh@csail.mit.edu",
+                "first": "Mohammad",
+                "last": "Alizadeh",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            },
+            {
+                "email": "hari@csail.mit.edu",
+                "first": "Hari",
+                "last": "Balakrishnan",
+                "affiliation": "MIT CSAIL",
+                "contact": true
+            }
+        ],
+        "abstract": "This paper develops a technique to detect whether the cross traffic competing with a flow is elastic or not, and shows how to use the elasticity detector to improve congestion control. If the cross traffic is elastic, i.e., made up of buffer-filling flows like Cubic or Reno, then one should use a scheme that competes well with such traffic. Such a scheme will not be able to control delays because the cross traffic will not cooperate. If, however, cross traffic is inelastic, then one can use a suitable delay-sensitive congestion control algorithm, which can control delays, but which would have obtained dismal throughput when run concurrently with a buffer-filling algorithm. \r\n\r\nWe use the elasticity detector to demonstrate a congestion control framework that always achieves high utilization, but which can also achieve low delays when cross traffic permits it. The technique uses an asymmetric sinusoidal pulse patternand estimates elasticity by computing the frequency response(FFT) of the cross traffic estimate; we have measured its accuracy to be over 90%. We have developed Nimbus, a protocol that explicitly switches between TCP-competitive and delay-sensitive modes using the elasticity detector. Our results on emulated and real-world paths show that Nimbus achieves throughput comparable to or better than Cubic always, but with delays that are much lower when cross traffic is inelastic. Unlike BBR, Nimbus is fair to Cubic, and has significantly lower delay in all cases; for example, on real-world paths, Nimbus has 11% lower throughput but at 40-50 ms lower packet delay.",
+        "topics": {
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-f26f26185fee79ad23e0831b05566d52a1ba8e6b42f47b423824806b4188a186",
+            "timestamp": 1524175939,
+            "size": 214103
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529294083,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "non-publications-only-url": "https:\/\/arxiv.org\/pdf\/1802.08730.pdf",
+            "field-is-outdated-not": "Talk"
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "advisor"
+        }
+    },
+    {
+        "pid": 40,
+        "title": "DeadBolt: Securing IoT Deployments",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524449612,
+        "authors": [
+            {
+                "email": "harko@g.harvard.edu",
+                "first": "Ronny",
+                "last": "Ko",
+                "affiliation": "Harvard University"
+            },
+            {
+                "email": "mickens@g.harvard.edu",
+                "first": "James",
+                "last": "Mickens",
+                "affiliation": "Harvard University",
+                "contact": true
+            }
+        ],
+        "abstract": "In this paper, we introduce DeadBolt, a new security framework for managing IoT network access. DeadBolt hides all of the devices in an IoT deployment behind an access point that implements deny-by-default policies for both incoming and outgoing traffic. The DeadBolt AP also forces high-end IoT devices to use remote attestation to gain network access; attestation allows the devices to prove that they run up-to-date, trusted software. For lightweight IoT devices which lack the ability to attest, the DeadBolt AP uses virtual drivers (essentially, security-focused virtual network functions) to protect lightweight device traffic. For example, a virtual driver might provide network intrusion detection, or encrypt device traffic that is natively cleartext. Using these techniques, and several others, DeadBolt can prevent realistic attacks while imposing only modest performance costs.",
+        "topics": {
+            "network management": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-ab67c59c323069d91e504b7778934bd3e5b898bff114219d500a05550f1a348e",
+            "timestamp": 1524449612,
+            "size": 580451
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529386218,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "<scp>Apache Software Foundation<\/scp>. Apache Benchmark, 2018. <a href=\"https:\/\/httpd.apache.org\/docs\/2.4\/programs\/ab.html\">https:\/\/httpd.apache.org\/docs\/2.4\/programs\/ab.html<\/a>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "<scp>Berger, S., Cáceres, R., Goldman, K. A., Perez, R., Sailer, R., and van Doorn, L.<\/scp> vTPM: Virtualizing the Trusted Platform Module. In <i>Proceedings of USENIX Security<\/i> (2006), pp. 305–320."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "<scp>Betts, D., and Lamos, B.<\/scp> Internet of Things security architecture, June 14, 2018. Microsoft Azure documentation. <a href=\"https:\/\/azure.microsoft.com\/en-us\/documentation\/articles\/iot-security-architecture\/\">https:\/\/azure.microsoft.com\/en-us\/documentation\/articles\/iot-security-architecture\/<\/a>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "<scp>Brasser, F., Mahjoub, B. E., Sadeghi, A. R., Wachsmann, C., and Koeberl, P.<\/scp> TyTAN: Tiny trust anchor for tiny devices. In <i>Proceedings of ACM\/EDAC\/IEEE Design Automation Conference<\/i> (2015), pp. 1–6."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "<scp>Bregman, D.<\/scp> Smart home intelligence: The eHome that learns. <i>International Jounrnal of Smart Home<\/i>, 4 (October 2010), 35–46."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "<scp>Checkoway, S., Davi, L., Dmitrienko, A., Sadeghi, A.-R., Shacham, H., and Winandy, M.<\/scp> Return-oriented Programming Without Returns. In <i>Proceedings of CCS<\/i> (2010), pp. 559–572."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "<scp>Cisco<\/scp>. Snort, 2018. <a href=\"https:\/\/www.snort.org\/\">https:\/\/www.snort.org\/<\/a>."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "<scp>Cowan, C., Wagle, F., Pu, C., Beattie, S., and Walpole, J.<\/scp> Buffer Overflows: Attacks and Defenses for the Vulnerability of the Decade. In <i>Proceedings of the DARPA Information Survivability Conference and Exposition<\/i> (2000), vol. 2, pp. 119–129."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "<scp>CRIU<\/scp>. A project to implement checkpoint\/restore functionality for Linux, 2018. <a href=\"http:\/\/criu.org\">http:\/\/criu.org<\/a>."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "<scp>Dang, H.-V.<\/scp> Analysis of CVE-2013-2028, May 23, 2013. <a href=\"https:\/\/github.com\/danghvu\/nginx-1.4.0\">https:\/\/github.com\/danghvu\/nginx-1.4.0<\/a>."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "<scp>Dang, T. H., Maniatis, P., and Wagner, D.<\/scp> The Performance Cost of Shadow Stacks and Stack Canaries. In <i>Proceedings of ASIA CCS<\/i> (2015), pp. 555–566."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "<scp>Dierks, T. and Rescorla, E.<\/scp> The Transport Layer Security (TLS) Protocol Version 1.2, August 2008. <a href=\"https:\/\/tools.ietf.org\/html\/rfc5246\/\">https:\/\/tools.ietf.org\/html\/rfc5246\/<\/a>."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "<scp>Dixon, C., Mahajan, R., Agarwal, S., Brush, A. J., Lee, B., Saroiu, S., and Bahl, P.<\/scp> An Operating System for the Home. In <i>Proceedings of NSDI<\/i> (2012), pp. 337–352."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "<scp>FreeRADIUS Server Project<\/scp>. FreeRADIUS, 2018. <a href=\"https:\/\/freeradius.org\/\">https:\/\/freeradius.org\/<\/a>."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "<scp>Garret, M.<\/scp> GRUB2 with TPM2 support, March 23, 2016. <a href=\"https:\/\/github.com\/mjg59\/grub\">https:\/\/github.com\/mjg59\/grub<\/a>."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "<scp>Gisbert, H. M., and Ripoll, I.<\/scp> On the Effectiveness of NX, SSP, RenewSSP, and ASLR against Stack Buffer Overflows. In <i>Proceedings of the IEEE International Symposium on Network Computing and Applications<\/i> (2014), pp. 145–152."
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "<scp>Goldman, K.<\/scp> IBM's TPM 2.0 TSS, May 29, 2018. <a href=\"https:\/\/sourceforge.net\/projects\/ibmtpm20tss\/\">https:\/\/sourceforge.net\/projects\/ibmtpm20tss\/<\/a>."
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "<scp>Goldman, K.<\/scp> IBM's TPM Attestation Client and Server, June 15, 2018. <a href=\"https:\/\/sourceforge.net\/projects\/ibmtpm20acs\/\">https:\/\/sourceforge.net\/projects\/ibmtpm20acs\/<\/a>."
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "<scp>Goodin, D.<\/scp> Crypto weakness in smart LED lightbulbs exposes Wi-Fi passwords. <i>Ars Technica<\/i> (July 7, 2014). <a href=\"http:\/\/arstechnica.com\/security\/2014\/07\/crypto-weakness-in-smart-led-lightbulbs-exposes-wi-fi-passwords\/\">http:\/\/arstechnica.com\/security\/2014\/07\/crypto-weakness-in-smart-led-lightbulbs-exposes-wi-fi-passwords\/<\/a>."
+                },
+                {
+                    "ref_id": "20",
+                    "ref_text": "<scp>Goodin, D.<\/scp> Record-breaking DDoS reportedly delivered by $>$145k hacked cameras. <i>Ars Technica<\/i> (September 28, 2016). <a href=\"http:\/\/arstechnica.com\/security\/2016\/09\/botnet-of-145k-cameras-reportedly-deliver-internets-biggest-ddos-ever\/\">http:\/\/arstechnica.com\/security\/2016\/09\/botnet-of-145k-cameras-reportedly-deliver-internets-biggest-ddos-ever\/<\/a>."
+                },
+                {
+                    "ref_id": "21",
+                    "ref_text": "<scp>Google<\/scp>. Google Safe Browsing APIs, 2018. <a href=\"https:\/\/developers.google.com\/safe-browsing\/\">https:\/\/developers.google.com\/safe-browsing\/<\/a>."
+                },
+                {
+                    "ref_id": "22",
+                    "ref_text": "<scp>Industrial Internet Consortium (IIC)<\/scp>. Industrial Internet of Things Volume G4: Security Framework, 2016. <a href=\"https:\/\/www.iiconsortium.org\/pdf\/IIC_PUB_G4_V1.00_PB.pdf\">https:\/\/www.iiconsortium.org\/pdf\/IIC_PUB_G4_V1.00_PB.pdf<\/a>."
+                },
+                {
+                    "ref_id": "23",
+                    "ref_text": "<scp>iPerf<\/scp>. iPerf: The ultimate speed test tool for TCP, UDP and SCTP, 2018. <a href=\"https:\/\/iperf.fr\/\">https:\/\/iperf.fr\/<\/a>."
+                },
+                {
+                    "ref_id": "24",
+                    "ref_text": "<scp>Jonathan Corbet<\/scp>. TCP Connection Repair, May 1, 2012. <a href=\"https:\/\/lwn.net\/Articles\/495304\/\">https:\/\/lwn.net\/Articles\/495304\/<\/a>."
+                },
+                {
+                    "ref_id": "25",
+                    "ref_text": "<scp>Kelley, S.<\/scp> DNSMasq: Network Services for Small Network, March 18, 2018. <a href=\"http:\/\/www.thekelleys.org.uk\/dnsmasq\/doc.html\">http:\/\/www.thekelleys.org.uk\/dnsmasq\/doc.html<\/a>."
+                },
+                {
+                    "ref_id": "26",
+                    "ref_text": "<scp>Kopytov, A.<\/scp> sysbench: Scriptable database and system performance benchmark, May 3, 2018. <a href=\"https:\/\/github.com\/akopytov\/sysbench\">https:\/\/github.com\/akopytov\/sysbench<\/a>."
+                },
+                {
+                    "ref_id": "27",
+                    "ref_text": "<scp>Kuppusamy, T. K., Torres-Arias, S., Diaz, V., and Cappos, J.<\/scp> Diplomat: Using Delegations to Protect Community Repositories. In <i>Proceedings of NSDI<\/i> (2016), pp. 567–581."
+                },
+                {
+                    "ref_id": "28",
+                    "ref_text": "<scp>Lear, E., Droms, R., and Romascanu, D.<\/scp> Manufacturer Usage Description Specification, June 4, 2018. IETF Draft. <a href=\"https:\/\/datatracker.ietf.org\/doc\/draft-ietf-opsawg-mud\/\">https:\/\/datatracker.ietf.org\/doc\/draft-ietf-opsawg-mud\/<\/a>."
+                },
+                {
+                    "ref_id": "29",
+                    "ref_text": "<scp>Lee, J.<\/scp> Smart factory systems. <i>Informatik-Spektrum 38<\/i> (2015), 230–235."
+                },
+                {
+                    "ref_id": "30",
+                    "ref_text": "<scp>Malinen, J.<\/scp> hostapd and wpasupplicant, January 12, 2013. <a href=\"https:\/\/w1.fi\/\">https:\/\/w1.fi\/<\/a>."
+                },
+                {
+                    "ref_id": "31",
+                    "ref_text": "<scp>MinnowBoard.org Foundation<\/scp>. Minnowboard, 2018. <a href=\"https:\/\/minnowboard.org\/\">https:\/\/minnowboard.org\/<\/a>."
+                },
+                {
+                    "ref_id": "32",
+                    "ref_text": "<scp>NGINX Inc.<\/scp> Welcome to NGINX Wiki!, 2017. <a href=\"https:\/\/www.nginx.com\/resources\/wiki\/\">https:\/\/www.nginx.com\/resources\/wiki\/<\/a>."
+                },
+                {
+                    "ref_id": "33",
+                    "ref_text": "<scp>Noorman, J., Agten, P., Daniels, W., Strackx, R., Herrewege, A. V., Huygens, C., Preneel, B., Verbauwhede, I., and Piessens, F.<\/scp> Sancus: Low-cost Trustworthy Extensible Networked Devices with a Zero-software Trusted Computing Base. In <i>Proceedings of USENIX Security<\/i> (2013), pp. 479–498."
+                },
+                {
+                    "ref_id": "34",
+                    "ref_text": "<scp>Parrot SA<\/scp>. Parrot AR Drone 2.0 Elite Edition, 2018. <a href=\"https:\/\/www.parrot.com\/global\/drones\/parrot-ardrone-20-elite-edition\">https:\/\/www.parrot.com\/global\/drones\/parrot-ardrone-20-elite-edition<\/a>."
+                },
+                {
+                    "ref_id": "35",
+                    "ref_text": "<scp>Robles, J. R., and Kim, T.-H.<\/scp> Review: Context Aware Tools for Smart Home Development. <i>International Journal of Smart Home<\/i>, 1 (2010), 1–11."
+                },
+                {
+                    "ref_id": "36",
+                    "ref_text": "<scp>Roemer, R., Buchanan, E., Shacham, H., and Savage, S.<\/scp> Return-oriented Programming: Systems, Languages, and Applications. <i>ACM Transactions on Information and System Security (TISSEC) 15<\/i>, 1 (March 2012)."
+                },
+                {
+                    "ref_id": "37",
+                    "ref_text": "<scp>Safford, D., Kasatkin, D., et al<\/scp>. Integrity Measurement Architecture (IMA), 2018. <a href=\"https:\/\/sourceforge.net\/p\/linux-ima\/wiki\/Home\/\">https:\/\/sourceforge.net\/p\/linux-ima\/wiki\/Home\/<\/a>."
+                },
+                {
+                    "ref_id": "38",
+                    "ref_text": "<scp>Schneier, B.<\/scp> Security Risks of Embedded Systems, January 9, 2014. Schneier on Security blog. <a href=\"https:\/\/www.schneier.com\/blog\/archives\/2014\/01\/security_risks_9.html\">https:\/\/www.schneier.com\/blog\/archives\/2014\/01\/security_risks_9.html<\/a>."
+                },
+                {
+                    "ref_id": "39",
+                    "ref_text": "<scp>Shodan<\/scp>. Shodan IoT Search Engine, 2018. <a href=\"https:\/\/www.shodan.io\/\">https:\/\/www.shodan.io\/<\/a>."
+                },
+                {
+                    "ref_id": "40",
+                    "ref_text": "<scp>Simpson, A. K., Roesner, F., and Kohno, T.<\/scp> Securing vulnerable home IoT devices with an in-hub security manager, January 2017. University of Washington. Technical Report UW-CSE-17-01-01."
+                },
+                {
+                    "ref_id": "41",
+                    "ref_text": "<scp>SmartThings<\/scp>. SmartThings Developer Documentation: Overview of Device Handlers, 2018. <a href=\"http:\/\/docs.smartthings.com\/en\/latest\/device-type-developers-guide\/overview.html\">http:\/\/docs.smartthings.com\/en\/latest\/device-type-developers-guide\/overview.html<\/a>."
+                },
+                {
+                    "ref_id": "42",
+                    "ref_text": "<scp>Spec Sensors<\/scp>. Gas Sensors for the Internet of Things, 2018. <a href=\"https:\/\/www.spec-sensors.com\/\">https:\/\/www.spec-sensors.com\/<\/a>."
+                },
+                {
+                    "ref_id": "43",
+                    "ref_text": "<scp>Standard Performance Evaluation Corporation<\/scp>. SPEC CPU 2006, January 9, 2018. <a href=\"https:\/\/www.spec.org\/cpu2006\/\">https:\/\/www.spec.org\/cpu2006\/<\/a>."
+                },
+                {
+                    "ref_id": "44",
+                    "ref_text": "<scp>Trend Micro<\/scp>. Bash Vulnerability (Shellshock) Exploit Emerges in the Wild, Leads to BASHLITE Malware, September 25, 2014. <a href=\"https:\/\/blog.trendmicro.com\/trendlabs-security-intelligence\/bash-vulnerability-shellshock-exploit-emerges-in-the-wild-leads-to-flooder\/\">https:\/\/blog.trendmicro.com\/trendlabs-security-intelligence\/bash-vulnerability-shellshock-exploit-emerges-in-the-wild-leads-to-flooder\/<\/a>."
+                },
+                {
+                    "ref_id": "45",
+                    "ref_text": "<scp>VN Security<\/scp>. Analysis of NGINX 1.3.9\/1.4.0 Stack Buffer Overflow and x64 Exploitation, May 21, 2013. <a href=\"http:\/\/www.vnsecurity.net\/research\/2013\/05\/21\/analysis-of-nginx-cve-2013-2028.html\">http:\/\/www.vnsecurity.net\/research\/2013\/05\/21\/analysis-of-nginx-cve-2013-2028.html<\/a>."
+                },
+                {
+                    "ref_id": "46",
+                    "ref_text": "<scp>Williams-King, D., Gobieski, G., Williams-King, K., Blake, J. P., Yuan, X., Colp, P., Zheng, M., Kemerlis, V. P., Yang, J., and Aiello, W.<\/scp> Shuffler: Fast and deployable continuous code re-randomization. In <i>Proceedings of OSDI<\/i> (2016), pp. 367–382."
+                },
+                {
+                    "ref_id": "47",
+                    "ref_text": "<scp>XEN<\/scp>. Unstable development version, June 9, 2018. <a href=\"http:\/\/xenbits.xensource.com\/xen-unstable.hg\">http:\/\/xenbits.xensource.com\/xen-unstable.hg<\/a>."
+                },
+                {
+                    "ref_id": "48",
+                    "ref_text": "<scp>Yu, T., Sekar, V., Seshan, S., Agarwal, Y., and Xu, C.<\/scp> Handling a Trillion (Unfixable) Flaws on a Billion Devices: Rethinking Network Security for the Internet-of-Things. In <i>Proceedings of HotNets<\/i> (2015)."
+                },
+                {
+                    "ref_id": "49",
+                    "ref_text": "<scp>Zamora-Izquierdo, M. A., Santa, J., and Gomez-Skarmeta, A. F.<\/scp> An Integral and Networked Home Automation Solution for Indoor Ambient Intelligence. <i>IEEE Pervasive Computing<\/i>, 4 (2010), 66–77."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10003006",
+                    "concept_desc": "Security and privacy~Systems security",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003006
+                    ],
+                    "expected_concept_desc": "Security and privacy~Systems security"
+                },
+                {
+                    "concept_id": "10010520.10010553",
+                    "concept_desc": "Computer systems organization~Embedded and cyber-physical systems",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10010520,
+                        10010553
+                    ],
+                    "expected_concept_desc": "Computer systems organization~Embedded and cyber-physical systems"
+                },
+                {
+                    "concept_id": "10003033.10003083.10003014.10003017",
+                    "concept_desc": "Networks~Mobile and wireless security",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003083,
+                        10003014,
+                        10003017
+                    ],
+                    "expected_concept_desc": "Networks~Mobile and wireless security"
+                }
+            ],
+            "acm-keywords": [
+                "Internet of Things",
+                "IoT",
+                "security",
+                "remote attestation"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-70e537869a8deef04c312c2ecabe72c9779405f4f680fa55adf3e9ed172b4602",
+                    "timestamp": 1529386218,
+                    "size": 472146,
+                    "filename": "deadbolt.zip"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 42,
+        "title": "Behind the scenes: what device benchmarks can tell us",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524496224,
+        "authors": [
+            {
+                "email": "bauersi@net.in.tum.de",
+                "first": "Simon",
+                "last": "Bauer",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            },
+            {
+                "email": "raumer@net.in.tum.de",
+                "first": "Dainel",
+                "last": "Raumer",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            },
+            {
+                "email": "emmericp@net.in.tum.de",
+                "first": "Paul",
+                "last": "Emmerich",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            },
+            {
+                "email": "carle@net.in.tum.de",
+                "first": "Georg",
+                "last": "Carle",
+                "affiliation": "Technical University of Munich",
+                "contact": true
+            }
+        ],
+        "contacts": [
+            {
+                "email": "bauersi@in.tum.de",
+                "first": "Simon",
+                "last": "Bauer",
+                "affiliation": "Technical University of Munich"
+            }
+        ],
+        "abstract": "As software-based packet forwarding devices and middleboxes are gaining momentum also its diversity is increasing. This challenge leads to new activities in the area of device benchmarking. In this paper, we present our new benchmarking framework for OpenFlow switches that is running just on commodity server hardware. We performed numerous benchmarks and discuss how benchmarks can provide insights into devices that are usually treated as black boxes. As a case study we implemented a new test based on a queuing theory model to determine queue sizes and service rate.",
+        "topics": {
+            "measurement": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-f1c18e228ca74c97f8e176e1914dfe72196082ca328cb7b3e62d00462a0921d6",
+            "timestamp": 1524525943,
+            "size": 712027,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 8,
+                "banal": {
+                    "at": 1527050327,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 74,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 52382
+                        },
+                        {
+                            "d": 61699
+                        },
+                        {
+                            "d": 55432
+                        },
+                        {
+                            "d": 40024
+                        },
+                        {
+                            "d": 49341
+                        },
+                        {
+                            "d": 51675
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                88,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 70047,
+                            "pagetype": "bib"
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                692,
+                                52
+                            ],
+                            "leading": 59.3,
+                            "d": 1311,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-6eee91d444a2073a8dd4c63cb2e187f07eca8e5751b2709dd2b309819ca0f418",
+            "timestamp": 1529583182,
+            "size": 623882,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 8,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529583193,
+                    "npages": 8
+                },
+                "banal": {
+                    "at": 1529583193,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        84,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 11.9,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 43853
+                        },
+                        {
+                            "d": 55527
+                        },
+                        {
+                            "d": 54826
+                        },
+                        {
+                            "margin": [
+                                172,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 48402
+                        },
+                        {
+                            "margin": [
+                                168,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 42699
+                        },
+                        {
+                            "d": 49965
+                        },
+                        {
+                            "margin": [
+                                84,
+                                52,
+                                96,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 69369,
+                            "pagetype": "bib"
+                        },
+                        {
+                            "margin": [
+                                88,
+                                316,
+                                656,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 2630,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529338928,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Anton Basil, Mark Tassinari, Vishwas Manral, and Sarah Banks. 2018. Terminology for Benchmarking SDN Controller Performance - draft-ietf-bmwg-sdn-controller-benchmark-term-09. (2018)."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Simon Bauer, Daniel Raumer, Paul Emmerich, and Michael Remmler. 2018. Collection of OpenFlow-Switch Performance Test Data. <a href=\"https:\/\/mediatum.ub.tum.de\/1439119\">https:\/\/mediatum.ub.tum.de\/1439119<\/a>. (2018)."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "bmwg 2018. BMWG history. <a href=\"https:\/\/datatracker.ietf.org\/doc\/charter-ietf-bmwg\/history\/\">https:\/\/datatracker.ietf.org\/doc\/charter-ietf-bmwg\/history\/<\/a>. (2018)."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "S. Bradner. 1991. Benchmarking Terminology for Network Interconnection Devices. RFC 1242. (1991)."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "S. Bradner, K. Dubray, J. McQuaid, and A. Morton. 2012. Applicability Statement for RFC 2544: Use on Production Networks Considered Harmful. RFC 6815. (2012)."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "S. Bradner and J. McQuaid. 1999. Benchmarking Methodology for Network Interconnect Devices. RFC 2544. (1999)."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Cisco. 2012. Cisco Nexus 3548 Switch Performance Validation. <a href=\"http:\/\/www.cisco.com\/c\/dam\/en\/us\/products\/collateral\/switches\/nexus-3548-switch\/white_paper_c11-716751.pdf\">http:\/\/www.cisco.com\/c\/dam\/en\/us\/products\/collateral\/switches\/nexus-3548-switch\/white_paper_c11-716751.pdf<\/a>. (2012)."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "DELL EMC. 2017a. NETWORKING S3048-ON SWITCH - Spec-Sheet. (2017)."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "DELL EMC. 2017b. NETWORKING S4048-ON SWITCH - Spec-Sheet. <a href=\"http:\/\/i.dell.com\/sites\/doccontent\/shared-content\/data-sheets\/en\/Documents\/Dell-EMC-Networking-S4048-ON-Spec-Sheet.pdf\">http:\/\/i.dell.com\/sites\/doccontent\/shared-content\/data-sheets\/en\/Documents\/Dell-EMC-Networking-S4048-ON-Spec-Sheet.pdf<\/a>. (2017)."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Paul Emmerich. 2018. SDN-Cert. <a href=\"https:\/\/github.com\/bauersi\/SDN-Cert\">https:\/\/github.com\/bauersi\/SDN-Cert<\/a>. (2018)."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Paul Emmerich, Sebastian Gallenmüller, and Georg Carle. 2016. FLOWer – Device Benchmarking Beyond 100 Gbit\/s. In <i>IFIP Networking 2016<\/i>. Vienna, Austria."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "Paul Emmerich, Sebastian Gallenmüller, Daniel Raumer, Florian Wohlfart, and Georg Carle. 2015. MoonGen: A Scriptable High-Speed Packet Generator. In <i>Internet Measurement Conference (IMC) 2015, (IRTF Applied Networking Research Prize 2017)<\/i>. Tokyo, Japan."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "ETSI. 2016. GS NFV-TST 002: Report on NFV Interoperability Testing Methodology. (2016)."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "Nick Feamster, Jennifer Rexford, and Ellen Zegura. 2013. The Road to SDN. <i>Queue<\/i> 11, 12 (Dec. 2013)."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "Sebastian Gallenmüller, Paul Emmerich, Florian Wohlfart, Daniel Raumer, and Georg Carle. 2015. Comparison of Frameworks for High-Performance Packet IO. In <i>ACM\/IEEE Symposium on Architectures for Networking and Communications Systems (ANCS)<\/i>."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "Robin Giller. 2016. Open vSwitch with DPDK Overview. <a href=\"https:\/\/software.intel.com\/en-us\/articles\/open-vswitch-with-dpdk-overview\">https:\/\/software.intel.com\/en-us\/articles\/open-vswitch-with-dpdk-overview<\/a>. (2016)."
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "Peter Heise, Fabien Geyer, and Roman Obermaisser. 2015. Deterministic OpenFlow: Performance evaluation of SDN hardware for avionic networks. In <i>Network and Service Management (CNSM), 2015 11th International Conference on<\/i>. IEEE, 372–377."
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "Hewlett Packard Enterprise. 2016. HPE 3800 switch series - Data sheet. <a href=\"https:\/\/h20195.www2.hpe.com\/v2\/GetDocument.aspx?docname=4AA3-7115ENW\\&amp;doctype=data%20sheet\\&amp;doclang=EN_US\\&amp;searchquery=\\&amp;cc=ie\\&amp;lc=en\">https:\/\/h20195.www2.hpe.com\/v2\/GetDocument.aspx?docname=4AA3-7115ENW\\&amp;doctype=data%20sheet\\&amp;doclang=EN_US\\&amp;searchquery=\\&amp;cc=ie\\&amp;lc=en<\/a>. (2016)."
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "B. Hickman, D. Newman, S. Tadjudin, and T. Martin. 2003. Benchmarking Methodology for Firewall Performance. RFC 3511. (2003)."
+                },
+                {
+                    "ref_id": "20",
+                    "ref_text": "ITU-T. 2011. Y.1564: Ethernet service activation test methodology Recommendation. (2011)."
+                },
+                {
+                    "ref_id": "21",
+                    "ref_text": "IXNETWORK. 2017. Datasheet: SOFTWARE DEFINED NETWORK (SDN) TEST SOLUTION. <a href=\"https:\/\/www.ixiacom.com\/sites\/default\/files\/2017-08\/Ixia-T-DS-IxNetwork-SDN.pdf\">https:\/\/www.ixiacom.com\/sites\/default\/files\/2017-08\/Ixia-T-DS-IxNetwork-SDN.pdf<\/a>. (2017)."
+                },
+                {
+                    "ref_id": "22",
+                    "ref_text": "Maciej Kuźniar, Peter Peres̆íni, and Dejan Kostić. 2015. What You Need to Know About SDN Flow Tables. <i>Lecture Notes in Computer Science (LNCS)<\/i> (2015), 13."
+                },
+                {
+                    "ref_id": "23",
+                    "ref_text": "Ying-Dar Lin, Yu-Kuen Lai, Chen-You Wang, and Yuan-Cheng Lai. 2017. OFBench: Performance Test Suite on OpenFlow Switches. <i>IEEE Systems Journal<\/i> (2017)."
+                },
+                {
+                    "ref_id": "24",
+                    "ref_text": "Kashif Mahmood, Ameen Chilwan, Olav Østerbø, and Michael Jarschel. 2015. Modelling of OpenFlow-based software-defined networks: the multiple node case. <i>IET Networks<\/i> 4, 5 (2015), 278–284."
+                },
+                {
+                    "ref_id": "25",
+                    "ref_text": "R. Mandeville and J. Perser. 2000. Benchmarking Methodology for LAN Switching Devices, Address caching capacity. RFC 2889. (2000)."
+                },
+                {
+                    "ref_id": "26",
+                    "ref_text": "Metro Ethernet Forum. 2005. MEF 14: Abstract Test Suite for Traffic Management Phase 1. (2005)."
+                },
+                {
+                    "ref_id": "27",
+                    "ref_text": "MikroTik. 2015. Cloud Core Router CCR1036-8G-2S+ Brochure. <a href=\"https:\/\/i.mt.lv\/routerboard\/files\/CCR1036-8G-2Splus-131030144844.pdf\">https:\/\/i.mt.lv\/routerboard\/files\/CCR1036-8G-2Splus-131030144844.pdf<\/a>. (2015)."
+                },
+                {
+                    "ref_id": "28",
+                    "ref_text": "A. Morton. 2018. Updates for the Back-to-back Frame Benchmark in RFC 2544. Internet-Draft (individual). (2018)."
+                },
+                {
+                    "ref_id": "29",
+                    "ref_text": "NEC Group. [n. d.]. ProgrammableFlow PF5240 Switch - Product Information Slides. <a href=\"https:\/\/www.nec.com\/en\/global\/prod\/pflow\/images_documents\/ProgrammableFlow_Switch_PF5240.pdf\">https:\/\/www.nec.com\/en\/global\/prod\/pflow\/images_documents\/ProgrammableFlow_Switch_PF5240.pdf<\/a>. ([n. d.])."
+                },
+                {
+                    "ref_id": "30",
+                    "ref_text": "D. Newman. 1999. Benchmarking Terminology for Firewall Performance. RFC 2647. (1999)."
+                },
+                {
+                    "ref_id": "31",
+                    "ref_text": "ntop. 2012. Whitepaper: RFC-2544 performance test - PFRing-DNA VS Standard network Driver. <a href=\"http:\/\/www.ntop.org\/wp-content\/uploads\/2012\/04\/DNA_ip_forward_RFC2544.pdf\">http:\/\/www.ntop.org\/wp-content\/uploads\/2012\/04\/DNA_ip_forward_RFC2544.pdf<\/a>. (2012)."
+                },
+                {
+                    "ref_id": "32",
+                    "ref_text": "ONF. [n. d.]. OpenFlowConformance Certification. <a href=\"https:\/\/www.opennetworking.org\/training-certification\/product\/\">https:\/\/www.opennetworking.org\/training-certification\/product\/<\/a>. ([n. d.])."
+                },
+                {
+                    "ref_id": "33",
+                    "ref_text": "Open vSwitch. [n. d.]a. - Production Quality, Multilayer Open Virtual Switch. <a href=\"http:\/\/openvswitch.org\/\">http:\/\/openvswitch.org\/<\/a>. ([n. d.])."
+                },
+                {
+                    "ref_id": "34",
+                    "ref_text": "Open vSwitch. [n. d.]b. Open vSwitch with DPDK. <a href=\"http:\/\/docs.openvswitch.org\/en\/latest\/intro\/install\/dpdk\/\">http:\/\/docs.openvswitch.org\/en\/latest\/intro\/install\/dpdk\/<\/a>. ([n. d.])."
+                },
+                {
+                    "ref_id": "35",
+                    "ref_text": "Pica8 P3290. 2014. - Data sheet. <a href=\"http:\/\/www.blucorona.com\/solutions\/pica8\/p-3290.shtml\">http:\/\/www.blucorona.com\/solutions\/pica8\/p-3290.shtml<\/a>. (2014)."
+                },
+                {
+                    "ref_id": "36",
+                    "ref_text": "Pica8 P3297. 2014. - Data sheet. <a href=\"https:\/\/www.pica8.com\/wp-content\/uploads\/pica8-datasheet-48x1gbe-p3297.pdf\">https:\/\/www.pica8.com\/wp-content\/uploads\/pica8-datasheet-48x1gbe-p3297.pdf<\/a>. (2014)."
+                },
+                {
+                    "ref_id": "37",
+                    "ref_text": "C. Popoviciu, A. Hamza, G. Van de Veldeand, and D. Dugatkin. 2008. IPv6 Benchmarking Methodology for Network Interconnect Devices. RFC 5180. (2008)."
+                },
+                {
+                    "ref_id": "38",
+                    "ref_text": "Pull request. 2016. Floodlight controller, fix unreadable HelloMessage OpenFlow 1.3 with switches of older OpenFlow versions. <a href=\"https:\/\/github.com\/floodlight\/floodlight\/pull\/639\">https:\/\/github.com\/floodlight\/floodlight\/pull\/639<\/a>. (2016)."
+                },
+                {
+                    "ref_id": "39",
+                    "ref_text": "Daniel Raumer, Sebastian Gallenmüller, Florian Wohlfart, Paul Emmerich, Patrick Werneck, and Georg Carle. 2016. Revisiting Benchmarking Methodology for Interconnect Devices. In <i>The Applied Networking Research Workshop 2016 (ANRW '16)<\/i>. Berlin, Germany."
+                },
+                {
+                    "ref_id": "40",
+                    "ref_text": "Raphael Vicente Rosa and Christian Esteve Rothenberg. 2017. Taking Open vSwitch to the Gym: An Automated Benchmarking Approach. In <i>The Applied Networking Research Workshop 2017 (ANRW '17)<\/i>. Prague, Czech Republic."
+                },
+                {
+                    "ref_id": "41",
+                    "ref_text": "Charalampos Rotsos, Gianni Antichi, Marc Bruyere, Philippe Owezarski, and Andrew W. Moore. 2015. OFLOPS-Turbo: Testing the next-generation OpenFlow switch.. In <i>ICC<\/i>. IEEE."
+                },
+                {
+                    "ref_id": "42",
+                    "ref_text": "Charalampos Rotsos, Nadi Sarrar, Steve Uhlig, Rob Sherwood, and Andrew W Moore. 2012. Oflops: An Open Framework for OpenFlow Switch Evaluation. In <i>PAM<\/i>. Vienna, Austria."
+                },
+                {
+                    "ref_id": "43",
+                    "ref_text": "Spirent. 2015. Whitepaper: OpenFlow Performance Testing. <a href=\"https:\/\/www.spirent.com\/ \/media\/White%20Papers\/Broadband\/PAB\/OpenFlow_Performance_Testing_WhitePaper.pdf\">https:\/\/www.spirent.com\/ \/media\/White%20Papers\/Broadband\/PAB\/OpenFlow_Performance_Testing_WhitePaper.pdf<\/a>. (2015)."
+                },
+                {
+                    "ref_id": "44",
+                    "ref_text": "The European Advanced Networking Test Center (EANTC). 2008. Whitepaper: Huawei Technologies Service Activation Using RFC 2544 Tests. (2008)."
+                },
+                {
+                    "ref_id": "45",
+                    "ref_text": "G. Trotter. 2001. Terminology for Forwarding Information Base (FIB) based Router Performance. RFC 3222. (2001)."
+                },
+                {
+                    "ref_id": "46",
+                    "ref_text": "Xena Networks. 2015. Whitepaper: OpenFlow Performance Testing. <a href=\"https:\/\/xenanetworks.com\/openflow-performance-testing-white-paper\/\">https:\/\/xenanetworks.com\/openflow-performance-testing-white-paper\/<\/a>. (2015)."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10003080",
+                    "concept_desc": "Networks~Network performance modeling",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10003080
+                    ],
+                    "expected_concept_desc": "Networks~Network performance modeling"
+                },
+                {
+                    "concept_id": "10003033.10003079.10003082",
+                    "concept_desc": "Networks~Network experimentation",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10003082
+                    ],
+                    "expected_concept_desc": "Networks~Network experimentation"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011672",
+                    "concept_desc": "Networks~Network performance analysis",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011672
+                    ],
+                    "expected_concept_desc": "Networks~Network performance analysis"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                },
+                {
+                    "concept_id": "10003033.10003106.10011705",
+                    "concept_desc": "Networks~Packet-switching networks",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003106,
+                        10011705
+                    ],
+                    "expected_concept_desc": "Networks~Packet-switching networks"
+                },
+                {
+                    "concept_id": "10010583.10010588.10010593",
+                    "concept_desc": "Hardware~Networking hardware",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10010583,
+                        10010588,
+                        10010593
+                    ],
+                    "expected_concept_desc": "Hardware~Networking hardware"
+                }
+            ],
+            "acm-keywords": [
+                "OpenFlow benchmarking",
+                "SDN-CERT",
+                "performance benchmarks",
+                "feature tests",
+                "OpenFlow switches",
+                "performance measurements",
+                "queuing theory"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-911a0223a1bfbebb54e8de48a3c0ece5b52356f28f44c5667c6360ce84fa966a",
+                    "timestamp": 1529339051,
+                    "size": 879293,
+                    "filename": "Bauer_ANRW18.zip"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 43,
+        "title": "Towards a Congestion Control-Independent Core-Stateless AQM",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524519569,
+        "authors": [
+            {
+                "email": "szilveszter.nadas@ericsson.com",
+                "first": "Szilveszter",
+                "last": "Nádas",
+                "affiliation": "Ericsson",
+                "contact": true
+            },
+            {
+                "email": "ggombos@inf.elte.hu",
+                "first": "Gergo",
+                "last": "Gombos",
+                "affiliation": "Eötvös Loránd University",
+                "contact": true
+            },
+            {
+                "email": "hudi89@caesar.elte.hu",
+                "first": "Péter",
+                "last": "Hudoba",
+                "affiliation": "Eötvös Loránd University",
+                "contact": true
+            },
+            {
+                "email": "lakis@inf.elte.hu",
+                "first": "Sándor",
+                "last": "Laki",
+                "affiliation": "Eötvös Loránd University",
+                "contact": true
+            }
+        ],
+        "abstract": "In this paper, we propose CSAQM, a novel approach of Active Queue\r\nManagement (AQM) for network traffic with multiple Congestion Control algorithms.\r\nOur goal is similar to that of PI2 AQM that supports both Classic and Scalable TCP in a single queue.\r\nIn contrast to existing solutions, CSAQM has two key advantages: 1) arbitrary congestion controls (including\r\nunresponsive flows) can also be handled and 2) it supports a rich set of\r\nresource sharing policies beyond equal sharing. \r\nCSAQM is based on the core-stateless Per Packet Value resource sharing concept and extends it with a congestion control-independent AQM.\r\nThe performance of the proposed CSAQM and its behavior under various network conditions have been analyzed through extensive simulations.",
+        "topics": {
+            "interactions between emergent applications and existing networks": true,
+            "network management": true,
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-8ad51278d096109412f2755af7c29d936a3492e984dfe23c45d119734a7cf988",
+            "timestamp": 1524519627,
+            "size": 1155066,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1527050328,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 75,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 51846
+                        },
+                        {
+                            "d": 61813
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 60550
+                        },
+                        {
+                            "margin": [
+                                56,
+                                44,
+                                88,
+                                52
+                            ],
+                            "d": 41269
+                        },
+                        {
+                            "margin": [
+                                56,
+                                64,
+                                84,
+                                52
+                            ],
+                            "d": 19758
+                        },
+                        {
+                            "d": 53857
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                456,
+                                56
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 28582,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-79c93a9ec808f9401ce7af27743b7e56f113077490cb6628ec9c9612339e165b",
+            "timestamp": 1529585989,
+            "size": 307011,
+            "filename": "paper-c.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529585995,
+                    "npages": 7,
+                    "errf": [
+                        "fonttype"
+                    ],
+                    "fmt_errors": [
+                        [
+                            "fonttype",
+                            "Bad font: unnamed Type3 fonts first referenced on page 4."
+                        ]
+                    ]
+                },
+                "banal": {
+                    "at": 1529585995,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 37253
+                        },
+                        {
+                            "d": 59973
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 61142
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                96,
+                                52
+                            ],
+                            "d": 41686
+                        },
+                        {
+                            "margin": [
+                                56,
+                                64,
+                                84,
+                                52
+                            ],
+                            "d": 20158
+                        },
+                        {
+                            "d": 54308
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                88,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 31239,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528898522,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-79e5ffd85fe442f850f35ca9f96b6221acfa2d582b2ca07d7aa3dcc08fee9889",
+                "timestamp": 1529166840,
+                "size": 1087581,
+                "filename": "paper.pdf"
+            },
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Mohammad Alizadeh, Albert Greenberg, David A. Maltz, Jitendra Padhye, Parveen Patel, Balaji Prabhakar, Sudipta Sengupta, and Murari Sridharan. 2010. Data Center TCP (DCTCP). In <i>Proceedings of the ACM SIGCOMM 2010 Conference<\/i> <i>(SIGCOMM '10)<\/i>. ACM, 63–74."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Zhiruo Cao, Ellen Zegura, and Zheng Wang. 2005. Rainbow fair queueing: theory and applications. <i>Computer Networks<\/i> 47, 3 (2005), 367 – 392. 1389-1286 <a href=\"https:\/\/doi.org\/10.1016\/j.comnet.2004.07.018\">https:\/\/doi.org\/10.1016\/j.comnet.2004.07.018<\/a>"
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Koen De Schepper, Olga Bondarenko, Ing-Jyh Tsang, and Bob Briscoe. 2016. PI2: A Linearized AQM for Both Classic and Scalable TCP. In <i>Proceedings of the 12th International on Conference on Emerging Networking EXperiments and Technologies<\/i> <i>(CoNEXT '16)<\/i>. ACM, 105–119."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Mo Dong, Tong Meng, Doron Zarchy, Engin Arslan, Yossi Gilad, Brighten Godfrey, and Michael Schapira. 2018. PCC Vivace: Online-Learning Congestion Control. In <i>15th USENIX Symposium on Networked Systems Design and Implementation (NSDI 18)<\/i>. USENIX Association, Renton, WA, 343–356. <a href=\"https:\/\/www.usenix.org\/conference\/nsdi18\/presentation\/dong\">https:\/\/www.usenix.org\/conference\/nsdi18\/presentation\/dong<\/a>"
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Sally Floyd and Van Jacobson. 1993. Random early detection gateways for congestion avoidance. <i>IEEE\/ACM Transactions on Networking (ToN)<\/i> 1, 4 (1993), 397–413."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "J. Gettys. 2011. Bufferbloat: Dark Buffers in the Internet. <i>IEEE Internet Computing<\/i> 15, 3 (May 2011), 96–96. 1089-7801 <a href=\"https:\/\/doi.org\/10.1109\/MIC.2011.56\">https:\/\/doi.org\/10.1109\/MIC.2011.56<\/a>"
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Sangtae Ha, Injong Rhee, and Lisong Xu. 2008. CUBIC: A New TCP-friendly High-speed TCP Variant. <i>SIGOPS Oper. Syst. Rev.<\/i> 42, 5 (July 2008), 64–74. 0163-5980 <a href=\"https:\/\/doi.org\/10.1145\/1400097.1400105\">https:\/\/doi.org\/10.1145\/1400097.1400105<\/a>"
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "Thomas R Henderson, Mathieu Lacage, George F Riley, C Dowell, and J Kopena. 2008. Network simulations with the ns-3 simulator. In <i>Sigcomm (Demo)<\/i>, Vol. 14."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Sándor Laki, Gergő Gombos, Szilveszter Nádas, and Zoltán Turányi. 2017. Take Your Own Share of the PIE. In <i>Proceedings of the Applied Networking Research Workshop<\/i> <i>(ANRW '17)<\/i>. ACM, 27–32."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Szilveszter Nádas, Zoltán Richárd Turányi, and Sándor Rácz. 2016. Per Packet Value: A Practical Concept for Network Resource Sharing. In <i>IEEE Globecom 2016<\/i>."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Kathleen Nichols and Van Jacobson. 2012. Controlling Queue Delay. <i>Commun. ACM<\/i> 55, 7 (July 2012), 42–50. 0001-0782 <a href=\"https:\/\/doi.org\/10.1145\/2209249.2209264\">https:\/\/doi.org\/10.1145\/2209249.2209264<\/a>"
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "Rong Pan, Preethi Natarajan, Chiara Piglione, Mythili Suryanarayana Prabhu, Vijay Subramanian, Fred Baker, and Bill VerSteeg. 2013. PIE: A lightweight control scheme to address the bufferbloat problem. In <i>IEEE HPSR<\/i>. 148–155. 2325-5552 <a href=\"https:\/\/doi.org\/10.1109\/HPSR.2013.6602305\">https:\/\/doi.org\/10.1109\/HPSR.2013.6602305<\/a>"
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "Ion Stoica, Scott Shenker, and Hui Zhang. 2003. Core-stateless Fair Queueing: A Scalable Architecture to Approximate Fair Bandwidth Allocations in High-speed Networks. <i>IEEE\/ACM Trans. Netw.<\/i> 11, 1 (Feb. 2003), 33–46. 1063-6692 <a href=\"https:\/\/doi.org\/10.1109\/TNET.2002.808414\">https:\/\/doi.org\/10.1109\/TNET.2002.808414<\/a>"
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "Hajime Tazaki, Frédéric Uarbani, Emilio Mancini, Mathieu Lacage, Daniel Camara, Thierry Turletti, and Walid Dabbous. 2013. Direct code execution: Revisiting library os architecture for reproducible network experiments. In <i>Proceedings of the ninth ACM conference on Emerging networking experiments and technologies<\/i>. ACM, 217–228."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003068.10003069.10003072",
+                    "concept_desc": "Networks~Packet scheduling",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003068,
+                        10003069,
+                        10003072
+                    ],
+                    "expected_concept_desc": "Networks~Packet scheduling"
+                }
+            ],
+            "acm-keywords": [
+                "Congestion Control",
+                "PPV",
+                "AQM",
+                "Resource Sharing"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-895990271ce578208770b878a9b796a9ceaed5d46b41f85ed8c1cba1a5225130",
+                    "timestamp": 1529166840,
+                    "size": 353495,
+                    "filename": "paper-anrw2018.zip"
+                },
+                {
+                    "mimetype": "application\/pdf",
+                    "hash": "sha2-79e5ffd85fe442f850f35ca9f96b6221acfa2d582b2ca07d7aa3dcc08fee9889",
+                    "timestamp": 1529166840,
+                    "size": 1087581,
+                    "filename": "paper.pdf"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 44,
+        "title": "A Fine-grained and Transparent Congestion Control Enforcement Scheme",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524540917,
+        "authors": [
+            {
+                "email": "samuelzyx0924@gmail.com",
+                "first": "Yuxiang",
+                "last": "Zhang",
+                "affiliation": "Jinan University",
+                "contact": true
+            },
+            {
+                "email": "tcuilin@jnu.edu.cn",
+                "first": "Lin",
+                "last": "Cui",
+                "affiliation": "Jinan University",
+                "contact": true
+            },
+            {
+                "email": "p.tso@lboro.ac.uk",
+                "first": "Fung Po",
+                "last": "Tso",
+                "affiliation": "Loughborough University",
+                "contact": true
+            },
+            {
+                "email": "gql@jnu.edu.cn",
+                "first": "Quanlong",
+                "last": "Guan",
+                "affiliation": "Jinan University"
+            },
+            {
+                "email": "jiawj@umac.mo",
+                "first": "Weijia",
+                "last": "Jia",
+                "affiliation": "University of Macau",
+                "contact": true
+            },
+            {
+                "email": "tjpzhou@jnu.edu.cn",
+                "first": "Jipeng",
+                "last": "Zhou",
+                "affiliation": "Jinan University"
+            }
+        ],
+        "abstract": "TCP congestion control is a vital component for improving network latency for Internet services. In practice, a single TCP congestion control is often used to handle all TCP connections on a Web server, e.g., Cubic for Linux by default. Considering complex and ever-changing networking  environment, the default congestion control algorithm may not always be the most suitable one.  Adjusting congestion control usually to meet different networking scenarios requires modification of servers' TCP stacks. This is difficult, if not impossible, due to various operating systems and different configurations on the servers.  In this paper, we propose Mystique, a light-weight and flexible scheme that allows administrators (or operators) to deploy any  congestion control schemes transparently without changing existing TCP stacks on servers. \r\n\r\nWe have implemented Mystique in Open vSwitch (OVS) and conducted extensive test-bed experiments in public cloud environments.  We have extensively evaluated Mystique and the results have demonstrated that it is able to effectively adapt to varying network conditions, and can always employ the most suitable congestion control for each TCP connection. The results also show that Mystique can significantly reduce latency by up to 37.8% in comparison with other congestion controls.",
+        "topics": {
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-df69e1fc7ee71e5169cc362ac5f07f60b6736672287706464a63b3ad1fd705d4",
+            "timestamp": 1524541880,
+            "size": 278730,
+            "filename": "Mystique_ANRW2018 (5).pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1527050328,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        84,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 75,
+                    "pages": [
+                        {
+                            "d": 51542
+                        },
+                        {
+                            "d": 57073
+                        },
+                        {
+                            "margin": [
+                                208,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 46928
+                        },
+                        {
+                            "d": 57189
+                        },
+                        {
+                            "d": 56671
+                        },
+                        {
+                            "d": 51188
+                        },
+                        {
+                            "margin": [
+                                84,
+                                52,
+                                324,
+                                56
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 42505,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-04708ddde22c7d9856c5698e63d111221b30a4caafaaccbccb38f623e4002fc0",
+            "timestamp": 1529590052,
+            "size": 206756,
+            "filename": "Mystique_ANRW2018.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529590059,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1529590059,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        84,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 75,
+                    "pages": [
+                        {
+                            "d": 44596
+                        },
+                        {
+                            "margin": [
+                                84,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 54212
+                        },
+                        {
+                            "margin": [
+                                208,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 45527
+                        },
+                        {
+                            "d": 61961
+                        },
+                        {
+                            "margin": [
+                                84,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 50813
+                        },
+                        {
+                            "d": 51672
+                        },
+                        {
+                            "margin": [
+                                84,
+                                52,
+                                256,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 38808,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528807320,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "field-is-outdated-not": "Paper",
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003068.10003069.10003071",
+                    "concept_desc": "Networks~Deep packet inspection",
+                    "concept_significance": 100,
+                    "concept_path": [
+                        10003033,
+                        10003068,
+                        10003069,
+                        10003071
+                    ],
+                    "expected_concept_desc": "Networks~Deep packet inspection"
+                }
+            ],
+            "acm-keywords": [
+                "WAN transfer",
+                "TCP congestion control",
+                "Network dynamics"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-2fec9b101d253a51a4ff5fe92e846d6ab7682de017aa23b15b741f5742ed8150",
+                    "timestamp": 1529590052,
+                    "size": 1251519,
+                    "filename": "Mystique-ANRW2018 (5).zip"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 46,
+        "title": "Measuring Web Speed From Passive Traces",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524496681,
+        "authors": [
+            {
+                "email": "martino.trevisan@polito.it",
+                "first": "Martino",
+                "last": "Trevisan",
+                "affiliation": "Politecnico di Torino",
+                "contact": true
+            },
+            {
+                "email": "idilio.drago@polito.it",
+                "first": "Idilio",
+                "last": "Drago",
+                "affiliation": "Politecnico di Torino",
+                "contact": true
+            },
+            {
+                "email": "marco.mellia@polito.it",
+                "first": "Marco",
+                "last": "Mellia",
+                "affiliation": "Politecnico di Torino",
+                "contact": true
+            }
+        ],
+        "abstract": "Understanding the quality of Experience (QoE) of web browsing is key to optimize services and keep users' loyalty. This is crucial for both Content Providers and Internet Service Providers (ISPs). Quality is subjective, and the complexity of today's pages challenges its measurement. OnLoad time and SpeedIndex are notable attempts to quantify web performance with objective metrics. However, these metrics can only be computed by instrumenting the browser and, thus, are not available to ISPs.\r\nWe designed PAIN: PAssive INdicator for ISPs. It is an automatic system to monitor the performance of web pages from passive measurements. It is open source and available for download. It leverages only flow-level and DNS measurements which are still possible in the network despite the deployment of HTTPS. With unsupervised learning, PAIN automatically creates a machine learning model from the timeline of requests issued by browsers to render web pages, and uses it to measure web performance in real-time.\r\nWe compared PAIN to indicators based on in-browser instrumentation and found strong correlations between the approaches. PAIN correctly highlights worsening network conditions and provides visibility into web performance. We let PAIN run on a real ISP network, and found that it is able to pinpoint performance variations across time and groups of users.\r\nBased on work published at Martino Trevisan, Idilio Drago, and Marco Mellia. 2017. PAIN: A Passive Web Speed Indicator for ISPs. In Proceedings of the Workshop on QoE-based Analysis and Management of Data Communication Networks (Internet QoE '17). ACM, New York, NY, USA, 7-12. DOI: https:\/\/doi.org\/10.1145\/3098603.3098605",
+        "topics": {
+            "measurement": true,
+            "network management": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-5cf711d2c6fe3046bf8aa1d52c1b4b1f1a057a464781fa08fd4956851b92c2c6",
+            "timestamp": 1524496681,
+            "size": 572205
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1526992038,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "ACM SIGCOMM Workshop on QoE-based Analysis and Management of Data Communication Networks 2017",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-f92f0a86e9707bfc548556b78c37036306cecdbd7faeeb718f6578b4c49c4a9c",
+                "timestamp": 1526992038,
+                "size": 572437,
+                "filename": "anrw.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011672",
+                    "concept_desc": "Networks~Network performance analysis",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011672
+                    ],
+                    "expected_concept_desc": "Networks~Network performance analysis"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                }
+            ],
+            "acm-keywords": [
+                "QoE",
+                "Passive Measurements",
+                "SpeedIndex",
+                "Unsupervised Learning"
+            ]
+        }
+    },
+    {
+        "pid": 48,
+        "title": "Wireless Edge Network for Sustainable Rural Community Networks",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524504335,
+        "authors": [
+            {
+                "email": "adisorn@ait.asia",
+                "first": "Adisorn",
+                "last": "Lertsinsrubtavee",
+                "affiliation": "Internet Education and Research Laboratory, Asian Institute of Technology",
+                "contact": true
+            },
+            {
+                "email": "nunthaphat@ait.ac.th",
+                "first": "Nunthaphat",
+                "last": "Weshsuwannarugs",
+                "affiliation": "Internet Education and Research Laboratory, Asian Institute of Technology"
+            },
+            {
+                "email": "nisarat@ait.asia",
+                "first": "Nisarat",
+                "last": "Tansakul",
+                "affiliation": "Internet Education and Research Laboratory, Asian Institute of Technology"
+            },
+            {
+                "email": "attaphongset@ait.asia",
+                "first": "Attaphongse",
+                "last": "Taparugssanagorn",
+                "affiliation": "School of Engineering and Technology, Asian Institute of Technology",
+                "contact": true
+            },
+            {
+                "email": "Kanchana.Kanchanasut@cs.ait.ac.th",
+                "first": "Kanchana",
+                "last": "Kanchanasut",
+                "affiliation": "Internet Education and Research Laboratory, Asian Institute of Technology",
+                "contact": true
+            }
+        ],
+        "contacts": [
+            {
+                "email": "al773@cam.ac.uk",
+                "first": "Adisorn",
+                "last": "Lertsinsrubtavee",
+                "affiliation": "University of Cambridge"
+            }
+        ],
+        "abstract": "We have introduced a cost-sharing model for remote communities to share their limited access to the commercial Internet among community members using wireless mesh networks in the north-west of Thailand to expand the edge network coverage and to reduce the Internet cost for the rural users. However, there are places within these communities which have not been able to access our network due to the line-of-sight and the distance from the rest of the communities. In this paper, we describe our attempt or work-in-progress to address these challenges by experimenting various access technologies such as TVWS and small cell LTE as well as improving  the  user experience with CDN.",
+        "topics": {
+            "Internet access in challenging environments": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-6946f014cf9d1a897fd2ba16cb15bf019249f86a5c95ea8dbd33af5c417b8c21",
+            "timestamp": 1524520925,
+            "size": 1511104,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 3,
+                "banal": {
+                    "at": 1527050328,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        108,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 11.9,
+                    "columns": 2,
+                    "nummargin": 75,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "leading": 12,
+                            "d": 50699
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 41060
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                536,
+                                68
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 21708,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-c5da5a80738ee0ef72b47e9e8f29ee5cda760aedd9f15ff14958f14f561faa2e",
+            "timestamp": 1529590249,
+            "size": 1520437,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 3,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529590257,
+                    "npages": 3
+                },
+                "banal": {
+                    "at": 1529590257,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        108,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 11.9,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "leading": 12,
+                            "d": 39167
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 52549
+                        },
+                        {
+                            "margin": [
+                                56,
+                                316,
+                                160,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 29046,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529244557,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "[n. d.]. E40 nanoLTE. ([n. d.]). Retrieved 2018-03-25 from <a href=\"http:\/\/www.ipaccess.com\/en\/viper\/enterprise-small-cells\">http:\/\/www.ipaccess.com\/en\/viper\/enterprise-small-cells<\/a>"
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "[n. d.]. The first neutral Internet Exchange Point (IXP) in Thailand. ([n. d.]). Retrieved 2018-03-25 from <a href=\"https:\/\/bknix.co.th\/en\/\">https:\/\/bknix.co.th\/en\/<\/a>"
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "[n. d.]. RF Explorer Handheld Spectrum Analyzer. ([n. d.]). Retrieved 2018-03-25 from <a href=\"http:\/\/rfexplorer.com\">http:\/\/rfexplorer.com<\/a>"
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "[n. d.]. RuralConnect Gen 3. ([n. d.]). Retrieved 2018-03-25 from <a href=\"https:\/\/www.carlsonwireless.com\/ruralconnect\/\">https:\/\/www.carlsonwireless.com\/ruralconnect\/<\/a>"
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "[n. d.]. UniNet: Thailand Information Network for Education. ([n. d.]). Retrieved 2018-03-25 from <a href=\"http:\/\/www.uni.net.th\">http:\/\/www.uni.net.th<\/a>"
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "A. B. Flores, R. E. Guerra, E. W. Knightly, P. Ecclesine, and S. Pandey. 2013. IEEE 802.11af: a standard for TV white space spectrum sharing. <i>IEEE Communications Magazine<\/i> 51, 10 (October 2013), 92–100. 0163-6804 DOI:<a href=\"https:\/\/doi.org\/10.1109\/MCOM.2013.6619571\">https:\/\/doi.org\/10.1109\/MCOM.2013.6619571<\/a>"
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "P. Jacquet, P. Muhlethaler, T. Clausen, A. Laouiti, A. Qayyum, and L. Viennot. 2001. Optimized link state routing protocol for ad hoc networks. In <i>Proceedings. IEEE International Multi Topic Conference, 2001. IEEE INMIC 2001. Technology for the 21st Century.<\/i> 62–68. DOI:<a href=\"https:\/\/doi.org\/10.1109\/INMIC.2001.995315\">https:\/\/doi.org\/10.1109\/INMIC.2001.995315<\/a>"
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "Adisorn Lertsinsrubtavee, Liang Wang, Arjuna Sathiaseelan, Jon Crowcroft, Nunthaphat Weshsuwannarugs, Apinun Tunpan, and Kanchana Kanchanasut. 2015. Understanding Internet Usage and Network Locality in a Rural Community Wireless Mesh Network. In <i>Proceedings of the Asian Internet Engineering Conference<\/i> <i>(AINTEC '15)<\/i>. ACM, New York, NY, USA, 17–24. DOI:<a href=\"https:\/\/doi.org\/10.1145\/2837030.2837033\">https:\/\/doi.org\/10.1145\/2837030.2837033<\/a>"
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "David Lloyd Johnson, Natasha Zlobinsky, Albert Lysko, Mokwape Lamola, Senka Hadzic, and Richard Maliwatu. 2016. Head to head battle of TV White Space and WiFi for connecting developing regions. <i>e-Infrastructure and e-Services for Developing Countries, Springer<\/i> (12 2016)."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Albert Lysko, Moshe Masonta, Mofolo Mofolo, Luzango Mfupe, Litsietsi Montsi, Fisseha Mekuria, Ntsibane S. Ntlatlapa, David L. Johnson, Dumisa Ngwenya, Andy Lee, Charlie Hardin, and Arno Hart. 2014. First Large TV White Spaces Trial in South Africa: A Brief Overview. In <i>International Congress on Ultra Modern Telecommunications and Control Systems and Workshops<\/i>, Vol. 2015."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "Chomora Mikeka, Justice Stanley Mlatho, Martin Thodi, Jonathan Pinifolo, Dereck Kondwani, Lloyd Momba, Marco Zennaro, Andrés Arcia-Moret, Carlo Fonda, and Ermanno Pietrosemoli. 2014. Preliminary Performance Assessment of TV White Spaces Technology for Broadband Communication in Malawi. <i>Procedia Engineering<\/i> 78 (2014), 149 – 154. 1877-7058 DOI:<a href=\"https:\/\/doi.org\/10.1016\/j.proeng.2014.07.051\">https:\/\/doi.org\/10.1016\/j.proeng.2014.07.051<\/a> Humanitarian Technology: Science, Systems and Global Impact 2014, HumTech2014."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "G. Naik, S. Singhal, A. Kumar, and A. Karandikar. 2014. Quantitative assessment of TV white space in India. In <i>2014 Twentieth National Conference on Communications (NCC)<\/i>. 1–6. DOI:<a href=\"https:\/\/doi.org\/10.1109\/NCC.2014.6811306\">https:\/\/doi.org\/10.1109\/NCC.2014.6811306<\/a>"
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003034",
+                    "concept_desc": "Networks~Network architectures",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003034
+                    ],
+                    "expected_concept_desc": "Networks~Network architectures"
+                },
+                {
+                    "concept_id": "10003033.10003034.10003035.10003036",
+                    "concept_desc": "Networks~Layering",
+                    "concept_significance": 100,
+                    "concept_path": [
+                        10003033,
+                        10003034,
+                        10003035,
+                        10003036
+                    ],
+                    "expected_concept_desc": "Networks~Layering"
+                }
+            ],
+            "acm-keywords": [
+                "Community Wireless Mesh Networks",
+                "TakNet",
+                "TVWS",
+                "Content Distribution Networks"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-d8d116bc96fcc4e8fed6e3a59e54533f998eedf2c7dc9d32134a088157d804f7",
+                    "timestamp": 1529590598,
+                    "size": 3130250,
+                    "filename": "Paper.zip"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 53,
+        "title": "Dynam-IX: a Dynamic Interconnection eXchange",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524523181,
+        "authors": [
+            {
+                "email": "pbmarcos@inf.ufrgs.br",
+                "first": "Pedro",
+                "last": "Marcos",
+                "affiliation": "UFRGS and FURG",
+                "contact": true
+            },
+            {
+                "email": "mchiesa@kth.se",
+                "first": "Marco",
+                "last": "Chiesa",
+                "affiliation": "KTH",
+                "contact": true
+            },
+            {
+                "email": "lfmuller@inf.ufrgs.br",
+                "first": "Lucas",
+                "last": "Muller",
+                "affiliation": "UFRGS",
+                "contact": true
+            },
+            {
+                "email": "pradeeban.kathiravelu@tecnico.ulisboa.pt",
+                "first": "Pradeeban",
+                "last": "Kathiravelu",
+                "affiliation": "INESC-ID and UCLouvain",
+                "contact": true
+            },
+            {
+                "email": "christoph@inet.tu-berlin.de",
+                "first": "Christoph",
+                "last": "Dietzel",
+                "affiliation": "TU Berlin \/ DE-CIX",
+                "contact": true
+            },
+            {
+                "email": "marco@kaust.edu.sa",
+                "first": "Marco",
+                "last": "Canini",
+                "affiliation": "KAUST",
+                "contact": true
+            },
+            {
+                "email": "marinho@inf.ufrgs.br",
+                "first": "Marinho",
+                "last": "Barcellos",
+                "affiliation": "UFRGS",
+                "contact": true
+            }
+        ],
+        "abstract": "Internet connectivity is changing: Autonomous Systems (ASes) can now reach hundreds of networks directly through interconnections at Internet eXchange Points (IXPs) while reducing latency and improving traffic delivery performance and competitiveness. Despite the benefits, any pair of ASes needs first to agree on exchanging traffic. The current process to interconnect is mostly a manual and lengthy process that is heavily influenced by personal relationships and brand image. As a result, ASes miss interconnection opportunities and prefer long-term agreements at the expense of a potential mismatch between actual delivery performance and current Internet traffic dynamics.\r\n\r\nTo improve wide-area traffic delivery performance, we propose Dynam-IX, a privacy-aware framework that allows network operators to build trust cooperatively and quickly adapt their traffic engineering policies to exploit the rich interconnection opportunities at IXPs. Dynam-IX offers a protocol to automate the process of establishing interconnection agreements, a high-level interconnection intent abstraction to express interconnection policies, a legal framework to handle contracts, and a distributed tamper-proof ledger to create trust among ASes cooperatively. Our prototype shows that ASes can establish tens of agreements within a minute, unleashing traffic engineering possibilities, increasing peering port utilization and creating new economic opportunities.",
+        "topics": {
+            "interconnection": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-89717ca0d3536aaab9f5f52476b5be9b7c9f6b907b64e7bd4a7f9f6afaf37fc5",
+            "timestamp": 1524523181,
+            "size": 546736
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529363103,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "non-publications-only-url": "http:\/\/dynam-ix.github.io",
+            "field-is-outdated-not": "Talk"
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "collaborator",
+            "wwillinger@niksun.com": "collaborator"
+        }
+    },
+    {
+        "pid": 55,
+        "title": "Picking a Partner: A Fair Blockchain Based Scoring Protocol for Autonomous Systems",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524526061,
+        "authors": [
+            {
+                "email": "yousef.alowayed@kaust.edu.sa",
+                "first": "Yousef",
+                "last": "Alowayed",
+                "affiliation": "KAUST",
+                "contact": true
+            },
+            {
+                "email": "marco@kaust.edu.sa",
+                "first": "Marco",
+                "last": "Canini",
+                "affiliation": "KAUST",
+                "contact": true
+            },
+            {
+                "email": "pbmarcos@inf.ufrgs.br",
+                "first": "Pedro",
+                "last": "Marcos",
+                "affiliation": "UFRGS and FURG",
+                "contact": true
+            },
+            {
+                "email": "mchiesa@kth.se",
+                "first": "Marco",
+                "last": "Chiesa",
+                "affiliation": "KTH Royal Institute of Technology",
+                "contact": true
+            },
+            {
+                "email": "marinho@inf.ufrgs.br",
+                "first": "Marinho",
+                "last": "Barcellos",
+                "affiliation": "UFRGS",
+                "contact": true
+            }
+        ],
+        "abstract": "We tackle the problem of enabling Autonomous Systems to evaluate network providers on the basis of their adherence to Service Level Agreements (SLAs) regarding interconnection agreements. In current Internet practices, choices of interconnection partners are driven by factors such as word of mouth, personal relationships, brand recognition and market intelligence, and not by proofs of previous performance. Given that Internet eXchange Points provide increasingly more peering choices, rudimentary schemes for picking interconnection partners are not adequate anymore.\r\n\r\nAlthough the current interconnection ecosystem is shrouded in confidentiality, our key observation is that recently-emerged blockchain technology and advances in cryptography enable a privacy-preserving decentralized solution based on actual performance measurements. We propose the concept of SLA score to evaluate network providers and introduce a privacy-preserving protocol that allows networks to compute and verify SLA scores.",
+        "topics": {
+            "interconnection": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-7234271d5f0b790de83299cbd838fd0aaf7d411975b9491e630f486574d6a526",
+            "timestamp": 1524531254,
+            "size": 402932,
+            "filename": "semi-fair-blockchain.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1527050329,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 75,
+                    "pages": [
+                        {
+                            "margin": [
+                                84,
+                                52,
+                                96,
+                                52
+                            ],
+                            "d": 52363
+                        },
+                        {
+                            "d": 64341
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 57045
+                        },
+                        {
+                            "d": 51542
+                        },
+                        {
+                            "d": 49903
+                        },
+                        {
+                            "d": 68354
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                392,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 34538,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-dd5611db5fa24614ada5432849b9d1e81fc98e77be2758137b7e1715668c4bb7",
+            "timestamp": 1529592455,
+            "size": 445653,
+            "filename": "picking.anrw18.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529592462,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1529592462,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "pages": [
+                        {
+                            "margin": [
+                                76,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 38929
+                        },
+                        {
+                            "d": 66177
+                        },
+                        {
+                            "d": 61902
+                        },
+                        {
+                            "d": 52419
+                        },
+                        {
+                            "d": 53755
+                        },
+                        {
+                            "d": 68920
+                        },
+                        {
+                            "margin": [
+                                56,
+                                316,
+                                104,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 34032,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529376894,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Console Connect – The Cloud Connection Company, 2018. <a href=\"https:\/\/www.consoleconnect.com\/\">https:\/\/www.consoleconnect.com\/<\/a>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Epsilon Telecommunications – Connectivity made simple, 2018. <a href=\"http:\/\/www.epsilontel.com\">http:\/\/www.epsilontel.com<\/a>."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Megaport – A Better way to connect, 2018. <a href=\"http:\/\/megaport.com\">http:\/\/megaport.com<\/a>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Packetfabric, 2018. <a href=\"http:\/\/www.packetfabric.com\">http:\/\/www.packetfabric.com<\/a>."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "B. Ager, N. Chatzis, A. Feldmann, N. Sarrar, S. Uhlig, and W. Willinger. Anatomy of a Large European IXP. In <i>SIGCOMM<\/i>, 2012."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "K. Argyraki, P. Maniatis, and A. Singla. Verifiable Network-Performance Measurements. In <i>CoNEXT<\/i>, 2010."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "M. Blum. Coin Flipping by Telephone a Protocol for Solving Impossible Problems. <i>ACM SIGACT News<\/i>, 15(1), 1983."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "A. Boldyreva, N. Chenette, Y. Lee, and A. O'Neill. Order-Preserving Symmetric Encryption. In <i>EUROCRYPT<\/i>, 2009."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "B. Bünz, J. Bootle, D. Boneh, A. Poelstra, P. Wuille, and G. Maxwell. Bulletproofs: Short Proofs for Confidential Transactions and More. <i>Cryptology ePrint Archive<\/i>, 2017\/1066, 2017."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "I. Castro, A. Panda, B. Raghavan, S. Shenker, and S. Gorinsky. Route Bazaar: Automatic Interdomain Contract Negotiation. In <i>HotOS<\/i>, 2015."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "M. Chiesa, D. Demmler, M. Canini, M. Schapira, and T. Schneider. SIXPACK: Securing Internet eXchange Points Against Curious onlooKers. In <i>CoNEXT<\/i>, 2017."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "D. D. Clark, J. Wroclawski, K. R. Sollins, and R. Braden. Tussle in Cyberspace: Defining Tomorrow's Internet. <i>IEEE\/ACM Trans. Netw.<\/i>, 13(3), June 2005."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "P. Faratin, D. D. Clark, S. Bauer, W. Lehr, P. W. Gilmore, and A. Berger. The Growing Complexity of Internet Interconnection. <i>Communications & Strategies<\/i>, 72(4th Quarter 2008), Dec. 2008."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "C. Hall, R. Clayton, R. Anderson, and E. Ouzounis. Inter-X: Resilience of the Internet Interconnection Ecosystem. Technical report, ENISA, Apr. 2007. Panagiotis Trimintzios, editor."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "A. Hari and T. V. Lakshman. The Internet Blockchain: A Distributed, Tamper-Resistant Transaction Framework for the Internet. In <i>HotNets<\/i>, 2016."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "E. Heilman, A. Kendler, A. Zohar, and S. Goldberg. Eclipse Attacks on Bitcoin's Peer-to-Peer Network. In <i>USENIX Security Symposium<\/i>, 2015."
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "P. Marcos, A. Wermann, L. Bertholdo, and M. Barcellos. DYNAMIX - A Dynamic Agreement Markeplace on Internet eXchange Points. In <i>CoNEXT Student Workshop<\/i>, 2016."
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "W. B. Norton. <i>The Internet peering playbook: connecting to the core of the Internet<\/i>. DrPeering Press, 2014."
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "H. Pagnia and F. C. Gärtner. On the Impossibility of Fair Exchange without a Trusted Third Party. Technical Report TUD-BS-1999-02, Darmstadt University of Technology, 1999."
+                },
+                {
+                    "ref_id": "20",
+                    "ref_text": "A. Popescu, T. Underwood, and E. Zmijewski. Rankings, Damned Rankings & Statistics, Nov. 2007. Presentation at MENOG 2. Available at <a href=\"https:\/\/dyn.com\/wp-content\/uploads\/2013\/05\/menog2.pdf\">https:\/\/dyn.com\/wp-content\/uploads\/2013\/05\/menog2.pdf<\/a>."
+                },
+                {
+                    "ref_id": "21",
+                    "ref_text": "S. Savvides, J. J. Stephen, M. S. Ardekani, V. Sundaram, and P. Eugster. Secure Data Types: A Simple Abstraction for Confidentiality-preserving Data Analytics. In <i>SoCC<\/i>, 2017."
+                },
+                {
+                    "ref_id": "22",
+                    "ref_text": "S. Sundaresan, N. Feamster, R. Teixeira, A. Tang, W. K. Edwards, R. E. Grinter, M. Chetty, and W. de Donato. Helping Users Shop for ISPs with Internet Nutrition Labels. In <i>HomeNets<\/i>, 2011."
+                },
+                {
+                    "ref_id": "23",
+                    "ref_text": "V. Valancius, N. Feamster, R. Johari, and V. Vazirani. MINT: A Market for INternet Transit. In <i>ReArch<\/i>, 2008."
+                },
+                {
+                    "ref_id": "24",
+                    "ref_text": "T. Wolf, J. Griffioen, K. L. Calvert, R. Dutta, G. N. Rouskas, I. Baldin, and A. Nagurney. ChoiceNet: Toward an Economy Plane for the Internet. <i>SIGCOMM Comput. Commun. Rev.<\/i>, 44(3), 2014."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003099.10003104",
+                    "concept_desc": "Networks~Network management",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003104
+                    ],
+                    "expected_concept_desc": "Networks~Network management"
+                }
+            ],
+            "acm-keywords": [
+                "SLA score",
+                "AS ranking",
+                "blockchain"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/gzip",
+                    "hash": "sha2-35928bf5ab1b08c06df7e165ef0366c8573b94664fa6fc46823d53113d5ec2e4",
+                    "timestamp": 1529400794,
+                    "size": 120675,
+                    "filename": "CR.tgz"
+                }
+            ]
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "collaborator",
+            "wwillinger@niksun.com": "collaborator"
+        }
+    },
+    {
+        "pid": 60,
+        "title": "Is CoAP Congestion Safe?",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524542391,
+        "authors": [
+            {
+                "email": "ilpo.jarvinen@helsinki.fi",
+                "first": "Ilpo",
+                "last": "Järvinen",
+                "affiliation": "University of Helsinki",
+                "contact": true
+            },
+            {
+                "email": "iivo.raitahil@helsinki.fi",
+                "first": "Iivo",
+                "last": "Raitahila",
+                "affiliation": "University of Helsinki"
+            },
+            {
+                "email": "zhen.cao@huawei.com",
+                "first": "Zhen",
+                "last": "Cao",
+                "affiliation": "Huawei"
+            },
+            {
+                "email": "markku.kojo@cs.helsinki.fi",
+                "first": "Markku",
+                "last": "Kojo",
+                "affiliation": "University of Helsinki",
+                "contact": true
+            }
+        ],
+        "abstract": "A huge number of Internet of Things (IoT) devices are expected to be\r\nconnected to the Internet in the near future.\r\nThe Constrained Application Protocol (CoAP) has been increasingly deployed for wide-area IoT communication.\r\nIt is crucial to understand how the specified CoAP congestion control algorithms perform.\r\nWe seek an answer to this question by performing an extensive evaluation of the existing IETF CoAP Congestion Control proposals.\r\nWe find that they fail to address congestion properly, particularly\r\nin the presence of a bufferbloated bottleneck buffer.  We also fix the problem with a few simple modifications and demonstrate their effectiveness.",
+        "topics": {
+            "measurement": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-2855316a1c6ca1d49650e36938699fc6fb5bc685c0db8821dbe1117489cbeb5e",
+            "timestamp": 1524542392,
+            "size": 478732,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 6,
+                "banal": {
+                    "at": 1527050329,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        88,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 76,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 49468
+                        },
+                        {
+                            "d": 60130
+                        },
+                        {
+                            "d": 64870
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                100,
+                                52
+                            ],
+                            "d": 45572
+                        },
+                        {
+                            "d": 63769
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                112,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 22644,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-0db8c9b14acb2bc6d06b64eb404c7b88ce16a29d536dd686609402f9928610d8",
+            "timestamp": 1529583657,
+            "size": 473109,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529583658,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1529583659,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        88,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 94,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 41751
+                        },
+                        {
+                            "d": 58585
+                        },
+                        {
+                            "d": 64053
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                100,
+                                52
+                            ],
+                            "d": 40638
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                96,
+                                52
+                            ],
+                            "d": 71256
+                        },
+                        {
+                            "d": 31234
+                        },
+                        {
+                            "margin": [
+                                56,
+                                316,
+                                304,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 22956,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528977943,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "F. Baker and G. Fairhurst. 2015. <i>IETF Recommendations Regarding Active Queue Management<\/i>. <scp>rfc<\/scp> 7567. 2070-1721"
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "A. Betzler, C. Gomez, I. Demirkol, and M. Kovatsch. 2014. Congestion Control for CoAP Cloud Services. In <i>Proceedings of the 2014 IEEE Emerging Technology and Factory Automation (ETFA)<\/i>. 1–6. <a href=\"https:\/\/doi.org\/10.1109\/ETFA.2014.7005340\">https:\/\/doi.org\/10.1109\/ETFA.2014.7005340<\/a>"
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "August Betzler, Carles Gomez, Ilker Demirkol, and Josep Paradells. 2015. CoCoA+: An Advanced Congestion Control Mechanism for CoAP. <i>Ad Hoc Networks<\/i> 33 (2015), 126–139. <a href=\"https:\/\/doi.org\/10.1016\/j.adhoc.2015.04.007\">https:\/\/doi.org\/10.1016\/j.adhoc.2015.04.007<\/a>"
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "A. Betzler, C. Gomez, I. Demirkol, and J. Paradells. 2016. CoAP Congestion Control for the Internet of Things. <i>IEEE Communications Magazine<\/i> 7 (July 2016), 154–160. 0163-6804 <a href=\"https:\/\/doi.org\/10.1109\/MCOM.2016.7509394\">https:\/\/doi.org\/10.1109\/MCOM.2016.7509394<\/a>"
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "C. Bormann, A. Betzler, C. Gomez, and I. Demirkol. 2018. <i>CoAP Simple Congestion Control\/Advanced<\/i>. Internet Draft. Work in progress."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "S. Farrell. 2018. <i>LPWAN Overview<\/i>. Internet Draft. Internet Society. Work in progress."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "J. Gettys and K. Nichols. 2011. Bufferbloat: Dark Buffers in the Internet. <i>ACM Queue<\/i> 9, 11 (Nov. 2011). <a href=\"https:\/\/doi.org\/10.1109\/MIC.2011.56\">https:\/\/doi.org\/10.1109\/MIC.2011.56<\/a>"
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "I. Järvinen, L. Daniel, and M. Kojo. 2015. Experimental Evaluation of Alternative Congestion Control Algorithms for Constrained Application Protocol (CoAP). In <i>The 2015 IEEE 2nd World Forum on Internet of Things (WF-IoT)<\/i>. <a href=\"https:\/\/doi.org\/10.1109\/WF-IoT.2015.7389097\">https:\/\/doi.org\/10.1109\/WF-IoT.2015.7389097<\/a>"
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "P. Karn and C. Partridge. 1987. Improving Round-trip Time Estimates in Reliable Transport Protocols. In <i>SIGCOMM'87 Proceedings of the ACM Workshop on Frontiers in Computer Communications Technology<\/i>. 2–7. <a href=\"https:\/\/doi.org\/10.1145\/55482.55484\">https:\/\/doi.org\/10.1145\/55482.55484<\/a>"
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Libcoap [n. d.]. libcoap: C-Implementation of CoAP. <a href=\"https:\/\/libcoap.net\/\">https:\/\/libcoap.net\/<\/a> Retrieved June 15, 2018 from"
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "J. Nagle. 1984. <i>Congestion Control in IP\/TCP Internetworks<\/i>. <scp>rfc<\/scp> 896. 2070-1721"
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "V. Paxson, M. Allman, J. Chu, and M. Sargent. 2011. <i>Computing TCP's Retransmission Timer<\/i>. <scp>rfc<\/scp> 6298. 2070-1721"
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "U. Raza, P. Kulkarni, and M. Sooriyabandara. 2017. Low Power Wide Area Networks: An Overview. <i>IEEE Communications Surveys Tutorials<\/i> 19, 2 (Jan. 2017), 855–873. <a href=\"https:\/\/doi.org\/10.1109\/COMST.2017.2652320\">https:\/\/doi.org\/10.1109\/COMST.2017.2652320<\/a>"
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "Z. Shelby, K. Hartke, and C. Bormann. 2014. <i>The Constrained Application Protocol (CoAP)<\/i>. <scp>rfc<\/scp> 7252. 2070-1721"
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "F. Zheng, B. Fu, and Z. Cao. 2016. <i>CoAP Latency Evaluation<\/i>. Internet Draft. Work in progress."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079",
+                    "concept_desc": "Networks~Network performance evaluation",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079
+                    ],
+                    "expected_concept_desc": "Networks~Network performance evaluation"
+                },
+                {
+                    "concept_id": "10003033.10003039.10003056",
+                    "concept_desc": "Networks~Cross-layer protocols",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003056
+                    ],
+                    "expected_concept_desc": "Networks~Cross-layer protocols"
+                },
+                {
+                    "concept_id": "10003033.10003039.10003048",
+                    "concept_desc": "Networks~Transport protocols",
+                    "concept_significance": 100,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003048
+                    ],
+                    "expected_concept_desc": "Networks~Transport protocols"
+                },
+                {
+                    "concept_id": "10003033.10003039.10003051",
+                    "concept_desc": "Networks~Application layer protocols",
+                    "concept_significance": 100,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003051
+                    ],
+                    "expected_concept_desc": "Networks~Application layer protocols"
+                }
+            ],
+            "acm-keywords": [
+                "Constrained Application Protocol (CoAP)",
+                "Congestion control",
+                "Internet of Things (IoT)",
+                "Performance measurement",
+                "Congestion collapse",
+                "Bufferbloat"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/gzip",
+                    "hash": "sha2-ca3989e4edc9fec91b9069e40a8b9274686b1c40c673469bcf857dd68e7220e1",
+                    "timestamp": 1529583657,
+                    "size": 642797,
+                    "filename": "paper.tar.gz"
+                }
+            ]
+        }
+    },
+    {
+        "pid": 61,
+        "title": "CommunityWatch: The Swiss-Army Knife of BGP Anomaly Detection",
+        "decision": "#poster",
+        "status": "#poster",
+        "submitted": true,
+        "submitted_at": 1524544093,
+        "authors": [
+            {
+                "email": "v.giotsas@lancaster.ac.uk",
+                "first": "Vasileios",
+                "last": "Giotsas",
+                "affiliation": "Lancaster University",
+                "contact": true
+            }
+        ],
+        "contacts": [
+            {
+                "email": "giotsas@gmail.com",
+                "first": "Vasilis",
+                "last": "Giotsas",
+                "affiliation": "UCSD\/CAIDA"
+            }
+        ],
+        "abstract": "We present CommunityWatch, an open-source system that enables timely and accurate detection of BGP routing anomalies. CommunityWatch leverages meta-data encoded by AS operators on their advertised routes through the BGP Communities attribute. The BGP Communities values lack standardized semantics, offering the flexibility to attach a wide range of information, including AS relationships, location data, and route redistribution policies.     Therefore, parsing and correlating Community values and their dynamics enables the detection and tracking of a variety of routing anomalies. We exhibit the efficacy of CommunityWatch through the detection of three different types of anomalies: infrastructure outages, route leaks, and traffic blackholing.",
+        "topics": {
+            "interconnection": true,
+            "measurement": true,
+            "network management": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-c093580367cd62be522cc64e35bd6dc6f0b96c034a7818e7c743062286d68110",
+            "timestamp": 1524544093,
+            "size": 670309
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528938484,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "Vasileios Giotsas, Christoph Dietzel, Georgios Smaragdakis, Anja Feldmann, Arthur Berger, and Emile Aben. 2017. Detecting Peering Infrastructure Outages in the Wild. In Proceedings of the Conference of the ACM Special Interest Group on Data Communication (SIGCOMM '17). ACM, New York, NY, USA, 446-459. DOI: https:\/\/doi.org\/10.1145\/3098822.3098855\r\n\r\nVasileios Giotsas, Philipp Richter, Georgios Smaragdakis, Anja Feldmann, Christoph Dietzel, and Arthur Berger. 2017. Inferring BGP blackholing activity in the internet. In Proceedings of the 2017 Internet Measurement Conference (IMC '17). ACM, New York, NY, USA, 1-14. DOI: https:\/\/doi.org\/10.1145\/3131365.3131379",
+            "non-publications-only-url": "https:\/\/github.com\/vgiotsas\/CommunitiesParser",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-f82b4d7d79451ba69aca8bd4d875d78cf84d547c76e9b6d42a9677d0124dd782",
+                "timestamp": 1529448225,
+                "size": 671045,
+                "filename": "paper.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                },
+                {
+                    "concept_id": "10003033.10003083.10003094",
+                    "concept_desc": "Networks~Network dynamics",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003083,
+                        10003094
+                    ],
+                    "expected_concept_desc": "Networks~Network dynamics"
+                },
+                {
+                    "concept_id": "10003033.10003099.10003105",
+                    "concept_desc": "Networks~Network monitoring",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003105
+                    ],
+                    "expected_concept_desc": "Networks~Network monitoring"
+                },
+                {
+                    "concept_id": "10003033.10003083.10003014.10011610",
+                    "concept_desc": "Networks~Denial-of-service attacks",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003083,
+                        10003014,
+                        10011610
+                    ],
+                    "expected_concept_desc": "Networks~Denial-of-service attacks"
+                },
+                {
+                    "concept_id": "10003033.10003083.10003098",
+                    "concept_desc": "Networks~Network manageability",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003083,
+                        10003098
+                    ],
+                    "expected_concept_desc": "Networks~Network manageability"
+                }
+            ],
+            "acm-keywords": [
+                "BGP",
+                "Network Monitoring",
+                "Outage Detection",
+                "DDoS",
+                "Routing",
+                "BGP Communities"
+            ]
+        }
+    }
+]
