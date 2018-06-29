@@ -1,0 +1,2233 @@
+[
+    {
+        "pid": 6,
+        "title": "Measuring Adoption of Security Additions to the HTTPS Ecosystem",
+        "decision": "#invited",
+        "status": "#invited",
+        "submitted": true,
+        "submitted_at": 1515509049,
+        "authors": [
+            {
+                "email": "scheitle@net.in.tum.de",
+                "first": "Quirin",
+                "last": "Scheitle",
+                "affiliation": "Technical University of Munich (TUM)",
+                "contact": true
+            },
+            {
+                "first": "Taejoong",
+                "last": "Chung",
+                "affiliation": "Northeastern University"
+            },
+            {
+                "first": "Johanna",
+                "last": "Amann",
+                "affiliation": "ICSI"
+            },
+            {
+                "first": "Oliver",
+                "last": "Gasser",
+                "affiliation": "Technical University of Munich (TUM)"
+            },
+            {
+                "first": "Lexi",
+                "last": "Brent",
+                "affiliation": "The University of Sydney"
+            },
+            {
+                "first": "Georg",
+                "last": "Carle",
+                "affiliation": "Technical University of Munich (TUM)"
+            },
+            {
+                "first": "Ralph",
+                "last": "Holz",
+                "affiliation": "The University of Sydney"
+            },
+            {
+                "first": "Jens",
+                "last": "Hiller",
+                "affiliation": "RWTH Aachen"
+            },
+            {
+                "first": "Johannes",
+                "last": "Naab",
+                "affiliation": "Technical University of Munich (TUM)"
+            },
+            {
+                "first": "Roland",
+                "last": "van Rijswijk-Deij",
+                "affiliation": "University of Twente and SURFnet"
+            },
+            {
+                "first": "Oliver",
+                "last": "Hohlfeld",
+                "affiliation": "RWTH Aachen"
+            },
+            {
+                "first": "Dave",
+                "last": "Choffnes",
+                "affiliation": "Northeastern University"
+            },
+            {
+                "first": "Alan",
+                "last": "Mislove",
+                "affiliation": "Northeastern University"
+            }
+        ],
+        "abstract": "Web security has been and remains a highly relevant field of security research, which has seen many additional features standardiazed at IETF over the past years. \r\n\r\nThis talk covers two papers, which in sum provide a conprehensive survey of quantity and quality of adoption of such new security extensions by HTTPS web servers. \r\n\r\nThe protocols covered are Certificate Transparency (CT) at the PKI\/certificate level, HTTP Strict Transport Security (HSTS) and HTTP Public Key Pinning (HPKP) at the HTTP level, Downgrade-Preventing Signaling Cipyher Suite Value (SCSV) at the TLS level, and Certification Authority Authorization (CAA) and TLSA record types. \r\nFor all these security extensions, we conduct extensive active scans from 2 continents, using IPv4 and IPv6, as well as passive observations from 3 continents. We extensively analyze our results, and discuss adoption of these security extensions by deployment risk, deployment effort, and their relative age, finding low-risk, low-effort extensions deployed the most wide-spread. We consider this a lesson learned for future standardization. \r\n\r\nIn a subsequent deep-dive in the second paper, we exhaustively analyze the effectiveness of CAA after its effectiveness on Sep 8, 2017. We assess quality and quantity of CAA adoption by servers through holistic active scans, deployment by DNS operators through test domains, and conduct an extensive issuance experiment to scrutinize the rigor of implementation by Certification Authorities (CAs).\r\n\r\nBased on [1] and [2].\r\n\r\n[1] Johanna Amann*, Oliver Gasser*, Quirin Scheitle*, Lexi Brent, Georg Carle, and Ralph Holz. 2017. Mission accomplished?: HTTPS security after diginotar. In Proceedings of the 2017 Internet Measurement Conference (IMC '17). ACM, New York, NY, USA, 325-340. DOI: https:\/\/doi.org\/10.1145\/3131365.3131401 \r\n\r\n[2] Quirin Scheitle, Taejoong Chung, Jens Hiller, Oliver Gasser, Johannes Naab, Roland van Rijswijk-Deij, Oliver Hohlfeld, Ralph Holz, Dave Choffnes, Alan Mislove, and Georg Carle. 2018. A First Look at Certification Authority Authorization (CAA). SIGCOMM Comput. Commun. Rev. 48, 2 (May 2018), 10-23. DOI: https:\/\/doi.org\/10.1145\/3213232.3213235",
+        "topics": {
+            "applied cryptography that is relevant to IETF": true,
+            "measurement": true,
+            "new secure protocols": true,
+            "security": true,
+            "transport protocols": true,
+            "trust management": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-03c3036aa6060e4bf9402e2b146180c4d0ccd4ed70ad1532dfdb9c3119055509",
+            "timestamp": 1515509049,
+            "size": 4663679
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1527064972,
+        "options": {
+            "publication-or-non-publication": "invited talk",
+            "previous-publication-venue": "Johanna Amann, Oliver Gasser, Quirin Scheitle, Lexi Brent, Georg Carle, and Ralph Holz. 2017. Mission accomplished?: HTTPS security after diginotar. In Proceedings of the 2017 Internet Measurement Conference (IMC '17). ACM, New York, NY, USA, 325-340. DOI: https:\/\/doi.org\/10.1145\/3131365.3131401 \r\nQuirin Scheitle, Taejoong Chung, Jens Hiller, Oliver Gasser, Johannes Naab, Roland van Rijswijk-Deij, Oliver Hohlfeld, Ralph Holz, Dave Choffnes, Alan Mislove, and Georg Carle. 2018. A First Look at Certification Authority Authorization (CAA). SIGCOMM Comput. Commun. Rev. 48, 2 (May 2018), 10-23. DOI: https:\/\/doi.org\/10.1145\/3213232.3213235",
+            "non-publications-only-url": "https:\/\/conferences.sigcomm.org\/imc\/2017\/papers\/imc17-final227.pdf\r\nhttps:\/\/ccronline.sigcomm.org\/2018\/a-first-look-at-certification-authority-authorization-caa\/",
+            "field-is-outdated-not": "Talk",
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10003014",
+                    "concept_desc": "Security and privacy~Network security",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003014
+                    ],
+                    "expected_concept_desc": "Security and privacy~Network security"
+                }
+            ],
+            "acm-keywords": [
+                "HTTPS",
+                "TLS",
+                "SCSV",
+                "Certificate Transparency",
+                "SCSV",
+                "CAA",
+                "TLSA"
+            ],
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-3794a798fd16667c5864cdc86434ba0299eae1727bc30a35c3109b933dfeedd2",
+                "timestamp": 1529948888,
+                "size": 71952,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "26e8c727572cd6012d294d56fc215638f8f35753",
+                    "npages": 2,
+                    "banal": {
+                        "at": 1529948909,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            316,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 9,
+                        "leading": 11,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "margin": [
+                                    84,
+                                    52,
+                                    88,
+                                    52
+                                ],
+                                "bodyfontsize": 10,
+                                "leading": 12,
+                                "d": 27173
+                            },
+                            {
+                                "margin": [
+                                    56,
+                                    316,
+                                    576,
+                                    52
+                                ],
+                                "d": 5277,
+                                "pagetype": "bib"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "pid": 22,
+        "title": "Push Away Your Privacy: Precise User Tracking Based on TLS Client Certificate Authentication",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1523552879,
+        "authors": [
+            {
+                "email": "wachs@net.in.tum.de",
+                "first": "Matthias",
+                "last": "Wachs",
+                "affiliation": "Technical University of Munich (TUM)",
+                "contact": true
+            },
+            {
+                "email": "scheitle@net.in.tum.de",
+                "first": "Quirin",
+                "last": "Scheitle",
+                "affiliation": "Technical University of Munich (TUM)",
+                "contact": true
+            },
+            {
+                "email": "carle@net.in.tum.de",
+                "first": "Georg",
+                "last": "Carle",
+                "affiliation": "Technical University of Munich (TUM)",
+                "contact": true
+            }
+        ],
+        "abstract": "While the Transport Layer Security (TLS) protocol is typically used to authenticate servers, it also offers the possibility to use Client Certificates for to authenticate clients (CCA). We investigate the use of CCA based on two specific concerns: \r\n\r\nFirst, CCA is prone to being used in a context that encodes personal data into client certificates, such as identifying persons, e.g. in voting systems or VPN applications.\r\n\r\nSecond, in versions prior to TLS1.3, the client certificate (as well as the server certificate) is being sent in clear text, permitting systematic and large-scale eavesdropping. \r\n\r\nBased on these two concerns, we investigate the use of CCA at an ISP uplink. Besides confirming our two concerns by finding, e.g., person names in VPN certificates, we also identify the Apple Push Notification Service (APNs) to leverage TLS CCA to identify client devices. We consider this use highly critical as APNs is an integral part of all Apple operating systems, and APNs  establishes a connection immediately upon connecting the device to a network.  We show that these properties can be used by various attacker types to track devices (and hence, likely users) with great precision across the global Internet. \r\n\r\nThis work was published in 2017, with the TLS1.3 standardization still ongoing, and we aimed to emphasize the necessity of encrypting client certificates in the TLS handshake, which was adopted in the TLS1.3 standard. Based on work published at TMA'17 [1].\r\n\r\n[1] Matthias Wachs, Quirin Scheitle, Georg Carle. 2017. Push Away Your Privacy: Precise User Tracking Based on TLS Client Certificate Authentication. In Proceedings of the 2017 Network Traffic Measurement and Analysis Conference (TMA '17)",
+        "topics": {
+            "applied cryptography that is relevant to IETF": true,
+            "measurement": true,
+            "privacy": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-195623551effd750c75b9296df473b39d3b7bfe2ba8a09ce5e308838f28fdb05",
+            "timestamp": 1523552879,
+            "size": 131814
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1527111781,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "Matthias Wachs, Quirin Scheitle, Georg Carle. 2017. Push Away Your Privacy: Precise User Tracking Based on TLS Client Certificate Authentication. In Proceedings of the 2017 Network Traffic Measurement and Analysis Conference (TMA '17)",
+            "non-publications-only-url": "http:\/\/tma.ifip.org\/wp-content\/uploads\/sites\/7\/2017\/06\/tma2017_paper2.pdf",
+            "field-is-outdated-not": "Talk",
+            "acmrefs": [
+                {
+                    "ref_text": "Apple. About the security content of ios 10.2.1. https:\/\/support.apple.com\/en-au\/HT207482, Acc. March 28, 2017."
+                },
+                {
+                    "ref_text": "N. Gibbs. Tim Cook Interview in Time Magazine. <a href=\"http:\/\/time.com\/4261796\/tim-cook-transcript\/\">http:\/\/time.com\/4261796\/tim-cook-transcript\/<\/a>, Acc. Oct 7 2016."
+                },
+                {
+                    "ref_text": "N. Statt. 1 Billion Apple Devices are in Active Use around the World. <a href=\"http:\/\/www.theverge.com\/2016\/1\/26\/10835748\/apple-devices-active-1-billion-iphone-ipad-ios\">http:\/\/www.theverge.com\/2016\/1\/26\/10835748\/apple-devices-active-1-billion-iphone-ipad-ios<\/a>, Acc. Oct 7, 2016."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10003014",
+                    "concept_desc": "Security and privacy~Network security",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003014
+                    ],
+                    "expected_concept_desc": "Security and privacy~Network security"
+                }
+            ],
+            "acm-keywords": [
+                "TLS",
+                "Privacy"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/x-tar",
+                    "hash": "sha2-3500437811ead73855283d56aecfcfcde987a7142d14a441e40ad802b163774a",
+                    "timestamp": 1527609593,
+                    "size": 61440,
+                    "filename": "CR_ANRW.tar"
+                }
+            ],
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-26cc9696f8b40a44ac9a429791dd6a1a4355dcce842043b894bad9ada621a357",
+                "timestamp": 1529948910,
+                "size": 63883,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "aad03d0db5e0e793ff00f4820761324d5b36c38f",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948910,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            72,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 21406
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "r.m.vanrijswijk@utwente.nl": "collaborator"
+        }
+    },
+    {
+        "pid": 62,
+        "title": "Cloud Strife: Mitigating the Security Risks of Domain-Validated Certificates",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524663694,
+        "authors": [
+            {
+                "email": "kevinbo@cs.ucsb.edu",
+                "first": "Kevin",
+                "last": "Borgolte",
+                "affiliation": "UC Santa Barbara",
+                "contact": true
+            },
+            {
+                "email": "t.fiebig@tudelft.nl",
+                "first": "Tobias",
+                "last": "Fiebig",
+                "affiliation": "TU Delft",
+                "contact": true
+            },
+            {
+                "email": "shao@utdallas.edu",
+                "first": "Shuang",
+                "last": "Hao",
+                "affiliation": "UT Dallas",
+                "contact": true
+            },
+            {
+                "email": "chris@cs.ucsb.edu",
+                "first": "Christopher",
+                "last": "Kruegel",
+                "affiliation": "UC Santa Barbara",
+                "contact": true
+            },
+            {
+                "email": "vigna@cs.ucsb.edu",
+                "first": "Giovanni",
+                "last": "Vigna",
+                "affiliation": "UC Santa Barbara",
+                "contact": true
+            }
+        ],
+        "abstract": "Infrastructure-as-a-Service (IaaS), more generally the “cloud,” changed the landscape of system operations on the Internet. Clouds' elasticity allow operators to rapidly allocate and use resources as needed, from virtual machines, to storage, to IP addresses, which is what made clouds popular.\r\nWe show that the dynamic component paired with developments in trust-based ecosystems (e.g., TLS certificates) creates so far unknown attacks. We demonstrate that it is practical to allocate IP addresses to which stale DNS records point. Considering the ubiquity of domain validation in trust ecosystems, like TLS, an attacker can then obtain a valid and trusted certificate. The attacker can then impersonate the service, exploit residual trust for phishing, or might even distribute malicious code. Even worse, an aggressive attacker could succeed in less than 70 seconds, well below common time-to-live (TTL) for DNS. In turn, she could exploit normal service migrations to obtain a valid certificate, and, worse, she might not be bound by DNS records being (temporarily) stale.\r\nWe introduce a new authentication method for trust-based domain validation, like IETF's automated certificate management environment (ACME), that mitigates staleness issues without incurring additional certificate requester effort by incorporating the existing trust of a name into the validation process.\r\n\r\nBased on previously published work [1].\r\n\r\n[1] Kevin Borgolte, Tobias Fiebig, Shuang Hao, Christopher Kruegel, Giovanni Vigna. February 2018. Cloud Strife: Mitigating the Security Risks of Domain-Validated Certificates. In Proceedings of the 25th Network and Distributed Systems Security Symposium (NDSS '18). Internet Society (ISOC). DOI: 10.14722\/ndss.2018.23327. URL: https:\/\/doi.org\/10.14722\/ndss.2018.23327.",
+        "topics": {
+            "interactions between emergent applications and existing networks": true,
+            "measurement": true,
+            "security": true,
+            "trust management": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-40bc99d169d71e85c883a24be9e041a1f5389c345f7a47c05a4695f25da20a5b",
+            "timestamp": 1524663694,
+            "size": 52925
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529381858,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "Kevin Borgolte, Tobias Fiebig, Shuang Hao, Christopher Kruegel, Giovanni Vigna. February 2018. Cloud Strife: Mitigating the Security Risks of Domain-Validated Certificates. In Proceedings of the 25th Network and Distributed Systems Security Symposium (NDSS '18).  Internet Society (ISOC). DOI: 10.14722\/ndss.2018.23327. URL: https:\/\/doi.org\/10.14722\/ndss.2018.23327.",
+            "non-publications-only-url": "https:\/\/kevin.borgolte.me\/files\/pdf\/ndss2018-cloud-strife.pdf",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-17d5736ae16b1e8b42e764b2f4a2a949a0d460012095170058d7b178b78f40dd",
+                "timestamp": 1524663694,
+                "size": 1022108,
+                "filename": "ndss2018-cloud-strife.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Kevin Borgolte, Tobias Fiebig, Shuang Hao, Christopher Kruegel, Giovanni Vigna. February 2018. Cloud Strife: Mitigating the Security Risks of Domain-Validated Certificates. In Proceedings of the 25th Network and Distributed Systems Security Symposium (NDSS '18). Internet Society (ISOC). DOI: 10.14722\/ndss.2018.23327. URL: https:\/\/doi.org\/10.14722\/ndss.2018.23327."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978",
+                    "concept_desc": "Security and privacy",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978
+                    ],
+                    "expected_concept_desc": "Security and privacy"
+                },
+                {
+                    "concept_id": "10002978.10003014.10003015",
+                    "concept_desc": "Security and privacy~Security protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003014,
+                        10003015
+                    ],
+                    "expected_concept_desc": "Security and privacy~Security protocols"
+                },
+                {
+                    "concept_id": "10003033.10003034.10003035.10003037",
+                    "concept_desc": "Networks~Naming and addressing",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003034,
+                        10003035,
+                        10003037
+                    ],
+                    "expected_concept_desc": "Networks~Naming and addressing"
+                },
+                {
+                    "concept_id": "10003033.10003083.10003014",
+                    "concept_desc": "Networks~Network security",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003083,
+                        10003014
+                    ],
+                    "expected_concept_desc": "Networks~Network security"
+                },
+                {
+                    "concept_id": "10003033.10003099.10003100",
+                    "concept_desc": "Networks~Cloud computing",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003100
+                    ],
+                    "expected_concept_desc": "Networks~Cloud computing"
+                },
+                {
+                    "concept_id": "10010520.10010521.10010537.10003100",
+                    "concept_desc": "Computer systems organization~Cloud computing",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10010520,
+                        10010521,
+                        10010537,
+                        10003100
+                    ],
+                    "expected_concept_desc": "Computer systems organization~Cloud computing"
+                }
+            ],
+            "acm-keywords": [
+                "Domain Name System (DNS)",
+                "Transport Layer Security (TLS)",
+                "Secure Sockets Layer (SSL)",
+                "Certificate Issuance",
+                "Domain Validation",
+                "Certificate Authority",
+                "Automated Certificate Management Environment (ACME)",
+                "Certificate Transparency",
+                "Cloud Computing",
+                "Misconfiguration",
+                "Trust-based Ecosystem",
+                "IP Address Re-Use",
+                "Use After Free (UAF)"
+            ],
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-4c8a9c64875030399363482a269c9c3bd1fefa2f7062a0aeff81ca9c06a014a8",
+                "timestamp": 1529948911,
+                "size": 68798,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "d1aad64c824314a4ebd53d2409222ed132eb9b86",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948911,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 27836
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "advisor"
+        }
+    },
+    {
+        "pid": 45,
+        "title": "Studying TLS Usage in Android Apps",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524501776,
+        "authors": [
+            {
+                "email": "arazaghpanah@cs.stonybrook.edu",
+                "first": "Abbas",
+                "last": "Razaghpanah",
+                "affiliation": "Stony Brook University",
+                "contact": true
+            },
+            {
+                "email": "arian@cs.umass.edu",
+                "first": "Arian Akhavan",
+                "last": "Niaki",
+                "affiliation": "UMass-Amherst"
+            },
+            {
+                "email": "narseo.vallina@imdea.org",
+                "first": "Narseo",
+                "last": "Vallina-Rodriguez",
+                "affiliation": "IMDEA Networks Institute\/ICSI",
+                "contact": true
+            },
+            {
+                "email": "srknth.s@gmail.com",
+                "first": "Srikanth",
+                "last": "Sundaresan",
+                "affiliation": "Facebook",
+                "contact": true
+            },
+            {
+                "email": "johanna@icir.org",
+                "first": "Johanna",
+                "last": "Amann",
+                "affiliation": "ICSI\/Corelight",
+                "contact": true
+            },
+            {
+                "email": "phillipa@cs.umass.edu",
+                "first": "Philippa",
+                "last": "Gill",
+                "affiliation": "UMass-Amherst",
+                "contact": true
+            }
+        ],
+        "abstract": "First standardized by the IETF in the 1990's, SSL\/TLS is the most widely-used\r\nencryption protocol on the Internet. This makes it imperative to study its\r\nusage across different platforms and applications to ensure proper usage and\r\nrobustness against attacks and vulnerabilities. While previous efforts have\r\nfocused on the usage of TLS in the desktop ecosystem, there have been no studies\r\nof TLS usage by mobile apps at scale. In our study, we use anonymized data\r\ncollected by the Lumen mobile measurement app to analyze TLS usage by Android\r\napps in the wild. We analyze and fingerprint handshake messages to characterize\r\nthe TLS APIs and libraries that apps use, and evaluate their weaknesses. We\r\nfind that 84% of apps use the default TLS libraries provided by the operating\r\nsystem, and the remaining apps use other TLS libraries for various reasons such\r\nas using TLS extensions and features that are not supported by the Android TLS\r\nlibraries, some of which are also not standardized by the IETF.  Our analysis\r\nreveals the strengths and weaknesses of each approach, demonstrating that the\r\npath to improving TLS security in the mobile platform is not straightforward.\r\n\r\nBased on work published at:\r\nAbbas Razaghpanah, Arian Akhavan Niaki, Narseo Vallina-Rodriguez,\r\nSrikanth Sundaresan, Johanna Amann, and Phillipa Gill. 2017.\r\nStudying TLS Usage in Android Apps. In Proceedings of CoNEXT ’17.\r\nACM, New York, NY, USA, 13 pages.\r\nhttps:\/\/doi.org\/10.1145\/3143361.3143400",
+        "topics": {
+            "applied cryptography that is relevant to IETF": true,
+            "measurement": true,
+            "new secure protocols": true,
+            "protocols and APIs for new Internet applications": true,
+            "security": true,
+            "technology adoption": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-6f4612f094fa109ebdfe245990910448916810b88e8fb047044cab3806a5ca3b",
+            "timestamp": 1524510058,
+            "size": 373137
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529342598,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "ACM CoNEXT 2017",
+            "non-publications-only-url": "http:\/\/abbas.rpanah.ir\/publications\/conext2017_tls_paper.pdf",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-6e373b6381d45dda6cfb00fe902b9a6138e540a49c8e1be7c1e2d06b036b5336",
+                "timestamp": 1524490007,
+                "size": 539834,
+                "filename": "TLSAndroid.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10003014.10003015",
+                    "concept_desc": "Security and privacy~Security protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003014,
+                        10003015
+                    ],
+                    "expected_concept_desc": "Security and privacy~Security protocols"
+                }
+            ],
+            "acm-keywords": [
+                "Security Protocols",
+                "Android",
+                "Mobile",
+                "Network Measurements",
+                "Transport Layer Security",
+                "Secure Sockets Layer",
+                "SSL",
+                "TLS",
+                "Transport Layer Protocols",
+                "Mobile Security"
+            ],
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-bbbfbad76d0fbff810c4abb0c6e35f9288265c1644e08e33c595a7de62ea8ea8",
+                "timestamp": 1529948912,
+                "size": 64170,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "7ae6b028d06d169375c9a9fbfdb0cd7acebaec8d",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948912,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 20529
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "phillipa@cs.umass.edu": "author"
+        }
+    },
+    {
+        "pid": 9,
+        "title": "ARTEMIS: Neutralizing BGP Hijacking within a Minute",
+        "decision": "#invited",
+        "status": "#invited",
+        "submitted": true,
+        "submitted_at": 1515681946,
+        "authors": [
+            {
+                "email": "sermpezis@ics.forth.gr",
+                "first": "Pavlos",
+                "last": "Sermpezis",
+                "affiliation": "ICS-FORTH",
+                "contact": true
+            },
+            {
+                "email": "vkotronis@ics.forth.gr",
+                "first": "Vasileios",
+                "last": "Kotronis",
+                "affiliation": "ICS-FORTH",
+                "contact": true
+            },
+            {
+                "email": "gkigkis@ics.forth.gr",
+                "first": "Petros",
+                "last": "Gigis",
+                "affiliation": "ICS-FORTH",
+                "contact": true
+            },
+            {
+                "email": "fontas@ics.forth.gr",
+                "first": "Xenofontas",
+                "last": "Dimitropoulos",
+                "affiliation": "ICS-FORTH and University of Crete",
+                "contact": true
+            },
+            {
+                "email": "cicalese@enst.fr",
+                "first": "Danilo",
+                "last": "Cicalese",
+                "affiliation": "CAIDA, UC San Diego \/ Telecom ParisTech",
+                "contact": true
+            },
+            {
+                "email": "alistair@caida.org",
+                "first": "Alistair",
+                "last": "King",
+                "affiliation": "CAIDA, UC San Diego",
+                "contact": true
+            },
+            {
+                "email": "alberto@caida.org",
+                "first": "Alberto",
+                "last": "Dainotti",
+                "affiliation": "CAIDA, UC San Diego",
+                "contact": true
+            }
+        ],
+        "abstract": "BGP prefix hijacking is a critical threat to Internet organizations and users. Despite the availability of several defense approaches (ranging from RPKI to popular third-party services), none of them solves the problem adequately in practice. They suffer from: (i) lack of detection comprehensiveness, allowing sophisticated attackers to evade detection, (ii) limited accuracy, especially in the case of third-party detection, (iii) delayed verification and mitigation of incidents, reaching up to days, and (iv) lack of privacy and of flexibility in post-hijack counteractions, from the side of network operators. In this work, we propose ARTEMIS, a defense approach (a) based on accurate and fast detection operated by the AS itself, leveraging the pervasiveness of publicly available BGP monitoring services and their recent shift towards real-time streaming, thus (b) enabling flexible and fast mitigation of hijacking events. Compared to previous work, our approach combines characteristics desirable to network operators such as comprehensiveness, accuracy, speed, privacy, and flexibility. Finally, we show through real-world experiments that, with the ARTEMIS approach, prefix hijacking can be neutralized within a minute. Based on work under submission to IEEE\/ACM Transactions on Networking. Sermpezis, P. and Kotronis, V. and Gigis, P. and Dimitropoulos, X. and Cicalese, D. and King, A. and Dainotti, A.; \"ARTEMIS: Neutralizing BGP Hijacking within a Minute\", https:\/\/arxiv.org\/abs\/1801.01085v3",
+        "topics": {
+            "interconnection": true,
+            "measurement": true,
+            "network management": true,
+            "routing": true,
+            "security": true,
+            "wide-area monitoring and debugging": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-f056de6c068330c15a23bff699343e8f1b69952df278bad5d01125d8272829ff",
+            "timestamp": 1515681946,
+            "size": 442942
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1527065398,
+        "options": {
+            "publication-or-non-publication": "invited talk",
+            "non-publications-only-url": "http:\/\/www.caida.org\/publications\/papers\/2018\/artemis\/",
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-df976b391c2004a289d97b1282b1cb59a7f150df39e82f2d42c584b4cfcf039b",
+                "timestamp": 1530094209,
+                "size": 58584,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "66043fee3e9bb3f31eb009557c0f269ee792c5d1",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1530094209,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 18512
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "pid": 32,
+        "title": "Towards a Rigorous Methodology for Measuring Adoption of RPKI Route Validation and Filtering",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524507890,
+        "authors": [
+            {
+                "email": "andreas.reuter@fu-berlin.de",
+                "first": "Andreas",
+                "last": "Reuter",
+                "affiliation": "Freie Universität Berlin",
+                "contact": true
+            },
+            {
+                "email": "randy@psg.com",
+                "first": "Randy",
+                "last": "Bush",
+                "affiliation": "IIJ \/ Dragon Research",
+                "contact": true
+            },
+            {
+                "email": "cunha@dcc.ufmg.br",
+                "first": "Italo",
+                "last": "Cunha",
+                "affiliation": "UMFG",
+                "contact": true
+            },
+            {
+                "email": "ethan@ee.columbia.edu",
+                "first": "Ethan",
+                "last": "Katz-Bassett",
+                "affiliation": "Columbia University",
+                "contact": true
+            },
+            {
+                "email": "t.schmidt@haw-hamburg.de",
+                "first": "Thomas C.",
+                "last": "Schmidt",
+                "affiliation": "HAW Hamburg",
+                "contact": true
+            },
+            {
+                "email": "m.waehlisch@fu-berlin.de",
+                "first": "Matthias",
+                "last": "Wählisch",
+                "affiliation": "Freie Universität Berlin",
+                "contact": true
+            }
+        ],
+        "abstract": "In this talk, we will report on our recent article ``Towards a Rigorous\r\nMethodology for Measuring Adoption of RPKI Route Validation and\r\nFiltering'', published in ACM Computer Communication Review, January 2018.\r\nWe will also present new results that arise from ongoing deployment of RPKI route origin validation (\\eg default filtering at IXP route servers), and introduce a publicly available measurement platform for daily monitoring of the state of deployment.",
+        "topics": {
+            "measurement": true,
+            "new secure protocols": true,
+            "routing": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-45ff38b1b7c3565a2b1733e75823eb03e19bceb70ffc1a8e9b1bdb084bf270e6",
+            "timestamp": 1524507890,
+            "size": 475899
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529583437,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "Andreas Reuter, Randy Bush, \\'Italo Cunha, Ethan Katz-Bassett, Thomas C. Schmidt, Matthias Wählisch, Towards a Rigorous Methodology for Measuring Adoption of RPKI Route Validation and Filtering, Sigcomm Computer Communication Review, Vol. 48, No. 1, p. 19–27, April 2018.",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-f5dbe0792a4fb22b515e13af6310784c3e0e52fd76ad2da1b31c53febfdb621f",
+                "timestamp": 1524507890,
+                "size": 558804,
+                "filename": "rov-measurement-ccr-acmart.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-3e1990874bff20791d85a03e1ce986415f5ada490b08220eadcd5cf18fdffc23",
+                "timestamp": 1529948914,
+                "size": 56628,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "6948f31e1e543ef0df85674fdc9f16e0d06ae4e3",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948914,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            316,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 5577,
+                                "pagetype": "bib"
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "pelsser@unistra.fr": "confirmed"
+        }
+    },
+    {
+        "pid": 14,
+        "title": "Beyond Binary Failures in Networks",
+        "decision": "#invited",
+        "status": "#invited",
+        "submitted": true,
+        "submitted_at": 1515805291,
+        "authors": [
+            {
+                "first": "Rachee",
+                "last": "Singh",
+                "affiliation": "UMass Amherst"
+            },
+            {
+                "email": "mgh@microsoft.com",
+                "first": "Manya",
+                "last": "Ghobadi",
+                "affiliation": "Microsoft Research",
+                "contact": true
+            },
+            {
+                "first": "Klaus-Tycho",
+                "last": "Foerster",
+                "affiliation": "University of Vienna"
+            },
+            {
+                "first": "Mark",
+                "last": "Filer",
+                "affiliation": "Microsoft"
+            },
+            {
+                "first": "Phillipa",
+                "last": "Gill",
+                "affiliation": "UMass Amherst"
+            }
+        ],
+        "contacts": [
+            {
+                "email": "phillipa@cs.umass.edu",
+                "first": "Phillipa",
+                "last": "Gill",
+                "affiliation": "U. Mass Amherst"
+            },
+            {
+                "email": "rachee@cs.umass.edu",
+                "first": "Rachee",
+                "last": "Singh",
+                "affiliation": "UMass Amherst"
+            },
+            {
+                "email": "klaus-tycho.foerster@univie.ac.at",
+                "first": "Klaus-Tycho",
+                "last": "Foerster",
+                "affiliation": "University of Vienna"
+            },
+            {
+                "email": "mafiler@microsoft.com",
+                "first": "Mark",
+                "last": "Filer",
+                "affiliation": "Microsoft"
+            }
+        ],
+        "abstract": "Fiber optic cables are the workhorses of today's Internet services, but they are an expensive resource and require significant monetary investment. Their importance has driven a conservative deployment approach with redundancy baked into multiple layers of the network under the assumption that links have a constant reliability status and operate at a fixed capacity. In this work, we take an unconventional approach and argue that link failures should not be always considered binary events; this approach enables the foundation of a framework for network links with dynamic capacity and reliability. We investigated this idea by conducting the first ever large-scale study of operational optical signals, analyzing over 2,000 channels in a wide-area network for a period of three years. Our analysis uncovered several findings that enable cross-layer optimizations and smart algorithms to improve traffic engineering, increase capacity, and reduce cost. For instance, we show the capacity of over 90% of wide-area links can be augmented by at least 50 Gbps, leading to an overall capacity gain of more than 100 Tbps. This means we get higher capacity and better availability using the same links. \r\nBased on work published at [1] Rachee Singh, Monia Ghobadi, Klaus-Tycho Foerster, Mark Filer, and Phillipa Gill. 2017. Run, Walk, Crawl: Towards Dynamic Link Capacities. In Proceedings of the 16th ACM Workshop on Hot Topics in Networks (HotNets-XVI). ACM Press, Palo Alto, CA, 143--149. DOI:https:\/\/doi.org\/10.1145\/3152434.3152451",
+        "topics": {
+            "programmable networking in the wide area": true,
+            "technology adoption": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-9744767f776b20b24fd4d75cb39e04a6e8bdd6a9534fa98a769b725cb1ed77b7",
+            "timestamp": 1515805291,
+            "size": 5689418
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1527065296,
+        "options": {
+            "publication-or-non-publication": "invited talk",
+            "previous-publication-venue": "Singh, Rachee and Ghobadi, Monia and Foerster, Klaus-Tycho and Filer, Mark and Gill, Phillipa. 2017. Run, Walk, Crawl: Towards Dynamic Link Capacities. In Proceedings of the 16th ACM Workshop on Hot Topics in Networks (HotNets-XVI). ACM Press, Palo Alto, CA, 143--149. \r\nDOI:https:\/\/doi.org\/10.1145\/3152434.3152451",
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-a9f5cd6adff0c52cad229e93859447efdc2675fb7f96f9500a56db975ad1014c",
+                "timestamp": 1529948915,
+                "size": 57535,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "bc150bc350abcf128127ce0392c42b292f803372",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948916,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            256,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 18793
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "phillipa@cs.umass.edu": "author"
+        }
+    },
+    {
+        "pid": 41,
+        "title": "Lights Out: Climate Change Risk to Internet Infrastructure",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524479186,
+        "authors": [
+            {
+                "email": "ram@cs.uoregon.edu",
+                "first": "Ramakrishnan",
+                "last": "Durairajan",
+                "affiliation": "University of Oregon",
+                "contact": true
+            },
+            {
+                "email": "clbarford@wisc.edu",
+                "first": "Carol",
+                "last": "Barford",
+                "affiliation": "University of Wisconsin - Madison"
+            },
+            {
+                "email": "pb@cs.wisc.edu",
+                "first": "Paul",
+                "last": "Barford",
+                "affiliation": "University of Wisconsin - Madison and comScore Inc.",
+                "contact": true
+            }
+        ],
+        "abstract": "In this paper we consider the risks to Internet infrastructure in the US due to sea level rise. Our study is based on sea level incursion projections from the National Oceanic and Atmospheric Administration (NOAA) and Internet infrastructure deployment data from Internet Atlas. We align the data formats and assess risks in terms of the amount and type of infrastructure that will be under water in different time intervals over the next 100 years. We find that 4,067 miles of fiber conduit will be under water and 1,101 nodes (e.g., points of presence and colocation centers) will be surrounded by water in the next 15 years. We further quantify the risks of sea level rise by defining a metric that considers the combination of geographic scope and Internet infrastructure density. We use this metric to examine different regions and find that the New York, Miami, and Seattle metropolitan areas are at highest risk. We also quantify the risks to individual service provider infrastructures and find that Level3, Inteliquent, and AT&T are at highest risk. While it is difficult to project the impact of countermeasures such as sea walls, our results suggest the urgency of developing mitigation strategies and alternative infrastructure deployments.",
+        "topics": {
+            "interconnection": true,
+            "measurement": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-034a5fbcc5d38c29435b49e19acf3e191706a290ef04b7c5fa4e97594805d978",
+            "timestamp": 1524479186,
+            "size": 7560872,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "banal": {
+                    "at": 1527050327,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 74,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                84,
+                                52
+                            ],
+                            "d": 59126
+                        },
+                        {
+                            "d": 66055
+                        },
+                        {
+                            "d": 61565
+                        },
+                        {
+                            "d": 29275
+                        },
+                        {
+                            "d": 49863
+                        },
+                        {
+                            "d": 42664
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                204,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 55209,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-710c4d922bd4b7850d706d606255dea4d17291d5492f173cd352e1175c4d2611",
+            "timestamp": 1529600692,
+            "size": 7582114,
+            "filename": "paper.pdf",
+            "metadata": {
+                "npages": 7,
+                "acmfinal": {
+                    "ok": true,
+                    "at": 1529600698,
+                    "npages": 7
+                },
+                "banal": {
+                    "at": 1529600698,
+                    "papersize": [
+                        792,
+                        612
+                    ],
+                    "margin": [
+                        56,
+                        52,
+                        84,
+                        52
+                    ],
+                    "bodyfontsize": 10,
+                    "leading": 12,
+                    "columns": 2,
+                    "nummargin": 74,
+                    "pages": [
+                        {
+                            "margin": [
+                                80,
+                                52,
+                                88,
+                                52
+                            ],
+                            "d": 46942
+                        },
+                        {
+                            "d": 66099
+                        },
+                        {
+                            "d": 69077
+                        },
+                        {
+                            "d": 29062
+                        },
+                        {
+                            "d": 43419
+                        },
+                        {
+                            "d": 45595
+                        },
+                        {
+                            "margin": [
+                                56,
+                                52,
+                                164,
+                                52
+                            ],
+                            "bodyfontsize": 8,
+                            "leading": 10,
+                            "d": 53519,
+                            "pagetype": "bib"
+                        }
+                    ]
+                }
+            }
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529016610,
+        "options": {
+            "publication-or-non-publication": "6 page (\"publication\")",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-034a5fbcc5d38c29435b49e19acf3e191706a290ef04b7c5fa4e97594805d978",
+                "timestamp": 1524478797,
+                "size": 7560872,
+                "filename": "paper.pdf"
+            },
+            "field-is-outdated-not": "Paper",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "[n. d.]a. 10 States Most at Risk of Flooding. <a href=\"https:\/\/www.usnews.com\/news\/slideshows\/10-states-most-at-risk-of-flooding\">https:\/\/www.usnews.com\/news\/slideshows\/10-states-most-at-risk-of-flooding<\/a>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "[n. d.]. Digital Coast, NOAA. <a href=\"https:\/\/coast.noaa.gov\/digitalcoast\/about\/\">https:\/\/coast.noaa.gov\/digitalcoast\/about\/<\/a>."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "[n. d.]. Digital Coast Partners. <a href=\"https:\/\/coast.noaa.gov\/digitalcoast\/contributing-partners\/\">https:\/\/coast.noaa.gov\/digitalcoast\/contributing-partners\/<\/a>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "[n. d.]. EERPAT, the Energy and Emissions Reduction Policy Analysis Tool. <a href=\"https:\/\/www.planning.dot.gov\/FHWA_tool\/default.aspx\">https:\/\/www.planning.dot.gov\/FHWA_tool\/default.aspx<\/a>."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "[n. d.]a. ESRI ArcGIS Projection and Transformation. <a href=\"http:\/\/desktop.arcgis.com\/en\/arcmap\/10.4\/tools\/data-management-toolbox\">http:\/\/desktop.arcgis.com\/en\/arcmap\/10.4\/tools\/data-management-toolbox<\/a>."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "[n. d.]b. ESRI ArcGIS Spatial Analyst. <a href=\"http:\/\/desktop.arcgis.com\/en\/arcmap\/10.4\/tools\/spatial-analyst-toolbox\">http:\/\/desktop.arcgis.com\/en\/arcmap\/10.4\/tools\/spatial-analyst-toolbox<\/a>."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "[n. d.]. ESRI ArcGIS Spatial Analyst: Kernel Density. <a href=\"http:\/\/pro.arcgis.com\/en\/pro-app\/tool-reference\/spatial-analyst\/kernel-density.htm\">http:\/\/pro.arcgis.com\/en\/pro-app\/tool-reference\/spatial-analyst\/kernel-density.htm<\/a>. ([n. d.])."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "[n. d.]. Evidence for Submarine cables terminating at nearby colocation facilities. <a href=\"http:\/\/cryptome.org\/eyeball\/cablew\/cablew-eyeball.htm\">http:\/\/cryptome.org\/eyeball\/cablew\/cablew-eyeball.htm<\/a>."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "[n. d.]. FLUXNET Network. <a href=\"http:\/\/fluxnet.fluxdata.org\">http:\/\/fluxnet.fluxdata.org<\/a>."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "[n. d.]b. Higher seas to flood dozens of US cities, study says; is yours one of them? <a href=\"http:\/\/www.cnn.com\/2017\/07\/12\/us\/weather-cities-inundated-climate-change\/index.html\">http:\/\/www.cnn.com\/2017\/07\/12\/us\/weather-cities-inundated-climate-change\/index.html<\/a>."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "[n. d.]. IPCC Fifth Assessment Report (AR5). <a href=\"https:\/\/ipcc.ch\/report\/ar5\/\">https:\/\/ipcc.ch\/report\/ar5\/<\/a>."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "[n. d.]. National Oceanic and Atmospheric Administration (NOAA). <a href=\"http:\/\/www.noaa.gov\">http:\/\/www.noaa.gov<\/a>."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "[n. d.]. Policy Options for Reducing CO2 Emissions. <a href=\"https:\/\/www.cbo.gov\/publication\/41663\">https:\/\/www.cbo.gov\/publication\/41663<\/a>."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "[n. d.]. Sea Level Rise Inundation data. <a href=\"https:\/\/coast.noaa.gov\/dataregistry\/search\/dataset\/info\/slr\">https:\/\/coast.noaa.gov\/dataregistry\/search\/dataset\/info\/slr<\/a>."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "[n. d.]c. Sea Level Rise to Flood Major U.S. Cities. <a href=\"https:\/\/www.ecowatch.com\/sea-level-rise-flooding-2458509093.html\">https:\/\/www.ecowatch.com\/sea-level-rise-flooding-2458509093.html<\/a>."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "[n. d.]d. Sea Level Rise Will Flood Hundreds of Cities in the Near Future. <a href=\"http:\/\/news.nationalgeographic.com\/2017\/07\/sea-level-rise-flood-global-warming-science\/\">http:\/\/news.nationalgeographic.com\/2017\/07\/sea-level-rise-flood-global-warming-science\/<\/a>."
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "[n. d.]. The Impact of Water on Fibre Optic Cable. <a href=\"http:\/\/www.cabling.datwyler.com\/supportdownloads\/ict-networks.html\">http:\/\/www.cabling.datwyler.com\/supportdownloads\/ict-networks.html<\/a>."
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "[n. d.]. The Keeling Curve. <a href=\"https:\/\/scripps.ucsd.edu\/programs\/keelingcurve\/\">https:\/\/scripps.ucsd.edu\/programs\/keelingcurve\/<\/a>."
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "[n. d.]. Will climate change burn up the Internet? <a href=\"http:\/\/grist.org\/climate-energy\/will-climate-change-burn-up-the-internet\/\">http:\/\/grist.org\/climate-energy\/will-climate-change-burn-up-the-internet\/<\/a>."
+                },
+                {
+                    "ref_id": "20",
+                    "ref_text": "Kenjiro Cho, Cristel Pelsser, Randy Bush, and Youngjoon Won. 2011. The Japan Earthquake: The Impact on Traffic and Routing Observed by a Local ISP. In <i>ACM SWID<\/i>."
+                },
+                {
+                    "ref_id": "21",
+                    "ref_text": "James Cowie, Alin Popescu, and Todd Underwood. [n. d.]. Impact of hurricane Katrina on Internet Infrastructure. ([n. d.])."
+                },
+                {
+                    "ref_id": "22",
+                    "ref_text": "Ramakrishnan Durairajan and Paul Barford. 2016. A Techno-Economic Framework for Broadband Deployment in Underserved Areas. In <i>ACM SIGCOMM GAIA<\/i>."
+                },
+                {
+                    "ref_id": "23",
+                    "ref_text": "Ramakrishnan Durairajan, Paul Barford, Joel Sommers, and Walter Willinger. 2015. InterTubes: A Study of the US Long-haul Fiber-optic Infrastructure. In <i>ACM SIGCOMM<\/i>."
+                },
+                {
+                    "ref_id": "24",
+                    "ref_text": "Ramakrishnan Durairajan, Subhadip Ghosh, Xin Tang, Paul Barford, and Brian Eriksson. 2013. Internet Atlas: A Geographic Database of the Internet. In <i>ACM SIGCOMM HotPlanet<\/i>."
+                },
+                {
+                    "ref_id": "25",
+                    "ref_text": "Brian Eriksson, Ramakrishnan Durairajan, and Paul Barford. 2013. RiskRoute: A Framework for Mitigating Network Outage Threats. In <i>ACM CoNEXT<\/i>."
+                },
+                {
+                    "ref_id": "26",
+                    "ref_text": "Karen A Garrett, Shauna P Dendy, Erin E Frank, Matthew N Rouse, and Steven E Travers. 2006. Climate Change Effects on Plant Disease: Genomes to Ecosystems. <i>Annual Reviews<\/i> (2006)."
+                },
+                {
+                    "ref_id": "27",
+                    "ref_text": "Jonathan Gregory. [n. d.]. Climate Change 2013: The Physical Science Basis: Projections of sea level rise. <a href=\"https:\/\/www.ipcc.ch\/pdf\/unfccc\/cop19\/3_gregory13sbsta.pdf\">https:\/\/www.ipcc.ch\/pdf\/unfccc\/cop19\/3_gregory13sbsta.pdf<\/a>."
+                },
+                {
+                    "ref_id": "28",
+                    "ref_text": "Daniel J Jacob and Darrell A Winner. 2009. Effect of Climate Change on Air Quality. <i>Atmospheric environment<\/i> (2009)."
+                },
+                {
+                    "ref_id": "29",
+                    "ref_text": "Christophe Lejeusne, Pierre Chevaldonné, Christine Pergent-Martini, Charles F Boudouresque, and Thierry Pérez. 2010. Climate Change Effects on a Miniature Ocean: The Highly Diverse, Highly Impacted Mediterranean Sea. <i>Trends in ecology & evolution<\/i> (2010)."
+                },
+                {
+                    "ref_id": "30",
+                    "ref_text": "Doug Madory. [n. d.]. Hurricane Sandy: Global Impacts | Dyn Blog. <a href=\"http:\/\/www.renesys.com\/blog\/2012\/11\/sandys-global-impacts.shtml\">http:\/\/www.renesys.com\/blog\/2012\/11\/sandys-global-impacts.shtml<\/a>."
+                },
+                {
+                    "ref_id": "31",
+                    "ref_text": "John F McLaughlin, Jessica J Hellmann, Carol L Boggs, and Paul R Ehrlich. 2002. Climate Change hastens Population Extinctions. <i>PNAS<\/i> (2002)."
+                },
+                {
+                    "ref_id": "32",
+                    "ref_text": "Adam Parris, Peter Bromirski, Virginia Burkett, Daniel R Cayan, Mary Culver, John Hall, Radley Horton, Kevin Knuuti, Richard Moss, Jayantha Obeysekera, et al. 2012. <i>Global sea level rise scenarios for the United States National Climate Assessment<\/i>. US Department of Commerce, National Oceanic and Atmospheric Administration, Oceanic and Atmospheric Research, Climate Program Office."
+                },
+                {
+                    "ref_id": "33",
+                    "ref_text": "Martin L Parry, Cynthia Rosenzweig, Ana Iglesias, Matthew Livermore, and Gunther Fischer. 2004. Effects of Climate Change on Global Food Production under SRES Emissions and Socio-economic Scenarios. <i>Global Environmental Change<\/i> (2004)."
+                },
+                {
+                    "ref_id": "34",
+                    "ref_text": "Aaron Schulman and Neil Spring. 2011. Pingin' in the Rain. In <i>ACM SIGCOMM IMC<\/i>."
+                },
+                {
+                    "ref_id": "35",
+                    "ref_text": "Richard SJ Tol. 2002. Estimates of the Damage Costs of Climate Change. Part 1: Benchmark Estimates. <i>Environmental and resource Economics<\/i> (2002)."
+                },
+                {
+                    "ref_id": "36",
+                    "ref_text": "Maarten K Van Aalst. 2006. The Impacts of Climate Change on the Risk of Natural Disasters. <i>Disasters<\/i> (2006)."
+                },
+                {
+                    "ref_id": "37",
+                    "ref_text": "Mark VanKoningsveld, JPM Mulder, MJF Stive, L VanDerValk, and AW VanDerWeck. 2008. Living with Sea-level Rise and Climate Change: A Case Study of the Netherlands. <i>Journal of Coastal Research<\/i> (2008)."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003058.10003062",
+                    "concept_desc": "Networks~Physical links",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003058,
+                        10003062
+                    ],
+                    "expected_concept_desc": "Networks~Physical links"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                }
+            ],
+            "acm-keywords": [
+                "Physical Internet infrastructure",
+                "Climate change",
+                "Sea level rise",
+                "Critical infrastructure",
+                "Risks"
+            ],
+            "source-files": [
+                {
+                    "mimetype": "application\/zip",
+                    "hash": "sha2-daf553d809a209ba94d57f6a13dde70f9a690195853ad6faffb39046b3f25e9c",
+                    "timestamp": 1529102080,
+                    "size": 13957170,
+                    "filename": "ANRW18-CR.zip"
+                }
+            ]
+        },
+        "pc_conflicts": {
+            "wwillinger@niksun.com": "collaborator"
+        }
+    },
+    {
+        "pid": 35,
+        "title": "Comments On DNS Robustness",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524516368,
+        "authors": [
+            {
+                "email": "mallman@icir.org",
+                "first": "Mark",
+                "last": "Allman",
+                "affiliation": "ICSI",
+                "contact": true
+            }
+        ],
+        "abstract": "The Domain Name System (DNS) is used to map human-friendly hostnames\r\ninto network addresses that are in turn used to route traffic across\r\nthe Internet.  DNS lookups are a precursor to much of the\r\ncommunication that traverses the Internet.  Therefore, the DNS is a\r\ncrucial service.  In this talk, we will explore the robustness of\r\nthe DNS ecosystem.  We will use the .com, .net and .org zone files\r\nfrom the past nine years to study two basic kinds of robustness.\r\nFirst, we will look at the robustness of individual zones (e.g., how\r\nmany nameservers does the zone leverage).  Second, we will explore\r\nhow connected DNS zones are to one another.  E.g., how many zones\r\nend up sharing fate by using the same set of nameservers?  In both\r\ncases we find soft spots in the DNS ecosystem where robustness can\r\nbe improved---and, often, at little cost.",
+        "topics": {
+            "measurement": true,
+            "security": true,
+            "wide area services (DNS, anycast, CDNs, etc)": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-14953817b22e57515bd38a27a1524f33d3303e466dddc1d132367c82aaf13b0e",
+            "timestamp": 1524516368,
+            "size": 92139
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529347103,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "Paper to be submitted to IMC 2018.",
+            "field-is-outdated-not": "Talk",
+            "acm-keywords": [
+                "DNS",
+                "measurement",
+                "robustness"
+            ],
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-7ff1d16ebd843f46c574583ba82f939161dc0b9b170206283fd104110d2f5416",
+                "timestamp": 1529948544,
+                "size": 55798,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "96cdfba3b39a4fe38e72ecaacd9e2c59aaa8e977",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948544,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            316,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 10609
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 26,
+        "title": "Preventing (Network) Time Travel with Chronos",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1523955195,
+        "authors": [
+            {
+                "email": "neta.r.schiff@gmail.com",
+                "first": "Neta Rozen",
+                "last": "Schiff",
+                "affiliation": "The Hebrew University of Jerusalem",
+                "contact": true
+            },
+            {
+                "email": "schapiram@huji.ac.il",
+                "first": "Michael",
+                "last": "Schapira",
+                "affiliation": "The Hebrew University of Jerusalem",
+                "contact": true
+            },
+            {
+                "email": "danny.dolev@mail.huji.ac.il",
+                "first": "Danny",
+                "last": "Dolev",
+                "affiliation": "The Hebrew University of Jerusalem",
+                "contact": true
+            },
+            {
+                "email": "omermaya@gmail.com",
+                "first": "Omer",
+                "last": "Deutsch",
+                "affiliation": "The Hebrew University of Jerusalem"
+            }
+        ],
+        "abstract": "The Network Time Protocol (NTP) synchronizes time across computer systems over the Internet. Unfortunately, NTP is highly vulnerable to “time shifting attacks”, in which the attacker’s goal is to shift forward\/backward the local time at an NTP client. This has severe implications for the correctness and safety of time-sensitive applications and for security mechanisms. Importantly, time shifting attacks on NTP are possible even if all NTP communications are encrypted and authenticated.\r\n\r\nWe present Chronos, a new NTP client that achieves good synchronization even in the presence of powerful man-in-the-middle attackers. Chronos is backwards compatible with legacy NTP and involves no changes whatsoever to NTP servers. In addition, Chronos is carefully engineered to minimize communication overhead so as to avoid overloading NTP servers.\r\n\r\nWe evaluate Chronos’ security and network efficiency guarantees via a combination of theoretical analyses and experiments with a prototype implementation. Our results indicate that to succeed in shifting time at a Chronos client by over $100$ms from the UTC, even a powerful man-in-the-middle attacker requires over $20$ years of effort in expectation. Based on work published at [1].",
+        "topics": {
+            "new secure protocols": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-90fb1de6aca5a4775f87f0a39a58a2345fe4175e40e3f4a0c9d140193267fa21",
+            "timestamp": 1523955195,
+            "size": 444092
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528893033,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "The work was published in NDSS 2018 conference",
+            "non-publications-only-url": "http:\/\/wp.internetsociety.org\/ndss\/wp-content\/uploads\/sites\/25\/2018\/02\/ndss2018_02A-2_Deutsch_paper.pdf",
+            "field-is-outdated-not": "Talk",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Danny Dolev, Michael Schapira, Omer Deutsch, Neta Rozen Schiff. 2018. Preventing (Network) Time Travel with Chronos (Proceedings of the 25th Network and Distributed Systems Security Symposium (NDSS)). 15. http:\/\/wp.internetsociety.org\/ndss\/wp-content\/uploads\/sites\/25\/ 2018\/02\/ndss201802A-2Deutschpaper.pdf"
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10003014",
+                    "concept_desc": "Security and privacy~Network security",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003014
+                    ],
+                    "expected_concept_desc": "Security and privacy~Network security"
+                }
+            ],
+            "acm-keywords": [
+                "Chronos,",
+                "time synchronization,",
+                "Network Time Protocol (NTP),",
+                "provable security,",
+                "network security"
+            ],
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-203e2e76a6016ee0638689c669728e6fbaec716b8b6935dd012d61592ac093fe",
+                "timestamp": 1529948917,
+                "size": 63571,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "9f85046b4941cf3d0272dfbaeb3d0e4cd989b7e8",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948917,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 16817
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "goldbe@cs.bu.edu": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 15,
+        "title": "TCP Congestion Signatures",
+        "decision": "#invited",
+        "status": "#invited",
+        "submitted": true,
+        "submitted_at": 1515933651,
+        "authors": [
+            {
+                "email": "srikanth@icsi.berkeley.edu",
+                "first": "Srikanth",
+                "last": "Sundaresan",
+                "affiliation": "Princeton University",
+                "contact": true
+            },
+            {
+                "email": "amogh@caida.org",
+                "first": "Amogh",
+                "last": "Dhamdhere",
+                "affiliation": "CAIDA\/UCSD",
+                "contact": true
+            },
+            {
+                "email": "mallman@icir.org",
+                "first": "Mark",
+                "last": "Allman",
+                "affiliation": "ICSI",
+                "contact": true
+            },
+            {
+                "email": "kc@caida.org",
+                "first": "kc",
+                "last": "claffy",
+                "affiliation": "CAIDA\/UCSD",
+                "contact": true
+            }
+        ],
+        "abstract": "We develop and validate Internet path measurement techniques to distinguish congestion experienced when a flow self-induces congestion in the path from when a flow is affected by an already congested path. One application of this technique is for speed tests, when the user is affected by congestion either in the last mile or in an interconnect link. This difference is important because in the latter case, the user is constrained by their service plan (i.e., what they are paying for), and in the former case, they are constrained by forces outside of their control. We exploit TCP congestion control dynamics to distinguish these cases for Internet paths that are predominantly TCP traffic. In TCP terms, we re-articulate the question: was a TCP flow bottlenecked by an already congested (possibly interconnect) link, or did it induce congestion in an otherwise idle (possibly a last-mile) link? TCP congestion control affects the round-trip time (RTT) of packets within the flow (i.e., the flow RTT): an endpoint sends packets at higher throughput, increasing the occupancy of the bottleneck buffer, thereby increasing the RTT of packets in the flow. We show that two simple, statistical metrics derived from the flow RTT during the slow start period — its coefficient of variation, and the normalized difference between the maximum and minimum RTT — can robustly identify which type of congestion the flow encounters. We use extensive controlled experiments to demonstrate that our technique works with up to 90% accuracy. We also evaluate our techniques using two unique real-world datasets of TCP throughput measurements using Measurement Lab data and the Ark platform. We find up to 99% accuracy in detecting self-induced congestion, and up to 85% accuracy in detecting external congestion. Our results can benefit regulators of interconnection markets, content providers trying to improve customer service, and users trying to understand whether poor performance is something they can fix by upgrading their service tier.",
+        "topics": {
+            "measurement": true,
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-94527a8ee7d1b1bb02206d646a04f8339353054cfcf55e433e1fa5545dd08f2c",
+            "timestamp": 1515933651,
+            "size": 2055843
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1527065712,
+        "options": {
+            "publication-or-non-publication": "invited talk",
+            "previous-publication-venue": "Srikanth Sundaresan, Amogh Dhamdhere, Mark Allman, kc claffy. 2017. TCP Congestion Signatures. ACM SIGCOMM Internet Measurement Conference (Nov 2017).",
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-105f3bf99fbddd9c986e79354068a7b0d85a95fb2d6cd740539d08c33a10634c",
+                "timestamp": 1529948918,
+                "size": 56407,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "8dca35a3b20c30f6057c51947429356ccb69a0fe",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948918,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 24442
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "pid": 50,
+        "title": "Copa: Practical Delay-Based Congestion Control for the Internet",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524508570,
+        "authors": [
+            {
+                "email": "venkatar@mit.edu",
+                "first": "Venkat",
+                "last": "Arun",
+                "affiliation": "CSAIL, MIT",
+                "contact": true
+            },
+            {
+                "email": "hari@mit.edu",
+                "first": "Hari",
+                "last": "Balakrishnan",
+                "affiliation": "CSAIL, MIT",
+                "contact": true
+            }
+        ],
+        "contacts": [
+            {
+                "email": "venkatarun95@gmail.com",
+                "first": "Venkat",
+                "last": "Arun",
+                "affiliation": "MIT CSAIL"
+            }
+        ],
+        "abstract": "Congestion control schemes that are commonly deployed today are loss-based and were developed in the 2000s. The internet has changed dramatically since then, and these schemes are no longer suitable. This has prompted new research interest in this area, ranging from complex machine learning and optimization techniques [1, 2, 3, 4] to exploring usage of hitherto under-explored ack-arrival rate as signals [5, 6, 7]. It has long been recognized that delay-based congestion control overcomes many challenges that loss-based schemes face [8, 9]. However they have challenges of their own that have precluded their deployment. In this work, we identify and solve some of these challenges to create Copa, a practical delay-based congestion control algorithm for the Internet. \r\n\r\nCopa solves three challenges. (1) It periodically empties the queue to accurately measure the minimum (base) RTT, (2) it proposes a simple estimator for queuing delay that is robust to noise in RTT measurements, (3) it introduces \"TCP-mode switching\": normally Copa maintains low delays, but typically delay-sensitive schemes get low throughput when a buffer-filling flow shares the bottleneck. To solve this problem, when Copa detects a non-Copa flow, such as a buffer-filling TCP, it switches to a TCP-competitive mode to get its fair share of the bandwidth.\r\n\r\nBased on work published at Arun, Venkat, and Hari Balakrishnan. \"Copa: Practical Delay-Based Congestion Control for the Internet.\" 15th {USENIX} Symposium on Networked Systems Design and Implementation ({NSDI} 18). USENIX} Association, 2018.",
+        "topics": {
+            "transport protocols": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-a40e57cc7d04f80419a131d85cce6d72811edc3785fd243fa1b829cac3f930c8",
+            "timestamp": 1524508840,
+            "size": 180646
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528984722,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "USENIX NSDI 2018",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-bbb0f8ffe90e7ab03929fc4bf6c10d00983051b54e223e857a389d82156e1497",
+                "timestamp": 1524508570,
+                "size": 543121,
+                "filename": "copa.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Winstein, Keith, and Hari Balakrishnan. <i>TCP ex machina: computer-generated congestion control.<\/i> In ACM SIGCOMM Computer Communication Review, vol. 43, no. 4, pp. 123-134. ACM, 2013."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Sivaraman, Anirudh, Keith Winstein, Pratiksha Thaker, and Hari Balakrishnan. <i>An experimental study of the learnability of congestion control.<\/i> In ACM SIGCOMM Computer Communication Review, vol. 44, no. 4, pp. 479-490. ACM, 2014."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Dong, Mo, Qingxi Li, Doron Zarchy, Brighten Godfrey, and Michael Schapira. <i>Rethinking congestion control architecture: Performance-oriented congestion control.<\/i> In ACM SIGCOMM Computer Communication Review, vol. 44, no. 4, pp. 365-366. ACM, 2014."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Dong, Mo, Tong Meng, Doron Zarchy, Engin Arslan, Yossi Gilad, Brighten Godfrey, and Michael Schapira. <i>PCC Vivace: Online-Learning Congestion Control.<\/i> In 15th USENIX Symposium on Networked Systems Design and Implementation (NSDI 18), pp. 343-356. USENIX Association, 2018."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Anderson, Thomas E., Andy Collins, Arvind Krishnamurthy, and John Zahorjan. <i>PCP: Efficient Endpoint Congestion Control.<\/i> In NSDI 2006."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Winstein, Keith, Anirudh Sivaraman, and Hari Balakrishnan. <i>Stochastic Forecasts Achieve High Throughput and Low Delay over Cellular Networks.<\/i> In NSDI, vol. 1, no. 1, pp. 2-3. 2013."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Cardwell, Neal, Yuchung Cheng, C. Stephen Gunn, Soheil Hassas Yeganeh, and Van Jacobson. <i>BBR: Congestion-based congestion control.<\/i> Queue 14, no. 5 (2016): 50."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "Anderson, Thomas E., Andy Collins, Arvind Krishnamurthy, and John Zahorjan. <i>PCP: Efficient Endpoint Congestion Control.<\/i> In NSDI 2006."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Wei, David X., Cheng Jin, Steven H. Low, and Sanjay Hegde. <i>FAST TCP: motivation, architecture, algorithms, performance.<\/i> IEEE\/ACM transactions on Networking 14, no. 6 (2006): 1246-1259."
+                }
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003039.10003048",
+                    "concept_desc": "Networks~Transport protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003048
+                    ],
+                    "expected_concept_desc": "Networks~Transport protocols"
+                }
+            ],
+            "acm-keywords": [
+                "Congestion Control",
+                "Transport"
+            ],
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-5d1508e36e539865f11ffcfb2b3ffb12d53b0dcec127d929a1647991561d3887",
+                "timestamp": 1530094211,
+                "size": 62924,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "0ec7a66ef7e9835cf83a192dec6314a779b941cf",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1530094211,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 19900
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "advisor"
+        }
+    },
+    {
+        "pid": 13,
+        "title": "Why (and How) Networks Should Run Themselves",
+        "decision": "#invited",
+        "status": "#invited",
+        "submitted": true,
+        "submitted_at": 1515796150,
+        "authors": [
+            {
+                "email": "feamster@cs.princeton.edu",
+                "first": "Nick",
+                "last": "Feamster",
+                "affiliation": "Princeton",
+                "contact": true
+            },
+            {
+                "email": "jrex@cs.princeton.edu",
+                "first": "Jennifer",
+                "last": "Rexford",
+                "affiliation": "Princeton",
+                "contact": true
+            }
+        ],
+        "abstract": "The proliferation of networked devices, systems, and applications that we depend on every day makes managing networks more important than ever. The increasing security, availability, and performance demands of these applications suggest that these increasingly difficult network management problems be solved in real time, across a complex web of interacting protocols and systems. Alas, just as the importance of network management has increased, the network has grown so complex that it is seemingly unmanageable. In this new era, network management requires a fundamentally new approach. Instead of optimizations based on closed-form analysis of individual protocols, network operators need data-driven, machine-learning-based models of end-to-end and application performance based on high-level policy goals and a holistic view of the underlying components. Instead of anomaly detection algorithms that operate on offline analysis of network traces, operators need classification and detection algorithms that can make real-time, closed-loop decisions. Networks should learn to drive themselves. This paper explores this concept, discussing how we might attain this ambitious goal by more closely coupling measurement with real-time control and by relying on learning for inference and prediction about a networked application or system, as opposed to closed-form analysis of individual protocols.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-713a9757d81bc6d4fedf0a942c213973850bca634c4ab686ef43757d2035dc82",
+            "timestamp": 1515796151,
+            "size": 182234
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1527065806,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-792a3124821ad458e6b2b06999b9cb60a7763283151e466a43292898857bb1c1",
+                "timestamp": 1530182080,
+                "size": 56111,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "395bd6e7b08f146c6c54e5329204c210329bb18c",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1530182081,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            316,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 17014
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "feamster@cs.princeton.edu": "author"
+        }
+    },
+    {
+        "pid": 47,
+        "title": "Semi-Oblivious Traffic Engineering with SMORE",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524520612,
+        "authors": [
+            {
+                "email": "praveenk@cs.cornell.edu",
+                "first": "Praveen",
+                "last": "Kumar",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "yy528@cornell.edu",
+                "first": "Yang",
+                "last": "Yuan",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "christoy@cs.cmu.edu",
+                "first": "Chris",
+                "last": "Yu",
+                "affiliation": "CMU",
+                "contact": true
+            },
+            {
+                "email": "jnfoster@cs.cornell.edu",
+                "first": "Nate",
+                "last": "Foster",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "rdk@cs.cornell.edu",
+                "first": "Robert",
+                "last": "Kleinberg",
+                "affiliation": "Cornell University",
+                "contact": true
+            },
+            {
+                "email": "petr@fb.com",
+                "first": "Petr",
+                "last": "Lapukhov",
+                "affiliation": "Facebook",
+                "contact": true
+            },
+            {
+                "email": "chiunlin@fb.com",
+                "first": "Chiun Lin",
+                "last": "Lim",
+                "affiliation": "Facebook",
+                "contact": true
+            },
+            {
+                "email": "robert.soule@usi.ch",
+                "first": "Robert",
+                "last": "Soulé",
+                "affiliation": "Università della Svizzera italiana",
+                "contact": true
+            }
+        ],
+        "abstract": "Wide-area networks are expected to meet the competing objectives of high\r\nperformance and reliability in the presence of various operational constraints\r\nand failures. Operators of such networks use traffic engineering (TE) to\r\nimprove network performance by routing traffic in desired ways. However,\r\nexisting approaches to TE, often, are unable to achieve both high performance\r\nand reliability simultaneously.\r\n\r\nThis paper proposes SMORE, a semi-oblivious TE system based on the insight that\r\nthe set of forwarding paths has an out-sized impact on the quality of a TE\r\nsystem. SMORE combines oblivious routing for static path selection with dynamic\r\nrate adaptation. The paths used by SMORE are low-stretch (ensuring low\r\nlatency), diverse (ensuring robustness) and enable load-balancing naturally.\r\nDynamic rate adaptation ensures good performance as demands change without\r\nincurring overheads related to churn. Through extensive evaluation, we show\r\nthat SMORE achieves near-optimal performance while ensuring good reliability in\r\npractical settings. Based on work published at [1].\r\n\r\n[1] Praveen Kumar, Yang Yuan, Chris Yu, Nate Foster, Robert Kleinberg,\r\nPetr Lapukhov, Chiun Lin Lim, and Robert Soulé. 2018. Semi-Oblivious\r\nTraffic Engineering: The Road Not Taken. In Proceedings of the 15th USENIX\r\nSymposium on Networked Systems Design and Implementation (NSDI '18). USENIX\r\nAssociation. 157--170.",
+        "topics": {
+            "routing": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-44a2a9786c244082df94396a878abaed421877e602e22d9ce843961c34621d87",
+            "timestamp": 1524542236,
+            "size": 433694
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529387854,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "15th USENIX Symposium on Networked Systems Design and Implementation (NSDI ’18)",
+            "non-publications-only-url": "http:\/\/www.cs.cornell.edu\/~praveenk\/smore\/",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-dfa557530fcb477618fe75439e3576ec0cc08b575bd413322f01ea03c00ca546",
+                "timestamp": 1524498520,
+                "size": 3402258,
+                "filename": "nsdi18-smore.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-56abb399a5b1449c2846482cd511df1d639a58285616b7cff6b14c7140150952",
+                "timestamp": 1529948919,
+                "size": 58846,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "1eced21a8f2a8f8781875f7c6491a1ffe03bc6c6",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948919,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 17059
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "pid": 58,
+        "title": "An ISP-Scale Deployment of TapDance",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524538986,
+        "authors": [
+            {
+                "first": "Sergey",
+                "last": "Frolov",
+                "affiliation": "University of Colorado Boulder"
+            },
+            {
+                "first": "Eric",
+                "last": "Wustrow",
+                "affiliation": "University of Colorado Boulder"
+            },
+            {
+                "first": "Fred",
+                "last": "Douglas",
+                "affiliation": "Google"
+            },
+            {
+                "first": "Will",
+                "last": "Scott",
+                "affiliation": "University of Michigan"
+            },
+            {
+                "first": "Allison",
+                "last": "McDonald",
+                "affiliation": "University of Michigan"
+            },
+            {
+                "first": "Benjamin",
+                "last": "VanderSloot",
+                "affiliation": "University of Michigan"
+            },
+            {
+                "first": "Rod",
+                "last": "Hynes",
+                "affiliation": "Psiphon"
+            },
+            {
+                "first": "Adam",
+                "last": "Kruger",
+                "affiliation": "Psiphon"
+            },
+            {
+                "first": "Michalis",
+                "last": "Kallitsis",
+                "affiliation": "Merit Network"
+            },
+            {
+                "first": "David G.",
+                "last": "Robinson",
+                "affiliation": "Upturn"
+            },
+            {
+                "first": "Steve",
+                "last": "Schultze",
+                "affiliation": "Georgetown University Law Center"
+            },
+            {
+                "email": "nikita@illinois.edu",
+                "first": "Nikita",
+                "last": "Borisov",
+                "affiliation": "University of Illinois",
+                "contact": true
+            },
+            {
+                "first": "J. Alex",
+                "last": "Halderman",
+                "affiliation": "University of Michigan"
+            }
+        ],
+        "abstract": "In this talk, we will report initial results from the world’s first ISP-scale field trial of a refraction networking system. Refraction networking is a next-generation censorship circumvention approach that locates proxy functionality in the middle of the network, at participating ISPs or other network operators. We built a high-performance implementation of the TapDance refraction networking scheme and deployed it on four ISP uplinks with an aggregate bandwidth of 100 Gbps. Over one week of operation, our deployment served more than 50,000 real users. The experience demonstrates that TapDance can be practically realized at ISP scale with good performance and at a reasonable cost, potentially paving the way for long-term, large-scale deployments of TapDance or other refraction networking schemes in the future. We will close by discussing interactions between refraction networking and emerging web standards.",
+        "topics": {
+            "censorship": true,
+            "security": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-27581abcf10bbb2582995942cc296cd9c67e5d4172ce780a91dffcbaaf6f7b0a",
+            "timestamp": 1524538986,
+            "size": 336637
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1528938369,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "7th USENIX Workshop on Free and Open Communications on the Internet (FOCI'17)",
+            "supplemental-material": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-02e1cfd87e7ea34650e455786382442761b4b9faa95649f3cc3d71e1f5294674",
+                "timestamp": 1524538986,
+                "size": 489064,
+                "filename": "foci17-paper-frolov_0-2.pdf"
+            },
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-6f6ab35808349f04b66cf8676f1c825712b06c22dc1b4c1ec2087bc3fca9a9f5",
+                "timestamp": 1529948920,
+                "size": 57151,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "47169f8dee534dc49945828c7b707593e9ebb3db",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948920,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            252,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 11224
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "nick@cloudflare.com": "collaborator",
+            "phillipa@cs.umass.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 57,
+        "title": "Characterizing the Nature and Dynamics of Tor Exit Blocking",
+        "decision": "#accept-talk",
+        "status": "#accept-talk",
+        "submitted": true,
+        "submitted_at": 1524536153,
+        "authors": [
+            {
+                "email": "rachee@cs.umass.edu",
+                "first": "Rachee",
+                "last": "Singh",
+                "affiliation": "UMass Amherst",
+                "contact": true
+            },
+            {
+                "email": "rishab@datasociety.net",
+                "first": "Rishab",
+                "last": "Nithyanand",
+                "affiliation": "Data & Society Research Institute",
+                "contact": true
+            },
+            {
+                "email": "sadia@icsi.berkeley.edu",
+                "first": "Sadia",
+                "last": "Afroz",
+                "affiliation": "UC Berkeley and International Computer Science Institute",
+                "contact": true
+            },
+            {
+                "email": "pearce@cs.berkeley.edu",
+                "first": "Paul",
+                "last": "Pearce",
+                "affiliation": "UC Berkeley",
+                "contact": true
+            },
+            {
+                "email": "mct@icsi.berkeley.edu",
+                "first": "Michael Carl",
+                "last": "Tschantz",
+                "affiliation": "International Computer Science Institute",
+                "contact": true
+            },
+            {
+                "email": "phillipa@cs.umass.edu",
+                "first": "Phillipa",
+                "last": "Gill",
+                "affiliation": "UMass Amherst",
+                "contact": true
+            },
+            {
+                "email": "vern@cs.berkeley.edu",
+                "first": "Vern",
+                "last": "Paxson",
+                "affiliation": "UC Berkeley and International Computer Science Institute",
+                "contact": true
+            }
+        ],
+        "abstract": "Facing undesired traffic from the Tor anonymity network, online service providers discriminate against Tor users. In this study we characterize the extent of discrimination faced by Tor users and the nature of undesired traffic exiting from the Tor network – a task complicated by Tor’s need to maintain user anonymity. We leverage multiple independent data sources: email complaints sent to exit operators, commercial threat intelligence, webpage crawls via Tor, and privacy-sensitive measurements of our own Tor exit nodes to address this challenge. We develop methods for classifying email complaints sent to abuse contacts and an interactive crawler to find subtle forms of discrimination on the Web, and deploy our own exits in various configurations to understand which are prone to discrimination. We find that conservative exit policies are ineffective in preventing the blacklisting of exit relays. However, a majority of the attacks originating from Tor generate high traffic volume, suggesting the possibility of detection and prevention without violating Tor users’ privacy. Based on work published at [1].\r\n\r\n[1]: Rachee Singh, Rishab Nithyanand, Sadia Afroz, Paul Pearce, Michael Carl Tschantz, Phillipa Gill, and Vern Paxson. 2017. Characterizing the Nature and Dynamics of Tor Exit Blocking. In 26th USENIX Security Symposium (USENIX Security 17). USENIX Association, Vancouver, BC, 325–341.",
+        "topics": {
+            "censorship": true,
+            "measurement": true
+        },
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-52e5b6e2734d94ef099a7ab68889a77d54fb35b19341eb8b869ef707594aae26",
+            "timestamp": 1524536153,
+            "size": 161668
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1529415146,
+        "options": {
+            "publication-or-non-publication": "abstract (\"non-publication\")",
+            "previous-publication-venue": "USENIX Security 2017",
+            "non-publications-only-url": "https:\/\/www.usenix.org\/system\/files\/conference\/usenixsecurity17\/sec17-singh.pdf",
+            "field-is-outdated-not": "Talk",
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-cf6100111bdce58df4c6ebebee2887d72fd11c3aadcb06495e2fed8f47299895",
+                "timestamp": 1529948921,
+                "size": 58533,
+                "filename": "anrw18-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "b67abd8be8473ff5fff21aea3dcea46d29bf4cef",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1529948921,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "d": 16971
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "choffnes@ccs.neu.edu": "collaborator",
+            "goldbe@cs.bu.edu": "collaborator",
+            "phillipa@cs.umass.edu": "author"
+        }
+    }
+]
