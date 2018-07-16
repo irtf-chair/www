@@ -235,7 +235,7 @@ module ANRW
     }
 
     # paper = File.join(File.dirname(file), p["final"]["content_file"])
-    # slides = File.join(File.dirname(file), "slides-" + p["final"]["content_file"])
+    slides = File.join(File.dirname(file), p["slides"])
 
     html = %{
       <div class="modal" id="modal#{nr}" tabindex="-1" role="dialog"
@@ -284,6 +284,15 @@ module ANRW
           </button>
     }
 
+    if File.exist?(slides)
+      html += %{
+          <a href="#{File.basename(slides)}"
+             class="btn btn-default btn-xs" role="button">
+            <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+            Slides
+          </a>
+      }
+    end
 
     html += "</p></div>"
     return html

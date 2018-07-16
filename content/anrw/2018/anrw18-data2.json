@@ -2,6 +2,7 @@
     {
         "pid": 6,
         "title": "Measuring Adoption of Security Additions to the HTTPS Ecosystem",
+        "slides": "slides-anrw18-final6.pdf",
         "decision": "#invited",
         "status": "#invited",
         "submitted": true,
@@ -173,6 +174,7 @@
     {
         "pid": 22,
         "title": "Push Away Your Privacy: Precise User Tracking Based on TLS Client Certificate Authentication",
+        "slides": "slides-anrw18-final22.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -297,6 +299,7 @@
     {
         "pid": 62,
         "title": "Cloud Strife: Mitigating the Security Risks of Domain-Validated Certificates",
+        "slides": "slides-anrw18-final62.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -494,6 +497,7 @@
     {
         "pid": 45,
         "title": "Studying TLS Usage in Android Apps",
+        "slides": "slides-anrw18-final45.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -636,6 +640,7 @@
     {
         "pid": 9,
         "title": "ARTEMIS: Neutralizing BGP Hijacking within a Minute",
+        "slides": "slides-anrw18-final9.pdf",
         "decision": "#invited",
         "status": "#invited",
         "submitted": true,
@@ -749,6 +754,7 @@
     {
         "pid": 32,
         "title": "Towards a Rigorous Methodology for Measuring Adoption of RPKI Route Validation and Filtering",
+        "slides": "slides-anrw18-final32.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -865,6 +871,7 @@
     {
         "pid": 14,
         "title": "Beyond Binary Failures in Networks",
+        "slides": "slides-anrw18-final14.pdf",
         "decision": "#invited",
         "status": "#invited",
         "submitted": true,
@@ -981,6 +988,7 @@
     {
         "pid": 41,
         "title": "Lights Out: Climate Change Risk to Internet Infrastructure",
+        "slides": "slides-anrw18-final41.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -1357,6 +1365,7 @@
     {
         "pid": 35,
         "title": "Comments On DNS Robustness",
+        "slides": "slides-anrw18-final35.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -1434,6 +1443,7 @@
     {
         "pid": 26,
         "title": "Preventing (Network) Time Travel with Chronos",
+        "slides": "slides-anrw18-final26.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -1551,6 +1561,7 @@
     {
         "pid": 15,
         "title": "TCP Congestion Signatures",
+        "slides": "slides-anrw18-final15.pdf",
         "decision": "#invited",
         "status": "#invited",
         "submitted": true,
@@ -1639,6 +1650,7 @@
     {
         "pid": 50,
         "title": "Copa: Practical Delay-Based Congestion Control for the Internet",
+        "slides": "slides-anrw18-final50.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -1785,6 +1797,7 @@
     {
         "pid": 13,
         "title": "Why (and How) Networks Should Run Themselves",
+        "slides": "slides-anrw18-final13.pdf",
         "decision": "#invited",
         "status": "#invited",
         "submitted": true,
@@ -1857,6 +1870,7 @@
     {
         "pid": 47,
         "title": "Semi-Oblivious Traffic Engineering with SMORE",
+        "slides": "slides-anrw18-final47.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -1980,6 +1994,7 @@
     {
         "pid": 58,
         "title": "An ISP-Scale Deployment of TapDance",
+        "slides": "slides-anrw18-final58.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
@@ -2118,6 +2133,7 @@
     {
         "pid": 57,
         "title": "Characterizing the Nature and Dynamics of Tor Exit Blocking",
+        "slides": "slides-anrw18-final57.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
         "submitted": true,
