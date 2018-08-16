@@ -176,6 +176,7 @@ module IRTF
 
   # HRPC
   tenoever = Person.new("Niels", "ten Oever", "niels@article19.org", "https://nielstenoever.net/", nil)
+  knodel = Person.new("Mallory", "Knodel", "mallory@article19.org", "https://www.linkedin.com/in/malloryknodel/", nil)
   doria = Person.new("Avri", "Doria", "avri@acm.org", "https://www.linkedin.com/in/doriavr", nil)
   hrpc = RG.new(
     "hrpc",
@@ -183,7 +184,7 @@ module IRTF
     "hrpc@irtf.org",
     nil,
     "https://hrpc.io/",
-    [ tenoever, doria ],
+    [ knodel, doria ],
     nil,
     "2015-11-30",
     nil
@@ -280,7 +281,7 @@ module IRTF
     [ lopez, ramki ],
     [ banks ],
     "2015-1-20",
-    nil
+    "2018-8-1"
   )
 
   # NWCRG
@@ -310,7 +311,7 @@ module IRTF
     "nmrg@irtf.org",
     nil,
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
-    [ granville, ciavaglia ],
+    [ ciavaglia ],
     nil,
     nil,
     nil
@@ -321,7 +322,7 @@ module IRTF
   linkova = Person.new("Jen", "Linkova", "furry13@gmail.com", "https://www.linkedin.com/in/furry", nil)
   panrg = RG.new(
     "panrg",
-    "Path Aware Networking Proposed",
+    "Path Aware Networking",
     "panrg@irtf.org",
     nil,
     nil,
@@ -445,7 +446,6 @@ module IRTF
     "iccrg" => iccrg,
     "icnrg" => icnrg,
     "maprg" => maprg,
-    "nfvrg" => nfvrg,
     "nmrg"  => nmrg,
     "nwcrg" => nwcrg,
     "panrg" => panrg,
@@ -489,6 +489,7 @@ module IRTF
   $oldrgs["ncrg"] = ncrg;
   $oldrgs["dtnrg"] = dtnrg;
   $oldrgs["sdnrg"] = sdnrg;
+  $oldrgs["nfvrg"] = nfvrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
@@ -513,7 +514,7 @@ module IRTF
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   $mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
   $chair = $mankin
-  $atlarge = [ eggert, ford, atlas, dawkins, farrell, nordmark ]
+  $atlarge = [ eggert, ford, atlas, dawkins, farrell, nordmark, tenoever ]
 
   def atlarge_contacts
     result = "irsg\n" +
