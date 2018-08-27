@@ -234,7 +234,7 @@ module ANRW
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
 
-    # paper = File.join(File.dirname(file), p["final"]["content_file"])
+    paper = p["paper"]
     slides = File.join(File.dirname(file), p["slides"])
 
     html = %{
@@ -294,6 +294,14 @@ module ANRW
       }
     end
 
+    html += %{
+      <a href="#{paper}"
+         class="btn btn-default btn-xs" role="button">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        Paper
+      </a>
+    }
+
     html += "</p></div>"
     return html
   end
@@ -311,7 +319,7 @@ module ANRW
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
 
-    # paper = File.join(File.dirname(file), p["final"]["content_file"])
+    paper = p["paper"]
     # slides = File.join(File.dirname(file), "slides-" + p["final"]["content_file"])
 
     html = %{
@@ -379,6 +387,14 @@ module ANRW
     #       </a>
     #   }
     # end
+
+    html += %{
+      <a href="#{paper}"
+         class="btn btn-default btn-xs" role="button">
+        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        Paper
+      </a>
+    }
 
     html += "</p></div>"
     return html

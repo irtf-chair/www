@@ -2,6 +2,7 @@
     {
         "pid": 6,
         "title": "Measuring Adoption of Security Additions to the HTTPS Ecosystem",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232756&ftid=1993037&dwn=1&CFID=66374780&CFTOKEN=57f95076576bd8c7-CB8CCA77-FA3E-E442-97B57C836A95C767",
         "slides": "slides-anrw18-final6.pdf",
         "decision": "#invited",
         "status": "#invited",
@@ -174,6 +175,7 @@
     {
         "pid": 22,
         "title": "Push Away Your Privacy: Precise User Tracking Based on TLS Client Certificate Authentication",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232763&ftid=1993038&dwn=1&CFID=66374780&CFTOKEN=57f95076576bd8c7-CB8CCA77-FA3E-E442-97B57C836A95C767",
         "slides": "slides-anrw18-final22.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -299,6 +301,7 @@
     {
         "pid": 62,
         "title": "Cloud Strife: Mitigating the Security Risks of Domain-Validated Certificates",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232859&ftid=1993016&dwn=1&CFID=65348177&CFTOKEN=f68267b59a919922-3B6DE003-ABB5-19CA-16F29790C63F1EB8",
         "slides": "slides-anrw18-final62.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -497,6 +500,7 @@
     {
         "pid": 45,
         "title": "Studying TLS Usage in Android Apps",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232779&ftid=1993039&dwn=1&CFID=66374780&CFTOKEN=57f95076576bd8c7-CB8CCA77-FA3E-E442-97B57C836A95C767",
         "slides": "slides-anrw18-final45.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -640,6 +644,7 @@
     {
         "pid": 9,
         "title": "ARTEMIS: Neutralizing BGP Hijacking within a Minute",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3234554&ftid=1993029&dwn=1&CFID=66374780&CFTOKEN=57f95076576bd8c7-CB8CCA77-FA3E-E442-97B57C836A95C767",
         "slides": "slides-anrw18-final9.pdf",
         "decision": "#invited",
         "status": "#invited",
@@ -754,6 +759,7 @@
     {
         "pid": 32,
         "title": "Towards a Rigorous Methodology for Measuring Adoption of RPKI Route Validation and Filtering",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232771&ftid=1993040&dwn=1&CFID=66374780&CFTOKEN=57f95076576bd8c7-CB8CCA77-FA3E-E442-97B57C836A95C767",
         "slides": "slides-anrw18-final32.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -871,6 +877,7 @@
     {
         "pid": 14,
         "title": "Beyond Binary Failures in Networks",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232759&ftid=1993041&dwn=1&CFID=66374780&CFTOKEN=57f95076576bd8c7-CB8CCA77-FA3E-E442-97B57C836A95C767",
         "slides": "slides-anrw18-final14.pdf",
         "decision": "#invited",
         "status": "#invited",
@@ -988,6 +995,7 @@
     {
         "pid": 41,
         "title": "Lights Out: Climate Change Risk to Internet Infrastructure",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232775&ftid=1993017&dwn=1&CFID=65348177&CFTOKEN=f68267b59a919922-3B6DE003-ABB5-19CA-16F29790C63F1EB8",
         "slides": "slides-anrw18-final41.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -1365,6 +1373,7 @@
     {
         "pid": 35,
         "title": "Comments On DNS Robustness",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232773&ftid=1993027&dwn=1&CFID=65348177&CFTOKEN=f68267b59a919922-3B6DE003-ABB5-19CA-16F29790C63F1EB8",
         "slides": "slides-anrw18-final35.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -1443,6 +1452,7 @@
     {
         "pid": 26,
         "title": "Preventing (Network) Time Travel with Chronos",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232766&ftid=1993042&dwn=1&CFID=65348177&CFTOKEN=f68267b59a919922-3B6DE003-ABB5-19CA-16F29790C63F1EB8",
         "slides": "slides-anrw18-final26.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -1561,6 +1571,7 @@
     {
         "pid": 15,
         "title": "TCP Congestion Signatures",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232760&ftid=1993030&dwn=1&CFID=65348177&CFTOKEN=f68267b59a919922-3B6DE003-ABB5-19CA-16F29790C63F1EB8",
         "slides": "slides-anrw18-final15.pdf",
         "decision": "#invited",
         "status": "#invited",
@@ -1650,6 +1661,7 @@
     {
         "pid": 50,
         "title": "Copa: Practical Delay-Based Congestion Control for the Internet",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232783&ftid=1993032&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
         "slides": "slides-anrw18-final50.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -1797,6 +1809,7 @@
     {
         "pid": 13,
         "title": "Why (and How) Networks Should Run Themselves",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3234555&ftid=1993043&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
         "slides": "slides-anrw18-final13.pdf",
         "decision": "#invited",
         "status": "#invited",
@@ -1870,6 +1883,7 @@
     {
         "pid": 47,
         "title": "Semi-Oblivious Traffic Engineering with SMORE",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232781&ftid=1993044&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
         "slides": "slides-anrw18-final47.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -1994,6 +2008,7 @@
     {
         "pid": 58,
         "title": "An ISP-Scale Deployment of TapDance",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232787&ftid=1993045&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
         "slides": "slides-anrw18-final58.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
@@ -2133,6 +2148,7 @@
     {
         "pid": 57,
         "title": "Characterizing the Nature and Dynamics of Tor Exit Blocking",
+        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232786&ftid=1993028&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
         "slides": "slides-anrw18-final57.pdf",
         "decision": "#accept-talk",
         "status": "#accept-talk",
