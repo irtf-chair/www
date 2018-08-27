@@ -297,7 +297,7 @@ module ANRW
     html += %{
       <a href="#{paper}"
          class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
         Paper
       </a>
     }
@@ -391,7 +391,7 @@ module ANRW
     html += %{
       <a href="#{paper}"
          class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>
+        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
         Paper
       </a>
     }
