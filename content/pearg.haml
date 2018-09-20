@@ -1,0 +1,68 @@
+---
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.without_ext.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%h2 Background
+
+%p
+  Privacy is an increasingly desirable and often necessary property for Internet technologies. Evidence suggests that attacks on societal, community, and individual privacy occur with non-negligible frequency, as discussed in detail in RFC 7258 and in protocol-specific documents such as RFC 7626. Pervasive monitoring [RFC 7258], is a well known attack on privacy at incredible scale.  The IETF’s and IAB’s responses to such attacks is to push for widespread end-to-end encryption. Understanding attacks on privacy and the costs of addressing them is critical for ensuring the longevity, usability, and viability of Internet technologies.
+
+%p
+  Alongside such work global and region-specific legislation is evolving in this area (GDPR and the ePrivacy Directive are two such examples applicable to Europe). While the full impact of such legislative changes is not understood, this provides further motivation for enhancing available privacy techniques (beyond end-to-end encryption), advancing the state-of-the-art for privacy in protocols, and for assessing privacy of existing protocols.
+
+%p
+  Furthermore, there are varying definitions of privacy and confidentiality with different scope and context since it is often seen technically as an aspect of security analysis whereas it is in fact inherently a social, technical, economic, and legal construct.
+
+%h2 Objectives
+
+%p
+  The Privacy Enhancements and Assessments Research Group (PEARG) is a general forum for discussing and reviewing privacy enhancing technologies for network protocols and distributed systems in general, and for the IETF in particular.
+
+%p
+  The PEARG serves to:
+  %ol
+    %li Be a bridge between theory and practice, bringing new privacy-enhancing technologies from open source or academic communities to the wider Internet community and promoting an understanding of the use and applicability of these mechanisms via Informational or Experimental RFCs (in the tradition of HMAC [RFC 2104]).
+    %li Reviewing privacy properties (informed by but not limited to the analysis in RFC6973) of existing and emerging IETF protocols. In particular, engagement in review early in the design process is highly desirable.
+    %li Developing specifications in the tradition of RFC 6973 that offer guidance for protocol design and development and advice on privacy-enhancement.  This work will involve outreach to ensure close cooperation with similar and related efforts in IETF.
+    %li Providing a forum for discussion and analysis of the cryptographic and practical aspects of privacy protocols e.g.
+    %ol
+      %li Analyse dependencies between protocols in the larger Internet ecosystem and understand the privacy implications in a wider context
+      %li Understand why have some protocols design efforts have succeeded and other have not
+      %li Formulate better models for analyzing and quantifying privacy risks
+      %li Offer guidance on the use of emerging techniques and new uses of existing ones.
+    %li Provide a forum for IETF working groups developing protocols that include privacy technology elements to bring questions concerning the protocols to the PEARG for advice.
+
+%h2 Meetings
+
+%p
+  The PEARG will meet two to three times per year, as deemed necessary by the chairs and according to demand. At least one PEARG meeting will be co-located with an IETF meeting per year. The PEARG will also meet collocated with relevant academic conferences, such as the Privacy Enhancing Technologies Symposium (PETS), yearly if possible.  Participation is open to all.
+
+%p
+  Meetings are by default open with open attendance and published proceedings, with remote participation and recording as provided by the meeting venue, according to the IRTF’s IPR policy.
+
+%p
+  The chairs may at times appoint at their pleasure “closed” design teams with lesser reporting requirements (though results will be open).  This will allow for some limited discussions in which participants require extra privacy/confidentiality.  This does not relax the Note Well:  for all activities of the RG, as for all other activities of IRTF, the Note Well applies [https://www.ietf.org/about/note-well/].
+
+%h2 Collaborations
+
+%p
+  PEARG will actively engage with academic and open source (e.g. Tor project, EFF, OTF) communities and encourage specification of key privacy-enhancing technologies in Informational or Experimental RFCs. It will also engage with other standards bodies e.g. PETS, SOUPS, W3C and the Privacy Interest Group therein.
+
+%p
+  The range of potential topics the group could invite work on is large; some examples of current emerging technologies where interest is solicited include:
+
+%ol
+  %li Statistical Inference e.g.
+  %ol
+    %li Differential privacy (DP) techniques applied to networked and distributed systems (Chrome and Apple are known to have implementations of DP)
+    %li Anti-fingerprinting techniques
+  %li Potential uses of multi-party computation (MPC) for privacy
+  %li Privacy preserving reputation systems
+  %li ESA (Encode, Shuffle, Analyze architecture) for privacy-preserving software monitoring as proposed by Google
+
+%p
+  PEARG is related to security and cryptographic protocols in the IETF and IRTF. Among the IETF working groups, PEARG will participate and encourage participation so that desirable privacy properties are upheld for the Internet community. PEARG will also collaborate with the CFRG to ensure cryptographic techniques and algorithms are used appropriately for their intended purpose.

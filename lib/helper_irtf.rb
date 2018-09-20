@@ -332,6 +332,22 @@ module IRTF
     nil
   )
 
+  # PEARG
+  dickinson = Person.new("Sara", "Dickinson", "sara@sinodun.com", nil, nil)
+  sahib = Person.new("Shivan", "Sahib", "ssahib@salesforce.com", nil, nil)
+  pearg = RG.new(
+    "pearg",
+    "Privacy Enhancements and Assessments Proposed",
+    "pearg@irtf.org",
+    nil,
+    nil,
+    [ dickinson, sahib ],
+    nil,
+    nil,
+    nil
+  )
+
+
   # P2PRG
   hiltl = Person.new("Volker", "Hilt", "volkerh@bell-labs.com", nil, nil)
   previdi = Person.new("Stefano", "Previdi", "sprevidi@cisco.com", "https://linkedin.com/in/sprevidi", nil)
@@ -345,6 +361,21 @@ module IRTF
     nil,
     nil,
     "2013-2-25"
+  )
+
+  # QIRG
+  vanmeter = Person.new("Rod", "van Meter", "rdviii@gmail.com", nil, nil)
+  wehner = Person.new("Stephanie", "Wehner", "S.D.C.Wehner@tudelft.nl", nil, nil)
+  qirg = RG.new(
+    "qirg",
+    "Quantum Internet Proposed",
+    "qirg@irtf.org",
+    nil,
+    nil,
+    [ vanmeter, wehner ],
+    nil,
+    nil,
+    nil
   )
 
   # RRG
@@ -449,6 +480,8 @@ module IRTF
     "nmrg"  => nmrg,
     "nwcrg" => nwcrg,
     "panrg" => panrg,
+    "pearg" => pearg,
+    "qirg" => qirg,
     "t2trg" => t2trg
   }
 
