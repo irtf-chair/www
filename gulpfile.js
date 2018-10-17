@@ -58,8 +58,8 @@ gulp.task('validate', function(cb) {
 gulp.task('upload', function(cb) {
   var sftp = 'sftp://ftpirtf@ietf.org';
   var opts = '--reverse --delete --parallel=10 --exclude=usagedata' +
-             ' --exclude=hotcrp -v ';
-  exec('lftp -c "open ' + sftp + '; mirror ' + opts + conf.output + ' www"',
+             ' --exclude=hotcrp -vvv ';
+  exec('lftp -c "open ' + sftp + ';  mirror ' + opts + conf.output + ' www"',
        { stdio: 'inherit' }, function (err) {
     cb(err);
   });
