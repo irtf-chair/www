@@ -92,6 +92,7 @@ class URLFilter < Nanoc::Filter
     "UFRGS" => "https://www.ufrgs.br/relinter/english",
     "University of Aberdeen" => "https://www.abdn.ac.uk/",
     "University of Cambridge" => "https://www.cam.ac.uk/",
+    "University of Colorado Boulder" => "https://www.colorado.edu/itp/",
     "University of Glasgow" => "https://www.gla.ac.uk/",
     "University of Helsinki" => "https://www.helsinki.fi/en",
     "University of Melbourne" => "https://unimelb.edu.au/",
