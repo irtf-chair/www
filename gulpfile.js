@@ -6,7 +6,7 @@ var exec = require('child_process').execSync;
 var runSequence = require('run-sequence');
 
 var conf = {
-  bower: './bower_components',
+  node: './node_modules',
   public: './static',
   output: './output',
   vnu: '~/Documents/Code/validator/build/dist/vnu.jar'
@@ -14,15 +14,15 @@ var conf = {
 
 gulp.task('fonts', function() {
   return gulp.src([
-    conf.bower + '/bootstrap-sass/assets/fonts/**/*',
+    conf.node + '/bootstrap-sass/assets/fonts/**/*',
   ])
   .pipe(gulp.dest(conf.public + '/fonts'));
 });
 
 gulp.task('js', function() {
   return gulp.src([
-    conf.bower + '/jquery/dist/jquery.min.js',
-    conf.bower + '/bootstrap-sass/assets/javascripts/bootstrap.js',
+    conf.node + '/jquery/dist/jquery.min.js',
+    conf.node + '/bootstrap-sass/assets/javascripts/bootstrap.js',
   ])
   .pipe(uglify())
   .pipe(gulp.dest(conf.public + '/js'));
@@ -33,7 +33,7 @@ gulp.task('css', function() {
   .pipe(sourcemaps.init())
   .pipe(sass({
     outputStyle: 'compressed',
-    includePaths: [conf.bower + '/bootstrap-sass/assets/stylesheets'],
+    includePaths: [conf.node + '/bootstrap-sass/assets/stylesheets'],
   }))
   .pipe(sourcemaps.write())
   .pipe(gulp.dest(conf.public + '/css'));

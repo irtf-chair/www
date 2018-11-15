@@ -7,8 +7,6 @@ The site is being maintained as a collection of static pages via nanoc4
 Site content is being maintained under content/, site layouts are under
 layouts/, per nanoc convention.
 
-Web assets are maintained with bower (http://bower.io/), see bower.json.
-
 Gulp (http://gulpjs.com/) is being used to build, deploy and check the site; see
 gulpfile.js.
 
