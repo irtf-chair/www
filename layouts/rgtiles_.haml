@@ -1,6 +1,6 @@
 .row
   - $rgs.values.sort.each do |rg|
-    .col-lg-2.col-md-3.col-sm-4.col-xs-6
+    .col-sm-4.col-xs-6
       %a{ :href => "https://datatracker.ietf.org/rg/" + rg.acronym.downcase + "/about/" }
         .thumbnail.rg
           .text-center
@@ -8,3 +8,4 @@
           .text-center
             %small
               %em=rg.name
+    .clearfix.visible-xs-inline-block.visible-sm-inline-block.visible-md-inline-block.visible-lg-inline-block

@@ -1,0 +1,252 @@
+---
+title: ANRW&nbsp;’19 Program
+menu: Program
+---
+
+-# %p
+-#   The workshop is open to all;
+-#   %a{ :href => "https://www.internetsociety.org/form/anrw" }
+-#     registration and payment of the registration fee
+-#   is however required.
+
+%h1 Workshop Program
+
+%p= render "/anrw/2019/place_.*"
+
+/ A livestream of the workshop will be available via these links:
+
+/ %ul
+/   %li
+/     %a{ href: 'http://www.meetecho.com/ietf102/anrw/' }9:30-12:00 Monday Morning session I
+/   %li
+/     %a{ href: 'http://www.meetecho.com/ietf102/anrw_II/' }13:30-17:50 Monday Afternoon session I and II
+
+/ %h2 Proceedings
+
+/ %p
+/   %a{ href: 'https://dl.acm.org/citation.cfm?id=3232755' }Proceedings of the Applied Networking Research Workshop 2019
+/   are available from the ACM Digital Library.
+
+/ %h2 Recordings
+
+/ %p
+/   The recordings from the workshop are available on YouTube in four parts.
+
+/ %div{ :style => "width: 24%; display: inline-block;" }
+/   .embed-responsive.embed-responsive-4by3
+/     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/gSvZcMAcC_0"}
+
+/ %div{ :style => "width: 24%; display: inline-block;" }
+/   .embed-responsive.embed-responsive-4by3
+/     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/B7w4jnimKcY"}
+
+/ %div{ :style => "width: 24%; display: inline-block;" }
+/   .embed-responsive.embed-responsive-4by3
+/     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/x9XWB3hRU0I"}
+
+/ %div{ :style => "width: 24%; display: inline-block;" }
+/   .embed-responsive.embed-responsive-4by3
+/     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/_mIk7gQMMSc"}
+
+/ %h2 Program
+
+/ - json = "content/anrw/2018/anrw18-data2.json"
+/ %table.table.table-striped.no-urlify
+/   %thead
+/     %tr
+/       %th
+/         Time
+/       %th
+/         Session
+/       %th
+/         Session Chair
+/   %tbody
+/     %tr
+/       %td
+/         %h4.text-danger 9:30am
+/       %td
+/         %h4.text-danger Welcome and Opening Remarks
+/         <div class="row">
+/         <div class="col-lg-8">
+/         %p
+/           %b
+/             Welcome and Opening Remarks
+/           %br
+/           %em.text-muted
+/             Speaker: Sharon Goldberg (Boston University)
+/         </div>
+/         <div class="col-lg-4">
+/         <p class="btn-toolbar">
+/         <a href="https://irtf.org/anrw/2018/anrwWelcome.pdf" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
+/         </p></div></div>
+
+/       %td
+/         %h5.text-danger Sharon Goldberg
+
+/     %tr
+/       %td
+/         %h4.text-danger 9:40am
+/       %td
+/         %h4.text-danger TLS
+/         <div class="row">
+/         <div class="col-lg-8">
+/         %p
+/           %b
+/             Measuring Adoption of Security Additions to the HTTPS Ecosystem
+/             <span class="label label-danger">Invited talk</span>
+/           %br
+/           %em.text-muted
+/             Speaker: Quirin Scheitle (Technical University of Munich)
+/         </div>
+/         <div class="col-lg-4">
+/         <p class="btn-toolbar">
+/         <a href="https://irtf.org/anrw/2018/slides-anrw18-final6.pdf" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
+/         <a href="https://dl.acm.org/ft_gateway.cfm?id=3232756&ftid=1993037&dwn=1&CFID=66376680&CFTOKEN=b3c1a7a9e7373405-CBCFFA3E-9FC7-3DB8-3BD367EA8707F421" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+/         Paper
+/         </a>
+/         </p></div></div>
+/         .row= htmlify_paper_new2(json, 22)
+/         .row= htmlify_paper_new2(json, 62)
+/         .row= htmlify_paper_new2(json, 45)
+/       %td
+/         %h5.text-danger Nick Sullivan
+
+/     %tr
+/       %td
+/         %h4.text-danger 11:10am
+/       %td
+/         %h4.text-danger Routing
+/         <div class="row">
+/         <div class="col-lg-8">
+/         %p
+/           %b
+/             %a{ href: 'https://arxiv.org/pdf/1801.01085.pdf' } ARTEMIS: Neutralizing BGP Hijacking within a Minute
+/             <span class="label label-danger">Invited talk</span>
+/           %br
+/           %em.text-muted
+/             Speaker: Alberto Dainotti (CAIDA)
+/         </div>
+/         <div class="col-lg-4">
+/         <p class="btn-toolbar">
+/         <a href="https://irtf.org/anrw/2018/slides-anrw18-final9.pdf" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
+/         <a href="https://dl.acm.org/ft_gateway.cfm?id=3234554&ftid=1993029&dwn=1&CFID=66376680&CFTOKEN=b3c1a7a9e7373405-CBCFFA3E-9FC7-3DB8-3BD367EA8707F421" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+/         Paper
+/         </a>
+/         </p></div></div>
+
+/         .row= htmlify_paper_new2(json, 32)
+/       %td
+/         %h5.text-danger Nick Feamster
+
+/     %tr
+/       %td
+/         %h4.text-danger 12:00pm
+/       %td
+/         %h4.text-danger Lunch Break & Posters
+/       %td
+
+/     %tr
+/       %td
+/         %h4.text-danger 1:30pm
+/       %td
+/         %h4.text-danger Internet Infrastructure
+/         %p
+/           %b
+/             %a{ href: 'https://www.microsoft.com/en-us/research/publication/run-walk-crawl-towards-dynamic-link-capacities/' } Run, Walk, Crawl: Towards Dynamic Link Capacities
+/             <span class="label label-danger">Invited talk</span>
+/           %br
+/           %em.text-muted
+/             Speaker: Monia Ghobadi (Microsoft Research)
+/         .row= htmlify_paper_new2(json, 41)
+/         .row= htmlify_paper_new2(json, 35)
+/         .row= htmlify_paper_new2(json, 26)
+/         <div class="row">
+/         <div class="col-lg-8">
+/         %p
+/           %b
+/             %a{ href: 'https://conferences.sigcomm.org/imc/2017/papers/imc17-final99.pdf' } TCP Congestion Signatures
+/             <span class="label label-danger">Invited talk</span>
+/           %br
+/           %em.text-muted
+/             Speaker: Amogh Dhamdhere (CAIDA)
+/         </div>
+/         <div class="col-lg-4">
+/         <p class="btn-toolbar">
+/         <a href="https://irtf.org/anrw/2018/slides-anrw18-final15.pdf" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
+/         <a href="https://dl.acm.org/ft_gateway.cfm?id=3232760&ftid=1993030&dwn=1&CFID=66376680&CFTOKEN=b3c1a7a9e7373405-CBCFFA3E-9FC7-3DB8-3BD367EA8707F421" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+/         Paper
+/         </a>
+/         </p></div></div>
+/       %td
+/         %h5.text-danger Phillippa Gill
+
+/     %tr
+/       %td
+/         %h4.text-danger 3:30pm
+/       %td
+/         %h4.text-danger Beverage Break
+/       %td
+
+/     %tr
+/       %td
+/         %h4.text-danger 3:50pm
+/       %td
+/         %h4.text-danger Traffic Engineering
+/         <div class="row">
+/         <div class="col-lg-8">
+/         %p
+/           %b
+/             %a{ href: 'https://arxiv.org/abs/1710.11583' } Why (and How) Networks Should Run Themselves
+/             <span class="label label-danger">Invited talk</span>
+/           %br
+/           %em.text-muted
+/             Speaker: Nick Feamster (Princeton University)
+/         </div>
+/         <div class="col-lg-4">
+/         <p class="btn-toolbar">
+/         <a href="https://dl.acm.org/ft_gateway.cfm?id=3234555&ftid=1993043&dwn=1&CFID=66377776&CFTOKEN=d9272f4447b1ea2d-CBF78F00-A0A7-4033-A7F2EAFD0F045393" class="btn btn-default btn-xs" role="button">
+/         <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+/         Paper
+/         </a>
+/         </p></div></div>
+
+/         .row= htmlify_paper_new2(json, 47)
+/       %td
+/         %h5.text-danger Brian Trammell
+
+/     %tr
+/       %td
+/         %h4.text-danger 4:30pm
+/       %td
+/         %h4.text-danger Anonymous Communications
+/         %p
+/         .row= htmlify_paper_new2(json, 58)
+/         .row= htmlify_paper_new2(json, 57)
+/       %td
+/         %h5.text-danger Roya Ensafi
+
+/     %tr
+/       %td
+/         %h4.text-danger 5:20pm
+/       %td
+/         %h4.text-danger Beverage Break
+/       %td
+
+
+/     %tr
+/       %td
+/         %h4.text-danger 5:40pm
+/       %td
+/         %h4.text-danger Posters
+/         %p
+/       %td
+/         %h5.text-danger
+
+
