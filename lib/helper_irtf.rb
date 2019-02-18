@@ -113,6 +113,21 @@ module IRTF
     nil
   )
 
+  # COINRG
+  he = Person.new("Jeffrey", "He", "jeffrey.he@huawei.com", nil, nil)
+  montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", "http://web.mit.edu/~mariejo/www/mjm.html", nil)
+  coinrg = RG.new(
+    "coinrg",
+    "Computation in the Network Proposed",
+    "coin@irtf.org",
+    nil,
+    "https://datatracker.ietf.org/rg/coinrg/about/",
+    [ montpetit, he ],
+    nil,
+    nil,
+    nil
+  )
+
   # DINRG
   kutscher = Person.new("Dirk", "Kutscher", "ietf@dkutscher.net", "https://dirk-kutscher.info/", nil)
   shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
@@ -287,7 +302,6 @@ module IRTF
   # NWCRG
   # adamson = Person.new("Brian", "Adamson", "brian.adamson@nrl.navy.mil", "https://linkedin.com/in/brianadamson", nil)
   # firoiu = Person.new("Victor", "Firoiu", "vfiroiu@acm.org", "https://victor.firoiu.org/", nil)
-  montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", "http://web.mit.edu/~mariejo/www/mjm.html", nil)
   roca = Person.new("Vincent", "Roca", "vincent.roca@inria.fr", "https://planete.inrialpes.fr/~roca/", nil)
   nwcrg = RG.new(
     "nwcrg",
@@ -471,6 +485,7 @@ module IRTF
   # Active RGs
   $rgs = {
     "cfrg"  => cfrg,
+    "coinrg" => coinrg,
     "dinrg" => dinrg,
     "gaia" => gaia,
     "hrpc" => hrpc,
