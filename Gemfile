@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'guard-nanoc'
-gem 'haml'
+gem 'haml', '5.0.4'
 gem 'nokogiri'
 gem 'rubypants'
 gem 'builder'
