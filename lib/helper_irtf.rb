@@ -561,7 +561,7 @@ module IRTF
   # feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   $mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
-  $perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://www.gla.ac.uk/schools/computing/staff/colinperkins/", nil)
+  $perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://csperkins.org/", nil)
   $chair = $mankin
   $atlarge = [ eggert, ford, atlas, dawkins, farrell, nordmark, tenoever ]
 
