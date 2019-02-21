@@ -116,13 +116,14 @@ module IRTF
   # COINRG
   he = Person.new("Jeffrey", "He", "jeffrey.he@huawei.com", nil, nil)
   montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", "http://web.mit.edu/~mariejo/www/mjm.html", nil)
+  schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", nil, nil)
   coinrg = RG.new(
     "coinrg",
     "Computation in the Network Proposed",
     "coin@irtf.org",
     nil,
     "https://datatracker.ietf.org/rg/coinrg/about/",
-    [ montpetit, he ],
+    [ montpetit, he, schooler ],
     nil,
     nil,
     nil
@@ -349,13 +350,14 @@ module IRTF
   # PEARG
   dickinson = Person.new("Sara", "Dickinson", "sara@sinodun.com", nil, nil)
   sahib = Person.new("Shivan", "Sahib", "ssahib@salesforce.com", nil, nil)
+  woods = Person.new("Chris", "Woods", "cawood@apple.com", nil, nil)
   pearg = RG.new(
     "pearg",
     "Privacy Enhancements and Assessments Proposed",
     "pearg@irtf.org",
     nil,
     nil,
-    [ dickinson, sahib ],
+    [ dickinson, sahib, woods ],
     nil,
     nil,
     nil
