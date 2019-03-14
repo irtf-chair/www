@@ -92,6 +92,7 @@ class URLFilter < Nanoc::Filter
     "UCLA" => "https://www.ucla.edu/",
     "UFRGS" => "https://www.ufrgs.br/relinter/english",
     "UMass Amherst" => "https://www.umass.edu",
+    "University of Massachusetts - Amherst" => "https://www.umass.edu",
     "University of Aberdeen" => "https://www.abdn.ac.uk/",
     "University of Cambridge" => "https://www.cam.ac.uk/",
     "University of Colorado Boulder" => "https://www.colorado.edu/itp/",
