@@ -51,6 +51,7 @@ class URLFilter < Nanoc::Filter
     "IESG" => "https://www.iesg.org/",
     "IETF meetings?" => "https://ietf.org/meeting/",
     "IETF" => "https://ietf.org/",
+    "IETF LLC" => "https://www.ietf.org/about/administration/",
     "IIJ" => "https://www.iij.ad.jp/",
     "Infocom" => "https://ieee-infocom.org/",
     "INRIA" => "https://www.inria.fr/",
