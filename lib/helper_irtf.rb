@@ -26,10 +26,10 @@ module IRTF
       else
         result = name
       end
-      if email then
-        result += " (" + link_to(email.downcase, "mailto:#{email.downcase}") +
-                  ")"
-      end
+#      if email then
+#        result += " (" + link_to(email.downcase, "mailto:#{email.downcase}") +
+#                  ")"
+#      end
       return result
     end
   end
