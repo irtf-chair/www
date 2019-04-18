@@ -79,7 +79,7 @@ uswg
         |wg| link_to($1, "https://datatracker.ietf.org/wg/#{$1.downcase}/charter/")
       }
       element.content = element.content.gsub(/\b(#{@@concluded.join('|').upcase})\b/) {
-        |wg| link_to($1, "https://ietf.org/wg/concluded/#{$1.downcase}")
+        |wg| link_to($1, "https://datatracker.ietf.org/wg/#{$1.downcase}/about/")
       }
     end
     return doc.xpath('//body')[0].inner_html.gsub("&lt;", "<").gsub("&gt;", ">")
