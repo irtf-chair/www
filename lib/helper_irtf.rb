@@ -100,6 +100,7 @@ module IRTF
   # igoe = Person.new("Kevin", "Igoe", "kmigoe@nsa.gov", nil, nil)
   paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "https://www.isg.rhul.ac.uk/~kp/", nil)
   melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", "https://www.melnikov.ca", nil)
+  sullivan = Person.new("Nick", "Sullivan", "nick@cloudflare.com", "https://crypto.dance/about", nil)
 
   cfrg = RG.new(
     "cfrg",
@@ -107,7 +108,7 @@ module IRTF
     "cfrg@irtf.org",
     nil,
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
-    [ paterson, melnikov ],
+    [ paterson, melnikov, sullivan ],
     nil,
     nil,
     nil
