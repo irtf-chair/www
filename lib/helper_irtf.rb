@@ -277,7 +277,7 @@ module IRTF
     "Network Complexity",
     "ncrg@irtf.org",
     nil,
-    "https://networkcomplexity.org/",
+    "http://networkcomplexity.org/",
     [ behringer, meyer ],
     nil,
     "2011-10-4",
