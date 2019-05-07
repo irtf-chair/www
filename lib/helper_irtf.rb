@@ -318,16 +318,17 @@ module IRTF
   )
 
   # NMRG
-  granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "https://inf.ufrgs.br/~granville/", nil)
+  #granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "https://inf.ufrgs.br/~granville/", nil)
   # festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "https://www.loria.fr/~festor/Site/Welcome.html", nil) # www is needed
-  ciavaglia = Person.new("Laurent", "Ciavaglia", "Laurent.Ciavaglia@alcatel-lucent.com", "https://www.linkedin.com/in/laurentciavaglia", nil)
+  ciavaglia = Person.new("Laurent", "Ciavaglia", "laurent.ciavaglia@nokia.com", "https://www.linkedin.com/in/laurentciavaglia", nil)
+  francois = Person.new("Jérôme", "François", "jerome.francois@inria.fr", "http://jeromefra.free.fr", nil)
   nmrg = RG.new(
     "nmrg",
     "Network Management",
     "nmrg@irtf.org",
     nil,
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
-    [ ciavaglia ],
+    [ ciavaglia, francois ],
     nil,
     nil,
     nil
