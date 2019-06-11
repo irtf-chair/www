@@ -1,0 +1,55 @@
+---
+title: ANRW&nbsp;’19 Program
+menu: Program
+---
+
+%h1 Workshop Program
+
+%p= render "/anrw/2019/place_.*"
+
+
+%h2 Proceedings
+
+%p
+  Proceedings of the Applied Networking Research Workshop 2019 
+  will be published in the ACM Digital Library.
+
+
+%h2 Recordings
+
+%p
+  The ANRW will be streamed live and recorded. Remote participation will
+  be provided using the IETF remote participation system. You can find
+  more details and information on how to register for remote participation
+  on the 
+  %a{ :href => "https://www.ietf.org/how/meetings/105/" } IETF 105 meeting page.
+  There is no charge for remote participation, but pre-registration is required.
+
+%p
+  Recordings will be made available after the workshop.
+
+
+%h2 Accepted Papers
+
+- json = "content/anrw/2019/anrw2019-data.json"
+
+%table.table.table-striped.no-urlify
+  %tbody
+    %tr
+      %td
+        %p
+        .row= htmlify_paper_new3(json, 20)
+        .row= htmlify_paper_new3(json, 21)
+        .row= htmlify_paper_new3(json, 25)
+        .row= htmlify_paper_new3(json, 26)
+        .row= htmlify_paper_new3(json, 27)
+        .row= htmlify_paper_new3(json, 28)
+        .row= htmlify_paper_new3(json, 29)
+        .row= htmlify_paper_new3(json, 31)
+        .row= htmlify_paper_new3(json, 33)
+        .row= htmlify_paper_new3(json, 35)
+        .row= htmlify_paper_new3(json, 36)
+        .row= htmlify_paper_new3(json, 37)
+        .row= htmlify_paper_new3(json, 44)
+
+

@@ -1,0 +1,782 @@
+[
+    {
+        "pid": 20,
+        "title": "mmb: Flexible High-Speed Userspace Middleboxes",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1557347875,
+        "authors": [
+            {
+                "email": "korian.edeline@ulg.ac.be",
+                "first": "Korian",
+                "last": "Edeline",
+                "affiliation": "Université de Liège",
+                "contact": true
+            },
+            {
+                "email": "justin.iurman@ulg.ac.be",
+                "first": "Justin",
+                "last": "Iurman",
+                "affiliation": "Université de Liège",
+                "contact": true
+            },
+            {
+                "email": "cyril.soldani@ulg.ac.be",
+                "first": "Cyril",
+                "last": "Soldani",
+                "affiliation": "Université de Liège",
+                "contact": true
+            },
+            {
+                "email": "benoit.donnet@uliege.be",
+                "first": "Benoit",
+                "last": "Donnet",
+                "affiliation": "Université de Liège",
+                "contact": true
+            }
+        ],
+        "abstract": "Nowadays, Internet actors have to deal with a strong increase in Internet\r\ntraffic at many levels.  One of their main challenge is building high-speed and\r\nefficient networking solutions.  In such a context, kernel-bypass I\/O frameworks\r\nhave become their preferred answer to the increasing bandwidth demands.  Many\r\nworks have been achieved, so far, all of them claiming to have succeeded in\r\nreaching line-rate for traffic forwarding.  However, this claim does not hold\r\nfor more complex packet processing. In addition, all those solutions share\r\ncommon drawbacks on either deployment flexibility or configurability and\r\nuser-friendliness.\r\n\r\nThis is exactly what we tackle in this paper by introducing mmb, a VPP\r\nmiddlebox plugin.  mmb allows, through an intuitive command-line interface, to\r\neasily build stateless and stateful classification and rewriting middleboxes.\r\nmmb makes a careful use of instruction caching and memory prefetching, in addition\r\nto other techniques used by other high-performance I\/O frameworks. We compare mmb \r\nperformance with other performance-enhancing middlebox solutions, such as kernel-bypass\r\nframework, kernel-level optimized approach and other state-of-the-art solutions\r\nfor enforcing middleboxes policies (firewall, NAT, transport-level engineering).\r\nWe demonstrate that mmb performs, generally, better than existing solutions,\r\nsustaining a line-rate processing while performing large numbers of complex\r\npolicies.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-05ad0c858df1b81ae6f723adbb6d21a742b8abfb20cf58e7c20bac1965b562d7",
+            "timestamp": 1557347867,
+            "size": 1660568
+        },
+        "final_submitted": true,
+        "final_submitted_at": 1560270541,
+        "options": {
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003058.10003063",
+                    "concept_desc": "Networks~Middle boxes \/ network appliances",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003058,
+                        10003063
+                    ],
+                    "expected_concept_desc": "Networks~Middle boxes \/ network appliances"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011672",
+                    "concept_desc": "Networks~Network performance analysis",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011672
+                    ],
+                    "expected_concept_desc": "Networks~Network performance analysis"
+                }
+            ],
+            "acm-keywords": [
+                "mmb",
+                "VPP",
+                "middelbox"
+            ]
+        },
+        "pc_conflicts": {
+            "mirja.kuehlewind@ericsson.com": "collaborator"
+        }
+    },
+    {
+        "pid": 21,
+        "title": "Who Is Answering My Queries: Understanding and Characterizing Interception of the DNS Resolution Path",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1557112809,
+        "authors": [
+            {
+                "email": "lbj15@mails.tsinghua.edu.cn",
+                "first": "Baojun",
+                "last": "Liu",
+                "affiliation": "Tsinghua University",
+                "contact": true
+            },
+            {
+                "email": "lcy17@mails.tsinghua.edu.cn",
+                "first": "Chaoyi",
+                "last": "Lu",
+                "affiliation": "Tsinghua University",
+                "contact": true
+            },
+            {
+                "email": "duanhx@tsinghua.edu.cn",
+                "first": "Haixin",
+                "last": "Duan",
+                "affiliation": "Institute for Network Science and Cyberspace, Tsinghua University; Beijing National Research Center for Information Science and Technology",
+                "contact": true
+            },
+            {
+                "email": "liuying@cernet.edu.cn",
+                "first": "Ying",
+                "last": "Liu",
+                "affiliation": "Tsinghua University",
+                "contact": true
+            },
+            {
+                "email": "zhou.li@uci.edu",
+                "first": "Zhou",
+                "last": "Li",
+                "affiliation": "UC Irvine",
+                "contact": true
+            },
+            {
+                "email": "shao@utdallas.edu",
+                "first": "Shuang",
+                "last": "Hao",
+                "affiliation": "University of Texas at Dallas",
+                "contact": true
+            },
+            {
+                "email": "m_yang@fudan.edu.cn",
+                "first": "Min",
+                "last": "Yang",
+                "affiliation": "Fudan University",
+                "contact": true
+            }
+        ],
+        "abstract": "DNS queries from end users are handled by recursive DNS servers for scalability. For convenience, Internet Service Providers (ISPs) assign recursive servers for their clients automatically when the clients choose the default network settings. But users should also have flexibility to use their preferred recursive servers, like public DNS servers. This kind of trust, however, can be broken by the hidden interception of the DNS resolution path (which we term as DNSIntercept). Specifically, on-path devices could spoof the IP addresses of user-specified DNS servers and intercept the DNS queries surreptitiously, introducing privacy and security issues.\r\n\r\nIn this paper, we perform a large-scale analysis of on-path DNS interception and shed light on its scope and characteristics. We design novel approaches to detect DNS interception and leverage 148,478 residential and cellular IP addresses around the world for analysis. As a result, we find that 259 of the 3,047 ASes (8.5%) that we inspect exhibit DNS interception behavior, including large providers, such as China Mobile. Moreover, we find that the DNS servers of the ASes which intercept requests may use outdated vulnerable software (deprecated before 2009) and lack security-related functionality, such as handling DNSSEC requests. Our work highlights the issues around on-path DNS interception and provides new insights for addressing such issues.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-1b17345302ba9df8364cac8f442a3c055cecd1020fb90a9398bd728839638018",
+            "timestamp": 1557112809,
+            "size": 4126196
+        },
+        "options": {
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-8e4f87d4499c0d341507bfc4cd6f4f57487bcbe3d2d497d963d41957c349a6cd",
+                "timestamp": 1560264142,
+                "size": 58932,
+                "filename": "anrw2019-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "2e6c9289e4881f37a16554fb4dc0dbe99c1368f0",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1560264142,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            88,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "c": 1841
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    {
+        "pid": 25,
+        "title": "A Performance Perspective on Web Optimized Protocol Stacks: TCP+TLS+HTTP\/2 vs. QUIC",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1557316912,
+        "authors": [
+            {
+                "email": "wolsing@comsys.rwth-aachen.de",
+                "first": "Konrad",
+                "last": "Wolsing",
+                "affiliation": "RWTH Aachen University",
+                "contact": true
+            },
+            {
+                "email": "rueth@comsys.rwth-aachen.de",
+                "first": "Jan",
+                "last": "Rüth",
+                "affiliation": "RWTH Aachen University",
+                "contact": true
+            },
+            {
+                "email": "wehrle@comsys.rwth-aachen.de",
+                "first": "Klaus",
+                "last": "Wehrle",
+                "affiliation": "RWTH Aachen University",
+                "contact": true
+            },
+            {
+                "email": "oliver.hohlfeld@b-tu.de",
+                "first": "Oliver",
+                "last": "Hohlfeld",
+                "affiliation": "RWTH Aachen University",
+                "contact": true
+            }
+        ],
+        "abstract": "Existing performance comparisons of QUIC and TCP compared an optimized QUIC to an unoptimized TCP stack. By neglecting available TCP improvements inherently included in QUIC, comparisons do not shed light on the performance of current web stacks. In this paper, we can show that tuning TCP parameters is not negligible and directly yields significant improvements. Nevertheless, QUIC still outperforms even our tuned variant of TCP. This performance advantage is mostly caused by the QUIC’s reduced RTT design during connection establishment, and, in case of lossy networks due to its ability to circumvent head-of-line blocking.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-190c77290d5a0d76b6f5047484d8566eca4fa52a116d3028121d525d6885d3af",
+            "timestamp": 1557320216,
+            "size": 1678579
+        }
+    },
+    {
+        "pid": 26,
+        "title": "Towards Core-Stateless Fairness on Multiple Timescales",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1558093267,
+        "authors": [
+            {
+                "email": "szilveszter.nadas@ericsson.com",
+                "first": "Szilveszter",
+                "last": "Nádas",
+                "affiliation": "Ericsson Research, Budapest, Hungary",
+                "contact": true
+            },
+            {
+                "email": "ggombos@inf.elte.hu",
+                "first": "Gergő",
+                "last": "Gombos",
+                "affiliation": "Eötvös Loránd University, Budapest, Hungary",
+                "contact": true
+            },
+            {
+                "email": "fejes@inf.elte.hu",
+                "first": "Ferenc",
+                "last": "Fejes",
+                "affiliation": "Eötvös Loránd University, Budapest, Hungary",
+                "contact": true
+            },
+            {
+                "email": "lakis@inf.elte.hu",
+                "first": "Sándor",
+                "last": "Laki",
+                "affiliation": "Eötvös Loránd University, Budapest, Hungary",
+                "contact": true
+            }
+        ],
+        "abstract": "Extending fairness to multiple timescales creates the right incentives for users\r\nand provides better QoE for short sessions, e.g. for web page download. \r\nIn this paper, we show how to define and implement multi-timescale fairness\r\namong flows independently of actual traffic mixes and resource capacities.\r\nThe proposed method is built on the top of Multi-Timescale Bandwidth Profile\r\nconcept and the core-stateless resource sharing framework called Per Packet Value (PPV) and requires two novel ideas:\r\n1) Replacing the traditional weighted-fairness definition of PPV by extending Throughput-Value Functions to multiple timescales (MTS-TVF);\r\n2) Providing an efficient packet marking algorithm using MTS-TVFs to assign values to packets.\r\nAfter marking the packets, the routers in the network core can work with any prior schedulers of PPV. \r\nFinally, our early results towards multi-timescale fairness are demonstrated by simulations.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-7752bfafe926e114563b38678a20fb0bead4fc97940c6772c3e0ac0dbd94e597",
+            "timestamp": 1558093267,
+            "size": 1408054
+        },
+        "pc_conflicts": {
+            "SIMONE@FERLIN.IO": "collaborator",
+            "mirja.kuehlewind@ericsson.com": "collaborator"
+        }
+    },
+    {
+        "pid": 27,
+        "title": "What time is it? Managing Time in the Internet",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1557345881,
+        "authors": [
+            {
+                "email": "sathiya@cs.wisc.edu",
+                "first": "Sathiya Kumaran",
+                "last": "Mani",
+                "affiliation": "University of Wisconsin - Madison",
+                "contact": true
+            },
+            {
+                "email": "pb@cs.wisc.edu",
+                "first": "Paul",
+                "last": "Barford",
+                "affiliation": "University of Wisconsin - Madison",
+                "contact": true
+            },
+            {
+                "email": "ram@cs.uoregon.edu",
+                "first": "Ramakrishnan",
+                "last": "Durairajan",
+                "affiliation": "University of Oregon",
+                "contact": true
+            },
+            {
+                "email": "jsommers@colgate.edu",
+                "first": "Joel",
+                "last": "Sommers",
+                "affiliation": "Colgate University",
+                "contact": true
+            }
+        ],
+        "abstract": "People increasingly rely on smartphones, smart watches and other internet-connected devices as their first source of information about the time of day. In this paper, we report on our investigation of how current local time is reported accurately by devices connected to the internet. We describe the basic mechanisms for time management and focus on a critical but unstudied aspect of managing time on connected devices: the time zone database (TZDB). Our longitudinal analysis of the TZDB highlights how internet time has been managed by a loose confederation of contributors over the past 25 years. We drill down on details of the update process, update types and frequency, and anomalies related to TZDB updates. We find that 76% of TZDB updates include changes to the Daylight Saving Time (DST) rules, indicating that DST has a significant influence on internet-based time keeping. We also find that about 20% of updates were published within 15 days or less from the date of effect, indicating the potential for instability in the system. We also consider the security aspects of time management and identify potential vulnerabilities.  We conclude with a set of proposals for enhancing TZDB management and reducing vulnerabilities in the system.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-c7211a60bd1c0f5837f3a0e19d6fabd234f76a3d6acaf77e0c067e915c9ae509",
+            "timestamp": 1557345881,
+            "size": 535432
+        }
+    },
+    {
+        "pid": 28,
+        "title": "Supporting Multi-domain Use Cases with ALTO",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1557412025,
+        "authors": [
+            {
+                "email": "dlachosp@dca.fee.unicamp.br",
+                "first": "Danny Alex lachos",
+                "last": "perez",
+                "affiliation": "University of Campinas (UNICAMP)",
+                "contact": true
+            },
+            {
+                "email": "chesteve@dca.fee.unicamp.br",
+                "first": "Christian Esteve",
+                "last": "Rothenberg",
+                "affiliation": "University of Campinas (UNICAMP)",
+                "contact": true
+            },
+            {
+                "email": "qiao.xiang@cs.yale.edu",
+                "first": "Qiao",
+                "last": "Xiang",
+                "affiliation": "Yale University",
+                "contact": true
+            },
+            {
+                "email": "yry@cs.yale.edu",
+                "first": "Y. Richard",
+                "last": "Yang",
+                "affiliation": "Yale University",
+                "contact": true
+            },
+            {
+                "email": "borje.ohlman@ericsson.com",
+                "first": "Börje",
+                "last": "Ohlman",
+                "affiliation": "Ericsson",
+                "contact": true
+            },
+            {
+                "email": "sabine.randriamasy@nokia-bell-labs.com",
+                "first": "Sabine",
+                "last": "Randriamasy",
+                "affiliation": "Nokia Bell Labs"
+            },
+            {
+                "email": "farniw@yahoo.com",
+                "first": "Farni",
+                "last": "Weaver",
+                "affiliation": "Sprint"
+            }
+        ],
+        "abstract": "Many multi-domain use cases can benefit substantially from network information exposure, but also introduce new, key requirements that existing exposure solutions, e.g., the Application Layer Traffic Optimization (ALTO) protocol, do not satisfy. In this talk, we review several important multi-domain use cases, discuss the key network information exposure requirements to support these use cases, and present a unified exposure architecture as well as novel mechanisms and abstractions to substantially improve the ALTO framework in the multi-domain setting.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-3f53ef0609ae31fda83c56144ad7a8a9b26eb5527a4686ca41c17550547f595b",
+            "timestamp": 1558131013,
+            "size": 418569
+        },
+        "options": {
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-0cd03290a17dfcba53c60822bb670007cfe317da6a0ab80c5624c3534a277176",
+                "timestamp": 1560264144,
+                "size": 56624,
+                "filename": "anrw2019-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "6521bf0cac73f8a0447785972b8c445a3737fe63",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1560264145,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            88,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 8,
+                        "leading": 10,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "c": 1960
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "SIMONE@FERLIN.IO": "collaborator",
+            "mirja.kuehlewind@ericsson.com": "collaborator"
+        }
+    },
+    {
+        "pid": 29,
+        "title": "Performance Measurements of QUIC Communications",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1557418443,
+        "authors": [
+            {
+                "email": "fabio.bulgarella@studenti.polito.it",
+                "first": "Fabio",
+                "last": "Bulgarella",
+                "affiliation": "Politecico di Torino"
+            },
+            {
+                "email": "mauro.cociglio@telecomitalia.it",
+                "first": "Mauro",
+                "last": "Cociglio",
+                "affiliation": "Telecom Italia"
+            },
+            {
+                "email": "giuseppe.fioccola@huawei.com",
+                "first": "Giuseppe",
+                "last": "Fioccola",
+                "affiliation": "Huawei Technologies"
+            },
+            {
+                "email": "guido.marchetto@polito.it",
+                "first": "Guido",
+                "last": "Marchetto",
+                "affiliation": "Politecnico di Torino"
+            },
+            {
+                "email": "riccardo.sisto@polito.it",
+                "first": "Riccardo",
+                "last": "Sisto",
+                "affiliation": "Politecnico di Torino",
+                "contact": true
+            }
+        ],
+        "abstract": "Performance measurement in terms of packet loss, delay, and jitter is key in modern packet switched networks. These values give a clear indication of the quality of service (QoS) perceived by users, thus being helpful to service providers to properly support, in particular, real-time communications such as voice and video conferences. This paper addresses these issues in QUIC-based communications, introducing a novel performance measurement methodology and comparing it with existing proposals in this field.\r\nThe new solution for delay measurement uses only one more bit in addition to the Spin Bit, rather than the two additional bits required by the Valid Edge Counter (VEC) solution. Despite this, it is equally effective in overcoming the limitations of the Spin Bit solution and it performs similarly to the VEC solution. \r\nThese results are shown by means of an experimental validation and evaluation on a proper testing environment.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-efbb01caa693e4307dcbce5d386261dca07d4954023fe86ab030c83a834cae63",
+            "timestamp": 1557418443,
+            "size": 459088
+        }
+    },
+    {
+        "pid": 31,
+        "title": "Oblivious DNS: Practical Privacy for DNS Queries",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1557945107,
+        "authors": [
+            {
+                "email": "pschmitt@cs.princeton.edu",
+                "first": "Paul",
+                "last": "Schmitt",
+                "affiliation": "Princeton University",
+                "contact": true
+            },
+            {
+                "email": "annie.edmundson@gmail.com",
+                "first": "Anne",
+                "last": "Edmundson",
+                "affiliation": "Princeton Univeristy",
+                "contact": true
+            },
+            {
+                "email": "allison.mankin@gmail.com",
+                "first": "Allison",
+                "last": "Mankin",
+                "affiliation": "Salesforce",
+                "contact": true
+            },
+            {
+                "email": "feamster@cs.princeton.edu",
+                "first": "Nick",
+                "last": "Feamster",
+                "affiliation": "Princeton University",
+                "contact": true
+            }
+        ],
+        "abstract": "Virtually every Internet communication typically involves a Domain Name System (DNS) lookup for the destination server that the client wants to communicate with. Operators of DNS recursive resolvers---the machines that receive a client's query for a domain name and resolve it to a corresponding IP address---can learn significant information about client activity. Recognizing the privacy vulnerabilities associated with DNS queries, various third parties have created alternate DNS services that obscure a user's DNS queries from his or her Internet service provider. Yet, these systems merely transfer trust to a different third party. We argue that no single party ought to be able to associate DNS queries with a client IP address that issues those queries. To this end, we present Oblivious DNS (ODNS), which introduces an additional layer of obfuscation between clients and their queries. To do so, ODNS uses its own authoritative namespace; the authoritative servers for the ODNS namespace act as recursive resolvers for the DNS queries that they receive, but they never see the IP addresses for the clients that initiated these queries. Our experiments using a prototype show that ODNS introduces minimal performance overhead, both for individual queries and for web page loads. Critically, we design ODNS to be compatible with existing DNS infrastructure.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-7ca75288d8dcac52f735462a7db347518c83bb7c6487f88a1689b9f623216879",
+            "timestamp": 1557945405,
+            "size": 2433330
+        },
+        "options": {
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-f895b1813ef8939d56a5fc855ae3b815e00727ee6983b852e3eba2523edb5e38",
+                "timestamp": 1560264143,
+                "size": 55433,
+                "filename": "anrw2019-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "d52acd1d0f9a3aa61626177a8ed1d05958b5b5d1",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1560264143,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            120,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "c": 1548
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "z@chary.io": "collaborator",
+            "allison.mankin@gmail.com": "author",
+            "jrex@cs.princeton.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 33,
+        "title": "Analyzing the Costs (and Benefits) of DNS, DoT, and DoH for the Modern Web",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1558136385,
+        "authors": [
+            {
+                "email": "ahounsel@cs.princeton.edu",
+                "first": "Austin",
+                "last": "Hounsel",
+                "affiliation": "Princeton University",
+                "contact": true
+            },
+            {
+                "email": "kevin@iseclab.org",
+                "first": "Kevin",
+                "last": "Borgolte",
+                "affiliation": "Princeton University",
+                "contact": true
+            },
+            {
+                "email": "pschmitt@princeton.edu",
+                "first": "Paul",
+                "last": "Schmitt",
+                "affiliation": "Princeton University",
+                "contact": true
+            },
+            {
+                "email": "jordanah@princeton.edu",
+                "first": "Jordan",
+                "last": "Holland",
+                "affiliation": "Princeton University",
+                "contact": true
+            },
+            {
+                "email": "feamster@cs.princeton.edu",
+                "first": "Nick",
+                "last": "Feamster",
+                "affiliation": "Princeton University",
+                "contact": true
+            }
+        ],
+        "abstract": "Essentially all Internet communication relies on the Domain Name System (DNS), which first maps a human-readable Internet destination or service to an IP address before two endpoints establish a connection to exchange data. Today, most DNS queries and responses are transmitted in cleartext, making them vulnerable to eavesdroppers and traffic analysis. Past work has demonstrated that DNS queries can reveal everything from browsing activity to user activity in a smart home. To mitigate some of these privacy risks, two new protocols have been proposed: DNS-over-HTTPS (DoH) and DNS-over-TLS (DoT). These protocols encrypt and trasmit DNS queries and responses between clients and third parties that operate DoH and DoT resolvers. This fundamental architectural change has implications for the performance of DNS, as well as for content delivery more generally.\r\n\r\nIn this paper, we measure the effect of DoH and DoT on name resolution performance and content delivery. We find that although DoH and DoT response times can be higher than for conventional DNS (Do53), DoH and DoT generally perform better than Do53 in terms of page load times. However, when network conditions degrade, webpages load more than one second slower for DoH compared to Do53. Furthermore, in a substantial amount of cases, a webpage may not load at all with DoH, while it loads successfully with DoT and Do53. Our in-depth analysis reveals various opportunities to readily improve DNS performance, for example through opportunistic partial responses and wire format caching.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-a9f45bd8cc8e50977f75f2f5a89c9f32ee98f5670804c5bf66aa3d06b2e0aabb",
+            "timestamp": 1558136381,
+            "size": 5844091
+        },
+        "options": {
+            "acmproceedings-abstract": {
+                "mimetype": "application\/pdf",
+                "hash": "sha2-ba1f9cecdcb4d5d3dc4817b4a0497476970cc2c0c448ebcb75b06b501abccf93",
+                "timestamp": 1560264144,
+                "size": 57931,
+                "filename": "anrw2019-acmproceedings-abstract.pdf",
+                "metadata": {
+                    "acmauto_sha1": "719b850e7bcde9fbc27504e7ddc2c04ff433d8b0",
+                    "npages": 1,
+                    "banal": {
+                        "at": 1560264144,
+                        "papersize": [
+                            792,
+                            612
+                        ],
+                        "margin": [
+                            84,
+                            52,
+                            84,
+                            52
+                        ],
+                        "bodyfontsize": 10,
+                        "leading": 12,
+                        "columns": 2,
+                        "pages": [
+                            {
+                                "c": 1791
+                            }
+                        ]
+                    }
+                }
+            }
+        },
+        "pc_conflicts": {
+            "z@chary.io": "collaborator",
+            "allison.mankin@gmail.com": "collaborator",
+            "jrex@cs.princeton.edu": "collaborator"
+        }
+    },
+    {
+        "pid": 35,
+        "title": "Can We Containerize Internet Measurements?",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1558059824,
+        "authors": [
+            {
+                "email": "cmisa@cs.uoregon.edu",
+                "first": "Chris",
+                "last": "Misa",
+                "affiliation": "University of Oregon",
+                "contact": true
+            },
+            {
+                "email": "sudarsun.kannan@gmail.com",
+                "first": "Sudarsun",
+                "last": "Kannan",
+                "affiliation": "Rutgers University",
+                "contact": true
+            },
+            {
+                "email": "ram@cs.uoregon.edu",
+                "first": "Ramakrishnan",
+                "last": "Durairajan",
+                "affiliation": "University of Oregon",
+                "contact": true
+            }
+        ],
+        "abstract": "Container systems (e.g., Docker) provide a well-defined, lightweight, and versatile foundation to streamline the process of tool deployment, to provide a consistent and repeatable experimental interface, and to leverage data centers in the global cloud infrastructure as measurement vantage points. However, the virtual network devices commonly used to connect containers to the Internet are known to impose latency overheads which distort the values reported by measurement tools running inside containers. In this study, we develop a tool called MACE to measure and remove the latency overhead of virtual network devices as used by Docker containers. A key insight of MACE is the fact that container functions all execute in the same kernel. Based on this insight, MACE is implemented as a Linux kernel module using the trace event subsystem to measure latency along the network stack code path. Using CloudLab, we evaluate MACE by comparing the ping measurements emitted from a slim-ping container to the ones emitted using the same tool running in the bare metal machine under varying traffic loads. Our evaluation shows that the MACE-adjusted RTT measurements are within 20 $\\mu$s of the bare metal ping RTTs on average while incurring less than 25 $\\mu$s RTT perturbation. We also compare RTT perturbation incurred by MACE with perturbation incurred by the built-in {\\tt ftrace} kernel tracing system and find that MACE incures less perturbation.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-cf490df17e3dfbe28a6e49d1f3766f89f8af95e9314789223fdd8937141126c0",
+            "timestamp": 1558059825,
+            "size": 455967
+        }
+    },
+    {
+        "pid": 36,
+        "title": "Checking-in on Network Functions",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1558103687,
+        "authors": [
+            {
+                "email": "zlakhani@cs.cmu.edu",
+                "first": "Zeeshan",
+                "last": "Lakhani",
+                "affiliation": "Carnegie Mellon Univeristy",
+                "contact": true
+            },
+            {
+                "email": "heather.miller@cs.cmu.edu",
+                "first": "Heather",
+                "last": "Miller",
+                "affiliation": "Carnegie Mellon University",
+                "contact": true
+            }
+        ],
+        "abstract": "When programming network functions, changes within a packet tend to have consequences&mdash;side effects which must be accounted for by network programmers or administrators via arbitrary logic and an innate understanding of dependencies. Examples of this include updating checksums when a packet's contents has been modified or adjusting a payload length field of a IPv6 header if another header is added or updated within a packet. While static-typing captures interface specifications and how packet contents should behave, it does not enforce precise invariants around runtime dependencies like the examples above. Instead, during the design phase of network functions, programmers should be given a easier way to specify checks up front, all without having to account for and keep track of these *consequences* at each and every step during the development cycle. In keeping with this view, we present a unique approach for adding and generating both static checks and dynamic contracts for specifying and checking packet processing operations. We develop our technique within an existing framework called NetBricks and demonstrate how our approach simplifies and checks common dependent packet and header processing logic that other systems take for granted, all without adding much overhead during development.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-ee037892aa7bc130bc1491c0d23be1a1e362990dafb265d8bbfd9e6c338bb419",
+            "timestamp": 1558103662,
+            "size": 568383
+        }
+    },
+    {
+        "pid": 37,
+        "title": "Securing IPv6 Neighbor Discovery and SLAAC in Access Networks through SDN",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1558129531,
+        "authors": [
+            {
+                "email": "dnelle@uni-potsdam.de",
+                "first": "Daniel",
+                "last": "Nelle",
+                "affiliation": "Universität Potsdam, Germany",
+                "contact": true
+            },
+            {
+                "email": "tscheffl@aprikado.de",
+                "first": "Thomas",
+                "last": "Scheffler",
+                "affiliation": "Hochschule für Technik und Wirtschaft Berlin, Germany",
+                "contact": true
+            }
+        ],
+        "abstract": "This paper proposes and evaluates a new approach, based on Software Defined Networking (SDN), to secure the IPv6 Neighbor Discovery Protocol (NDP) message exchange and make the Stateless Address Autoconfiguration safer. We created an SDN application on the Ryu SDN framework which functions as an intelligent NDP-Proxy. The SDN application inspects all NDP messages in the data path of the access switch. Once the application has accumulated data about the respective network segment, it performs sanity checking and filtering. We used several relevant attacks from the THC IPv6 toolkit to assert resiliency against attacks on the Neighbor Discovery Protocol. Load tests showed that the overhead for the NDP packet inspection is not neglectable, but once the relevant flow-rules have been installed, all subsequent packets are switched directly on the fast-path, so that network performance is only minimally affected.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-0b995676653a4f550d0daeb3b4a5654e99757d4fed960fb8553f413d355bff58",
+            "timestamp": 1558129251,
+            "size": 453702
+        }
+    },
+    {
+        "pid": 44,
+        "title": "What Can You Learn from an IP?",
+        "decision": "Accepted",
+        "status": "Accepted",
+        "submitted": true,
+        "submitted_at": 1558149254,
+        "authors": [
+            {
+                "email": "sppatil2@illinois.edu",
+                "first": "Simran",
+                "last": "Patil",
+                "affiliation": "University of Illinois at Urbana-Champaign",
+                "contact": true
+            },
+            {
+                "email": "nikita@illinois.edu",
+                "first": "Nikita",
+                "last": "Borisov",
+                "affiliation": "University of Illinois at Urbana-Champaign",
+                "contact": true
+            }
+        ],
+        "abstract": "The internet was not designed with security in mind. A lot of recent protocols like Encrypted DNS, HTTPS, etc. target encrypting critical parts of the web architecture which can otherwise be exploited by eavesdroppers to infer user's data. But encryption may not necessarily guarantee anonymity and privacy. While both DNS queries and the TLS SNI extensions can now be protected by on-path attackers using Encrypted DNS and extensions like Encrypted Server Name Indication, it might still be possible to determine which websites users are visiting by simply looking at the destination IP addresses on the traffic originating from users’ devices. We perform a measurement study to determine the anonymity provided by IP sets associated with the multiple sub-queries that are made as a consequence of accessing a particular web page. We also analyze the implication of privacy in the event that CDNs are associated with certain domains and when IP addresses can be directly mapped to certain web sites by performing reverse DNS lookups.",
+        "submission": {
+            "mimetype": "application\/pdf",
+            "hash": "sha2-9643d7d79be8027952de101580efaab43a8a56158917d6e171fcc7763c02678a",
+            "timestamp": 1558149747,
+            "size": 721288
+        },
+        "pc_conflicts": {
+            "caw@heapingbits.net": "collaborator",
+            "nick@cloudflare.com": "collaborator"
+        }
+    }
+]
