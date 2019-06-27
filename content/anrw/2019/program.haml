@@ -34,22 +34,172 @@ menu: Program
 - json = "content/anrw/2019/anrw2019-data.json"
 
 %table.table.table-striped.no-urlify
+  %thead
+    %tr
+      %th
+        Time
+      %th
+        Session
+      %th
+        Session Chair
   %tbody
     %tr
       %td
-        %p
-        .row= htmlify_paper_new3(json, 20)
-        .row= htmlify_paper_new3(json, 21)
-        .row= htmlify_paper_new3(json, 25)
-        .row= htmlify_paper_new3(json, 26)
-        .row= htmlify_paper_new3(json, 27)
-        .row= htmlify_paper_new3(json, 28)
-        .row= htmlify_paper_new3(json, 29)
-        .row= htmlify_paper_new3(json, 31)
-        .row= htmlify_paper_new3(json, 33)
-        .row= htmlify_paper_new3(json, 35)
-        .row= htmlify_paper_new3(json, 36)
-        .row= htmlify_paper_new3(json, 37)
-        .row= htmlify_paper_new3(json, 44)
+        %h4.text-danger 09:30
+      %td
+        %h4.text-danger Welcome and Opening Remarks
+        %div.row
+          %div.col-lg-8
+            %p
+              %b
+                Welcome and Opening Remarks
+              %br
+              Phillipa Gill
+              %em.text-muted
+                (UMass Amherst)
+              and Jana Iyengar
+              %em.text-muted
+                (Fastly)
+            %p
+
+      %td
+        %h5.text-danger Phillipa Gill and Jana Iyengar
+
+    %tr
+      %td
+        %h4.text-danger 09:45
+      %td
+        %h4.text-danger QUIC
+        %div.row
+          %div.col-lg-8
+            %p
+            .row= htmlify_paper_new3(json, 25)
+            .row= htmlify_paper_new3(json, 29)
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 10:30
+      %td
+        %h4.text-danger Break
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 10:40
+      %td
+        %h4.text-danger DNS and Security
+        %div.row
+          %div.col-lg-8
+            %p
+              %b
+                Dragonblood: A Security Analysis of WPA3’s SAE Handshake
+              <span class="label label-danger">Invited talk</span>
+              %br
+              Mathy Vanhoef
+              %em.text-muted
+                (New York University Abu Dhabi)
+              and Eyal Ronen
+              %em.text-muted
+                (Tel Aviv University and KU Leuven)
+            %p
+            .row= htmlify_paper_new3(json, 21)
+            .row= htmlify_paper_new3(json, 31)
+            .row= htmlify_paper_new3(json, 33)
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 12:00
+      %td
+        %h4.text-danger Lunch
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 13:15
+      %td
+        %h4.text-danger Time, Fairness, and Neighbors
+        %div.row
+          %div.col-lg-8
+            %p
+            .row= htmlify_paper_new3(json, 37)
+            .row= htmlify_paper_new3(json, 26)
+            .row= htmlify_paper_new3(json, 27)
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 14:15
+      %td
+        %h4.text-danger Break
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 14:30
+      %td
+        %h4.text-danger Measurement and Optimisation
+        %div.row
+          %div.col-lg-8
+            %p
+            .row= htmlify_paper_new3(json, 44)
+            .row= htmlify_paper_new3(json, 35)
+            .row= htmlify_paper_new3(json, 28)
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 15:30
+      %td
+        %h4.text-danger Break
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 15:50
+      %td
+        %h4.text-danger Network Functions and Middleboxes
+        %div.row
+          %div.col-lg-8
+            %p
+            .row= htmlify_paper_new3(json, 20)
+            .row= htmlify_paper_new3(json, 36)
+            %p
+              %b
+                Limitless HTTP in an HTTPS World: Inferring the Semantics of the HTTPS Protocol without Decryption
+              <span class="label label-danger">Invited talk</span>
+              %br<
+              Blake Anderson
+              %em.text-muted><
+                (Cisco)
+              , Andrew Chi
+              %em.text-muted><
+                (University of North Carolina)
+              , Scott Dunlop
+              %em.text-muted><
+                (Cisco)
+              , and David McGrew
+              %em.text-muted
+                (Cisco)
+      %td
+        %h5.text-danger &nbsp;
+
+    %tr
+      %td
+        %h4.text-danger 16:50
+      %td
+        %h4.text-danger Wrap-up
+      %td
+        %h5.text-danger &nbsp;
+
 
 
