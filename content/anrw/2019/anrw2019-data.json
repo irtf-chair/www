@@ -185,6 +185,35 @@
         "final_submitted": true,
         "final_submitted_at": 1560270541,
         "options": {
+            "acm-keywords": [
+                "mmb",
+                "VPP",
+                "middelbox"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003058.10003063",
+                    "concept_desc": "Networks~Middle boxes \/ network appliances",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003058,
+                        10003063
+                    ],
+                    "expected_concept_desc": "Networks~Middle boxes \/ network appliances"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011672",
+                    "concept_desc": "Networks~Network performance analysis",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011672
+                    ],
+                    "expected_concept_desc": "Networks~Network performance analysis"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_id": "1",
@@ -274,35 +303,6 @@
                     "ref_id": "22",
                     "ref_text": "Z. Wang, Z. Qian, Q. Xu, Z. Mao, and M. Zhang. 2011. An Untold Story of Middleboxes in Cellular Networks. In <i>Proc. ACM SIGCOMM<\/i>."
                 }
-            ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10003033.10003058.10003063",
-                    "concept_desc": "Networks~Middle boxes \/ network appliances",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003058,
-                        10003063
-                    ],
-                    "expected_concept_desc": "Networks~Middle boxes \/ network appliances"
-                },
-                {
-                    "concept_id": "10003033.10003079.10011672",
-                    "concept_desc": "Networks~Network performance analysis",
-                    "concept_significance": 300,
-                    "concept_path": [
-                        10003033,
-                        10003079,
-                        10011672
-                    ],
-                    "expected_concept_desc": "Networks~Network performance analysis"
-                }
-            ],
-            "acm-keywords": [
-                "mmb",
-                "VPP",
-                "middelbox"
             ],
             "source-files": [
                 {
@@ -575,6 +575,11 @@
         "final_submitted": true,
         "final_submitted_at": 1560488356,
         "options": {
+            "acm-keywords": [
+                "DNS Security",
+                "DNS Interception",
+                "DNS Encryption"
+            ],
             "acm-computing-classification": [
                 {
                     "concept_id": "10002978.10003014",
@@ -598,10 +603,239 @@
                     "expected_concept_desc": "Networks~Network security"
                 }
             ],
-            "acm-keywords": [
-                "DNS Security",
-                "DNS Interception",
-                "DNS Encryption"
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "22 networks with transparent dns proxies. <a href=\"https:\/\/help.dnsfilter.com\/article\/22-networks-with-transparent-dns-proxies\">https:\/\/help.dnsfilter.com\/article\/22-networks-with-transparent-dns-proxies<\/a>."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "As rank: A ranking of the largest autonomous systems (as) in the internet. <a href=\"http:\/\/as-rank.caida.org\">http:\/\/as-rank.caida.org<\/a>."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Avast secure dns. <a href=\"https:\/\/help.avast.com\/en\/av_abs\/10\/etc_tools_secure_dns_overview.html\">https:\/\/help.avast.com\/en\/av_abs\/10\/etc_tools_secure_dns_overview.html<\/a>."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Cisco: Dns configuration guide. <a href=\"https:\/\/www.cisco.com\/c\/en\/us\/td\/docs\/ios-xml\/ios\/ipaddr_dns\/configuration\/12-4t\/dns-12-4t-book\/dns-config-dns.html\">https:\/\/www.cisco.com\/c\/en\/us\/td\/docs\/ios-xml\/ios\/ipaddr_dns\/configuration\/12-4t\/dns-12-4t-book\/dns-config-dns.html<\/a>."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Cisco umbrella intelligent prox.<a href=\"https:\/\/learn-umbrella.cisco.com\/feature-briefs\/intelligent-proxy\">https:\/\/learn-umbrella.cisco.com\/feature-briefs\/intelligent-proxy<\/a>."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Cve-2015-5477: An error in handling tkey queries can cause named to exit with a require assertion failure. <a href=\"https:\/\/nvd.nist.gov\/vuln\/detail\/CVE-2015-5477\">https:\/\/nvd.nist.gov\/vuln\/detail\/CVE-2015-5477<\/a>."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Dns traffic clear refreshment system. <a href=\"http:\/\/www.xpspeed.net\/product4.html\">http:\/\/www.xpspeed.net\/product4.html<\/a>."
+                },
+                {
+                    "ref_id": "8",
+                    "ref_text": "Dns traffic router of shenxingzhe. <a href=\"http:\/\/bbs.dwcache.com\/t\/31\">http:\/\/bbs.dwcache.com\/t\/31<\/a>."
+                },
+                {
+                    "ref_id": "9",
+                    "ref_text": "Dynamic dns. <a href=\"https:\/\/dyn.com\/dns\/\">https:\/\/dyn.com\/dns\/<\/a>."
+                },
+                {
+                    "ref_id": "10",
+                    "ref_text": "Farsight passive dns. <a href=\"https:\/\/www.farsightsecurity.com\/solutions\/dnsdb\">https:\/\/www.farsightsecurity.com\/solutions\/dnsdb<\/a>."
+                },
+                {
+                    "ref_id": "11",
+                    "ref_text": "fpdns <a href=\"https:\/\/github.com\/kirei\/fpdns\">https:\/\/github.com\/kirei\/fpdns<\/a>."
+                },
+                {
+                    "ref_id": "12",
+                    "ref_text": "Google public dns. <a href=\"https:\/\/dns.google.com\/\">https:\/\/dns.google.com\/<\/a>."
+                },
+                {
+                    "ref_id": "13",
+                    "ref_text": "How to find out if your internet service provider is doing transparent dns proxy. <a href=\"https:\/\/www.cactusvpn.com\/tutorials\/how-to-find-out-if-your-internet-service-provider-is-doing-transparent-dns-proxy\/\">https:\/\/www.cactusvpn.com\/tutorials\/how-to-find-out-if-your-internet-service-provider-is-doing-transparent-dns-proxy\/<\/a>."
+                },
+                {
+                    "ref_id": "14",
+                    "ref_text": "Http and socks proxies. <a href=\"https:\/\/www.proxyrack.com\/\">https:\/\/www.proxyrack.com\/<\/a>."
+                },
+                {
+                    "ref_id": "15",
+                    "ref_text": "Introduction of dns pai project. <a href=\"http:\/\/www.dnspai.com\">http:\/\/www.dnspai.com<\/a>."
+                },
+                {
+                    "ref_id": "16",
+                    "ref_text": "Is your isp hijacking your dns traffic? <a href=\"https:\/\/labs.ripe.net\/Members\/babak_farrokhi\/is-your-isp-hijacking-your-dns-traffic\">https:\/\/labs.ripe.net\/Members\/babak_farrokhi\/is-your-isp-hijacking-your-dns-traffic<\/a>."
+                },
+                {
+                    "ref_id": "17",
+                    "ref_text": "Is your isp hijacking your dns traffic. <a href=\"https:\/\/labs.ripe.net\/Members\/babak_farrokhi\/is-your-isp-hijacking-your-dns-traffic\">https:\/\/labs.ripe.net\/Members\/babak_farrokhi\/is-your-isp-hijacking-your-dns-traffic<\/a>."
+                },
+                {
+                    "ref_id": "18",
+                    "ref_text": "Isp doing transparent dns proxy. <a href=\"https:\/\/www.smartydns.com\/support\/isp-doing-transparent-dns-proxy\/\">https:\/\/www.smartydns.com\/support\/isp-doing-transparent-dns-proxy\/<\/a>."
+                },
+                {
+                    "ref_id": "19",
+                    "ref_text": "Luminati: Residental proxy service for businesses. <a href=\"https:\/\/luminati.io\">https:\/\/luminati.io<\/a>."
+                },
+                {
+                    "ref_id": "20",
+                    "ref_text": "Maxmind: Ip geolocation. <a href=\"https:\/\/www.maxmind.com\/en\/home\">https:\/\/www.maxmind.com\/en\/home<\/a>."
+                },
+                {
+                    "ref_id": "21",
+                    "ref_text": "A method to conduct dns traffic redirecting in telecommunication system. <a href=\"https:\/\/patentimages.storage.googleapis.com\/cc\/b2\/65\/6272013c07765e\/CN103181146A.pdf\">https:\/\/patentimages.storage.googleapis.com\/cc\/b2\/65\/6272013c07765e\/CN103181146A.pdf<\/a>."
+                },
+                {
+                    "ref_id": "22",
+                    "ref_text": "Open dns. <a href=\"https:\/\/www.opendns.com\/\">https:\/\/www.opendns.com\/<\/a>."
+                },
+                {
+                    "ref_id": "23",
+                    "ref_text": "Panabit intelligent dns system. <a href=\"http:\/\/www.panabit.com\/html\/solution\/trade\/service\/2014\/1216\/94.html\">http:\/\/www.panabit.com\/html\/solution\/trade\/service\/2014\/1216\/94.html<\/a>."
+                },
+                {
+                    "ref_id": "24",
+                    "ref_text": "The practice of dns control based on out-of-band responder mechanism. <a href=\"http:\/\/www.ttm.com.cn\/article\/2016\/1000-1247\/1000-1247-1-1-00064.shtml\">http:\/\/www.ttm.com.cn\/article\/2016\/1000-1247\/1000-1247-1-1-00064.shtml<\/a>."
+                },
+                {
+                    "ref_id": "25",
+                    "ref_text": "What is my dns resolver? <a href=\"http:\/\/whatismydnsresolver.com\">http:\/\/whatismydnsresolver.com<\/a>."
+                },
+                {
+                    "ref_id": "26",
+                    "ref_text": "Zdns: solutions for campus network services. <a href=\"http:\/\/free.eol.cn\/edu_net\/edudown\/2017luntan\/zdns.pdf\">http:\/\/free.eol.cn\/edu_net\/edudown\/2017luntan\/zdns.pdf<\/a>."
+                },
+                {
+                    "ref_id": "27",
+                    "ref_text": "<scp>Allman, M.<\/scp> Detecting dns root manipulation. In <i>Passive and Active Measurement: 17th International Conference, PAM 2016, Heraklion, Greece, March 31-April 1, 2016. Proceedings<\/i> (2016), vol. 9631, Springer, p. 276."
+                },
+                {
+                    "ref_id": "28",
+                    "ref_text": "<scp>Anonymous<\/scp>. The collateral damage of internet censorship by dns injection. <i>ACM SIGCOMM CCR 42<\/i>, 3 (2012)."
+                },
+                {
+                    "ref_id": "29",
+                    "ref_text": "<scp>Anonymous<\/scp>. Towards a comprehensive picture of the great firewall’s dns censorship. In <i>FOCI<\/i> (2014)."
+                },
+                {
+                    "ref_id": "30",
+                    "ref_text": "<scp>Aryan, S., Aryan, H., and Halderman, J. A.<\/scp> Internet censorship in iran: A first look. In <i>FOCI<\/i> (2013)."
+                },
+                {
+                    "ref_id": "31",
+                    "ref_text": "<scp>Bailey, M., and Labovitz, C.<\/scp> Censorship and co-option of the internet infrastructure. <i>Ann Arbor 1001<\/i> (2011), 48104."
+                },
+                {
+                    "ref_id": "32",
+                    "ref_text": "<scp>Chaabane, A., Chen, T., Cunche, M., De Cristofaro, E., Friedman, A., and Kaafar, M. A.<\/scp> Censorship in the wild: Analyzing internet filtering in syria. In <i>Proceedings of the 2014 Conference on Internet Measurement Conference<\/i> (2014), ACM, pp. 285–298."
+                },
+                {
+                    "ref_id": "33",
+                    "ref_text": "<scp>Chen, J., Jiang, J., Duan, H., Weaver, N., Wan, T., and Paxson, V.<\/scp> Host of troubles: Multiple host ambiguities in http implementations. In <i>Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security<\/i> (2016), ACM, pp. 1516–1527."
+                },
+                {
+                    "ref_id": "34",
+                    "ref_text": "<scp>Chen, Q. A., Osterweil, E., Thomas, M., and Mao, Z. M.<\/scp> Mitm attack by name collision: Cause analysis and vulnerability assessment in the new gtld era. In <i>Security and Privacy (SP), 2016 IEEE Symposium on<\/i> (2016), IEEE, pp. 675–690."
+                },
+                {
+                    "ref_id": "35",
+                    "ref_text": "<scp>Chen, Q. A., Thomas, M., Osterweil, E., Cao, Y., You, J., and Mao, Z. M.<\/scp> Client-side name collision vulnerability in the new gtld era: A systematic study. In <i>Proceedings of the 2017 ACM SIGSAC Conference on Computer and Communications Security<\/i> (2017), ACM, pp. 941–956."
+                },
+                {
+                    "ref_id": "36",
+                    "ref_text": "<scp>Chung, T., Choffnes, D., and Mislove, A.<\/scp> Tunneling for transparency: A large-scale analysis of end-to-end violations in the internet. In <i>Proceedings of the 2016 ACM on Internet Measurement Conference<\/i> (2016), ACM, pp. 199–213."
+                },
+                {
+                    "ref_id": "37",
+                    "ref_text": "<scp>Chung, T., van Rijswijk-Deij, R., Chandrasekaran, B., Choffnes, D., Levin, D., Maggs, B. M., Mislove, A., and Wilson, C.<\/scp> A longitudinal, end-to-end view of the dnssec ecosystem. In <i>USENIX Security<\/i> (2017)."
+                },
+                {
+                    "ref_id": "38",
+                    "ref_text": "<scp>Dagon, D., Provos, N., Lee, C. P., and Lee, W.<\/scp> Corrupted dns resolution paths: The rise of a malicious resolution authority. In <i>NDSS<\/i> (2008)."
+                },
+                {
+                    "ref_id": "39",
+                    "ref_text": "<scp>Hu, Z., Zhu, L., Heidemann, J., Mankin, A., Wessels, D., and Hoffman, P.<\/scp> Specification for dns over transport layer security (tls). Tech. rep., 2016."
+                },
+                {
+                    "ref_id": "40",
+                    "ref_text": "<scp>Jiang, J., Liang, J., Li, K., Li, J., Duan, H., and Wu, J.<\/scp> Ghost domain names: Revoked yet still resolvable. In <i>Network and Distributed System Security Symposium<\/i> (2012)."
+                },
+                {
+                    "ref_id": "41",
+                    "ref_text": "<scp>Kreibich, C., Weaver, N., Nechaev, B., and Paxson, V.<\/scp> Netalyzr: illuminating the edge network. In <i>Proceedings of the 10th ACM SIGCOMM conference on Internet measurement<\/i> (2010), ACM, pp. 246–259."
+                },
+                {
+                    "ref_id": "42",
+                    "ref_text": "<scp>Kührer, M., Hupperich, T., Bushart, J., Rossow, C., and Holz, T.<\/scp> Going wild: Large-scale classification of open dns resolvers. In <i>Proceedings of the 2015 ACM Conference on Internet Measurement Conference<\/i> (2015), ACM, pp. 355–368."
+                },
+                {
+                    "ref_id": "43",
+                    "ref_text": "<scp>Liu, D., Hao, S., and Wang, H.<\/scp> All your dns records point to us: Understanding the security threats of dangling dns records. In <i>Proceedings of the 2016 ACM SIGSAC Conference on Computer and Communications Security<\/i> (2016), ACM, pp. 1414–1425."
+                },
+                {
+                    "ref_id": "44",
+                    "ref_text": "<scp>Lowe, G., Winters, P., and Marcus, M. L.<\/scp> The great dns wall of china. <i>MS, New York University 21<\/i> (2007)."
+                },
+                {
+                    "ref_id": "45",
+                    "ref_text": "<scp>Nabi, Z.<\/scp> The anatomy of web censorship in pakistan. In <i>FOCI<\/i> (2013)."
+                },
+                {
+                    "ref_id": "46",
+                    "ref_text": "<scp>Nakibly, G., Schcolnik, J., and Rubin, Y.<\/scp> Website-targeted false content injection by network operators. In <i>USENIX Security Symposium<\/i> (2016), pp. 227–244."
+                },
+                {
+                    "ref_id": "47",
+                    "ref_text": "<scp>Nikiforakis, N., Van Acker, S., Meert, W., Desmet, L., Piessens, F., and Joosen, W.<\/scp> Bitsquatting: Exploiting bit-flips for fun, or profit? In <i>WWW, 2013<\/i>."
+                },
+                {
+                    "ref_id": "48",
+                    "ref_text": "<scp>Pearce, P., Jones, B., Li, F., Ensafi, R., Feamster, N., Weaver, N., and Paxson, V.<\/scp> Global measurement of dns manipulation. In <i>26th USENIX Security Symposium<\/i> (2017), USENIX Association."
+                },
+                {
+                    "ref_id": "49",
+                    "ref_text": "<scp>Schomp, K., Callahan, T., Rabinovich, M., and Allman, M.<\/scp> On measuring the client-side dns infrastructure. In <i>Proceedings of the 2013 conference on Internet measurement conference<\/i> (2013), ACM, pp. 77–90."
+                },
+                {
+                    "ref_id": "50",
+                    "ref_text": "<scp>Scott, W., Anderson, T. E., Kohno, T., and Krishnamurthy, A.<\/scp> Satellite: Joint analysis of cdns and network-level interference. In <i>USENIX Annual Technical Conference<\/i> (2016), pp. 195–208."
+                },
+                {
+                    "ref_id": "51",
+                    "ref_text": "<scp>Shi, X., Xiang, Y., Wang, Z., Yin, X., and Wu, J.<\/scp> Detecting prefix hijackings in the internet with argus. In <i>Proceedings of the 2012 ACM conference on Internet measurement conference<\/i> (2012), ACM, pp. 15–28."
+                },
+                {
+                    "ref_id": "52",
+                    "ref_text": "<scp>Tyson, G., Huang, S., Cuadrado, F., Castro, I., Perta, V. C., Sathiaseelan, A., and Uhlig, S.<\/scp> Exploring http header manipulation in-the-wild. In <i>Proceedings of the 26th International Conference on World Wide Web<\/i> (2017), International World Wide Web Conferences Steering Committee, pp. 451–458."
+                },
+                {
+                    "ref_id": "53",
+                    "ref_text": "<scp>Vallina-Rodriguez, N., Sundaresan, S., Kreibich, C., Weaver, N., and Paxson, V.<\/scp> Beyond the radio: Illuminating the higher layers of mobile networks. In <i>Proceedings of the 13th Annual International Conference on Mobile Systems, Applications, and Services<\/i> (2015), ACM, pp. 375–387."
+                },
+                {
+                    "ref_id": "54",
+                    "ref_text": "<scp>Vissers, T., Barron, T., Van Goethem, T., Joosen, W., and Nikiforakis, N.<\/scp> The wolf of name street: Hijacking domains through their nameservers. In <i>Proceedings of the 2017 ACM SIGSAC Con ference on Computer and Communications Security<\/i> (2017), ACM, pp. 957–970."
+                },
+                {
+                    "ref_id": "55",
+                    "ref_text": "<scp>Weaver, N., Kreibich, C., Nechaev, B., and Paxson, V.<\/scp> Implications of netalyzr’s dns measurements. In <i>Proceedings of the First Workshop on Securing and Trusting Internet Names (SATIN), Teddington, United Kingdom<\/i> (2011)."
+                },
+                {
+                    "ref_id": "56",
+                    "ref_text": "<scp>Weaver, N., Kreibich, C., and Paxson, V.<\/scp> Redirecting dns for ads and profit. In <i>FOCI<\/i> (2011)."
+                },
+                {
+                    "ref_id": "57",
+                    "ref_text": "<scp>Wikipedia<\/scp>. Public recursive name server. <a href=\"https:\/\/en.wikipedia.org\/wiki\/Public_recursive_name_server\">https:\/\/en.wikipedia.org\/wiki\/Public_recursive_name_server<\/a>."
+                },
+                {
+                    "ref_id": "58",
+                    "ref_text": "<scp>Xu, X., Mao, Z. M., and Halderman, J. A.<\/scp> Internet censorship in china: Where does the filtering occur? In <i>International Conference on Passive and Active Network Measurement<\/i> (2011), Springer, pp. 133–142."
+                }
             ],
             "source-files": [
                 {
@@ -868,6 +1102,24 @@
         "final_submitted": true,
         "final_submitted_at": 1560760651,
         "options": {
+            "acm-keywords": [
+                "HTTP\/3",
+                "QUIC",
+                "Network Measurements"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_id": "1",
@@ -993,24 +1245,6 @@
                     "ref_id": "31",
                     "ref_text": "Torsten Zimmermann, Benedikt Wolters, and Oliver Hohlfeld. 2017. A QoE Perspective on HTTP\/2 Server Push. In <i>ACM Workshop on QoE-based Analysis and Management of Data Communication Networks (Internet-QoE)<\/i>. DOI:<a href=\"https:\/\/doi.org\/10.1145\/3098603.3098604\">https:\/\/doi.org\/10.1145\/3098603.3098604<\/a>"
                 }
-            ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10003033.10003079.10011704",
-                    "concept_desc": "Networks~Network measurement",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003079,
-                        10011704
-                    ],
-                    "expected_concept_desc": "Networks~Network measurement"
-                }
-            ],
-            "acm-keywords": [
-                "HTTP\/3",
-                "QUIC",
-                "Network Measurements"
             ],
             "source-files": [
                 {
@@ -1218,6 +1452,28 @@
         "final_submitted": true,
         "final_submitted_at": 1560940696,
         "options": {
+            "acm-keywords": [
+                "Fairness",
+                "Resource Sharing",
+                "Packet Marking",
+                "Rate Measurement",
+                "Timescales",
+                "PPV"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003068.10003069.10003072",
+                    "concept_desc": "Networks~Packet scheduling",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003068,
+                        10003069,
+                        10003072
+                    ],
+                    "expected_concept_desc": "Networks~Packet scheduling"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_id": "1",
@@ -1255,28 +1511,6 @@
                     "ref_id": "9",
                     "ref_text": "Ion Stoica, Scott Shenker, and Hui Zhang. 2003. Core-stateless Fair Queueing: A Scalable Architecture to Approximate Fair Bandwidth Allocations in High-speed Networks. <i>IEEE\/ACM Trans. Netw.<\/i> 11, 1 (Feb. 2003), 33–46. 1063-6692 <a href=\"https:\/\/doi.org\/10.1109\/TNET.2002.808414\">https:\/\/doi.org\/10.1109\/TNET.2002.808414<\/a>"
                 }
-            ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10003033.10003068.10003069.10003072",
-                    "concept_desc": "Networks~Packet scheduling",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003068,
-                        10003069,
-                        10003072
-                    ],
-                    "expected_concept_desc": "Networks~Packet scheduling"
-                }
-            ],
-            "acm-keywords": [
-                "Fairness",
-                "Resource Sharing",
-                "Packet Marking",
-                "Rate Measurement",
-                "Timescales",
-                "PPV"
             ],
             "source-files": [
                 {
@@ -1506,6 +1740,39 @@
         "final_submitted": true,
         "final_submitted_at": 1560972161,
         "options": {
+            "acm-keywords": [
+                "Daylight Saving Time",
+                "DST",
+                "Local Time",
+                "Time Zone Database",
+                "TZ",
+                "TZDB"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003039.10003053.10003054",
+                    "concept_desc": "Networks~Time synchronization protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039,
+                        10003053,
+                        10003054
+                    ],
+                    "expected_concept_desc": "Networks~Time synchronization protocols"
+                },
+                {
+                    "concept_id": "10003033.10003106.10010924",
+                    "concept_desc": "Networks~Public Internet",
+                    "concept_significance": 300,
+                    "concept_path": [
+                        10003033,
+                        10003106,
+                        10010924
+                    ],
+                    "expected_concept_desc": "Networks~Public Internet"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_id": "1",
@@ -1716,39 +1983,6 @@
                     "ref_text": "D. Veitch, S. Babu, and A. Pàsztor. 2004. Robust Synchronization of Software Clocks across the Internet. In <i>ACM IMC<\/i>."
                 }
             ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10003033.10003039.10003053.10003054",
-                    "concept_desc": "Networks~Time synchronization protocols",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003039,
-                        10003053,
-                        10003054
-                    ],
-                    "expected_concept_desc": "Networks~Time synchronization protocols"
-                },
-                {
-                    "concept_id": "10003033.10003106.10010924",
-                    "concept_desc": "Networks~Public Internet",
-                    "concept_significance": 300,
-                    "concept_path": [
-                        10003033,
-                        10003106,
-                        10010924
-                    ],
-                    "expected_concept_desc": "Networks~Public Internet"
-                }
-            ],
-            "acm-keywords": [
-                "Daylight Saving Time",
-                "DST",
-                "Local Time",
-                "Time Zone Database",
-                "TZ",
-                "TZDB"
-            ],
             "source-files": [
                 {
                     "mimetype": "application\/zip",
@@ -1889,11 +2123,11 @@
                 "npages": 3,
                 "acmfinal": {
                     "ok": true,
-                    "at": 1561502659,
+                    "at": 1561743928,
                     "npages": 3
                 },
                 "banal": {
-                    "at": 1561502659,
+                    "at": 1561743928,
                     "papersize": [
                         792,
                         612
@@ -1939,6 +2173,23 @@
         "final_submitted": true,
         "final_submitted_at": 1560864658,
         "options": {
+            "acm-keywords": [
+                "ALTO",
+                "application-layer traffic optimization",
+                "multi-domain"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003039",
+                    "concept_desc": "Networks~Network protocols",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003039
+                    ],
+                    "expected_concept_desc": "Networks~Network protocols"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_text": "R. Alimi, R. Penno, Y. Yang, S. Kiesel, S. Previdi, W. Roome, S. Shalunov, and R. Woundy. 2014. <i>Application-Layer Traffic Optimization (ALTO) Protocol<\/i>. RFC 7285. RFC Editor. 2070-1721 <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc7285.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc7285.txt<\/a> <a href=\"http:\/\/www.rfc-editor.org\/rfc\/rfc7285.txt\">http:\/\/www.rfc-editor.org\/rfc\/rfc7285.txt<\/a>."
@@ -2030,23 +2281,6 @@
                 {
                     "ref_text": "J. Zhang. 2019. <i>Multiple ALTO Resources Query Using Multipart Message<\/i>. Internet-Draft draft-zhang-alto-multipart-02. IETF Secretariat. <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-zhang-alto-multipart-02.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-zhang-alto-multipart-02.txt<\/a> <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-zhang-alto-multipart-02.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-zhang-alto-multipart-02.txt<\/a>."
                 }
-            ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10003033.10003039",
-                    "concept_desc": "Networks~Network protocols",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003039
-                    ],
-                    "expected_concept_desc": "Networks~Network protocols"
-                }
-            ],
-            "acm-keywords": [
-                "ALTO",
-                "application-layer traffic optimization",
-                "multi-domain"
             ],
             "source-files": [
                 {
@@ -2267,27 +2501,9 @@
         "final_submitted": true,
         "final_submitted_at": 1561420979,
         "options": {
-            "acmrefs": [
-                {
-                    "ref_id": "1",
-                    "ref_text": "Piet De Vaere, Tobias Bühler, Mirja Kühlewind, and Brian Trammell. 2018. Three Bits Suffice: Explicit Support for Passive Measurement of Internet Latency in QUIC and TCP. In <i>Proceedings of the Internet Measurement Conference 2018<\/i> <i>(IMC '18)<\/i>. ACM, New York, NY, USA, 22–28. DOI:<a href=\"https:\/\/doi.org\/10.1145\/3278532.3278535\">https:\/\/doi.org\/10.1145\/3278532.3278535<\/a>"
-                },
-                {
-                    "ref_id": "2",
-                    "ref_text": "Jana Iyengar and Martin Thomson. 2019. <i>QUIC: A UDP-Based Multiplexed and Secure Transport<\/i>. Internet-Draft draft-ietf-quic-transport-19. Internet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-transport-19\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-transport-19<\/a>"
-                },
-                {
-                    "ref_id": "3",
-                    "ref_text": "Bob Lantz, Brandon Heller, and Nick McKeown. 2010. A Network in a Laptop: Rapid Prototyping for Software-defined Networks. In <i>Proceedings of the 9th ACM SIGCOMM Workshop on Hot Topics in Networks<\/i> <i>(Hotnets-IX)<\/i>. ACM, New York, NY, USA, Article 19, 6 pages. DOI:<a href=\"https:\/\/doi.org\/10.1145\/1868447.1868466\">https:\/\/doi.org\/10.1145\/1868447.1868466<\/a>"
-                },
-                {
-                    "ref_id": "4",
-                    "ref_text": "Brian Trammell. 2019. <i>An Explicit Transport-Layer Signal for Hybrid RTT Measurement<\/i>. Internet-Draft draft-trammell-ippm-spin-00. Internet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-trammell-ippm-spin-00\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-trammell-ippm-spin-00<\/a>"
-                },
-                {
-                    "ref_id": "5",
-                    "ref_text": "Brian Trammell and Mirja Kühlewind. 2018. <i>The QUIC Latency Spin Bit<\/i>. Internet-Draft draft-ietf-quic-spin-exp-01. Internet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-spin-exp-01\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-spin-exp-01<\/a>"
-                }
+            "acm-keywords": [
+                "Network performance monitoring",
+                "QUIC"
             ],
             "acm-computing-classification": [
                 {
@@ -2313,9 +2529,27 @@
                     "expected_concept_desc": "Networks~Transport protocols"
                 }
             ],
-            "acm-keywords": [
-                "Network performance monitoring",
-                "QUIC"
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Piet De Vaere, Tobias Bühler, Mirja Kühlewind, and Brian Trammell. 2018. Three Bits Suffice: Explicit Support for Passive Measurement of Internet Latency in QUIC and TCP. In <i>Proceedings of the Internet Measurement Conference 2018<\/i> <i>(IMC '18)<\/i>. ACM, New York, NY, USA, 22–28. DOI:<a href=\"https:\/\/doi.org\/10.1145\/3278532.3278535\">https:\/\/doi.org\/10.1145\/3278532.3278535<\/a>"
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Jana Iyengar and Martin Thomson. 2019. <i>QUIC: A UDP-Based Multiplexed and Secure Transport<\/i>. Internet-Draft draft-ietf-quic-transport-19. Internet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-transport-19\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-transport-19<\/a>"
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Bob Lantz, Brandon Heller, and Nick McKeown. 2010. A Network in a Laptop: Rapid Prototyping for Software-defined Networks. In <i>Proceedings of the 9th ACM SIGCOMM Workshop on Hot Topics in Networks<\/i> <i>(Hotnets-IX)<\/i>. ACM, New York, NY, USA, Article 19, 6 pages. DOI:<a href=\"https:\/\/doi.org\/10.1145\/1868447.1868466\">https:\/\/doi.org\/10.1145\/1868447.1868466<\/a>"
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Brian Trammell. 2019. <i>An Explicit Transport-Layer Signal for Hybrid RTT Measurement<\/i>. Internet-Draft draft-trammell-ippm-spin-00. Internet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-trammell-ippm-spin-00\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-trammell-ippm-spin-00<\/a>"
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Brian Trammell and Mirja Kühlewind. 2018. <i>The QUIC Latency Spin Bit<\/i>. Internet-Draft draft-ietf-quic-spin-exp-01. Internet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-spin-exp-01\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-quic-spin-exp-01<\/a>"
+                }
             ],
             "source-files": [
                 {
@@ -2597,35 +2831,9 @@
         "final_submitted": true,
         "final_submitted_at": 1560782470,
         "options": {
-            "acmrefs": [
-                {
-                    "ref_id": "1",
-                    "ref_text": "Benjamin Greschbach, Tobias Pulls, Laura M. Roberts, Philipp Winter, and Nick Feamster. 2016. The Effect of DNS on Tor's Anonymity. <i>CoRR<\/i> abs\/1609.08187 (2016). [arxiv]1609.08187 <a href=\"http:\/\/arxiv.org\/abs\/1609.08187\">http:\/\/arxiv.org\/abs\/1609.08187<\/a>"
-                },
-                {
-                    "ref_id": "2",
-                    "ref_text": "Paul Hoffman and Patrick McManus. 2018. <i>DNS Queries over HTTPS (DOH)<\/i>. Internet-Draft. <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt<\/a> <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt<\/a>."
-                },
-                {
-                    "ref_id": "3",
-                    "ref_text": "Z. Hu, L. Zhu, J. Heidemann, A. Mankin, D. Wessels, and P. Hoffman. 2016. <i>Specification for DNS over Transport Layer Security (TLS)<\/i>. RFC 7858. 2070-1721"
-                },
-                {
-                    "ref_id": "4",
-                    "ref_text": "Quad9 2017. Quad9. <a href=\"https:\/\/quad9.net\/\">https:\/\/quad9.net\/<\/a>. (2017)."
-                },
-                {
-                    "ref_id": "5",
-                    "ref_text": "T. Reddy, D. Wing, and P. Patil. 2017. <i>DNS over Datagram Transport Layer Security (DTLS)<\/i>. RFC 8094. 2070-1721"
-                },
-                {
-                    "ref_id": "6",
-                    "ref_text": "Srikanth Sundaresan, Nick Feamster, Renata Teixeira, and Nazanin Magharei. 2013. Measuring and Mitigating Web Performance Bottlenecks in Broadband Access Networks. In <i>Proceedings of the 2013 Conference on Internet Measurement Conference<\/i> <i>(IMC '13)<\/i>. Barcelona, Spain."
-                },
-                {
-                    "ref_id": "7",
-                    "ref_text": "What 2018. What is 1.1.1.1? <a href=\"https:\/\/www.cloudflare.com\/learning\/dns\/what-is-1.1.1.1\/\">https:\/\/www.cloudflare.com\/learning\/dns\/what-is-1.1.1.1\/<\/a>. (2018)."
-                }
+            "acm-keywords": [
+                "DNS",
+                "Privacy"
             ],
             "acm-computing-classification": [
                 {
@@ -2662,9 +2870,35 @@
                     "expected_concept_desc": "Security and privacy~Privacy-preserving protocols"
                 }
             ],
-            "acm-keywords": [
-                "DNS",
-                "Privacy"
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Benjamin Greschbach, Tobias Pulls, Laura M. Roberts, Philipp Winter, and Nick Feamster. 2016. The Effect of DNS on Tor's Anonymity. <i>CoRR<\/i> abs\/1609.08187 (2016). [arxiv]1609.08187 <a href=\"http:\/\/arxiv.org\/abs\/1609.08187\">http:\/\/arxiv.org\/abs\/1609.08187<\/a>"
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Paul Hoffman and Patrick McManus. 2018. <i>DNS Queries over HTTPS (DOH)<\/i>. Internet-Draft. <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt<\/a> <a href=\"http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt\">http:\/\/www.ietf.org\/internet-drafts\/draft-ietf-doh-dns-over-https-08.txt<\/a>."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Z. Hu, L. Zhu, J. Heidemann, A. Mankin, D. Wessels, and P. Hoffman. 2016. <i>Specification for DNS over Transport Layer Security (TLS)<\/i>. RFC 7858. 2070-1721"
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Quad9 2017. Quad9. <a href=\"https:\/\/quad9.net\/\">https:\/\/quad9.net\/<\/a>. (2017)."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "T. Reddy, D. Wing, and P. Patil. 2017. <i>DNS over Datagram Transport Layer Security (DTLS)<\/i>. RFC 8094. 2070-1721"
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Srikanth Sundaresan, Nick Feamster, Renata Teixeira, and Nazanin Magharei. 2013. Measuring and Mitigating Web Performance Bottlenecks in Broadband Access Networks. In <i>Proceedings of the 2013 Conference on Internet Measurement Conference<\/i> <i>(IMC '13)<\/i>. Barcelona, Spain."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "What 2018. What is 1.1.1.1? <a href=\"https:\/\/www.cloudflare.com\/learning\/dns\/what-is-1.1.1.1\/\">https:\/\/www.cloudflare.com\/learning\/dns\/what-is-1.1.1.1\/<\/a>. (2018)."
+                }
             ],
             "source-files": [
                 {
@@ -2996,35 +3230,10 @@
         "final_submitted": true,
         "final_submitted_at": 1561075626,
         "options": {
-            "acmrefs": [
-                {
-                    "ref_id": "1",
-                    "ref_text": "Stephane Bortzmeyer. DNS Privacy Considerations. Tech. rep. 7626. (Informational). Aug. 2015. url: http:\/\/www.ietf.org\/rfc\/rfc7626.txt."
-                },
-                {
-                    "ref_id": "2",
-                    "ref_text": "Wes Hardaker. “Analyzing and Mitigating Privacy with the DNS Root Service”. In: url: https:\/\/www.isi.edu\/%5C%7ehardaker\/papers\/2018-02-ndss-analyzing-root-privacy.pdf (visited on 05\/13\/2019)."
-                },
-                {
-                    "ref_id": "3",
-                    "ref_text": "Paul Hoffman and Patrick McManus. DNS Queries over HTTPS (DoH). Tech. rep. 8484. (Proposed Standard). Oct. 2018. url: http:\/\/www.ietf.org\/rfc\/rfc8484.txt."
-                },
-                {
-                    "ref_id": "4",
-                    "ref_text": "Zi Hu et al. Specification for DNS over Transport Layer Security (TLS). Tech. rep. 7858. (Proposed Standard). May 2016. url: http:\/\/www.ietf.org\/rfc\/rfc7858.txt."
-                },
-                {
-                    "ref_id": "5",
-                    "ref_text": "Michael Kerrisk. resolv.conf - Linux Manual Page. url: http:\/\/man7.org\/linux\/man-pages\/man5\/resolv.conf.5.html (visited on 05\/30\/2019)."
-                },
-                {
-                    "ref_id": "6",
-                    "ref_text": "Patrick McManus. Firefox Nightly Secure DNS Experimental Results. Aug. 28, 2018. url: https:\/\/blog.nightly.mozilla.org\/2018\/08\/28\/firefox-nightly-secure-dns-experimental-results\/ (visited on 05\/11\/2019)."
-                },
-                {
-                    "ref_id": "7",
-                    "ref_text": "Liang Zhu et al. “Connection-oriented DNS to Improve Pri- vacy and Security”. In: doi: 10.1109\/sp.2015.18."
-                }
+            "acm-keywords": [
+                "network performance",
+                "network privacy",
+                "dns"
             ],
             "acm-computing-classification": [
                 {
@@ -3062,10 +3271,35 @@
                     "expected_concept_desc": "Networks~Security protocols"
                 }
             ],
-            "acm-keywords": [
-                "network performance",
-                "network privacy",
-                "dns"
+            "acmrefs": [
+                {
+                    "ref_id": "1",
+                    "ref_text": "Stephane Bortzmeyer. DNS Privacy Considerations. Tech. rep. 7626. (Informational). Aug. 2015. url: http:\/\/www.ietf.org\/rfc\/rfc7626.txt."
+                },
+                {
+                    "ref_id": "2",
+                    "ref_text": "Wes Hardaker. “Analyzing and Mitigating Privacy with the DNS Root Service”. In: url: https:\/\/www.isi.edu\/%5C%7ehardaker\/papers\/2018-02-ndss-analyzing-root-privacy.pdf (visited on 05\/13\/2019)."
+                },
+                {
+                    "ref_id": "3",
+                    "ref_text": "Paul Hoffman and Patrick McManus. DNS Queries over HTTPS (DoH). Tech. rep. 8484. (Proposed Standard). Oct. 2018. url: http:\/\/www.ietf.org\/rfc\/rfc8484.txt."
+                },
+                {
+                    "ref_id": "4",
+                    "ref_text": "Zi Hu et al. Specification for DNS over Transport Layer Security (TLS). Tech. rep. 7858. (Proposed Standard). May 2016. url: http:\/\/www.ietf.org\/rfc\/rfc7858.txt."
+                },
+                {
+                    "ref_id": "5",
+                    "ref_text": "Michael Kerrisk. resolv.conf - Linux Manual Page. url: http:\/\/man7.org\/linux\/man-pages\/man5\/resolv.conf.5.html (visited on 05\/30\/2019)."
+                },
+                {
+                    "ref_id": "6",
+                    "ref_text": "Patrick McManus. Firefox Nightly Secure DNS Experimental Results. Aug. 28, 2018. url: https:\/\/blog.nightly.mozilla.org\/2018\/08\/28\/firefox-nightly-secure-dns-experimental-results\/ (visited on 05\/11\/2019)."
+                },
+                {
+                    "ref_id": "7",
+                    "ref_text": "Liang Zhu et al. “Connection-oriented DNS to Improve Pri- vacy and Security”. In: doi: 10.1109\/sp.2015.18."
+                }
             ],
             "source-files": [
                 {
@@ -3294,6 +3528,35 @@
         "final_submitted": true,
         "final_submitted_at": 1561054262,
         "options": {
+            "acm-keywords": [
+                "Containers",
+                "Linux",
+                "Network Stack"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003099.10003105",
+                    "concept_desc": "Networks~Network monitoring",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003099,
+                        10003105
+                    ],
+                    "expected_concept_desc": "Networks~Network monitoring"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 100,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_id": "1",
@@ -3431,35 +3694,6 @@
                     "ref_id": "34",
                     "ref_text": "Danyang Zhuo, Kaiyuan Zhang, Yibo Zhu, Hongqiang Harry Liu, Matthew Rockett, Arvind Krishnamurthy, and Thomas Anderson. Slim:OS kernel support for a low-overhead container overlay network. In <i>16th USENIX Symposium on Networked Systems Design and Implementation (NSDI 19)<\/i>, pages 331–344, 2019."
                 }
-            ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10003033.10003099.10003105",
-                    "concept_desc": "Networks~Network monitoring",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003099,
-                        10003105
-                    ],
-                    "expected_concept_desc": "Networks~Network monitoring"
-                },
-                {
-                    "concept_id": "10003033.10003079.10011704",
-                    "concept_desc": "Networks~Network measurement",
-                    "concept_significance": 100,
-                    "concept_path": [
-                        10003033,
-                        10003079,
-                        10011704
-                    ],
-                    "expected_concept_desc": "Networks~Network measurement"
-                }
-            ],
-            "acm-keywords": [
-                "Containers",
-                "Linux",
-                "Network Stack"
             ],
             "source-files": [
                 {
@@ -3659,6 +3893,24 @@
         "final_submitted": true,
         "final_submitted_at": 1560986413,
         "options": {
+            "acm-keywords": [
+                "network functions",
+                "design-by-contract",
+                "software verification"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10003033.10003034.10003038",
+                    "concept_desc": "Networks~Programming interfaces",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003034,
+                        10003038
+                    ],
+                    "expected_concept_desc": "Networks~Programming interfaces"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_id": "1",
@@ -3792,24 +4044,6 @@
                     "ref_id": "33",
                     "ref_text": "Justin Worthe. 2018. Compile Time Feature Flags in Rust. (2018). <a href=\"https:\/\/www.worthe-it.co.za\/programming\/2018\/11\/18\/compile-time-feature-flags-in-rust.html\">https:\/\/www.worthe-it.co.za\/programming\/2018\/11\/18\/compile-time-feature-flags-in-rust.html<\/a>"
                 }
-            ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10003033.10003034.10003038",
-                    "concept_desc": "Networks~Programming interfaces",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003034,
-                        10003038
-                    ],
-                    "expected_concept_desc": "Networks~Programming interfaces"
-                }
-            ],
-            "acm-keywords": [
-                "network functions",
-                "design-by-contract",
-                "software verification"
             ],
             "source-files": [
                 {
@@ -4006,6 +4240,73 @@
         "final_submitted": true,
         "final_submitted_at": 1560845573,
         "options": {
+            "acm-keywords": [
+                "IPv6",
+                "Neighbor Discovery Protocol",
+                "Network Security",
+                "Software Defined Networks",
+                "OpenFlow",
+                "Denial-of-Service"
+            ],
+            "acm-computing-classification": [
+                {
+                    "concept_id": "10002978.10003014.10011610",
+                    "concept_desc": "Security and privacy~Denial-of-service attacks",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10002978,
+                        10003014,
+                        10011610
+                    ],
+                    "expected_concept_desc": "Security and privacy~Denial-of-service attacks"
+                },
+                {
+                    "concept_id": "10003033.10003034.10003035.10003037",
+                    "concept_desc": "Networks~Naming and addressing",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003034,
+                        10003035,
+                        10003037
+                    ],
+                    "expected_concept_desc": "Networks~Naming and addressing"
+                },
+                {
+                    "concept_id": "10003033.10003058.10003059.10003061",
+                    "concept_desc": "Networks~Bridges and switches",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003058,
+                        10003059,
+                        10003061
+                    ],
+                    "expected_concept_desc": "Networks~Bridges and switches"
+                },
+                {
+                    "concept_id": "10003033.10003106.10003111",
+                    "concept_desc": "Networks~Wired access networks",
+                    "concept_significance": 500,
+                    "concept_path": [
+                        10003033,
+                        10003106,
+                        10003111
+                    ],
+                    "expected_concept_desc": "Networks~Wired access networks"
+                },
+                {
+                    "concept_id": "10003033.10003079.10011704",
+                    "concept_desc": "Networks~Network measurement",
+                    "concept_significance": 100,
+                    "concept_path": [
+                        10003033,
+                        10003079,
+                        10011704
+                    ],
+                    "expected_concept_desc": "Networks~Network measurement"
+                }
+            ],
             "acmrefs": [
                 {
                     "ref_id": "1",
@@ -4091,73 +4392,6 @@
                     "ref_id": "21",
                     "ref_text": "Y. Zhao, L. Iannone, and M. Riguidel. 2015. On the performance of SDN controllers: A reality check. In <i>2015 IEEE Conference on Network Function Virtualization and Software Defined Network (NFV-SDN)<\/i>. IEEE, 79–85. <a href=\"https:\/\/doi.org\/10.1109\/NFV-SDN.2015.7387410\">https:\/\/doi.org\/10.1109\/NFV-SDN.2015.7387410<\/a>"
                 }
-            ],
-            "acm-computing-classification": [
-                {
-                    "concept_id": "10002978.10003014.10011610",
-                    "concept_desc": "Security and privacy~Denial-of-service attacks",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10002978,
-                        10003014,
-                        10011610
-                    ],
-                    "expected_concept_desc": "Security and privacy~Denial-of-service attacks"
-                },
-                {
-                    "concept_id": "10003033.10003034.10003035.10003037",
-                    "concept_desc": "Networks~Naming and addressing",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003034,
-                        10003035,
-                        10003037
-                    ],
-                    "expected_concept_desc": "Networks~Naming and addressing"
-                },
-                {
-                    "concept_id": "10003033.10003058.10003059.10003061",
-                    "concept_desc": "Networks~Bridges and switches",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003058,
-                        10003059,
-                        10003061
-                    ],
-                    "expected_concept_desc": "Networks~Bridges and switches"
-                },
-                {
-                    "concept_id": "10003033.10003106.10003111",
-                    "concept_desc": "Networks~Wired access networks",
-                    "concept_significance": 500,
-                    "concept_path": [
-                        10003033,
-                        10003106,
-                        10003111
-                    ],
-                    "expected_concept_desc": "Networks~Wired access networks"
-                },
-                {
-                    "concept_id": "10003033.10003079.10011704",
-                    "concept_desc": "Networks~Network measurement",
-                    "concept_significance": 100,
-                    "concept_path": [
-                        10003033,
-                        10003079,
-                        10011704
-                    ],
-                    "expected_concept_desc": "Networks~Network measurement"
-                }
-            ],
-            "acm-keywords": [
-                "IPv6",
-                "Neighbor Discovery Protocol",
-                "Network Security",
-                "Software Defined Networks",
-                "OpenFlow",
-                "Denial-of-Service"
             ],
             "source-files": [
                 {
@@ -4330,6 +4564,15 @@
         "final_submitted": true,
         "final_submitted_at": 1561442941,
         "options": {
+            "acm-keywords": [
+                "DNS privacy",
+                "Network Privacy and anonymity",
+                "Web Protocol Security",
+                "Web Fingerpriniting",
+                "IP visibility",
+                "Anonymity",
+                "Public Internet"
+            ],
             "acm-computing-classification": [
                 {
                     "concept_id": "10002978.10002991.10002995",
@@ -4399,14 +4642,58 @@
                     "expected_concept_desc": "Information systems~Traffic analysis"
                 }
             ],
-            "acm-keywords": [
-                "DNS privacy",
-                "Network Privacy and anonymity",
-                "Web Protocol Security",
-                "Web Fingerpriniting",
-                "IP visibility",
-                "Anonymity",
-                "Public Internet"
+            "acmrefs": [
+                {
+                    "ref_text": "Sara Dickinson, Daniel Kahn Gillmor, and K Tirumaleswar Reddy. 2018. Usage Profiles for DNS over TLS and DNS over DTLS. RFC 8310. <a href=\"https:\/\/doi.org\/10.17487\/RFC8310\">https:\/\/doi.org\/10.17487\/RFC8310<\/a>"
+                },
+                {
+                    "ref_text": "Adrienne Porter Felt, Richard Barnes, April King, Chris Palmer, Chris Bentzel, and Parisa Tabriz. 2017. Measuring ${$HTTPS$}$ Adoption on the Web. In <i>26th ${$USENIX$}$ Security Symposium (${$USENIX$}$ Security 17)<\/i>. 1323–1338."
+                },
+                {
+                    "ref_text": "David Fifield, Chang Lan, Rod Hynes, Percy Wegmann, and Vern Paxson. 2015. Blocking-resistant communication through domain fronting. <i>Proceedings on Privacy Enhancing Technologies<\/i> 2015, 2 (2015), 46–64."
+                },
+                {
+                    "ref_text": "Paweł Foremski, Christian Callegari, and Michele Pagano. 2014. DNS-Class: immediate classification of IP flows using DNS. <i>International Journal of Network Management<\/i> 24, 4 (2014), 272–288."
+                },
+                {
+                    "ref_text": "Google. [n.d.]. Chrome User Experience Report. <a href=\"https:\/\/developers.google.com\/web\/tools\/chrome-user-experience-report\/\">https:\/\/developers.google.com\/web\/tools\/chrome-user-experience-report\/<\/a>."
+                },
+                {
+                    "ref_text": "Paul E. Hoffman and Patrick McManus. 2018. DNS Queries over HTTPS (DoH). RFC 8484. <a href=\"https:\/\/doi.org\/10.17487\/RFC8484\">https:\/\/doi.org\/10.17487\/RFC8484<\/a>"
+                },
+                {
+                    "ref_text": "IETF. [n.d.]. Transport Layer Security (TLS) Extensions: Extension Definitions. <a href=\"https:\/\/tools.ietf.org\/html\/rfc6066\">https:\/\/tools.ietf.org\/html\/rfc6066<\/a>."
+                },
+                {
+                    "ref_text": "Hongbo Jiang, Andrew W Moore, Zihui Ge, Shudong Jin, and Jia Wang. 2007. Lightweight application classification for network management. In <i>Proceedings of the 2007 SIGCOMM workshop on Internet network management<\/i>. ACM, 299–304."
+                },
+                {
+                    "ref_text": "B. Laurie, A. Langley, and E. Kasper. 2013. <i>Certificate Transparency<\/i>. RFC 6962. RFC Editor. 2070-1721"
+                },
+                {
+                    "ref_text": "Paul Murley. [n.d.]. MIDA: A Tool for Measuring the Web. <a href=\"https:\/\/mida.sprai.org\/\">https:\/\/mida.sprai.org\/<\/a>."
+                },
+                {
+                    "ref_text": "Eric Rescorla. 2018. The Transport Layer Security (TLS) Protocol Version 1.3. RFC 8446. <a href=\"https:\/\/doi.org\/10.17487\/RFC8446\">https:\/\/doi.org\/10.17487\/RFC8446<\/a>"
+                },
+                {
+                    "ref_text": "Eric Rescorla, Kazuho Oku, Nick Sullivan, and Christopher A. Wood. 2018. <i>Encrypted Server Name Indication for TLS 1.3<\/i>. Internet-Draft draft-ietf-tls-esni-02. Internet Engineering Task Force. <a href=\"https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-tls-esni-02\">https:\/\/datatracker.ietf.org\/doc\/html\/draft-ietf-tls-esni-02<\/a> Work in Progress."
+                },
+                {
+                    "ref_text": "Mahrud Sayrafi. 2018. Introducing DNS Resolver for Tor. <a href=\"https:\/\/blog.cloudflare.com\/welcome-hidden-resolver\/\">https:\/\/blog.cloudflare.com\/welcome-hidden-resolver\/<\/a>."
+                },
+                {
+                    "ref_text": "Amazon Web Services. [n.d.]. Alexa Top Sites. <a href=\"https:\/\/aws.amazon.com\/alexa-top-sites\/\">https:\/\/aws.amazon.com\/alexa-top-sites\/<\/a>."
+                },
+                {
+                    "ref_text": "Davide Tammaro, Silvio Valenti, Dario Rossi, and Antonio Pescapé. 2012. Exploiting packet-sampling measurements for traffic characterization and classification. <i>International Journal of Network Management<\/i> 22, 6 (2012), 451–476."
+                },
+                {
+                    "ref_text": "Martino Trevisan, Idilio Drago, Marco Mellia, and Maurizio M Munafo. 2016. Towards web service classification using addresses and DNS. In <i>2016 International Wireless Communications and Mobile Computing Conference (IWCMC)<\/i>. IEEE, 38–43."
+                },
+                {
+                    "ref_text": "Turbobytes. [n.d.]. cdnfinder. <a href=\"https:\/\/github.com\/turbobytes\/cdnfinder\">https:\/\/github.com\/turbobytes\/cdnfinder<\/a>."
+                }
             ],
             "source-files": [
                 {
