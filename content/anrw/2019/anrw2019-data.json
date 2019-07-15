@@ -1523,8 +1523,8 @@
             ]
         },
         "pc_conflicts": {
-            "mirja.kuehlewind@ericsson.com": "collaborator",
-            "SIMONE@FERLIN.IO": "collaborator"
+            "SIMONE@FERLIN.IO": "collaborator",
+            "mirja.kuehlewind@ericsson.com": "collaborator"
         }
     },
     {
@@ -2325,8 +2325,8 @@
             }
         },
         "pc_conflicts": {
-            "mirja.kuehlewind@ericsson.com": "collaborator",
-            "SIMONE@FERLIN.IO": "collaborator"
+            "SIMONE@FERLIN.IO": "collaborator",
+            "mirja.kuehlewind@ericsson.com": "collaborator"
         }
     },
     {
@@ -2943,9 +2943,9 @@
             }
         },
         "pc_conflicts": {
+            "z@chary.io": "collaborator",
             "allison.mankin@gmail.com": "author",
-            "jrex@cs.princeton.edu": "collaborator",
-            "z@chary.io": "collaborator"
+            "jrex@cs.princeton.edu": "collaborator"
         }
     },
     {
@@ -3344,9 +3344,9 @@
             }
         },
         "pc_conflicts": {
+            "z@chary.io": "collaborator",
             "allison.mankin@gmail.com": "collaborator",
-            "jrex@cs.princeton.edu": "collaborator",
-            "z@chary.io": "collaborator"
+            "jrex@cs.princeton.edu": "collaborator"
         }
     },
     {
