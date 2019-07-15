@@ -2,6 +2,7 @@
     {
         "pid": 20,
         "title": "mmb: Flexible High-Speed Userspace Middleboxes",
+        "paper": "https://dl.acm.org/authorize?N687430",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -321,6 +322,7 @@
     {
         "pid": 21,
         "title": "Who Is Answering My Queries: Understanding and Characterizing Interception of the DNS Resolution Path",
+        "paper": "https://dl.acm.org/authorize?N687421",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -883,6 +885,7 @@
     {
         "pid": 25,
         "title": "A Performance Perspective on Web Optimized Protocol Stacks: TCP+TLS+HTTP\/2 vs. QUIC",
+        "paper": "https://dl.acm.org/authorize?N687429",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -1260,6 +1263,7 @@
     {
         "pid": 26,
         "title": "Towards Core-Stateless Fairness on Multiple Timescales",
+        "paper": "https://dl.acm.org/authorize?N687435",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -1530,6 +1534,7 @@
     {
         "pid": 27,
         "title": "What time is it? Managing Time in the Internet",
+        "paper": "https://dl.acm.org/authorize?N687436",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -1997,6 +2002,7 @@
     {
         "pid": 28,
         "title": "Supporting Multi-domain Use Cases with ALTO",
+        "paper": "https://dl.acm.org/authorize?N687439",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -2332,6 +2338,7 @@
     {
         "pid": 29,
         "title": "Performance Measurements of QUIC Communications",
+        "paper": "https://dl.acm.org/authorize?N687420",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -2565,6 +2572,7 @@
     {
         "pid": 31,
         "title": "Oblivious DNS: Practical Privacy for DNS Queries",
+        "paper": "https://dl.acm.org/authorize?N687422",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -2951,6 +2959,7 @@
     {
         "pid": 33,
         "title": "Analyzing the Costs (and Benefits) of DNS, DoT, and DoH for the Modern Web",
+        "paper": "https://dl.acm.org/authorize?N687423",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -3352,6 +3361,7 @@
     {
         "pid": 35,
         "title": "Can We Containerize Internet Measurements?",
+        "paper": "https://dl.acm.org/authorize?N687438",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -3709,6 +3719,7 @@
     {
         "pid": 36,
         "title": "Checking-in on Network Functions",
+        "paper": "https://dl.acm.org/authorize?N687431",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -4068,6 +4079,7 @@
     {
         "pid": 37,
         "title": "Securing IPv6 Neighbor Discovery and SLAAC in Access Networks through SDN",
+        "paper": "https://dl.acm.org/authorize?N687424",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
@@ -4407,6 +4419,7 @@
     {
         "pid": 44,
         "title": "What Can You Learn from an IP?",
+        "paper": "https://dl.acm.org/authorize?N687437",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
