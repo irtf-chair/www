@@ -1535,6 +1535,7 @@
         "pid": 27,
         "title": "What time is it? Managing Time in the Internet",
         "paper": "https://dl.acm.org/authorize?N687436",
+        "slides": "slides-anrw19-final27.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
