@@ -2965,6 +2965,7 @@
         "pid": 33,
         "title": "Analyzing the Costs (and Benefits) of DNS, DoT, and DoH for the Modern Web",
         "paper": "https://dl.acm.org/authorize?N687423",
+        "slides": "slides-anrw19-final33.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
