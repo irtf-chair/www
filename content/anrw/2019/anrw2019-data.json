@@ -2340,6 +2340,7 @@
         "pid": 29,
         "title": "Performance Measurements of QUIC Communications",
         "paper": "https://dl.acm.org/authorize?N687420",
+        "slides": "slides-anrw19-final29.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
