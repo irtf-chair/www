@@ -886,6 +886,7 @@
         "pid": 25,
         "title": "A Performance Perspective on Web Optimized Protocol Stacks: TCP+TLS+HTTP\/2 vs. QUIC",
         "paper": "https://dl.acm.org/authorize?N687429",
+        "slides": "slides-anrw19-final25.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
