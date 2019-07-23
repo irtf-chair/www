@@ -2006,6 +2006,7 @@
         "pid": 28,
         "title": "Supporting Multi-domain Use Cases with ALTO",
         "paper": "https://dl.acm.org/authorize?N687439",
+        "slides": "slides-anrw19-final28.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
