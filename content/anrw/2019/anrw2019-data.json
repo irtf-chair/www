@@ -4431,6 +4431,7 @@
         "pid": 44,
         "title": "What Can You Learn from an IP?",
         "paper": "https://dl.acm.org/authorize?N687437",
+        "slides": "slides-anrw19-final44.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
