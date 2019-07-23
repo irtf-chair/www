@@ -1266,6 +1266,7 @@
         "pid": 26,
         "title": "Towards Core-Stateless Fairness on Multiple Timescales",
         "paper": "https://dl.acm.org/authorize?N687435",
+        "slides": "slides-anrw19-final26.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
