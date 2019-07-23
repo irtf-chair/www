@@ -3368,6 +3368,7 @@
         "pid": 35,
         "title": "Can We Containerize Internet Measurements?",
         "paper": "https://dl.acm.org/authorize?N687438",
+        "slides": "slides-anrw19-final35.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
