@@ -352,14 +352,14 @@ module IRTF
   # PEARG
   dickinson = Person.new("Sara", "Dickinson", "sara@sinodun.com", nil, nil)
   sahib = Person.new("Shivan", "Sahib", "ssahib@salesforce.com", nil, nil)
-  woods = Person.new("Christopher", "Wood", "caw@heapingbits.net", nil, nil)
+  wood  = Person.new("Christopher", "Wood", "caw@heapingbits.net", nil, nil)
   pearg = RG.new(
     "pearg",
-    "Privacy Enhancements and Assessments Proposed",
+    "Privacy Enhancements and Assessments",
     "pearg@irtf.org",
     nil,
     nil,
-    [ dickinson, sahib, woods ],
+    [ dickinson, sahib, wood ],
     nil,
     nil,
     nil
