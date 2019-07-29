@@ -3,6 +3,7 @@
         "pid": 20,
         "title": "mmb: Flexible High-Speed Userspace Middleboxes",
         "paper": "https://dl.acm.org/authorize?N687430",
+        "slides": "slides-anrw19-final20.pdf",
         "decision": "Accepted",
         "status": "Accepted",
         "submitted": true,
