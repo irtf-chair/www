@@ -1000,18 +1000,6 @@ FileETag None
 </IfModule>
 
 
-# ----------------------------------------------------------------------
-# IPv6 thank-you
-# ----------------------------------------------------------------------
-<IfModule mod_rewrite.c>
-  RewriteCond %{REMOTE_ADDR} "\."
-  RewriteRule ipv6.json$ ipv6-no.json [L]
-
-  RewriteCond %{REMOTE_ADDR} !"\."
-  RewriteRule ipv6.json$ ipv6-yes.json [L]
-</IfModule>
-
-
 # Redirects for concluded RGs
 
 RedirectMatch permanent ^/((?:vn|tm|p2p|as|hip|sam|r|nc|dtn)rg|mobopts)$  /concluded/$1
