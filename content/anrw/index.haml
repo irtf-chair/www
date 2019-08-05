@@ -26,7 +26,6 @@ logo_hidden: true
   summer), and will be organized in a way that allows ample time for
   discussion and interaction, and not just paper presentations.
 
-%h2 Upcoming and Past ANRWs
 .row
   - @items.find_all(%r{./(\d+)/index.*}).sort_by{ |item| item[:order] }.each do |item|
     .col-xs-6.col-sm-4.col-md-3.col-lg-3
@@ -44,7 +43,7 @@ logo_hidden: true
 
 .row
   .col-lg-6
-    = render '/anrw/2019/sc_.*', blurb: true
+    = render '/anrw/2020/sc_.*', blurb: true
   .col-lg-6
     %h2 Sponsors
     = render '/anrw/sponsors_.*'
