@@ -113,7 +113,7 @@ module ANRW
     return html
   end
 
-  def htmlify_paper_new(file, nr)
+  def htmlify_paper_2017(file, nr)
     p = case File.extname(file)
     when ".json"
       JSON.parse(File.read(file)).select{ |x| x["pid"] == nr }[0]
@@ -221,7 +221,7 @@ module ANRW
     return html
   end
 
-  def htmlify_paper_new2(file, nr)
+  def htmlify_paper_2018(file, nr)
     p = case File.extname(file)
     when ".json"
       JSON.parse(File.read(file)).select{ |x| x["pid"] == nr }[0]
@@ -306,7 +306,7 @@ module ANRW
     return html
   end
 
-  def htmlify_paper_new3(file, nr)
+  def htmlify_paper_2019(file, nr)
     p = case File.extname(file)
     when ".json"
       JSON.parse(File.read(file)).select{ |x| x["pid"] == nr }[0]
