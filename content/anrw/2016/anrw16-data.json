@@ -2,7 +2,7 @@
     {
         "pid": 2,
         "title": "Towards an Observatory for Network Transparency Research",
-        "paper": "http://dl.acm.org/authorize?N16085",
+        "paper": "https://dl.acm.org/authorize?N16085",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463644969,
@@ -283,7 +283,7 @@
     {
         "pid": 3,
         "title": "Towards a Multipath TCP Aware Load Balancer",
-        "paper": "http://dl.acm.org/authorize?N16062",
+        "paper": "https://dl.acm.org/authorize?N16062",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463042259,
@@ -510,7 +510,7 @@
     {
         "pid": 5,
         "title": "Towards Securing Internet eXchange Points Against Curious onlooKers",
-        "paper": "http://dl.acm.org/authorize?N16076",
+        "paper": "https://dl.acm.org/authorize?N16076",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1462992302,
@@ -775,7 +775,7 @@
     {
         "pid": 6,
         "title": "Computing Customer Cones of Peering Networks",
-        "paper": "http://dl.acm.org/authorize?N16077",
+        "paper": "https://dl.acm.org/authorize?N16077",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463156691,
@@ -1029,7 +1029,7 @@
     {
         "pid": 9,
         "title": "Measuring the Effects of Happy Eyeballs",
-        "paper": "http://dl.acm.org/authorize?N16078",
+        "paper": "https://dl.acm.org/authorize?N16078",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463651028,
@@ -1405,7 +1405,7 @@
     {
         "pid": 12,
         "title": "Revisiting Benchmarking Methodology for Interconnect Devices",
-        "paper": "http://dl.acm.org/authorize?N16071",
+        "paper": "https://dl.acm.org/authorize?N16071",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463866221,
@@ -1793,7 +1793,7 @@
     {
         "pid": 13,
         "title": "PATHspider: A tool for active measurement of path transparency",
-        "paper": "http://dl.acm.org/authorize?N16072",
+        "paper": "https://dl.acm.org/authorize?N16072",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463758161,
@@ -2068,7 +2068,7 @@
     {
         "pid": 14,
         "title": "Making Google Congestion Control robust over Wi-Fi networks using packet grouping",
-        "paper": "http://dl.acm.org/authorize?N16086",
+        "paper": "https://dl.acm.org/authorize?N16086",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463758003,
@@ -2381,7 +2381,7 @@
     {
         "pid": 15,
         "title": "Towards Decentralized Fast Consistent Updates",
-        "paper": "http://dl.acm.org/authorize?N16064",
+        "paper": "https://dl.acm.org/authorize?N16064",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463784479,
@@ -2762,7 +2762,7 @@
     {
         "pid": 16,
         "title": "An enhanced socket API for Multipath TCP",
-        "paper": "http://dl.acm.org/authorize?N16060",
+        "paper": "https://dl.acm.org/authorize?N16060",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1464044498,
@@ -3077,7 +3077,7 @@
     {
         "pid": 17,
         "title": "How to say that you're special: Can we use bits in the IPv4 header?",
-        "paper": "http://dl.acm.org/authorize?N16074",
+        "paper": "https://dl.acm.org/authorize?N16074",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1464009216,
@@ -3343,7 +3343,7 @@
     {
         "pid": 19,
         "title": "Multi-Homed on a Single Link: Using Multiple IPv6 Access Networks",
-        "paper": "http://dl.acm.org/authorize?N16063",
+        "paper": "https://dl.acm.org/authorize?N16063",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463952316,
@@ -3586,7 +3586,7 @@
     {
         "pid": 21,
         "title": "Multipath bonding at Layer 3",
-        "paper": "http://dl.acm.org/authorize?N16061",
+        "paper": "https://dl.acm.org/authorize?N16061",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1463994452,
@@ -3927,7 +3927,7 @@
     {
         "pid": 24,
         "title": "Composition of SDN applications: Options\/challenges for real implementations",
-        "paper": "http://dl.acm.org/authorize?N16075",
+        "paper": "https://dl.acm.org/authorize?N16075",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1464008523,
@@ -4175,7 +4175,7 @@
     {
         "pid": 25,
         "title": "Implementing Real-Time Transport Services over an Ossified Network",
-        "paper": "http://dl.acm.org/authorize?N16087",
+        "paper": "https://dl.acm.org/authorize?N16087",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1464043423,
@@ -4491,7 +4491,7 @@
     {
         "pid": 27,
         "title": "On the Cost of Using Happy Eyeballs for Transport Protocol Selection",
-        "paper": "http://dl.acm.org/authorize?N16079",
+        "paper": "https://dl.acm.org/authorize?N16079",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1464042684,
@@ -4822,7 +4822,7 @@
     {
         "pid": 28,
         "title": "Start Me Up: Determining and Sharing TCP's Initial Congestion Window",
-        "paper": "http://dl.acm.org/authorize?N16070",
+        "paper": "https://dl.acm.org/authorize?N16070",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1464040372,
@@ -5061,7 +5061,7 @@
     {
         "pid": 29,
         "title": "Diurnal and Weekly Cycles in IPv6 Traffic",
-        "paper": "http://dl.acm.org/authorize?N16073",
+        "paper": "https://dl.acm.org/authorize?N16073",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1464046534,
