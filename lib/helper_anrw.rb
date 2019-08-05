@@ -5,7 +5,7 @@ require 'active_support/core_ext/hash'
 # require 'pp'
 
 module ANRW
-  def htmlify_paper(file, nr)
+  def htmlify_paper2016(file, nr)
     p = case File.extname(file)
     when ".json"
       JSON.parse(File.read(file)).select{ |x| x["pid"] == nr }[0]
@@ -39,7 +39,7 @@ module ANRW
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
 
-    paper = File.join(File.dirname(file), p["final"]["content_file"])
+    paper = p["paper"]
     slides = File.join(File.dirname(file), "slides-" + p["final"]["content_file"])
 
     html = %{
@@ -89,13 +89,13 @@ module ANRW
           </button>
     }
 
-    if File.exist?(paper)
+    if !paper.nil?
       html += %{
-            <a href="#{File.basename(paper)}"
-               class="btn btn-default btn-xs" role="button">
-              <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-              Paper
-            </a>
+        <a href="#{paper}"
+           class="btn btn-default btn-xs" role="button">
+          <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+          Paper
+        </a>
       }
     end
 
