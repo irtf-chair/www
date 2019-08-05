@@ -131,7 +131,7 @@ module IRTF
   )
 
   # DINRG
-  kutscher = Person.new("Dirk", "Kutscher", "ietf@dkutscher.net", "https://dirk-kutscher.info/", nil)
+  kutscher = Person.new("Dirk", "Kutscher", "ietf@dkutscher.net", "http://dirk-kutscher.info/", nil)
   shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
   dinrg = RG.new(
     "dinrg",
@@ -146,8 +146,8 @@ module IRTF
   )
 
   # DTNRG
-  fall = Person.new("Kevin", "Fall", "kfall@acm.org", "https://kfall.net/ucbpage/", nil)
-  ott = Person.new("Jörg", "Ott", "jo@netlab.tkk.fi", "https://www.netlab.tkk.fi/~jo/", nil) # www is needed
+  fall = Person.new("Kevin", "Fall", "kfall@acm.org", "https://kfall.net/", nil)
+  ott = Person.new("Jörg", "Ott", "ott@in.tum.de", "https://www.cm.in.tum.de/en/research-group/joerg-ott/", nil)
   dtnrg = RG.new(
     "dtnrg",
     "Delay-Tolerant Networking",
@@ -239,7 +239,7 @@ module IRTF
   )
 
   # maprg
-  kuhlewind = Person.new("Mirja", "Kühlewind", "mirja.kuehlewind@tik.ee.ethz.ch", "http://www.csg.ethz.ch/people/mirjak", nil)
+  kuhlewind = Person.new("Mirja", "Kühlewind", "mirja.kuehlewind@tik.ee.ethz.ch", "http://mirja.kuehlewind.net", nil)
   plonka = Person.new("Dave", "Plonka", "dave@plonka.us", "http://pages.cs.wisc.edu/~plonka/", nil)
   maprg = RG.new(
     "maprg",
@@ -473,7 +473,7 @@ module IRTF
 
   # VNRG
   touch = Person.new("Joe", "Touch", "touch@isi.edu", "https://isi.edu/touch/", nil)
-  stiemerling = Person.new("Martin", "Stiemerling", "mls.ietf@gmail.com", "https://www.fbi.h-da.de/organisation/personen/stiemerling-martin/", nil)
+  stiemerling = Person.new("Martin", "Stiemerling", "mls.ietf@gmail.com", "https://fbi.h-da.de/personen/martin-stiemerling/", nil)
   vnrg = RG.new(
     "vnrg",
     "Virtual Networks",
