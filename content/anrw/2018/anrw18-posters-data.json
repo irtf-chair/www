@@ -2,7 +2,7 @@
     {
         "pid": 19,
         "title": "Building a Threshold Cryptographic Distributed HSM with Docker Containers",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232761&ftid=1993035&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666177",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -80,7 +80,7 @@
     {
         "pid": 20,
         "title": "RobE: Robust Connection Establishment for Multipath TCP",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232762&ftid=1993036&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666171",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -227,7 +227,7 @@
     {
         "pid": 23,
         "title": "Metrics for access network selection",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232764&ftid=1993046&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666178",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -553,7 +553,7 @@
     {
         "pid": 25,
         "title": "Practical Challenge-Response for DNS",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232765&ftid=1993018&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666179",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -646,7 +646,7 @@
     {
         "pid": 27,
         "title": "User Space Network Drivers",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232767&ftid=1993026&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666174",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -913,7 +913,7 @@
     {
         "pid": 30,
         "title": "Automated Attack Discovery in TCP Congestion Control Using a Model-guided Approach",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232769&ftid=1993020&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666186",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -986,7 +986,7 @@
     {
         "pid": 31,
         "title": "Restructuring Endpoint Congestion Control",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232770&ftid=1993048&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666160",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -1073,7 +1073,7 @@
     {
         "pid": 33,
         "title": "Elasticity Detection: A Building Block for Delay-Sensitive Congestion Control",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232772&ftid=1993025&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666170",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -1152,7 +1152,7 @@
     {
         "pid": 40,
         "title": "DeadBolt: Securing IoT Deployments",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232774&ftid=1993024&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666175",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -1440,7 +1440,7 @@
     {
         "pid": 42,
         "title": "Behind the scenes: what device benchmarks can tell us",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232776&ftid=1993034&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666176",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -1938,7 +1938,7 @@
     {
         "pid": 43,
         "title": "Towards a Congestion Control-Independent Core-Stateless AQM",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232777&ftid=1993031&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666173",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -2269,7 +2269,7 @@
     {
         "pid": 44,
         "title": "A Fine-grained and Transparent Congestion Control Enforcement Scheme",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232778&ftid=1993022&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666161",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -2505,7 +2505,7 @@
     {
         "pid": 46,
         "title": "Measuring Web Speed From Passive Traces",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232780&ftid=1993019&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666172",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -2592,7 +2592,7 @@
     {
         "pid": 48,
         "title": "Wireless Edge Network for Sustainable Rural Community Networks",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232782&ftid=1993033&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666163",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -2867,7 +2867,7 @@
     {
         "pid": 53,
         "title": "Dynam-IX: a Dynamic Interconnection eXchange",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232784&ftid=1993021&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666185",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -2948,7 +2948,7 @@
     {
         "pid": 55,
         "title": "Picking a Partner: A Fair Blockchain Based Scoring Protocol for Autonomous Systems",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232785&ftid=1993049&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666162",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -3273,7 +3273,7 @@
     {
         "pid": 60,
         "title": "Is CoAP Congestion Safe?",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232857&ftid=1993023&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666164",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
@@ -3594,7 +3594,7 @@
     {
         "pid": 61,
         "title": "CommunityWatch: The Swiss-Army Knife of BGP Anomaly Detection",
-        "paper": "https://dl.acm.org/ft_gateway.cfm?id=3232858&ftid=1993047&dwn=1&CFID=65433787&CFTOKEN=6aab4bd760e22775-46665745-B7A4-5A5E-06780E1E3A277A10",
+        "paper": "https://dl.acm.org/authorize?N666169",
         "decision": "#poster",
         "status": "#poster",
         "submitted": true,
