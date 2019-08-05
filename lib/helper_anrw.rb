@@ -147,7 +147,7 @@ module ANRW
         " <em class=\"text-muted\">(" + a["affiliation"] + ")</em>" : "")
     }
 
-    paper = File.join(File.dirname(file), p["final"]["content_file"])
+    paper = p["paper"]
     slides = File.join(File.dirname(file), "slides-" + p["final"]["content_file"])
 
     html = %{
@@ -197,13 +197,13 @@ module ANRW
           </button>
     }
 
-    if File.exist?(paper)
+    if !paper.nil?
       html += %{
-            <a href="#{File.basename(paper)}"
-               class="btn btn-default btn-xs" role="button">
-              <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-              Paper
-            </a>
+        <a href="#{paper}"
+           class="btn btn-default btn-xs" role="button">
+          <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+          Paper
+        </a>
       }
     end
 

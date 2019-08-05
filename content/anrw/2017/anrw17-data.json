@@ -2,6 +2,7 @@
     {
         "pid": 9,
         "title": "Masurement Vantage Point Selection Using A Similarity Metric",
+        "paper": "https://dl.acm.org/authorize?N31237",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492111795,
@@ -272,6 +273,7 @@
     {
         "pid": 7,
         "title": "Characterizing User-to-User Connectivity with RIPE Atlas",
+        "paper": "https://dl.acm.org/authorize?N31238",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492030105,
@@ -576,6 +578,7 @@
     {
         "pid": 17,
         "title": "CheesePi: Research, Results, and the Regulator",
+        "paper": "https://dl.acm.org/authorize?N31239",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492123787,
@@ -883,6 +886,7 @@
     {
         "pid": 5,
         "title": "copycat: Testing Differential Treatment of New Transport Protocols in the Wild",
+        "paper": "https://dl.acm.org/authorize?N31230",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1491488171,
@@ -1263,6 +1267,7 @@
     {
         "pid": 16,
         "title": "Tracking transport-layer evolution with PATHspider",
+        "paper": "https://dl.acm.org/authorize?N31231",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492112043,
@@ -1664,6 +1669,7 @@
     {
         "pid": 8,
         "title": "Take your own share of the PIE",
+        "paper": "https://dl.acm.org/authorize?N31232",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492005877,
@@ -1926,6 +1932,7 @@
     {
         "pid": 13,
         "title": "A NEAT Way to Browse the Web",
+        "paper": "https://dl.acm.org/authorize?N31233",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492098526,
@@ -2222,6 +2229,7 @@
     {
         "pid": 3,
         "title": "Implementing IPv6 Segment Routing in the Linux Kernel",
+        "paper": "https://dl.acm.org/authorize?N31234",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1491364340,
@@ -2532,6 +2540,7 @@
     {
         "pid": 6,
         "title": "Manage resource-constrained IoT devices through dynamically generated and deployed YANG models",
+        "paper": "https://dl.acm.org/authorize?N31245",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492000875,
@@ -2780,6 +2789,7 @@
     {
         "pid": 20,
         "title": "No domain left behind: is Let's Encrypt democratizing encryption?",
+        "paper": "https://dl.acm.org/authorize?N31246",
         "status": "submitted",
         "submitted": true,
         "submitted_at": 1492150303,
