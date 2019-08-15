@@ -11,7 +11,7 @@ class RFCFilter < Nanoc::Filter
     elements = doc.xpath('//*[local-name() != "a" and not(ancestor::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")]) and not(self::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")])]/text()')
     elements.each do |element|
       element.content = element.content.gsub(/RFC\s*([0-9]{1,5})/i) {
-        |rfc| link_to("RFC #{$1}", "https://tools.ietf.org/html/rfc#{$1}")
+        |rfc| link_to("RFC #{$1}", "https://www.rfc-editor.org/rfc/rfc#{$1}.html")
       }
     end
     return doc.xpath('//body')[0].inner_html.gsub("&lt;", "<").gsub("&gt;", ">")
