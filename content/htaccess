@@ -1048,3 +1048,7 @@ RedirectMatch permanent ^/(charters|historical)/imrg\.html?$                  /c
 RedirectMatch permanent ^/(charters|historical)/Digital-Rights-Management\.html?$             /concluded/idrm
 
 RedirectMatch permanent ^/rm$                                                 /concluded/rmrg
+
+RedirectMatch permanent ^/ipr$                                                /policies/ipr
+RedirectMatch permanent ^/ipr.html$                                           /policies/ipr.html
+
