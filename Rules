@@ -54,6 +54,6 @@ compile "/static/**/*" do
   write item.identifier.to_s.sub(/\A\/static/, '')
 end
 
-passthrough "/**/*.{php,html,png,jpg,svg,json,cls,doc,docx,pdf,txt}"
+passthrough "/**/*.{php,html,png,jpg,svg,json,cls,doc,docx,pdf,txt,pptx,key}"
 
 layout "/**/*", :haml, :format => :html5
