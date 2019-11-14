@@ -85,6 +85,7 @@ class URLFilter < Nanoc::Filter
     "Princeton University" => "https://www.princeton.edu/",
     "Queen Mary University London" => "https://www.qmul.ac.uk/",
     "RFC Editor" => "https://www.rfc-editor.org/",
+    "RIPE NCC" => "https://www.ripe.net",
     "Salesforce" => "https://www.salesforce.com/",
     "SIGCOMM" => "https://sigcomm.org/",
     "Skype" => "https://en.wikipedia.org/wiki/Skype",
