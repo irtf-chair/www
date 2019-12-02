@@ -224,7 +224,7 @@ module IRTF
   )
 
   # ICNRG
-  ohlman = Person.new("Börje", "Ohlman", "borje.ohlman@ericsson.com", "https://linkedin.com/pub/b%3Frje-ohlman/0/270/283", nil)
+  ohlman = Person.new("Börje", "Ohlman", "borje.ohlman@ericsson.com", nil, nil)
   oran = Person.new("Dave", "Oran", "daveoran@orandom.net", "https://linkedin.com/pub/david-oran/0/b7/7b4", nil)
   icnrg = RG.new(
     "icnrg",
@@ -271,7 +271,7 @@ module IRTF
   # NCRG
   behringer = Person.new("Michael", "Behringer", "mbehring@cisco.com", "https://linkedin.com/in/mbehringer", nil)
   # huston = Person.new("Geoff", "Huston", "gih@apnic.net", "https://potaroo.net/", nil)
-  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "https://www.1-4-5.net/~dmm/vita.html", nil)
+  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "http://www.1-4-5.net/~dmm/vita.html", nil)
   ncrg = RG.new(
     "ncrg",
     "Network Complexity",
@@ -443,7 +443,7 @@ module IRTF
   )
 
   # TMRG
-  andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "https://caia.swin.edu.au/cv/landrew/", nil)
+  andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "http://caia.swin.edu.au/cv/landrew/", nil)
   tmrg = RG.new(
     "tmrg",
     "Transport Modeling",
