@@ -120,7 +120,7 @@ module IRTF
   schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", nil, nil)
   coinrg = RG.new(
     "coinrg",
-    "Computation in the Network Proposed",
+    "Computation in the Network",
     "coin@irtf.org",
     nil,
     "https://datatracker.ietf.org/rg/coinrg/about/",
