@@ -109,7 +109,7 @@ module IRTF
     "cfrg@irtf.org",
     nil,
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
-    [ stanislav, melnikov, sullivan ],
+    [ melnikov, sullivan, stanislav ],
     nil,
     nil,
     nil
