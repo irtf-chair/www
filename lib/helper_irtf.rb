@@ -98,7 +98,8 @@ module IRTF
   # canetti = Person.new("Ran", "Canetti", "canetti@watson.ibm.com")
   # mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "https://mindspring.com/~dmcgrew/dam.htm", nil)
   # igoe = Person.new("Kevin", "Igoe", "kmigoe@nsa.gov", nil, nil)
-  paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "http://appliedcrypto.ethz.ch/people/kenny-paterson.html", nil)
+  #paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "http://appliedcrypto.ethz.ch/people/kenny-paterson.html", nil)
+  stanislav = Person.new("Stanislav", "Smyshlyaev",  "smyshsv@gmail.com>", nil, nil)
   melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", "https://www.melnikov.ca", nil)
   sullivan = Person.new("Nick", "Sullivan", "nick@cloudflare.com", "https://crypto.dance/about", nil)
 
@@ -108,7 +109,7 @@ module IRTF
     "cfrg@irtf.org",
     nil,
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
-    [ paterson, melnikov, sullivan ],
+    [ stanislav, melnikov, sullivan ],
     nil,
     nil,
     nil
