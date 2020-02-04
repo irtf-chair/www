@@ -18,7 +18,7 @@ class URLFilter < Nanoc::Filter
     "Taejoong .Tijay. Chung"   => "https://taejoong.github.io",
     "Jay Daley"                => "https://datatracker.ietf.org/person/Jay%20Daley",
     "Lars Eggert"              => "https://eggert.org",
-    "Theresa Enghardt"         => "https://www.net.t-labs.tu-berlin.de/~theresa/",
+    "Theresa Enghardt"         => "https://tenghardt.net/",
     "Simone Ferlin"            => "https://ferlin.io",
     "Georgia Fragkouli"        => "https://people.epfl.ch/georgia.fragkouli?lang=en",
     "Phillipa Gill"            => "https://people.cs.umass.edu/~phillipa/",
