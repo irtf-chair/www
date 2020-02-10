@@ -40,6 +40,7 @@ class URLFilter < Nanoc::Filter
     "Jeroen van der Ham"       => "https://jvdham.nl",
     "Roland van Rijswijk-Deij" => "https://rijswijk.github.io",
     "Lisandro Zambenedetti Granville" => "http://www.inf.ufrgs.br/~granville/",
+    "Laurent Vanbever"         => "https://vanbever.eu",
     # Places:
     "(Technische Universit.t|TU) M.nchen" => "https://www.tum.de/en/",
     "Aalto University" => "https://www.aalto.fi/",
