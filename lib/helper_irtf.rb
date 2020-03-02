@@ -385,13 +385,14 @@ module IRTF
   # QIRG
   vanmeter = Person.new("Rod", "van Meter", "rdviii@gmail.com", nil, nil)
   wehner = Person.new("Stephanie", "Wehner", "S.D.C.Wehner@tudelft.nl", nil, nil)
+  wojtek = Person.new("Wojciech", "Kozlowski", "W.Kozlowski@tudelft.nl", nil, nil)
   qirg = RG.new(
     "qirg",
     "Quantum Internet Proposed",
     "qirg@irtf.org",
     nil,
     nil,
-    [ vanmeter, wehner ],
+    [ vanmeter, wojtek ],
     nil,
     nil,
     nil
