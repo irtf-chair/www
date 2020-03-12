@@ -233,7 +233,7 @@ module IRTF
     "icnrg@irtf.org",
     nil,
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/icnrg",
-    [ kutscher, ohlman, oran ],
+    [ kutscher, oran ],
     nil,
     "2012-4-17",
     nil
