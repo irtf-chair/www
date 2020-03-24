@@ -24,6 +24,12 @@
   To subscribe or access the list archives, visit the
   = link_to("mailman page", rg.listweb) + "."
 
+%h2 Datatracker
+%p
+  Documents and meeting materials for the #{acronym} can be found on the
+  %a{ :href => "https://datatracker.ietf.org/rg/#{acronym.downcase}/about/" } IETF datatracker.
+
+
 - if rg.web then
   %h2 Web Page
   %p
