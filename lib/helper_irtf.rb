@@ -100,7 +100,7 @@ module IRTF
   # mcgrew = Person.new("David", "McGrew", "mcgrew@cisco.com", "https://mindspring.com/~dmcgrew/dam.htm", nil)
   # igoe = Person.new("Kevin", "Igoe", "kmigoe@nsa.gov", nil, nil)
   #paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "http://appliedcrypto.ethz.ch/people/kenny-paterson.html", nil)
-  stanislav = Person.new("Stanislav", "Smyshlyaev",  "smyshsv@gmail.com>", nil, nil)
+  stanislav = Person.new("Stanislav", "Smyshlyaev",  "smyshsv@gmail.com>", "https://ru.linkedin.com/in/stanislav-smyshlyaev-62169333", nil)
   melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", "https://www.melnikov.ca", nil)
   sullivan = Person.new("Nick", "Sullivan", "nick@cloudflare.com", "https://crypto.dance/about", nil)
 
@@ -112,23 +112,23 @@ module IRTF
     nil, # retired "rg/cfrg/", there is nothing there that is not on the charter
     [ melnikov, sullivan, stanislav ],
     nil,
-    nil,
+    "2014-11-13",
     nil
   )
 
   # COINRG
   he = Person.new("Jeffrey", "He", "jeffrey.he@huawei.com", nil, nil)
   montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", "http://web.mit.edu/~mariejo/www/mjm.html", nil)
-  schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", nil, nil)
+  schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", "http://eveschooler.com", nil)
   coinrg = RG.new(
     "coinrg",
     "Computation in the Network",
     "coin@irtf.org",
     nil,
-    "https://datatracker.ietf.org/rg/coinrg/about/",
+    nil,
     [ montpetit, he, schooler ],
     nil,
-    nil,
+    "2019-02-15",
     nil
   )
 
@@ -143,7 +143,7 @@ module IRTF
     "https://trac.ietf.org/trac/irtf/wiki/blockchain-federation",
     [ kutscher, shore ],
     nil,
-    nil,
+    "2017-09-21",
     nil
   )
 
@@ -221,7 +221,7 @@ module IRTF
     "https://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
     [ iyengar ],
     nil,
-    nil,
+    "2014-11-13",
     nil
   )
 
@@ -236,7 +236,7 @@ module IRTF
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/icnrg",
     [ kutscher, oran ],
     nil,
-    "2012-4-17",
+    "2012-04-17",
     nil
   )
 
@@ -251,7 +251,7 @@ module IRTF
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/map",
     [ kuhlewind, plonka ],
     nil,
-    "2016-8-22",
+    "2016-08-22",
     nil
   )
 
@@ -267,7 +267,7 @@ module IRTF
     [ koodli, krishnan ],
     nil,
     nil,
-    "2012-6-8"
+    "2012-06-08"
   )
 
   # NCRG
@@ -299,8 +299,8 @@ module IRTF
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/nfvrg",
     [ lopez, ramki ],
     [ banks ],
-    "2015-1-20",
-    "2018-8-1"
+    "2015-01-20",
+    "2018-08-01"
   )
 
   # NWCRG
@@ -332,7 +332,7 @@ module IRTF
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
     [ ciavaglia, francois ],
     nil,
-    nil,
+    "1999-03-14",
     nil
   )
 
@@ -347,7 +347,7 @@ module IRTF
     nil,
     [ linkova, trammell ],
     nil,
-    nil,
+    "2017-06-09",
     nil
   )
 
@@ -363,7 +363,7 @@ module IRTF
     nil,
     [ dickinson, sahib, wood ],
     nil,
-    nil,
+    "2018-00-19",
     nil
   )
 
@@ -380,7 +380,7 @@ module IRTF
     [ hiltl, previdi ],
     nil,
     nil,
-    "2013-2-25"
+    "2013-02-25"
   )
 
   # QIRG
@@ -411,7 +411,7 @@ module IRTF
     [ li ],
     nil,
     nil,
-    "2014-6-10"
+    "2014-06-10"
   )
 
   # SAMRG
@@ -441,8 +441,8 @@ module IRTF
     "https://trac.tools.ietf.org/group/irtf/trac/wiki/sdnrg",
     [ king, shiomoto ],
     nil,
-    "2013-1-14",
-    "2017-1-6"
+    "2013-01-14",
+    "2017-01-06"
   )
 
   # TMRG
@@ -456,7 +456,7 @@ module IRTF
     [ andrew ],
     nil,
     nil,
-    "2011-9-26"
+    "2011-09-26"
   )
 
   # T2TRG
@@ -470,7 +470,7 @@ module IRTF
     "https://github.com/t2trg",
     [ bormann, keranen ],
     nil,
-    "2015-12-2",
+    "2015-12-02",
     nil
   )
 
@@ -486,7 +486,7 @@ module IRTF
     [ touch, stiemerling ],
     nil,
     nil,
-    "2012-2-8"
+    "2012-02-08"
   )
 
   # Active RGs
