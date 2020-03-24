@@ -1,5 +1,6 @@
 module IRTF
 
+
   class Person
     attr_reader :first, :last, :email, :web, :fb
 
@@ -388,7 +389,7 @@ module IRTF
   wojtek = Person.new("Wojciech", "Kozlowski", "W.Kozlowski@tudelft.nl", nil, nil)
   qirg = RG.new(
     "qirg",
-    "Quantum Internet Proposed",
+    "Quantum Internet",
     "qirg@irtf.org",
     nil,
     nil,
