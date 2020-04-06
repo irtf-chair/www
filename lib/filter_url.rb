@@ -36,7 +36,7 @@ class URLFilter < Nanoc::Filter
     "Justine Sherry"           => "http://www.justinesherry.com",
     "Nick Sullivan"            => "https://crypto.dance/about",
     "Ranysha Ware"             => "https://www.cs.cmu.edu/~rware/",
-    "Christopher Wood"         => "https://www.christopher-wood.com",
+    "Christopher Wood"         => "https://www.caw.fyi",
     "Jeroen van der Ham"       => "https://jvdham.nl",
     "Roland van Rijswijk-Deij" => "https://rijswijk.github.io",
     "Lisandro Zambenedetti Granville" => "http://www.inf.ufrgs.br/~granville/",
