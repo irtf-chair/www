@@ -7,65 +7,97 @@
 - acronym = rg.acronym.upcase
 
 %p
-  A Quantum Internet, if developed and deployed, will bring new
-  communication and remote computation capabilities, as well as improving
-  the accuracy of physical sensor systems (e.g., for interferometry for
-  long-baseline telescopes). One key area will be cryptographic functions
-  including quantum key distribution and quantum byzantine agreement.
+  The Quantum Internet will bring new communication and remote computation
+  capabilities such as quantum secure communication, distributed quantum
+  computing, and quantum-enhanced physical sensor systems.  A key focus
+  area for quantum networks will be cryptographic functions such as quantum
+  key distribution or quantum byzantine agreement.
 
 %p
-  Work toward a Quantum Internet is well underway in physics laboratories
-  and in theory groups. The next step is network engineering. Some of the
-  problems that need to be addressed include:
+  Work towards a Quantum Internet is well underway in physics laboratories
+  and in theory groups.  The next step is network engineering.  Being
+  embedded within the IRTF community helps in achieving this goal in two
+  ways:
 
 %ul
   %li
-    routing: there are a number of proposals, including a couple in the
-    last six months or so, and which routing schemes are appropriate for
-    which circumstances needs to be assessed
+    The IRTF community has extensive experience in network engineering.
+    Whilst quantum networks operate on a completely new set of physical
+    principles, many lessons have been learned throughout the Internet's
+    history and many of them will be relevant to the development of the
+    Quantum Internet.
 
   %li
-    resource allocation: some of the routing proposals seem to be including
-    a notion of the dynamic traffic on the network, but this distinction
-    needs to be defined clearly
+    Quantum networks will be embedded within non-quantum (classical)
+    networks, as they require classical connectivity for control and
+    management purposes.  Thus, the IRTF's experience in classical network
+    design and architecture will be beneficial.
 
-  %li 
-    connection establishment: what does a request look like (semantics more
-    than syntax) as it propagates across the network?
+%p
+  Overall the goal of the QIRG is to address the question of how to design
+  and build quantum networks. Some of the problems that need to be
+  addressed include:
 
-  %li 
-    interoperability: given than different networks are currently being
-    designed and built, how do we ensure a long-lived internetwork
-    develops?
+%ul
+  %li
+    Routing: Finding an optimal path in a quantum network is a non-trivial
+    problem due to the requirement of achieving a certain fidelity
+    threshold and the low coherence time of quantum memories.  There are a
+    number of proposals and which routing schemes are appropriate for which
+    circumstances needs to be assessed.
 
-  %li 
-    security: are quantum repeater networks inherently more or less
+  %li
+    Resource allocation: All networks have a finite pool of resources, and
+    quantum networks bring new resource considerations to the table, such
+    as the coherence time of quantum memories. Some of the routing
+    proposals already include a notion of dynamic traffic in the network,
+    but it is worth making a distinction.
+
+  %li
+    Connection establishment: Quantum networks deliver entangled states
+    instead of packets so the connection semantics may be different.  How
+    does such a request look like as it propagates across the network?
+
+  %li
+    Interoperability: Different networks based on different hardware (ion
+    traps, atomic ensembles, nitrogen vacancy centres) and using different
+    protocols are currently being designed and built. How do we ensure a
+    long-lived internetwork develops?
+
+  %li
+    Security: Quantum networks bring enhanced security for applications.
+    Therefore, the question of the security of the network itself must also
+    be addressed. Are quantum repeater networks inherently more or less
     vulnerable in operations than classical networks?
 
-  %li 
-    design of an API that will serve the role that sockets play in
-    classical networks
+  %li
+    API design: Classical sockets are built around the concept of bits.
+    What should an API for entangled states look like given new
+    considerations such as fidelity, and the low coherence time of quantum
+    memories?
 
 %p
-  There are also other problems:
+  Some other problems that can be tackled by the QIRG:
 
 %ul
   %li
-    applications for a Quantum Internet: by far the most important on the
-    agenda for the community (not necessarily a QIRG work item) is figuring
-    out what we would *do* with a Quantum Internet, including what data
-    rates and fidelities are required (otherwise, there is no market for a
-    QI)
+    Applications for a Quantum Internet: an important item on the agenda
+    for the community is analyzing how to turn the low-level, abstract
+    functions of quantum communication into services provided by the
+    Quantum Internet, including establishing required data rates and
+    fidelities, with specific use cases incorporating quantum services into
+    complete information systems.
 
   %li
-    multi-party states and multi-party transfers such as network coding:
+    Multi-party states and multi-party transfers such as network coding:
     rather than simple, independent point-to-point transfers, how can we
     create and use more complex states?
 
-%h2 Outputs and Milestones
+%h2
+  Outputs and Milestones
 
 %p
-  Two concrete work items that QIRG may produce:
+  Concrete work items that QIRG may produce include:
 
 %ul
   %li
@@ -75,26 +107,25 @@
 
   %li
     Wehner, Elkhouss and Hanson have created a roadmap of technical
-    capability milestones for quantum networks. Mapping these milestones to
-    concrete use cases will help to determine the order and timing of
-    classical protocols that will be needed.
-
-%p
-  Additionally, QIRG may serve as technical consultants to cryptography
-  groups within IETF and IRTF on the capabilities and timing for both
-  quantum computation and quantum networking, to provide guidance on
-  development and deployment of IETF protocols.
+    capability milestones for quantum networks.  Mapping these milestones
+    to concrete use cases will help to determine the order and timing of
+    classical protocols that will be needed. For example, consider
+    prepare-and-measure networks; what data rates, fidelities are needed to
+    e.g. make a useful position verification service, and how would you
+    incorporate that into a complete information system?
 
 %p
   Finally, QIRG will serve as a coordination point with other standards
   organizations that are working on standardization of quantum networks.
 
-%h2 Process
+%h2
+  Process
 
 %p
-  QIRG will hold 2-3 meetings per year, typically one at IETF, one at a
-  related conference, and one online.
+  QIRG will hold 2-3 meetings per year, online or in person, in accordance
+  with current best practice.
 
 %p
   Membership Policy: Open
+
 
