@@ -1,0 +1,197 @@
+---
+title: ANRW&nbsp;’20 Program
+menu: Program
+---
+
+%h1 Workshop Program
+
+%p= render "/anrw/2020/place_.*"
+
+
+/%h2 Proceedings
+/
+/%p
+/  %a{ href: 'https://dl.acm.org/citation.cfm?id=3340301&picked=prox' }Proceedings of the Applied Networking Research Workshop 2020
+/  are available from the ACM Digital Library.
+
+
+/%h2 Recordings
+/
+/%p
+/  The ANRW will be streamed live and recorded. Remote participation will
+/  be provided using the IETF remote participation system. You can find
+/  more details and information on how to register for remote participation
+/  on the 
+/  %a{ :href => "https://www.ietf.org/how/meetings/105/" } IETF 105 meeting page.
+/  There is no charge for remote participation, but pre-registration is required.
+/
+/%p
+/  Recordings will be made available after the workshop.
+/
+/%p
+/  The recordings from the workshop are available on YouTube in six parts:
+/
+/%div{ :style => "width: 30%; display: inline-block;" }
+/  .embed-responsive.embed-responsive-4by3
+/    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/XNLi6KDYquU"}
+/
+/%div{ :style => "width: 30%; display: inline-block;" }
+/  .embed-responsive.embed-responsive-4by3
+/    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/iQy6hK5wevc"}
+/
+/%div{ :style => "width: 30%; display: inline-block;" }
+/  .embed-responsive.embed-responsive-4by3
+/    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/T1NrTwv1mic"}
+/
+/%div{ :style => "width: 30%; display: inline-block;" }
+/  .embed-responsive.embed-responsive-4by3
+/    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/pBVu9GEfE1I"}
+/
+/%div{ :style => "width: 30%; display: inline-block;" }
+/  .embed-responsive.embed-responsive-4by3
+/    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/pEnT2BJvyv0"}
+/
+/%div{ :style => "width: 30%; display: inline-block;" }
+/  .embed-responsive.embed-responsive-4by3
+/    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/pUAjG2_A2WU"}
+
+
+%h2 Preliminary Program
+
+/- json = "content/anrw/2019/anrw2019-data.json"
+
+
+
+%table.table.table-striped.no-urlify
+  %thead
+    %tr
+      %th
+        Time
+      %th
+        Session
+      %th
+        Session Chair
+  %tbody
+    %tr
+      %td
+        %h4.text-danger Session 1
+      %td
+        %h4.text-danger DNS and BGP
+        %div.row
+          %div.col-lg-8
+            %p
+              %b
+                Enabling Privacy-Aware Zone Exchanges Among Authoritative and Recursive DNS Servers 
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              N. Kostopoulos, D. Kalogeras, and V. Maglari
+            %p
+              %b
+                Inferring the Deployment of Inbound Source Address Validation Using DNS Resolvers 
+              <span class="label label-danger">(Position Paper)</span>
+              %br
+              M. Korczynski, Y. Nosyk, Q. Lone, M. Skwarek, B. Jonglez, and A. Duda
+            %p
+              %b
+                Limiting the Power of RPKI Authorities
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              K. Shrishak and H. Shulman
+            %p
+              %b
+                Withdrawal Symptoms: Filtering of Announcements from a Route Collector System
+              <span class="label label-danger">(Position Paper)</span>
+              <br>
+              S. Strowes, R. Wilhelm, and E. Aben
+            %p
+              %b
+                Toward Programmable Interdomain Routing 
+              <span class="label label-danger">(Position Paper)</span>
+              <br>
+              Q. Xiang, J. Zhang, F. Le, and R. Yang
+      %td
+        %h5.text-danger (tbd)
+
+    %tr
+      %td
+        %h4.text-danger Session 2
+      %td
+        %h4.text-danger Protocol testing and validation
+        %div.row
+          %div.col-lg-8
+            %p
+              %b
+                Parsing Protocol Standards to Parse Standard Protocols
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              S. McQuistin, V. Band, D. Jacob, and C. S. Perkins
+            %p
+              %b
+                NeST: Network Stack Tester
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              S. Rai, N. G, D. M, L. Monis, and M. Tahiliani
+      %td
+        %h5.text-danger (tbd)
+
+    %tr
+      %td
+        %h4.text-danger Session 3
+      %td
+        %h4.text-danger Monitoring and Logging
+        %div.row
+          %div.col-lg-8
+            %p
+              %b
+                Debugging Modern Web Protocols with qlog 
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              R. Marx, M. Piraux, P. Quax
+            %p
+              %b
+                On the Accuracy of Country-Level IP Geolocation 
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              I. Livadariu, T. Dreibholz, A. Al-Selwi, H. Bryhni, O. Lysne, S. Bjørnstad, and A. Elmokashfi
+      %td
+        %h5.text-danger (tbd)
+
+
+
+
+    %tr
+      %td
+        %h4.text-danger Session 4
+      %td
+        %h4.text-danger Transport Protocols and Traffic Engineering
+        %div.row
+          %div.col-lg-8
+            %p
+              %b
+                Evaluating the Impact of Path Brokenness on TCP 
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              K. Edeline, B. Donnet
+            %p
+              %b
+                A Congestion Control Independent L4S Scheduler
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              S. Nádas, G. Gombos, F. Fejes, S. Laki
+            %p
+              %b
+                Multi-Domain Information Exposure using ALTO: The Good, the Bad and the Solution
+              <span class="label label-danger">(position paper)</span>
+              %br
+                D. Perez, C. Rothenberg, Q. Xiang, Y. Yang, B. Ohlman, S. Randriamasy, L. Contreras, and K. Gao
+            %p
+              %b
+                A novel hybrid distributed-routing and SDN solution for Traffic Engineering 
+              <span class="label label-danger">(position paper)</span>
+              %br
+                S. Bryant, U. Chunduri, T. Eckert, A. Clemm, L. Murillo, and P. Cano
+      %td
+        %h5.text-danger (tbd)
+
+
+
