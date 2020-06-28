@@ -8,26 +8,21 @@ menu: Program
 %p= render "/anrw/2020/place_.*"
 
 
-/%h2 Proceedings
-/
-/%p
+%h2 Proceedings
+
+%p
+  Proceedings of the Applied Networking Research Workshop 2020 will be
+  available from the ACM Digital Library
+
 /  %a{ href: 'https://dl.acm.org/citation.cfm?id=3340301&picked=prox' }Proceedings of the Applied Networking Research Workshop 2020
 /  are available from the ACM Digital Library.
 
 
-/%h2 Recordings
-/
-/%p
-/  The ANRW will be streamed live and recorded. Remote participation will
-/  be provided using the IETF remote participation system. You can find
-/  more details and information on how to register for remote participation
-/  on the 
-/  %a{ :href => "https://www.ietf.org/how/meetings/105/" } IETF 105 meeting page.
-/  There is no charge for remote participation, but pre-registration is required.
-/
-/%p
-/  Recordings will be made available after the workshop.
-/
+%h2 Recordings
+
+%p
+  Recordings will be made available after the workshop.
+
 /%p
 /  The recordings from the workshop are available on YouTube in six parts:
 /
@@ -56,11 +51,10 @@ menu: Program
 /    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/pUAjG2_A2WU"}
 
 
-%h2 Preliminary Program
+%h2 Program
 
-/- json = "content/anrw/2019/anrw2019-data.json"
-
-
+%p
+  Times are given in UTC.
 
 %table.table.table-striped.no-urlify
   %thead
@@ -74,7 +68,7 @@ menu: Program
   %tbody
     %tr
       %td
-        %h4.text-danger Session 1
+        %b July 30, 2020<br> 11:00-12:40
       %td
         %h4.text-danger DNS and BGP
         %div.row
@@ -114,7 +108,7 @@ menu: Program
 
     %tr
       %td
-        %h4.text-danger Session 2
+        %b July 30, 2020, 13:00-13:50
       %td
         %h4.text-danger Protocol testing and validation
         %div.row
@@ -134,34 +128,10 @@ menu: Program
       %td
         %h5.text-danger (tbd)
 
-    %tr
-      %td
-        %h4.text-danger Session 3
-      %td
-        %h4.text-danger Monitoring and Logging
-        %div.row
-          %div.col-lg-8
-            %p
-              %b
-                Debugging Modern Web Protocols with qlog 
-              <span class="label label-success">(Short Paper)</span>
-              %br
-              R. Marx, M. Piraux, P. Quax
-            %p
-              %b
-                On the Accuracy of Country-Level IP Geolocation 
-              <span class="label label-success">(Short Paper)</span>
-              %br
-              I. Livadariu, T. Dreibholz, A. Al-Selwi, H. Bryhni, O. Lysne, S. Bjørnstad, and A. Elmokashfi
-      %td
-        %h5.text-danger (tbd)
-
-
-
 
     %tr
       %td
-        %h4.text-danger Session 4
+        %b July 30, 2020, 14:10-15:50
       %td
         %h4.text-danger Transport Protocols and Traffic Engineering
         %div.row
@@ -192,6 +162,31 @@ menu: Program
                 S. Bryant, U. Chunduri, T. Eckert, A. Clemm, L. Murillo, and P. Cano
       %td
         %h5.text-danger (tbd)
+
+
+    %tr
+      %td
+        %b July 31, 2020, 13:00-13:50
+      %td
+        %h4.text-danger Monitoring and Logging
+        %div.row
+          %div.col-lg-8
+            %p
+              %b
+                Debugging Modern Web Protocols with qlog 
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              R. Marx, M. Piraux, P. Quax
+            %p
+              %b
+                On the Accuracy of Country-Level IP Geolocation 
+              <span class="label label-success">(Short Paper)</span>
+              %br
+              I. Livadariu, T. Dreibholz, A. Al-Selwi, H. Bryhni, O. Lysne, S. Bjørnstad, and A. Elmokashfi
+      %td
+        %h5.text-danger (tbd)
+
+
 
 
 
