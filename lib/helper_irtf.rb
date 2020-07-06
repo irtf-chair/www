@@ -273,7 +273,7 @@ module IRTF
   # NCRG
   behringer = Person.new("Michael", "Behringer", "mbehring@cisco.com", "https://linkedin.com/in/mbehringer", nil)
   # huston = Person.new("Geoff", "Huston", "gih@apnic.net", "https://potaroo.net/", nil)
-  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", "http://www.1-4-5.net/~dmm/vita.html", nil)
+  meyer = Person.new("David", "Meyer", "dmm@1-4-5.net", nil, nil)
   ncrg = RG.new(
     "ncrg",
     "Network Complexity",
@@ -287,7 +287,7 @@ module IRTF
   )
 
   # NFVRG
-  lopez = Person.new("Diego", "Lopez", "diego.r.lopez@telefonica.com", "https://people.tid.es/diego.lopez/", nil)
+  lopez = Person.new("Diego", "Lopez", "diego.r.lopez@telefonica.com", nil, nil)
   ramki = Person.new("Ramki", "Krishnan", "ramkri123@gmail.com", "https://linkedin.com/pub/ram-krishnan/0/a10/2ba", nil)
   # krishnaswamy = Person.new("Dilip", "Krishnaswamy", "dilip@ieee.org", "https://sites.google.com/site/dilip1/home", nil)
   banks = Person.new("Sarah", "Banks", "sbanks@encrypted.net", "https://www.linkedin.com/in/sbanks", nil)
