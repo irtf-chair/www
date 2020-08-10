@@ -329,7 +329,7 @@ module IRTF
     "Network Management",
     "nmrg@irtf.org",
     nil,
-    "https://trac.tools.ietf.org/group/irtf/trac/wiki/NetworkManagementResearchGroup",
+    "https://trac.ietf.org/trac/nmrg/wiki/WikiStart",
     [ ciavaglia, francois ],
     nil,
     "1999-03-14",
