@@ -37,6 +37,7 @@ class URLFilter < Nanoc::Filter
     "Cristel Pelsser"          => "https://clarinet.u-strasbg.fr/~pelsser/",
     "Colin Perkins"            => "https://csperkins.org/",
     "Justine Sherry"           => "http://www.justinesherry.com",
+    "Anna Sperotto"            => "https://annasperotto.org",
     "Stephen Strowes"          => "https://sdstrowes.co.uk",
     "Nick Sullivan"            => "https://crypto.dance/about",
     "Ranysha Ware"             => "https://www.cs.cmu.edu/~rware/",
