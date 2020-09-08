@@ -36,6 +36,7 @@ class URLFilter < Nanoc::Filter
     "J.rg Ott"                 => "https://www.cm.in.tum.de/en/research-group/joerg-ott/",
     "Cristel Pelsser"          => "https://clarinet.u-strasbg.fr/~pelsser/",
     "Colin Perkins"            => "https://csperkins.org/",
+    "Philipp Richter"          => "https://people.csail.mit.edu/richterp/",
     "Justine Sherry"           => "http://www.justinesherry.com",
     "Anna Sperotto"            => "https://annasperotto.org",
     "Stephen Strowes"          => "https://sdstrowes.co.uk",
