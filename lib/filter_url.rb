@@ -14,7 +14,7 @@ class URLFilter < Nanoc::Filter
     "Shehar Bano"              => "https://sheharbano.com",
     "Theophilus Benson"        => "https://cs.brown.edu/~tab/",
     "Zachary Bischof"          => "http://zbischof.com",
-    "Anna Brunstr.m"           => "https://www.kau.se/forskare/anna-brunstrom",
+    "Anna Brunstr.m"           => "https://www.kau.se/en/researchers/anna-brunstrom",
     "Sandra C.spedes"          => "https://www.cec.uchile.cl/~scespedes/",
     "Taejoong .Tijay. Chung"   => "https://taejoong.github.io",
     "Jay Daley"                => "https://datatracker.ietf.org/person/Jay%20Daley",
