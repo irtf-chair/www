@@ -8,6 +8,7 @@ class URLFilter < Nanoc::Filter
 
   @@urls = {
     # People:
+    "Mark Allman"              => "https://www.icir.org/mallman/",
     "Johanna Amann"            => "https://www.icir.org/johanna/",
     "Grenville Armitage"       => "http://gja.space4me.com",
     "Vaibhav Bajpai"           => "https://vaibhavbajpai.com",
