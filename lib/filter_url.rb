@@ -12,6 +12,7 @@ class URLFilter < Nanoc::Filter
     "Johanna Amann"            => "https://www.icir.org/johanna/",
     "Grenville Armitage"       => "http://gja.space4me.com",
     "Vaibhav Bajpai"           => "https://vaibhavbajpai.com",
+    "Debopam Bhattacherjee"    => "https://bdebopam.github.io",
     "Shehar Bano"              => "https://sheharbano.com",
     "Theophilus Benson"        => "https://cs.brown.edu/~tab/",
     "Zachary Bischof"          => "http://zbischof.com",
