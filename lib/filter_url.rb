@@ -38,6 +38,7 @@ class URLFilter < Nanoc::Filter
     "J.rg Ott"                 => "https://www.cm.in.tum.de/en/research-group/joerg-ott/",
     "Cristel Pelsser"          => "https://clarinet.u-strasbg.fr/~pelsser/",
     "Colin Perkins"            => "https://csperkins.org/",
+    "Audrey Randall"           => "https://audrey-randall.github.io",
     "Philipp Richter"          => "https://people.csail.mit.edu/richterp/",
     "Justine Sherry"           => "http://www.justinesherry.com",
     "Anna Sperotto"            => "https://annasperotto.org",
@@ -49,6 +50,7 @@ class URLFilter < Nanoc::Filter
     "Roland van Rijswijk-Deij" => "https://rijswijk.github.io",
     "Lisandro Zambenedetti Granville" => "http://www.inf.ufrgs.br/~granville/",
     "Laurent Vanbever"         => "https://vanbever.eu",
+    "Francis Y. Yan"           => "https://francisyyan.org",
     # Places:
     "(Technische Universit.t|TU) M.nchen" => "https://www.tum.de/en/",
     "Aalto University" => "https://www.aalto.fi/",
