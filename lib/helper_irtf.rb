@@ -101,7 +101,7 @@ module IRTF
   # igoe = Person.new("Kevin", "Igoe", "kmigoe@nsa.gov", nil, nil)
   #paterson = Person.new("Kenny", "Paterson", "kenny.paterson@rhul.ac.uk", "http://appliedcrypto.ethz.ch/people/kenny-paterson.html", nil)
   stanislav = Person.new("Stanislav", "Smyshlyaev",  "smyshsv@gmail.com>", "https://ru.linkedin.com/in/stanislav-smyshlyaev-62169333", nil)
-  melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", "https://www.melnikov.ca", nil)
+  melnikov = Person.new("Alexey", "Melnikov", "alexey.melnikov@isode.com", nil, nil)
   sullivan = Person.new("Nick", "Sullivan", "nick@cloudflare.com", "https://crypto.dance/about", nil)
 
   cfrg = RG.new(

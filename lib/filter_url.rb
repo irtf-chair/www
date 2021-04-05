@@ -27,7 +27,6 @@ class URLFilter < Nanoc::Filter
     "Simone Ferlin"            => "https://ferlin.io",
     "Georgia Fragkouli"        => "https://people.epfl.ch/georgia.fragkouli?lang=en",
     "Phillipa Gill"            => "https://people.cs.umass.edu/~phillipa/",
-    "Gonca G.rsun"             => "http://goncagursun.com",
     "Sharon Goldberg"          => "http://www.cs.bu.edu/~goldbe/",
     "Ralph Holz"               => "https://ralphholz.science",
     "Jana Iyengar"             => "https://github.com/janaiyengar",
