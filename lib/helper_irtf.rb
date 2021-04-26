@@ -134,14 +134,14 @@ module IRTF
 
   # DINRG
   kutscher = Person.new("Dirk", "Kutscher", "ietf@dkutscher.net", "http://dirk-kutscher.info/", nil)
-  shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
+  zhang = Person.new("Lixia", "Zhang", "lixia@CS.UCLA.EDU", "https://web.cs.ucla.edu/~lixia/", nil)
   dinrg = RG.new(
     "dinrg",
     "Decentralized Internet Infrastructure",
     "din@irtf.org",
     nil,
     "https://trac.ietf.org/trac/irtf/wiki/blockchain-federation",
-    [ kutscher, shore ],
+    [ kutscher, zhang ],
     nil,
     "2017-09-21",
     nil
@@ -568,9 +568,10 @@ module IRTF
   # feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
+  shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
   $perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://csperkins.org/", nil)
   $chair = $perkins
-  $atlarge = [ ford, eggert, mankin, falk, dawkins, farrell ]
+  $atlarge = [ ford, eggert, mankin, falk, dawkins, farrell, shore ]
 
   def atlarge_contacts
     result = "irsg\n" +
