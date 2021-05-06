@@ -203,7 +203,7 @@ module IRTF
     "hrpc@irtf.org",
     nil,
     "https://hrpc.io/",
-    [ knodel, doria ],
+    [ knodel ],
     nil,
     "2015-11-30",
     nil
