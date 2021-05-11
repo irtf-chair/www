@@ -985,6 +985,8 @@ FileETag None
 # | irtf.org additions                                                       |
 # ------------------------------------------------------------------------------
 
+Header set Referrer-Policy: "no-referrer-when-downgrade"
+
 # get content for plain URLs from .html
 <IfModule mod_rewrite.c>
   RewriteCond %{REQUEST_FILENAME} !-d
