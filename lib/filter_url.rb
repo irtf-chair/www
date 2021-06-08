@@ -13,7 +13,6 @@ class URLFilter < Nanoc::Filter
     "Grenville Armitage"       => "http://gja.space4me.com",
     "Vaibhav Bajpai"           => "https://vaibhavbajpai.com",
     "Debopam Bhattacherjee"    => "https://bdebopam.github.io",
-    "Shehar Bano"              => "https://sheharbano.com",
     "Theophilus Benson"        => "https://cs.brown.edu/~tab/",
     "Zachary Bischof"          => "http://zbischof.com",
     "Anna Brunstr.m"           => "https://www.kau.se/en/researchers/anna-brunstrom",
