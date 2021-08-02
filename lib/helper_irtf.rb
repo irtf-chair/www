@@ -118,7 +118,7 @@ module IRTF
 
   # COINRG
   he = Person.new("Jeffrey", "He", "jefhe@foxmail.com", nil, nil)
-  montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", "http://web.mit.edu/~mariejo/www/mjm.html", nil)
+  montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", nil, nil)
   schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", "http://eveschooler.com", nil)
   coinrg = RG.new(
     "coinrg",
