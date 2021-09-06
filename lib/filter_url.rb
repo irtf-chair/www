@@ -145,7 +145,6 @@ class URLFilter < Nanoc::Filter
     "UC3M" => "https://uc3m.es/",
     "UCL Louvain" => "https://uclouvain.be/",
     "UCLA" => "https://www.ucla.edu/",
-    "UFRGS" => "https://www.ufrgs.br/relinter/english",
     "UMass Amherst" => "https://www.umass.edu",
     "Universidad de Chile" => "https://www.uchile.cl",
     "University of Massachusetts - Amherst" => "https://www.umass.edu",
