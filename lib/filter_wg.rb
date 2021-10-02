@@ -39,7 +39,7 @@ provreg printmib qresync quis receipt repute rescap schema sieve
 smtpext spfbis tn3270e telnet tftpexts tip trade urc uri urlreg urn
 usefor vcarddav vpim vwrap webdav webi websec weirds whip widex
 wrec x400ops xmpp yam arcmedia drinks eppext hybi imapapnd tzdist
-icar ipr newtrk nomcom poised poised95 poisson problem 16ng 6lowpan
+icar newtrk nomcom poised poised95 poisson problem 16ng 6lowpan
 addrconf ale ancp appleip catnip cip csi dna dns dnsext dnsind eap
 fddi frnetmib hostreq idn ifmib ion ip1394 ipae ipatm ipdvb ipfc
 iplpdn ipoib iporpr ippcp ipngwg ipv6 ipv6mib ipvbi isdnmib itrace
