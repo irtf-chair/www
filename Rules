@@ -50,6 +50,10 @@ compile "/static/**/*" do
   write item.identifier.to_s.sub(/\A\/static/, '')
 end
 
+route "/security.txt" do
+  "/.well-known/security.txt"
+end
+
 passthrough "/**/*.{php,html,png,jpg,svg,json,cls,doc,docx,pdf,txt,pptx,key,m4v}"
 
 layout "/**/*", :haml, :format => :html5
