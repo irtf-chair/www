@@ -12,7 +12,6 @@ ignore "/**/*.yaml"
 compile "/**/*.haml" do
   filter :haml, :format => :html5
   filter :rfc
-#  filter :rg Disabled to prevent conflict with rgtiles_.haml
   filter :meeting
   filter :url
   filter :relativize_paths, :type => :html
