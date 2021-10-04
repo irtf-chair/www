@@ -30,7 +30,6 @@ class URLFilter < Nanoc::Filter
     "Ralph Holz"               => "https://ralphholz.science",
     "Jana Iyengar"             => "https://github.com/janaiyengar",
     "Mirja K.hlewind"          => "http://mirja.kuehlewind.net",
-    "Franziska Lichtblau"      => "https://www.mpi-inf.mpg.de/inet/people/franziska-lichtblau/",
     "Chaoyi Lu"                => "https://luchaoyi.com",
     "Andra Lutu"               => "https://andralutu.com",
     "Allison Mankin"           => "https://datatracker.ietf.org/person/Allison%20Mankin",
