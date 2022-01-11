@@ -8,6 +8,8 @@ class URLFilter < Nanoc::Filter
 
   @@urls = {
     # People:
+    "Sangeetha Abdu Jyothi"    => "https://www.ics.uci.edu/~sabdujyo/",
+    "Gautam Akiwate"           => "https://cseweb.ucsd.edu/~gakiwate/",
     "Mark Allman"              => "https://www.icir.org/mallman/",
     "Johanna Amann"            => "https://www.icir.org/johanna/",
     "Grenville Armitage"       => "http://gja.space4me.com",
@@ -18,6 +20,7 @@ class URLFilter < Nanoc::Filter
     "R.diger Birkner"          => "https://www.rbirkner.ch",
     "Zachary Bischof"          => "http://zbischof.com",
     "Anna Brunstr.m"           => "https://www.kau.se/en/researchers/anna-brunstrom",
+    "Corrine Cath"             => "https://corinnecath.com",
     "Sandra C.spedes"          => "https://www.cec.uchile.cl/~scespedes/",
     "Taejoong .Tijay. Chung"   => "https://taejoong.github.io",
     "Jay Daley"                => "https://datatracker.ietf.org/person/Jay%20Daley",
@@ -36,6 +39,7 @@ class URLFilter < Nanoc::Filter
     "Jana Iyengar"             => "https://github.com/janaiyengar",
     "Aqsa Kashaf"              => "https://www.andrew.cmu.edu/user/akashaf/",
     "Fernando Kuipers"         => "https://fernandokuipers.nl",
+    "Sam Kumar"                => "https://people.eecs.berkeley.edu/~samkumar/",
     "Mirja K.hlewind"          => "http://mirja.kuehlewind.net",
     "Chaoyi Lu"                => "https://luchaoyi.com",
     "Andra Lutu"               => "https://andralutu.com",
@@ -49,9 +53,11 @@ class URLFilter < Nanoc::Filter
     "Philipp Richter"          => "https://people.csail.mit.edu/richterp/",
     "Justine Sherry"           => "http://www.justinesherry.com",
     "Melinda Shore"            => "https://datatracker.ietf.org/person/Melinda%20Shore",
+    "Bruce Spang"              => "https://brucespang.com",
     "Anna Sperotto"            => "https://annasperotto.org",
     "Stephen Strowes"          => "https://sdstrowes.co.uk",
     "Nick Sullivan"            => "https://crypto.dance/about",
+    "Tushar Swamy"             => "https://www.linkedin.com/in/tushar-swamy-b4aa51b1/",
     "Ranysha Ware"             => "https://www.cs.cmu.edu/~rware/",
     "Christopher Wood"         => "https://www.caw.fyi",
     "Jeroen van der Ham"       => "https://jvdham.nl",
