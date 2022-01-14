@@ -63,6 +63,7 @@ class URLFilter < Nanoc::Filter
     "Jeroen van der Ham"       => "https://jvdham.nl",
     "Roland van Rijswijk-Deij" => "https://rijswijk.github.io",
     "Lisandro Zambenedetti Granville" => "http://www.inf.ufrgs.br/~granville/",
+    "Daniel Wagner"            => "https://www.mpi-inf.mpg.de/departments/inet/people/daniel-wagner",
     "Thomas Wirtgen"           => "https://inl.info.ucl.ac.be/thomas.html",
     "Laurent Vanbever"         => "https://vanbever.eu",
     "Francis Y. Yan"           => "https://francisyyan.org",
