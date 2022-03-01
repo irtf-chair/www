@@ -28,6 +28,7 @@ class URLFilter < Nanoc::Filter
     "Lars Eggert"              => "https://eggert.org",
     "Theresa Enghardt"         => "https://tenghardt.net/",
     "Stephen Farrell"          => "https://www.scss.tcd.ie/Stephen.Farrell/",
+    "Marwan Fayed"             => "https://research.cloudflare.com/people/marwan-fayed/",
     "Mat Ford"                 => "https://www.internetsociety.org/author/ford/",
     "Sadjad Fouladi"           => "https://sadjad.org",
     "Nick Feamster"            => "https://people.cs.uchicago.edu/~feamster/",
