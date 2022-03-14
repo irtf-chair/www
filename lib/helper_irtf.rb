@@ -197,13 +197,14 @@ module IRTF
   tenoever = Person.new("Niels", "ten Oever", "niels@article19.org", "https://nielstenoever.net/", nil)
   knodel = Person.new("Mallory", "Knodel", "mallory@article19.org", "https://www.linkedin.com/in/malloryknodel/", nil)
   doria = Person.new("Avri", "Doria", "avri@acm.org", "https://www.linkedin.com/in/doriavr", nil)
+  celi  = Person.new("Sofía", "Celi", "cherenkov@riseup.net", "https://www.sofiaceli.com", nil)
   hrpc = RG.new(
     "hrpc",
     "Human Rights Protocol Considerations",
     "hrpc@irtf.org",
     nil,
     "https://hrpc.io/",
-    [ knodel ],
+    [ knodel, celi ],
     nil,
     "2015-11-30",
     nil
