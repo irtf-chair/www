@@ -41,6 +41,7 @@ class URLFilter < Nanoc::Filter
     "Shumon Huque"             => "https://www.huque.com",
     "Jana Iyengar"             => "https://github.com/janaiyengar",
     "Mattijs Jonker"           => "http://mattijsjonker.com",
+    "Ethan Katz-Bassett"       => "http://www.columbia.edu/~ebk2141/",
     "Aqsa Kashaf"              => "https://www.andrew.cmu.edu/user/akashaf/",
     "Fernando Kuipers"         => "https://fernandokuipers.nl",
     "Sam Kumar"                => "https://people.eecs.berkeley.edu/~samkumar/",
