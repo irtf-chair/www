@@ -11,10 +11,12 @@ class MeetingFilter < Nanoc::Filter
     elements = doc.xpath('//*[local-name() != "a" and not(ancestor::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")]) and not(self::*[contains(concat(" ", normalize-space(@class), " "), " no-urlify ")])]/text()')
     elements.each do |element|
       element.content = element.content.gsub(/\bIETF-([0-9]{1,3}\b)/) {
-        |rfc| if $1.to_i < 91 then
+        |rfc| if $1.to_i < 96 then
                 link_to("IETF-#{$1}", "https://ietf.org/proceedings/#{$1}/index.html")
+              elsif $1.to_i < 113 then
+                link_to("IETF-#{$1}", "https://datatracker.ietf.org/meeting/#{$1}/proceedings")
               else
-                link_to("IETF-#{$1}", "https://ietf.org/how/meetings/#{$1}/")
+                link_to("IETF-#{$1}", "https://www.ietf.org/how/meetings/#{$1}/")
               end
       }
     end
