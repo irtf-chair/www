@@ -53,7 +53,7 @@ class URLFilter < Nanoc::Filter
     "Alexa Morris"             => "https://datatracker.ietf.org/person/Alexa%20Morris",
     "Veelasha Moonsamy"        => "https://veelasha.org",
     "Moritz M.ller"            => "https://scholar.google.com/citations?user=W5qkJ0EAAAAJ&hl=en",
-    "J.rg Ott"                 => "https://www.cm.in.tum.de/en/research-group/joerg-ott/",
+    "J.rg Ott"                 => "https://www.ce.cit.tum.de/en/cm/research-group/joerg-ott/",
     "David Oran"               => "https://datatracker.ietf.org/person/David%20R.%20Oran",
     "Christoph Paasch"         => "http://be.linkedin.com/in/christophpaasch",
     "Cristel Pelsser"          => "https://clarinet.u-strasbg.fr/~pelsser/",
