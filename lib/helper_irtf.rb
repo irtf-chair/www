@@ -149,7 +149,7 @@ module IRTF
 
   # DTNRG
   fall = Person.new("Kevin", "Fall", "kfall@acm.org", "https://kfall.net/", nil)
-  ott = Person.new("Jörg", "Ott", "ott@in.tum.de", "https://www.cm.in.tum.de/en/research-group/joerg-ott/", nil)
+  ott = Person.new("Jörg", "Ott", "ott@in.tum.de", "https://www.ce.cit.tum.de/en/cm/research-group/joerg-ott/", nil)
   dtnrg = RG.new(
     "dtnrg",
     "Delay-Tolerant Networking",

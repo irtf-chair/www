@@ -19,7 +19,6 @@ class URLFilter < Nanoc::Filter
     "Kevin Bock"               => "https://www.cs.umd.edu/~kbock/",
     "Theophilus Benson"        => "https://cs.brown.edu/~tab/",
     "R.diger Birkner"          => "https://www.rbirkner.ch",
-    "Zachary Bischof"          => "http://zbischof.com",
     "Anna Brunstr.m"           => "https://www.kau.se/en/researchers/anna-brunstrom",
     "Corrine Cath"             => "https://corinnecath.com",
     "Sandra C.spedes"          => "https://www.cec.uchile.cl/~scespedes/",
