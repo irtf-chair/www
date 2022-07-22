@@ -93,7 +93,8 @@ menu: Program
               Jan Marius Evang, Azza Hassan Mohamed	Ahmed, Ahmed	Elmukashfi, and Haakon	Bryhni
             %div.col-lg-4
               %p.btn-toolbar
-                &nbsp;
+                %a{ :href => "/anrw/2022/slides-114-anrw-crosslayer-network-outage-classification-using-machine-learning-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
+                  %span.glyphicon.glyphicon-picture slides
 
         %div.row
           %div.col-lg-8
@@ -105,7 +106,8 @@ menu: Program
               Aitor Martin and Naeem	Khademi
             %div.col-lg-4
               %p.btn-toolbar
-                &nbsp;
+                %a{ :href => "/anrw/2022/slides-114-anrw-on-the-suitability-of-bbr-congestion-control-for-quic-over-geo-satcom-networks-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
+                  %span.glyphicon.glyphicon-picture slides
 
         %div.row
           %div.col-lg-8
@@ -117,7 +119,8 @@ menu: Program
               Nooshin Eghbal and Paul	Lu
             %div.col-lg-4
               %p.btn-toolbar
-                &nbsp;
+                %a{ :href => "/anrw/2022/slides-114-anrw-sessa-priority-aware-forward-error-correction-for-http-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
+                  %span.glyphicon.glyphicon-picture slides
 
       %td
         %p
@@ -165,40 +168,6 @@ menu: Program
               %br
               Max von Hippel (Northeastern University)
               %span{ :class => "label label-default"} Invited talk
-            %blockquote
-              %p
-                Automated attack discovery techniques, such as attacker synthesis
-                or model-based fuzzing, provide powerful ways to ensure network
-                protocols operate correctly and securely.  For RFC authors, these
-                techniques can help assure that a protocol design is correct
-                (devoid of bugs) and that its textual specification is
-                unambiguous.  But such techniques, in general, require a formal
-                representation of the protocol, often in the form of a finite
-                state machine (FSM). Unfortunately, RFCs are written in English
-                prose, and implementing even a simple network protocol as an FSM
-                is time-consuming and prone to subtle logical errors.
-                Automatically extracting protocol FSMs from documentation can
-                significantly contribute to increased use of these techniques and
-                result in more robust and secure protocol implementations.
-
-              %p
-                In this work we focus on attacker synthesis as a representative
-                technique for assuring the security of protocols described by RFC
-                documents. Unlike other works that rely on rule-based approaches
-                or use off-the-shelf NLP tools directly, we suggest a data-driven
-                approach for extracting FSMs from RFCs. Specifically, we use a
-                hybrid approach consisting of three key steps: (1) large-scale
-                word-representation learning for technical language, (2) focused
-                zero-shot learning for mapping protocol text to a
-                protocol-independent information language, and (3) rule-based
-                mapping from protocol-independent information to a specific
-                protocol FSM. We show the generalizability of our FSM extraction
-                by using the RFCs for six different protocols: BGPv4, DCCP, LTP,
-                PPTP, SCTP and TCP. We demonstrate how automated extraction of an
-                FSM from an RFC can be applied to the synthesis of attacks, with
-                TCP and DCCP as case-studies. Our approach shows how automated
-                attack synthesis can help RFC authors design bug-free protocols
-                and write unambiguous specifications.
             %div.col-lg-4
               %p.btn-toolbar
                 &nbsp;
@@ -213,19 +182,6 @@ menu: Program
               %br
               Jane Yen (USC)
               %span{ :class => "label label-default"} Invited talk
-            %blockquote
-              %p
-                To date, working groups and specification authors have been
-                making significant effort in maintaining the quality of
-                specifications. In particular, ambiguities are undesirable and
-                critical to protocol implementation. While the guidelines of
-                specification production are more complete over time to reduce
-                the chances of uncertainty in specifications, it remains a
-                question whether the networking community is achieving a near zero
-                ambiguity specification. In this talk, we will cover our work
-                which discovers ambiguous instances and under-specified instances
-                in long-standing protocol and discuss what extended work could be
-                explored and what ongoing study is exploring.
             %div.col-lg-4
               %p.btn-toolbar
                 &nbsp;
