@@ -163,7 +163,7 @@ module IRTF
   )
 
   # GAIA
-  navarro = Person.new("Leandro", "Navarro", "leandro@ac.upc.edu", "http://people.ac.upc.edu/leandro/", nil)
+  # navarro = Person.new("Leandro", "Navarro", "leandro@ac.upc.edu", "http://people.ac.upc.edu/leandro/", nil)
   # sathiaseelan = Person.new("Arjuna", "Sathiaseelan", "arjuna.sathiaseelan@cl.cam.ac.uk", "https://www.cl.cam.ac.uk/~as2330/", nil)
   coffin = Person.new("Jane", "Coffin", "coffin@isoc.org", "https://www.internetsociety.org/who-we-are/people/jane-coffin", nil)
   heimerl  = Person.new("Kurtis", "Heimerl", "kheimerl@cs.washington.edu", "https://kurti.sh", nil)
@@ -173,7 +173,7 @@ module IRTF
     "gaia@irtf.org",
     nil,
     "https://sites.google.com/site/irtfgaia/",
-    [ navarro, coffin, heimerl ],
+    [ coffin, heimerl ],
     nil,
     "2014-10-15",
     nil
