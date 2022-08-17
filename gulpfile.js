@@ -9,7 +9,6 @@ var conf = {
   node: './node_modules',
   public: './static',
   output: './output',
-  vnu: '~/Documents/Code/validator/build/dist/vnu.jar'
 };
 
 gulp.task('fonts', function() {
@@ -48,26 +47,12 @@ gulp.task('nanoc', function(cb) {
   });
 });
 
-gulp.task('validate', function(cb) {
-  exec('java -jar ' + conf.vnu + ' --skip-non-html ' + conf.output,
-       { stdio: 'inherit' }, function (err) {
-    cb(err);
-  });
-});
-
 gulp.task('upload', function(cb) {
   var sftp = 'sftp://ftpirtf@ietf.org';
   var opts = '--reverse --delete --parallel=10 --exclude=usagedata' +
              ' --exclude=hotcrp -vvv ';
   exec('lftp -c "open ' + sftp + ';  mirror ' + opts + conf.output + ' www"',
        { stdio: 'inherit' }, function (err) {
-    cb(err);
-  });
-});
-
-gulp.task("linkcheck", function(cb) {
-  exec("linklint -doc report -http -net -host irtf.org /@",
-       { stdio: "inherit" }, function (err) {
     cb(err);
   });
 });
