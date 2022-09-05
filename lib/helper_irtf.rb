@@ -214,6 +214,8 @@ module IRTF
   # ICCRG
   # welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
   iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://www.linkedin.com/in/jana-iyengar-2121252", nil)
+  ferlin = Person.new("Simone", "Ferlin", "simoneferlin@gmail.com", "https://ferlin.io", nil)
+  schapira = Person.new("Michael", "Schapira", "schapiram@huji.ac.il", "https://www.michaelschapira.com", nil)
   # ros = Person.new("David", "Ros", "dros@simula.no", "https://simula.no/people/dros", nil)
   iccrg = RG.new(
     "iccrg",
@@ -221,7 +223,7 @@ module IRTF
     "iccrg@irtf.org",
     nil,
     "https://tools.ietf.org/group/irtf/trac/wiki/ICCRG",
-    [ iyengar ],
+    [ ferlin, schapira, iyengar ],
     nil,
     "2014-11-13",
     nil
