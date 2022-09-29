@@ -20,7 +20,7 @@ class URLFilter < Nanoc::Filter
     "Theophilus Benson"        => "https://cs.brown.edu/~tab/",
     "R.diger Birkner"          => "https://www.rbirkner.ch",
     "Anna Brunstr.m"           => "https://www.kau.se/en/researchers/anna-brunstrom",
-    "Corrine Cath"             => "https://corinnecath.com",
+    "Corinne Cath"             => "https://corinnecath.com",
     "Sandra C.spedes"          => "https://www.cec.uchile.cl/~scespedes/",
     "Taejoong .Tijay. Chung"   => "https://taejoong.github.io",
     "Jane Coffin"              => "https://connecthumanity.fund/team/jane-coffin/",
