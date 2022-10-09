@@ -80,6 +80,7 @@ class URLFilter < Nanoc::Filter
     "Daniel Wagner"            => "https://www.mpi-inf.mpg.de/departments/inet/people/daniel-wagner",
     "Thomas Wirtgen"           => "https://inl.info.ucl.ac.be/thomas.html",
     "Laurent Vanbever"         => "https://vanbever.eu",
+    "Matthias W.hlisch"        => "https://www.mi.fu-berlin.de/en/inf/groups/ilab/members/waehlisch.html",
     "Francis Y. Yan"           => "https://francisyyan.org",
     # Places:
     "(Technische Universit.t|TU) M.nchen" => "https://www.tum.de/en/",
