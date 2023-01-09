@@ -7,6 +7,13 @@ class URLFilter < Nanoc::Filter
   type :text
 
   @@urls = {
+    # ANRP 2023 winners:
+    "Simon Scherrer"           => "https://netsec.ethz.ch/people/simon/",
+    "Boris Pismenny"           => "https://borispis.github.io/",
+    "Siva Kakarla"             => "https://www.sivak.dev/",
+    "Dennis Trautwein"         => "https://dtrautwein.eu/",
+    "Arthur Selle Jacobs"      => "https://asjacobs92.github.io/",
+    "Ram Sundara Raman"        => "https://ramakrishnansr.com/",
     # People:
     "Sangeetha Abdu Jyothi"    => "https://www.ics.uci.edu/~sabdujyo/",
     "Gautam Akiwate"           => "https://cseweb.ucsd.edu/~gakiwate/",
