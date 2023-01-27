@@ -1,0 +1,103 @@
+---
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.without_ext.tr("/", "")]
+- name = rg.name
+- acronym = rg.acronym.upcase
+
+%p
+  The process by which the IETF develops protocol standards is centred
+  around production of documents written primarily in English prose. This
+  facilitates discussion and consensus building, which are essential for
+  the community to function, but the resulting documents suffer from the
+  ambiguity of natural language and the inability to use automated tools to
+  reason about, and validate, the specifications. The use of formal
+  methods, including formal verification and analysis, can make
+  specifications easier to validate against desired goals such as
+  correctness and security and to define these goals. Formal verification
+  in particular also supports automated tooling and reference code
+  generation, but this approach is not yet widely used in the IETF
+  community.
+
+%p
+  There are technical and non-technical reasons for the slow adoption of
+  formal methods by the Internet standards community. Technical limitations
+  include performance of the analysis tools which don’t always allow to
+  model or verify complex systems, the lack of support for specific kinds
+  of proofs, and formalisms that may not be able to fully describe the
+  complexity of modern protocols or the network environment. And, on the
+  non-technical side, use of formal methods may require the use of
+  unfamiliar protocol description languages and modelling tools, or assume
+  familiarity with concepts that are not widely known by those writing
+  RFCs. Further, there are questions around how such a shift in protocol
+  design methodology would affect the collaborative social process by which
+  consensus is built around the design of protocols.
+
+%p
+  The objectives of the Usable Formal Methods Research Group are to:
+
+%ul
+  %li
+    Bring together the Internet protocol standards community and the
+    academic research community studying formal methods of protocol
+    specifications to share experience and ideas;
+
+  %li
+    Explore and understand the strengths and limitations of formal methods,
+    including formal verification and analysis, for specification and
+    implementation of algorithms, protocols, and systems specified in the
+    IETF, and to understand how those techniques can be improved to better
+    support such specifications;
+
+  %li
+    Understand how formal methods can be incorporated into the development
+    of technical standards, and to explore how this may affect the
+    development of technical specifications and the consensus building
+    process;
+
+  %li
+    Produce resources such as educational material, for example formal
+    analyses for existing IETF protocols, or open source software that can
+    be used by the IETF to apply formal methods for improving technical
+    specifications; and
+
+  %li
+    Encourage and support experimentation with formal methods in the
+    context of IETF, to gain insight into the feasibility, applicability,
+    and limitations of such methods when applied to protocol development in
+    IETF, and document experiences and results from using formal methods
+    for IETF work.
+
+%p
+  Examples of the types of formal protocol specification techniques to be
+  considered include, but are not limited to, languages for specifying
+  algorithms, analysis tools for specifying and validating protocols and
+  systems, and tools and techniques to help derive formal models from
+  natural language and semi-structured specifications. The group will
+  consider formal methods, broadly defined, and their application to
+  several targets, including algorithms, network protocols at all layers of
+  the protocol stack (low-level internetworking, routing, and transport
+  protocols; security protocols; cryptographic algorithms; and applications
+  and APIs), and distributed systems that compose these protocols.
+
+%p
+  The group will work closely with other IRTF research groups, with the
+  IETF standards development community, and with researchers developing
+  formal methods for protocol specification. It will meet regularly
+  co-located with both IETF meetings and with related academic conferences
+  and workshops (e.g., Security Standardization Research (SSR),
+  Computer-Aided Verification (CAV), etc.).
+
+%p
+  An explicit non-goal is to propose changes to the IETF standards process,
+  the RFC format, or the Internet-draft authoring process. The research
+  group may explore ideas that require such changes, and is uniquely placed
+  to discuss their implications with the IETF community, but the potential
+  incorporation of such ideas into the standards process is a matter for
+  the IETF and is out of scope for this group.
+
+%p
+  Membership Policy: Open
+
+

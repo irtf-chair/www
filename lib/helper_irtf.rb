@@ -478,6 +478,21 @@ module IRTF
     nil
   )
 
+  # UFMRG
+  hoyland = Person.new("Jonathan", "Hoyland", "jonathan.hoyland@gmail.com", "https://datatracker.ietf.org/person/jonathan.hoyland@gmail.com", nil)
+  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
+  ufmrg = RG.new(
+    "ufmrg",
+    "Usable Formal Methods Proposed",
+    "ufmrg@irtf.org",
+    nil,
+    nil,
+    [ hoyland, farrell ],
+    nil,
+    "2023-01-27",
+    nil
+  )
+
   # VNRG
   touch = Person.new("Joe", "Touch", "touch@isi.edu", "https://isi.edu/touch/", nil)
   stiemerling = Person.new("Martin", "Stiemerling", "mls.ietf@gmail.com", "https://fbi.h-da.de/personen/martin-stiemerling/", nil)
@@ -508,7 +523,8 @@ module IRTF
     "panrg" => panrg,
     "pearg" => pearg,
     "qirg" => qirg,
-    "t2trg" => t2trg
+    "t2trg" => t2trg,
+    "ufmrg" => ufmrg
   }
 
   # ls concluded/irtf.org/charter\?gtype=old-rg\&group=* | cut -f3 -d=
@@ -566,7 +582,6 @@ module IRTF
   # li = Person.new("Xing", "Li", "xing@cernet.edu.cn", "https://www.net-glyph.org/lixing/", nil)
   # lear = Person.new("Eliot", "Lear", "lear@cisco.com", "https://linkedin.com/pub/eliot-lear/0/81/b0a", nil)
   # housley = Person.new("Russ", "Housley", "housley@vigilsec.com", "https://linkedin.com/pub/russ-housley/0/69/419", nil)
-  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
   # droms = Person.new("Ralph", "Droms", "rdroms.ietf@gmail.com", "https://www.linkedin.com/pub/ralph-droms/0/493/a10", nil)
   # nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
   # feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
