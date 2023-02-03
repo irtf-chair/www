@@ -8,52 +8,126 @@
 
 %h2 Charter
 
-%p Key to the correct functioning of the Internet is TCP's congestion control mechanism, which serves to match offered load to available bandwidth. Congestion control also allocates available bandwidth to many flows, more or less reasonably. Since the deployment of TCP's additive-increase, multiplicative decrease (AIMD) algorithm in 1988, the Internet has changed significantly, becoming much more heterogeneous in many areas including link speeds and characteristics, and types of application. Although there is no immediate crisis, TCP's AIMD algorithm is showing its limits in a number of areas, including but not limited to:
-%ul
-  %li insufficient dynamic range to handle high-speed wide-area networks (especially with few sources using them)
-  %li poor performance over links with unpredictable characteristics, such as some forms of wireless link.
-  %li poor latency characteristics for competing real-time flows.
-
-%p The network research community has been very active in designing modifications and alternatives to TCP's basic AIMD algorithm, especially when it comes to high-speed congestion control. A non-exhaustive list of examples includes High-speed TCP, Scalable TCP, H-TCP, FAST, and XCP. However the network research community cannot, by itself, effectively evaluate any such solution for Internet-scale deployment. To do this requires the involvement of equipment vendors, network operators, and other IETF participants, in addition to the research community.
+%p
+  Internet congestion control crucially impacts network efficiency and user
+  quality of experience (QoE). The Internet Congestion Control Research
+  Group (ICCRG) is an IRTF group tasked with investigating innovative
+  conceptual and practical aspects of Internet congestion control. The
+  ICCRG brings together researchers and practitioners from academia and
+  industry and strives to promote continued engagement by participants to
+  facilitate an ongoing and lively discussion of congestion control
+  research. Discussions in this group range from early, half-baked ideas
+  that could benefit from feedback from the community to evaluations of
+  widely-deployed congestion controllers and their impact on the Internet.
 
 %p
-  The key goal of the
-  %span.term #{name} 
-  (#{acronym}) therefore is to move towards consensus on which technologies are viable long-term solutions for the Internet congestion control architecture, and what an appropriate cost/benefit tradeoff is.
+  Topics of Interest:
 
-%p To achieve this goal will require extensive evaluation of different mechanisms in a wide range of network conditions, using a mix of simulation, analysis, and experiment. It is unclear at this stage whether any single proposed solution is viable, or whether there needs to be a synthesis of ideas from many places.
-
-%p Such an evaluation is especially difficult, given that some mechanisms involve changes to queuing algorithms, or to packet forwarding, whereas others only require end-system modifications. It is difficult therefore to compare like with like.  One goal of the #{acronym} is to improve our methods for evaluating transport protocols.  To this end, a set of simulation (or other) test suites will be developed. There is an opportunity when making any widespread change to go further than the simplest incremental modifications, but such larger changes have costs, and so critical to the relevance of any recommendations from the #{acronym} will be that any proposed solutions are considered to be economically viable. If router modifications are proposed, collecting them and the tradeoff underlying them would be an important service of the #{acronym}.
-
-%p There are many different aspects to congestion control that the #{acronym} should consider. For example, different real-time media applications have (to a greater or lesser extent) a difficult time with dynamic congestion control mechanisms, especially if changes must be made on short timescales. The rise of Internet telephony and the expected rise of high-bandwidth Internet television will therefore significantly impact the congestion control landscape. The #{acronym} should therefore consider such applications, both in terms of how to best support these various classes of application, and in terms of how this impacts the overall emerging congestion control architecture.
-
-%p Also within scope for the #{acronym} should be consideration of how congestion control interacts with QoS mechanisms, with traffic engineering, and with lower-layer technologies such as optical-burst-switching. Finally, of significant importance is the interaction between denial-of-service attacks targeted at bandwidth exhaustion, any mechanisms intended to prevent such attacks, and the congestion control architecture. Thus the context for the work of this group is necessarily wide-reaching, and touches on both architecture and mechanism.
-
--# Added 2011-6-6
 %p
-  Because congestion control is typically a key function of transport
-  protocols, it is hard to separate other transport layer issues from
-  congestion control. Considerations for deployment of transport
-  protocols are therefore also considered within scope. The ICCRG may
-  also consider congestion and protocol performance problems in general
-  IP networks, i.e., not only on the global Internet. One example of
-  such IP networks are multi-tenant, heterogeneous datacenters, which
-  in some sense represent a microcosm of the larger Internet; changes
-  to the transport protocols being considered in that space are
-  fundamental and can have broader implications.
+  The ICCRG’s primary focus is on the open Internet, broadly defined,
+  though its interests extend to related network domains.  In particular,
+  topics of interest for the ICCRG include:
 
-%h2 Milestones
+%ol
+  %li 
+    Trends impacting Internet congestion control:
+    %ul
+      %li 
+        trends in application requirements: different types of emerging /
+        existing application profiles, and the induced requirements from
+        the network needed to support high QoE;
+      %li
+        trends in traffic patterns: different types of emerging/existing
+        traffic profiles and  how to best support them;
+      %li
+        interactions with the network: specific network characteristics
+        (e.g., 5G, LTE, wired), QoS mechanisms, signaling mechanisms
+        (e.g., ECN, INT), traffic engineering,  lower-layer technologies;
+      %li
+        interactions with other traffic: traffic controlled by different
+        congestion controllers,  DDoS and mitigation mechanisms, other
+        forms of bandwidth consumption/protection.
 
-%p It is hard to forecast exactly how the consensus process will play out, and therefore precisely what milestones to expect. However, as a starting point to achieve focus for the group, the #{acronym} will produce an RFC describing the nature of the emerging congestion control problems that any future congestion control architecture must face.
+  %li
+    Novel approaches to Internet congestion control protocol design:
+    %ul
+      %li
+        new design objectives, e.g., application-oriented/QoE-aware protocol
+        design.
+      %li
+        new algorithmic approaches, e.g., control-theoretic, learning-based
+      %li
+        rethinking the design space, e.g., novel schemes for multipath
+        congestion control.
 
-%p An eventual goal is to produce a recommendation to the IETF on a solution that would be appropriate for Internet-scale deployment. It is possible that more than one solution will be recommended -- this is likely if the solutions can gracefully co-exist.
+  %li
+    New evaluation frameworks for congestion control.
+    %ul
+      %li
+        new formal models and performance metrics/criteria for congestion
+        control, spanning different notions of performance, fairness,
+        stability, etc.
+      %li
+        network simulation/emulation frameworks for congestion control,
+        including new experimentation tools and proposed experiments.
+      %li
+        empirical datasets for evaluating congestion control protocols that
+        reflect real-world challenges for Internet congestion control.
+    To accommodate reproducibility, we strongly encourage participants to
+    share code for congestion control prototypes and evaluation tools, as
+    well as (possibly anonymized) useful datasets with the community. 
 
-%p It is also expected that the #{acronym} will produce IETF AD-sponsored RFCs detailing good practice for how real-time applications might best operate in a best-effort Internet.
+  %li
+    Evaluation of (existing and new) congestion controllers.
+    %ul
+    %li
+      Theoretical results for Internet congestion control, e.g., theoretical
+      guarantees for specific congestion controllers, general impossibility
+      results, inherent tradeoffs between different objectives, etc.
+    %li
+      Experimental/empirical evaluation results describing the behavior of
+      different congestion controllers and contrasting different congestion
+      control schemes. This includes comparative academic studies, as well
+      as input from practitioners working on congestion control, even if
+      limited to their own network environments or use cases.
 
-%h2 Process
+%p
+  If you are working on something that you believe is in scope for ICCRG
+  but are uncertain, please reach out to the chairs.
 
-%p The #{acronym} will hold 2-3 meetings per year, typically meeting for two days at a time. Critical to success is close involvement between the IETF community and the #{acronym}. To this end, the #{acronym} should make a presentation at each IETF (probably in the TSVWG) summarizing progress made, and what input is needed from the IETF.
+%p
+  “Soft” Deliverables:
+
+%p
+  The ICCRG’s goal is to enhance our understanding of Internet congestion
+  control and to support conceptual innovation. Hence, while ICCRG
+  discussions might entail writing documents, these are not a required or
+  expected outcome of the ICCRG. In particular, the ICCRG does not produce
+  standards-track RFCs (although it can publish Experimental or
+  Informational RFCs). The IETF is the appropriate venue for
+  deployment-oriented documents concerning interoperability or
+  standardization of implementation, where the ICCRG will coordinate with
+  the IETF transport area as appropriate. 
+
+%p
+  While oral presentations of ideas at ICCRG meetings and any subsequent
+  discussions are the primary form of communicating ideas at the ICCRG,
+  participants are encouraged to deposit artifacts, such as datasets, draft
+  research papers, documents covering recent theoretical/empirical results on
+  Internet congestion control, for review, discussion, or collaboration.
+  These artifacts are not intended as replacements to Internet drafts and may
+  be provided in any appropriate format.
+
+%p
+  Community:
+
+%p
+  The ICCRG will coordinate with other IRTF research groups, the IETF
+  Transport Area, practitioners in industry, and the broader research
+  community as appropriate.
+
 
 %h2 Membership Policy
 
-%p Open.
+%p
+  Open.
