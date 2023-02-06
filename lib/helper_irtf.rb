@@ -494,7 +494,7 @@ module IRTF
   )
 
   # VNRG
-  touch = Person.new("Joe", "Touch", "touch@isi.edu", "https://isi.edu/touch/", nil)
+  touch = Person.new("Joe", "Touch", "touch@isi.edu", nil, nil)
   stiemerling = Person.new("Martin", "Stiemerling", "mls.ietf@gmail.com", "https://fbi.h-da.de/personen/martin-stiemerling/", nil)
   vnrg = RG.new(
     "vnrg",
