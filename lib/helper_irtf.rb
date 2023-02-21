@@ -403,6 +403,20 @@ module IRTF
     nil
   )
 
+  # RASPRG
+  castro = Person.new("Ignacio", "Castro", "i.castro@qmul.ac.uk", "https://icastro.info", nil)
+  rasprg = RG.new(
+    "rasprg",
+    "Research and Analysis of Standard-Setting Processes",
+    "rasprg@irtf.org",
+    nil,
+    nil,
+    [ castro, tenoever ],
+    nil,
+    "2023-02-21",
+    nil
+  )
+
   # RRG
   # zhang = Person.new("Lixia", "Zhang", "lixia@CS.UCLA.EDU")
   li = Person.new("Tony", "Li", "tony.li@tony.li", "https://linkedin.com/pub/tony-li/0/130/2a9", nil)
@@ -523,6 +537,7 @@ module IRTF
     "panrg" => panrg,
     "pearg" => pearg,
     "qirg" => qirg,
+    "rasprg" => rasprg,
     "t2trg" => t2trg,
     "ufmrg" => ufmrg
   }
