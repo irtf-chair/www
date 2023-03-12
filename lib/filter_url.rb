@@ -15,6 +15,7 @@ class URLFilter < Nanoc::Filter
     "Arthur Selle Jacobs"      => "https://asjacobs92.github.io/",
     "Ram Sundara Raman"        => "https://ramakrishnansr.com/",
     # People:
+    "Maria Apostolaki"         => "https://ece.princeton.edu/people/maria-apostolaki",
     "Sangeetha Abdu Jyothi"    => "https://www.ics.uci.edu/~sabdujyo/",
     "Gautam Akiwate"           => "https://cseweb.ucsd.edu/~gakiwate/",
     "Mark Allman"              => "https://www.icir.org/mallman/",
