@@ -213,7 +213,7 @@ module IRTF
 
   # ICCRG
   # welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
-  iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://www.linkedin.com/in/jana-iyengar-2121252", nil)
+  iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://github.com/janaiyengar", nil)
   ferlin = Person.new("Simone", "Ferlin", "simoneferlin@gmail.com", "https://ferlin.io", nil)
   schapira = Person.new("Michael", "Schapira", "schapiram@huji.ac.il", "https://www.michaelschapira.com", nil)
   # ros = Person.new("David", "Ros", "dros@simula.no", "https://simula.no/people/dros", nil)
