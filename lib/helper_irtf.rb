@@ -494,7 +494,7 @@ module IRTF
 
   # UFMRG
   hoyland = Person.new("Jonathan", "Hoyland", "jonathan.hoyland@gmail.com", "https://datatracker.ietf.org/person/jonathan.hoyland@gmail.com", nil)
-  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://cs.tcd.ie/Stephen.Farrell/", nil)
+  farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://www.scss.tcd.ie/Stephen.Farrell/", nil)
   ufmrg = RG.new(
     "ufmrg",
     "Usable Formal Methods Proposed",
