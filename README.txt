@@ -7,8 +7,7 @@ The site is being maintained as a collection of static pages via nanoc4
 Site content is being maintained under content/, site layouts are under
 layouts/, per nanoc convention.
 
-Gulp (http://gulpjs.com/) is being used to build, deploy and check the site; see
-gulpfile.js.
+Run `bundle exec nanoc` to build.
 
 In order to deploy, you need to email irtf-chair@irtf.org to upload to the IRTF
 servers.

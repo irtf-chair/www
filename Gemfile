@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 gem 'guard-nanoc'
-gem 'haml', '5.0.4'
+gem 'nanoc', '4.12.7'
+gem 'haml', '5.2.2'
 gem 'nokogiri'
 gem 'rubypants'
 gem 'builder'
-gem 'json'
+#
+# activesupport is required by lib/helper_anrw.rb
 gem 'activesupport'
-gem 'image_optim'
+
