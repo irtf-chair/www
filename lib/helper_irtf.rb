@@ -137,10 +137,10 @@ module IRTF
   zhang = Person.new("Lixia", "Zhang", "lixia@CS.UCLA.EDU", "https://web.cs.ucla.edu/~lixia/", nil)
   dinrg = RG.new(
     "dinrg",
-    "Decentralized Internet Infrastructure",
+    "Decentralization of the Internet",
     "din@irtf.org",
     nil,
-    "https://wiki.ietf.org/group/irtf/blockchain-federation",
+    nil,
     [ kutscher, zhang ],
     nil,
     "2017-09-21",
