@@ -1054,3 +1054,4 @@ RedirectMatch permanent ^/rm$                                                 /c
 RedirectMatch permanent ^/ipr$                                                /policies/ipr
 RedirectMatch permanent ^/ipr.html$                                           /policies/ipr.html
 
+RedirectMatch permanent ^/anrw.2023.program.htm$                              /anrw/2023/program.html
