@@ -3,45 +3,56 @@
 -# encoding: utf-8
 !!! 5
 %html{ :lang => "en" }
-  = render "/head_.*", :concluded => true
+  = render "/head5_.*", :concluded => true
 
-  %body.irtf
-    = render "/menu_.*"
-    .ribbon.hidden-xs
-      %p Concluded
-    .container-fluid
-      .col-sm-8
-        %h1
-          #{@item[:title] ? @item[:title] : rg.name}
-          %small #{@item[:title] ? "" : rg.acronym}
-        %h2
-          %span.label.label-warning.visible-xs Concluded
+  %body
+    = render "/menu5_.*"
+    %div.container.mb-5
+      %div.row.mt-4.bt-4
+        %div.col-sm-8.col-xs-12.mb4
+          %h1
+            #{@item[:title] ? @item[:title] : rg.name}
+            %small #{@item[:title] ? "" : rg.acronym}
+          %h2
+            %span.text-danger Concluded
 
-      .col-sm-8
-        = yield
+        %div.col-sm-4.col-xs-12.text-center.mb-4.d-none.d-sm-block
+          %a{:href => "/"}
+            %img.img-fluid{:src => relative_path_to("/img/irtf.png"), :alt => "Internet Research Task Force (IRTF)"}
 
-      .col-sm-4.col-12-xs.rightbar.pushed-down
-        .well
-          %h2 Note
-          %p This Research Group has concluded and is no longer active.
-          %p The charter and other information on this page is provided as a record of history. Email addresses and links may no longer function.
-          %p
-            For inquiries about this former Research Group, please email
-            = link_to("irtf-discuss@irtf.org", "../mailman/listinfo/irtf-discuss") + "."
 
-        - if rg.respond_to?("name")
-          - if rg.chartered || rg.concluded then
-            %h2 Timeline
-          - if rg.chartered && rg.concluded then
-            %p The #{rg.acronym} was chartered on #{rg.chartered} and concluded its work on #{rg.concluded}.
-          - elsif rg.chartered then
-            %p The #{rg.acronym} was chartered on #{rg.chartered}.
-          - elsif rg.concluded then
-            %p The #{rg.acronym} concluded its work on #{rg.concluded}.
 
-        -# For RGs that concluded since the web site redesign, we have the rightbar info.
-        - if rg.respond_to?("name")
-          = render "/historicinfo_.*"
+        %div.col-sm-8
+          = yield
 
-    = render "/footer_.*", :irtf => true
-    = render "/scripts_.*"
+        %div.col-sm-4.col-xs-12
+          %div.card
+            %div.card-header.bg-danger.text-light
+              %h3.card-title Concluded Group
+            %div.card-body.bg-light.text-dark
+              %p.card-text
+                This Research Group has completed its work and is no longer active.
+              %p.card-test
+                The charter and other information on this page is provided as
+                a record of history. Email addresses and links may no longer
+                function.
+              %p.card-text
+                For inquiries about this former Research Group please email
+                = link_to("irtf-discuss@irtf.org", "../mailman/listinfo/irtf-discuss") + "."
+
+          - if rg.respond_to?("name")
+            - if rg.chartered || rg.concluded then
+              %h2 Timeline
+            - if rg.chartered && rg.concluded then
+              %p The #{rg.acronym} was chartered on #{rg.chartered} and concluded its work on #{rg.concluded}.
+            - elsif rg.chartered then
+              %p The #{rg.acronym} was chartered on #{rg.chartered}.
+            - elsif rg.concluded then
+              %p The #{rg.acronym} concluded its work on #{rg.concluded}.
+
+          -# For RGs that concluded since the web site redesign, we have the rightbar info.
+          - if rg.respond_to?("name")
+            = render "/historicinfo_.*"
+
+    = render "/footer5_.*", :irtf => true
+    = render "/scripts5_.*"
