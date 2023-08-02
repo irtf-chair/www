@@ -12,17 +12,17 @@
           %ul.dropdown-menu
             - $rgs.values.sort.each do |rg|
               %li
-                %a.dropdown-item{"href": relative_path_to("/" + rg.acronym.downcase)} #{rg.acronym}
+                %a.dropdown-item{"href": relative_path_to("/" + rg.acronym.downcase + ".html")} #{rg.acronym}
             %li
               %hr.dropdown-divider
             %li
-              %a.dropdown-item{"href": relative_path_to("/groups")} All Research Groups
+              %a.dropdown-item{"href": relative_path_to("/groups.html")} All Research Groups
 
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} Workshops &amp; Prizes
           %ul.dropdown-menu
             %li
-              %a.dropdown-item{"href": relative_path_to("/anrp") } Applied Networking Research Prize
+              %a.dropdown-item{"href": relative_path_to("/anrp/") } Applied Networking Research Prize
             %li
               %a.dropdown-item{"href": relative_path_to("/anrw/")} Applied Networking Research Workshop
             %li
@@ -34,9 +34,9 @@
           %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} People
           %ul.dropdown-menu
             %li
-              %a.dropdown-item{"href": relative_path_to("/chair")} IRTF Chair
+              %a.dropdown-item{"href": relative_path_to("/chair.html")} IRTF Chair
             %li
-              %a.dropdown-item{"href": relative_path_to("/irsg")} Steering Group
+              %a.dropdown-item{"href": relative_path_to("/irsg.html")} Steering Group
 
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} Policies
