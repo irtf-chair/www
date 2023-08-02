@@ -2,13 +2,15 @@
 title: Internet Research Task Force
 ---
 
-%p.lead 
-  The Internet Research Task Force (IRTF) promotes research of importance
-  to the evolution of the Internet protocols, applications, architecture
-  and technology.
+%div.row
+  %div.col-sm-12
+    %p.lead.mb-5.mt-4
+      The Internet Research Task Force (IRTF) promotes research of importance
+      to the evolution of the Internet protocols, applications, architecture
+      and technology.
 
-.row
-  .col-sm-8
+%div.row
+  %div.col-sm-8
     %h2 Overview
 
     %p
@@ -96,50 +98,49 @@ title: Internet Research Task Force
       also applies to the IRTF.
 
 
-
-
-  .col-sm-4.rightbar
-    .well
-      %h2 Applied Networking Research Workshop
-      %p
-        The 
-        %a{ :href => "/anrw/2023/"} ACM/IRTF Applied Networking Research Workshop (ANRW)
-        will be held on Monday 24th July 2023, co-located with IETF-117
-        in San Francisco.
-
-      %h2 Applied Networking Research Prize awards for IETF-117
-      %p
-        Congratulations to Simon Scherrer and Siva Kakarla
-        who will receive the
-        %a{ :href => "/anrp"} Applied Networking Research Prize
-        at IETF-117 in San Francisco in July 2023.
-
-      -# %h2 Travel Grants for IETF-116
-      -# %p
-      -#   We are pleased to offer a limited number of
-      -#   %a{ :href => "/travelgrants"} diversity travel grants
-      -#   to attend IRTF meetings co-located with IETF-116 in Yokohama, Japan, in March 2023.
-
-       
-
-
-    %h2 Chair
     %p
       The current IRTF Chair is
       %a{ :href => $chair.web } Colin Perkins
       = "(" + link_to("irtf-chair@irtf.org", "mailto:irtf-chair@irtf.org") + ")."
 
-    %h2 Mailing Lists
     %p
+      The
       %a{:href => "/mailman/listinfo/irtf-announce"} irtf-announce@irtf.org
-      is a low-volume announcement list for Research Group creations and
-      conclusions, IRTF RFC publication, etc.
-    %p
-      %a{:href => "/mailman/listinfo/irtf-discuss"} irtf-discuss@irtf.org
-      is the main discussion list for general IRTF topics.
+      list is a low-volume announcement mailing list for Research Group
+      creations and conclusions, IRTF RFC publication, etc.
 
-    %h2 Wiki
+    %p
+      The
+      %a{:href => "/mailman/listinfo/irtf-discuss"} irtf-discuss@irtf.org
+      mailing list is the main discussion list for general IRTF topics.
+
     %p
       A wiki with more information about the IRTF is
       = link_to("here", "https://wiki.ietf.org/group/irtf") + "."
+
+
+
+  %div.col-sm-4
+    %div.card
+      %div.card-header.bg-secondary.text-light
+        %h2.card-title Latest News
+
+      %div.card-body.bg-light.text-dark
+        %h3.card-title Applied Networking Research Workshop
+        %p.card-text
+          The 
+          %a{ :href => "/anrw/2023/"} ACM/IRTF Applied Networking Research Workshop (ANRW)
+          will be held on Monday 24th July 2023, co-located with IETF-117
+          in San Francisco.
+
+      %div.card-body.bg-light.text-dark
+        %h3.card-title Applied Networking Research Prize awards for IETF-117
+        %p.card-text
+          Congratulations to Simon Scherrer and Siva Kakarla
+          who will receive the
+          %a{ :href => "/anrp"} Applied Networking Research Prize
+          at IETF-117 in San Francisco in July 2023.
+
+       
+
 

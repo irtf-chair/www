@@ -16,9 +16,11 @@ compile "/**/*.haml" do
   filter :url
   filter :relativize_paths, :type => :html
   case
-  when /concluded/.match(item.identifier.to_s)
+  when item.identifier.to_s.match(/^\/index.haml/) # Files to build with Bootstrapo 5
+    layout "/default5.*"
+  when item.identifier.to_s.match(/concluded/)
     layout "/historic.*"
-  when /anrw[^\/]*\/\d+\//.match(item.identifier.to_s)
+  when item.identifier.to_s.match(/anrw[^\/]*\/\d+\//)
     layout "/anrw.*"
   else
     layout "/default.*"

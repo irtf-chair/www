@@ -1,11 +1,10 @@
-.row
-  - $rgs.values.sort.each do |rg|
-    .col-sm-4.col-xs-6
-      %a{ :href => "https://datatracker.ietf.org/rg/" + rg.acronym.downcase + "/about/" }
-        .thumbnail.rg
-          .text-center
-            %b=rg.acronym.upcase
-          .text-center
-            %small
-              %em=rg.name
-    .clearfix.visible-xs-inline-block.visible-sm-inline-block.visible-md-inline-block.visible-lg-inline-block
+- $rgs.values.sort.each_slice(3) do |rg_row|
+  %div.row
+    - rg_row.each do |rg|
+      %div.card.col-sm-4.text-center.bg-light.text-dark
+        %div.card-body
+          %a.btn.btn-secondary{ "href": relative_path_to("/" + rg.acronym.downcase + ".html")}
+            #{rg.acronym.upcase}
+          %p.card-text
+            %a.link-underline-light.text-secondary{ "href": relative_path_to("/" + rg.acronym.downcase + ".html")}
+              #{rg.name}

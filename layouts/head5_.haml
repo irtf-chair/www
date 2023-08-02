@@ -1,0 +1,17 @@
+- id = item.identifier.without_ext.tr("/", "")
+- cid = item.identifier.without_ext.sub("/concluded/", "")
+- title = (id =~ $rgpat || @concluded ? "IRTF " : "") + (@item[:title] ? @item[:title] : (@concluded ? $oldrgs[cid].name + " (" + $oldrgs[cid].acronym + ")" : $rgs[id].name + " (" + $rgs[id].acronym + ")")) + (@concluded ? " [CONCLUDED]" : "")
+- base = @config[:base_url] + "/"
+- email = (id =~ $rgpat ? $rgs[id].list : "irtf-chair@irtf.org")
+- fb = (id =~ $rgpat ? $rgs[id].chairs.map {|x| x.fb }.compact.join(", ") : "")
+
+%head
+  %meta{ :charset => "utf-8" }
+  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+  %title= strip_html(title)
+
+  %link{ :rel => "stylesheet", :href => relative_path_to("/bootstrap-5.3.1-dist/css/bootstrap.css")}
+  %link{ :rel => "icon", :type => "image/png", :href => relative_path_to("/img/favicon.png")}
+  %link{ :rel => "apple-touch-icon", :type => "image/png", :href => relative_path_to("/img/apple-icon.png")}
+  %link{ :rel => "me", :href => "https://discuss.systems/@irtf"}
