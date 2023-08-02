@@ -3,8 +3,8 @@
     - rg_row.each do |rg|
       %div.card.col-sm-4.text-center.bg-light.text-dark
         %div.card-body
-          %a.btn.btn-secondary{ "href": relative_path_to("/" + rg.acronym.downcase + ".html")}
+          %a.btn.btn-secondary{:href => relative_path_to("/" + rg.acronym.downcase + ".html")}
             #{rg.acronym.upcase}
           %p.card-text
-            %a.link-underline-light.text-secondary{ "href": relative_path_to("/" + rg.acronym.downcase + ".html")}
+            %a.link-underline-light.text-secondary{:href => relative_path_to("/" + rg.acronym.downcase + ".html")}
               #{rg.name}

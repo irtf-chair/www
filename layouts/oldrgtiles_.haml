@@ -1,10 +1,10 @@
-.row
+%div.row
   - $oldrgs.keys.sort.each do |rg|
-    .col-lg-2.col-md-3.col-sm-4.col-xs-6
-      %a{ :href => relative_path_to("/concluded/#{rg}") }
-        .thumbnail.rg
-          .text-center
-            %b= rg.upcase
-          .text-center
-            %small
-              %em= $oldrgs[rg].respond_to?("name") ? $oldrgs[rg].name : $oldrgs[rg]
+    %div.card.col-sm-2.text-center.bg-light.text-muted
+      %div.card-body
+        %div.card-body
+          %a.btn.btn-secondary{:href => relative_path_to("/concluded/#{rg}.html")}
+            #{rg.upcase}
+          %p.card-text
+            %a.link-underline-light.text-secondary{:href => relative_path_to("/concluded/#{rg}.html")}
+              #{$oldrgs[rg].respond_to?("name") ? $oldrgs[rg].name : $oldrgs[rg]}
