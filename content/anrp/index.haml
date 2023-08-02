@@ -25,29 +25,37 @@ title: Applied Networking Research Prize
         Prize during the IRTF Open Meeting at IETF-117 in San Francisco,
         22-28 July 2023:
 
-      %dl.papers
-        %dt
+      %dl.row
+        %dt.col-sm-3
           %b Simon Scherrer
-          for his work on modelling the BBR congestion control algorithm:
-        %dd
+        %dd.col-sm-9
+          %strong
+            For his work on modelling the BBR congestion control algorithm
+          %br
           Simon Scherrer, Markus Legner, Adrian Perrig, and Stefan Schmid,
-          %a{ :href => "https://netsec.ethz.ch/publications/papers/scherrer_bbr_imc22.pdf"}
-            "Model-Based Insights on the Performance, Fairness, and Stability of BBR"
+          "Model-Based Insights on the Performance, Fairness, and Stability of BBR",
           Proceedings of the ACM Internet Measurement Conference, 2022.
-          %a{ :href => "/anrp/IETF117-ANRP-Scherrer.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-            %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
+          %br
+          %a.btn.btn-secondary{:href => "https://netsec.ethz.ch/publications/papers/scherrer_bbr_imc22.pdf"}
+            Paper
+          %a.btn.btn-secondary{:href => "/anrp/IETF117-ANRP-Scherrer.pdf"}
+            Slides
 
-        %dt
+        %dt.col-sm-3
           %b Siva Kakarla 
-          for his work on verifying the correctness of nameservers:
-        %dd
+        %dd.col-sm-9
+          %strong
+            For his work on verifying the correctness of nameservers
+          %br
           Siva Kesava Reddy Kakarla, Ryan Beckett, Todd Millstein, and George Varghese,
-          %a{ :href => "https://www.usenix.org/conference/nsdi22/presentation/kakarla"}
-            "SCALE: Automatically Finding RFC Compliance Bugs in DNS Nameservers"
+          "SCALE: Automatically Finding RFC Compliance Bugs in DNS Nameservers",
           Proceedings of the USENIX Symposium on Networked Systems Design
           and Implementation (NSDI) 2022.
-          %a{ :href => "/anrp/IETF117-ANRP-Kakarla.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-            %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
+          %br
+          %a.btn.btn-secondary{:href => "https://www.usenix.org/conference/nsdi22/presentation/kakarla"}
+            Paper
+          %a.btn.btn-secondary{:href => "/anrp/IETF117-ANRP-Kakarla.pdf"}
+            Slides
 
       -#   %dt
       -#     %b Dennis Trautwein
@@ -82,1105 +90,1145 @@ title: Applied Networking Research Prize
 
 
 
-  .col-sm-4.rightbar
-    .news
-      %h2 ANRP Nomination Period
-      %p
-        The nomination period for the 2023 Applied Networking Research Prize
-        has ended, and nominations are not currently being accepted.
-        The nomination period for the 2024 awards will open in September 2023.
-
-      -# %h2 Call for Nominations Open Now!
-      -# %p
-      -#   Please 
-      -#   %a{ :href => "/anrp/2023"} submit your nominations
-      -#   for the Applied Networking Research Prize 2023.
-      -# 
-      -# = render "/anrpdates_.*"
-
-      %p
-        Join the
-        %a{:href => "/mailman/listinfo/irtf-announce"} irtf-announce@irtf.org
-        mailing list to receive details about the ANRP and other IRTF activities.
-
-      -# %h2 Flyer
-      -# %p
-      -#   You are welcome to print and use
-      -#   %a{ :href => "anrp-2022-flyer.pdf" } this flyer
-      -#   to help publicize the ANRP.
-
-      %h2 Questions
-      %p
-        Please email
-        = link_to("anrp@irtf.org", "mailto:anrp@irtf.org")
-        with any questions you may have about the ANRP.
-
-
-
-
-%ul.nav.nav-tabs{ :role => "tablist" }
-  %li.active{ :role => "presentation" }
-    %a{ "aria-controls" => "about", :role => "tab", "data-toggle" => "tab", :href => "#about" } About
-  %li{ :role => "presentation" }
-    %a{ "aria-controls" => "nominate", :role => "tab", "data-toggle" => "tab", :href => "#nominate" } How to Nominate
-  %li{ :role => "presentation" }
-    %a{ "aria-controls" => "sponsors", :role => "tab", "data-toggle" => "tab", :href => "#sponsors" } Sponsors
-  %li{ :role => "presentation" }
-    %a{ "aria-controls" => "committee", :role => "tab", "data-toggle" => "tab", :href => "#committee" } Award Committee
-  %li{ :role => "presentation" }
-    %a{ "aria-controls" => "winners", :role => "tab", "data-toggle" => "tab", :href => "#winners" } Past Prize Winners
-
-
-.tab-content
-  .tab-pane.active#about{ :role => "tabpanel" }
-    %h2 About the ANRP
+  %div.col-sm-4
+    %h2 ANRP Nomination Period
     %p
-      The Applied Networking Research Prize (ANRP) is awarded to recognise
-      the best recent results in applied networking, interesting new
-      research ideas of potential relevance to the Internet standards
-      community, and upcoming people that are likely to have an impact on
-      Internet standards and technologies, with a particular focus on cases
-      where these people or ideas would not otherwise get much exposure or
-      be able to participate in the discussion.
+      The nomination period for the 2023 Applied Networking Research Prize
+      has ended, and nominations are not currently being accepted.
+      The nomination period for the 2024 awards will open in September 2023.
+
+    -# %h2 Call for Nominations Open Now!
+    -# %p
+    -#   Please 
+    -#   %a{ :href => "/anrp/2023"} submit your nominations
+    -#   for the Applied Networking Research Prize 2023.
+    -# 
+    -# = render "/anrpdates_.*"
 
     %p
-      We encourage nominations of researchers with relevant research results,
-      interesting ideas, and new perspectives.  The award will offer them
-      the opportunity to present and discuss their work with the engineers,
-      network operators, policy makers, and scientists that participate in
-      the Internet Engineering Task Force (IETF) and its research arm, the
-      Internet Research Task Force (IRTF).  Both self- and third-party
-      nominations for this prize are encouraged.
+      Join the
+      %a{:href => "/mailman/listinfo/irtf-announce"} irtf-announce@irtf.org
+      mailing list to receive details about the ANRP and other IRTF activities.
 
-    %p The Applied Networking Research Prize (ANRP) consists of:
-    %ul
-      %li
-        a cash prize of $1000 (USD)
-      %li
-        an invited talk at the IRTF Open Meeting
-      %li
-        a travel grant to attend a week-long IETF meeting (airfare, hotel, registration, stipend)
-      %li
-        recognition at the IETF plenary
-      %li
-        an invitation to related social activities
+    -# %h2 Flyer
+    -# %p
+    -#   You are welcome to print and use
+    -#   %a{ :href => "anrp-2022-flyer.pdf" } this flyer
+    -#   to help publicize the ANRP.
 
+    %h2 Questions
     %p
-      In addition, prize winners may be offered additional travel grants to
-      attend future IETF and/or IRTF meetings. Such grants are made at the
-      discretion of the award committee, based on community feedback,
-      engagement with the community, and potential future impact.
-
-    %p
-      Applied Networking Research Prize awards are made once per calendar
-      year with a nomination deadline in late November.  Each year, several
-      winners will be chosen and invited to present their work at one of
-      the three IETF meetings during the following year.
+      Please email
+      = link_to("anrp@irtf.org", "mailto:anrp@irtf.org")
+      with any questions you may have about the ANRP.
 
 
-  .tab-pane#nominate{ :role => "tabpanel" }
-    %h2 How to Nominate
-
-    %p
-      Nominations are for a 
-      %em single
-      author of an original, peer-reviewed, journal, conference or workshop
-      paper that was recently published or accepted for publication.
-      The nominee
-      %em must
-      be one of the main authors of the nominated paper. Both
-      self-nominations (nominating one's own paper) and third-party
-      nominations (nominating someone else's paper, with their permission) are encouraged.
-
-    %p
-      The nominated paper should provide a scientific foundation for
-      possible future engineering work in the IETF, or research and
-      experimentation in the IRTF. It should analyze the behavior of
-      Internet protocols in operational deployments or realistic testbeds,
-      make an important contribution to the understanding of Internet
-      scalability, performance, reliability, security or capability, or
-      otherwise be of relevance to ongoing or future IETF or IRTF
-      activities.
-
-    %p
-      Nominations
-      %em must
-      briefly describe how the nominated paper relates to these goals.
-      They should describe how involving the nominee in the IETF and IRTF
-      process, and bringing them to an IETF meeting, would help to foster
-      the transition of the results and/or ideas into new IETF engineering
-      work or IRTF experimentation, or otherwise seed new activities that
-      will have an impact on the real-world Internet.
-
-    %p
-      The goal of the Applied Networking Research Prize (ANRP) is to foster
-      the transitioning of research results into real-world benefits for
-      the Internet. Therefore, applicants must indicate that they (or the
-      nominee, in case of third-party nominations) are available to attend
-      at least one of the IETF meetings in the following year.
-      In-person attendance is desirable, where possible, but due to the
-      impact of the COVID-19 pandemic remote participation options will
-      be available for ANRP prize winners at all IETF meetings in 2021, 2022, and 2023.
-
-    %p
-      Nominations are submitted via the
-      %a{ :href => "/anrp/2023"} submission site
-      and must include:
-    %ul
-      %li
-        the name and email address of the nominee;
-      %li
-        a bibliographic reference to the published (or accepted) nominated
-        paper;
-      %li
-        a PDF copy of the nominated paper;
-      %li
-        a statement that describes how the
-        %em nominated paper
-        fulfills the goals of the award and how the
-        %em nominee
-        would engage with the IETF and/or IRTF community;
-      %li
-        a statement of the nominees availability to present
-        their work at the IETF meetings in the award year;
-      %li
-        a statement that the nominee accepts that the IRTF 
-        %a{ :href => "/policies/ipr"} Intellectual Property Rights disclosure rules
-        will apply to their award talk at the IRTF open meeting;
-      %li
-        a brief biography or CV for the nominee; and 
-      %li
-        optionally, any other supporting information (link to nominee's web
-        site, etc.)
-
-    %p All nominees will be notified by email about the decision regarding their nomination.
-
-    %p
-      Papers nominated for the Applied Networking Research Prize (ANRP) are
-      %em not
-      considered to be contributions to the IETF or IRTF. However, the
-      invited talks about those papers given at the IRTF Open Meeting
-      %em are
-      considered to be contributions and 
-      %a{ :href => "/policies/ipr"} the IRTF Intellectual Property Rights disclosure rules
-      apply.
-
-    = render "/anrpdates_.*"
-
-  .tab-pane#sponsors{ :role => "tabpanel" }
-    %h2 Sponsors
-
-    .col-xs-9
-      %p 
-        The Applied Networking Research Prize (ANRP) is supported by the
-        Internet Society in coordination with the Internet Research Task
-        Force (IRTF).
-
-      %p.text-center
-        %img{:src => "../img/isoc.png", :width => 200, :alt => "Comcast"}
-
-      %p
-        Additional corporate sponsorship for the ANRP is kindly provided by:
-
-      %p.text-center
-        %img{:src => "../img/Comcast-Logo.png", :width => 200, :alt => "Comcast"}
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        %img{:src => "../img/NBCU-Logo.png", :width => 200, :alt => "NBC Universal"}
-
-      %p
-        If your organization would like to support the ANRP, please contact
-        = link_to("anrp@irtf.org", "mailto:anrp@irtf.org") + "."
-
-    .col-xs-3
-      %p
-        %em
-          "We like the Applied Network Research Prize because it encourages novel
-          research that helps companies like Comcast and our partners build better
-          Internet services and technologies for end users, and helps the community
-          move important standards work into deployable technology more
-          effectively."
-      %p.text-muted
-        Jason Livingood, Vice President - Internet Services, Comcast
+  %div.col-sm-12
+    %ul.nav.nav-tabs
+      %li.nav-item
+        %a.nav-link.active{"data-bs-toggle": "tab", "href": "#about"} Active
+      %li.nav-item
+        %a.nav-link{"data-bs-toggle": "tab", "href": "#nominate"} How to Nominate
+      %li.nav-item
+        %a.nav-link{"data-bs-toggle": "tab", "href": "#sponsors"} Sponsors
+      %li.nav-item
+        %a.nav-link{"data-bs-toggle": "tab", "href": "#committee"} Award Committee
+      %li.nav-item
+        %a.nav-link{"data-bs-toggle": "tab", "href": "#winners"} Past Prize Winners
 
 
-  .tab-pane#committee{ :role => "tabpanel" }
+    %div.tab-content
+      %div.tab-pane.container.active#about
+        %h2 About the ANRP
+        %p
+          The Applied Networking Research Prize (ANRP) is awarded to recognise
+          the best recent results in applied networking, interesting new
+          research ideas of potential relevance to the Internet standards
+          community, and upcoming people that are likely to have an impact on
+          Internet standards and technologies, with a particular focus on cases
+          where these people or ideas would not otherwise get much exposure or
+          be able to participate in the discussion.
 
-    %h2 Award Committee
+        %p
+          We encourage nominations of researchers with relevant research results,
+          interesting ideas, and new perspectives.  The award will offer them
+          the opportunity to present and discuss their work with the engineers,
+          network operators, policy makers, and scientists that participate in
+          the Internet Engineering Task Force (IETF) and its research arm, the
+          Internet Research Task Force (IRTF).  Both self- and third-party
+          nominations for this prize are encouraged.
 
-    %p 
-      An award committee comprised of individuals knowledgeable about the
-      IRTF, IETF and the broader networking research community will
-      evaluate the submissions against these selection criteria.
+        %p
+          The Applied Networking Research Prize (ANRP) consists of:
+        %ul
+          %li
+            a cash prize of $1000 (USD)
+          %li
+            an invited talk at the IRTF Open Meeting
+          %li
+            a travel grant to attend a week-long IETF meeting (airfare, hotel, registration, stipend)
+          %li
+            recognition at the IETF plenary
+          %li
+            an invitation to related social activities
 
-    %p 
-      The ANRP award committee for 2023 comprises:
-    %ul.twocol
-      %li Sangeetha Abdu Jyothi, University of California, Irvine
-      %li Benjamin Beurdouche, Mozilla
-      %li Sofía Celi, Brave
-      %li Marco Chiesa, KTH 
-      %li Taejoong (Tijay) Chung, Virginia Tech
-      %li Spencer Dawkins, Tencent America
-      %li Lars Eggert, NetApp
-      %li Stephen Farrell, Trinity College Dublin
-      %li Marwan Fayed, Cloudflare
-      %li Simone Ferlin, Ericsson
-      %li Mat Ford, Internet Society
-      %li Michio Honda, University of Edinburgh
-      %li Nitinder Mohan, TUM
-      %li David Oran
-      %li Colin Perkins, University of Glasgow (Chair)
-      %li Philipp Richter, Akamai/MIT
-      %li Melinda Shore, Fastly
-      %li Anna Sperotto, University of Twente
-      %li Stephen Strowes, Fastly
-      %li Matthias Wählisch, Freie Universiät Berlin
-      %li Francis Y. Yan, Microsoft Research
+        %p
+          In addition, prize winners may be offered additional travel grants to
+          attend future IETF and/or IRTF meetings. Such grants are made at the
+          discretion of the award committee, based on community feedback,
+          engagement with the community, and potential future impact.
 
-
-  .tab-pane#winners{ :role => "tabpanel" }
-    %h2 Past Prize Winners
-
-    %p The following Applied Networking Prizes have been awarded in the past:
-
-    %dl.papers
-      %dt
-        At IETF-116, to
-        %b Boris Pismenny 
-        for his work on novel NIC offloading architectures:
-      %dd
-        Boris Pismenny, Haggai Eran, Aviad Yehezkel, Liran Liss, Adam Morrison, and Dan Tsafrir,
-        %a{ :href => "http://www.cs.tau.ac.il/~mad/publications/asplos2021-offload.pdf"}
-          "Autonomous NIC Offloads"
-        Proceedings of the ACM International Conference on Architectural
-        Support for Programming Languages and Operating Systems (ASPLOS)
-        2021 (a 
-        %a{ :href => "https://www.youtube.com/watch?v=bcAcoviVwH0"} teaser video
-        from ASPLOS is available).
-        %a{ :href => "/anrp/IETF116-ANRP-Pismenny.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-
-      %dt
-        At IETF-116, to
-        %b Arthur Selle Jacobs 
-        for his work on evaluating machine learning for network security:
-      %dd
-        Arthur S. Jacobs, Roman Beltiukov, Walter Willinger, Ronaldo A. Ferreira, Arpit Gupta, and Lisandro Z. Granville,
-        %a{ :href => "http://www.inf.ufrgs.br/~granville/wp-content/papercite-data/pdf/ccsjacobs2022.pdf"}
-          "AI/ML for Network Security: The Emperor has no Clothes"
-        Proceedings of the Conference on Computer and Communications Security (CCS) 2022
-        %a{ :href => "/anrp/IETF116-ANRP-Jacobs.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-
-      %dt
-        At IETF-115, to
-        %b Gautam Akiwate
-        for his work on the risks of domain hijacking due to registrar practices:
-      %dd
-        Gautam Akiwate, Stefan Savage, Geoffrey M. Voelker, and K. C. Claffy,
-        %a{ :href => "https://dl.acm.org/doi/10.1145/3487552.3487816"}
-          "Risky BIZness: Risks Derived from Registrar Name Management"
-        Proceedings of the Internet Measurement Conference, 2021.
-        %a{ :href => "/anrp/IETF115-ANRP-Akiwate.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF115-ANRP-Akiwate.png"}
-          %source{ :src => "/anrp/IETF115-ANRP-Akiwate.m4v", :type => "video/mp4"}
-
-      %dt
-        At IETF-115, to
-        %b Corinne Cath
-        for her ethnographic work on the IETF's distinct organizational culture and how its 'rough' edges limit the ability of human rights' advocates to get their concerns included in technical discussions:
-      %dd
-        Corinne Cath,
-        %a{ :href => "https://doi.org/10.1016/j.telpol.2021.102144"}
-          "The Technology We Choose to Create: Human Rights Advocacy in the Internet Engineering Task Force"
-        Telecommunications Policy Journal, volume 45, number 6, 2021
-        (an updated version of this work is available in open access form as 
-        %a{ :href => "https://corinnecath.com/wp-content/uploads/2021/09/CathCorinne-Thesis-DphilInformationCommunicationSocialSciences.pdf"}
-          Chapter 7 of Corinne's PhD thesis).
-        %a{ :href => "/anrp/IETF115-ANRP-Cath.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-
-      %dt
-        At IETF-115, to
-        %b Daniel Wagner
-        for his work on DDoS attack detection and mitigation:
-      %dd
-        Daniel Wagner, Daniel Kopp, Matthias Wichtlhuber, Christoph Dietzel, Oliver Hohlfeld, Georgios Smaragdakis, and Anja Feldmann,
-        %a{ :href => "https://dl.acm.org/doi/10.1145/3460120.3485385"}
-          "United We Stand: Collaborative Detection and Mitigation of Amplification DDoS Attacks at Scale",
-        Proceedings of the ACM SIGSAC Conference on Computer and Communications Security, 2021
-        %a{ :href => "/anrp/IETF115-ANRP-Wagner.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF115-ANRP-Wagner.png"}
-          %source{ :src => "/anrp/IETF115-ANRP-Wagner.m4v", :type => "video/mp4"}
-
-      %dt
-        At IETF-114, to
-        %b Tushar Swamy
-        for his work on data plane architectures for line-rate inference:
-      %dd
-        Tushar Swamy, Alexander Rucker, Muhammad Shahbaz, Ishan Gaur, and Kunle Olukotun 
-        %a{ :href => "https://dl.acm.org/doi/10.1145/3503222.3507726"}
-          "Taurus: A Data Plane Architecture for Per-Packet ML",
-        Proceedings of the International Conference on Architectural
-        Support for Programming Languages and Operating Systems, 2022.
-        Also available on
-        %a{ :href => "https://arxiv.org/pdf/2002.08987.pdf"} arXiv.
-        %a{ :href => "/anrp/IETF114-ANRP-Swamy.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF114-ANRP-Swamy.png"}
-          %source{ :src => "/anrp/IETF114-ANRP-Swamy.m4v", :type => "video/mp4"} 
-
-      %dt
-        At IETF-114, to 
-        %b Sam Kumar
-        for his work on TCP for low-power wireless networks:
-      %dd
-        Sam Kumar, Michael Andersen, Hyung-Sin Kim, and David Culler
-        %a{ :href => "https://www.usenix.org/conference/nsdi20/presentation/kumar"}
-          "Performant TCP for Low-Power Wireless Networks",
-        Proceedings of the USENIX Symposium on Networked Systems Design and Implementation, 2020.
-        %a{ :href => "/anrp/IETF114-ANRP-Kumar.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF114-ANRP-Kumar.png"}
-          %source{ :src => "/anrp/IETF114-ANRP-Kumar.m4v", :type => "video/mp4"}
-
-      %dt
-        At IETF-113, to 
-        %b Sangeetha Abdu Jyothi
-        for her work on the resilience of the Internet infrastructure 
-        to solar superstorms (large scale coronal mass ejections):
-      %dd
-        Sangeetha Abdu Jyothi, 
-        %a{ :href => "https://dl.acm.org/doi/10.1145/3452296.3472916"}
-          "Solar superstorms: planning for an internet apocalypse",
-        Proceedings of the ACM SIGCOMM Conference, 2021
-        %a{ :href => "/anrp/IETF113-ANRP-Jyothi.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF113-ANRP-Jyothi.png"}
-          %source{ :src => "/anrp/IETF113-ANRP-Jyothi.m4v", :type => "video/mp4"}
-
-      %dt
-        At IETF-113, to 
-        %b Bruce Spang
-        for his work showing that networking algorithm A/B tests can be
-        biased because of network congestion:
-      %dd
-        Bruce Spang, Veronica Hannan, Shravya Kunamalla, Te-Yuan Huang, Nick McKeown, and Ramesh Johari
-        %a{ :href => "https://arxiv.org/abs/2110.00118"}
-          “Unbiased experiments in congested networks",
-        Proceedings of the ACM Internet Measurement Conference Conference, 2021
-        %a{ :href => "/anrp/IETF113-ANRP-Spang.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF113-ANRP-Spang.png"}
-          %source{ :src => "/anrp/IETF113-ANRP-Spang.m4v", :type => "video/mp4"}
-
-      %dt
-        At IETF-112, to 
-        %b Thomas Wirtgen
-        for his work on the extensibility of BGP implementations, and
-        other routing protocols:
-      %dd
-        Thomas Wirtgen, Quentin De Coninck, Randy Bush, Laurent Vanbever, and Olivier Bonaventure,
-        %a{ :href => "https://nsg.ee.ethz.ch/fileadmin/user_upload/publications/hotnet023-wirtgenA.pdf"}
-          "xBGP: When You Can't Wait for the IETF and Vendors”,
-        Proceedings of ACM HotNets, 2020
-        %a{ :href => "/anrp/IETF112-ANRP-Wirtgen.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF112-ANRP-Wirtgen.png"}
-          %source{ :src => "/anrp/IETF112-ANRP-Wirtgen.m4v", :type => "video/mp4"}
+        %p
+          Applied Networking Research Prize awards are made once per calendar
+          year with a nomination deadline in late November.  Each year, several
+          winners will be chosen and invited to present their work at one of
+          the three IETF meetings during the following year.
 
 
-      %dt
-        At IETF-112, to 
-        %b Aqsa Kashaf
-        for her work studying the effects of third-party service
-        dependencies in the Internet
-      %dd
-        Aqsa Kashaf, Vyas Sekar, and Yuvraj Agarwal,
-        %a{ :href => "https://dl.acm.org/doi/10.1145/3419394.3423664"}
-          "Analyzing Third Party Service Dependencies in Modern Web Services: Have We Learned from the Mirai-Dyn Incident?”,
-        Proceedings of ACM IMC 2020
-        %a{ :href => "/anrp/IETF112-ANRP-Kashaf.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF112-ANRP-Kashaf.png"}
-          %source{ :src => "/anrp/IETF112-ANRP-Kashaf.m4v", :type => "video/mp4"}
+      %div.tab-pane.container.fade#nominate
+        %h2 How to Nominate
 
-      %dt
-        At IETF-112, to 
-        %b Kevin Bock
-        for his work on Internet censorship:
-      %dd
-        Kevin Bock, George Hughey, Louis-Henri Merino, Tania Arya, Daniel Liscinsky, Regina Pogosian, and Dave Levin,
-        %a{ :href => "https://www.cs.umd.edu/~dml/papers/geneva_sigcomm20.pdf"}
-          "Come as You Are: Helping Unmodified Clients Bypass Censorship with Server-side Evasion”,
-        Proceedings of ACM SIGCOMM 2020
-        %a{ :href => "/anrp/IETF112-ANRP-Bock.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF112-ANRP-Bock.png"}
-          %source{ :src => "/anrp/IETF112-ANRP-Bock.m4v", :type => "video/mp4"}
+        %p
+          Nominations are for a 
+          %em single
+          author of an original, peer-reviewed, journal, conference or workshop
+          paper that was recently published or accepted for publication.
+          The nominee
+          %em must
+          be one of the main authors of the nominated paper. Both
+          self-nominations (nominating one's own paper) and third-party
+          nominations (nominating someone else's paper, with their permission) are encouraged.
 
-      %dt
-        At IETF-111, to 
-        %b Rüdiger Birkner
-        for his work on network specification and verification:
-      %dd
-        Rüdiger Birkner, Dana Drachsler-Cohen, Laurent Vanbever, and Martin Vechev,
-        %a{ :href => "https://www.usenix.org/conference/nsdi20/presentation/birkner"}
-          "Config2spec: Mining Network Specifications from Network Configurations”,
-        Proceedings of USENIX NSDI 2020.
-        %a{ :href => "/anrp/IETF111-ANRP-Birkner.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF111-ANRP-Birkner.png"}
-          %source{ :src => "/anrp/IETF111-ANRP-Birkner.m4v", :type => "video/mp4"}
+        %p
+          The nominated paper should provide a scientific foundation for
+          possible future engineering work in the IETF, or research and
+          experimentation in the IRTF. It should analyze the behavior of
+          Internet protocols in operational deployments or realistic testbeds,
+          make an important contribution to the understanding of Internet
+          scalability, performance, reliability, security or capability, or
+          otherwise be of relevance to ongoing or future IETF or IRTF
+          activities.
 
-      %dt
-        At IETF-111, to 
-        %b
-          Sadjad Fouladi
-        for his work on low-latency video streaming (awarded in 2020):
-      %dd
-        Sadjad Fouladi, John Emmons, Emre Orbay, Catherine Wu, Riad S. Wahby, and Keith Winstein,
-        %a{ :href => "https://www.usenix.org/conference/nsdi18/presentation/fouladi"}
-          "Salsify: low-latency network video through tighter integration between a video codec and a transport protocol",
-        Proceedings of USENIX NSDI 2018.
-        %a{ :href => "/anrp/IETF111-ANRP-Fouladi.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF111-ANRP-Fouladi.png"}
-          %source{ :src => "/anrp/IETF111-ANRP-Fouladi.m4v", :type => "video/mp4"}
+        %p
+          Nominations
+          %em must
+          briefly describe how the nominated paper relates to these goals.
+          They should describe how involving the nominee in the IETF and IRTF
+          process, and bringing them to an IETF meeting, would help to foster
+          the transition of the results and/or ideas into new IETF engineering
+          work or IRTF experimentation, or otherwise seed new activities that
+          will have an impact on the real-world Internet.
 
-      %dt 
-        At IETF-110, to 
-        %b Francis Y. Yan
-        for his work on applying machine learning to video bit-rate adaptation:
+        %p
+          The goal of the Applied Networking Research Prize (ANRP) is to foster
+          the transitioning of research results into real-world benefits for
+          the Internet. Therefore, applicants must indicate that they (or the
+          nominee, in case of third-party nominations) are available to attend
+          at least one of the IETF meetings in the following year.
+          In-person attendance is desirable, where possible, but due to the
+          impact of the COVID-19 pandemic remote participation options will
+          be available for ANRP prize winners at all IETF meetings in 2021, 2022, and 2023.
 
-      %dd
-        Francis Y. Yan, Hudson Ayers, Chenzhi Zhu, Sadjad Fouladi, James Hong, Keyi Zhang, Philip Levis, and Keith Winstein,
-        %a{ :href => "https://www.usenix.org/conference/nsdi20/presentation/yan"}
-          "Learning in situ: a randomized experiment in video streaming”,
-        Proceedings of USENIX NSDI 2020
-        %a{ :href => "/anrp/IETF110-ANRP-Yan.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF110-ANRP-Yan.png"}
-          %source{ :src => "/anrp/IETF110-ANRP-Yan.m4v", :type => "video/mp4"}
+        %p
+          Nominations are submitted via the
+          %a{ :href => "/anrp/2023"} submission site
+          and must include:
+        %ul
+          %li
+            the name and email address of the nominee;
+          %li
+            a bibliographic reference to the published (or accepted) nominated
+            paper;
+          %li
+            a PDF copy of the nominated paper;
+          %li
+            a statement that describes how the
+            %em nominated paper
+            fulfills the goals of the award and how the
+            %em nominee
+            would engage with the IETF and/or IRTF community;
+          %li
+            a statement of the nominees availability to present
+            their work at the IETF meetings in the award year;
+          %li
+            a statement that the nominee accepts that the IRTF 
+            %a{ :href => "/policies/ipr"} Intellectual Property Rights disclosure rules
+            will apply to their award talk at the IRTF open meeting;
+          %li
+            a brief biography or CV for the nominee; and 
+          %li
+            optionally, any other supporting information (link to nominee's web
+            site, etc.)
 
-      %dt
-        At IETF-110, to 
-        %b Audrey Randall
-        for her work on DNS caching and privacy :
+        %p All nominees will be notified by email about the decision regarding their nomination.
 
-      %dd
-        Audrey Randall, Enze Liu, Gautam Akiwate, Ramakrishna Padmanabhan, Geoffrey M. Voelker, Stefan Savage, and Aaron Schulman,
-        %a{ :href => "https://doi.org/10.1145/3419394.3423640"}
-          "Trufflehunter: Cache Snooping Rare Domains at Large Public DNS Resolvers”,
-        Proceedings of ACM IMC 2020
-        %a{ :href => "/anrp/IETF110-ANRP-Randall.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF110-ANRP-Randall.png"}
-          %source{ :src => "/anrp/IETF110-ANRP-Randall.m4v", :type => "video/mp4"}
+        %p
+          Papers nominated for the Applied Networking Research Prize (ANRP) are
+          %em not
+          considered to be contributions to the IETF or IRTF. However, the
+          invited talks about those papers given at the IRTF Open Meeting
+          %em are
+          considered to be contributions and 
+          %a{ :href => "/policies/ipr"} the IRTF Intellectual Property Rights disclosure rules
+          apply.
 
-      %dt
-        At IETF-109, to
-        %b Debopam Bhattacherjee
-        for his work on the design of network topologies for low-earth orbit satellite constellations:
+        = render "/anrpdates_.*"
 
-      %dd
-        Debopam Bhattacherjee and Ankit Singla,
-        %a{ :href => "https://people.inf.ethz.ch/asingla/papers/conext19.pdf"}
-          "Network topology design at 27,000 km/hour",
-        Proceedings of ACM CoNEXT,
-        Orlando, FL, USA, December 2019.
-        %a{ :href => "/anrp/IETF109-ANRP-Bhattacherjee.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF109-ANRP-Bhattacherjee.png"}
-          %source{ :src => "/anrp/IETF109-ANRP-Bhattacherjee.m4v", :type => "video/mp4"}
+      %div.tab-pane.container.fade#sponsors
+        %h2 Sponsors
 
-      %dt
-        At IETF-109, to
-        %b Georgia Fragkouli
-        for her work on Internet transparency:
-      %dd
-        Georgia Fragkouli, Katerina Argyraki, and Bryan Ford,
-        %a{ :href => "https://content.sciendo.com/view/journals/popets/2019/2/article-p88.xml"}
-          "MorphIT: Morphing Packet Reports for Internet Transparency”,
-        Proceedings on Privacy Enhancing Technologies, 2019
-        %a{ :href => "/anrp/IETF109-ANRP-Fragkouli.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF109-ANRP-Fragkouli.png"}
-          %source{ :src => "/anrp/IETF109-ANRP-Fragkouli.m4v", :type => "video/mp4"}
+        .col-xs-9
+          %p 
+            The Applied Networking Research Prize (ANRP) is supported by the
+            Internet Society in coordination with the Internet Research Task
+            Force (IRTF).
 
-      %dt
-        At IETF-109, to
-        %b Ranysha Ware
-        for her work on congestion control fairness:
-      %dd
-        Ranysha Ware, Matthew K. Mukerjee, Srinivasan Seshan, and Justine Sherry,
-        %a{ :href => "https://www.cs.cmu.edu/~rware/assets/pdf/ware-hotnets19.pdf"}
-          "Beyond Jain’s Fairness Index: Setting the Bar For The Deployment of Congestion Control Algorithms",
-        Proceedings of ACM HotNets,
-        Princeton, NJ, USA, November 2019.
-        %a{ :href => "/anrp/IETF109-ANRP-Ware.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF109-ANRP-Ware.png"}
-          %source{ :src => "/anrp/IETF109-ANRP-Ware.m4v", :type => "video/mp4"}
+          %p.text-center
+            %img{:src => "../img/isoc.png", :width => 200, :alt => "Comcast"}
 
-      %dt
-        At IETF-108, to
-        %b Shehar Bano 
-        for her work to develop a taxonomy of Internet host liveness:
-      %dd
-        Shehar Bano, Philipp Richter, Mobin Javed, Srikanth Sundaresan, Zakir Durumeric, Steven J. Murdoch, Richard Mortier, and Vern Paxson,
-        %a{ :href => "https://doi.org/10.1145/3213232.3213234"}
-          "Scanning the Internet for Liveness",
-        ACM Computer Communication Review, April 2018.
-        %a{ :href => "/anrp/IETF108-ANRP-Bano.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF108-ANRP-Bano.png"}
-          %source{ :src => "/anrp/IETF108-ANRP-Bano.m4v", :type => "video/mp4"}
-        
-      %dt
-        At IETF-108, to
-        %b Chaoyi Lu
-        for his work on measuring DNS-over-encryption:
-      %dd
-        Chaoyi Lu, Baojun Liu, Zhou Li, Shuang Hao, Haixin Duan, Mingming Zhang, Chunying Leng, Ying Liu, Zaifeng Zhang, and Jian-ping Wu,
-        %a{ :href => "https://doi.org/10.1145/3355369.3355580"}
-          "An End-to-End, Large-Scale Measurement of DNS-over-Encryption: How Far Have We Come?”,
-        Proceedings of the ACM Internet Measurement Conference, Amsterdam, The Netherlands, October 2019.
-        %a{ :href => "/anrp/IETF108-ANRP-Lu.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF108-ANRP-Lu.png"}
-          %source{ :src => "/anrp/IETF108-ANRP-Lu.m4v", :type => "video/mp4"}
+          %p
+            Additional corporate sponsorship for the ANRP is kindly provided by:
 
-      %dt
-        At IETF-108, to
-        %b Ingmar Poese
-        for his work on traffic engineering:
-      %dd
-        Enric Pujol, Ingmar Poese, Johannes Zerwas, Georgios Smaragdakis, and Anja Feldmann,
-        %a{ :href => "https://depositonce.tu-berlin.de/bitstream/11303/10442/4/pujol_etal_2019.pdf"}
-          "Steering Hyper-Giants’ Traffic at Scale”,
-        Proceedings of ACM CoNEXT,
-        Orlando, FL, USA, December 2019.
-        %a{ :href => "/anrp/IETF108-ANRP-Poese.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-          %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
-        %br
-        %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF108-ANRP-Poese.png"}
-          %source{ :src => "/anrp/IETF108-ANRP-Poese.m4v", :type => "video/mp4"}
+          %p.text-center
+            %img{:src => "../img/Comcast-Logo.png", :width => 200, :alt => "Comcast"}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            %img{:src => "../img/NBCU-Logo.png", :width => 200, :alt => "NBC Universal"}
 
-    %dl.papers
-      %dt
-        No awards were made at IETF-107, due to COVID-19 pandemic.
+          %p
+            If your organization would like to support the ANRP, please contact
+            = link_to("anrp@irtf.org", "mailto:anrp@irtf.org") + "."
 
-      %dt
-        At IETF-106, to
-        %b Weiteng Chen
-        for his work on wireless network security:
-        %dd
-          Weiteng Chen and Zhiyun Qian
-          %a{ :href => "https://www.usenix.org/node/217606"}
-            Off-path TCP exploit: how wireless routers can jeopardize your secrets,
-          Proceedings of the USENIX Security Symposium,
-          Baltimore, MD, USA, August 2018.
-      %dt
-        At IETF-105, to
-        %a{ :href => "https://www.cse.huji.ac.il/~neta/"}
-          %b Neta Rozen Schiff 
-        for her work on NTP security:
-        %dd
-          Omer Deutsch, Neta Rozen Schiff, Danny Dolev, and Michael Schapira,
-          %a{ :href => "http://dx.doi.org/10.14722/ndss.2018.23231" } Preventing (Network) Time Travel with Chronos
-          Proc.
-          %a.venue{ :href => "https://www.ndss-symposium.org/ndss2018/" } Network and Distributed Systems Security (NDSS) Symposium 2018, 
-          San Diego, CA, USA, February 2018.
-      %dt
-        At IETF-105, to
-        %a{ :href => "http://taejoong.github.io"}
-          %b Taejoong Chung
-        for his work on Understanding the Role of Registrars in DNSSEC Deployment:
-        %dd
-          Taejoong Chung, Roland van Rijswijk-Deij, David Choffnes, Dave Levin, Bruce M. Maggs, Alan Mislove, and Christo Wilson,
-          %a{ :href => "https://conferences.sigcomm.org/imc/2017/papers/imc17-final53.pdf" } Understanding the Role of Registrars in DNSSEC Deployment
-          Proc.
-          %a.venue{ :href => "http://conferences.sigcomm.org/imc/2017/" } ACM Internet Measurement Conference (IMC),
-          London, UK, November 2017.
-      %dt
-        At IETF-104, to 
-        %b Florian Streibelt 
-        for showing how BGP communities can be exploited by remote parties to influence Internet routing:
-        %dd
-          Florian Streibelt, Franziska Lichtblau, Robert Beverly, Anja Feldmann, Cristel Pelsser, Georgios Smaragdakis, and Randy Bush.
-          %a{ :href => "https://dl.acm.org/authorize?N662534" } 
-            BGP Communities: Even more Worms in the Routing Can.
-          Proc.
-          %a.venue{ :href => "https://conferences.sigcomm.org/imc/2018/" } ACM Internet Measurement Conference 2018 (IMC '18).
-          Boston, MA, USA, October 2018.
-      %dt
-        At IETF-104, to 
-        %a{ :href => "https://research.fb.com/fellows/schlinker-brandon/" }
-          %b Brandon Schlinker
-        for presenting the first public analysis of a global, SDN-based content delivery solution serving over two billion users including real-time performance measurements:
-        %dd
-          Brandon Schlinker, Hyojeong Kim, Timothy Cui, Ethan Katz-Bassett, Harsha V. Madhyastha, Italo Cunha, James Quinn, Saif Hasan, Petr Lapukhov, and Hongyi Zeng.
-          %a{ :href => "https://doi.org/10.1145/3098822.3098853" } 
-            Engineering Egress with Edge Fabric: Steering Oceans of Content to the World.
-          Proc.  
-          %a.venue{ :href => "http://conferences.sigcomm.org/sigcomm/2017/" } ACM SIGCOMM Conference.
-          Los Angeles, CA, USA, August 2017.
-      %dt
-        At IETF-103, to
-        %a{ :href => "https://www.icir.org/johanna/" }
-          %b Johanna Amann
-        for the first large scale investigation of recently deployed web security features including their combined impact:
-        %dd
-          J. Amman, O. Gasser, Q. Scheitle, L. Brent, G. Carle, R. Holz.
-          %a{ :href => "https://www.icir.org/johanna/papers/imc17httpssecurity.pdf" }
-            Mission Accomplished? HTTPS Security after DigiNotar.
-          Proc.
-          %a.venue{ :href => "https://conferences.sigcomm.org/imc/2017/" } 17th Internet Measurement Conference (IMC'17), November 2017.
-      %dt
-        At IETF-103, to
-        %b Arash Molavi Kakhki
-        for a detailed analysis of multiple versions of a rapidly evolving, new transport protocol in a large number of environments:
-        %dd
-          Arash Molavi Kakhki, Samuel Jero, David Choffnes, Alan Mislove, Cristina Nita-Rotaru.
-          %a{ :href => "https://www.sjero.net/pubs/2017_IMC_QUIC.pdf" }
-            Taking a Long Look at QUIC: An Approach for Rigorous Evaluation of Rapidly Evolving Transport Protocols.
-          Proc.  
-          %a.venue{ :href => "https://conferences.sigcomm.org/imc/2017/" } 17th Internet Measurement Conference (IMC'17), November 2017.
-      %dt
-        At IETF-102, to
-        %a{ :href => "https://nsg.ee.ethz.ch/people/maria-apostolaki/" }
-          %b Maria Apostolaki
-        for a detailed analysis of the impact that Internet routing attacks (such as BGP hijacks) and malicious Internet Service Providers (ISP) can have on the Bitcoin cryptocurrency:
-        %dd
-          Maria Apostolaki, Aviv Zohar, Laurent Vanbever.
-          %a{ :href => "https://btc-hijack.ethz.ch/files/btc_hijack.pdf" }
-            Hijacking Bitcoin: Routing Attacks on Cryptocurrencies.
-          Proc.
-          %a.venue{ :href => "http://www.ieee-security.org/TC/SP2017/" } IEEE Symposium on Security and Privacy 2017. San Jose, CA , USA (May 2017).
-      %dt
-        At IETF-102, to
-        %a{ :href => "https://people.kth.se/~papadim/" }
-          %b Panos Papadimitratos
-        for improving our understanding of vehicular public key infrastructure in terms of security, privacy protection, and efficiency:
-        %dd
-          M. Khodaei, H. Jin, and P. Papadimitratos.
-          %a{ :href => "https://people.kth.se/~papadim/publications/fulltext/secmace-VPKI-2018.pdf" }
-            SECMACE: Scalable and Robust Identity and Credential Infrastructure in Vehicular Communication.
-          IEEE Transactions on Intelligent Transportation Systems (IEEE ITS), April 2018.
-      %dt
-        At IETF-101, to
-        %a{ :href => "https://www.linkedin.com/in/mojgan-ghasemi-487a2456/" }
-          %b Mojgan Ghasemi
-        for a detailed analysis of the performance of a commercial video streaming service:
-        %dd
-          Mojgan Ghasemi, Partha Kanuparthy, Ahmed Mansy, Theophilus Benson, Jennifer Rexford.
-          %a{ :href => "https://arxiv.org/abs/1605.04966" }
-            Performance Characterization of a Commercial Video Streaming Service.
-          Proc.
-          %a.venue{ :href => "http://conferences2.sigcomm.org/imc/2016/" } Internet Measurement Conference (IMC) 2016, Santa Monica, California, USA, Nov. 2016.
-      %dt
-        At IETF-101, to
-        %b Vaspol Ruamviboonsuk
-        for improving web client and server interactions to enhance webpage load times:
-        %dd
-          V. Ruamviboonsuk, R. Netravali, M. Uluyol, H. Madhyastha.
-          %a{ :href => "https://web.eecs.umich.edu/~harshavm/papers/vroom_sigcomm17.pdf" }
-            Vroom: Accelerating the Mobile Web with Server-Aided Dependency Resolution.
-          Proc.
-          %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2017/" } Conference of the ACM Special Interest Group on Data Communication (SIGCOMM ‘17). ACM, New York, NY, USA.
-      %dt
-        At IETF-100, to
-        %a{ :href => "https://www.net.in.tum.de/members/emmericp/" }
-          %b Paul Emmerich
-        for developing the high-speed packet generator MoonGen:
-        %dd
-          Paul Emmerich, Sebastian Gallenmüller, Daniel Raumer, Florian Wohlfart, and Georg Carle.
-          %a{ :href => "http://www.net.in.tum.de/fileadmin/bibtex/publications/papers/MoonGen_IMC2015.pdf" }
-            MoonGen: A Scriptable High-Speed Packet Generator.
-          Proc.
-          %a.venue{ :href => "http://conferences2.sigcomm.org/imc/2015/" } Internet Measurement Conference (IMC) 2015, Tokyo, Japan, Oct. 2015.
-      %dt
-        At IETF-100, to
-        %a{ :href => "https://wwwhome.ewi.utwente.nl/~rijswijkrm/" }
-          %b Roland van Rijswijk-Deij
-        for analysing the impact of elliptic curve cryptography on DNSSEC validation performance:
-        %dd
-          Roland van Rijswijk-Deij, Kaspar Hageman, Anna Sperotto and Aiko Pras.
-          %a{ :href => "https://ieeexplore.ieee.org/document/7574360" }
-            The Performance Impact of Elliptic Curve Cryptography on DNSSEC Validation.
-          Proc.
-          %a.venue{ :href => "https://ton.lids.mit.edu/" }
-            IEEE/ACM Transactions on Networking, Volume 25, Issue 2, April 2017.
-      %dt
-        At IETF-99, to
-        %b Stephen Checkoway
-        for a Systematic Analysis of the Juniper Dual EC Incident:
-      %dd
-        Stephen Checkoway, Jacob Maskiewicz, Christina Garman, Joshua Fried, Shaanan Cohney, Matthew Green, Nadia Heninger, Ralf-Philipp Weinmann, Eric Rescorla, and Hovav Shacham.
-        A Systematic Analysis of the Juniper Dual EC Incident
-        Proc.
-        %a.venue{ :href => "https://www.sigsac.org/ccs/CCS2016/index.html" } ACM Conference on Computer and Communications Security 2016, pp. 468–479. ACM Press, Oct. 2016.
-      %dt
-        At IETF-99, to
-        %b Philipp Richter
-        for a Multi-perspective Analysis of Carrier-Grade NAT Deployment:
-      %dd
-        P. Richter, F. Wohlfart, N. Vallina-Rodriguez, M. Allman, R. Bush, A. Feldmann, C. Kreibich, N. Weaver, and V. Paxson.
-        %a{ :href => "https://doi.org/10.1145/2987443.2987474" }
-          A Multi-perspective Analysis of Carrier-Grade NAT Deployment
-        Proc.
-        %a.venue{ :href => "http://conferences.sigcomm.org/imc/2016/index.html" } ACM IMC, Santa Monica, CA, USA, December 2016.
-      %dt
-        At IETF-98, to
-        %b Yossi Gilad
-        for the "path-end validation" extension to the RPKI:
-      %dd
-        Avichai Cohen, Yossi Gilad, Amir Herzberg and Michael Schapira.
-        %a{ :href => "http://dl.acm.org/ft_gateway.cfm?id=2934883" }
-          Jumpstarting BGP Security with Path-End Validation.
-        Proc.
-        %a.venue{ :href => "http://conferences.sigcomm.org/sigcomm/2016/" } ACM SIGCOMM,
-        Florianópolis, Brazil, August 2016.
-      %dt
-        At IETF-98, to
-        %a{ :href => "http://www.caida.org/~alistair/" }
-          %b Alistair King
-        for a framework to enable efficient processing of large amounts of distributed and/or live BGP data:
-      %dd
-        Chiara Orsini, Alistair King, Danilo Giordano, Vasileios Giotsas and Alberto Dainotti.
-        %a{ :href => "https://dl.acm.org/citation.cfm?id=2987482" } BGPStream: A Software Framework for Live and Historical BGP Data Analysis.
-        Proc.
-        %a.venue{ :href => "http://conferences.sigcomm.org/imc/2016/index.html" } ACM IMC,
-        Santa Monica, CA, USA, December 2016.
-      %dt
-        At IETF-97, to
-        %a{ :href => "http://inl.info.ucl.ac.be/otilmans.html" }
-          %b Olivier Tilmans
-        for the
-        %i Fibbing
-        architecture that enables central control over distributed routing:
-      %dd
-        Stefano Vissicchio, Olivier Tilmans, Laurent Vanbever and Jennifer Rexford.
-        %a{ :href => "http://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p43.pdf" }
-          Central Control Over Distributed Routing.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2015/" } ACM SIGCOMM,
-        London, UK, August 2015.
-      %dt
-        At IETF-97, to
-        %a{ :href => "http://inl.info.ucl.ac.be/benjamin.html" }
-          %b Benjamin Hesmans
-        for enabling applications to control how Multipath TCP transfers data:
-      %dd
-        Benjamin Hesmans, Gregory Detal, Sebastien Barre, Raphael Bauduin and Olivier Bonaventure.
-        %a{ :href => "https://conferences2.sigcomm.org/co-next/2015/img/papers/conext15-final169.pdf" } SMAPP: Towards Smart Multipath TCP-enabled APPlications.
-        Proc.
-        %a.venue{ :href => "https://conferences2.sigcomm.org/co-next/2015/" } ACM CoNEXT,
-        Heidelberg, Germany, December 2015.
-      %dt
-        At IETF-96, to
-        %a{ :href => "https://www.sjero.net/" }
-          %b Samuel Jero
-        for a security analysis of the QUIC protocol:
-      %dd
-        Robert Lychev, Samuel Jero, Alexandra Boldyreva and Cristina Nita-Rotaru.
-        %a{ :href => "https://www.sjero.net/pubs/2015_Oakland_QUIC.pdf" }
-          How Secure and Quick is QUIC? Provable Security and Performance Analyses.
-        Proc.
-        %a.venue{ :href => "http://www.ieee-security.org/TC/SP2015/" } IEEE Symposium on Security and Privacy,
-        pp. 214--231, San Jose, CA, USA, May 2015.
-      %dt
-        At IETF-96, to
-        %a{ :href => "http://perso.telecom-paristech.fr/~drossi/" }
-          %b Dario Rossi
-        for characterizing anycast adoption and deployment in the IPv4 Internet:
-      %dd
-        Danilo Cicalese, Jordan Augé, Diana Joumblatt, Timur Friedman and Dario Rossi.
-        %a{ :href => "https://conferences2.sigcomm.org/co-next/2015/img/papers/conext15-final100.pdf" } Characterizing IPv4 Anycast Adoption and Deployment.
-        Proc.
-        %a.venue{ :href => "https://conferences2.sigcomm.org/co-next/2015/" } ACM CoNEXT,
-        Heidelberg, Germany, December 2015.
-      %dt
-        At IETF-95, to
-        %a{ :href => "https://ensa.fi" }
-          %b Roya Ensafi
-        for examining how the Chinese "great firewall" discovers hidden
-        circumvention servers:
-      %dd
-        Roya Ensafi, David Fifield, Philipp Winter, Nick Feamster, Nicholas Weaver, and Vern Paxson.
-        %a{ :href => "http://conferences.sigcomm.org/imc/2015/papers/p445.pdf" } Examining How the Great Firewall Discovers Hidden Circumvention Servers.
-        Proc.
-        %a.venue{ :href => "http://conferences.sigcomm.org/imc/2015/" } ACM Internet Measurement Conference (IMC),
-        Tokyo, Japan, October 28-30, 2015.
-      %dt
-        At IETF-95, to
-        %a{ :href => "https://zakird.com/" }
-          %b Zakir Durumeric
-        for an empirical analysis of email delivery security:
-      %dd
-        Zakir Durumeric, David Adrian, Ariana Mirian, James Kasten, Elie Bursztein, Nicolas Lidzborski, Kurt Thomas, Vijay Eranti, Michael Bailey, and J. Alex Halderman.
-        %a{ :href => "http://conferences.sigcomm.org/imc/2015/papers/p27.pdf" } Neither Snow Nor Rain Nor MITM… An Empirical Analysis of Email Delivery Security.
-        Proc.
-        %a.venue{ :href => "http://conferences.sigcomm.org/imc/2015/" } ACM Internet Measurement Conference (IMC),
-        Tokyo, Japan, October 28-30, 2015.
+        .col-xs-3
+          %p
+            %em
+              "We like the Applied Network Research Prize because it encourages novel
+              research that helps companies like Comcast and our partners build better
+              Internet services and technologies for end users, and helps the community
+              move important standards work into deployable technology more
+              effectively."
+          %p.text-muted
+            Jason Livingood, Vice President - Internet Services, Comcast
 
-      %dt
-        At IETF-94, to
-        %b 
-          Xiao Sophia Wang
-        for a systematic study of web page load times under SPDY:
-      %dd
-        Xiao Sophia Wang, Aruna Balasubramanian, Arvind Krishnamurthy and David Wetherall.
-        %a{ :href => "https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-wang_xiao_sophia.pdf" } How Speedy is SPDY?
-        Proc.
-        %a.venue{ :href => "https://www.usenix.org/conference/nsdi14" } USENIX Symposium on Networked Systems Design and Implementation (NSDI),
-        Seattle, WA, USA, April 2-4, 2014.
-      %dt
-        At IETF-94, to
-        %a{ :href => "https://wwwhome.ewi.utwente.nl/~rijswijkrm/" }
-          %b Roland van Rijswijk-Deij
-        for a detailed measurement study on a large dataset of DNSSEC-signed domains:
-      %dd
-        Roland van Rijswijk-Deij, Anna Sperotto, and Aiko Pras.
-        %a{ :href => "https://conferences2.sigcomm.org/imc/2014/papers/p449.pdf" } DNSSEC and its Potential for DDoS Attacks: A Comprehensive Measurement Study.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/imc/2014/" } ACM Internet Measurement Conference (IMC),
-        Vancouver, BC, Canada, November 2014.
 
-      %dt
-        At IETF-93, to
-        %a{ :href => "https://sites.google.com/site/hayashulman/" }
-          %b Haya Shulman
-        for analyzing the deficiencies of DNS privacy approaches:
-      %dd
-        Haya Shulman.
-        %a{ :href => "https://www.ietf.org/mail-archive/web/dns-privacy/current/pdfWqAIUmEl47.pdf" } Pretty Bad Privacy: Pitfalls of DNS Encryption.
-        Proc.
-        %a.venue{ :href => "https://www.cylab.cmu.edu/news_events/events/wpes2014/" } ACM Workshop on Privacy in the Electronic Society (WPES),
-        Scottsdale, AZ, USA, November 3, 2014.
-      %dt
-        At IETF-93, to
-        %a{ :href => "https://www.lx.it.pt/~jls/" }
-          %b João Luís Sobrinho
-        for designing a route-aggregation technique that allows filtering while respecting routing policies:
-      %dd
-        João Luís Sobrinho, Laurent Vanbever, Franck Le and Jennifer Rexford.
-        %a{ :href => "https://www.cs.princeton.edu/~jrex/papers/dragon14.pdf" } Distributed Route Aggregation on the Global Network.
-        Proc.
-        %a.venue{ :href => "https://conferences2.sigcomm.org/co-next/2014/" } ACM CoNEXT,
-        Sydney, Australia, December 2-5, 2014.
-      %dt
-        At IETF-92, to
-        %a{ :href => "https://aaron.gember-jacobson.com/" }
-          %b Aaron Gember-Jacobson
-        for designing and evaluating an NFV control plane:
-      %dd
-        Aaron Gember-Jacobson, Raajay Viswanathan, Chaithan Prakash, Robert
-        Grandl, Junaid Khalid, Sourav Das and Aditya Akella.
-        %a{ :href => "https://aaron.gember-jacobson.com/docs/gember-jacobson2014opennf.pdf" } OpenNF: Enabling Innovation in Network Function Control.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2014/" } ACM SIGCOMM,
-        Chicago, IL, USA, August 2014.
-      %dt
-        At IETF-91, to
-        %a{ :href => "https://www.cs.bu.edu/~goldbe/" }
-          %b Sharon Goldberg
-        for discussing threats when BGP RPKI authorities are faulty, misconfigured, compromised, or compelled to misbehave:
-      %dd
-        Danny Cooper, Ethan Heilman, Kyle Brogle, Leonid Reyzin and Sharon Goldberg.
-        %a{ :href => "https://www.cs.bu.edu/~goldbe/papers/hotRPKI.pdf" } On the Risk of Misbehaving RPKI Authorities.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/hotnets/2013/" } ACM Workshop on Hot Topics in Networks (HotNets-XII),
-        College Park, MD, USA, November 2013.
-      %dt
-        At IETF-91, to
-        %b Tobias Flach
-        for the design of novel loss recovery mechanisms for TCP that minimize timeout-driven recovery:
-      %dd
-        Tobias Flach, Nandita Dukkipati, Andreas Terzis, Barath Raghavan, Neal Cardwell, Yuchung Cheng, Ankur Jain, Shuai Hao, Ethan Katz-Bassett, Ramesh Govindan.
-        %a{ :href => "https://research.google.com/pubs/archive/41217.pdf" } Reducing Web Latency: the Virtue of Gentle Aggression.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2013/" } ACM SIGCOMM,
-        Hong Kong, China, August 2013.
-      %dt
-        At IETF-91, to
-        %b Misbah Uddin
-        for developing matching and ranking for network search queries to make operational data available in real-time to management applications:
-      %dd
-        Misbah Uddin, Rolf Stadler and Alexander Clemm.
-        %a{ :href => "https://doi.org/10.1109/CNSM.2013.6727844" } Scalable Matching and Ranking for Network Search.
-        Proc.
-        International Conference on Network and Service Management (CNSM),
-        Zürich, Switzerland, October 2013.
-      %dt
-        At IETF-90, to
-        -# %a{ :href => "https://www.cc.gatech.edu/grads/r/rlychev/" }
-        %b Robert Lychev
-        for studying the security benefits provided by partially-deployed S*BGP:
-      %dd
-        Robert Lychev, Sharon Goldberg and Michael Schapira.
-        %a{ :href => "https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p171.pdf" } BGP Security in Partial Deployment.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2013/" } ACM SIGCOMM,
-        Hong Kong, China, August 2013.
-      %dt
-        At IETF-89, to
-        %b Kenny Paterson
-        for finding and documenting new attacks against TLS and DTLS:
-      %dd
-        N. J. Al Fardan and K. G. Paterson.
-        %a{ :href => "https://dx.doi.org/10.1109/SP.2013.42" } Lucky Thirteen: Breaking the TLS and DTLS Record Protocols.
-        Proc.
-        %a.venue{ :href => "https://www.ieee-security.org/TC/SP2013/" } IEEE Symposium on Security and Privacy,
-        pp. 526--540, San Francisco, CA, USA, May 2013.
-      %dt
-        At IETF-89, to
-        %a{ :href => "https://cs.stanford.edu/~keithw/" }
-          %b Keith Winstein
-        for designing a transport protocol for interactive applications that desire high throughput and low delay:
-      %dd
-        Keith Winstein, Anirudh Sivaraman, and Hari Balakrishnan.
-        %a{ :href => "https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final113.pdf" } Stochastic Forecasts Achieve High Throughput and Low Delay over Cellular Networks.
-        Proc.
-        %a.venue{ :href => "https://www.usenix.org/conference/nsdi13" } 10th USENIX Symposium on Networked Systems Design and Implementation (NSDI),
-        Lombard, IL, USA, April 2013.
-      %dt
-        At IETF-88, to
-        %a{ :href => "https://sites.google.com/site/idiliod/" }
-          %b Idilio Drago
-        for characterizing traffic and workloads of the Dropbox cloud storage system:
-      %dd
-        Idilio Drago, Marco Mellia, Maurizio M. Munafo, Anna Sperotto, Ramin Sadre and Aiko Pras.
-        %a{ :href => "https://eprints.eemcs.utwente.nl/22286/01/imc140-drago.pdf" } Inside Dropbox: Understanding Personal Cloud Storage Services.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/imc/2012/" } ACM Internet Measurement Conference (IMC),
-        Boston, MA, USA, November 2012.
-      %dt
-        At IETF-87, to
-        -# %a{ :href => "https://www.stanford.edu/~huangty/" }
-        %b Te-Yuan Huang
-        for insights into the difficulties of rate adaptation for streaming video:
-      %dd
-        Te-Yuan Huang, Nikhil Handigol, Brandon Heller, Nick McKeown and Ramesh Johari.
-        %a{ :href => "https://doi.org/10.1145/2398776.2398800" } Confused, Timid, and Unstable: Picking a Video Streaming Rate is Hard.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/imc/2012/" } ACM Internet Measurement Conference (IMC),
-        Boston, MA, USA, November 2012.
-      %dt
-        At IETF-87, to
-        %a{ :href => "https://vanbever.eu/" }
-          %b Laurent Vanbever
-        for proposing a framework to allow seamless BGP reconfigurations:
-      %dd
-        Stefano Vissicchio, Laurent Vanbever, Cristel Pelsser, Luca Cittadini, Pierre Francois and Olivier Bonaventure.
-        %a{ :href => "https://inl.info.ucl.ac.be/system/files/bgpmig_final.pdf" } Improving Network Agility with Seamless BGP Reconﬁgurations.
-        Proc.
-        %a.venue{ :href => "https://dl.acm.org/citation.cfm?id=2525566" } IEEE/ACM Transactions on Networking (TON),
-        Volume 21, Issue 3, June 2013, pp 990-1002.
-      %dt
-        At IETF-86, to
-        %b Gonca Gürsun
-        for defining a metric that allows an analysis of BGP routing policies:
-      %dd
-        Gonca Gürsun, Natali Ruchansky, Evimaria Terzi and Mark Crovella.
-        %a{ :href => "https://cs-people.bu.edu/evimaria/papers/imc12-rsd.pdf" } Routing State Distance: A Path-based Metric For Network Analysis.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/imc/2012/" } ACM Internet Measurement Conference (IMC),
-        Boston, MA, USA, November 2012.
-      %dt
-        At IETF-85, to
-        %b Srikanth Sundaresan
-        for his measurement study of access link performance on home gateway devices:
-      %dd
-        Srikanth Sundaresan, Walter de Donato, Nick Feamster, Renata Teixeira, Sam Crawford and Antonio Pescapè.
-        %a{ :href => "https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p134.pdf" } Broadband Internet Performance: A View From the Gateway.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2011/" } ACM SIGCOMM,
-        Toronto, Canada, August 2011.
-      %dt
-        At IETF-85, to
-        %a{ :href => "http://yuba.stanford.edu/~peyman/" }
-          %b Peyman Kazemian
-        for developing a general and protocol-agnostic framework for statically checking network specifications and configurations:
-      %dd
-        Peyman Kazemian, George Varghese and Nick McKeown.
-        %a{ :href => "https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final8.pdf" } Header Space Analysis: Static Checking For Networks.
-        Proc.
-        %a.venue{ :href => "https://www.usenix.org/conference/nsdi12" } USENIX Symposium on Networked Systems Design and Implementation (NSDI),
-        San Jose, CA, USA, April 2012.
-      %dt
-        At IETF-84, to
-        %a{ :href => "https://www.caida.org/~alberto/" }
-          %b Alberto Dainotti
-        for his research into Internet communication disruptions due to filtering:
-      %dd
-        Alberto Dainotti, Claudio Squarcella, Emile Aben, K.C.  Claffy, Marco Chiesa, Michele Russo and Antonio Pescapè.
-        %a{ :href => "https://www.caida.org/publications/papers/2011/outages_censorship/outages_censorship.pdf" } Analysis of Country-wide Internet Outages Caused by Censorship.
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/imc/2011/" } ACM Internet Measurement Conference (IMC),
-        Berlin, Germany, November 2011.
-      %dt
-        (No ANRP was awarded at IETF-83, due to the change to a yearly award cycle.)
-      %dt
-        At IETF-82, to
-        %a{ :href => "https://www.micchie.net/" }
-          %b Michio Honda
-        for his research into determining the future extensibility of TCP:
-      %dd
-        Michio Honda, Yoshifumi Nishida, Costin Raiciu, Adam Greenhalgh, Mark Handley and Hideyuki Tokuda.
-        %a{ :href => "https://conferences.sigcomm.org/imc/2011/docs/p181.pdf" } Is it Still Possible to Extend TCP?
-        Proc.
-        %a.venue{ :href => "https://conferences.sigcomm.org/imc/2011/" } ACM Internet Measurement Conference (IMC),
-        Berlin, Germany, November 2011.
-      %dt
-        At IETF-82, to
-        -# %a{ :href => "https://eecis.udel.edu/~nekiz/" }
-        %b Nasif Ekiz
-        for his analysis of misbehaving TCP receivers:
-      %dd
-        Nasif Ekiz, Abuthahir Habeeb Rahman and Paul D. Amer.
-        %a{ :href => "https://dx.doi.org/10.1145/1971162.1971165" } Misbehaviors in TCP SACK Generation.
-        %a.venue{ :href => "https://dl.acm.org/citation.cfm?id=J101" } ACM SIGCOMM Computer Communication Review,
-        Volume 41, Issue 2, April 2011.
-      %dt
-        At IETF-81, to
-        %a{ :href => "http://caia.swin.edu.au/cv/mrossi/" }
-          %b Mattia Rossi
-        for his research into reducing BGP traffic:
-      %dd
-        Geoff Huston, Mattia Rossi and Grenville Armitage.
-        %a{ :href => "https://dx.doi.org/10.1109/JSAC.2010.101005" } A Technique for Reducing BGP Update Announcements through Path Exploration Damping.
-        %a.venue{ :href => "https://www.comsoc.org/publications/journals/ieee-jsac" } IEEE Journal on Selected Areas in Communications (JSAC),
-        Vol. 28, No. 8, pp. 1271--1286, October 2010.
-      %dt
-        At IETF-81, to
-        %a{ :href => "https://www.cs.arizona.edu/~bzhang/" }
-          %b Beichuan Zhang
-        for his research into "green" traffic engineering:
-      %dd
-        Mingui Zhang, Cheng Yi, Bin Liu and Beichuan Zhang.
-        %a{ :href => "https://dx.doi.org/10.1109/ICNP.2010.5762751" } GreenTE: Power-Aware Traffic Engineering.
-        Proc.  IEEE International Conference on Network Protocols (ICNP),
-        pp. 21--30, October 2010.
+      %div.tab-pane.container.fade#committee
+        %h2 Award Committee
+
+        %p 
+          An award committee comprised of individuals knowledgeable about the
+          IRTF, IETF and the broader networking research community will
+          evaluate the submissions against these selection criteria.
+
+        %p 
+          The ANRP award committee for 2023 comprises:
+        %ul.twocol
+          %li Sangeetha Abdu Jyothi, University of California, Irvine
+          %li Benjamin Beurdouche, Mozilla
+          %li Sofía Celi, Brave
+          %li Marco Chiesa, KTH 
+          %li Taejoong (Tijay) Chung, Virginia Tech
+          %li Spencer Dawkins, Tencent America
+          %li Lars Eggert, NetApp
+          %li Stephen Farrell, Trinity College Dublin
+          %li Marwan Fayed, Cloudflare
+          %li Simone Ferlin, Ericsson
+          %li Mat Ford, Internet Society
+          %li Michio Honda, University of Edinburgh
+          %li Nitinder Mohan, TUM
+          %li David Oran
+          %li Colin Perkins, University of Glasgow (Chair)
+          %li Philipp Richter, Akamai/MIT
+          %li Melinda Shore, Fastly
+          %li Anna Sperotto, University of Twente
+          %li Stephen Strowes, Fastly
+          %li Matthias Wählisch, Freie Universiät Berlin
+          %li Francis Y. Yan, Microsoft Research
+
+      %div.tab-pane.container.fade#winners
+        %h2 Past Prize Winners
+
+        %p The following Applied Networking Prizes have been awarded in the past:
+
+        %dl.papers
+          %dt
+            At IETF-116, to
+            %b Boris Pismenny 
+            for his work on novel NIC offloading architectures:
+          %dd
+            Boris Pismenny, Haggai Eran, Aviad Yehezkel, Liran Liss, Adam Morrison, and Dan Tsafrir,
+            "Autonomous NIC Offloads"
+            Proceedings of the ACM International Conference on Architectural
+            Support for Programming Languages and Operating Systems (ASPLOS)
+            2021.
+            %br
+            %a.btn.btn-secondary{ :href => "http://www.cs.tau.ac.il/~mad/publications/asplos2021-offload.pdf"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF116-ANRP-Pismenny.pdf"}
+              Slides
+            %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=bcAcoviVwH0"}
+              Video
+
+          %dt
+            At IETF-116, to
+            %b Arthur Selle Jacobs 
+            for his work on evaluating machine learning for network security:
+          %dd
+            Arthur S. Jacobs, Roman Beltiukov, Walter Willinger, Ronaldo A. Ferreira, Arpit Gupta, and Lisandro Z. Granville,
+            "AI/ML for Network Security: The Emperor has no Clothes"
+            Proceedings of the Conference on Computer and Communications Security (CCS) 2022
+            %br
+            %a.btn.btn-secondary{ :href => "http://www.inf.ufrgs.br/~granville/wp-content/papercite-data/pdf/ccsjacobs2022.pdf"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF116-ANRP-Jacobs.pdf"}
+              %span{ :class => "glyphicon glyphicon-picture"} &nbsp;Slides
+
+          %dt
+            At IETF-115, to
+            %b Gautam Akiwate
+            for his work on the risks of domain hijacking due to registrar practices:
+          %dd
+            Gautam Akiwate, Stefan Savage, Geoffrey M. Voelker, and K. C. Claffy,
+            "Risky BIZness: Risks Derived from Registrar Name Management"
+            Proceedings of the Internet Measurement Conference, 2021.
+            %br
+            %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/10.1145/3487552.3487816"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF115-ANRP-Akiwate.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF115-ANRP-Akiwate.png"}
+              %source{ :src => "/anrp/IETF115-ANRP-Akiwate.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-115, to
+            %b Corinne Cath
+            for her ethnographic work on the IETF's distinct organizational culture and how its 'rough' edges limit the ability of human rights' advocates to get their concerns included in technical discussions:
+          %dd
+            Corinne Cath,
+            "The Technology We Choose to Create: Human Rights Advocacy in the Internet Engineering Task Force"
+            Telecommunications Policy Journal, volume 45, number 6, 2021
+            %br
+            %a.btn.btn-secondary{ :href => "https://doi.org/10.1016/j.telpol.2021.102144"}
+              Paper
+            %a.btn.btn-secondary{ :href => "https://corinnecath.com/wp-content/uploads/2021/09/CathCorinne-Thesis-DphilInformationCommunicationSocialSciences.pdf"}
+              Thesis
+            %a.btn.btn-secondary{ :href => "/anrp/IETF115-ANRP-Cath.pdf"}
+              Slides
+
+          %dt
+            At IETF-115, to
+            %b Daniel Wagner
+            for his work on DDoS attack detection and mitigation:
+          %dd
+            Daniel Wagner, Daniel Kopp, Matthias Wichtlhuber, Christoph Dietzel, Oliver Hohlfeld, Georgios Smaragdakis, and Anja Feldmann,
+            "United We Stand: Collaborative Detection and Mitigation of Amplification DDoS Attacks at Scale",
+            Proceedings of the ACM SIGSAC Conference on Computer and Communications Security, 2021
+            %br
+            %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/10.1145/3460120.3485385"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF115-ANRP-Wagner.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF115-ANRP-Wagner.png"}
+              %source{ :src => "/anrp/IETF115-ANRP-Wagner.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-114, to
+            %b Tushar Swamy
+            for his work on data plane architectures for line-rate inference:
+          %dd
+            Tushar Swamy, Alexander Rucker, Muhammad Shahbaz, Ishan Gaur, and Kunle Olukotun 
+            "Taurus: A Data Plane Architecture for Per-Packet ML",
+            Proceedings of the International Conference on Architectural
+            Support for Programming Languages and Operating Systems, 2022.
+            Also available on
+            %a{ :href => "https://arxiv.org/pdf/2002.08987.pdf"} arXiv.
+            %br
+            %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/10.1145/3503222.3507726"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF114-ANRP-Swamy.pdf"}
+              slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF114-ANRP-Swamy.png"}
+              %source{ :src => "/anrp/IETF114-ANRP-Swamy.m4v", :type => "video/mp4"} 
+
+          %dt
+            At IETF-114, to 
+            %b Sam Kumar
+            for his work on TCP for low-power wireless networks:
+          %dd
+            Sam Kumar, Michael Andersen, Hyung-Sin Kim, and David Culler
+            "Performant TCP for Low-Power Wireless Networks",
+            Proceedings of the USENIX Symposium on Networked Systems Design and Implementation, 2020.
+            %br
+            %a.btn.btn-secondary{ :href => "https://www.usenix.org/conference/nsdi20/presentation/kumar"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF114-ANRP-Kumar.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF114-ANRP-Kumar.png"}
+              %source{ :src => "/anrp/IETF114-ANRP-Kumar.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-113, to 
+            %b Sangeetha Abdu Jyothi
+            for her work on the resilience of the Internet infrastructure 
+            to solar superstorms (large scale coronal mass ejections):
+          %dd
+            Sangeetha Abdu Jyothi, 
+            "Solar superstorms: planning for an internet apocalypse",
+            Proceedings of the ACM SIGCOMM Conference, 2021
+            %br
+            %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/10.1145/3452296.3472916"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF113-ANRP-Jyothi.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF113-ANRP-Jyothi.png"}
+              %source{ :src => "/anrp/IETF113-ANRP-Jyothi.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-113, to 
+            %b Bruce Spang
+            for his work showing that networking algorithm A/B tests can be
+            biased because of network congestion:
+          %dd
+            Bruce Spang, Veronica Hannan, Shravya Kunamalla, Te-Yuan Huang, Nick McKeown, and Ramesh Johari
+            “Unbiased experiments in congested networks",
+            Proceedings of the ACM Internet Measurement Conference Conference, 2021
+            %br
+            %a.btn.btn-secondary{ :href => "https://arxiv.org/abs/2110.00118"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF113-ANRP-Spang.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF113-ANRP-Spang.png"}
+              %source{ :src => "/anrp/IETF113-ANRP-Spang.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-112, to 
+            %b Thomas Wirtgen
+            for his work on the extensibility of BGP implementations, and
+            other routing protocols:
+          %dd
+            Thomas Wirtgen, Quentin De Coninck, Randy Bush, Laurent Vanbever, and Olivier Bonaventure,
+            "xBGP: When You Can't Wait for the IETF and Vendors”,
+            Proceedings of ACM HotNets, 2020
+            %br
+            %a.btn.btn-secondary{ :href => "https://nsg.ee.ethz.ch/fileadmin/user_upload/publications/hotnet023-wirtgenA.pdf"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF112-ANRP-Wirtgen.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF112-ANRP-Wirtgen.png"}
+              %source{ :src => "/anrp/IETF112-ANRP-Wirtgen.m4v", :type => "video/mp4"}
+
+
+          %dt
+            At IETF-112, to 
+            %b Aqsa Kashaf
+            for her work studying the effects of third-party service
+            dependencies in the Internet
+          %dd
+            Aqsa Kashaf, Vyas Sekar, and Yuvraj Agarwal,
+            "Analyzing Third Party Service Dependencies in Modern Web Services: Have We Learned from the Mirai-Dyn Incident?”,
+            Proceedings of ACM IMC 2020
+            %br
+            %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/10.1145/3419394.3423664"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF112-ANRP-Kashaf.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF112-ANRP-Kashaf.png"}
+              %source{ :src => "/anrp/IETF112-ANRP-Kashaf.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-112, to 
+            %b Kevin Bock
+            for his work on Internet censorship:
+          %dd
+            Kevin Bock, George Hughey, Louis-Henri Merino, Tania Arya, Daniel Liscinsky, Regina Pogosian, and Dave Levin,
+            "Come as You Are: Helping Unmodified Clients Bypass Censorship with Server-side Evasion”,
+            Proceedings of ACM SIGCOMM 2020
+            %br
+            %a.btn.btn-secondary{ :href => "https://www.cs.umd.edu/~dml/papers/geneva_sigcomm20.pdf"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF112-ANRP-Bock.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF112-ANRP-Bock.png"}
+              %source{ :src => "/anrp/IETF112-ANRP-Bock.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-111, to 
+            %b Rüdiger Birkner
+            for his work on network specification and verification:
+          %dd
+            Rüdiger Birkner, Dana Drachsler-Cohen, Laurent Vanbever, and Martin Vechev,
+            "Config2spec: Mining Network Specifications from Network Configurations”,
+            Proceedings of USENIX NSDI 2020.
+            %br
+            %a.btn.btn-secondary{ :href => "https://www.usenix.org/conference/nsdi20/presentation/birkner"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF111-ANRP-Birkner.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF111-ANRP-Birkner.png"}
+              %source{ :src => "/anrp/IETF111-ANRP-Birkner.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-111, to 
+            %b
+              Sadjad Fouladi
+            for his work on low-latency video streaming (awarded in 2020):
+          %dd
+            Sadjad Fouladi, John Emmons, Emre Orbay, Catherine Wu, Riad S. Wahby, and Keith Winstein,
+            "Salsify: low-latency network video through tighter integration between a video codec and a transport protocol",
+            Proceedings of USENIX NSDI 2018.
+            %br
+            %a.btn.btn-secondary{ :href => "https://www.usenix.org/conference/nsdi18/presentation/fouladi"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF111-ANRP-Fouladi.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF111-ANRP-Fouladi.png"}
+              %source{ :src => "/anrp/IETF111-ANRP-Fouladi.m4v", :type => "video/mp4"}
+
+          %dt 
+            At IETF-110, to 
+            %b Francis Y. Yan
+            for his work on applying machine learning to video bit-rate adaptation:
+          %dd
+            Francis Y. Yan, Hudson Ayers, Chenzhi Zhu, Sadjad Fouladi, James Hong, Keyi Zhang, Philip Levis, and Keith Winstein,
+            "Learning in situ: a randomized experiment in video streaming”,
+            Proceedings of USENIX NSDI 2020
+            %br
+            %a.btn.btn-secondary{ :href => "https://www.usenix.org/conference/nsdi20/presentation/yan"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF110-ANRP-Yan.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF110-ANRP-Yan.png"}
+              %source{ :src => "/anrp/IETF110-ANRP-Yan.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-110, to 
+            %b Audrey Randall
+            for her work on DNS caching and privacy :
+          %dd
+            Audrey Randall, Enze Liu, Gautam Akiwate, Ramakrishna Padmanabhan, Geoffrey M. Voelker, Stefan Savage, and Aaron Schulman,
+            "Trufflehunter: Cache Snooping Rare Domains at Large Public DNS Resolvers”,
+            Proceedings of ACM IMC 2020
+            %br
+            %a.btn.btn-secondary{ :href => "https://doi.org/10.1145/3419394.3423640"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF110-ANRP-Randall.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF110-ANRP-Randall.png"}
+              %source{ :src => "/anrp/IETF110-ANRP-Randall.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-109, to
+            %b Debopam Bhattacherjee
+            for his work on the design of network topologies for low-earth orbit satellite constellations:
+          %dd
+            Debopam Bhattacherjee and Ankit Singla,
+            "Network topology design at 27,000 km/hour",
+            Proceedings of ACM CoNEXT,
+            Orlando, FL, USA, December 2019.
+            %br
+            %a.btn.btn-secondary{ :href => "https://people.inf.ethz.ch/asingla/papers/conext19.pdf"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF109-ANRP-Bhattacherjee.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF109-ANRP-Bhattacherjee.png"}
+              %source{ :src => "/anrp/IETF109-ANRP-Bhattacherjee.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-109, to
+            %b Georgia Fragkouli
+            for her work on Internet transparency:
+          %dd
+            Georgia Fragkouli, Katerina Argyraki, and Bryan Ford,
+            "MorphIT: Morphing Packet Reports for Internet Transparency”,
+            Proceedings on Privacy Enhancing Technologies, 2019
+            %br
+            %a.btn.btn-secondary{ :href => "https://content.sciendo.com/view/journals/popets/2019/2/article-p88.xml"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF109-ANRP-Fragkouli.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF109-ANRP-Fragkouli.png"}
+              %source{ :src => "/anrp/IETF109-ANRP-Fragkouli.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-109, to
+            %b Ranysha Ware
+            for her work on congestion control fairness:
+          %dd
+            Ranysha Ware, Matthew K. Mukerjee, Srinivasan Seshan, and Justine Sherry,
+            "Beyond Jain’s Fairness Index: Setting the Bar For The Deployment of Congestion Control Algorithms",
+            Proceedings of ACM HotNets,
+            Princeton, NJ, USA, November 2019.
+            %br
+            %a.btn.btn-secondary{ :href => "https://www.cs.cmu.edu/~rware/assets/pdf/ware-hotnets19.pdf"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF109-ANRP-Ware.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF109-ANRP-Ware.png"}
+              %source{ :src => "/anrp/IETF109-ANRP-Ware.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-108, to
+            %b Shehar Bano 
+            for her work to develop a taxonomy of Internet host liveness:
+          %dd
+            Shehar Bano, Philipp Richter, Mobin Javed, Srikanth Sundaresan, Zakir Durumeric, Steven J. Murdoch, Richard Mortier, and Vern Paxson,
+            "Scanning the Internet for Liveness",
+            ACM Computer Communication Review, April 2018.
+            %br
+            %a.btn.btn-secondary{ :href => "https://doi.org/10.1145/3213232.3213234"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF108-ANRP-Bano.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF108-ANRP-Bano.png"}
+              %source{ :src => "/anrp/IETF108-ANRP-Bano.m4v", :type => "video/mp4"}
+            
+          %dt
+            At IETF-108, to
+            %b Chaoyi Lu
+            for his work on measuring DNS-over-encryption:
+          %dd
+            Chaoyi Lu, Baojun Liu, Zhou Li, Shuang Hao, Haixin Duan, Mingming Zhang, Chunying Leng, Ying Liu, Zaifeng Zhang, and Jian-ping Wu,
+            "An End-to-End, Large-Scale Measurement of DNS-over-Encryption: How Far Have We Come?”,
+            Proceedings of the ACM Internet Measurement Conference, Amsterdam, The Netherlands, October 2019.
+            %br
+            %a.btn.btn-secondary{ :href => "https://doi.org/10.1145/3355369.3355580"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF108-ANRP-Lu.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF108-ANRP-Lu.png"}
+              %source{ :src => "/anrp/IETF108-ANRP-Lu.m4v", :type => "video/mp4"}
+
+          %dt
+            At IETF-108, to
+            %b Ingmar Poese
+            for his work on traffic engineering:
+          %dd
+            Enric Pujol, Ingmar Poese, Johannes Zerwas, Georgios Smaragdakis, and Anja Feldmann,
+            "Steering Hyper-Giants’ Traffic at Scale”,
+            Proceedings of ACM CoNEXT,
+            Orlando, FL, USA, December 2019.
+            %br
+            %a.btn.btn-secondary{ :href => "https://depositonce.tu-berlin.de/bitstream/11303/10442/4/pujol_etal_2019.pdf"}
+              Paper
+            %a.btn.btn-secondary{ :href => "/anrp/IETF108-ANRP-Poese.pdf"}
+              Slides
+            %br
+            %video{ :controls => "", :preload => "none", :width => "50%", :poster => "/anrp/IETF108-ANRP-Poese.png"}
+              %source{ :src => "/anrp/IETF108-ANRP-Poese.m4v", :type => "video/mp4"}
+
+          %dt
+            No awards were made at IETF-107, due to COVID-19 pandemic.
+          %dd 
+            &nbsp;
+
+          %dt
+            At IETF-106, to
+            %b Weiteng Chen
+            for his work on wireless network security:
+          %dd
+            Weiteng Chen and Zhiyun Qian
+            %a{ :href => "https://www.usenix.org/node/217606"}
+              Off-path TCP exploit: how wireless routers can jeopardize your secrets,
+            Proceedings of the USENIX Security Symposium,
+            Baltimore, MD, USA, August 2018.
+          %br
+
+          %dt
+            At IETF-105, to
+            %a{ :href => "https://www.cse.huji.ac.il/~neta/"}
+              %b Neta Rozen Schiff 
+            for her work on NTP security:
+            %dd
+              Omer Deutsch, Neta Rozen Schiff, Danny Dolev, and Michael Schapira,
+              %a{ :href => "http://dx.doi.org/10.14722/ndss.2018.23231" } Preventing (Network) Time Travel with Chronos
+              Proc.
+              %a.venue{ :href => "https://www.ndss-symposium.org/ndss2018/" } Network and Distributed Systems Security (NDSS) Symposium 2018, 
+              San Diego, CA, USA, February 2018.
+          %dt
+            At IETF-105, to
+            %a{ :href => "http://taejoong.github.io"}
+              %b Taejoong Chung
+            for his work on Understanding the Role of Registrars in DNSSEC Deployment:
+            %dd
+              Taejoong Chung, Roland van Rijswijk-Deij, David Choffnes, Dave Levin, Bruce M. Maggs, Alan Mislove, and Christo Wilson,
+              %a{ :href => "https://conferences.sigcomm.org/imc/2017/papers/imc17-final53.pdf" } Understanding the Role of Registrars in DNSSEC Deployment
+              Proc.
+              %a.venue{ :href => "http://conferences.sigcomm.org/imc/2017/" } ACM Internet Measurement Conference (IMC),
+              London, UK, November 2017.
+          %dt
+            At IETF-104, to 
+            %b Florian Streibelt 
+            for showing how BGP communities can be exploited by remote parties to influence Internet routing:
+            %dd
+              Florian Streibelt, Franziska Lichtblau, Robert Beverly, Anja Feldmann, Cristel Pelsser, Georgios Smaragdakis, and Randy Bush.
+              %a{ :href => "https://dl.acm.org/authorize?N662534" } 
+                BGP Communities: Even more Worms in the Routing Can.
+              Proc.
+              %a.venue{ :href => "https://conferences.sigcomm.org/imc/2018/" } ACM Internet Measurement Conference 2018 (IMC '18).
+              Boston, MA, USA, October 2018.
+          %dt
+            At IETF-104, to 
+            %a{ :href => "https://research.fb.com/fellows/schlinker-brandon/" }
+              %b Brandon Schlinker
+            for presenting the first public analysis of a global, SDN-based content delivery solution serving over two billion users including real-time performance measurements:
+            %dd
+              Brandon Schlinker, Hyojeong Kim, Timothy Cui, Ethan Katz-Bassett, Harsha V. Madhyastha, Italo Cunha, James Quinn, Saif Hasan, Petr Lapukhov, and Hongyi Zeng.
+              %a{ :href => "https://doi.org/10.1145/3098822.3098853" } 
+                Engineering Egress with Edge Fabric: Steering Oceans of Content to the World.
+              Proc.  
+              %a.venue{ :href => "http://conferences.sigcomm.org/sigcomm/2017/" } ACM SIGCOMM Conference.
+              Los Angeles, CA, USA, August 2017.
+          %dt
+            At IETF-103, to
+            %a{ :href => "https://www.icir.org/johanna/" }
+              %b Johanna Amann
+            for the first large scale investigation of recently deployed web security features including their combined impact:
+            %dd
+              J. Amman, O. Gasser, Q. Scheitle, L. Brent, G. Carle, R. Holz.
+              %a{ :href => "https://www.icir.org/johanna/papers/imc17httpssecurity.pdf" }
+                Mission Accomplished? HTTPS Security after DigiNotar.
+              Proc.
+              %a.venue{ :href => "https://conferences.sigcomm.org/imc/2017/" } 17th Internet Measurement Conference (IMC'17), November 2017.
+          %dt
+            At IETF-103, to
+            %b Arash Molavi Kakhki
+            for a detailed analysis of multiple versions of a rapidly evolving, new transport protocol in a large number of environments:
+            %dd
+              Arash Molavi Kakhki, Samuel Jero, David Choffnes, Alan Mislove, Cristina Nita-Rotaru.
+              %a{ :href => "https://www.sjero.net/pubs/2017_IMC_QUIC.pdf" }
+                Taking a Long Look at QUIC: An Approach for Rigorous Evaluation of Rapidly Evolving Transport Protocols.
+              Proc.  
+              %a.venue{ :href => "https://conferences.sigcomm.org/imc/2017/" } 17th Internet Measurement Conference (IMC'17), November 2017.
+          %dt
+            At IETF-102, to
+            %a{ :href => "https://nsg.ee.ethz.ch/people/maria-apostolaki/" }
+              %b Maria Apostolaki
+            for a detailed analysis of the impact that Internet routing attacks (such as BGP hijacks) and malicious Internet Service Providers (ISP) can have on the Bitcoin cryptocurrency:
+            %dd
+              Maria Apostolaki, Aviv Zohar, Laurent Vanbever.
+              %a{ :href => "https://btc-hijack.ethz.ch/files/btc_hijack.pdf" }
+                Hijacking Bitcoin: Routing Attacks on Cryptocurrencies.
+              Proc.
+              %a.venue{ :href => "http://www.ieee-security.org/TC/SP2017/" } IEEE Symposium on Security and Privacy 2017. San Jose, CA , USA (May 2017).
+          %dt
+            At IETF-102, to
+            %a{ :href => "https://people.kth.se/~papadim/" }
+              %b Panos Papadimitratos
+            for improving our understanding of vehicular public key infrastructure in terms of security, privacy protection, and efficiency:
+            %dd
+              M. Khodaei, H. Jin, and P. Papadimitratos.
+              %a{ :href => "https://people.kth.se/~papadim/publications/fulltext/secmace-VPKI-2018.pdf" }
+                SECMACE: Scalable and Robust Identity and Credential Infrastructure in Vehicular Communication.
+              IEEE Transactions on Intelligent Transportation Systems (IEEE ITS), April 2018.
+          %dt
+            At IETF-101, to
+            %a{ :href => "https://www.linkedin.com/in/mojgan-ghasemi-487a2456/" }
+              %b Mojgan Ghasemi
+            for a detailed analysis of the performance of a commercial video streaming service:
+            %dd
+              Mojgan Ghasemi, Partha Kanuparthy, Ahmed Mansy, Theophilus Benson, Jennifer Rexford.
+              %a{ :href => "https://arxiv.org/abs/1605.04966" }
+                Performance Characterization of a Commercial Video Streaming Service.
+              Proc.
+              %a.venue{ :href => "http://conferences2.sigcomm.org/imc/2016/" } Internet Measurement Conference (IMC) 2016, Santa Monica, California, USA, Nov. 2016.
+          %dt
+            At IETF-101, to
+            %b Vaspol Ruamviboonsuk
+            for improving web client and server interactions to enhance webpage load times:
+            %dd
+              V. Ruamviboonsuk, R. Netravali, M. Uluyol, H. Madhyastha.
+              %a{ :href => "https://web.eecs.umich.edu/~harshavm/papers/vroom_sigcomm17.pdf" }
+                Vroom: Accelerating the Mobile Web with Server-Aided Dependency Resolution.
+              Proc.
+              %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2017/" } Conference of the ACM Special Interest Group on Data Communication (SIGCOMM ‘17). ACM, New York, NY, USA.
+          %dt
+            At IETF-100, to
+            %a{ :href => "https://www.net.in.tum.de/members/emmericp/" }
+              %b Paul Emmerich
+            for developing the high-speed packet generator MoonGen:
+            %dd
+              Paul Emmerich, Sebastian Gallenmüller, Daniel Raumer, Florian Wohlfart, and Georg Carle.
+              %a{ :href => "http://www.net.in.tum.de/fileadmin/bibtex/publications/papers/MoonGen_IMC2015.pdf" }
+                MoonGen: A Scriptable High-Speed Packet Generator.
+              Proc.
+              %a.venue{ :href => "http://conferences2.sigcomm.org/imc/2015/" } Internet Measurement Conference (IMC) 2015, Tokyo, Japan, Oct. 2015.
+          %dt
+            At IETF-100, to
+            %a{ :href => "https://wwwhome.ewi.utwente.nl/~rijswijkrm/" }
+              %b Roland van Rijswijk-Deij
+            for analysing the impact of elliptic curve cryptography on DNSSEC validation performance:
+            %dd
+              Roland van Rijswijk-Deij, Kaspar Hageman, Anna Sperotto and Aiko Pras.
+              %a{ :href => "https://ieeexplore.ieee.org/document/7574360" }
+                The Performance Impact of Elliptic Curve Cryptography on DNSSEC Validation.
+              Proc.
+              %a.venue{ :href => "https://ton.lids.mit.edu/" }
+                IEEE/ACM Transactions on Networking, Volume 25, Issue 2, April 2017.
+          %dt
+            At IETF-99, to
+            %b Stephen Checkoway
+            for a Systematic Analysis of the Juniper Dual EC Incident:
+          %dd
+            Stephen Checkoway, Jacob Maskiewicz, Christina Garman, Joshua Fried, Shaanan Cohney, Matthew Green, Nadia Heninger, Ralf-Philipp Weinmann, Eric Rescorla, and Hovav Shacham.
+            A Systematic Analysis of the Juniper Dual EC Incident
+            Proc.
+            %a.venue{ :href => "https://www.sigsac.org/ccs/CCS2016/index.html" } ACM Conference on Computer and Communications Security 2016, pp. 468–479. ACM Press, Oct. 2016.
+          %dt
+            At IETF-99, to
+            %b Philipp Richter
+            for a Multi-perspective Analysis of Carrier-Grade NAT Deployment:
+          %dd
+            P. Richter, F. Wohlfart, N. Vallina-Rodriguez, M. Allman, R. Bush, A. Feldmann, C. Kreibich, N. Weaver, and V. Paxson.
+            %a{ :href => "https://doi.org/10.1145/2987443.2987474" }
+              A Multi-perspective Analysis of Carrier-Grade NAT Deployment
+            Proc.
+            %a.venue{ :href => "http://conferences.sigcomm.org/imc/2016/index.html" } ACM IMC, Santa Monica, CA, USA, December 2016.
+          %dt
+            At IETF-98, to
+            %b Yossi Gilad
+            for the "path-end validation" extension to the RPKI:
+          %dd
+            Avichai Cohen, Yossi Gilad, Amir Herzberg and Michael Schapira.
+            %a{ :href => "http://dl.acm.org/ft_gateway.cfm?id=2934883" }
+              Jumpstarting BGP Security with Path-End Validation.
+            Proc.
+            %a.venue{ :href => "http://conferences.sigcomm.org/sigcomm/2016/" } ACM SIGCOMM,
+            Florianópolis, Brazil, August 2016.
+          %dt
+            At IETF-98, to
+            %a{ :href => "http://www.caida.org/~alistair/" }
+              %b Alistair King
+            for a framework to enable efficient processing of large amounts of distributed and/or live BGP data:
+          %dd
+            Chiara Orsini, Alistair King, Danilo Giordano, Vasileios Giotsas and Alberto Dainotti.
+            %a{ :href => "https://dl.acm.org/citation.cfm?id=2987482" } BGPStream: A Software Framework for Live and Historical BGP Data Analysis.
+            Proc.
+            %a.venue{ :href => "http://conferences.sigcomm.org/imc/2016/index.html" } ACM IMC,
+            Santa Monica, CA, USA, December 2016.
+          %dt
+            At IETF-97, to
+            %a{ :href => "http://inl.info.ucl.ac.be/otilmans.html" }
+              %b Olivier Tilmans
+            for the
+            %i Fibbing
+            architecture that enables central control over distributed routing:
+          %dd
+            Stefano Vissicchio, Olivier Tilmans, Laurent Vanbever and Jennifer Rexford.
+            %a{ :href => "http://conferences.sigcomm.org/sigcomm/2015/pdf/papers/p43.pdf" }
+              Central Control Over Distributed Routing.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2015/" } ACM SIGCOMM,
+            London, UK, August 2015.
+          %dt
+            At IETF-97, to
+            %a{ :href => "http://inl.info.ucl.ac.be/benjamin.html" }
+              %b Benjamin Hesmans
+            for enabling applications to control how Multipath TCP transfers data:
+          %dd
+            Benjamin Hesmans, Gregory Detal, Sebastien Barre, Raphael Bauduin and Olivier Bonaventure.
+            %a{ :href => "https://conferences2.sigcomm.org/co-next/2015/img/papers/conext15-final169.pdf" } SMAPP: Towards Smart Multipath TCP-enabled APPlications.
+            Proc.
+            %a.venue{ :href => "https://conferences2.sigcomm.org/co-next/2015/" } ACM CoNEXT,
+            Heidelberg, Germany, December 2015.
+          %dt
+            At IETF-96, to
+            %a{ :href => "https://www.sjero.net/" }
+              %b Samuel Jero
+            for a security analysis of the QUIC protocol:
+          %dd
+            Robert Lychev, Samuel Jero, Alexandra Boldyreva and Cristina Nita-Rotaru.
+            %a{ :href => "https://www.sjero.net/pubs/2015_Oakland_QUIC.pdf" }
+              How Secure and Quick is QUIC? Provable Security and Performance Analyses.
+            Proc.
+            %a.venue{ :href => "http://www.ieee-security.org/TC/SP2015/" } IEEE Symposium on Security and Privacy,
+            pp. 214--231, San Jose, CA, USA, May 2015.
+          %dt
+            At IETF-96, to
+            %a{ :href => "http://perso.telecom-paristech.fr/~drossi/" }
+              %b Dario Rossi
+            for characterizing anycast adoption and deployment in the IPv4 Internet:
+          %dd
+            Danilo Cicalese, Jordan Augé, Diana Joumblatt, Timur Friedman and Dario Rossi.
+            %a{ :href => "https://conferences2.sigcomm.org/co-next/2015/img/papers/conext15-final100.pdf" } Characterizing IPv4 Anycast Adoption and Deployment.
+            Proc.
+            %a.venue{ :href => "https://conferences2.sigcomm.org/co-next/2015/" } ACM CoNEXT,
+            Heidelberg, Germany, December 2015.
+          %dt
+            At IETF-95, to
+            %a{ :href => "https://ensa.fi" }
+              %b Roya Ensafi
+            for examining how the Chinese "great firewall" discovers hidden
+            circumvention servers:
+          %dd
+            Roya Ensafi, David Fifield, Philipp Winter, Nick Feamster, Nicholas Weaver, and Vern Paxson.
+            %a{ :href => "http://conferences.sigcomm.org/imc/2015/papers/p445.pdf" } Examining How the Great Firewall Discovers Hidden Circumvention Servers.
+            Proc.
+            %a.venue{ :href => "http://conferences.sigcomm.org/imc/2015/" } ACM Internet Measurement Conference (IMC),
+            Tokyo, Japan, October 28-30, 2015.
+          %dt
+            At IETF-95, to
+            %a{ :href => "https://zakird.com/" }
+              %b Zakir Durumeric
+            for an empirical analysis of email delivery security:
+          %dd
+            Zakir Durumeric, David Adrian, Ariana Mirian, James Kasten, Elie Bursztein, Nicolas Lidzborski, Kurt Thomas, Vijay Eranti, Michael Bailey, and J. Alex Halderman.
+            %a{ :href => "http://conferences.sigcomm.org/imc/2015/papers/p27.pdf" } Neither Snow Nor Rain Nor MITM… An Empirical Analysis of Email Delivery Security.
+            Proc.
+            %a.venue{ :href => "http://conferences.sigcomm.org/imc/2015/" } ACM Internet Measurement Conference (IMC),
+            Tokyo, Japan, October 28-30, 2015.
+
+          %dt
+            At IETF-94, to
+            %b 
+              Xiao Sophia Wang
+            for a systematic study of web page load times under SPDY:
+          %dd
+            Xiao Sophia Wang, Aruna Balasubramanian, Arvind Krishnamurthy and David Wetherall.
+            %a{ :href => "https://www.usenix.org/system/files/conference/nsdi14/nsdi14-paper-wang_xiao_sophia.pdf" } How Speedy is SPDY?
+            Proc.
+            %a.venue{ :href => "https://www.usenix.org/conference/nsdi14" } USENIX Symposium on Networked Systems Design and Implementation (NSDI),
+            Seattle, WA, USA, April 2-4, 2014.
+          %dt
+            At IETF-94, to
+            %a{ :href => "https://wwwhome.ewi.utwente.nl/~rijswijkrm/" }
+              %b Roland van Rijswijk-Deij
+            for a detailed measurement study on a large dataset of DNSSEC-signed domains:
+          %dd
+            Roland van Rijswijk-Deij, Anna Sperotto, and Aiko Pras.
+            %a{ :href => "https://conferences2.sigcomm.org/imc/2014/papers/p449.pdf" } DNSSEC and its Potential for DDoS Attacks: A Comprehensive Measurement Study.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/imc/2014/" } ACM Internet Measurement Conference (IMC),
+            Vancouver, BC, Canada, November 2014.
+
+          %dt
+            At IETF-93, to
+            %a{ :href => "https://sites.google.com/site/hayashulman/" }
+              %b Haya Shulman
+            for analyzing the deficiencies of DNS privacy approaches:
+          %dd
+            Haya Shulman.
+            %a{ :href => "https://www.ietf.org/mail-archive/web/dns-privacy/current/pdfWqAIUmEl47.pdf" } Pretty Bad Privacy: Pitfalls of DNS Encryption.
+            Proc.
+            %a.venue{ :href => "https://www.cylab.cmu.edu/news_events/events/wpes2014/" } ACM Workshop on Privacy in the Electronic Society (WPES),
+            Scottsdale, AZ, USA, November 3, 2014.
+          %dt
+            At IETF-93, to
+            %a{ :href => "https://www.lx.it.pt/~jls/" }
+              %b João Luís Sobrinho
+            for designing a route-aggregation technique that allows filtering while respecting routing policies:
+          %dd
+            João Luís Sobrinho, Laurent Vanbever, Franck Le and Jennifer Rexford.
+            %a{ :href => "https://www.cs.princeton.edu/~jrex/papers/dragon14.pdf" } Distributed Route Aggregation on the Global Network.
+            Proc.
+            %a.venue{ :href => "https://conferences2.sigcomm.org/co-next/2014/" } ACM CoNEXT,
+            Sydney, Australia, December 2-5, 2014.
+          %dt
+            At IETF-92, to
+            %a{ :href => "https://aaron.gember-jacobson.com/" }
+              %b Aaron Gember-Jacobson
+            for designing and evaluating an NFV control plane:
+          %dd
+            Aaron Gember-Jacobson, Raajay Viswanathan, Chaithan Prakash, Robert
+            Grandl, Junaid Khalid, Sourav Das and Aditya Akella.
+            %a{ :href => "https://aaron.gember-jacobson.com/docs/gember-jacobson2014opennf.pdf" } OpenNF: Enabling Innovation in Network Function Control.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2014/" } ACM SIGCOMM,
+            Chicago, IL, USA, August 2014.
+          %dt
+            At IETF-91, to
+            %a{ :href => "https://www.cs.bu.edu/~goldbe/" }
+              %b Sharon Goldberg
+            for discussing threats when BGP RPKI authorities are faulty, misconfigured, compromised, or compelled to misbehave:
+          %dd
+            Danny Cooper, Ethan Heilman, Kyle Brogle, Leonid Reyzin and Sharon Goldberg.
+            %a{ :href => "https://www.cs.bu.edu/~goldbe/papers/hotRPKI.pdf" } On the Risk of Misbehaving RPKI Authorities.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/hotnets/2013/" } ACM Workshop on Hot Topics in Networks (HotNets-XII),
+            College Park, MD, USA, November 2013.
+          %dt
+            At IETF-91, to
+            %b Tobias Flach
+            for the design of novel loss recovery mechanisms for TCP that minimize timeout-driven recovery:
+          %dd
+            Tobias Flach, Nandita Dukkipati, Andreas Terzis, Barath Raghavan, Neal Cardwell, Yuchung Cheng, Ankur Jain, Shuai Hao, Ethan Katz-Bassett, Ramesh Govindan.
+            %a{ :href => "https://research.google.com/pubs/archive/41217.pdf" } Reducing Web Latency: the Virtue of Gentle Aggression.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2013/" } ACM SIGCOMM,
+            Hong Kong, China, August 2013.
+          %dt
+            At IETF-91, to
+            %b Misbah Uddin
+            for developing matching and ranking for network search queries to make operational data available in real-time to management applications:
+          %dd
+            Misbah Uddin, Rolf Stadler and Alexander Clemm.
+            %a{ :href => "https://doi.org/10.1109/CNSM.2013.6727844" } Scalable Matching and Ranking for Network Search.
+            Proc.
+            International Conference on Network and Service Management (CNSM),
+            Zürich, Switzerland, October 2013.
+          %dt
+            At IETF-90, to
+            -# %a{ :href => "https://www.cc.gatech.edu/grads/r/rlychev/" }
+            %b Robert Lychev
+            for studying the security benefits provided by partially-deployed S*BGP:
+          %dd
+            Robert Lychev, Sharon Goldberg and Michael Schapira.
+            %a{ :href => "https://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p171.pdf" } BGP Security in Partial Deployment.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2013/" } ACM SIGCOMM,
+            Hong Kong, China, August 2013.
+          %dt
+            At IETF-89, to
+            %b Kenny Paterson
+            for finding and documenting new attacks against TLS and DTLS:
+          %dd
+            N. J. Al Fardan and K. G. Paterson.
+            %a{ :href => "https://dx.doi.org/10.1109/SP.2013.42" } Lucky Thirteen: Breaking the TLS and DTLS Record Protocols.
+            Proc.
+            %a.venue{ :href => "https://www.ieee-security.org/TC/SP2013/" } IEEE Symposium on Security and Privacy,
+            pp. 526--540, San Francisco, CA, USA, May 2013.
+          %dt
+            At IETF-89, to
+            %a{ :href => "https://cs.stanford.edu/~keithw/" }
+              %b Keith Winstein
+            for designing a transport protocol for interactive applications that desire high throughput and low delay:
+          %dd
+            Keith Winstein, Anirudh Sivaraman, and Hari Balakrishnan.
+            %a{ :href => "https://www.usenix.org/system/files/conference/nsdi13/nsdi13-final113.pdf" } Stochastic Forecasts Achieve High Throughput and Low Delay over Cellular Networks.
+            Proc.
+            %a.venue{ :href => "https://www.usenix.org/conference/nsdi13" } 10th USENIX Symposium on Networked Systems Design and Implementation (NSDI),
+            Lombard, IL, USA, April 2013.
+          %dt
+            At IETF-88, to
+            %a{ :href => "https://sites.google.com/site/idiliod/" }
+              %b Idilio Drago
+            for characterizing traffic and workloads of the Dropbox cloud storage system:
+          %dd
+            Idilio Drago, Marco Mellia, Maurizio M. Munafo, Anna Sperotto, Ramin Sadre and Aiko Pras.
+            %a{ :href => "https://eprints.eemcs.utwente.nl/22286/01/imc140-drago.pdf" } Inside Dropbox: Understanding Personal Cloud Storage Services.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/imc/2012/" } ACM Internet Measurement Conference (IMC),
+            Boston, MA, USA, November 2012.
+          %dt
+            At IETF-87, to
+            -# %a{ :href => "https://www.stanford.edu/~huangty/" }
+            %b Te-Yuan Huang
+            for insights into the difficulties of rate adaptation for streaming video:
+          %dd
+            Te-Yuan Huang, Nikhil Handigol, Brandon Heller, Nick McKeown and Ramesh Johari.
+            %a{ :href => "https://doi.org/10.1145/2398776.2398800" } Confused, Timid, and Unstable: Picking a Video Streaming Rate is Hard.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/imc/2012/" } ACM Internet Measurement Conference (IMC),
+            Boston, MA, USA, November 2012.
+          %dt
+            At IETF-87, to
+            %a{ :href => "https://vanbever.eu/" }
+              %b Laurent Vanbever
+            for proposing a framework to allow seamless BGP reconfigurations:
+          %dd
+            Stefano Vissicchio, Laurent Vanbever, Cristel Pelsser, Luca Cittadini, Pierre Francois and Olivier Bonaventure.
+            %a{ :href => "https://inl.info.ucl.ac.be/system/files/bgpmig_final.pdf" } Improving Network Agility with Seamless BGP Reconﬁgurations.
+            Proc.
+            %a.venue{ :href => "https://dl.acm.org/citation.cfm?id=2525566" } IEEE/ACM Transactions on Networking (TON),
+            Volume 21, Issue 3, June 2013, pp 990-1002.
+          %dt
+            At IETF-86, to
+            %b Gonca Gürsun
+            for defining a metric that allows an analysis of BGP routing policies:
+          %dd
+            Gonca Gürsun, Natali Ruchansky, Evimaria Terzi and Mark Crovella.
+            %a{ :href => "https://cs-people.bu.edu/evimaria/papers/imc12-rsd.pdf" } Routing State Distance: A Path-based Metric For Network Analysis.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/imc/2012/" } ACM Internet Measurement Conference (IMC),
+            Boston, MA, USA, November 2012.
+          %dt
+            At IETF-85, to
+            %b Srikanth Sundaresan
+            for his measurement study of access link performance on home gateway devices:
+          %dd
+            Srikanth Sundaresan, Walter de Donato, Nick Feamster, Renata Teixeira, Sam Crawford and Antonio Pescapè.
+            %a{ :href => "https://conferences.sigcomm.org/sigcomm/2011/papers/sigcomm/p134.pdf" } Broadband Internet Performance: A View From the Gateway.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/sigcomm/2011/" } ACM SIGCOMM,
+            Toronto, Canada, August 2011.
+          %dt
+            At IETF-85, to
+            %a{ :href => "http://yuba.stanford.edu/~peyman/" }
+              %b Peyman Kazemian
+            for developing a general and protocol-agnostic framework for statically checking network specifications and configurations:
+          %dd
+            Peyman Kazemian, George Varghese and Nick McKeown.
+            %a{ :href => "https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final8.pdf" } Header Space Analysis: Static Checking For Networks.
+            Proc.
+            %a.venue{ :href => "https://www.usenix.org/conference/nsdi12" } USENIX Symposium on Networked Systems Design and Implementation (NSDI),
+            San Jose, CA, USA, April 2012.
+          %dt
+            At IETF-84, to
+            %a{ :href => "https://www.caida.org/~alberto/" }
+              %b Alberto Dainotti
+            for his research into Internet communication disruptions due to filtering:
+          %dd
+            Alberto Dainotti, Claudio Squarcella, Emile Aben, K.C.  Claffy, Marco Chiesa, Michele Russo and Antonio Pescapè.
+            %a{ :href => "https://www.caida.org/publications/papers/2011/outages_censorship/outages_censorship.pdf" } Analysis of Country-wide Internet Outages Caused by Censorship.
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/imc/2011/" } ACM Internet Measurement Conference (IMC),
+            Berlin, Germany, November 2011.
+          %dt
+            (No ANRP was awarded at IETF-83, due to the change to a yearly award cycle.)
+          %dt
+            At IETF-82, to
+            %a{ :href => "https://www.micchie.net/" }
+              %b Michio Honda
+            for his research into determining the future extensibility of TCP:
+          %dd
+            Michio Honda, Yoshifumi Nishida, Costin Raiciu, Adam Greenhalgh, Mark Handley and Hideyuki Tokuda.
+            %a{ :href => "https://conferences.sigcomm.org/imc/2011/docs/p181.pdf" } Is it Still Possible to Extend TCP?
+            Proc.
+            %a.venue{ :href => "https://conferences.sigcomm.org/imc/2011/" } ACM Internet Measurement Conference (IMC),
+            Berlin, Germany, November 2011.
+          %dt
+            At IETF-82, to
+            -# %a{ :href => "https://eecis.udel.edu/~nekiz/" }
+            %b Nasif Ekiz
+            for his analysis of misbehaving TCP receivers:
+          %dd
+            Nasif Ekiz, Abuthahir Habeeb Rahman and Paul D. Amer.
+            %a{ :href => "https://dx.doi.org/10.1145/1971162.1971165" } Misbehaviors in TCP SACK Generation.
+            %a.venue{ :href => "https://dl.acm.org/citation.cfm?id=J101" } ACM SIGCOMM Computer Communication Review,
+            Volume 41, Issue 2, April 2011.
+          %dt
+            At IETF-81, to
+            %a{ :href => "http://caia.swin.edu.au/cv/mrossi/" }
+              %b Mattia Rossi
+            for his research into reducing BGP traffic:
+          %dd
+            Geoff Huston, Mattia Rossi and Grenville Armitage.
+            %a{ :href => "https://dx.doi.org/10.1109/JSAC.2010.101005" } A Technique for Reducing BGP Update Announcements through Path Exploration Damping.
+            %a.venue{ :href => "https://www.comsoc.org/publications/journals/ieee-jsac" } IEEE Journal on Selected Areas in Communications (JSAC),
+            Vol. 28, No. 8, pp. 1271--1286, October 2010.
+          %dt
+            At IETF-81, to
+            %a{ :href => "https://www.cs.arizona.edu/~bzhang/" }
+              %b Beichuan Zhang
+            for his research into "green" traffic engineering:
+          %dd
+            Mingui Zhang, Cheng Yi, Bin Liu and Beichuan Zhang.
+            %a{ :href => "https://dx.doi.org/10.1109/ICNP.2010.5762751" } GreenTE: Power-Aware Traffic Engineering.
+            Proc.  IEEE International Conference on Network Protocols (ICNP),
+            pp. 21--30, October 2010.
 
