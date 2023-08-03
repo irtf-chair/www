@@ -6,14 +6,18 @@
 
   %body.d-flex.flex-column.min-vh-100
     %div.container
-      %div
-      - if @items["/img/anrw_logo_#{year}.png"]
-        %img.img-fluid{ src: relative_path_to("/img/anrw_logo_#{year}.png") }
-      - else
-        %h1
-          %small ACM/IRTF
-          %br
-          Applied Networking Research Workshop #{year}
+      %div.row.mt-4.mb-4
+        - if @items["/img/anrw_logo_#{year}.png"]
+          %div.col-sm-6
+            %img.img-fluid{ src: relative_path_to("/img/anrw_logo_#{year}.png") }
+        - else
+          %div.col-sm-6
+            %h1
+              %small ACM/IRTF
+              %br
+              Applied Networking Research Workshop #{year}
+        %div.col-sm-6
+          &nbsp;
 
     %nav.navbar.navbar-expand-sm.navbar-light
       %div.container
