@@ -2,53 +2,44 @@
 
 !!! 5
 %html{ lang: 'en' }
-  = render '/head_.*'
+  = render '/head5_.*'
 
   %body.d-flex.flex-column.min-vh-100
-    %nav.navbar.navbar-default
-      .container-fluid
-        .navbar-heading
-          - if @items["/img/anrw_logo_#{year}.png"]
-            %img.img-responsive{ src: relative_path_to("/img/anrw_logo_#{year}.png") }
-          - else
-            %small ACM/IRTF
-            %br
-            Applied Networking Research Workshop #{year}
-        .navbar-header
-          %a.navbar-brand{ href: '../' } ANRW Series
-          %button.navbar-toggle.collapsed{ type: 'button',
-            'data-toggle' => 'collapse', 'data-target' => '#anrw-collapse',
-            'aria-expanded' => 'false' }
-            %span.sr-only Toggle navigation
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-        .collapse.navbar-collapse#anrw-collapse
-          %ul.nav.navbar-nav
-            - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : '' end).each do |item|
-              - if item.path =~ %r{(/|html)$} and not item[:menu_hidden] and not item[:other]
-                %li{ :class => ('active' if item[:menu] == @item[:menu]) }
-                  %a{ :href => '.' + item.path.split(year)[-1] } #{item[:menu]}
-            - if @items.find_all(%r{./#{year}}).count{|x| x[:other]} > 0
-              %li.dropdown{ :class => ('active' if @items.find_all(%r{./#{year}}).count{|x| x[:other] and x[:menu] == @item[:menu]} > 0) }
-                %a.dropdown-toggle{ 'data-toggle' => 'dropdown', :role => 'button', 'aria-haspopup' => 'true', 'aria-expanded' => 'false' }
-                  Other
-                  %span.caret
-                %ul.dropdown-menu
-                  - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : '' end).each do |item|
-                    - if (item.path =~ %r{(/|html)$} and not item[:menu_hidden] and item[:other])
-                      %li{ :class => ('active' if item[:menu] == @item[:menu]) }
-                        %a{ :href => '.' + item.path.split(year)[-1] } #{item[:menu] }
+    %div.container
+      %div
+      - if @items["/img/anrw_logo_#{year}.png"]
+        %img.img-fluid{ src: relative_path_to("/img/anrw_logo_#{year}.png") }
+      - else
+        %h1
+          %small ACM/IRTF
+          %br
+          Applied Networking Research Workshop #{year}
 
+    %nav.navbar.navbar-expand-sm.navbar-light
+      %div.container
+        %button.navbar-toggler{"type": "button", "data-bs-toggle": "collapse", "data-bs-target": "#collapsibleNavbar"}
+          %span.navbar-toggler-icon
 
+        %div.collapse.navbar-collapse#collapsibleNavbar
+          %a.navbar-brand{"href": relative_path_to("/anrw/") } ANRW Series
 
-    .container-fluid
-      -# .alert.alert-danger.alert-dismissible
-      -#   %button{ :type => 'button', :class => 'close', 'data-dismiss' => 'alert', 'aria-label' => 'Close'}
-      -#     %span{ 'aria-hidden' => 'true'} &times;
-      -#   %span.glyphicon.glyphicon-alert{ 'aria-hidden' => 'true' }
-      -#   Do not share URL with others yet!
+          %div.collapse.navbar-collapse#collapsibleNavbar
+            %ul.navbar-nav
+              - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : '' end).each do |item|
+                - if item.path =~ %r{(/|html)$} and not item[:menu_hidden] and not item[:other]
+                  %li.nav-item{ :class => ('active' if item[:menu] == @item[:menu]) }
+                    %a.nav-link{ :href => '.' + item.path.split(year)[-1] } #{item[:menu]}
+              - if @items.find_all(%r{./#{year}}).count{|x| x[:other]} > 0
+                %li.nav-item.dropdown{ :class => ('active' if @items.find_all(%r{./#{year}}).count{|x| x[:other] and x[:menu] == @item[:menu]} > 0) }
+                  %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} Other
+                  %ul.dropdown-menu
+                    - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : '' end).each do |item|
+                      - if (item.path =~ %r{(/|html)$} and not item[:menu_hidden] and item[:other])
+                        %li{ :class => ('active' if item[:menu] == @item[:menu]) }
+                          %a.dropdown-item{ :href => '.' + item.path.split(year)[-1] } #{item[:menu] }
+
+    %div.container
       = yield
 
-    = render '/footer_.*'
-    = render '/scripts_.*'
+    = render "/footer5_.*", :irtf => true
+    = render '/scripts5_.*'

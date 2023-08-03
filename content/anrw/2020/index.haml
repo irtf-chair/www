@@ -7,36 +7,39 @@ date: July 30-31, 2020
 ietf: IETF-108
 ---
 
-.hidden-xs.pull-right.col-sm-4
-  %img.img-thumbnail.img-responsive{ src: 'photo.jpg', alt: "#{@item[:location]}" }
+%div.row
+  %div.col-sm-8.col-xs-12
+    %p
+      The ACM/IRTF Applied Networking Research Workshop 2020 (ANRW’20) is an
+      academic workshop that provides a forum for researchers, vendors, network
+      operators, and the Internet standards community to present and discuss
+      emerging results in applied networking research, and to find inspiration
+      from topics and open problems discussed at the IETF. The workshop will
+      consist of a mix of invited talks, submitted talks, and submitted short
+      papers.
+
+    %p 
+      ANRW ’20 particularly encourages the submission of results that could
+      form the basis for future engineering work in the IETF, that could help
+      better specify Internet protocols, that could change operational Internet
+      practices, or that could influence further research and experimentation
+      in the IRTF. ANRW ‘20 is sponsored by ACM SIGCOMM, and the Internet
+      Research Task Force (IRTF).
+
+    %p.lead= render '/anrw/2020/place_.*'
+
+    %h2 Important Dates
+    = render '/anrw/2020/dates_.*'
+
+    %h2 Supporters and Sponsors
+    = render '/anrw/2020/supporters_.*'
+    = render '/anrw/sponsors_.*'
+
+  %div.col-sm-4.d-none.d-sm-block
+    %img.img-fluid{ src: 'photo.jpg', alt: "#{@item[:location]}" }
     %p.text-muted
       %small
         %a{ href: 'https://unsplash.com/photos/WBGjg0DsO_g' } 'Calle Gran Vía, Madrid, Spain'
         by Florian Wehde on
         %a{ href: 'https://unsplash.com/' } Unsplash
 
-%p
-  The ACM/IRTF Applied Networking Research Workshop 2020 (ANRW’20) is an
-  academic workshop that provides a forum for researchers, vendors, network
-  operators, and the Internet standards community to present and discuss
-  emerging results in applied networking research, and to find inspiration
-  from topics and open problems discussed at the IETF. The workshop will
-  consist of a mix of invited talks, submitted talks, and submitted short
-  papers.
-
-%p 
-  ANRW ’20 particularly encourages the submission of results that could
-  form the basis for future engineering work in the IETF, that could help
-  better specify Internet protocols, that could change operational Internet
-  practices, or that could influence further research and experimentation
-  in the IRTF. ANRW ‘20 is sponsored by ACM SIGCOMM, and the Internet
-  Research Task Force (IRTF).
-
-%p.lead= render '/anrw/2020/place_.*'
-
-%h2 Important Dates
-= render '/anrw/2020/dates_.*'
-
-%h2 Supporters and Sponsors
-= render '/anrw/2020/supporters_.*'
-= render '/anrw/sponsors_.*'
