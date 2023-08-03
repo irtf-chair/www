@@ -1,21 +1,37 @@
-%footer.footer
-  .container-fluid
-    .row
+%footer.bg-secondary.mt-auto
+  %div.container
+    %div.row.pb-4.pt-4
       - if @irtf
-        .col-xs-2.text-muted.small
-          IRTF sponsors:
-        .col-xs-2.text-muted.small
-          %a{ :href => "https://ietf.org/" }
-            %img.img-responsive{ :src => relative_path_to("/img/ietf.png"),
-                  :alt => "Internet Engineering Task Force (IETF)" }
-        .col-xs-2.text-muted.small
-          %a{ :href => "https://www.internetsociety.org/" }
-            %img.img-responsive{ :src => relative_path_to("/img/isoc.png"),
-                  :alt => "Internet Society (ISOC)" }
+        %div.col-sm-2
+          %p
+            %a.link-light.link-underline-secondary{ :href => "https://www.ietf.org/" }
+              IETF
+        %div.col-sm-2
+          %p
+            %a.link-light.link-underline-secondary{ :href => "https://www.iab.org/" }
+              IAB
+        %div.col-sm-2
+          %p
+            %a.link-light.link-underline-secondary{ :href => "https://www.iana.org/" }
+              IANA
+        %div.col-sm-2
+          %p
+            %a.link-light.link-underline-secondary{ :href => "https://www.rfc-editor.org/" }
+              RFC Editor
+        %div.col-sm-2
+          %p
+            %a.link-light.link-underline-secondary{ :href => "https://www.ietf.org/about/administration/overview/" }
+              IETF LLC
+        %div.col-sm-2
+          %p
+            %a.link-light.link-underline-secondary{ :href => "https://trustee.ietf.org/" }
+              IETF Trust
       - else
-        .col-xs-6
+        %div.col-sm-12
+          %p
+            &nbsp;
 
-      .col-xs-6.text-right.text-muted.small
-        Modified:
-        %time{ :datetime => "#{item[:mtime].strftime('%F')}" }
-          #{item[:mtime].strftime('%F')}
+-#      %div.col-sm-4.text-right
+-#        Modified:
+-#        %time{ :datetime => "#{item[:mtime].strftime('%F')}" }
+-#          #{item[:mtime].strftime('%F')}

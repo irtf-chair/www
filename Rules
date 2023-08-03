@@ -21,7 +21,7 @@ compile "/**/*.haml" do
   when item.identifier.to_s.match(/anrw[^\/]*\/\d+\//)
     layout "/anrw.*"
   else
-    layout "/default5.*"
+    layout "/default.*"
   end
   filter :rubypants
   # haml files become html files

@@ -1,67 +1,53 @@
-%nav.navbar.navbar-default.navbar-fixed-top
-  .container-fluid
-    .navbar-header
-      %button.navbar-toggle.collapsed{ :type => "button", "data-toggle" => "collapse", "data-target" => "#menu-collapse", "aria-expanded" => "false" }
-        %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.navbar-brand{ :href => relative_path_to("/") }
-        IRTF
-        -# %img{ :alt => "IRTF", :src => "img/irtf-horiz.png", :height => 25}
+%nav.navbar.navbar-expand-sm.navbar-light.bg-light
+  %div.container
+    %a.navbar-brand{"href": relative_path_to("/") } IRTF
 
-    .collapse.navbar-collapse#menu-collapse
-      %ul.nav.navbar-nav
-        %li
-        %li.dropdown
-          %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
-            Research Groups
-            %span.caret
+    %button.navbar-toggler{"type": "button", "data-bs-toggle": "collapse", "data-bs-target": "#collapsibleNavbar"}
+      %span.navbar-toggler-icon
+
+    %div.collapse.navbar-collapse#collapsibleNavbar
+      %ul.navbar-nav
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{"href": "#", "role": "button", "data-bs-toggle": "dropdown"} Research Groups
           %ul.dropdown-menu
             - $rgs.values.sort.each do |rg|
-              %li= rg.url(relative_path_to("/"))
-            %li.divider
+              %li
+                %a.dropdown-item{"href": relative_path_to("/" + rg.acronym.downcase + ".html")} #{rg.acronym}
             %li
-              %a{ :href => relative_path_to("/groups") } All groups
+              %hr.dropdown-divider
+            %li
+              %a.dropdown-item{"href": relative_path_to("/groups.html")} All Research Groups
 
-        %li.dropdown
-          %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
-            Workshops and Prizes
-            %span.caret
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} Workshops &amp; Prizes
           %ul.dropdown-menu
             %li
-              %a{ :href => relative_path_to("/anrp") } Applied Networking Research Prize
-            %li.dropdown-submenu
-              %a{ :href => relative_path_to("/anrw/"), :tabindex => "-1" } Applied Networking Research Workshops
-              %ul.dropdown-menu
-                - @items.find_all(%r{/anrw/(\d+)/index.*}).sort_by{ |item| item[:order] }.each do |item|
-                  %li
-                    %a{ :href => relative_path_to(item) } #{item[:menu]}
-            %li.dropdown-submenu
-              %a{ :href => "#", :tabindex => "-1" } Other Workshops
-              %ul.dropdown-menu
-                %li
-                  %a{ :href => relative_path_to("/raim-2015") } RAIM 2015
+              %a.dropdown-item{"href": relative_path_to("/anrp/") } Applied Networking Research Prize
             %li
-              %a{ :href => relative_path_to("/travelgrants") } Travel Grants
+              %a.dropdown-item{"href": relative_path_to("/anrw/")} Applied Networking Research Workshop
+            %li
+              %a.dropdown-item{"href": relative_path_to("/raim-2015.html")} RAIM 2015
+            %li
+              %a.dropdown-item{"href": relative_path_to("/travelgrants.html")} Travel Grants
 
-        %li.dropdown
-          %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
-            People
-            %span.caret
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} People
           %ul.dropdown-menu
             %li
-              %a{ :href => relative_path_to("/chair") } IRTF Chair
+              %a.dropdown-item{"href": relative_path_to("/chair.html")} IRTF Chair
             %li
-              %a{ :href => relative_path_to("/irsg") } Steering Group
+              %a.dropdown-item{"href": relative_path_to("/irsg.html")} Steering Group
 
-        %li.dropdown
-          %a.dropdown-toggle{ :href => "", "data-toggle" => "dropdown", :role => "button", "aria-haspopup" => "true", "aria-expanded" => "false" }
-            Policies
-            %span.caret
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} Policies
           %ul.dropdown-menu
             %li
-              %a{ :href => relative_path_to("/policies/") } Policies and Procedures
-              %a{ :href => relative_path_to("/ipr") } Intellectual Property Rights
-              %a{ :href => "https://www.ietf.org/blog/ietf-anti-harassment-policy/" } Anti-Harassment Policy
-              %a{ :href => "https://ietf.org/privacy-statement/" } Privacy Policy
+              %a.dropdown-item{"href": relative_path_to("/policies/")} Policies and Procedures
+            %li
+              %a.dropdown-item{"href": relative_path_to("/policies/ipr.html")} Intellectual Property Rights
+            %li
+              %a.dropdown-item{"href": "https://www.ietf.org/blog/ietf-anti-harassment-policy/"} Anti-Harassment Policy
+            %li
+              %a.dropdown-item{"href": "https://ietf.org/privacy-statement/"} Privacy Policy
+
+

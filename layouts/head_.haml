@@ -7,16 +7,11 @@
 
 %head
   %meta{ :charset => "utf-8" }
-
-  -# Always force latest IE rendering engine (even in intranet) & Chrome Frame
-  %meta{ "http-equiv" => "X-UA-Compatible", :content => "IE=edge" }
-
-  -# Mobile viewport optimized: j.mp/bplateviewport
   %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
 
   %title= strip_html(title)
 
-  %link{ :rel => "stylesheet", :href => relative_path_to("/css/style.css") }
-  %link{ :rel => "icon", :type => "image/png", :href => relative_path_to("/img/favicon.png") }
-  %link{ :rel => "apple-touch-icon", :type => "image/png", :href => relative_path_to("/img/apple-icon.png") }
+  %link{ :rel => "stylesheet", :href => relative_path_to("/bootstrap-5.3.1-dist/css/bootstrap.css")}
+  %link{ :rel => "icon", :type => "image/png", :href => relative_path_to("/img/favicon.png")}
+  %link{ :rel => "apple-touch-icon", :type => "image/png", :href => relative_path_to("/img/apple-icon.png")}
   %link{ :rel => "me", :href => "https://discuss.systems/@irtf"}

@@ -3,10 +3,10 @@
 -# encoding: utf-8
 !!! 5
 %html{ :lang => "en" }
-  = render "/head5_.*", :concluded => true
+  = render "/head_.*", :concluded => true
 
   %body.d-flex.flex-column.min-vh-100
-    = render "/menu5_.*"
+    = render "/menu_.*"
     %div.container.mb-5
       %div.row.mt-4.bt-4
         %div.col-sm-8.col-xs-12.mb4
@@ -54,5 +54,5 @@
           - if rg.respond_to?("name")
             = render "/historicinfo_.*"
 
-    = render "/footer5_.*", :irtf => true
-    = render "/scripts5_.*"
+    = render "/footer_.*", :irtf => true
+    = render "/scripts_.*"

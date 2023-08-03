@@ -7,32 +7,31 @@
 %html{ :lang => "en" }
   = render "/head_.*", :concluded => false
 
-  %body.irtf
+  %body.d-flex.flex-column.min-vh-100
     = render "/menu_.*"
-    .container-fluid
-      .row
+    %div.container.mb-5
+      %div.row.mt-4.bt-4
         - if not @item[:logo_hidden]
-          .col-sm-8.col-xs-12
+          %div.col-sm-8.col-xs-12.mb-4
             %h1
               #{title}
               %small #{abbrev}
         - else
-          .col-sm-12
+          %div.col-sm-12.mb-4
             %h1
               #{title}
               %small #{abbrev}
 
         - if not @item[:logo_hidden]
-          .col-sm-4.hidden-xs
-            %a{:href => "./"}
-              %img.img-responsive.pull-right{:src => relative_path_to("/img/irtf.png"),
-                   :alt => "Internet Research Task Force (IRTF)"}
+          %div.col-sm-4.col-xs-12.text-center.mb-4.d-none.d-sm-block
+            %a{:href => "/"}
+              %img.img-fluid{:src => relative_path_to("/img/irtf.png"), :alt => "Internet Research Task Force (IRTF)"}
 
       - if $rgs[id] != nil
-        .row
-          .col-sm-8
+        %div.row
+          %div.col-sm-8
             = yield
-          .col-sm-4.rightbar.pushed-down
+          %div.col-sm-4
             = render "/rightbar_.*"
       - else
         = yield
