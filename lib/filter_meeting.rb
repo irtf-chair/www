@@ -13,7 +13,7 @@ class MeetingFilter < Nanoc::Filter
       element.content = element.content.gsub(/\bIETF-([0-9]{1,3}\b)/) {
         |rfc| if $1.to_i < 96 then
                 link_to("IETF-#{$1}", "https://ietf.org/proceedings/#{$1}/index.html")
-              elsif $1.to_i < 113 then
+              elsif $1.to_i < 117 then
                 link_to("IETF-#{$1}", "https://datatracker.ietf.org/meeting/#{$1}/proceedings")
               else
                 link_to("IETF-#{$1}", "https://www.ietf.org/how/meetings/#{$1}/")
