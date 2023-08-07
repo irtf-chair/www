@@ -7,18 +7,6 @@ menu: Program
 
 %p= render "/anrw/2020/place_.*"
 
-
-%h2 Slack Channel
-
-%p
-  If you would like to meet with other attendees, the SIGCOMM Community
-  Slack space has a channel dedicated to ANRW 2020 (#anrw2020). The SIGCOMM
-  Community Slack was created specifically for the purpose of facilitating
-  online interaction during virtual conferences.
-  To join the SIGCOMM Community Slack, use 
-  %a{ href: "https://join.slack.com/t/sigcomm/shared_invite/zt-erk5tjkg-bsoSc1UXlOY03uU~E2zPVA"} this invitation link
-  and follow the instructions.
-
 %h2 Program
 
 %p
@@ -38,15 +26,12 @@ menu: Program
       %td
         %b July 30, 2020<br> 11:00-12:40
       %td
-        %h4.text-danger Welcome and Opening Remarks
-        %div.row
-          %div.col-lg-8
-            %p
-              Roland van Rijswijk-Deij and Mirja Kühlewind 
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-welcome.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
+        %h4 Welcome and Opening Remarks
+        %p
+          Roland van Rijswijk-Deij and Mirja Kühlewind 
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-welcome.pdf"}
+            Slides
 
 
       %td
@@ -56,248 +41,199 @@ menu: Program
       %td
         &nbsp;
       %td
-        %h4.text-danger DNS and BGP
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p10"}
-              %b
-                /%a{ href: "anrw2020-final10.pdf"} Enabling Privacy-Aware Zone Exchanges Among Authoritative and Recursive DNS Servers 
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406665"} Enabling Privacy-Aware Zone Exchanges Among Authoritative and Recursive DNS Servers 
-              %br
-              Nikos Kostopoulos, Dimitris Kalogeras, and Vasilis Maglaris
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-kostopoulos-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406665", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %h4 DNS and BGP
+        %p
+          %a{ name: "p10"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406665"} Enabling Privacy-Aware Zone Exchanges Among Authoritative and Recursive DNS Servers 
+          %br
+          Nikos Kostopoulos, Dimitris Kalogeras, and Vasilis Maglaris
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-kostopoulos-00.pdf"}
+            slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406665", :class => "btn btn-default btn-xs", :role => "button"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p17"}
-              %b
-                /%a{ href: "anrw2020-final17.pdf"} Inferring the Deployment of Inbound Source Address Validation Using DNS Resolvers 
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406668"} Inferring the Deployment of Inbound Source Address Validation Using DNS Resolvers 
-              <span class="label label-success">(Position Paper)</span>
-              %br
-              Maciej Korczynski, Yevheniya Nosyk, Qasim Lone, Marcin Skwarek, Baptiste Jonglez, and Andrzej Duda
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-nosyk-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406668", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p17"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406668"} Inferring the Deployment of Inbound Source Address Validation Using DNS Resolvers 
+          %span.badge.bg-secondary
+            Position Paper
+          %br
+          Maciej Korczynski, Yevheniya Nosyk, Qasim Lone, Marcin Skwarek, Baptiste Jonglez, and Andrzej Duda
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-nosyk-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406668"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p28"}
-              %b
-                /%a{ href: "anrw2020-final28.pdf"} Limiting the Power of RPKI Authorities
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406674"} Limiting the Power of RPKI Authorities
-              %br
-              Kris Shrishak and Haya Shulman
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-shrishak-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406674", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p28"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406674"} Limiting the Power of RPKI Authorities
+          %br
+          Kris Shrishak and Haya Shulman
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-shrishak-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406674"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p25"}
-              %b
-                /%a{ href: "anrw2020-final25.pdf"} Withdrawal Symptoms: Filtering of Announcements from a Route Collector System
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406673"} Withdrawal Symptoms: Filtering of Announcements from a Route Collector System
-              <span class="label label-success">(Position Paper)</span>
-              <br>
-              Stephen D. Strowes, René Wilhelm, and Emile Aben
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-strowes-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406673", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p25"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406673"} Withdrawal Symptoms: Filtering of Announcements from a Route Collector System
+          %span.badge.bg-secondary
+            (Position Paper)
+          <br>
+          Stephen D. Strowes, René Wilhelm, and Emile Aben
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-strowes-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406673"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p24"}
-              %b
-                /%a{ href: "anrw2020-final24.pdf"} Toward Programmable Interdomain Routing 
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406672"} Toward Programmable Interdomain Routing 
-              <span class="label label-success">(Position Paper)</span>
-              <br>
-              Qiao Xiang, Jensen Zhang, Frank Le, and Y. Richard Yang
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-xiang-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406672", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p24"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406672"} Toward Programmable Interdomain Routing 
+          %span.badge.bg-secondary
+            (Position Paper)
+          <br>
+          Qiao Xiang, Jensen Zhang, Frank Le, and Y. Richard Yang
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-xiang-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406672"}
+            Paper
 
       %td
-        %h5.text-danger Roland van Rijswijk-Deij
+        %p Roland van Rijswijk-Deij
 
     %tr
       %td
         %b July 30, 2020, 13:00-13:50
       %td
-        %h4.text-danger Protocol testing and validation
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p21"}
-              %b
-                /%a{ href: "anrw2020-final21.pdf"} Parsing Protocol Standards to Parse Standard Protocols
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406671"} Parsing Protocol Standards to Parse Standard Protocols
-              %br
-              Stephen McQuistin, Vivian Band, Dejice Jacob, and Colin Perkins
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-mcquistin-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406671", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %h4 Protocol testing and validation
+        %p
+          %a{ name: "p21"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406671"} Parsing Protocol Standards to Parse Standard Protocols
+          %br
+          Stephen McQuistin, Vivian Band, Dejice Jacob, and Colin Perkins
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-mcquistin-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406671"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p20"}
-              %b
-                /%a{ href: "anrw2020-final20.pdf"} NeST: Network Stack Tester
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406670"} NeST: Network Stack Tester
-              %br
-              Shanthanu S Rai, Narayan G, Dhanasekhar M, Leslie Monis, and Mohit P. Tahiliani
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-narayan-g-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406670", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p20"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406670"} NeST: Network Stack Tester
+          %br
+          Shanthanu S Rai, Narayan G, Dhanasekhar M, Leslie Monis, and Mohit P. Tahiliani
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-narayan-g-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406670"}
+            Paper
 
       %td
-        %h5.text-danger Roland van Rijswijk-Deij
+        %p Roland van Rijswijk-Deij
 
 
     %tr
       %td
         %b July 30, 2020, 14:10-15:50
       %td
-        %h4.text-danger Transport Protocols and Traffic Engineering
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p2"}
-              %b
-                /%a{ href: "anrw2020-final2.pdf" } Evaluating the Impact of Path Brokenness on TCP 
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406662" } Evaluating the Impact of Path Brokenness on TCP 
-              %br
-              Korian Edeline, and Benoit Donnet
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-edeline-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406662", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %h4 Transport Protocols and Traffic Engineering
+        %p
+          %a{ name: "p2"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406662" } Evaluating the Impact of Path Brokenness on TCP 
+          %br
+          Korian Edeline, and Benoit Donnet
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-edeline-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406662"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p19"}
-              %b
-                /%a{ href: "anrw2020-final19.pdf"} A Congestion Control Independent L4S Scheduler
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406669"} A Congestion Control Independent L4S Scheduler
-              %br
-              Szilveszter Nádas, Gergő Gombos, Ferenc Fejes, and Sándor Laki
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-laki-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406669", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p19"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406669"} A Congestion Control Independent L4S Scheduler
+          %br
+          Szilveszter Nádas, Gergő Gombos, Ferenc Fejes, and Sándor Laki
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-laki-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406669"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p16"}
-              %b
-                /%a{ href: "anrw2020-final16.pdf"} Multi-Domain Information Exposure using ALTO: The Good, the Bad and the Solution
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406667"} Multi-Domain Information Exposure using ALTO: The Good, the Bad and the Solution
-              <span class="label label-success">(position paper)</span>
-              %br
-                Danny Lachos, Christian Rothenberg, Qiao Xiang, Y. Richard Yang, Börje Ohlman, Sabine Randriamasy, Luis M. Contreras, and Kai Gao
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-lachos-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406667", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p16"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406667"} Multi-Domain Information Exposure using ALTO: The Good, the Bad and the Solution
+          <span class="label label-success">(position paper)</span>
+          %br
+            Danny Lachos, Christian Rothenberg, Qiao Xiang, Y. Richard Yang, Börje Ohlman, Sabine Randriamasy, Luis M. Contreras, and Kai Gao
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-lachos-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406667"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p15"}
-              %b
-                /%a{ href: "anrw2020-final15.pdf"} A novel hybrid distributed-routing and SDN solution for Traffic Engineering 
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406666"} A novel hybrid distributed-routing and SDN solution for Traffic Engineering 
-              <span class="label label-success">(position paper)</span>
-              %br
-                Stewart Bryant, Uma Chunduri, Toerless Eckert, Alexander Clemm, Luis M. Murillo, and Patricia Díez Cano
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-bryant-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406666", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p15"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406666"} A novel hybrid distributed-routing and SDN solution for Traffic Engineering 
+          <span class="label label-success">(position paper)</span>
+          %br
+            Stewart Bryant, Uma Chunduri, Toerless Eckert, Alexander Clemm, Luis M. Murillo, and Patricia Díez Cano
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-bryant-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406666"}
+            Paper
 
       %td
-        %h5.text-danger Mirja Kühlewind
+        %p Mirja Kühlewind
 
 
     %tr
       %td
         %b July 31, 2020, 13:00-13:50
       %td
-        %h4.text-danger Monitoring and Logging
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p3"}
-              %b
-                /%a{ href: "anrw2020-final3.pdf"} Debugging QUIC and HTTP/3 with qlog and qvis
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406663"} Debugging QUIC and HTTP/3 with qlog and qvis
-              %br
-              Robin Marx, Maxime Piraux, Peter Quax, and Wim Lamotte
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-marx-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406663", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %h4 Monitoring and Logging
+        %p
+          %a{ name: "p3"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406663"} Debugging QUIC and HTTP/3 with qlog and qvis
+          %br
+          Robin Marx, Maxime Piraux, Peter Quax, and Wim Lamotte
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-marx-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406663"}
+            Paper
 
-        %div.row
-          %div.col-lg-8
-            %p
-              %a{ name: "p7"}
-              %b
-                /%a{ href: "anrw2020-final7.pdf"} On the Accuracy of Country-Level IP Geolocation 
-                %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406664"} On the Accuracy of Country-Level IP Geolocation 
-              %br
-              Ioana Livadariu, Thomas Dreibholz, Anas Saeed Al-Selwi, Haakon Bryhni, Olav Lysne, Steinar Bjørnstad, and Ahmed Elmokashfi
-            %div.col-lg-4
-              %p.btn-toolbar
-                %a{ :href => "/anrw/2020/slides-lividariu-00.pdf", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides
-                %a{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406664", :class => "btn btn-default btn-xs", :role => "button"}
-                  <span class="glyphicon glyphicon-file" aria-hidden="true"></span>Paper
+        %p
+          %a{ name: "p7"}
+          %b
+            %a{ href: "https://dl.acm.org/doi/abs/10.1145/3404868.3406664"} On the Accuracy of Country-Level IP Geolocation 
+          %br
+          Ioana Livadariu, Thomas Dreibholz, Anas Saeed Al-Selwi, Haakon Bryhni, Olav Lysne, Steinar Bjørnstad, and Ahmed Elmokashfi
+        %p
+          %a.btn.btn-secondary{ :href => "/anrw/2020/slides-lividariu-00.pdf"}
+            Slides
+          %a.btn.btn-secondary{ :href => "https://dl.acm.org/doi/abs/10.1145/3404868.3406664"}
+            Paper
 
       %td
-        %h5.text-danger Mirja Kühlewind
+        %p Mirja Kühlewind
 
 
 %h2 Proceedings
