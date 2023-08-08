@@ -24,7 +24,8 @@ title: Internet Research Task Force
 
     %p
       The IRTF is comprised of a number of focused and long-term
-      %span.term Research Groups.
+      %a{:href => "/groups.html"}
+        Research Groups.
       These groups work on topics related to Internet protocols,
       applications, architecture and technology. Research Groups have the
       stable long-term membership needed to promote the development of
@@ -49,68 +50,51 @@ title: Internet Research Task Force
       under-represented groups to attend research group meeting,
       workshops, and other IRTF-related events. 
 
-    %h2 Active Research Groups
+    %h2 Research Groups
 
     %p These #{$rgs.count} Research Groups are currently chartered or proposed for chartering:
 
     = render "/rgtiles_.*"
 
-    %h2 Workshops and Prizes
-
-    %p
-      The 
-      %a{ :href => "/anrw/"} ACM/IRTF Applied Networking Research Workshop
-      is an academic workshop that provides a forum for researchers,
-      vendors, network operators, and the Internet standards community to
-      present and discuss emerging results in applied networking research.
-      It co-locates with the summer IETF meeting each year.
-
-    %p
-      The 
-      %a{ :href => "/anrp/"} Applied Networking Research Prize (ANRP)
-      is awarded for recent results in applied networking research that
-      are relevant for transitioning into shipping Internet products and
-      related standardization efforts. Nominations are made each Autumn,
-      and prize winners give their award talks in the IRTF Open Meetings
-      the following year.
-
-    %h2 More Information
+    %h2.mt-3 More Information
 
     %p
       RFC7418 gives an IRTF Primer for IETF Participants. It provides a
-      high-level description of things for IETF participants to consider
+      high-level description of issues for IETF participants to consider
       when bringing proposals for new research groups into the IRTF, and
       emphasizes differences in expectations between the two organizations.
 
     %p
       The IRTF is managed by the
-      %span.term IRTF Chair
+      %a{:href => "/chair.html"}
+        IRTF Chair
       in consultation with the
-      %span.term Internet Research Steering Group
+      %a{:href => "/irsg.html"}
+        Internet Research Steering Group
       (IRSG). The IRSG membership includes the IRTF Chair, the chairs of
       the various Research Groups, and other individuals ("members at
       large") from the research community selected by the IRTF Chair.
 
     %p
       The governance and operation of the IRTF is described by various
-      %a{ :href => "policies" } RFCs and other policy documents.
-      These include 
-      %a{ :href => "ipr" } Intellectual Property Rights disclosure rules.
-      The IETF
-      %a{ :href => "https://www.ietf.org/blog/ietf-anti-harassment-policy/" } Anti-Harassment Policy
-      also applies to the IRTF.
-
-
-    %p
-      The current IRTF Chair is
-      %a{ :href => $chair.web } Colin Perkins
-      = "(" + link_to("irtf-chair@irtf.org", "mailto:irtf-chair@irtf.org") + ")."
+      %a{:href => "/policies" }
+        RFCs and other policy documents
+      including 
+      %a{:href => "/policies/ipr.html" }
+        Intellectual Property Rights disclosure rules.
+      The IETF's
+      %a{:href => "https://www.ietf.org/blog/ietf-anti-harassment-policy/"}
+        Anti-Harassment Policy
+      and
+      %a{:href => "https://ietf.org/privacy-statement/"}
+        Privacy Policy
+      also apply to the IRTF.
 
     %p
       The
       %a{:href => "/mailman/listinfo/irtf-announce"} irtf-announce@irtf.org
-      list is a low-volume announcement mailing list for Research Group
-      creations and conclusions, IRTF RFC publication, etc.
+      mailing list is a low-volume announcement mailing list for Research
+      Group creations and conclusions, IRTF RFC publication, etc.
 
     %p
       The
