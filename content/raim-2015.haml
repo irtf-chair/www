@@ -3,14 +3,14 @@ title: Research and Applications of Internet Measurements (RAIM)
 logo_hidden: true
 ---
 
-.row.mt-5
-  .col-sm-4.hidden-xs.text-center
+%div.row.mt-5
+  %div.col-sm-4.hidden-xs.text-center
     %a{ :href => "./"}
       %img{ :src => "img/irtf.png", :alt => "IRTF", :height => 75 }
-  .col-sm-4.hidden-xs.text-center
+  %div.col-sm-4.hidden-xs.text-center
     %a{ :href => "https://www.internetsociety.org/"}
       %img{ :src => "img/isoc.png", :alt => "Internet Society", :height => 75 }
-  .col-sm-4.hidden-xs.text-center
+  %div.col-sm-4.hidden-xs.text-center
     %a{ :href => "http://www.sigcomm.org/"}
       %img{ :src => "img/acm.png", :alt => "SIGCOMM", :height => 75 }
 
@@ -20,7 +20,7 @@ logo_hidden: true
   Yokohama, Japan
 
 
-%h2 Logistics
+%h2.mt-3 Logistics
 
 %p
   The IRTF &amp; Internet Society Workshop on Research and Applications of
@@ -30,40 +30,7 @@ logo_hidden: true
   IETF-94 meeting, and hotel and other travel information is available on the
   %a{ :href => "https://www.ietf.org/how/meetings/94/" } IETF meeting page.
 
-%p
-  %strong
-    We will be in
-    %strong Room 303,
-    according to the IETF agenda.
-    The workshop will be live-streamed by Meetecho.
-
-%h2 Recordings
-
-%p
-  The recordings from the workshop are available on YouTube in four parts.
-  Due to a technical glitch, the last 20 minutes of part 2 have no audio.
-  We're really sorry about this.
-
-.row
-  .col-sm-3.col-xs-6
-    .embed-responsive.embed-responsive-4by3
-      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/P-8hL52y1zQ"}
-    %p
-  .col-sm-3.col-xs-6
-    .embed-responsive.embed-responsive-4by3
-      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/wIG1WpUJhzk"}
-    %p
-  .col-sm-3.col-xs-6
-    .embed-responsive.embed-responsive-4by3
-      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/2y68AJFUBlE"}
-    %p
-  .col-sm-3.col-xs-6
-    .embed-responsive.embed-responsive-4by3
-      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/2pNAhcT78jw"}
-    %p
-
-
-%h2 Agenda
+%h2.mt-3 Agenda
 
 %table.table.table-condensed.table-striped
   %thead
@@ -76,14 +43,14 @@ logo_hidden: true
       %td 9:00
       %td 15
       %td.nowrap
-        %em Welcome & logistics
+        %em Welcome &amp; logistics
       %td
         %a{ :href => "raim-2015-slides/intro-eggert.pdf"} L. Eggert
     %tr.warning
       %td
       %td
       %td{ :colspan => 2 }
-        %strong Measurement platforms & tools
+        %strong Measurement platforms &amp; tools
     %tr
       %td 9:15
       %td 45
@@ -122,7 +89,7 @@ logo_hidden: true
       %td
       %td
       %td{ :colspan => 2 }
-        %strong Measurement of fixed & mobile broadband access networks
+        %strong Measurement of fixed &amp; mobile broadband access networks
     %tr
       %td 13:30
       %td 45
@@ -190,7 +157,7 @@ logo_hidden: true
       %td
       %td.grey{ :colspan => 2 } End
 
-%h2 Participants & submissions
+%h2.mt-3 Participants &amp; submissions
 
 All papers made available upon request of the original authors; copyrights
 remain with the respective copyright holders.
@@ -218,7 +185,7 @@ remain with the respective copyright holders.
     %tr
       %td Jéferson Campos Nobre
       %td
-        Nobre, J. C., Granville, L. Z., Clemm, A., & Gonzalez Prieto, A. (2014, May).
+        Nobre, J. C., Granville, L. Z., Clemm, A., &amp; Gonzalez Prieto, A. (2014, May).
         %a{ :href => "/raim-2015-papers/raim-2015-paper3.pdf" } On the Use of Traffic Information to Improve the Coordinated P2P Detection of SLA Violations.
         %em In Advanced Information Networking and Applications (AINA),
         2014 IEEE 28th International Conference on (pp. 613-620). IEEE.
@@ -296,7 +263,7 @@ remain with the respective copyright holders.
       %td
         %a{ :href => "/raim-2015-papers/raim-2015-paper16.pdf" } Reverse Traceroute.
         E. Katz-Bassett, H. Madhyastha, V. Adhikari, C. Scott, J. Sherry, P. van Wesep, A. Krishnamurthy, T. Anderson.
-        %em USENIX Symposium on Networked Systems Design & Implementation (NSDI),
+        %em USENIX Symposium on Networked Systems Design &amp; Implementation (NSDI),
         2010.
     %tr
       %td Kazunori Fujiwara
@@ -379,7 +346,7 @@ remain with the respective copyright holders.
     %tr
       %td Qinwen Hu
       %td
-        Hu, Q., & Brownlee, N. (2014, December).
+        Hu, Q., &amp; Brownlee, N. (2014, December).
         %a{ :href => "/raim-2015-papers/raim-2015-paper29.pdf" } How Interface ID Allocation Mechanisms are Performed in IPv6.
         %em In Proceedings of the 2014 CoNEXT Student Workshop
         (pp. 26-27). ACM
@@ -497,9 +464,31 @@ remain with the respective copyright holders.
         March 2015.
 
 
+%h2.mt-3 Recordings
+
+%p
+  The recordings from the workshop are available on YouTube in four parts.
+  Due to a technical glitch, the last 20 minutes of part 2 have no audio.
+  We're really sorry about this.
+
+%div.row
+  %div.col-sm-6.col-xs-12.mt-2.mb-2
+    %div.embed-responsive.ratio.ratio-16x9
+      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/P-8hL52y1zQ", :allow => "picture-in-picture", :allowfullscreen => "true"}
+  %div.col-sm-6.col-xs-12.mt-2.mb-2
+    %div.embed-responsive.ratio.ratio-16x9
+      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/wIG1WpUJhzk", :allow => "picture-in-picture", :allowfullscreen => "true"}
+  %div.col-sm-6.col-xs-12.mt-2.mb-2
+    %div.embed-responsive.ratio.ratio-16x9
+      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/2y68AJFUBlE", :allow => "picture-in-picture", :allowfullscreen => "true"}
+  %div.col-sm-6.col-xs-12.mt-2.mb-2
+    %div.embed-responsive.ratio.ratio-16x9
+      %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/2pNAhcT78jw", :allow => "picture-in-picture", :allowfullscreen => "true"}
 
 
-%h2 Call for participation
+
+
+%h2.mt-3 Call for participation
 
 %p
   To increase collaboration between industry and academia in the field of
@@ -534,7 +523,7 @@ remain with the respective copyright holders.
   need to pay the registration fee to have the letter generated, and you do
   not need to pay the IETF registration fee to attend the RAIM workshop.
 
-%h2 Deadlines
+%h2.mt-3 Deadlines
 %table.table.table-condensed.table-striped
   %tr
     %th
@@ -553,8 +542,8 @@ remain with the respective copyright holders.
       %del Friday, October 30, 2015
 
 
-%h2 Why participate?
-%h3 For IETF'ers
+%h2.mt-3 Why participate?
+%h3.mt-3 For IETF'ers
 %p
   ACM SIGCOMM's
   %a{ :href => "http://www.sigcomm.org/events/imc-conference" } Internet Measurement Conference (IMC)
@@ -576,7 +565,7 @@ remain with the respective copyright holders.
   forward the frontier of industrial knowledge.
 
 
-%h3 For IMC'ers
+%h3.mt-3 For IMC'ers
 %p
   The
   %a{ :href => "https://ietf.org/" } Internet Engineering Task Force (IETF)
@@ -605,7 +594,7 @@ remain with the respective copyright holders.
   to enquire about the availability of free or reduced IETF meeting registrations.
 
 
-%h2 Topics
+%h2.mt-3 Topics
 %p
   We encourage submission of position papers on all topics related to Internet
   measurements. Based on the submitted papers, the organizers will structure the
@@ -627,7 +616,7 @@ remain with the respective copyright holders.
 
 
 
-%h2 Participation
+%h2.mt-3 Participation
 %p
   Workshop attendance is by invitation only. Individuals interested in
   participating are invited to submit
@@ -653,7 +642,7 @@ remain with the respective copyright holders.
   Remote inbound participation will not be possible.
 
 
-%h2 Organizing committee
+%h2.mt-3 Organizing committee
 %ul
   %li
     Mark Allman,
@@ -679,3 +668,4 @@ remain with the respective copyright holders.
   %li
     Darryl Veitch,
     %em UTS
+
