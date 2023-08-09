@@ -7,71 +7,8 @@ menu: Program
 
 %p= render "/anrw/2016/place_.*"
 
--# %p
--#   The workshop is open to all;
--#   %a{ :href => "https://www.internetsociety.org/form/anrw" }
--#     registration and payment of the registration fee
--#   is however required.
-
-%p
-  The ANRW&nbsp;’16 was recorded and
-  %a{ :href => "http://www.meetecho.com/ietf96/anrw/" } live-streamed.
-  The recordings are available below.
-
--# %p
--#   Participants in the ANRW&nbsp;’16 are encouraged to attend the IETF-96
--#   meeting, which will be held in the same venue, starting the day after
--#   the workshop. The IETF offers significant registration discounts for
--#   full-time students, and also offers a complimentary one-day
--#   %a{ :href => "https://ietf.org/meeting/96/guest-day.html" } Guest Day
--#   pass to IETF-96 for University Professors, Students, and Local Internet
--#   Society Chapter Members.
-
--# %p
--#   Participants in the ANRW&nbsp;’16 are also invited to the
--#   %a{ :href => "http://ietf96-warmup.realmv6.org/" } IETF Warm-Up! BBQ
--#   hosted by the
--#   Freie Universität Berlin.
--#   %a{ :href => "https://www.eventbrite.com/e/ietf-warm-up-bbqfreie-universitat-berlin-tickets-25924176911"} Registration
--#   is required, but attendance is free of charge.
-
--# %p.btn-toolbar
--#   %a.btn.btn-primary{ :href => "https://www.internetsociety.org/form/anrw", :role => "button" } Register & participate »
--#   %a.btn.btn-success{ :href => "http://www.meetecho.com/ietf96/anrw/", :role => "button" } Tune into live stream »
--#   %a.btn.btn-info{ :href => "http://ietf96-warmup.realmv6.org/", :role => "button" } Attend BBQ at FU Berlin »
--#   %a.btn.btn-default{ :href => "https://ietf.org/meeting/96/guest-day.html", :role => "button" } Get free IETF guest pass »
-
-
-%h2 Recordings
-
-%p
-  The recordings from the workshop are available on YouTube in five parts.
-
-%div{ :style => "width: 19%; display: inline-block;" }
-  .embed-responsive.embed-responsive-4by3
-    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/FJH80cw6cuo"}
-
-%div{ :style => "width: 19%; display: inline-block;" }
-  .embed-responsive.embed-responsive-4by3
-    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/3KvFKkTK-sk"}
-
-%div{ :style => "width: 19%; display: inline-block;" }
-  .embed-responsive.embed-responsive-4by3
-    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/kgwZ5VHzGcg"}
-
-%div{ :style => "width: 19%; display: inline-block;" }
-  .embed-responsive.embed-responsive-4by3
-    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/OFgmEZRdENA"}
-
-%div{ :style => "width: 19%; display: inline-block;" }
-  .embed-responsive.embed-responsive-4by3
-    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/aTGKMPs-Hy0"}
-
-
 %h2 Program
 
-- json = "content/anrw/2016/anrw16-data.json"
-- xml = "content/anrw/2016/anrw16_jul16_16.xml"
 %table.table.table-striped.no-urlify
   %thead
     %tr
@@ -81,96 +18,311 @@ menu: Program
         Session
   %tbody
     %tr
-      %td
-        %h4.text-danger 9:00
+      %td{ :style => "width: 10em" }
+        %p
+          %b
+            9:00
       %td
         %h4.text-danger Opening
+
     %tr
       %td
-        %h4.text-danger 9:15
+        %p
+          %b
+            9:15
       %td
         %h4.text-danger Session: Multipath
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16060",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              An enhanced socket API for Multipath TCP
+          %br
+            Benjamin Hesmans (UCL) and Olivier Bonaventure (UCL)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final16.pdf"}
+            Slides
 
-        -# .row= htmlify_paper2016(xml, 1)
-        -# .row= htmlify_paper2016(xml, 2)
-        -# .row= htmlify_paper2016(xml, 3)
-        -# .row= htmlify_paper2016(xml, 4)
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16061",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Multipath bonding at Layer 3.
+          %br
+            Maciej Bednarek (ETH Zurich), Guillermo Barrenetxea Kobas
+            (Swisscom), Mirja Kühlewind (ETH Zurich), and Brian Trammell
+            (ETH Zurich).
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final21.pdf"}
+            Slides
 
-        .row= htmlify_paper2016(json, 16)
-        .row= htmlify_paper2016(json, 21)
-        .row= htmlify_paper2016(json, 3)
-        .row= htmlify_paper2016(json, 19)
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16062",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Towards a Multipath TCP Aware Load Balancer
+          %br
+            Simon Liénardy (Université de Liège) and Benoit Donnet (Université de Liège)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16063",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Multi-Homed on a Single Link: Using Multiple IPv6 Access Networks
+          %br
+            Philipp S. Tiesel (TU-Berlin), Bernd May (TU-Berlin), and Anja
+            Feldmann (TU-Berlin).
+
 
 
     %tr
       %td
-        %h4.text-danger 10:25
+        %p
+          %b
+            10:25
       %td
         %h4.text-danger Break
 
     %tr
       %td
-        %h4.text-danger 10:45
+        %p
+          %b
+            10:45
       %td
         %h4.text-danger Session: SDN, Routing and Peering
         %p
-        .row= htmlify_paper2016(json, 15)
-        .row= htmlify_paper2016(json, 24)
-        .row= htmlify_paper2016(json, 5)
-        .row= htmlify_paper2016(json, 6)
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16064",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Towards Decentralized Fast Consistent Updates
+          %br
+            Thanh Dang Nguyen (Université catholique de Louvain), Marco
+            Chiesa (Université catholique de Louvain), and Marco Canini
+            (Université catholique de Louvain)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final15.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16075",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Composition of SDN applications: Options/challenges for real implementations
+          %br
+            Arne Schwabe (University of Paderborn), Pedro A. Aranda
+            Gutiérrez (Telefónica I+D), and Holger Karl (University of
+            Paderborn)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final24.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16076",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Towards Securing Internet eXchange Points Against Curious onlookers
+          %br
+            Marco Chiesa (Université catholique de Louvain), Daniel Demmler
+            (Technische Universität Darmstadt), Marco Canini (Université
+            catholique de Louvain), Michael Schapira (Hebrew University of
+            Jerusalem), and Thomas Schneider (Technische Universität
+            Darmstadt).
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final5.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16077",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Computing Customer Cones of Peering Networks
+          %br
+            Jinu Susan Varghese (Iowa State University) and Lu Ruan (Iowa
+            State University)
 
     %tr
       %td
-        %h4.text-danger 11:55
+        %p
+          %b
+            11:55
       %td
-        %h4.text-danger Lunch & Posters
+        %h4.text-danger Lunch &amp; Posters
 
     %tr
       %td
-        %h4.text-danger 13:00
+        %p
+          %b
+            13:00
       %td
         %h4.text-danger Session: Transport Quality and "Happy Eyeballs"
         %p
-        .row= htmlify_paper2016(json, 9)
-        .row= htmlify_paper2016(json, 27)
-        .row= htmlify_paper2016(json, 28)
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16078",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Measuring the Effects of Happy Eyeballs
+          %br
+            Vaibhav Bajpai (Jacobs University Bremen) and Jürgen
+            Schönwälder (Jacobs University Bremen)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final9.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16079",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              On the Cost of Using Happy Eyeballs for Transport Protocol Selection
+          %br
+            Giorgos Papastergiou (Simula Research Laboratory), Karl-Johan
+            Grinnemo (Karlstad University), Anna Brunstrom (Karlstad
+            University), David Ros (Simula Research Laboratory), Michael
+            Tüxen (Fachhochschule Münster), Naeem Khademi (University of
+            Oslo), and Per Hurtig (Karlstad University)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final27.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16076",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Start Me Up: Determining and Sharing TCP’s Initial Congestion Window
+          %br
+            Safiqul Islam (University of Oslo) and Michael Welzl
+            (University of Oslo)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final28.pdf"}
+            Slides
+
 
     %tr
       %td
-        %h4.text-danger 14:05
+        %p
+          %b
+            14:05
       %td
         %h4.text-danger Session: Measurement
         %p
-        .row= htmlify_paper2016(json, 12)
-        .row= htmlify_paper2016(json, 13)
-        .row= htmlify_paper2016(json, 29)
-        .row= htmlify_paper2016(json, 17)
-        .row= htmlify_paper2016(json, 2)
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16071",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Revisiting Benchmarking Methodology for Interconnect Devices
+          %br
+            Daniel Raumer (Technical University of Munich), Sebastian
+            Gallenmüller (Technical University of Munich), Florian Wohlfart
+            (Technical University of Munich), Paul Emmerich (Technical
+            University of Munich), Patrick Werneck (Technical University of
+            Munich), and Georg Carle (Technical University of Munich)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final12.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16072",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              PATHspider: A tool for active measurement of path transparency
+          %br
+            Iain R. Learmonth (University of Aberdeen), Brian Trammell (ETH
+            Zurich), Mirja Kuhlewind (ETH Zurich), and Gorry Fairhurst
+            (University of Aberdeen)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final13.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16073",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Diurnal and Weekly Cycles in IPv6 Traffic
+          %br
+            Stephen D. Strowes (Yahoo)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final29.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16074",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              How to say that you’re special: Can we use bits in the IPv4 header? 
+          %br
+            Runa Barik (University of Oslo, Norway), Michael Welzl
+            (University of Oslo, Norway), and Ahmed Elmokashfi (Simula
+            Research Laboratory, Norway)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final17.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16085",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Towards an Observatory for Network Transparency Research
+          %br
+            Stephan Neuhaus (Zürcher Hochschule für Angewandte
+            Wissenschaften), Roman Müntener (Zürcher Hochschule für
+            Angewandte Wissenschaften), Korian Edeline (Université de
+            Liège), Benoit Donnet (Université de Liège), and Elio Gubser
+            (ETH Zurich)
+
 
     %tr
       %td
-        %h4.text-danger 14:55
+        %p
+          %b
+            14:55
       %td
-        %h4.text-danger Break & Posters
+        %h4.text-danger Break &amp; Posters
 
     %tr
       %td
-        %h4.text-danger 15:45
+        %p
+          %b
+            15:45
       %td
         %h4.text-danger Session: Internet Media
         %p
-        .row= htmlify_paper2016(json, 14)
-        .row= htmlify_paper2016(json, 25)
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16086",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Making Google Congestion Control robust over Wi-Fi networks
+              using packet grouping
+          %br
+            Gaetano Carlucci (Politecnico di Bari, Italy), Luca De Cicco
+            (Politecnico di Bari, Italy), Stefan Holmer (Google Inc,
+            Sweden), and Saverio Mascolo (Politecnico di Bari, Italy).
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final14.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N16087",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Implementing Real-Time Transport Services over an Ossified Network
+          %br
+            Stephen McQuistin (University of Glasgow), Colin Perkins
+            (University of Glasgow), and Marwan Fayed (University of
+            Stirling)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2016/slides-anrw16-final25.pdf"}
+            Slides
+
 
     %tr
       %td
-        %h4.text-danger 16:45
+        %p
+          %b
+            16:45
       %td
         %h4.text-danger Closing Keynote
 
     %tr
       %td
-        %h4.text-danger 17:15
+        %p
+          %b
+            17:15
       %td
         %h4.text-danger Wrap-Up, Discussion and Closing
 
@@ -181,9 +333,38 @@ menu: Program
 
     %tr
       %td
-        %h4.text-danger 19:00
+        %p
+          %b
+            19:00
       %td
         %h4.text-danger IETF Warm-Up! BBQ
         %p
           Hosted by the Freie Universität Berlin, free but separate
           %a{ :href => "http://ietf96-warmup.realmv6.org/" } registration required.
+
+%h2 Recordings
+
+%p
+  The recordings from the workshop are available on YouTube in five parts.
+
+%div{ :style => "width: 33%; display: inline-block;" }
+  .embed-responsive.embed-responsive-4by3
+    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/FJH80cw6cuo"}
+
+%div{ :style => "width: 33%; display: inline-block;" }
+  .embed-responsive.embed-responsive-4by3
+    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/3KvFKkTK-sk"}
+
+%div{ :style => "width: 33%; display: inline-block;" }
+  .embed-responsive.embed-responsive-4by3
+    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/kgwZ5VHzGcg"}
+
+%div{ :style => "width: 33%; display: inline-block;" }
+  .embed-responsive.embed-responsive-4by3
+    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/OFgmEZRdENA"}
+
+%div{ :style => "width: 33%; display: inline-block;" }
+  .embed-responsive.embed-responsive-4by3
+    %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/aTGKMPs-Hy0"}
+
+
