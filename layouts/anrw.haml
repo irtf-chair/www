@@ -30,17 +30,9 @@
           %div.collapse.navbar-collapse#collapsibleNavbar
             %ul.navbar-nav
               - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : '' end).each do |item|
-                - if item.path =~ %r{(/|html)$} and not item[:menu_hidden] and not item[:other]
+                - if item.path =~ %r{(/|html)$} and not item[:menu_hidden]
                   %li.nav-item{ :class => ('active' if item[:menu] == @item[:menu]) }
                     %a.nav-link{ :href => '.' + item.path.split(year)[-1] } #{item[:menu]}
-              - if @items.find_all(%r{./#{year}}).count{|x| x[:other]} > 0
-                %li.nav-item.dropdown{ :class => ('active' if @items.find_all(%r{./#{year}}).count{|x| x[:other] and x[:menu] == @item[:menu]} > 0) }
-                  %a.nav-link.dropdown-toggle{ "href": "#", "role": "button", "data-bs-toggle": "dropdown"} Other
-                  %ul.dropdown-menu
-                    - (@items.find_all(%r{./#{year}}).sort_by do |item| item.path ? item.path : '' end).each do |item|
-                      - if (item.path =~ %r{(/|html)$} and not item[:menu_hidden] and item[:other])
-                        %li{ :class => ('active' if item[:menu] == @item[:menu]) }
-                          %a.dropdown-item{ :href => '.' + item.path.split(year)[-1] } #{item[:menu] }
 
     %div.container
       = yield
