@@ -3,28 +3,540 @@ title: ANRW&nbsp;’18 Program
 menu: Program
 ---
 
--# %p
--#   The workshop is open to all;
--#   %a{ :href => "https://www.internetsociety.org/form/anrw" }
--#     registration and payment of the registration fee
--#   is however required.
-
 %h1 Workshop Program
 
 %p= render "/anrw/2018/place_.*"
 
-/ A livestream of the workshop will be available via these links:
+%h2 Program
 
-/ %ul
-/   %li
-/     %a{ href: 'http://www.meetecho.com/ietf102/anrw/' }9:30-12:00 Monday Morning session I
-/   %li
-/     %a{ href: 'http://www.meetecho.com/ietf102/anrw_II/' }13:30-17:50 Monday Afternoon session I and II
+- json = "content/anrw/2018/anrw18-data2.json"
+%table.table.table-striped.no-urlify
+  %thead
+    %tr
+      %th
+        Time
+      %th
+        Session
+      %th
+        Session Chair
+  %tbody
+    %tr
+      %td{ :style => "width: 10em" }
+        %p
+          %b
+            9:30am
+      %td
+        %h4.text-danger Welcome and Opening Remarks
+        %p
+          %b
+            Welcome and Opening Remarks
+          %br
+          Speaker: Sharon Goldberg (Boston University)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/anrwWelcome.pdf"}
+            Slides
+
+      %td
+        %p
+          Sharon Goldberg
+
+    %tr
+      %td
+        %p
+          %b
+            9:40am
+      %td
+        %h4.text-danger TLS
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666043",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Measuring Adoption of Security Additions to the HTTPS Ecosystem
+          &nbsp;
+          %span.badge.bg-secondary
+            Invited Talk
+          %br
+            Quirin Scheitle (Technical University of Munich)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final6.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666044",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Push Away Your Privacy: Precise User Tracking Based on TLS
+              Client Certificate Authentication
+          %br
+            Matthias Wachs (Technical University of Munich (TUM)), Quirin
+            Scheitle (Technical University of Munich (TUM)), and Georg
+            Carle (Technical University of Munich (TUM))
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final22.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666155",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Cloud Strife: Mitigating the Security Risks of Domain-Validated Certificates
+          %br
+            Kevin Borgolte (UC Santa Barbara), Tobias Fiebig (TU Delft),
+            Shuang Hao (UT Dallas), Christopher Kruegel (UC Santa Barbara),
+            and Giovanni Vigna (UC Santa Barbara)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final62.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666156",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Studying TLS Usage in Android Apps
+          %br
+            Abbas Razaghpanah (Stony Brook University), Arian Akhavan Niaki
+            (UMass-Amherst), Narseo Vallina-Rodriguez (IMDEA Networks
+            Institute/ICSI), Srikanth Sundaresan (Facebook), Johanna Amann
+            (ICSI/Corelight), and Philippa Gill (UMass-Amherst)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final45.pdf"}
+            Slides
+
+      %td
+        %p
+          Nick Sullivan
+
+    %tr
+      %td
+        %p
+          %b
+            11:10am
+      %td
+        %h4.text-danger Routing
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666157",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              ARTEMIS: Neutralizing BGP Hijacking within a Minute
+          &nbsp;
+          %span.badge.bg-secondary
+            Invited Talk
+          %br
+          %em.text-muted
+            Alberto Dainotti (CAIDA)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final9.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666158",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Towards a Rigorous Methodology for Measuring Adoption of RPKI
+              Route Validation and Filtering
+          %br
+            Andreas Reuter (Freie Universität Berlin), Randy Bush (IIJ /
+            Dragon Research), Italo Cunha (UMFG), Ethan Katz-Bassett
+            (Columbia University), Thomas C. Schmidt (HAW Hamburg), and
+            Matthias Wählisch (Freie Universität Berlin)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final32.pdf"}
+            Slides
+
+      %td
+        %p
+          Nick Feamster
+
+    %tr
+      %td
+        %p
+          %b
+            12:00pm
+      %td
+        %h4.text-danger Lunch Break &amp; Posters
+      %td
+
+    %tr
+      %td
+        %p
+          %b
+            1:30pm
+      %td
+        %h4.text-danger Internet Infrastructure
+        %p
+          %b
+            Run, Walk, Crawl: Towards Dynamic Link Capacities
+          &nbsp;
+          %span.badge.bg-secondary
+            Invited Talk
+          %br
+          %em.text-muted
+            Monia Ghobadi (Microsoft Research)
+
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666150",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Lights Out: Climate Change Risk to Internet Infrastructure
+          %br
+            Ramakrishnan Durairajan (University of Oregon), Carol Barford
+            (University of Wisconsin - Madison), and Paul Barford
+            (University of Wisconsin - Madison and comScore Inc.)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666151",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Comments On DNS Robustness
+          %br
+            Mark Allman (ICSI)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final35.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666152",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Preventing (Network) Time Travel with Chronos
+          %br
+            Neta Rozen Schiff (The Hebrew University of Jerusalem), Michael
+            Schapira (The Hebrew University of Jerusalem), Danny Dolev (The
+            Hebrew University of Jerusalem), and Omer Deutsch (The Hebrew
+            University of Jerusalem)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final26.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666153",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              TCP Congestion Signatures
+          &nbsp;
+          %span.badge.bg-secondary
+            Invited Talk
+          %br
+            Amogh Dhamdhere (CAIDA)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final15.pdf"}
+            Slides
+
+      %td
+        %p
+          Phillippa Gill
+
+    %tr
+      %td
+        %p
+          %b
+            3:30pm
+      %td
+        %h4.text-danger Beverage Break
+      %td
+
+    %tr
+      %td
+        %p
+          %b
+            3:50pm
+      %td
+        %h4.text-danger Traffic Engineering
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666165",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Why (and How) Networks Should Run Themselves
+          &nbsp;
+          %span.badge.bg-secondary
+            Invited Talk
+          %br
+            Nick Feamster (Princeton University)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666166",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Semi-Oblivious Traffic Engineering with SMORE
+          %br
+            Praveen Kumar (Cornell University), Yang Yuan (Cornell
+            University), Chris Yu (CMU), Nate Foster (Cornell University),
+            Robert Kleinberg (Cornell University), Petr Lapukhov
+            (Facebook), Chiun Lin Lim (Facebook), and Robert Soulé
+            (Università della Svizzera italiana)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final47.pdf"}
+            Slides
+
+      %td
+        %p
+          Brian Trammell
+
+    %tr
+      %td
+        %p
+          %b
+            4:30pm
+      %td
+        %h4.text-danger Anonymous Communications
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666167",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              An ISP-Scale Deployment of TapDance
+          %br
+            Sergey Frolov (University of Colorado Boulder), Eric Wustrow
+            (University of Colorado Boulder), Fred Douglas (Google), Will
+            Scott (University of Michigan), Allison McDonald (University of
+            Michigan), Benjamin VanderSloot (University of Michigan), Rod
+            Hynes (Psiphon), Adam Kruger (Psiphon), Michalis Kallitsis
+            (Merit Network), David G. Robinson (Upturn), Steve Schultze
+            (Georgetown University Law Center), Nikita Borisov (University
+            of Illinois), and J. Alex Halderman (University of Michigan)
+        %p
+          %a.btn.btn-secondary{:href => "/anrw/2018/slides-anrw18-final58.pdf"}
+            Slides
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666168",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Characterizing the Nature and Dynamics of Tor Exit Blocking
+          %br
+            Rachee Singh (UMass Amherst), Rishab Nithyanand (Data &amp; Society
+            Research Institute), Sadia Afroz (UC Berkeley and International
+            Computer Science Institute), Paul Pearce (UC Berkeley), Michael
+            Carl Tschantz (International Computer Science Institute),
+            Phillipa Gill (UMass Amherst), and Vern Paxson (UC Berkeley and
+            International Computer Science Institute)
+
+      %td
+        %p
+          Roya Ensafi
+
+    %tr
+      %td
+        %p
+          %b
+            5:20pm
+      %td
+        %h4.text-danger Beverage Break
+      %td
+
+
+    %tr
+      %td
+        %p
+          %b
+            5:40pm
+      %td
+        %h4.text-danger Posters
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666177",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Building a Threshold Cryptographic Distributed HSM with Docker Containers
+          %br
+            Caterina Munoz (INRIA Chile), 
+            Francisco Montoto (NIC Labs, Universidad de Chile), 
+            Francisco Cifuentes (NIC Labs, Universidad de Chile), 
+            and 
+            Javier Bustos-Jiménez (NIC Labs, Universidad de Chile)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666171",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              RobE: Robust Connection Establishment for Multipath TCP
+          %br
+            Markus Amend (Deutsche Telekom), Veseling Rakocevic (City
+            University of London), Andreas Matz (THM University of Applied
+            Sciences), and Eckard Bogenfeld (Deutsche Telekom)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666178",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Metrics for access network selection
+          %br
+            Theresa Enghardt (TU Berlin), Philipp S. Tiesel (TU Berlin),
+            and Anja Feldmann (Max Planck Institute for Informatics)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666179",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Practical Challenge-Response for DNS
+          %br
+            Rami Al-Dalky (Case Western Reserve University), Michael
+            Rabinovich (Case Western Reserve University), and Mark Allman
+            (ICSI)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666174",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              User Space Network Drivers.
+          %br
+            Paul Emmerich (Technical University of Munich), Maximilian
+            Pudelko (Technical University of Munich), Simon Bauer
+            (Technical University of Munich), and Georg Carle (Technical
+            University of Munich)
+
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666186",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Automated Attack Discovery in TCP Congestion Control Using a
+              Model-guided Approach
+          %br
+            Samuel Jero (Purdue University), Endadul Hoque (Florida
+            International University), David Choffnes (Northeastern
+            University), Alan Mislove (Northeastern University), and
+            Cristina Nita-Rotaru (Northeastern University).
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666160",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Restructuring Endpoint Congestion Control
+          %br
+            Akshay Narayan (MIT CSAIL), Frank Cangialosi (MIT CSAIL),
+            Deepti Raghavan (MIT CSAIL), Prateesh Goyal (MIT CSAIL),
+            Srinivas Narayana (MIT CSAIL), Radhika Mittal (UC Berkeley),
+            Mohammad Alizadeh (MIT CSAIL), and Hari Balakrishnan (MIT
+            CSAIL)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666170",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Elasticity Detection: A Building Block for Delay-Sensitive
+              Congestion Control
+          %br
+            Prateesh Goyal (MIT CSAIL), Akshay Narayan (MIT CSAIL), Frank
+            Cangialosi (MIT CSAIL), Deepti Raghavan (MIT CSAIL), Srinivas
+            Narayana (MIT CSAIL), Mohammad Alizadeh (MIT CSAIL), and Hari
+            Balakrishnan (MIT CSAIL)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666175",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              DeadBolt: Securing IoT Deployments
+          %br
+            Ronny Ko (Harvard University) and James Mickens (Harvard University)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666176",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Behind the scenes: what device benchmarks can tell us
+          %br
+            Simon Bauer (Technical University of Munich), Dainel Raumer
+            (Technical University of Munich), Paul Emmerich (Technical
+            University of Munich), and Georg Carle (Technical University of
+            Munich)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666173",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Towards a Congestion Control-Independent Core-Stateless AQM
+          %br
+            Szilveszter Nádas (Ericsson), Gergo Gombos (Eötvös Loránd
+            University), Péter Hudoba (Eötvös Loránd University), and
+            Sándor Laki (Eötvös Loránd University)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666161",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              A Fine-grained and Transparent Congestion Control Enforcement Scheme
+          %br
+            Yuxiang Zhang (Jinan University), Lin Cui (Jinan University),
+            Fung Po Tso (Loughborough University), Quanlong Guan (Jinan
+            University), Weijia Jia (University of Macau), and Jipeng Zhou
+            (Jinan University)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666172",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Measuring Web Speed From Passive Traces
+          %br
+            Martino Trevisan (Politecnico di Torino), Idilio Drago
+            (Politecnico di Torino), and Marco Mellia (Politecnico di
+            Torino)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666163",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Wireless Edge Network for Sustainable Rural Community Networks
+          %br
+            Adisorn Lertsinsrubtavee (Internet Education and Research
+            Laboratory, Asian Institute of Technology), Nunthaphat
+            Weshsuwannarugs (Internet Education and Research Laboratory,
+            Asian Institute of Technology), Nisarat Tansakul (Internet
+            Education and Research Laboratory, Asian Institute of
+            Technology), Attaphongse Taparugssanagorn (School of
+            Engineering and Technology, Asian Institute of Technology), and
+            Kanchana Kanchanasut (Internet Education and Research
+            Laboratory, Asian Institute of Technology)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666185",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Dynam-IX: a Dynamic Interconnection eXchange
+          %br
+            Pedro Marcos (UFRGS and FURG), Marco Chiesa (KTH), Lucas Muller
+            (UFRGS), Pradeeban Kathiravelu (INESC-ID and UCLouvain),
+            Christoph Dietzel (TU Berlin / DE-CIX), Marco Canini (KAUST),
+            and Marinho Barcellos (UFRGS)
+
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666162",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Picking a Partner: A Fair Blockchain Based Scoring Protocol
+              for Autonomous Systems
+          %br
+            Yousef Alowayed (KAUST), Marco Canini (KAUST), Pedro Marcos
+            (UFRGS and FURG), Marco Chiesa (KTH Royal Institute of
+            Technology), and Marinho Barcellos (UFRGS)
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666164",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              Is CoAP Congestion Safe? 
+          %br
+            Ilpo Järvinen (University of Helsinki), Iivo Raitahila
+            (University of Helsinki), Zhen Cao (Huawei), and Markku Kojo
+            (University of Helsinki).
+
+        %p
+          %b
+            %a{:href=>"https://dl.acm.org/authorize?N666169",
+               :referrerpolicy => "no-referrer-when-downgrade"}
+              CommunityWatch: The Swiss-Army Knife of BGP Anomaly Detection
+          %br
+            Vasileios Giotsas (Lancaster University)
+
+      %td
+        %p
+          &nbsp;
 
 %h2 Proceedings
 
 %p
-  %a{ href: 'https://dl.acm.org/citation.cfm?id=3232755' }Proceedings of the Applied Networking Research Workshop 2018
+  %a{ href: 'https://dl.acm.org/citation.cfm?id=3232755' }
+    Proceedings of the Applied Networking Research Workshop 2018
   are available from the ACM Digital Library.
 
 %h2 Recordings
@@ -47,205 +559,4 @@ menu: Program
 %div{ :style => "width: 24%; display: inline-block;" }
   .embed-responsive.embed-responsive-4by3
     %iframe.embed-responsive-item{ :src => "https://www.youtube.com/embed/_mIk7gQMMSc"}
-
-%h2 Program
-
-- json = "content/anrw/2018/anrw18-data2.json"
-%table.table.table-striped.no-urlify
-  %thead
-    %tr
-      %th
-        Time
-      %th
-        Session
-      %th
-        Session Chair
-  %tbody
-    %tr
-      %td
-        %h4.text-danger 9:30am
-      %td
-        %h4.text-danger Welcome and Opening Remarks
-        <div class="row">
-        <div class="col-lg-8">
-        %p
-          %b
-            Welcome and Opening Remarks
-          %br
-          %em.text-muted
-            Speaker: Sharon Goldberg (Boston University)
-        </div>
-        <div class="col-lg-4">
-        <p class="btn-toolbar">
-        <a href="https://irtf.org/anrw/2018/anrwWelcome.pdf" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
-        </p></div></div>
-
-      %td
-        %h5.text-danger Sharon Goldberg
-
-    %tr
-      %td
-        %h4.text-danger 9:40am
-      %td
-        %h4.text-danger TLS
-        <div class="row">
-        <div class="col-lg-8">
-        %p
-          %b
-            Measuring Adoption of Security Additions to the HTTPS Ecosystem
-            <span class="label label-danger">Invited talk</span>
-          %br
-          %em.text-muted
-            Speaker: Quirin Scheitle (Technical University of Munich)
-        </div>
-        <div class="col-lg-4">
-        <p class="btn-toolbar">
-        <a href="https://irtf.org/anrw/2018/slides-anrw18-final6.pdf" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
-        <a href="https://dl.acm.org/authorize?N666043" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-        Paper
-        </a>
-        </p></div></div>
-        .row= htmlify_paper_2018(json, 22)
-        .row= htmlify_paper_2018(json, 62)
-        .row= htmlify_paper_2018(json, 45)
-      %td
-        %h5.text-danger Nick Sullivan
-
-    %tr
-      %td
-        %h4.text-danger 11:10am
-      %td
-        %h4.text-danger Routing
-        <div class="row">
-        <div class="col-lg-8">
-        %p
-          %b
-            ARTEMIS: Neutralizing BGP Hijacking within a Minute
-            <span class="label label-danger">Invited talk</span>
-          %br
-          %em.text-muted
-            Speaker: Alberto Dainotti (CAIDA)
-        </div>
-        <div class="col-lg-4">
-        <p class="btn-toolbar">
-        <a href="https://irtf.org/anrw/2018/slides-anrw18-final9.pdf" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
-        <a href="https://dl.acm.org/authorize?N666157" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-        Paper
-        </a>
-        </p></div></div>
-
-        .row= htmlify_paper_2018(json, 32)
-      %td
-        %h5.text-danger Nick Feamster
-
-    %tr
-      %td
-        %h4.text-danger 12:00pm
-      %td
-        %h4.text-danger Lunch Break & Posters
-      %td
-
-    %tr
-      %td
-        %h4.text-danger 1:30pm
-      %td
-        %h4.text-danger Internet Infrastructure
-        %p
-          %b
-            Run, Walk, Crawl: Towards Dynamic Link Capacities
-            <span class="label label-danger">Invited talk</span>
-          %br
-          %em.text-muted
-            Speaker: Monia Ghobadi (Microsoft Research)
-        .row= htmlify_paper_2018(json, 41)
-        .row= htmlify_paper_2018(json, 35)
-        .row= htmlify_paper_2018(json, 26)
-        <div class="row">
-        <div class="col-lg-8">
-        %p
-          %b
-            TCP Congestion Signatures
-            <span class="label label-danger">Invited talk</span>
-          %br
-          %em.text-muted
-            Speaker: Amogh Dhamdhere (CAIDA)
-        </div>
-        <div class="col-lg-4">
-        <p class="btn-toolbar">
-        <a href="https://irtf.org/anrw/2018/slides-anrw18-final15.pdf" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-picture" aria-hidden="true"></span>Slides</a>
-        <a href="https://dl.acm.org/authorize?N666153" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-        Paper
-        </a>
-        </p></div></div>
-      %td
-        %h5.text-danger Phillippa Gill
-
-    %tr
-      %td
-        %h4.text-danger 3:30pm
-      %td
-        %h4.text-danger Beverage Break
-      %td
-
-    %tr
-      %td
-        %h4.text-danger 3:50pm
-      %td
-        %h4.text-danger Traffic Engineering
-        <div class="row">
-        <div class="col-lg-8">
-        %p
-          %b
-            Why (and How) Networks Should Run Themselves
-            <span class="label label-danger">Invited talk</span>
-          %br
-          %em.text-muted
-            Speaker: Nick Feamster (Princeton University)
-        </div>
-        <div class="col-lg-4">
-        <p class="btn-toolbar">
-        <a href="https://dl.acm.org/authorize?N666165" class="btn btn-default btn-xs" role="button">
-        <span class="glyphicon glyphicon-file" aria-hidden="true"></span>
-        Paper
-        </a>
-        </p></div></div>
-
-        .row= htmlify_paper_2018(json, 47)
-      %td
-        %h5.text-danger Brian Trammell
-
-    %tr
-      %td
-        %h4.text-danger 4:30pm
-      %td
-        %h4.text-danger Anonymous Communications
-        %p
-        .row= htmlify_paper_2018(json, 58)
-        .row= htmlify_paper_2018(json, 57)
-      %td
-        %h5.text-danger Roya Ensafi
-
-    %tr
-      %td
-        %h4.text-danger 5:20pm
-      %td
-        %h4.text-danger Beverage Break
-      %td
-
-
-    %tr
-      %td
-        %h4.text-danger 5:40pm
-      %td
-        %h4.text-danger Posters
-        %p
-      %td
-        %h5.text-danger
 
