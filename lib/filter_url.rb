@@ -29,6 +29,7 @@ class URLFilter < Nanoc::Filter
     "Theophilus Benson"        => "https://cs.brown.edu/~tab/",
     "R.diger Birkner"          => "https://www.rbirkner.ch",
     "Anna Brunstr.m"           => "https://www.kau.se/en/researchers/anna-brunstrom",
+    "Ignacio Castro"           => "https://icastro.info",
     "Corinne Cath"             => "https://corinnecath.com",
     "Sof.a Celi"               => "https://www.sofiaceli.com",
     "Marco Chiesa"             => "https://marchiesa.bitbucket.io",
