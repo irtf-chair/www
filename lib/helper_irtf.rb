@@ -320,7 +320,7 @@ module IRTF
     [ roca, montpetit ],
     nil,
     "2013-11-13",
-    nil
+    "2023-08-02"
   )
 
   # NMRG
@@ -533,7 +533,6 @@ module IRTF
     "icnrg" => icnrg,
     "maprg" => maprg,
     "nmrg"  => nmrg,
-    "nwcrg" => nwcrg,
     "panrg" => panrg,
     "pearg" => pearg,
     "qirg" => qirg,
@@ -580,6 +579,7 @@ module IRTF
   $oldrgs["dtnrg"] = dtnrg;
   $oldrgs["sdnrg"] = sdnrg;
   $oldrgs["nfvrg"] = nfvrg;
+  $oldrgs["nwcrg"] = nwcrg;
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
