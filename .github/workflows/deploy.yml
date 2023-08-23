@@ -1,0 +1,17 @@
+name: Deploy
+run-name: Deploy ${{ github.run_number }} by @${{ github.actor }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Trigger Build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:    
+    - name: Send Trigger
+      run: |
+        curl -X POST "${{ secrets.CF_PAGES_TRIGGER }}"
