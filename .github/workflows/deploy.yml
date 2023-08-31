@@ -19,6 +19,12 @@ jobs:
       with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 'ruby'
+        bundler-cache: true
+
     - name: Build website
       env:
         LANG: en_US.UTF-8
