@@ -11,3 +11,12 @@ Run `bundle exec nanoc` to build.
 
 In order to deploy, you need to email irtf-chair@irtf.org to upload to the IRTF
 servers.
+
+
+Installation of dependencies (on macOS):
+- `brew install ruby`, following the instructions to modify your path so
+  that the homebrew version of Ruby is used in preference to the system
+  Ruby (`which ruby` should return `/opt/homebrew/opt/ruby/bin/ruby`).
+- `bundle install` to install the required dependencies.
+
+
