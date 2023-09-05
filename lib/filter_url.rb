@@ -35,7 +35,6 @@ class URLFilter < Nanoc::Filter
     "Marco Chiesa"             => "https://marchiesa.bitbucket.io",
     "Sandra C.spedes"          => "https://www.cec.uchile.cl/~scespedes/",
     "Taejoong .Tijay. Chung"   => "https://taejoong.github.io",
-    "Jane Coffin"              => "https://connecthumanity.fund/team/jane-coffin/",
     "Jay Daley"                => "https://datatracker.ietf.org/person/Jay%20Daley",
     "Spencer Dawkins"          => "https://datatracker.ietf.org/person/Spencer%20Dawkins",
     "Lars Eggert"              => "https://eggert.org",
