@@ -6,12 +6,39 @@ on:
 
 jobs:
   build:
-    name: Trigger Build
+    name: Publish to Azure
     runs-on: ubuntu-latest
     permissions:
       contents: read
 
-    steps:    
-    - name: Send Trigger
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Azure Login
+      uses: azure/login@v1
+      with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 'ruby'
+
+    - name: Build website
+      env:
+        LANG: en_US.UTF-8
+        LC_ALL: C.UTF-8
       run: |
-        curl -X POST "${{ secrets.CF_PAGES_TRIGGER }}"
+        bundle install
+        bundle exec nanoc
+
+    - name: Upload to blob storage
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
+          az storage blob upload-batch --account-name ${{ secrets.AZURE_STORAGE_NAME }} --auth-mode key -d '$web' -s output
+
+    - name: Azure Logout
+      if: always()
+      run: |
+        az logout
