@@ -215,6 +215,8 @@ module IRTF
   # welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
   # iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://github.com/janaiyengar", nil)
   ferlin = Person.new("Simone", "Ferlin", "simoneferlin@gmail.com", "https://ferlin.io", nil)
+  enghardt = Person.new("Reese", "Enghardt", "ietf@tenghardt.net", "https://tenghardt.net", nil)
+  goel = Person.new("Vidhi", "Goel", "vidhi_goel@apple.com", "https://datatracker.ietf.org/person/vidhi_goel@apple.com", nil)
   # schapira = Person.new("Michael", "Schapira", "schapiram@huji.ac.il", "https://www.michaelschapira.com", nil)
   # ros = Person.new("David", "Ros", "dros@simula.no", "https://simula.no/people/dros", nil)
   iccrg = RG.new(
@@ -223,7 +225,7 @@ module IRTF
     "iccrg@irtf.org",
     nil,
     "https://wiki.ietf.org/group/iccrg",
-    [ ferlin ],
+    [ ferlin, enghardt, goel ],
     nil,
     "2014-11-13",
     nil
