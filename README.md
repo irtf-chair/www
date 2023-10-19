@@ -1,3 +1,5 @@
+<div align="center"><img src="https://www.irtf.org/img/irtf.png" /></div>
+
 # IRTF Website
 
 These are the sources for the https://www.irtf.org web site.
