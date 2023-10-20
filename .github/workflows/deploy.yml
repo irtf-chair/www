@@ -44,7 +44,7 @@ jobs:
           --url ${{ secrets.CLOUDFLARE_PURGE_CACHE_URL}} \
           --header 'Content-Type: application/json' \
           --header 'Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_CACHE_TOKEN }}' \
-          --data '{ }'
+          --data '{ "purge_everything": true }'
 
     - name: Azure Logout
       if: always()
