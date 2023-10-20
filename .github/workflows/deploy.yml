@@ -38,6 +38,14 @@ jobs:
         inlineScript: |
           az storage blob upload-batch --account-name ${{ secrets.AZURE_STORAGE_NAME }} --auth-mode key -d '$web' -s output --overwrite
 
+    - name: Purge CF cache
+      run: |
+        curl --request POST \
+          --url ${{ secrets.CLOUDFLARE_PURGE_CACHE_URL}} \
+          --header 'Content-Type: application/json' \
+          --header 'Authorization: Bearer ${{ secrets.CLOUDFLARE_PURGE_CACHE_TOKEN }}' \
+          --data '{ "hosts": ["www.irtf.org"] }'
+
     - name: Azure Logout
       if: always()
       run: |
