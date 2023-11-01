@@ -47,7 +47,7 @@ module IRTF
         if concluded then
           @listweb = "https://www.ietf.org/mail-archive/web/" + list.split("@").first.downcase
         else
-          @listweb = "/mailman/listinfo/" + list.split("@").first.downcase
+          @listweb = "https://mailman.irtf.org/mailman/listinfo/" + list.split("@").first.downcase
         end
       else
         @listweb = listweb.downcase
