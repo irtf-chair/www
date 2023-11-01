@@ -18,6 +18,7 @@ class URLFilter < Nanoc::Filter
     "Maria Apostolaki"         => "https://ece.princeton.edu/people/maria-apostolaki",
     "Sangeetha Abdu Jyothi"    => "https://www.ics.uci.edu/~sabdujyo/",
     "Gautam Akiwate"           => "https://cseweb.ucsd.edu/~gakiwate/",
+    "Venkat Arun"              => "https://www.cs.utexas.edu/~venkatar/",
     "Mark Allman"              => "https://www.icir.org/mallman/",
     "Johanna Amann"            => "https://www.icir.org/johanna/",
     "Grenville Armitage"       => "http://gja.space4me.com",
