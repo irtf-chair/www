@@ -436,7 +436,7 @@ module IRTF
 
   # SAMRG
   buford = Person.new("John", "Buford", "buford@samrg.org", "https://samrg.org/buford/index.html", nil)
-  schmidt = Person.new("Thomas", "Schmidt", "schmidt@informatik.haw-hamburg.de", "https://users.informatik.haw-hamburg.de/~schmidt/", nil)
+  schmidt = Person.new("Thomas", "Schmidt", "schmidt@informatik.haw-hamburg.de", "http://inet.haw-hamburg.de/members/schmidt", nil)
   samrg = RG.new(
     "samrg",
     "Scalable Adaptive Multicast",
