@@ -64,7 +64,7 @@ module IRTF
     end
 
     def url(loc = "")
-      link_to(acronym, loc + acronym.downcase, :title => name)
+      link_to(acronym, loc + acronym.downcase + ".html", :title => name)
     end
 
     def contacts
