@@ -80,6 +80,7 @@ class URLFilter < Nanoc::Filter
     "Jingjing Ren"             => "https://www.jingjingren.com",
     "Eric Rescorla"            => "https://www.rtfm.com",
     "Philipp Richter"          => "https://people.csail.mit.edu/richterp/",
+    "Jayasree Sengupta"        => "https://sites.google.com/view/jayasreesengupta/home",
     "Justine Sherry"           => "http://www.justinesherry.com",
     "Melinda Shore"            => "https://datatracker.ietf.org/person/Melinda%20Shore",
     "Tanya Shreedhar"          => "https://tanyashreedhar.github.io",
