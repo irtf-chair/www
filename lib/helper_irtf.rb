@@ -367,7 +367,7 @@ module IRTF
     "pearg@irtf.org",
     nil,
     "https://pearg.org/",
-    [ dickinson, sahib, wood ],
+    [ dickinson, sahib ],
     nil,
     "2018-00-19",
     nil
