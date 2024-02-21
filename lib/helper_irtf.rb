@@ -213,7 +213,6 @@ module IRTF
 
   # ICCRG
   # welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
-  # iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://github.com/janaiyengar", nil)
   ferlin = Person.new("Simone", "Ferlin", "simoneferlin@gmail.com", "https://ferlin.io", nil)
   enghardt = Person.new("Reese", "Enghardt", "ietf@tenghardt.net", "https://tenghardt.net", nil)
   goel = Person.new("Vidhi", "Goel", "vidhi_goel@apple.com", "https://datatracker.ietf.org/person/vidhi_goel@apple.com", nil)
@@ -605,9 +604,10 @@ module IRTF
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
   shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
+  iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://github.com/janaiyengar", nil)
   $perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://csperkins.org/", nil)
   $chair = $perkins
-  $atlarge = [ ford, eggert, mankin, falk, dawkins, farrell, shore ]
+  $atlarge = [ ford, eggert, mankin, falk, dawkins, farrell, shore, iyengar ]
 
   def atlarge_contacts
     result = "irsg\n" +
