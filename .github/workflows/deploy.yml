@@ -36,7 +36,7 @@ jobs:
       uses: azure/CLI@v1
       with:
         inlineScript: |
-          az storage blob upload-batch --account-name ${{ secrets.AZURE_STORAGE_NAME }} --auth-mode key -d '$web' -s output --overwrite
+          az storage blob sync --account-name ${{ secrets.AZURE_STORAGE_NAME }} -d '$web' -s output --delete-destination true
 
     - name: Purge CF cache
       run: |
