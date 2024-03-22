@@ -498,7 +498,7 @@ module IRTF
   farrell = Person.new("Stephen", "Farrell", "stephen.farrell@cs.tcd.ie", "https://www.scss.tcd.ie/Stephen.Farrell/", nil)
   ufmrg = RG.new(
     "ufmrg",
-    "Usable Formal Methods Proposed",
+    "Usable Formal Methods",
     "ufmrg@irtf.org",
     nil,
     nil,
