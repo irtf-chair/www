@@ -145,6 +145,7 @@ class URLFilter < Nanoc::Filter
     "Cloudflare" => "https://www.cloudflare.com/",
     "Colorado State" => "https://colostate.edu/",
     "CoNEXT" => "https://sigcomm.org/events/conext-conference",
+    "Comcast" => "https://www.comcast.com/",
     "DARPA" => "https://www.darpa.mil/",
     "Data61/CSIRO" => "https://www.data61.csiro.au/",
     "Daydream Imagery" => "https://www.daydream.com/",
