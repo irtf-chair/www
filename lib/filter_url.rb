@@ -89,6 +89,7 @@ class URLFilter < Nanoc::Filter
     "J.rg Ott"                 => "https://www.ce.cit.tum.de/en/cm/research-group/joerg-ott/",
     "David Oran"               => "https://datatracker.ietf.org/person/David%20R.%20Oran",
     "Christoph Paasch"         => "http://be.linkedin.com/in/christophpaasch",
+    "Hannah B. Pasandi"        => "https://hannahpasandi.com",
     "Cristel Pelsser"          => "https://cristel.pelsser.eu",
     "Colin Perkins"            => "https://csperkins.org/",
     "Amreesh Phokeer"          => "https://amreesh.github.io",
