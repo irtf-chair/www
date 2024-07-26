@@ -405,14 +405,15 @@ module IRTF
   )
 
   # RASPRG
-  castro = Person.new("Ignacio", "Castro", "i.castro@qmul.ac.uk", "https://icastro.info", nil)
+  castro = Person.new("Ignacio", "Castro", "i.castro@qmul.ac.uk", "https://datatracker.ietf.org/person/i.castro@qmul.ac.uk", nil)
+  retana = Person.new("Alvaro", "Retana", "aretana.ietf@gmail.com", "https://datatracker.ietf.org/person/aretana.ietf@gmail.com", nil)
   rasprg = RG.new(
     "rasprg",
     "Research and Analysis of Standard-Setting Processes",
     "rasprg@irtf.org",
     nil,
     nil,
-    [ castro, tenoever ],
+    [ castro, retana ],
     nil,
     "2023-02-21",
     nil
