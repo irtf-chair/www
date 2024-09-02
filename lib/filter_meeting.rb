@@ -16,7 +16,7 @@ class MeetingFilter < Nanoc::Filter
               elsif $1.to_i < 118 then
                 link_to("IETF-#{$1}", "https://datatracker.ietf.org/meeting/#{$1}/proceedings")
               else
-                link_to("IETF-#{$1}", "https://www.ietf.org/how/meetings/#{$1}/")
+                link_to("IETF-#{$1}", "https://www.ietf.org/how/meeting/#{$1}/")
               end
       }
     end
