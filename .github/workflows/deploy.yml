@@ -29,7 +29,7 @@ jobs:
 
     - name: Upload to blob storage
       run: |
-        azcopy sync "output" "${{ secrets.AZURE_SAS }}" --delete-destination=true --compare-hash="MD5" --put-md5=true
+        azcopy sync "${{ github.workspace }}/output" "${{ secrets.AZURE_SAS }}" --delete-destination=true --compare-hash="MD5" --put-md5=true
 
     - name: Purge CF cache
       run: |
