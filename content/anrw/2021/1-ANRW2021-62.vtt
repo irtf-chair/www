@@ -1,0 +1,653 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:04.880
+Hello everybody, my name is Natalia Romo and
+
+00:00:04.880 --> 00:00:07.560
+welcome to the presentation of the paper CC85,
+
+00:00:07.560 --> 00:00:10.230
+an implementation of the VBR congestion control
+
+00:00:10.230 --> 00:00:12.880
+algorithm for DCCP and its impact over multipath
+
+00:00:12.880 --> 00:00:16.630
+scenarios. This presentation is divided in four
+
+00:00:16.630 --> 00:00:18.280
+sections. I'm going to start with an
+
+00:00:18.280 --> 00:00:20.740
+introduction where I explain the motivation and
+
+00:00:20.740 --> 00:00:23.000
+the objective of this research, following
+
+00:00:23.000 --> 00:00:24.800
+with the description of the design, the
+
+00:00:24.800 --> 00:00:27.060
+evaluation, to finalize with the conclusion and
+
+00:00:27.060 --> 00:00:27.640
+the future
+
+00:00:27.640 --> 00:00:32.680
+work. So the multi-connectivity and hybrid access
+
+00:00:32.680 --> 00:00:34.320
+technologies have been an active research
+
+00:00:34.320 --> 00:00:36.410
+topic during the last years as they enable the
+
+00:00:36.410 --> 00:00:38.600
+simultaneous use of heterogeneous networks
+
+00:00:38.600 --> 00:00:40.720
+and this brings some advantages like capacity
+
+00:00:40.720 --> 00:00:43.000
+aggregation, reliability and flexible resource
+
+00:00:43.000 --> 00:00:46.680
+management. Following this interest, many
+
+00:00:46.680 --> 00:00:48.840
+solutions have already been developed and
+
+00:00:48.840 --> 00:00:51.620
+some of them are already under standardization,
+
+00:00:51.620 --> 00:00:53.960
+like it is the case of the Broadband Forum
+
+00:00:53.960 --> 00:00:56.250
+Standard for Hybrid Access and the ATSSS
+
+00:00:56.250 --> 00:00:59.040
+specification which first appeared in the early
+
+00:00:59.040 --> 00:01:00.120
+2016 of
+
+00:01:00.120 --> 00:01:05.020
+the 3GPP standard. This specification has already
+
+00:01:05.020 --> 00:01:07.920
+defined MPTCP as a solution for traffic
+
+00:01:07.920 --> 00:01:11.520
+splitting but it is limited only to the reliable
+
+00:01:11.520 --> 00:01:14.920
+and in-order transport of traffic, which means
+
+00:01:14.920 --> 00:01:17.910
+it is not suitable for any real-time service or
+
+00:01:17.910 --> 00:01:20.320
+application and it's also not suitable
+
+00:01:20.320 --> 00:01:26.430
+for the transport of GWT. On that basis, the MPTCP
+
+00:01:26.430 --> 00:01:29.760
+protocol was developed to provide a
+
+00:01:29.760 --> 00:01:32.660
+multipath solution capable of transport non-reliable
+
+00:01:32.660 --> 00:01:35.720
+traffic. MPTCP extends the datagram congestion
+
+00:01:35.720 --> 00:01:38.330
+control protocol to support multipath sessions.
+
+00:01:38.330 --> 00:01:40.400
+As I said, it provides a reliable transport
+
+00:01:40.400 --> 00:01:44.080
+of data, it is connection-oriented and congestion-controlled.
+
+00:01:44.080 --> 00:01:46.560
+In addition, a framework was developed which
+
+00:01:46.560 --> 00:01:49.740
+combines the MPTCP protocol with other functions
+
+00:01:49.740 --> 00:01:53.160
+like scheduling, reordering and virtual network
+
+00:01:53.160 --> 00:01:56.660
+interfaces to enable the transport of any IP
+
+00:01:56.660 --> 00:02:00.080
+traffic across multiple access networks.
+
+00:02:00.080 --> 00:02:03.040
+This framework has already been tested and
+
+00:02:03.040 --> 00:02:05.920
+evaluated and evaluation results show that
+
+00:02:05.920 --> 00:02:08.970
+the latency difference among the paths available
+
+00:02:08.970 --> 00:02:13.760
+has a strong impact on the end-to-end performance.
+
+00:02:13.760 --> 00:02:15.910
+Also the latency difference has a strong
+
+00:02:15.910 --> 00:02:18.520
+dependence on the congestion control used within
+
+00:02:18.520 --> 00:02:18.760
+the
+
+00:02:18.760 --> 00:02:21.410
+framework. Right now, the TCCP has three
+
+00:02:21.410 --> 00:02:25.140
+congestion control standardizers, which are CCAD2,
+
+00:02:25.140 --> 00:02:25.760
+CCAD3
+
+00:02:25.760 --> 00:02:29.850
+and CCAD4. And all of them are based on existing
+
+00:02:29.850 --> 00:02:33.560
+TCP loss-based congestion control algorithms.
+
+00:02:33.560 --> 00:02:36.160
+Having all these in mind, the target of this
+
+00:02:36.160 --> 00:02:38.640
+research was to improve the MPTCP framework
+
+00:02:38.640 --> 00:02:41.510
+by extending the TCP protocol with a new
+
+00:02:41.510 --> 00:02:44.710
+congestion control algorithm. The algorithm
+
+00:02:44.710 --> 00:02:45.120
+selected
+
+00:02:45.120 --> 00:02:48.460
+was VBR, which was initially developed for TCP
+
+00:02:48.460 --> 00:02:51.440
+and which has also shown quite good results
+
+00:02:51.440 --> 00:02:55.500
+in terms of maintaining a low latency while
+
+00:02:55.500 --> 00:02:58.640
+achieving a high throughput.
+
+00:02:58.640 --> 00:03:01.610
+VBR defines two conditions to achieve an optimal
+
+00:03:01.610 --> 00:03:03.880
+point of operation. The first condition is
+
+00:03:03.880 --> 00:03:06.110
+that the amount of data in flight has to be equal
+
+00:03:06.110 --> 00:03:07.920
+to the bandwidth delayed product. And
+
+00:03:07.920 --> 00:03:10.150
+the second condition is that the bottleneck
+
+00:03:10.150 --> 00:03:12.720
+packet arrival must match the bottleneck
+
+00:03:12.720 --> 00:03:12.960
+bandwidth.
+
+00:03:12.960 --> 00:03:16.680
+To fulfill these two conditions, VBR initially
+
+00:03:16.680 --> 00:03:20.120
+estimates the values of the bottleneck bandwidth
+
+00:03:20.120 --> 00:03:22.430
+and the round-trip propagation time to later use
+
+00:03:22.430 --> 00:03:24.440
+these values to calculate three control
+
+00:03:24.440 --> 00:03:27.720
+parameters, which are the congestion window, the
+
+00:03:27.720 --> 00:03:30.000
+pacing rate and the send quantum.
+
+00:03:30.000 --> 00:03:32.550
+The way these parameters are updated and the way
+
+00:03:32.550 --> 00:03:34.640
+the whole protocol behaves is ruled by
+
+00:03:34.640 --> 00:03:38.610
+this state machine depicted in this figure. In
+
+00:03:38.610 --> 00:03:41.480
+the startup state, the sending rate will
+
+00:03:41.480 --> 00:03:44.200
+increase rapidly until the pipe is detected to be
+
+00:03:44.200 --> 00:03:46.360
+full. Once this detection is made, the
+
+00:03:46.360 --> 00:03:48.630
+sending rate will be reduced to drain any
+
+00:03:48.630 --> 00:03:50.960
+possible queue to finally go into a probe
+
+00:03:50.960 --> 00:03:52.860
+bandwidth state, where the amount of data in
+
+00:03:52.860 --> 00:03:54.520
+flight is slightly increased from time
+
+00:03:54.520 --> 00:03:58.120
+to time to probe for more available bandwidth.
+
+00:03:58.120 --> 00:04:01.200
+From any of these three states, the algorithm
+
+00:04:01.200 --> 00:04:05.820
+can go to the RTT state, where the data in flight
+
+00:04:05.820 --> 00:04:09.480
+is reduced to probe for lower RTTs.
+
+00:04:09.480 --> 00:04:11.880
+We implemented VBR version 1 for the CCP using
+
+00:04:11.880 --> 00:04:15.400
+the congestion control identifier CC85. It
+
+00:04:15.400 --> 00:04:18.150
+was deployed within the Linux kernel version 4.14
+
+00:04:18.150 --> 00:04:20.040
+and it is also available as open source
+
+00:04:20.040 --> 00:04:23.940
+in a GitHub repository. The development of all
+
+00:04:23.940 --> 00:04:26.320
+the functions related to the state machine
+
+00:04:26.320 --> 00:04:30.130
+and the estimation of the path parameters follow
+
+00:04:30.130 --> 00:04:33.240
+the VBR standards. And we also reuse
+
+00:04:33.240 --> 00:04:35.390
+and adapt the code from the VBR TCP
+
+00:04:35.390 --> 00:04:38.890
+implementation in the Linux kernel. In addition
+
+00:04:38.890 --> 00:04:39.760
+to that,
+
+00:04:39.760 --> 00:04:44.390
+the TCP standard defines, specifies that CCAD
+
+00:04:44.390 --> 00:04:48.680
+profile has to define some other aspects like
+
+00:04:48.680 --> 00:04:50.670
+the format of the acknowledgement packets, the
+
+00:04:50.670 --> 00:04:52.240
+timing of their generation and how they
+
+00:04:52.240 --> 00:04:55.150
+are congestion controlled. All these definitions
+
+00:04:55.150 --> 00:04:57.400
+were taken from the CCAD2. That means that
+
+00:04:57.400 --> 00:04:59.470
+we use acknowledgement vectors and also
+
+00:04:59.470 --> 00:05:00.880
+acknowledgement rate.
+
+00:05:00.880 --> 00:05:04.240
+Apart from that, there are many functions which
+
+00:05:04.240 --> 00:05:06.680
+are part of the TCP protocol and not
+
+00:05:06.680 --> 00:05:09.550
+of the TCP, which corresponds to the tracking of
+
+00:05:09.550 --> 00:05:11.840
+the packets in flight and also to the
+
+00:05:11.840 --> 00:05:12.760
+acknowledgement
+
+00:05:12.760 --> 00:05:16.040
+generation. These functions were also taken from
+
+00:05:16.040 --> 00:05:19.800
+the CCAD2. And we also took some other
+
+00:05:19.800 --> 00:05:25.800
+ideas to verify the application limited periods.
+
+00:05:25.800 --> 00:05:29.320
+Finally, to integrate the congestion control
+
+00:05:29.320 --> 00:05:32.600
+algorithm with the Multipath framework, we
+
+00:05:32.600 --> 00:05:34.890
+need to provide some information to the scheduler
+
+00:05:34.890 --> 00:05:37.120
+and reordering functions that I have mentioned
+
+00:05:37.120 --> 00:05:39.430
+before. The information that we provide is
+
+00:05:39.430 --> 00:05:41.360
+congestion window, packets in flight for the
+
+00:05:41.360 --> 00:05:45.220
+schedulers and RTT estimation for the reordering
+
+00:05:45.220 --> 00:05:48.560
+algorithms. To test this implementation, we
+
+00:05:48.560 --> 00:05:51.820
+use two schedulers from all the list of schedulers
+
+00:05:51.820 --> 00:05:55.560
+available, which are ChippsPathFirst and RoundRobin.
+
+00:05:55.560 --> 00:05:59.280
+ChippsPathFirst allocates packets based on a predefined
+
+00:05:59.280 --> 00:06:01.280
+path priority and RoundRobin
+
+00:06:01.280 --> 00:06:03.830
+alternates packets sending through all the
+
+00:06:03.830 --> 00:06:06.480
+available paths. For the case of the reordering,
+
+00:06:06.480 --> 00:06:08.930
+we use the active fix, which reads packet
+
+00:06:08.930 --> 00:06:11.880
+sequence numbers to verify an order arrival.
+
+00:06:11.880 --> 00:06:14.570
+When a gap is detected, the packets are buffered
+
+00:06:14.570 --> 00:06:16.960
+until the missing packets arrive or until
+
+00:06:16.960 --> 00:06:21.320
+a fixed time expires.
+
+00:06:21.320 --> 00:06:25.080
+Now let's go with the evaluation. The topology
+
+00:06:25.080 --> 00:06:27.240
+used during the evaluation corresponds to
+
+00:06:27.240 --> 00:06:29.390
+this figure. We deployed this topology under a
+
+00:06:29.390 --> 00:06:31.520
+virtual environment and also under a physical
+
+00:06:31.520 --> 00:06:35.040
+environment. And we set up two testing scenarios,
+
+00:06:35.040 --> 00:06:37.480
+a single path where the two hosts are
+
+00:06:37.480 --> 00:06:38.760
+interconnected
+
+00:06:38.760 --> 00:06:41.220
+only through the red line and the multipath where
+
+00:06:41.220 --> 00:06:43.240
+the hosts are interconnected through
+
+00:06:43.240 --> 00:06:46.270
+all the links available. The metrics that we
+
+00:06:46.270 --> 00:06:49.240
+measured were end-to-end latency and received
+
+00:06:49.240 --> 00:06:50.240
+throughput.
+
+00:06:50.240 --> 00:06:54.080
+For the single path scenario, we initially
+
+00:06:54.080 --> 00:06:57.800
+compared the behavior of Qubic and VBR for
+
+00:06:57.800 --> 00:07:01.940
+TCP to have a reference baseline to later compare
+
+00:07:01.940 --> 00:07:05.600
+the behavior of CC82 and CC85. We
+
+00:07:05.600 --> 00:07:08.490
+set a transmitting sending rate of 15 megabits
+
+00:07:08.490 --> 00:07:10.760
+and we limited the bandwidth available in
+
+00:07:10.760 --> 00:07:14.520
+the path in the middle of the test. Here in the
+
+00:07:14.520 --> 00:07:17.720
+plots, we can see the results corresponding
+
+00:07:17.720 --> 00:07:20.840
+to the latency and the received throughput for
+
+00:07:20.840 --> 00:07:23.080
+TCP and the CCP. As we can see after the
+
+00:07:23.080 --> 00:07:29.420
+bandwidth change, both VBR and CC85 show latencies
+
+00:07:29.420 --> 00:07:34.960
+way lower in comparison to Qubic and CC82.
+
+00:07:34.960 --> 00:07:37.250
+In the case of the multipath scenario, we did two
+
+00:07:37.250 --> 00:07:39.320
+tests. The initial one was sending
+
+00:07:39.320 --> 00:07:41.950
+UDP traffic. We used a similar scheme to the
+
+00:07:41.950 --> 00:07:44.680
+single path scenario, limiting the bandwidth
+
+00:07:44.680 --> 00:07:47.540
+in the middle of the test. We used the cheapest
+
+00:07:47.540 --> 00:07:49.640
+path first scheduler and the active fixed
+
+00:07:49.640 --> 00:07:53.110
+array ordering. Here we can see the latency
+
+00:07:53.110 --> 00:07:56.200
+comparison and also the throughput distribution
+
+00:07:56.200 --> 00:08:00.550
+among the paths for both CC82 and CC85 and the
+
+00:08:00.550 --> 00:08:04.240
+aggregated throughput. As we can see here
+
+00:08:04.240 --> 00:08:06.520
+in the first seconds, the cheapest by first
+
+00:08:06.520 --> 00:08:08.920
+algorithm only sends data through one of the
+
+00:08:08.920 --> 00:08:16.880
+paths which is the prioritized path. And once the
+
+00:08:16.880 --> 00:08:21.960
+bandwidth is limited, the congestion control
+
+00:08:21.960 --> 00:08:25.540
+algorithm detects this congestion and informs to
+
+00:08:25.540 --> 00:08:29.120
+the scheduler. And at this point, the scheduler
+
+00:08:29.120 --> 00:08:31.680
+starts transmitting through the secondary path.
+
+00:08:31.680 --> 00:08:33.960
+We can see that the CC85 reacts quite
+
+00:08:33.960 --> 00:08:37.170
+faster than the CC82. And we can also see that
+
+00:08:37.170 --> 00:08:39.760
+for the CC82, the primary path remains
+
+00:08:39.760 --> 00:08:46.180
+congested which leads to higher latencies. In
+
+00:08:46.180 --> 00:08:48.080
+this multipath scenario, we also decided
+
+00:08:48.080 --> 00:08:51.620
+to test a TCP traffic, taking into account that
+
+00:08:51.620 --> 00:08:54.520
+this framework should be also capable
+
+00:08:54.520 --> 00:08:57.460
+of transporting quick traffic and these two
+
+00:08:57.460 --> 00:09:00.600
+protocols have some similar behaviors. So
+
+00:09:00.600 --> 00:09:04.020
+for this test, we didn't set a fixed transmitting
+
+00:09:04.020 --> 00:09:07.040
+rate. We let TCP to send as much as possible,
+
+00:09:07.040 --> 00:09:09.870
+but we limited the bandwidth path to 10 megabits
+
+00:09:09.870 --> 00:09:13.400
+per second. As we can see here, the response
+
+00:09:13.400 --> 00:09:16.440
+in terms of throughput is more or less similar
+
+00:09:16.440 --> 00:09:20.480
+for both CC82 and CC85, but CC85 shows better
+
+00:09:20.480 --> 00:09:26.710
+results in terms of latency. Finally, to conclude
+
+00:09:26.710 --> 00:09:30.080
+all this work, we managed
+
+00:09:30.080 --> 00:09:32.480
+to prove that CC85 has a clear benefit with
+
+00:09:32.480 --> 00:09:35.120
+respect to CC82 in the multipath scenario,
+
+00:09:35.120 --> 00:09:37.510
+as in all the cases, it reduces the latency,
+
+00:09:37.510 --> 00:09:39.830
+avoiding head-of-line blocking, and also
+
+00:09:39.830 --> 00:09:40.600
+minimizing
+
+00:09:40.600 --> 00:09:43.700
+the reordering effort. We also managed to
+
+00:09:43.700 --> 00:09:48.840
+implement VBR congestion control as a new
+
+00:09:48.840 --> 00:09:52.340
+CCID for the DCCP protocol, proving that the
+
+00:09:52.340 --> 00:09:55.000
+conceptual background of VBR also works for
+
+00:09:55.000 --> 00:09:57.940
+DCCP. And we also integrated our approach into a
+
+00:09:57.940 --> 00:10:00.120
+multipath access framework that can
+
+00:10:00.120 --> 00:10:03.450
+be applied either to the 5G HTSS context or to
+
+00:10:03.450 --> 00:10:07.200
+the hybrid access scenario. As future work,
+
+00:10:07.200 --> 00:10:10.830
+we intend to make more extensive testing of the
+
+00:10:10.830 --> 00:10:14.120
+algorithm, adding some other variables
+
+00:10:14.120 --> 00:10:18.480
+and constraints like concurrent flows to evaluate
+
+00:10:18.480 --> 00:10:21.200
+fairness, path delay, and packet loss. We
+
+00:10:21.200 --> 00:10:24.420
+also want to implement the VBR version 2 of the
+
+00:10:24.420 --> 00:10:27.480
+algorithm, and we also want to standardize
+
+00:10:27.480 --> 00:10:32.050
+the implementation of VBR for DCCP as a new CCID
+
+00:10:32.050 --> 00:10:34.920
+profile under IETF. That is all for now.
+
+00:10:34.920 --> 00:10:36.520
+Thank you very much for your attention.
+
+00:10:36.520 --> 00:10:43.520
+[END]
+

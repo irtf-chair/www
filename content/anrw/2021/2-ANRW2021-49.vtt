@@ -1,0 +1,746 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:04.090
+Hi, my name is I. Kunze. In our work we have
+
+00:00:04.090 --> 00:00:07.420
+investigated the four spinbit cousins L, Q, R and
+
+00:00:07.420 --> 00:00:08.000
+T
+
+00:00:08.000 --> 00:00:10.020
+and in this talk I would like to share with you
+
+00:00:10.020 --> 00:00:13.000
+some insights on their performance regarding
+
+00:00:13.000 --> 00:00:14.000
+packet loss measurements.
+
+00:00:14.000 --> 00:00:16.850
+Before I go into more detail on the different
+
+00:00:16.850 --> 00:00:19.610
+spinbit cousins, let me first give you a quick
+
+00:00:19.610 --> 00:00:22.000
+intro why work on them is actually meaningful.
+
+00:00:24.000 --> 00:00:26.300
+I think it is safe to say that network
+
+00:00:26.300 --> 00:00:28.640
+measurements have always been important to get a
+
+00:00:28.640 --> 00:00:31.260
+better understanding of what is going on inside
+
+00:00:31.260 --> 00:00:32.000
+of the network.
+
+00:00:32.000 --> 00:00:34.590
+However, measurement techniques have typically
+
+00:00:34.590 --> 00:00:37.000
+been developed independently from protocols
+
+00:00:37.000 --> 00:00:40.540
+and thus they oftentimes depend on externally
+
+00:00:40.540 --> 00:00:43.000
+visible protocol semantics.
+
+00:00:43.000 --> 00:00:45.860
+A prominent example are TCP sequence numbers and
+
+00:00:45.860 --> 00:00:48.810
+acknowledgements, which can be used to compute
+
+00:00:48.810 --> 00:00:51.000
+the roundtrip time of a connection.
+
+00:00:51.000 --> 00:00:54.220
+Let me quickly illustrate that with a short
+
+00:00:54.220 --> 00:00:55.000
+example.
+
+00:00:55.000 --> 00:00:57.360
+What we have here are two hosts interconnected by
+
+00:00:57.360 --> 00:00:59.000
+a network probe in the middle.
+
+00:00:59.000 --> 00:01:01.000
+If the host on the left hand side now sends a
+
+00:01:01.000 --> 00:01:03.000
+packet with a certain sequence number,
+
+00:01:03.000 --> 00:01:05.370
+the network probe in the middle can store that
+
+00:01:05.370 --> 00:01:08.000
+sequence number and then basically start a timer.
+
+00:01:08.000 --> 00:01:11.240
+The packet is then forwarded as usual and the
+
+00:01:11.240 --> 00:01:12.770
+host on the right hand side then answers with a
+
+00:01:12.770 --> 00:01:14.000
+corresponding acknowledgement.
+
+00:01:14.000 --> 00:01:17.480
+As soon as the acknowledgement then arrives at
+
+00:01:17.480 --> 00:01:19.430
+the network probe, the network probe can
+
+00:01:19.430 --> 00:01:21.380
+basically stop the timer and compute the right
+
+00:01:21.380 --> 00:01:23.000
+hand side half of the roundtrip time.
+
+00:01:23.000 --> 00:01:25.330
+Unfortunately, such techniques are no longer
+
+00:01:25.330 --> 00:01:27.370
+possible in times of encrypted transport
+
+00:01:27.370 --> 00:01:29.000
+protocols such as QUIC,
+
+00:01:29.000 --> 00:01:31.820
+because there the protocol semantics are no
+
+00:01:31.820 --> 00:01:34.000
+longer visible to an observer.
+
+00:01:34.000 --> 00:01:37.160
+To still allow for meaningful measurements, the
+
+00:01:37.160 --> 00:01:39.160
+QUIC standard features a special purpose bit and
+
+00:01:39.160 --> 00:01:40.000
+that is the spinbit.
+
+00:01:40.000 --> 00:01:43.200
+It is a dedicated bit in the QUIC short header
+
+00:01:43.200 --> 00:01:46.000
+and visible to on-path observers.
+
+00:01:46.000 --> 00:01:48.120
+While the spinbit allows for roundtrip time
+
+00:01:48.120 --> 00:01:50.440
+measurements, there are also other important
+
+00:01:50.440 --> 00:01:53.000
+network properties that one might want to measure.
+
+00:01:53.000 --> 00:01:56.280
+In this context, there is an ongoing discussion
+
+00:01:56.280 --> 00:01:59.190
+in the IPPM working group focusing around four
+
+00:01:59.190 --> 00:02:02.030
+different proposals that are similar to the spinbit
+
+00:02:02.030 --> 00:02:04.000
+but enable packet loss measurements.
+
+00:02:04.000 --> 00:02:06.720
+Let me quickly explain how they work in this
+
+00:02:06.720 --> 00:02:08.000
+simple example.
+
+00:02:08.000 --> 00:02:09.840
+We again have a server on the left hand side, a
+
+00:02:09.840 --> 00:02:11.920
+client on the right hand side and now a network
+
+00:02:11.920 --> 00:02:13.000
+probe in the middle.
+
+00:02:13.000 --> 00:02:15.280
+But this network probe now is only able to
+
+00:02:15.280 --> 00:02:18.200
+capture the traffic on the downstream path, so
+
+00:02:18.200 --> 00:02:21.000
+from the server to the client.
+
+00:02:21.000 --> 00:02:24.030
+The first spinbit cousin is the so-called LBIT
+
+00:02:24.030 --> 00:02:25.990
+and it builds upon end-host based loss detection
+
+00:02:25.990 --> 00:02:29.000
+as is for example incorporated in QUIC.
+
+00:02:29.000 --> 00:02:32.140
+In other words, the end-hosts detect loss and
+
+00:02:32.140 --> 00:02:36.000
+then the LBIT reports that loss into the network.
+
+00:02:36.000 --> 00:02:38.690
+Due to this design, in our setting, the server
+
+00:02:38.690 --> 00:02:41.330
+will report the overall loss on the downstream
+
+00:02:41.330 --> 00:02:42.000
+path.
+
+00:02:42.000 --> 00:02:44.960
+The second spinbit cousin is the so-called QBIT
+
+00:02:44.960 --> 00:02:46.000
+or squarebit.
+
+00:02:46.000 --> 00:02:48.830
+As the name implies, it generates a constant
+
+00:02:48.830 --> 00:02:50.000
+square wave signal.
+
+00:02:50.000 --> 00:02:52.920
+Or in other words, it first transmits a certain
+
+00:02:52.920 --> 00:02:55.520
+number of packets with a set QBIT and then a
+
+00:02:55.520 --> 00:02:58.000
+certain number of packets with an unset QBIT.
+
+00:02:58.000 --> 00:03:00.240
+The network probe can then simply count how many
+
+00:03:00.240 --> 00:03:02.630
+packets have arrived in which phase and can thus
+
+00:03:02.630 --> 00:03:04.760
+derive the packet loss that has occurred here on
+
+00:03:04.760 --> 00:03:06.000
+the downstream one link.
+
+00:03:06.000 --> 00:03:08.290
+The third approach is then called the RBIT or
+
+00:03:08.290 --> 00:03:11.000
+reflection squarebit and builds upon the QBIT.
+
+00:03:11.000 --> 00:03:14.470
+In essence, the end-hosts deploy QBIT observer
+
+00:03:14.470 --> 00:03:18.180
+logic and then report the number of observed QBITs
+
+00:03:18.180 --> 00:03:20.000
+back into the network.
+
+00:03:20.000 --> 00:03:22.390
+Due to this design, the RBIT in our setting
+
+00:03:22.390 --> 00:03:24.830
+covers the overall upstream path as well as
+
+00:03:24.830 --> 00:03:26.000
+downstream one.
+
+00:03:26.000 --> 00:03:29.270
+Finally, we then have the so-called TBIT, where
+
+00:03:29.270 --> 00:03:31.600
+we basically have one train of packets, which is
+
+00:03:31.600 --> 00:03:34.320
+reflected several times between the server and
+
+00:03:34.320 --> 00:03:35.000
+the client.
+
+00:03:35.000 --> 00:03:37.830
+Mapped to our setting, our observer will now only
+
+00:03:37.830 --> 00:03:40.190
+be able to compute the packet loss that has
+
+00:03:40.190 --> 00:03:42.000
+occurred on the overall link.
+
+00:03:42.000 --> 00:03:44.420
+So from the time that the train has left the
+
+00:03:44.420 --> 00:03:46.700
+observer in the one direction until it has
+
+00:03:46.700 --> 00:03:49.060
+entered the observer again from the other
+
+00:03:49.060 --> 00:03:50.000
+direction.
+
+00:03:50.000 --> 00:03:52.520
+As we can already see here, the approaches differ
+
+00:03:52.520 --> 00:03:55.000
+in which parts of the network they actually cover.
+
+00:03:55.000 --> 00:03:57.830
+And this is already the first important decision
+
+00:03:57.830 --> 00:04:00.310
+factor when we want to decide on which of these
+
+00:04:00.310 --> 00:04:02.000
+approaches we want to choose.
+
+00:04:02.000 --> 00:04:05.280
+The second aspect would then be the measurement
+
+00:04:05.280 --> 00:04:07.840
+accuracy. So how accurate can we actually
+
+00:04:07.840 --> 00:04:10.000
+determine the packet loss rates?
+
+00:04:10.000 --> 00:04:12.520
+This directly leads us to our contribution
+
+00:04:12.520 --> 00:04:15.000
+because what we have done is an experimental
+
+00:04:15.000 --> 00:04:17.400
+evaluation of the four spinbit cousins using a
+
+00:04:17.400 --> 00:04:19.000
+mini-net based testbed.
+
+00:04:19.000 --> 00:04:21.280
+At this point, it is very important to have a
+
+00:04:21.280 --> 00:04:24.000
+fair comparison between the different approaches.
+
+00:04:24.000 --> 00:04:26.510
+And this is why we induce packet loss only here
+
+00:04:26.510 --> 00:04:29.260
+on the downstream one link, because that is the
+
+00:04:29.260 --> 00:04:31.850
+only link that all of the four approaches can
+
+00:04:31.850 --> 00:04:33.000
+actually cover.
+
+00:04:33.000 --> 00:04:36.000
+We've then investigated three different scenarios.
+
+00:04:36.000 --> 00:04:38.100
+In the first setting, we have induced random
+
+00:04:38.100 --> 00:04:40.000
+packet loss on the downstream one link.
+
+00:04:40.000 --> 00:04:42.930
+In the second setting, we have induced burst
+
+00:04:42.930 --> 00:04:45.640
+packet loss. And for that, we have used the
+
+00:04:45.640 --> 00:04:47.000
+simple Gilbert model.
+
+00:04:47.000 --> 00:04:49.030
+And then finally, we've also considered the
+
+00:04:49.030 --> 00:04:51.280
+impact of different flow sizes on the measurement
+
+00:04:51.280 --> 00:04:52.000
+accuracy.
+
+00:04:52.000 --> 00:04:54.340
+In this talk, I will mainly focus on the first
+
+00:04:54.340 --> 00:04:58.000
+setting. So let's get directly into it.
+
+00:04:58.000 --> 00:05:00.840
+The main goal of our random loss scenario was to
+
+00:05:00.840 --> 00:05:03.480
+find out how well the different approaches
+
+00:05:03.480 --> 00:05:06.000
+perform under ideal circumstances.
+
+00:05:06.000 --> 00:05:08.470
+For this, we use symmetric traffic and disable
+
+00:05:08.470 --> 00:05:10.900
+congestion control so that there's a constant
+
+00:05:10.900 --> 00:05:12.000
+flow of packets.
+
+00:05:12.000 --> 00:05:14.510
+We then transmit roughly one million packets in
+
+00:05:14.510 --> 00:05:17.410
+each of our experiments and perform 30 iterations
+
+00:05:17.410 --> 00:05:19.000
+for each of our settings.
+
+00:05:19.000 --> 00:05:21.640
+We then report the cumulative loss rates that the
+
+00:05:21.640 --> 00:05:23.890
+different approaches have derived at the end of
+
+00:05:23.890 --> 00:05:25.000
+the experiments.
+
+00:05:25.000 --> 00:05:27.100
+In addition to the four approaches, we also check
+
+00:05:27.100 --> 00:05:30.080
+the ground truth. So how many packets have really
+
+00:05:30.080 --> 00:05:31.000
+been lost?
+
+00:05:31.000 --> 00:05:34.260
+What you can see in this plot is on the x-axis,
+
+00:05:34.260 --> 00:05:37.400
+the configured loss rates and on the y-axis, the
+
+00:05:37.400 --> 00:05:39.000
+measured loss rates.
+
+00:05:39.000 --> 00:05:41.190
+If we now look at the result of all the four
+
+00:05:41.190 --> 00:05:43.650
+approaches, we can see that they are mostly very
+
+00:05:43.650 --> 00:05:46.140
+close to the ground truth, especially for higher
+
+00:05:46.140 --> 00:05:47.000
+loss rates.
+
+00:05:47.000 --> 00:05:49.150
+The only thing that stands out here is that the t-bit
+
+00:05:49.150 --> 00:05:52.240
+is not that accurate for low loss percentages, as
+
+00:05:52.240 --> 00:05:55.000
+evidenced by larger confidence intervals here.
+
+00:05:55.000 --> 00:05:57.710
+The main reason is that the t-bit includes two
+
+00:05:57.710 --> 00:06:00.590
+pause phases and thus it doesn't actually cover
+
+00:06:00.590 --> 00:06:02.000
+the whole traffic.
+
+00:06:02.000 --> 00:06:04.100
+Next, we wanted to find out about the timely
+
+00:06:04.100 --> 00:06:06.470
+behavior of the different approaches and thus
+
+00:06:06.470 --> 00:06:09.000
+looked at individual measurement runs.
+
+00:06:09.000 --> 00:06:11.760
+What you can see on this slide are the first 10
+
+00:06:11.760 --> 00:06:14.540
+seconds of one handpicked measurement run where
+
+00:06:14.540 --> 00:06:17.000
+we had configured a loss rate of 1%.
+
+00:06:17.000 --> 00:06:19.490
+Looking at the L-bit, we can see that it closely
+
+00:06:19.490 --> 00:06:22.530
+follows the ground truth, although there's always
+
+00:06:22.530 --> 00:06:24.000
+a slight timely delay.
+
+00:06:24.000 --> 00:06:25.960
+This is reasoned by the fact that the L-bit
+
+00:06:25.960 --> 00:06:28.090
+depends on the end host based loss detection,
+
+00:06:28.090 --> 00:06:30.720
+which takes a bit of time until it actually deems
+
+00:06:30.720 --> 00:06:32.000
+a packet to be lost.
+
+00:06:32.000 --> 00:06:34.400
+Next, looking at the qubit, we can see that it
+
+00:06:34.400 --> 00:06:37.000
+also follows the ground truth quite closely.
+
+00:06:37.000 --> 00:06:40.190
+We can also identify the longer algorithmic
+
+00:06:40.190 --> 00:06:43.410
+intervals and the qubit actually represents an
+
+00:06:43.410 --> 00:06:46.000
+interpolation of the ground truth.
+
+00:06:46.000 --> 00:06:48.180
+Next, looking at the R-bit, we can see that it is
+
+00:06:48.180 --> 00:06:50.380
+significantly higher than the others here in the
+
+00:06:50.380 --> 00:06:51.000
+beginning.
+
+00:06:51.000 --> 00:06:53.880
+And also it starts later than the other two
+
+00:06:53.880 --> 00:06:55.000
+approaches.
+
+00:06:55.000 --> 00:06:57.400
+This is due to the fact that it builds upon the
+
+00:06:57.400 --> 00:06:59.720
+qubit and first has to wait until the first
+
+00:06:59.720 --> 00:07:02.000
+iteration of the qubit has succeeded.
+
+00:07:02.000 --> 00:07:04.840
+However, in the long run, it then also follows
+
+00:07:04.840 --> 00:07:07.000
+the ground truth quite closely.
+
+00:07:07.000 --> 00:07:09.910
+Finally, looking at the T-bit, the previously
+
+00:07:09.910 --> 00:07:12.300
+mentioned longer algorithmic intervals are now
+
+00:07:12.300 --> 00:07:14.620
+really visible because it is the only one to only
+
+00:07:14.620 --> 00:07:17.000
+produce three readings in the first second.
+
+00:07:17.000 --> 00:07:19.180
+Additionally, it also has the highest
+
+00:07:19.180 --> 00:07:22.050
+fluctuations in the measurements and takes really
+
+00:07:22.050 --> 00:07:25.000
+long time until it gets close to the ground truth.
+
+00:07:25.000 --> 00:07:27.400
+So summarizing, it can be said that the L-bit is
+
+00:07:27.400 --> 00:07:30.000
+the closest representation of the ground truth,
+
+00:07:30.000 --> 00:07:32.000
+while the Q and R-bit are not far behind.
+
+00:07:32.000 --> 00:07:35.150
+Only the T-bit struggles a bit and takes a long
+
+00:07:35.150 --> 00:07:38.000
+time to get close to the ground truth.
+
+00:07:38.000 --> 00:07:40.300
+Let us finally get back to the question stated in
+
+00:07:40.300 --> 00:07:41.000
+our title.
+
+00:07:41.000 --> 00:07:44.000
+So which spinbit cousin is here to stay?
+
+00:07:44.000 --> 00:07:47.000
+Well, solely based on the measurement accuracy,
+
+00:07:47.000 --> 00:07:49.710
+the L-bit seems to be the best choice as it
+
+00:07:49.710 --> 00:07:52.000
+closely follows the ground truth.
+
+00:07:52.000 --> 00:07:54.740
+However, it depends on the end host loss
+
+00:07:54.740 --> 00:07:57.500
+detection and there's always this slight temporal
+
+00:07:57.500 --> 00:08:00.000
+delay between the actual packet loss and its
+
+00:08:00.000 --> 00:08:01.000
+reporting.
+
+00:08:01.000 --> 00:08:03.960
+On the other hand, we've seen that there are
+
+00:08:03.960 --> 00:08:07.260
+longer algorithmic intervals for Q, R and T, and
+
+00:08:07.260 --> 00:08:09.000
+these come with two disadvantages.
+
+00:08:09.000 --> 00:08:11.540
+First, there's a decrease in accuracy when they
+
+00:08:11.540 --> 00:08:14.090
+are subject to burst loss, as is evidenced in our
+
+00:08:14.090 --> 00:08:16.000
+second experimental setting.
+
+00:08:16.000 --> 00:08:18.800
+What we did is configure increasing average burst
+
+00:08:18.800 --> 00:08:22.040
+sizes, and as our results indicate, the Q, R and
+
+00:08:22.040 --> 00:08:26.000
+T-bits struggle if the burst sizes increase.
+
+00:08:26.000 --> 00:08:28.830
+The second disadvantage of those longer algorithmic
+
+00:08:28.830 --> 00:08:31.400
+intervals is that they prolong the time until the
+
+00:08:31.400 --> 00:08:33.000
+measurement stabilizes.
+
+00:08:33.000 --> 00:08:35.880
+These results now stem from our third setting,
+
+00:08:35.880 --> 00:08:39.000
+where we investigated different flow lengths.
+
+00:08:39.000 --> 00:08:41.540
+As is evidenced in the plot, the different
+
+00:08:41.540 --> 00:08:44.350
+algorithms start their measurements at different
+
+00:08:44.350 --> 00:08:45.000
+times.
+
+00:08:45.000 --> 00:08:47.630
+So the L-bit starts first, then the Q-bit joins,
+
+00:08:47.630 --> 00:08:50.330
+afterwards the T-bit joins, and finally the R-bit
+
+00:08:50.330 --> 00:08:51.000
+joins.
+
+00:08:51.000 --> 00:08:54.230
+This observation is especially important if we
+
+00:08:54.230 --> 00:08:57.360
+want to observe short flows or if we want to have
+
+00:08:57.360 --> 00:08:59.000
+fast measurements.
+
+00:08:59.000 --> 00:09:01.740
+However, in the long run, all the measurements
+
+00:09:01.740 --> 00:09:04.070
+start to stabilize at the same time, so at
+
+00:09:04.070 --> 00:09:06.000
+roughly 1 to 2 megabytes.
+
+00:09:06.000 --> 00:09:08.540
+So overall, the measurement accuracy seems to be
+
+00:09:08.540 --> 00:09:10.880
+suitable in all of the four cases, although there
+
+00:09:10.880 --> 00:09:13.000
+are of course differences in them.
+
+00:09:13.000 --> 00:09:16.000
+But which of those approaches now to choose?
+
+00:09:16.000 --> 00:09:18.190
+I think that another property of those approaches
+
+00:09:18.190 --> 00:09:20.550
+will eventually be the deciding factor when
+
+00:09:20.550 --> 00:09:23.000
+choosing which of them to deploy.
+
+00:09:23.000 --> 00:09:26.000
+And that is their path segmentation properties.
+
+00:09:26.000 --> 00:09:28.800
+These eventually decide on how closely the
+
+00:09:28.800 --> 00:09:32.000
+network operators will be able to localize loss,
+
+00:09:32.000 --> 00:09:34.380
+and thus it actually depends on the needs of the
+
+00:09:34.380 --> 00:09:37.610
+operators on how fine-grained they want to localize
+
+00:09:37.610 --> 00:09:39.000
+the loss in their networks.
+
+00:09:39.000 --> 00:09:41.980
+Because from a measurement accuracy perspective,
+
+00:09:41.980 --> 00:09:44.720
+all of the approaches should provide reasonable
+
+00:09:44.720 --> 00:09:46.000
+results for that.
+
+00:09:46.000 --> 00:09:48.000
+Thank you very much!
+

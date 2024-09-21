@@ -1,0 +1,629 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:02.770
+Hello everyone, this is Romain Fonthune from IAJ
+
+00:00:02.770 --> 00:00:05.520
+Research Lab, and today I will present
+
+00:00:05.520 --> 00:00:08.400
+our latest results on BGP zombies.
+
+00:00:08.400 --> 00:00:11.900
+So first let me explain what a BGP zombie is.
+
+00:00:11.900 --> 00:00:17.990
+So this figure represents how one prefix is seen
+
+00:00:17.990 --> 00:00:20.400
+by RIS routers.
+
+00:00:20.400 --> 00:00:24.600
+On the y-axis here you have all the RIS routers,
+
+00:00:24.600 --> 00:00:26.880
+and on the x-axis you have time.
+
+00:00:26.880 --> 00:00:31.630
+The prefix we are looking at is one of the RIS BGP
+
+00:00:31.630 --> 00:00:35.420
+beacon prefixes, and the green circles
+
+00:00:35.420 --> 00:00:40.100
+here show that the prefix is announced by one of
+
+00:00:40.100 --> 00:00:41.720
+the routers.
+
+00:00:41.720 --> 00:00:45.030
+Then the green line shows that the prefix is
+
+00:00:45.030 --> 00:00:47.920
+active in the router routing table, and
+
+00:00:47.920 --> 00:00:51.670
+the red cross shows that the prefix is withdrawn
+
+00:00:51.670 --> 00:00:53.080
+by the router.
+
+00:00:53.080 --> 00:00:56.410
+So here it means the prefix is active for two
+
+00:00:56.410 --> 00:00:59.540
+hours, then it's withdrawn for two hours,
+
+00:00:59.540 --> 00:01:01.840
+and then it's announced again for two hours, and
+
+00:01:01.840 --> 00:01:03.880
+withdrawn again, and announced again,
+
+00:01:03.880 --> 00:01:09.000
+and this is what we expect from BGP beacons.
+
+00:01:09.000 --> 00:01:15.030
+But you can see that there are three lines here
+
+00:01:15.030 --> 00:01:19.640
+that represent three routers that think
+
+00:01:19.640 --> 00:01:23.000
+that this prefix is active during this time, even
+
+00:01:23.000 --> 00:01:26.080
+though we know that the prefix was withdrawn
+
+00:01:26.080 --> 00:01:28.400
+by RIV.
+
+00:01:28.400 --> 00:01:32.220
+And this is what we call a BGP zombie, so here we
+
+00:01:32.220 --> 00:01:34.200
+have three zombies.
+
+00:01:34.200 --> 00:01:38.920
+In summary, a BGP zombie is an active entry in a
+
+00:01:38.920 --> 00:01:43.400
+routing table that corresponds to a prefix
+
+00:01:43.400 --> 00:01:46.560
+that is in fact withdrawn by its originators.
+
+00:01:46.560 --> 00:01:51.070
+So in the past we've looked at these BGP zombies,
+
+00:01:51.070 --> 00:01:54.280
+and we used BGP beacons to do that.
+
+00:01:54.280 --> 00:01:57.070
+That was a work we published in PAL in 2019, but
+
+00:01:57.070 --> 00:01:58.960
+it didn't really tell us anything about
+
+00:01:58.960 --> 00:02:02.200
+the regular prefixes we're using on the internet.
+
+00:02:02.200 --> 00:02:06.370
+And this is the goal we set for this work here,
+
+00:02:06.370 --> 00:02:10.240
+we want to monitor BGP zombies for regular
+
+00:02:10.240 --> 00:02:14.430
+prefixes and see if it's as bad as what we've
+
+00:02:14.430 --> 00:02:16.500
+seen for beacons.
+
+00:02:16.500 --> 00:02:20.200
+So for beacons, finding zombies was very easy
+
+00:02:20.200 --> 00:02:23.600
+because we knew already when the prefix is
+
+00:02:23.600 --> 00:02:25.800
+withdrawn and when it's announced again.
+
+00:02:25.800 --> 00:02:29.000
+But here, because we are looking at any prefix on
+
+00:02:29.000 --> 00:02:31.560
+the internet, we have to find out when
+
+00:02:31.560 --> 00:02:36.120
+an originator is going to withdraw a prefix.
+
+00:02:36.120 --> 00:02:39.190
+And to do that, we are looking at a metric, which
+
+00:02:39.190 --> 00:02:41.480
+is the number of active routers for
+
+00:02:41.480 --> 00:02:42.600
+a prefix.
+
+00:02:42.600 --> 00:02:45.520
+It's shown here in that figure, so that metric
+
+00:02:45.520 --> 00:02:47.440
+ranges between 0 and 1.
+
+00:02:47.440 --> 00:02:51.450
+One means that all the routers we are using see
+
+00:02:51.450 --> 00:02:53.720
+that prefix as active.
+
+00:02:53.720 --> 00:02:56.040
+So it might decrease a bit, and there's some
+
+00:02:56.040 --> 00:02:58.480
+noise in this metric, which means that some
+
+00:02:58.480 --> 00:03:01.280
+routers might withdraw the prefix, there is some
+
+00:03:01.280 --> 00:03:03.480
+topological change that can happen on
+
+00:03:03.480 --> 00:03:06.960
+the internet that could cause this noise.
+
+00:03:06.960 --> 00:03:09.750
+But when we see a significant drop, and it's when
+
+00:03:09.750 --> 00:03:12.080
+things start to get interesting, is it
+
+00:03:12.080 --> 00:03:15.040
+when the drop will go down to zero.
+
+00:03:15.040 --> 00:03:17.960
+In this case, it means that all the routers we
+
+00:03:17.960 --> 00:03:20.920
+are using, they all withdraw the prefix.
+
+00:03:20.920 --> 00:03:25.220
+If it goes down and then up again, and then
+
+00:03:25.220 --> 00:03:30.760
+stabilizes, that means there was some significant
+
+00:03:30.760 --> 00:03:32.780
+change in the topology.
+
+00:03:32.780 --> 00:03:35.730
+So maybe that prefix was withdrawn and then re-announced
+
+00:03:35.730 --> 00:03:37.520
+by the same origin or a different
+
+00:03:37.520 --> 00:03:39.480
+origin.
+
+00:03:39.480 --> 00:03:42.010
+But what is interesting for us is to see when
+
+00:03:42.010 --> 00:03:44.840
+there is a significant change, a significant
+
+00:03:44.840 --> 00:03:49.910
+drop, and then this metric, the number of active
+
+00:03:49.910 --> 00:03:54.160
+routers, is stable but at a low value.
+
+00:03:54.160 --> 00:03:58.060
+Here it means that only a few routers didn't
+
+00:03:58.060 --> 00:04:00.020
+withdraw that prefix.
+
+00:04:00.020 --> 00:04:04.220
+And if it lasts for a certain time, then we're
+
+00:04:04.220 --> 00:04:08.000
+going to say that this is a BGP zombie.
+
+00:04:08.000 --> 00:04:11.320
+So this is our definition of the BGP zombie.
+
+00:04:11.320 --> 00:04:14.460
+When we see the majority of the routers have
+
+00:04:14.460 --> 00:04:17.720
+withdrawn the prefix, we're going to wait
+
+00:04:17.720 --> 00:04:18.720
+90 minutes.
+
+00:04:18.720 --> 00:04:23.330
+And after 90 minutes, if we see that the prefix
+
+00:04:23.330 --> 00:04:26.880
+was not completely withdrawn, or it wasn't
+
+00:04:26.880 --> 00:04:29.320
+re-announced, then we're going to say this is a
+
+00:04:29.320 --> 00:04:29.960
+zombie.
+
+00:04:29.960 --> 00:04:33.100
+You can check the paper for some of the details
+
+00:04:33.100 --> 00:04:35.160
+why we use 90 minutes.
+
+00:04:35.160 --> 00:04:37.560
+We have some explanation for that in the paper.
+
+00:04:37.560 --> 00:04:39.480
+I don't have time to explain it.
+
+00:04:39.480 --> 00:04:42.900
+So using this very simple zombie detector, we
+
+00:04:42.900 --> 00:04:45.880
+analyzed six years of BGP data and found
+
+00:04:45.880 --> 00:04:49.520
+6.5 million of BGP zombies.
+
+00:04:49.520 --> 00:04:53.420
+And we looked at different things in these
+
+00:04:53.420 --> 00:04:54.600
+zombies.
+
+00:04:54.600 --> 00:04:56.520
+First we ran some sanity checks.
+
+00:04:56.520 --> 00:04:59.920
+I will explain in the next slide.
+
+00:04:59.920 --> 00:05:02.570
+And we also looked at some of the characteristics
+
+00:05:02.570 --> 00:05:03.960
+of zombies in the wild.
+
+00:05:03.960 --> 00:05:06.480
+One of the first sanity checks we've done is to
+
+00:05:06.480 --> 00:05:08.840
+look at what we call the state covariance
+
+00:05:08.840 --> 00:05:11.560
+between risk-peers.
+
+00:05:11.560 --> 00:05:16.040
+So here's an example of a zombie that appears in
+
+00:05:16.040 --> 00:05:16.960
+AS3.
+
+00:05:16.960 --> 00:05:21.200
+So AS3 is reporting a pass to a certain prefix.
+
+00:05:21.200 --> 00:05:25.400
+This pass is AS3, AS2, AS1, and AS0.
+
+00:05:25.400 --> 00:05:30.000
+So AS3 tells us that it can reach that prefix
+
+00:05:30.000 --> 00:05:32.440
+through these ASes.
+
+00:05:32.440 --> 00:05:37.330
+But we have access to one of these ASes through
+
+00:05:37.330 --> 00:05:38.080
+risk.
+
+00:05:38.080 --> 00:05:41.780
+And that AS tells us that it has withdrawn this
+
+00:05:41.780 --> 00:05:42.760
+prefix.
+
+00:05:42.760 --> 00:05:46.410
+So because those two information are conflicting,
+
+00:05:46.410 --> 00:05:49.560
+we see that the states here are incorrect.
+
+00:05:49.560 --> 00:05:53.540
+One of the risk-peers tells us that it has a pass
+
+00:05:53.540 --> 00:05:54.880
+to a prefix.
+
+00:05:54.880 --> 00:05:58.000
+But on this pass, we see that one of the ASes has
+
+00:05:58.000 --> 00:06:00.400
+actually withdrawn the prefix.
+
+00:06:00.400 --> 00:06:04.250
+After this, Willy tells us that there is in fact
+
+00:06:04.250 --> 00:06:05.320
+a zombie.
+
+00:06:05.320 --> 00:06:06.920
+And it's not a misclassification.
+
+00:06:06.920 --> 00:06:10.440
+So we use that to validate our result.
+
+00:06:10.440 --> 00:06:14.560
+But to do that, we have to have a zombie pass
+
+00:06:14.560 --> 00:06:18.960
+with at least two risk-peers in the AS pass.
+
+00:06:18.960 --> 00:06:25.720
+So about 68% of the zombie pass detected have two
+
+00:06:25.720 --> 00:06:27.920
+risk-peers.
+
+00:06:27.920 --> 00:06:32.360
+And for this 68% of pass, we found that almost 95%
+
+00:06:32.360 --> 00:06:34.800
+of them have incorrect states.
+
+00:06:34.800 --> 00:06:37.360
+So that means they are really zombies.
+
+00:06:37.360 --> 00:06:42.050
+And the rest are not really conclusive because it
+
+00:06:42.050 --> 00:06:45.360
+could be that the two risk-peers we have
+
+00:06:45.360 --> 00:06:48.600
+access to, both are affected by the zombie.
+
+00:06:48.600 --> 00:06:53.080
+So we cannot really say if it's a misclassification
+
+00:06:53.080 --> 00:06:53.960
+or not.
+
+00:06:53.960 --> 00:06:57.410
+Another thing we looked at is where are the beacons
+
+00:06:57.410 --> 00:06:58.640
+in our result.
+
+00:06:58.640 --> 00:07:03.050
+And we found that the risk-BGP beacons account
+
+00:07:03.050 --> 00:07:07.800
+for 3.2% of all the zombies we detected.
+
+00:07:07.800 --> 00:07:11.990
+3.2% seems to be a small value, but actually it's
+
+00:07:11.990 --> 00:07:15.360
+very big because there is only 27 risk-beacon
+
+00:07:15.360 --> 00:07:21.210
+prefixes out of the 800,000 prefixes we have on
+
+00:07:21.210 --> 00:07:22.880
+the internet.
+
+00:07:22.880 --> 00:07:26.460
+So only those few prefixes have created a lot of
+
+00:07:26.460 --> 00:07:27.440
+zombies.
+
+00:07:27.440 --> 00:07:31.810
+And one of the questions we had then was, okay,
+
+00:07:31.810 --> 00:07:35.360
+maybe noisier prefixes like risk-BGP
+
+00:07:35.360 --> 00:07:38.000
+beacons are more prone to zombies.
+
+00:07:38.000 --> 00:07:42.000
+And this is what we looked at in this figure.
+
+00:07:42.000 --> 00:07:45.010
+We took the prefixes that had a lot of zombies
+
+00:07:45.010 --> 00:07:47.880
+and we looked at the number of updates for
+
+00:07:47.880 --> 00:07:49.480
+these prefixes.
+
+00:07:49.480 --> 00:07:51.940
+You can see that as the number of updates is
+
+00:07:51.940 --> 00:07:54.440
+increasing, the chance to have zombies
+
+00:07:54.440 --> 00:07:58.120
+is also increasing.
+
+00:07:58.120 --> 00:08:01.550
+One takeaway from this is that beacons are not
+
+00:08:01.550 --> 00:08:04.640
+really representative of what we observe
+
+00:08:04.640 --> 00:08:06.920
+for the regular prefixes.
+
+00:08:06.920 --> 00:08:11.200
+This was especially true for IPv4.
+
+00:08:11.200 --> 00:08:14.350
+And we also looked at zombies for popular content
+
+00:08:14.350 --> 00:08:15.240
+networks.
+
+00:08:15.240 --> 00:08:18.870
+So we took 42 ASN that are commonly found in the
+
+00:08:18.870 --> 00:08:22.160
+top 15 Alexa, Umbrella, and Majestic
+
+00:08:22.160 --> 00:08:27.440
+lists, and we looked at how many zombies they had.
+
+00:08:27.440 --> 00:08:31.100
+Here's the ranking of this ASN over time, and you
+
+00:08:31.100 --> 00:08:33.840
+can see that some of them had zombies
+
+00:08:33.840 --> 00:08:35.160
+almost every month.
+
+00:08:35.160 --> 00:08:40.160
+We did this only for two years in 2018 and 2019.
+
+00:08:40.160 --> 00:08:42.920
+And we looked a bit more at this ASN.
+
+00:08:42.920 --> 00:08:47.790
+We looked at a different characteristic, and what
+
+00:08:47.790 --> 00:08:50.960
+we found was that the top ASN popular
+
+00:08:50.960 --> 00:08:58.190
+content networks usually have also either denounced
+
+00:08:58.190 --> 00:09:02.760
+a lot of prefixes or they have very
+
+00:09:02.760 --> 00:09:07.800
+long ASN passlines.
+
+00:09:07.800 --> 00:09:11.080
+And if we think about it, it kind of makes sense.
+
+00:09:11.080 --> 00:09:15.880
+If we assume that BGP zombies are due to bugs in
+
+00:09:15.880 --> 00:09:20.320
+routers, then a longer passline means that
+
+00:09:20.320 --> 00:09:25.450
+it's going to imply more routers and thus more
+
+00:09:25.450 --> 00:09:29.320
+chance to hit one of these bugs.
+
+00:09:29.320 --> 00:09:31.770
+And finally in the paper, we looked at some of
+
+00:09:31.770 --> 00:09:33.720
+the side effects of BGP zombies.
+
+00:09:33.720 --> 00:09:39.400
+We found that 77,000 zombies created the tools.
+
+00:09:39.400 --> 00:09:42.830
+For example, it would be cases where the pass
+
+00:09:42.830 --> 00:09:46.480
+would follow backup links instead of the usual
+
+00:09:46.480 --> 00:09:51.280
+AS pass we'd see.
+
+00:09:51.280 --> 00:09:54.790
+And we also found that some zombies have an
+
+00:09:54.790 --> 00:09:58.520
+origin that is different than its covering
+
+00:09:58.520 --> 00:10:03.260
+prefix because that route is stuck, then we might
+
+00:10:03.260 --> 00:10:06.960
+have a wrong origin as information.
+
+00:10:06.960 --> 00:10:08.790
+I won't give the detail here, but you can look at
+
+00:10:08.790 --> 00:10:09.360
+the paper.
+
+00:10:09.360 --> 00:10:13.760
+In some cases, the BGP zombies can create routing
+
+00:10:13.760 --> 00:10:18.160
+loops, and we found over 400 of potential
+
+00:10:18.160 --> 00:10:19.520
+routing loops in our result.
+
+00:10:19.520 --> 00:10:22.760
+I also advise you to look at this presentation
+
+00:10:22.760 --> 00:10:26.360
+from PLNOT last year, where they give a concrete
+
+00:10:26.360 --> 00:10:31.280
+example of routing loops and also the truss route
+
+00:10:31.280 --> 00:10:32.920
+to show that.
+
+00:10:32.920 --> 00:10:36.480
+Okay, so that concludes my presentation.
+
+00:10:36.480 --> 00:10:39.930
+In this work, we look at BGP zombies for regular
+
+00:10:39.930 --> 00:10:40.960
+prefixes.
+
+00:10:40.960 --> 00:10:43.560
+We found that zombies are widely spread.
+
+00:10:43.560 --> 00:10:48.900
+We found zombies for very popular content
+
+00:10:48.900 --> 00:10:50.480
+networks.
+
+00:10:50.480 --> 00:10:53.530
+Even though it's widely spread, it's not as bad
+
+00:10:53.530 --> 00:10:56.080
+as what our past study using BGP beacon
+
+00:10:56.080 --> 00:10:57.080
+was suggesting.
+
+00:10:57.080 --> 00:11:00.830
+Also, here in this work, we find some interesting
+
+00:11:00.830 --> 00:11:03.400
+side effects from BGP zombies.
+
+00:11:03.400 --> 00:11:04.240
+Thank you for listening.
+
+00:11:04.240 --> 00:11:05.080
+Thank you.
+

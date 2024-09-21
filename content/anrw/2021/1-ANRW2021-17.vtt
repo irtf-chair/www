@@ -1,0 +1,386 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:04.640
+Hi there, I'd like to tell you about tools for
+
+00:00:04.640 --> 00:00:07.960
+disambiguating RFCs. This is work led
+
+00:00:07.960 --> 00:00:11.060
+by our grad student Jane Yen, along with Ramesh
+
+00:00:11.060 --> 00:00:18.520
+Govindan and myself Bharath Raghavan at UFC.
+
+00:00:18.520 --> 00:00:21.330
+In nearly every talk I give I somehow keep coming
+
+00:00:21.330 --> 00:00:24.520
+back to September 1981. This is when
+
+00:00:24.520 --> 00:00:27.390
+the foundational protocols of the internet that
+
+00:00:27.390 --> 00:00:29.640
+are still in use today were defined and
+
+00:00:29.640 --> 00:00:32.290
+they were written in English and manifested in
+
+00:00:32.290 --> 00:00:34.440
+the world in Clark's phrase "through
+
+00:00:34.440 --> 00:00:38.570
+rough consensus and running code." So what I want
+
+00:00:38.570 --> 00:00:41.160
+to ask is what makes protocols special?
+
+00:00:41.160 --> 00:00:43.820
+Since then we have grappled with something
+
+00:00:43.820 --> 00:00:46.240
+fundamental about network protocols. They
+
+00:00:46.240 --> 00:00:49.100
+are specified in English, implemented in code
+
+00:00:49.100 --> 00:00:52.160
+through interpretation of that English prose,
+
+00:00:52.160 --> 00:00:55.380
+coded typically in a relatively low level
+
+00:00:55.380 --> 00:00:59.000
+language, but have a fundamental intent to
+
+00:00:59.000 --> 00:01:02.250
+interoperate with other implementations. Those
+
+00:01:02.250 --> 00:01:04.080
+other implementations went through the same
+
+00:01:04.080 --> 00:01:07.360
+process, interpretation by a person who scrutinized
+
+00:01:07.360 --> 00:01:09.680
+that English text or not, and wrote an
+
+00:01:09.680 --> 00:01:10.760
+implementation
+
+00:01:10.760 --> 00:01:14.200
+that reflected their best guess as to the intent
+
+00:01:14.200 --> 00:01:16.720
+of the spec author. And yet these implementations
+
+00:01:16.720 --> 00:01:19.730
+were written separate in time and space from one
+
+00:01:19.730 --> 00:01:22.900
+another and from the specification, something
+
+00:01:22.900 --> 00:01:25.280
+that rarely takes place in other domains of
+
+00:01:25.280 --> 00:01:28.400
+software development. And from that we want
+
+00:01:28.400 --> 00:01:30.410
+to achieve all the different properties. We've
+
+00:01:30.410 --> 00:01:32.960
+struggled for a long time to achieve all of
+
+00:01:32.960 --> 00:01:36.240
+them. Properties such as security and interoperability,
+
+00:01:36.240 --> 00:01:39.160
+flexibility, scalability, correctness, and
+
+00:01:39.160 --> 00:01:41.840
+extensibility. And while this is sometimes due to
+
+00:01:41.840 --> 00:01:43.920
+the design and specification process,
+
+00:01:43.920 --> 00:01:46.880
+it's often because of implementations with issues
+
+00:01:46.880 --> 00:01:49.040
+being discovered incrementally over
+
+00:01:49.040 --> 00:01:52.370
+time. And those implementations get improved, the
+
+00:01:52.370 --> 00:01:54.680
+specifications get improved, and then
+
+00:01:54.680 --> 00:01:57.790
+around we go again. But it's not clear that this
+
+00:01:57.790 --> 00:01:59.240
+is fundamental. And so what we might
+
+00:01:59.240 --> 00:02:02.710
+do is consider different options that we have in
+
+00:02:02.710 --> 00:02:06.160
+protocol specification and implementation.
+
+00:02:06.160 --> 00:02:08.420
+How easy are they to specify and how easy are
+
+00:02:08.420 --> 00:02:10.800
+they to implement? And not just implement
+
+00:02:10.800 --> 00:02:14.630
+badly but with all of the properties that we seek.
+
+00:02:14.630 --> 00:02:17.720
+The place we began in our work is
+
+00:02:17.720 --> 00:02:20.080
+the place that we've been some time, that the
+
+00:02:20.080 --> 00:02:22.280
+specification is written in English and
+
+00:02:22.280 --> 00:02:25.520
+a person somewhere, a human must read the spec,
+
+00:02:25.520 --> 00:02:28.600
+interpret it correctly, and then implement
+
+00:02:28.600 --> 00:02:31.620
+it correctly. Many have rightly observed that
+
+00:02:31.620 --> 00:02:34.080
+this opens the door to many possible mistakes.
+
+00:02:34.080 --> 00:02:36.590
+So the natural option is to formalize the
+
+00:02:36.590 --> 00:02:39.040
+specification process. Many languages and
+
+00:02:39.040 --> 00:02:41.130
+tools for formal specification of software
+
+00:02:41.130 --> 00:02:43.440
+generally and protocol specifically have been
+
+00:02:43.440 --> 00:02:46.520
+developed. And these formal specs enable a degree
+
+00:02:46.520 --> 00:02:48.880
+of certainty about what the spec author
+
+00:02:48.880 --> 00:02:51.860
+meant. But they're a pain to write and to read,
+
+00:02:51.860 --> 00:02:54.400
+even for specialists. And so they've
+
+00:02:54.400 --> 00:02:57.830
+been considered really only worth it for the most
+
+00:02:57.830 --> 00:03:00.400
+safety critical applications. And then
+
+00:03:00.400 --> 00:03:02.670
+one can consider, well, if we have this formal
+
+00:03:02.670 --> 00:03:04.920
+specification, we can produce an automated
+
+00:03:04.920 --> 00:03:07.000
+implementation. A crisp enough formal
+
+00:03:07.000 --> 00:03:09.600
+specification should be easy to convert to code.
+
+00:03:09.600 --> 00:03:09.760
+So if you're
+
+00:03:09.760 --> 00:03:12.110
+going to go to the trouble to write a formal spec,
+
+00:03:12.110 --> 00:03:13.840
+you might as well automate the code
+
+00:03:13.840 --> 00:03:17.170
+generation. But formal specs have seen little
+
+00:03:17.170 --> 00:03:19.080
+adoption, and we're still writing protocol
+
+00:03:19.080 --> 00:03:22.050
+specifications in English. So our work, the first
+
+00:03:22.050 --> 00:03:23.640
+piece of which is appearing in SIGCOMM
+
+00:03:23.640 --> 00:03:26.510
+this year, takes a small step toward filling in
+
+00:03:26.510 --> 00:03:29.680
+the missing quadrant, taking RFCs, identifying
+
+00:03:29.680 --> 00:03:32.100
+ambiguities in the spec text, and then after the
+
+00:03:32.100 --> 00:03:34.120
+author fixes those, attempting to auto
+
+00:03:34.120 --> 00:03:37.700
+generate code straight from English. Our approach
+
+00:03:37.700 --> 00:03:39.720
+is built upon a set of concepts and techniques
+
+00:03:39.720 --> 00:03:42.630
+in natural language processing known as combinatorial
+
+00:03:42.630 --> 00:03:44.880
+categorical grammar, which is a way to do
+
+00:03:44.880 --> 00:03:47.520
+what's known as semantic parsing, how to decompose
+
+00:03:47.520 --> 00:03:49.680
+a sentence into sensible units. Now we're
+
+00:03:49.680 --> 00:03:51.880
+not natural language processing experts. We're
+
+00:03:51.880 --> 00:03:53.960
+networking people. So really what we wanted
+
+00:03:53.960 --> 00:03:56.670
+to do is take these techniques that have been
+
+00:03:56.670 --> 00:03:59.840
+developed in NLP and apply them to this context.
+
+00:03:59.840 --> 00:04:02.080
+We use this grammar based approach rather than a
+
+00:04:02.080 --> 00:04:03.800
+more popular deep neural net based
+
+00:04:03.800 --> 00:04:06.700
+approach because we wish to retain the structure
+
+00:04:06.700 --> 00:04:09.320
+of the text so that we can figure out whether
+
+00:04:09.320 --> 00:04:12.520
+multiple interpretations of a sentence are valid
+
+00:04:12.520 --> 00:04:14.960
+and how those should be fixed, if at
+
+00:04:14.960 --> 00:04:20.680
+all. So what kind of text are we talking about?
+
+00:04:20.680 --> 00:04:22.520
+Well, we want to be able to process excellent
+
+00:04:22.520 --> 00:04:35.020
+chunks of text like this. Or this. So we built a
+
+00:04:35.020 --> 00:04:37.740
+tool called Sage that attempts to identify
+
+00:04:37.740 --> 00:04:40.680
+ambiguity in RFC text, taking advantage of their
+
+00:04:40.680 --> 00:04:43.000
+structured nature and flag sentences
+
+00:04:43.000 --> 00:04:46.360
+that are ambiguous. Then for limited RFC features
+
+00:04:46.360 --> 00:04:48.840
+that we support, we take this disambiguated
+
+00:04:48.840 --> 00:04:51.350
+text and convert it directly into protocol code.
+
+00:04:51.350 --> 00:04:53.560
+This is a very early stage tool. It's
+
+00:04:53.560 --> 00:04:56.200
+not ready for wider use. So really part of our
+
+00:04:56.200 --> 00:04:58.240
+motivation in presenting it to you all
+
+00:04:58.240 --> 00:05:01.040
+is to learn from the community and identify what
+
+00:05:01.040 --> 00:05:03.400
+are next steps of where we want to extend
+
+00:05:03.400 --> 00:05:08.100
+it to support. So in addition to parsing prose, RFCs
+
+00:05:08.100 --> 00:05:10.080
+have many types of structured text. Sage
+
+00:05:10.080 --> 00:05:12.920
+currently supports interpretation of packet
+
+00:05:12.920 --> 00:05:15.880
+headers and pseudocode, some aspects of state
+
+00:05:15.880 --> 00:05:18.650
+and session management, but does not support
+
+00:05:18.650 --> 00:05:21.640
+state machines or algorithm specifications.
+
+00:05:21.640 --> 00:05:25.050
+The latter are absolutely needed to support more
+
+00:05:25.050 --> 00:05:27.840
+advanced protocols. And so I come back
+
+00:05:27.840 --> 00:05:32.140
+to where I began, which is what makes protocols
+
+00:05:32.140 --> 00:05:34.360
+special? They're essential to everything we
+
+00:05:34.360 --> 00:05:37.260
+do today and have to work in contexts far outside
+
+00:05:37.260 --> 00:05:39.960
+their original intention. However,
+
+00:05:39.960 --> 00:05:42.590
+because as a community there exists standardized
+
+00:05:42.590 --> 00:05:45.040
+practices for the development of RFCs, what
+
+00:05:45.040 --> 00:05:47.650
+I'd like to pose for discussion is how the
+
+00:05:47.650 --> 00:05:50.920
+process for standardizing RFCs might integrate
+
+00:05:50.920 --> 00:05:53.980
+semi-automated tools, like say a future version
+
+00:05:53.980 --> 00:05:56.760
+of Sage, to improve specifications and to
+
+00:05:56.760 --> 00:05:59.680
+to produce baseline implementations.
+
+00:05:59.680 --> 00:06:00.520
+Thank you.
+

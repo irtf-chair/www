@@ -1,0 +1,638 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.590
+Hi everyone, my name is Shazeh Mustafa and I will
+
+00:00:03.590 --> 00:00:08.220
+be presenting Metapeering today.
+
+00:00:08.220 --> 00:00:11.280
+So finding a suitable ISP to pair with is a slow
+
+00:00:11.280 --> 00:00:13.800
+process and ISP admins put a lot of
+
+00:00:13.800 --> 00:00:19.560
+effort and a lot of time into selecting suitable
+
+00:00:19.560 --> 00:00:20.480
+peers.
+
+00:00:20.480 --> 00:00:21.520
+Why is that?
+
+00:00:21.520 --> 00:00:25.360
+Because ISP admins often attend events sponsored
+
+00:00:25.360 --> 00:00:28.760
+by PeeringDB, Nano, etc. where they network
+
+00:00:28.760 --> 00:00:30.520
+with each other.
+
+00:00:30.520 --> 00:00:33.380
+And using these events, they identify ISPs for
+
+00:00:33.380 --> 00:00:34.800
+potential peering.
+
+00:00:34.800 --> 00:00:39.670
+And after that, they negotiate traffic exchange
+
+00:00:39.670 --> 00:00:43.600
+terms and conditions which may include the
+
+00:00:43.600 --> 00:00:45.880
+max traffic volume they are willing to exchange
+
+00:00:45.880 --> 00:00:48.040
+or the specific points that they are willing
+
+00:00:48.040 --> 00:00:51.990
+to pair at or whether or not it will be a public
+
+00:00:51.990 --> 00:00:53.520
+peering, etc.
+
+00:00:53.520 --> 00:00:57.410
+And then after this step, if and only if both of
+
+00:00:57.410 --> 00:01:00.880
+the ISPs agree to the terms and conditions,
+
+00:01:00.880 --> 00:01:04.180
+the BGP forwarding rules are written so the
+
+00:01:04.180 --> 00:01:07.120
+deployment actually takes place.
+
+00:01:07.120 --> 00:01:09.960
+So I mean, overall, since the whole process
+
+00:01:09.960 --> 00:01:12.960
+requires a ton of manual work, it is extremely
+
+00:01:12.960 --> 00:01:18.100
+slow and it oftentimes takes a couple weeks to
+
+00:01:18.100 --> 00:01:19.360
+months.
+
+00:01:19.360 --> 00:01:22.300
+And even with such an elaborate and lengthy
+
+00:01:22.300 --> 00:01:25.400
+process, finding the right peer is hard.
+
+00:01:25.400 --> 00:01:28.370
+And say you've put in like two months into
+
+00:01:28.370 --> 00:01:32.520
+selecting your peer, it's not guaranteed that
+
+00:01:32.520 --> 00:01:36.240
+it's going to be an optimal option.
+
+00:01:36.240 --> 00:01:38.680
+Because see, the internet is far more dynamic
+
+00:01:38.680 --> 00:01:41.320
+than these interconnection deals, which means
+
+00:01:41.320 --> 00:01:45.350
+that during the negotiation and finding process,
+
+00:01:45.350 --> 00:01:48.800
+plenty of great peering opportunities are
+
+00:01:48.800 --> 00:01:51.200
+discarded.
+
+00:01:51.200 --> 00:01:53.690
+Under or overestimation of various metrics can
+
+00:01:53.690 --> 00:01:55.520
+lead to future disagreements.
+
+00:01:55.520 --> 00:02:00.060
+ISPs can be part of suboptimal relations knowingly
+
+00:02:00.060 --> 00:02:01.840
+or unknowingly.
+
+00:02:01.840 --> 00:02:04.950
+And we have also seen cases of ISPs ending peering
+
+00:02:04.950 --> 00:02:07.360
+contracts because of disagreements
+
+00:02:07.360 --> 00:02:08.360
+and violations.
+
+00:02:08.360 --> 00:02:11.860
+Now, bad selection can also mean that your
+
+00:02:11.860 --> 00:02:15.320
+resources are not optimally utilized.
+
+00:02:15.320 --> 00:02:20.440
+So sort of your load balancing factor is suboptimal.
+
+00:02:20.440 --> 00:02:24.210
+And in the bigger picture and in the longer run,
+
+00:02:24.210 --> 00:02:27.520
+such relations, suboptimal relations
+
+00:02:27.520 --> 00:02:30.860
+or disagreements or missed opportunities,
+
+00:02:30.860 --> 00:02:34.600
+everything, in the longer run, such relations
+
+00:02:34.600 --> 00:02:38.280
+can hurt ISPs, both ISPs financially.
+
+00:02:38.280 --> 00:02:41.240
+So it's clear why it's so important for these to
+
+00:02:41.240 --> 00:02:44.240
+be optimal and along with that to be dynamic.
+
+00:02:44.240 --> 00:02:49.690
+So if you've identified an issue, you can fix it
+
+00:02:49.690 --> 00:02:51.080
+quickly.
+
+00:02:51.080 --> 00:02:55.040
+Now we present MetaPeering, a tool that will help
+
+00:02:55.040 --> 00:02:58.240
+identify optimal peering ISP peers.
+
+00:02:58.240 --> 00:03:02.200
+And it also gives you the best peering contracts.
+
+00:03:02.200 --> 00:03:04.400
+So say for two given ISPs, we need to decide
+
+00:03:04.400 --> 00:03:06.560
+whether or not they should be peering.
+
+00:03:06.560 --> 00:03:08.810
+And if yes, which particular locations they
+
+00:03:08.810 --> 00:03:10.040
+should be peering at.
+
+00:03:10.040 --> 00:03:12.720
+We first calculate the traffic matrices for both
+
+00:03:12.720 --> 00:03:15.080
+the ISPs, which is sort of their internal
+
+00:03:15.080 --> 00:03:17.240
+traffic flow.
+
+00:03:17.240 --> 00:03:20.350
+We calculate these using POP or points of
+
+00:03:20.350 --> 00:03:24.240
+presence locations, which are locations where
+
+00:03:24.240 --> 00:03:27.320
+an ISP has connection capability.
+
+00:03:27.320 --> 00:03:32.620
+So this can be an IXP or a private facility too.
+
+00:03:32.620 --> 00:03:35.480
+We also identify the locations where both these
+
+00:03:35.480 --> 00:03:37.680
+ISPs have a presence, because these
+
+00:03:37.680 --> 00:03:41.120
+are the points where peering is possible.
+
+00:03:41.120 --> 00:03:43.370
+Then we gather the gridded population data for
+
+00:03:43.370 --> 00:03:45.700
+the United States, which basically divides
+
+00:03:45.700 --> 00:03:48.400
+the whole country into small segments.
+
+00:03:48.400 --> 00:03:51.320
+And now we know the population for each of these
+
+00:03:51.320 --> 00:03:52.120
+segments.
+
+00:03:52.120 --> 00:03:55.280
+And we take all of this data, all of these computations
+
+00:03:55.280 --> 00:03:57.000
+and feed them into this policy
+
+00:03:57.000 --> 00:04:01.760
+generator machine, which churns it up, extracts
+
+00:04:01.760 --> 00:04:04.720
+all the useful information.
+
+00:04:04.720 --> 00:04:07.260
+It knows what's important, what's not.
+
+00:04:07.260 --> 00:04:10.500
+So it does that while respecting any additional
+
+00:04:10.500 --> 00:04:13.400
+peering policies injected using the policy
+
+00:04:13.400 --> 00:04:14.400
+filter.
+
+00:04:14.400 --> 00:04:15.920
+Now, how does it do that?
+
+00:04:15.920 --> 00:04:21.840
+It basically gives out three different outputs.
+
+00:04:21.840 --> 00:04:24.640
+The first is, so it basically uses the POP
+
+00:04:24.640 --> 00:04:27.920
+locations and the population data to construct
+
+00:04:27.920 --> 00:04:31.280
+an overlap map between the two ISPs.
+
+00:04:31.280 --> 00:04:35.450
+And what it represents is the number of people
+
+00:04:35.450 --> 00:04:39.760
+each ISP presumably covers, and how many more
+
+00:04:39.760 --> 00:04:43.400
+people can become accessible with a peering deal.
+
+00:04:43.400 --> 00:04:47.200
+This is summed up in the affinity score.
+
+00:04:47.200 --> 00:04:51.220
+The next one is, it uses the same POP locations
+
+00:04:51.220 --> 00:04:54.860
+and also the traffic matrices to give out
+
+00:04:54.860 --> 00:04:58.760
+peering willingness scores for each of the common
+
+00:04:58.760 --> 00:05:01.620
+POP locations from the perspective
+
+00:05:01.620 --> 00:05:03.420
+of both ISPs.
+
+00:05:03.420 --> 00:05:06.100
+So the overall willingness score for a particular
+
+00:05:06.100 --> 00:05:08.340
+peering deal is just the average of these
+
+00:05:08.340 --> 00:05:11.220
+scores at particular points.
+
+00:05:11.220 --> 00:05:14.010
+Third, it optimizes the selection of POP
+
+00:05:14.010 --> 00:05:17.540
+locations using the individual willingness scores
+
+00:05:17.540 --> 00:05:17.740
+to
+
+00:05:17.740 --> 00:05:21.780
+generate acceptable peering contracts.
+
+00:05:21.780 --> 00:05:23.560
+We then take the geometric mean of the
+
+00:05:23.560 --> 00:05:26.350
+willingness score, which is the representative of
+
+00:05:26.350 --> 00:05:26.420
+the
+
+00:05:26.420 --> 00:05:29.530
+willingness to peer, and affinity score, which is
+
+00:05:29.530 --> 00:05:32.220
+the representative of the non-overlapping
+
+00:05:32.220 --> 00:05:36.370
+areas and population, to get the Felicity score,
+
+00:05:36.370 --> 00:05:39.340
+which tells us whether or not these
+
+00:05:39.340 --> 00:05:40.340
+ISPs should peer.
+
+00:05:40.340 --> 00:05:44.620
+Now, please note that these scores are novel.
+
+00:05:44.620 --> 00:05:46.380
+They're not like an industry standard.
+
+00:05:46.380 --> 00:05:48.850
+We came up with these scores, and we have
+
+00:05:48.850 --> 00:05:51.420
+discussed how we came up with this and what
+
+00:05:51.420 --> 00:05:52.780
+they represent.
+
+00:05:52.780 --> 00:05:56.530
+So with the Felicity score, ISP admins can set a
+
+00:05:56.530 --> 00:05:59.580
+threshold, "Okay, if this pair has a
+
+00:05:59.580 --> 00:06:02.520
+Felicity score of more than 0.6 or 0.7, we'll be
+
+00:06:02.520 --> 00:06:03.180
+peering.
+
+00:06:03.180 --> 00:06:04.540
+Otherwise, we will not."
+
+00:06:04.540 --> 00:06:06.890
+So this is the deciding factor for whether or not
+
+00:06:06.890 --> 00:06:08.180
+they should be peering.
+
+00:06:08.180 --> 00:06:09.830
+And along with that, we give them the acceptable
+
+00:06:09.830 --> 00:06:11.540
+peering contracts that, "Okay, if you decide
+
+00:06:11.540 --> 00:06:13.840
+to peer, these are the locations that you should
+
+00:06:13.840 --> 00:06:14.740
+be peering at."
+
+00:06:14.740 --> 00:06:18.030
+Now, both of these results can be used by ISP admins
+
+00:06:18.030 --> 00:06:20.300
+to decide whether a peering deal
+
+00:06:20.300 --> 00:06:22.780
+will be worth it.
+
+00:06:22.780 --> 00:06:26.350
+Now, in an effort to expedite the development of
+
+00:06:26.350 --> 00:06:29.940
+this model, we have deployed a web application
+
+00:06:29.940 --> 00:06:33.700
+to showcase the workings of this tool.
+
+00:06:33.700 --> 00:06:37.680
+These screenshots provide an overview of the
+
+00:06:37.680 --> 00:06:40.460
+website for Sprint and eBay.
+
+00:06:40.460 --> 00:06:43.940
+We can see the overlap map, which is calculated
+
+00:06:43.940 --> 00:06:47.780
+using the POP locations, as mentioned earlier.
+
+00:06:47.780 --> 00:06:50.390
+We can also see the willingness scores for each
+
+00:06:50.390 --> 00:06:52.620
+of the contracts that are possible.
+
+00:06:52.620 --> 00:06:56.310
+Not all of them are listed in the screenshot, but
+
+00:06:56.310 --> 00:06:57.940
+they are possible.
+
+00:06:57.940 --> 00:07:01.530
+And at the bottom, we can see a sample contract
+
+00:07:01.530 --> 00:07:05.220
+recommendation, which is given as Sprint and
+
+00:07:05.220 --> 00:07:07.800
+eBay decide that they are peering, Metapeering,
+
+00:07:07.800 --> 00:07:10.360
+our tool, recommends that they should be peering
+
+00:07:10.360 --> 00:07:14.300
+in Los Angeles and Chicago.
+
+00:07:14.300 --> 00:07:18.060
+So the website lists top three such contracts.
+
+00:07:18.060 --> 00:07:19.800
+So this is the best one, and then there's the
+
+00:07:19.800 --> 00:07:21.420
+second best option and the third best
+
+00:07:21.420 --> 00:07:23.220
+option.
+
+00:07:23.220 --> 00:07:27.050
+And just for reference, here's another example
+
+00:07:27.050 --> 00:07:29.100
+for Columbus and eBay.
+
+00:07:29.100 --> 00:07:32.560
+And in this case, the same overlap map is given,
+
+00:07:32.560 --> 00:07:35.260
+the willingness graph is given, and
+
+00:07:35.260 --> 00:07:37.820
+a sample contract is given.
+
+00:07:37.820 --> 00:07:41.220
+But in this particular case, our model does not
+
+00:07:41.220 --> 00:07:42.900
+recommend peering.
+
+00:07:42.900 --> 00:07:45.590
+But in case they do end up deciding that they
+
+00:07:45.590 --> 00:07:48.300
+should peer, they should peer at San Jose
+
+00:07:48.300 --> 00:07:50.520
+and Ashburn.
+
+00:07:50.520 --> 00:07:54.570
+We tested this model on 23 different ISPs, which
+
+00:07:54.570 --> 00:07:57.860
+basically means 506 pairs using two
+
+00:07:57.860 --> 00:07:58.860
+heuristics.
+
+00:07:58.860 --> 00:08:04.100
+Now, the X-axis, on the X-axis, we can see the ISP
+
+00:08:04.100 --> 00:08:07.740
+pair type, where A is access, C is
+
+00:08:07.740 --> 00:08:09.560
+content, and T is transit.
+
+00:08:09.560 --> 00:08:15.700
+So AT, for example, means that it is an access-transit
+
+00:08:15.700 --> 00:08:17.100
+ISP pair.
+
+00:08:17.100 --> 00:08:19.900
+So the first heuristic, the ISP view, we
+
+00:08:19.900 --> 00:08:23.110
+recommend peering if any one of the two ISPs has
+
+00:08:23.110 --> 00:08:23.860
+a felicity
+
+00:08:23.860 --> 00:08:26.380
+score greater than a certain threshold.
+
+00:08:26.380 --> 00:08:29.700
+In this case, we used 0.55.
+
+00:08:29.700 --> 00:08:32.830
+For the second heuristic, the holistic view, we'd
+
+00:08:32.830 --> 00:08:35.180
+recommend peering if and only if both
+
+00:08:35.180 --> 00:08:39.780
+of the ISPs have a felicity score greater than 0.55.
+
+00:08:39.780 --> 00:08:42.390
+The figures show a slightly more detailed
+
+00:08:42.390 --> 00:08:44.380
+confusion matrix, sort of.
+
+00:08:44.380 --> 00:08:46.520
+So the top left is the true positive, the pairs
+
+00:08:46.520 --> 00:08:48.500
+we suggested and were peering according
+
+00:08:48.500 --> 00:08:49.500
+to KEDA.
+
+00:08:49.500 --> 00:08:51.730
+The bottom right shows the true negative, the
+
+00:08:51.730 --> 00:08:53.460
+pairs we didn't suggest peering and were
+
+00:08:53.460 --> 00:08:57.620
+also not peering according to KEDA.
+
+00:08:57.620 --> 00:09:00.250
+The top right shows the new recommendations that
+
+00:09:00.250 --> 00:09:02.460
+we generate, and the bottom left shows
+
+00:09:02.460 --> 00:09:04.890
+the peering ISPs that we recommend that they
+
+00:09:04.890 --> 00:09:06.340
+should not be peering.
+
+00:09:06.340 --> 00:09:09.210
+And it can be seen that there's a lot of missed
+
+00:09:09.210 --> 00:09:11.900
+opportunities and some suboptimal relations
+
+00:09:11.900 --> 00:09:13.220
+as well.
+
+00:09:13.220 --> 00:09:16.100
+We believe that metapeering is a step in the
+
+00:09:16.100 --> 00:09:18.940
+direction of a more dynamic and automated
+
+00:09:18.940 --> 00:09:22.740
+inter-ISP relation management, and we are working
+
+00:09:22.740 --> 00:09:25.780
+on an extended model, a more complex
+
+00:09:25.780 --> 00:09:30.310
+model, a more complex metapeering model which
+
+00:09:30.310 --> 00:09:34.460
+uses machine learning techniques to learn
+
+00:09:34.460 --> 00:09:38.440
+from previous data to learn what's important in a
+
+00:09:38.440 --> 00:09:41.170
+peering deal before giving out its
+
+00:09:41.170 --> 00:09:42.980
+recommendations.
+
+00:09:42.980 --> 00:09:46.180
+So this concludes my presentation.
+
+00:09:46.180 --> 00:09:47.620
+I hope you liked it.
+
+00:09:47.620 --> 00:09:49.300
+If you have any related questions, I would be
+
+00:09:49.300 --> 00:09:50.420
+happy to address them now.
+
+00:09:50.420 --> 00:09:51.420
+Thank you.
+
+00:09:51.420 --> 00:09:51.440
+[End of Audio]
+
+00:09:51.440 --> 00:09:52.440
+1
+
+00:09:52.440 --> 00:09:52.440
+Page PAGE of NUMPAGES www.verbalink.com
+
+00:09:52.440 --> 00:09:54.440
+Page PAGE of NUMPAGES www.verbalink.com
+

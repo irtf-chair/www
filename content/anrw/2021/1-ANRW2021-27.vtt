@@ -1,0 +1,578 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:06.000
+Hello, my name is Marcus Pieske. I work as a PhD
+
+00:00:06.000 --> 00:00:08.510
+student at Karlstad University in Sweden and I'm
+
+00:00:08.510 --> 00:00:11.420
+going to present to you the outcome of work done
+
+00:00:11.420 --> 00:00:14.780
+on multipath scheduling in the context of multipath
+
+00:00:14.780 --> 00:00:16.000
+transport layer tunneling.
+
+00:00:16.000 --> 00:00:19.000
+This presentation is organized into three parts.
+
+00:00:19.000 --> 00:00:21.660
+The first will introduce you to the main
+
+00:00:21.660 --> 00:00:25.000
+motivation for this work, which is the plan built
+
+00:00:25.000 --> 00:00:27.000
+in multipath support in 5G.
+
+00:00:27.000 --> 00:00:30.160
+Secondly, I will present the multipath package
+
+00:00:30.160 --> 00:00:33.320
+scheduler we have been working with and the issue
+
+00:00:33.320 --> 00:00:35.000
+we have found with it.
+
+00:00:35.000 --> 00:00:38.540
+Lastly, you will see the modifications made to
+
+00:00:38.540 --> 00:00:42.060
+this scheduler and the performance improvements
+
+00:00:42.060 --> 00:00:43.000
+they enable.
+
+00:00:43.000 --> 00:00:46.530
+But first, let's begin with the multipath support
+
+00:00:46.530 --> 00:00:48.000
+in 5G networks.
+
+00:00:48.000 --> 00:00:51.580
+This multipath architecture goes by the name of
+
+00:00:51.580 --> 00:00:55.260
+Access Traffic Steering Switching and Splitting
+
+00:00:55.260 --> 00:00:57.830
+or ATSSS and is supposed to offer transparent
+
+00:00:57.830 --> 00:00:59.000
+multipath support.
+
+00:00:59.000 --> 00:01:02.510
+This multipath framework would allow for the
+
+00:01:02.510 --> 00:01:06.130
+simultaneous usage of cellular networks with
+
+00:01:06.130 --> 00:01:09.000
+other wireless access such as Wi-Fi.
+
+00:01:09.000 --> 00:01:12.710
+For TCP, the idea is to enable this by splitting
+
+00:01:12.710 --> 00:01:16.440
+the end-to-end TCP into regular TCP between the
+
+00:01:16.440 --> 00:01:21.700
+server and a proxy and multipath TCP between that
+
+00:01:21.700 --> 00:01:24.000
+proxy and a user.
+
+00:01:24.000 --> 00:01:27.720
+For non-TCP traffic, a transport layer multipath
+
+00:01:27.720 --> 00:01:30.000
+tunnel may be used instead.
+
+00:01:30.000 --> 00:01:32.560
+The latter case is of course the focus of our
+
+00:01:32.560 --> 00:01:35.650
+work and this presentation and we use this topology
+
+00:01:35.650 --> 00:01:38.000
+to illustrate a typical scenario.
+
+00:01:38.000 --> 00:01:41.460
+So assuming downlink traffic, data originate at a
+
+00:01:41.460 --> 00:01:44.290
+server possibly using a transport layer protocol
+
+00:01:44.290 --> 00:01:47.310
+that support congestion control such as for
+
+00:01:47.310 --> 00:01:51.940
+instance QUIC regardless of if it's reliable or
+
+00:01:51.940 --> 00:01:53.000
+unreliable.
+
+00:01:53.000 --> 00:01:56.470
+Data then arrives at the previously mentioned
+
+00:01:56.470 --> 00:01:59.420
+proxy where it is passed into our multipath
+
+00:01:59.420 --> 00:02:02.490
+tunnel and encapsulated with each path then
+
+00:02:02.490 --> 00:02:05.000
+having its own congestion control.
+
+00:02:05.000 --> 00:02:09.810
+The data is then scheduled over multiple paths
+
+00:02:09.810 --> 00:02:13.140
+based on the state of the congestion control of
+
+00:02:13.140 --> 00:02:16.070
+those paths as well as other path information
+
+00:02:16.070 --> 00:02:18.400
+that may be obtained from the corresponding
+
+00:02:18.400 --> 00:02:20.000
+transport layer instance.
+
+00:02:20.000 --> 00:02:23.430
+This may seem straightforward enough but the
+
+00:02:23.430 --> 00:02:27.170
+existence of nested congestion control loops and
+
+00:02:27.170 --> 00:02:29.460
+the interaction between these and the multipath
+
+00:02:29.460 --> 00:02:32.990
+scheduler can and do cause problems that need to
+
+00:02:32.990 --> 00:02:34.000
+be addressed.
+
+00:02:34.000 --> 00:02:37.190
+That brings us to the second part of this
+
+00:02:37.190 --> 00:02:40.980
+presentation where I describe the particular
+
+00:02:40.980 --> 00:02:44.000
+scheduler we have been working with.
+
+00:02:44.000 --> 00:02:48.250
+Since ATS-SS would allow for the usage of Wi-Fi
+
+00:02:48.250 --> 00:02:51.980
+alongside the cellular access, a scheduler that
+
+00:02:51.980 --> 00:02:54.370
+is able to express a preference for the cheaper
+
+00:02:54.370 --> 00:02:56.000
+Wi-Fi becomes attractive.
+
+00:02:56.000 --> 00:02:59.380
+This is true for users as well as telecom
+
+00:02:59.380 --> 00:03:04.230
+operators, both of whom may reduce costs by offloading
+
+00:03:04.230 --> 00:03:08.000
+traffic onto the Wi-Fi whenever possible.
+
+00:03:08.000 --> 00:03:11.500
+One scheduler designed to deliver traffic
+
+00:03:11.500 --> 00:03:15.320
+distribution in this manner is the cheapest path
+
+00:03:15.320 --> 00:03:17.000
+first scheduler.
+
+00:03:17.000 --> 00:03:20.710
+The basic idea behind this is to rank order the
+
+00:03:20.710 --> 00:03:24.530
+paths by cost in ascending order and to schedule
+
+00:03:24.530 --> 00:03:28.410
+packets over the cheapest path until the amount
+
+00:03:28.410 --> 00:03:32.040
+of in-flight data match the size of the
+
+00:03:32.040 --> 00:03:34.000
+congestion window.
+
+00:03:34.000 --> 00:03:38.200
+At which point the scheduler instead attempts to
+
+00:03:38.200 --> 00:03:42.000
+schedule packets over the subsequent path.
+
+00:03:42.000 --> 00:03:47.000
+The problem with this is how first is defined.
+
+00:03:47.000 --> 00:03:49.960
+If first means until the congestion window is
+
+00:03:49.960 --> 00:03:53.050
+full, as I previously stated, it will tend to
+
+00:03:53.050 --> 00:03:56.160
+lead to a full utilization of the primary path,
+
+00:03:56.160 --> 00:03:58.990
+which is what we want, but also to congestion,
+
+00:03:58.990 --> 00:04:02.530
+which is troublesome for more reasons than just
+
+00:04:02.530 --> 00:04:04.000
+the increased delay.
+
+00:04:04.000 --> 00:04:08.580
+As it turns out, the congestion will also delay
+
+00:04:08.580 --> 00:04:13.060
+or completely preclude the utilization of the
+
+00:04:13.060 --> 00:04:15.000
+secondary path.
+
+00:04:15.000 --> 00:04:18.200
+The extent to which this is a problem will depend
+
+00:04:18.200 --> 00:04:21.650
+on the potential for congestion on the primary
+
+00:04:21.650 --> 00:04:22.000
+path.
+
+00:04:22.000 --> 00:04:25.230
+Basically, anything that reduce congestion on the
+
+00:04:25.230 --> 00:04:28.190
+primary path has the potential to alleviate this
+
+00:04:28.190 --> 00:04:29.000
+problem.
+
+00:04:29.000 --> 00:04:33.410
+A simple example will hopefully illustrate the
+
+00:04:33.410 --> 00:04:34.000
+issue.
+
+00:04:34.000 --> 00:04:36.950
+In this case, we are running a user space multipath
+
+00:04:36.950 --> 00:04:39.740
+tunnel with each individual path being managed by
+
+00:04:39.740 --> 00:04:42.000
+a TCP instance in the Linux kernel.
+
+00:04:42.000 --> 00:04:45.880
+The topology previously shown is set up in Mininet
+
+00:04:45.880 --> 00:04:49.960
+with the capacity of each path being 50 megabits
+
+00:04:49.960 --> 00:04:54.000
+per second and with a moderate delay asymmetry.
+
+00:04:54.000 --> 00:04:57.540
+A download is initiated using a greedy TCP
+
+00:04:57.540 --> 00:04:59.000
+application.
+
+00:04:59.000 --> 00:05:03.270
+Thus, in this case, we tunnel TCP Neurino over
+
+00:05:03.270 --> 00:05:07.000
+TCP BBR as it offers an easy analysis.
+
+00:05:07.000 --> 00:05:09.950
+Finally, we have a first in first out queue at
+
+00:05:09.950 --> 00:05:13.120
+the bottleneck, which is large enough to hold the
+
+00:05:13.120 --> 00:05:16.000
+congestion window that BBR will tend to output.
+
+00:05:16.000 --> 00:05:19.970
+Please also note that the throughput in this plot
+
+00:05:19.970 --> 00:05:23.160
+are stacked and that we therefore would like to
+
+00:05:23.160 --> 00:05:27.450
+see the throughput reach the 100 megabits per
+
+00:05:27.450 --> 00:05:29.000
+second line.
+
+00:05:29.000 --> 00:05:32.830
+The event highlighted here is a reduction in the
+
+00:05:32.830 --> 00:05:36.330
+server congestion window, which is expected from
+
+00:05:36.330 --> 00:05:38.390
+time to time as it's part of the normal
+
+00:05:38.390 --> 00:05:41.000
+congestion control cycle for TCP Neurino.
+
+00:05:41.000 --> 00:05:43.880
+This in turn is followed by a reduction in
+
+00:05:43.880 --> 00:05:45.000
+throughput.
+
+00:05:45.000 --> 00:05:49.430
+This may seem in order, but it's actually quite
+
+00:05:49.430 --> 00:05:53.170
+bad as seen when taking a closer look at the
+
+00:05:53.170 --> 00:05:55.000
+state of the network.
+
+00:05:55.000 --> 00:05:59.930
+After the event shown in the previous slide, the
+
+00:05:59.930 --> 00:06:05.000
+primary path is likely at least somewhat congested.
+
+00:06:05.000 --> 00:06:08.000
+While the secondary path is unused.
+
+00:06:08.000 --> 00:06:10.980
+If we treat the two paths as a single path for
+
+00:06:10.980 --> 00:06:15.070
+the purposes of analysis, we have both congestion
+
+00:06:15.070 --> 00:06:18.750
+and underutilization, which is something that you
+
+00:06:18.750 --> 00:06:21.000
+do not expect to see at the same time.
+
+00:06:21.000 --> 00:06:23.690
+This is obviously a malign state and can be
+
+00:06:23.690 --> 00:06:26.600
+thought of as kind of a bad distribution of the
+
+00:06:26.600 --> 00:06:30.000
+server congestion window over these two paths.
+
+00:06:30.000 --> 00:06:35.910
+So this brings us to the third and final part
+
+00:06:35.910 --> 00:06:39.560
+where I show you the modifications made to this
+
+00:06:39.560 --> 00:06:42.000
+scheduler to overcome this problem.
+
+00:06:42.000 --> 00:06:44.960
+The basic idea is to redistribute the server
+
+00:06:44.960 --> 00:06:48.000
+congestion window to maximize the throughput.
+
+00:06:48.000 --> 00:06:50.890
+The first step is to determine the bandwidth
+
+00:06:50.890 --> 00:06:53.000
+delay product of the primary path.
+
+00:06:53.000 --> 00:06:55.590
+With the delay in this case being the minimum
+
+00:06:55.590 --> 00:06:57.000
+delay.
+
+00:06:57.000 --> 00:07:00.450
+We then introduce what we call a live congestion
+
+00:07:00.450 --> 00:07:04.010
+window, which is a fraction of the full window
+
+00:07:04.010 --> 00:07:07.000
+ranging from the BDP to the full window.
+
+00:07:07.000 --> 00:07:10.400
+The scheduler is then changed to act on the live
+
+00:07:10.400 --> 00:07:14.080
+congestion window instead of the full congestion
+
+00:07:14.080 --> 00:07:15.000
+window.
+
+00:07:15.000 --> 00:07:18.580
+Finally, we manage the live congestion window by
+
+00:07:18.580 --> 00:07:22.110
+periodically increasing it if there are packets
+
+00:07:22.110 --> 00:07:25.410
+in the scheduling queue and decreasing it
+
+00:07:25.410 --> 00:07:26.000
+otherwise.
+
+00:07:26.000 --> 00:07:28.990
+Returning to the example shown previously and
+
+00:07:28.990 --> 00:07:32.220
+using the same configuration, except for the new
+
+00:07:32.220 --> 00:07:33.000
+scheduler.
+
+00:07:33.000 --> 00:07:35.710
+We see that we no longer have a problem with the
+
+00:07:35.710 --> 00:07:38.000
+utilization of the secondary path.
+
+00:07:38.000 --> 00:07:41.080
+However, we still see periodic reductions in the
+
+00:07:41.080 --> 00:07:43.000
+server congestion window.
+
+00:07:43.000 --> 00:07:48.000
+So why then is the throughput so good?
+
+00:07:48.000 --> 00:07:51.000
+The answer is that the scheduler compensates for
+
+00:07:51.000 --> 00:07:54.440
+the smaller congestion window, which it infers
+
+00:07:54.440 --> 00:07:58.560
+from the scheduling queue size by reducing the
+
+00:07:58.560 --> 00:08:01.000
+live congestion window.
+
+00:08:01.000 --> 00:08:03.100
+The net effect of this adjustment is that the
+
+00:08:03.100 --> 00:08:05.690
+server congestion window pivots from the bottleneck
+
+00:08:05.690 --> 00:08:08.870
+buffer of the primary path where it was causing
+
+00:08:08.870 --> 00:08:13.250
+congestion to in-flight over the secondary path
+
+00:08:13.250 --> 00:08:17.000
+where it instead increases the throughput.
+
+00:08:17.000 --> 00:08:20.010
+One may conclude from this simple example that
+
+00:08:20.010 --> 00:08:23.090
+the improved scheduler is able to maintain full
+
+00:08:23.090 --> 00:08:26.550
+utilization by departing from the behavior of
+
+00:08:26.550 --> 00:08:29.000
+default CPF when necessary.
+
+00:08:29.000 --> 00:08:31.550
+Although one cannot be certain from these plots
+
+00:08:31.550 --> 00:08:34.010
+alone, it is a good guess that the utilization of
+
+00:08:34.010 --> 00:08:36.720
+the secondary path would have been poor after the
+
+00:08:36.720 --> 00:08:40.000
+highlighted event had standard CPF been used.
+
+00:08:40.000 --> 00:08:43.580
+A more detailed evaluation is available in the
+
+00:08:43.580 --> 00:08:44.000
+paper.
+
+00:08:44.000 --> 00:08:47.410
+In it, we look at multiple end-to-end congestion
+
+00:08:47.410 --> 00:08:50.910
+control algorithms, multiple topologies, and
+
+00:08:50.910 --> 00:08:53.000
+different tunnel protocols.
+
+00:08:53.000 --> 00:08:56.920
+Regardless of the configuration used, the default
+
+00:08:56.920 --> 00:09:00.630
+CPF scheduler exhibits the same issue, which is
+
+00:09:00.630 --> 00:09:04.540
+subsequently solved by our modification, again,
+
+00:09:04.540 --> 00:09:07.000
+regardless of the configuration.
+
+00:09:07.000 --> 00:09:10.780
+Future work will include a better integration
+
+00:09:10.780 --> 00:09:14.240
+with the BBR tunnel, whereby the BDP can be
+
+00:09:14.240 --> 00:09:17.810
+learned from the BBR state as opposed to just
+
+00:09:17.810 --> 00:09:19.000
+inferred.
+
+00:09:19.000 --> 00:09:21.960
+This is actually critical as this scheduler will
+
+00:09:21.960 --> 00:09:24.930
+misbehave if it uses a bad estimation of the BDP,
+
+00:09:24.930 --> 00:09:28.680
+and in particular, the split flows needlessly if
+
+00:09:28.680 --> 00:09:31.000
+the BDP is underestimated.
+
+00:09:31.000 --> 00:09:34.000
+We are also evaluating this in a switching
+
+00:09:34.000 --> 00:09:37.770
+scenario as opposed to the splitting scenario
+
+00:09:37.770 --> 00:09:39.000
+illustrated here.
+
+00:09:39.000 --> 00:09:43.360
+That concludes this presentation. Thank you for
+
+00:09:43.360 --> 00:09:45.000
+your attention.
+

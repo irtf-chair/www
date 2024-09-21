@@ -1,0 +1,536 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:04.810
+Hey, I'm Tong Meng. Today I'm here to share our
+
+00:00:04.810 --> 00:00:07.400
+progress and thoughts on greater Internet
+
+00:00:07.400 --> 00:00:10.710
+deployment of scavenger congestion control. It
+
+00:00:10.710 --> 00:00:13.360
+follows our previous work, PCC Proteus
+
+00:00:13.360 --> 00:00:17.450
+from SIGCOMM 2020, where we explore scavenger
+
+00:00:17.450 --> 00:00:19.960
+priority for Internet transport.
+
+00:00:19.960 --> 00:00:23.220
+It is inspired by the surging amount of Internet
+
+00:00:23.220 --> 00:00:26.600
+applications, and in the meanwhile, the fair
+
+00:00:26.600 --> 00:00:29.850
+sharing objective in most previous congestion
+
+00:00:29.850 --> 00:00:33.400
+control protocols. Specifically, the applications
+
+00:00:33.400 --> 00:00:35.820
+shown here all require network bandwidth
+
+00:00:35.820 --> 00:00:39.430
+resources to accomplish data transfer. However,
+
+00:00:39.430 --> 00:00:39.560
+their
+
+00:00:39.560 --> 00:00:43.120
+users usually have different timing requirements.
+
+00:00:43.120 --> 00:00:45.420
+For applications with inelastic timing
+
+00:00:45.420 --> 00:00:46.400
+requirements,
+
+00:00:46.400 --> 00:00:49.200
+their data transfer should complete as soon as
+
+00:00:49.200 --> 00:00:51.480
+possible. But there are also elastic timing
+
+00:00:51.480 --> 00:00:57.400
+applications, such as system and software updates.
+
+00:00:57.400 --> 00:00:59.320
+They often run in the background,
+
+00:00:59.320 --> 00:01:03.770
+even obvious to users if it takes longer time. So
+
+00:01:03.770 --> 00:01:06.200
+when applications of the two kinds compete
+
+00:01:06.200 --> 00:01:09.480
+with each other, we can allocate more bandwidth
+
+00:01:09.480 --> 00:01:13.080
+to those inelastic timing ones, while overall,
+
+00:01:13.080 --> 00:01:15.970
+users of both types are happy with their
+
+00:01:15.970 --> 00:01:18.830
+experience. This is also considered to be the
+
+00:01:18.830 --> 00:01:19.960
+main implementation
+
+00:01:19.960 --> 00:01:23.080
+scenario for scavenger in current limited
+
+00:01:23.080 --> 00:01:27.080
+literature. Then, on that basis, we think
+
+00:01:27.080 --> 00:01:29.360
+there is another important category of
+
+00:01:29.360 --> 00:01:32.870
+applications, such as online video streaming.
+
+00:01:32.870 --> 00:01:34.280
+They have opportunistic
+
+00:01:34.280 --> 00:01:37.720
+elasticity. To illustrate that, let's look at a
+
+00:01:37.720 --> 00:01:41.800
+motivating example. Here, Alice watches
+
+00:01:41.800 --> 00:01:45.220
+a YouTube movie on her laptop under a wireless
+
+00:01:45.220 --> 00:01:49.120
+router, while a system update is running silently
+
+00:01:49.120 --> 00:01:52.610
+in the background. And Alice does not need any
+
+00:01:52.610 --> 00:01:56.600
+feature in the update anytime soon. Apparently,
+
+00:01:56.600 --> 00:01:58.960
+the video streaming flow may have primary
+
+00:01:58.960 --> 00:02:02.040
+priority, with the update flow being a scavenger,
+
+00:02:02.040 --> 00:02:05.970
+so that Alice may enjoy both higher video quality
+
+00:02:05.970 --> 00:02:09.080
+and no rebound. Moreover, an online
+
+00:02:09.080 --> 00:02:12.790
+video has the largest encoding bit rates. Corresponding
+
+00:02:12.790 --> 00:02:14.760
+to that, if the throughput is
+
+00:02:14.760 --> 00:02:17.630
+more than enough to support that best QE, the
+
+00:02:17.630 --> 00:02:20.640
+video streaming flow can also conditionally
+
+00:02:20.640 --> 00:02:24.890
+lower its priority to scavenger. And furthermore,
+
+00:02:24.890 --> 00:02:27.640
+when Alice's video playback buffer is almost
+
+00:02:27.640 --> 00:02:31.720
+full, the risk of having a rebuffer is relatively
+
+00:02:31.720 --> 00:02:34.640
+low. And in that case, the streaming flow
+
+00:02:34.640 --> 00:02:37.630
+can opportunistically switch to scavenger
+
+00:02:37.630 --> 00:02:40.480
+priority for a short time period. In both
+
+00:02:40.480 --> 00:02:44.430
+cases, the update flow runs faster without
+
+00:02:44.430 --> 00:02:47.760
+impacting video QE. In practice, this may
+
+00:02:47.760 --> 00:02:51.930
+become even more valuable, because the competing
+
+00:02:51.930 --> 00:02:55.760
+traffic might not just be a software update.
+
+00:02:55.760 --> 00:02:59.370
+There might be, for example, a second video flow
+
+00:02:59.370 --> 00:03:02.480
+trying to start quickly. That said, by
+
+00:03:02.480 --> 00:03:06.100
+enabling flexible and dynamic switch between the
+
+00:03:06.100 --> 00:03:09.200
+scavenger and primary priorities, we can
+
+00:03:09.200 --> 00:03:12.200
+further extend the scavenger use cases and
+
+00:03:12.200 --> 00:03:16.120
+increase the network-wide utility. Therefore,
+
+00:03:16.120 --> 00:03:20.000
+in our recent work, we propose PCC Proteus. In
+
+00:03:20.000 --> 00:03:22.880
+summary, it is based on the PCC utility
+
+00:03:22.880 --> 00:03:26.520
+framework, where each priority corresponds to a
+
+00:03:26.520 --> 00:03:30.040
+dedicated utility function. Then, with
+
+00:03:30.040 --> 00:03:33.740
+a modular architecture, all the priorities are
+
+00:03:33.740 --> 00:03:36.960
+contained in the utility module and share
+
+00:03:36.960 --> 00:03:41.270
+the same read control algorithm. Therefore, the
+
+00:03:41.270 --> 00:03:44.640
+scavenger and primary priorities are implemented
+
+00:03:44.640 --> 00:03:48.940
+in the same protocol. That inherently enables PCC
+
+00:03:48.940 --> 00:03:53.200
+Proteus to support dynamic priority switch.
+
+00:03:53.200 --> 00:03:56.840
+However, several factors are restricting larger-scale
+
+00:03:56.840 --> 00:04:00.080
+deployments of scavenger congestion control.
+
+00:04:00.080 --> 00:04:02.520
+From the perspective of implementation, the
+
+00:04:02.520 --> 00:04:04.880
+existing scavenger protocols have limited
+
+00:04:04.880 --> 00:04:08.300
+availability, especially in widely deployed
+
+00:04:08.300 --> 00:04:11.200
+transport datapacks, such as Linux Kernel
+
+00:04:11.200 --> 00:04:13.850
+and QUIC. To be detailed, the uTorrent
+
+00:04:13.850 --> 00:04:16.510
+implementation of LabBats is limited to the
+
+00:04:16.510 --> 00:04:18.560
+application itself.
+
+00:04:18.560 --> 00:04:22.230
+The LabBat++ implementation on Windows Server is
+
+00:04:22.230 --> 00:04:25.640
+not open source. Our PCC Proteus is previously
+
+00:04:25.640 --> 00:04:30.470
+tested with UDT, which is not even deployed in
+
+00:04:30.470 --> 00:04:33.640
+practice. More importantly, previous scavengers,
+
+00:04:33.640 --> 00:04:36.880
+such as LabBats, are implemented differently,
+
+00:04:36.880 --> 00:04:39.920
+separate from primary protocols, making it
+
+00:04:39.920 --> 00:04:44.450
+non-trivial to enforce opportunistic priority
+
+00:04:44.450 --> 00:04:44.800
+switch.
+
+00:04:44.800 --> 00:04:47.660
+So in this work, we first push forward the open-source
+
+00:04:47.660 --> 00:04:51.200
+implementations of scavenger protocols.
+
+00:04:51.200 --> 00:04:54.370
+We port PCC Proteus to QUIC, which is becoming
+
+00:04:54.370 --> 00:04:58.360
+increasingly popular with the IETF's standardization
+
+00:04:58.360 --> 00:05:02.510
+progress. For convenience of academia research
+
+00:05:02.510 --> 00:05:05.200
+and performance measurements, we also provide
+
+00:05:05.200 --> 00:05:09.700
+our own LabBat++ implementation by branching off
+
+00:05:09.700 --> 00:05:12.840
+the uTorrent LabBat codebase.
+
+00:05:12.840 --> 00:05:16.500
+For benchmarking purposes, we compare the impact
+
+00:05:16.500 --> 00:05:19.400
+of LabBat, LabBat++, and the Proteus
+
+00:05:19.400 --> 00:05:22.320
+QUIC scavenger to BBR and QUIC using a
+
+00:05:22.320 --> 00:05:26.310
+combination of MahiMahi bottleneck setups. The
+
+00:05:26.310 --> 00:05:26.440
+figure
+
+00:05:26.440 --> 00:05:31.280
+presents the CDF of primary flow throughput ratio.
+
+00:05:31.280 --> 00:05:34.820
+When the primary flow uses BBR, we can see LabBat++
+
+00:05:34.820 --> 00:05:37.880
+does have improved performance compared
+
+00:05:37.880 --> 00:05:41.630
+with LabBat, and it is even similar to our QUIC
+
+00:05:41.630 --> 00:05:45.680
+Proteus scavenger. But for QUIC, a QUIC
+
+00:05:45.680 --> 00:05:51.670
+flow achieves 5.6% higher throughput, competing
+
+00:05:51.670 --> 00:05:55.560
+with Proteus QUIC than with LabBat++.
+
+00:05:55.560 --> 00:05:58.760
+In addition, to accommodate the dynamic priority
+
+00:05:58.760 --> 00:06:01.640
+switch with real applications, we envision
+
+00:06:01.640 --> 00:06:04.370
+an interface between the application and the
+
+00:06:04.370 --> 00:06:07.320
+transport datapad. Specifically, these are
+
+00:06:07.320 --> 00:06:10.260
+the existing common interfaces for congestion
+
+00:06:10.260 --> 00:06:13.360
+control implementation. The congestion controller
+
+00:06:13.360 --> 00:06:16.630
+observes packet reception results based on the
+
+00:06:16.630 --> 00:06:20.000
+received ACKs and instances of retransmission
+
+00:06:20.000 --> 00:06:23.450
+timeouts, and enforces different pacing rates or
+
+00:06:23.450 --> 00:06:26.560
+congestion windows to the network interface
+
+00:06:26.560 --> 00:06:27.960
+card.
+
+00:06:27.960 --> 00:06:31.910
+However, throughout the above process, the
+
+00:06:31.910 --> 00:06:35.360
+congestion controller is obvious to actual
+
+00:06:35.360 --> 00:06:38.790
+application requirements, which are necessary to
+
+00:06:38.790 --> 00:06:42.240
+determine the appropriate transport priority.
+
+00:06:42.240 --> 00:06:44.720
+So we claim that, to convey such application
+
+00:06:44.720 --> 00:06:47.400
+requirements, another interface between the
+
+00:06:47.400 --> 00:06:51.460
+application and transport datapad is needed.
+
+00:06:51.460 --> 00:06:54.390
+When deploying scavenger congestion control, this
+
+00:06:54.390 --> 00:06:56.640
+interface is responsible for priority
+
+00:06:56.640 --> 00:07:01.010
+control, including two tasks, priority selection
+
+00:07:01.010 --> 00:07:04.520
+and priority switch. The first task, priority
+
+00:07:04.520 --> 00:07:08.650
+selection, is to inform the congestion controller
+
+00:07:08.650 --> 00:07:11.720
+which priority to use in real-time.
+
+00:07:11.720 --> 00:07:14.140
+There are several different ways to implement
+
+00:07:14.140 --> 00:07:16.680
+that with the application transport interface.
+
+00:07:16.680 --> 00:07:19.900
+First, a priority controller can be contained
+
+00:07:19.900 --> 00:07:22.720
+within the congestion control protocol. It
+
+00:07:22.720 --> 00:07:26.260
+takes the input of real-time QoE through the
+
+00:07:26.260 --> 00:07:30.320
+interface and outputs the selected priority.
+
+00:07:30.320 --> 00:07:32.960
+Or a priority controller can be implemented
+
+00:07:32.960 --> 00:07:35.920
+together with the application. For example,
+
+00:07:35.920 --> 00:07:38.440
+when designing adaptive bit rate algorithm in
+
+00:07:38.440 --> 00:07:41.000
+video streaming, the developer can directly
+
+00:07:41.000 --> 00:07:44.390
+determine the priority to use besides the video
+
+00:07:44.390 --> 00:07:47.360
+bit rate selection. In this case, the
+
+00:07:47.360 --> 00:07:50.740
+app transport interface will be used for explicit
+
+00:07:50.740 --> 00:07:52.640
+priority notification.
+
+00:07:52.640 --> 00:07:56.330
+Next, with the dynamically selected transport
+
+00:07:56.330 --> 00:07:59.920
+priorities, the congestion controller needs
+
+00:07:59.920 --> 00:08:03.960
+to switch between scavenger and primary. This is
+
+00:08:03.960 --> 00:08:06.880
+easy for our QCC proteus, because as we
+
+00:08:06.880 --> 00:08:10.090
+mentioned, different priorities in proteus are
+
+00:08:10.090 --> 00:08:12.840
+simply different function APIs under the
+
+00:08:12.840 --> 00:08:16.610
+same protocol. Thus, it only needs a binary flag
+
+00:08:16.610 --> 00:08:21.040
+to determine which function API to call.
+
+00:08:21.040 --> 00:08:23.900
+In comparison, the priority switch is not as
+
+00:08:23.900 --> 00:08:26.700
+convenient if the scavenger protocols are
+
+00:08:26.700 --> 00:08:31.550
+separately implemented from the primary protocols,
+
+00:08:31.550 --> 00:08:33.920
+like the case of LabBet.
+
+00:08:33.920 --> 00:08:37.800
+But we think it is possible to leverage multipath
+
+00:08:37.800 --> 00:08:41.240
+transport as a workaround. As shown here,
+
+00:08:41.240 --> 00:08:44.850
+the sender can use different subpaths specific to
+
+00:08:44.850 --> 00:08:48.880
+primary and scavenger priorities, respectively.
+
+00:08:48.880 --> 00:08:51.810
+It can then direct traffic to one of the subpaths
+
+00:08:51.810 --> 00:08:54.280
+according to the selected priority.
+
+00:08:54.280 --> 00:08:57.510
+Ultimately, we hope the scavenger congestion
+
+00:08:57.510 --> 00:09:00.440
+control can attract more interest, so that
+
+00:09:00.440 --> 00:09:03.350
+our envisioned priority control based on the
+
+00:09:03.350 --> 00:09:06.400
+interface between application and transport
+
+00:09:06.400 --> 00:09:11.960
+datapath could be accepted or implemented in
+
+00:09:11.960 --> 00:09:14.760
+practice. And the corresponding implementation
+
+00:09:14.760 --> 00:09:17.400
+will also be an important future work.
+
+00:09:17.400 --> 00:09:21.590
+Due to limited time, that's all I want to present
+
+00:09:21.590 --> 00:09:24.120
+here. Thank you all for listening.
+
+00:09:24.120 --> 00:09:26.870
+We definitely look forward to questions,
+
+00:09:26.870 --> 00:09:29.320
+suggestions, and criticisms. Thanks.
+
+00:09:29.320 --> 00:09:30.320
+>> Thanks, everyone.
+
+00:09:30.320 --> 00:09:31.320
+>> Bye.
+

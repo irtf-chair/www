@@ -1,0 +1,560 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.170
+Hi everyone, my name is Niemann Bauer. I'm a
+
+00:00:03.170 --> 00:00:05.440
+research associate at the Technical University of
+
+00:00:05.440 --> 00:00:06.000
+Munich
+
+00:00:06.000 --> 00:00:09.280
+here at the Chair of Network Architectures and
+
+00:00:09.280 --> 00:00:10.000
+Services.
+
+00:00:10.000 --> 00:00:12.880
+And today I want to talk about our work on the
+
+00:00:12.880 --> 00:00:16.000
+evolution of Internet flow characteristics.
+
+00:00:16.000 --> 00:00:21.380
+As we all know, there's ongoing change on the
+
+00:00:21.380 --> 00:00:23.000
+Internet regarding new technologies
+
+00:00:23.000 --> 00:00:28.740
+adapting user behavior or changing Internet
+
+00:00:28.740 --> 00:00:30.000
+services.
+
+00:00:30.000 --> 00:00:33.000
+We are all aware of improving network expansions.
+
+00:00:33.000 --> 00:00:37.030
+We all observed the smartphone boom during the
+
+00:00:37.030 --> 00:00:38.000
+last decade.
+
+00:00:38.000 --> 00:00:42.000
+We are aware of the Internet of Things that rises
+
+00:00:42.000 --> 00:00:44.500
+and of course we know about audio and video
+
+00:00:44.500 --> 00:00:46.000
+streaming services.
+
+00:00:46.000 --> 00:00:50.000
+At the same time, previous studies present methodologies
+
+00:00:50.000 --> 00:00:52.000
+to survey flow characteristics
+
+00:00:52.000 --> 00:00:55.000
+like flow duration, flow size or flow rates.
+
+00:00:55.000 --> 00:00:59.300
+But recent insights into flow characteristics in
+
+00:00:59.300 --> 00:01:02.000
+the Internet are rare.
+
+00:01:02.000 --> 00:01:05.000
+And therefore our paper pursues the question
+
+00:01:05.000 --> 00:01:08.930
+how flow characteristics changed during the last
+
+00:01:08.930 --> 00:01:10.000
+few years.
+
+00:01:10.000 --> 00:01:14.200
+To answer such question, our paper surveys the
+
+00:01:14.200 --> 00:01:16.280
+distribution and correlation of flow
+
+00:01:16.280 --> 00:01:17.000
+characteristics
+
+00:01:17.000 --> 00:01:21.030
+and applies different taxonomies to assess the
+
+00:01:21.030 --> 00:01:22.000
+relevance of heavy hitter flows
+
+00:01:22.000 --> 00:01:24.890
+in the sense of elephant flows but also in the
+
+00:01:24.890 --> 00:01:27.000
+sense of so-called big fast flows.
+
+00:01:27.000 --> 00:01:34.190
+Before we start talking about our methodology and
+
+00:01:34.190 --> 00:01:36.000
+our measurement results
+
+00:01:36.000 --> 00:01:38.720
+let me briefly introduce a scalable flow analysis
+
+00:01:38.720 --> 00:01:41.000
+tool implemented in Go
+
+00:01:41.000 --> 00:01:44.370
+that provides large scalability due to parallelized
+
+00:01:44.370 --> 00:01:47.000
+packet parsing and flow aggregation.
+
+00:01:47.000 --> 00:01:51.110
+The tool is published as free and open source
+
+00:01:51.110 --> 00:01:52.000
+with our paper.
+
+00:01:52.000 --> 00:01:56.350
+The tool consists of five major components which
+
+00:01:56.350 --> 00:01:58.000
+are illustrated on the right.
+
+00:01:58.000 --> 00:02:01.300
+The first component is a reader that reads
+
+00:02:01.300 --> 00:02:04.000
+packets from a PCAP file.
+
+00:02:04.000 --> 00:02:08.070
+We have multiple parsers that extract packet
+
+00:02:08.070 --> 00:02:11.000
+features from such read packets.
+
+00:02:11.000 --> 00:02:14.410
+Those packet features are then written into a
+
+00:02:14.410 --> 00:02:17.380
+ring buffer component that is proposed to reorder
+
+00:02:17.380 --> 00:02:18.000
+packets.
+
+00:02:18.000 --> 00:02:22.100
+A regular routine then writes such reordered
+
+00:02:22.100 --> 00:02:25.000
+packet information into pools
+
+00:02:25.000 --> 00:02:27.880
+where we collect package features per flow until
+
+00:02:27.880 --> 00:02:29.000
+a flow terminates.
+
+00:02:29.000 --> 00:02:34.190
+After its termination, flow data is written to
+
+00:02:34.190 --> 00:02:35.000
+the metric component
+
+00:02:35.000 --> 00:02:38.000
+where we then calculate our flow characteristics.
+
+00:02:38.000 --> 00:02:42.000
+Let's talk about flows.
+
+00:02:42.000 --> 00:02:45.480
+We identify flows based on the IP5 tuple as we
+
+00:02:45.480 --> 00:02:50.000
+will focus on TCP traffic for our study.
+
+00:02:50.000 --> 00:02:55.700
+We identify the start of TCP flows with a three-way
+
+00:02:55.700 --> 00:02:57.000
+handshake.
+
+00:02:57.000 --> 00:03:00.170
+We terminate a TCP flow when we observe a
+
+00:03:00.170 --> 00:03:02.000
+connection teardown.
+
+00:03:02.000 --> 00:03:06.350
+If there is an idle period of a flow for a
+
+00:03:06.350 --> 00:03:09.000
+certain timeout period
+
+00:03:09.000 --> 00:03:13.000
+we observe a freshly established three-way handshake
+
+00:03:13.000 --> 00:03:17.000
+of an IP5 tuple that is already tracked.
+
+00:03:17.000 --> 00:03:21.000
+For identified flows, we calculate the flow size
+
+00:03:21.000 --> 00:03:25.000
+in the sense of the sum of layer 4 payload sizes.
+
+00:03:25.000 --> 00:03:28.320
+We calculate flow duration as the time interval
+
+00:03:28.320 --> 00:03:32.000
+between the first and the last packet we observe.
+
+00:03:32.000 --> 00:03:35.740
+We calculate flow rate as the average data rate
+
+00:03:35.740 --> 00:03:39.000
+based on flow size and flow duration.
+
+00:03:39.000 --> 00:03:44.390
+For our study, we compose a dataset consisting of
+
+00:03:44.390 --> 00:03:48.000
+28 traces provided by KIDR.
+
+00:03:48.000 --> 00:03:51.340
+Such traces have anonymized IP addresses and no
+
+00:03:51.340 --> 00:03:53.000
+layer 4 payloads.
+
+00:03:53.000 --> 00:03:59.420
+Each trace provides one hour of traffic that is
+
+00:03:59.420 --> 00:04:04.430
+captured at a 10 gigabit per second ISP backbone
+
+00:04:04.430 --> 00:04:05.000
+link.
+
+00:04:05.000 --> 00:04:08.790
+As illustrated below on the timeline, we select
+
+00:04:08.790 --> 00:04:14.000
+23 traces taken in Chicago between 2008 and 2016
+
+00:04:14.000 --> 00:04:18.770
+and 5 traces taken in New York between 2018 and
+
+00:04:18.770 --> 00:04:20.000
+2020.
+
+00:04:20.000 --> 00:04:24.280
+As you see, we have three periods without traces
+
+00:04:24.280 --> 00:04:26.000
+for several months.
+
+00:04:26.000 --> 00:04:30.760
+On average, we select traces in an interval of
+
+00:04:30.760 --> 00:04:32.000
+three months.
+
+00:04:32.000 --> 00:04:36.270
+But there are three larger intervals without
+
+00:04:36.270 --> 00:04:39.160
+traces because there are simply no traces
+
+00:04:39.160 --> 00:04:40.000
+available.
+
+00:04:40.000 --> 00:04:46.000
+Regarding pre-processing of such traffic,
+
+00:04:46.000 --> 00:04:49.350
+we only consider TCP flows that are longer than
+
+00:04:49.350 --> 00:04:52.000
+or equal to 100 milliseconds.
+
+00:04:52.000 --> 00:04:55.080
+This is also done by related work and proposed to
+
+00:04:55.080 --> 00:04:57.000
+filter out quite short flows
+
+00:04:57.000 --> 00:05:03.230
+because calculated flow rates are falsified for
+
+00:05:03.230 --> 00:05:06.320
+short flows in case of single packet flows or if
+
+00:05:06.320 --> 00:05:09.000
+all packets are sent back-to-back.
+
+00:05:09.000 --> 00:05:14.000
+Let's talk about selected measurement results.
+
+00:05:14.000 --> 00:05:18.000
+Regarding the evolution of heavy hitters,
+
+00:05:18.000 --> 00:05:22.330
+related work proposes a definition of heavy hitter
+
+00:05:22.330 --> 00:05:26.000
+traffic based on the 99th percentile of a
+
+00:05:26.000 --> 00:05:26.000
+characteristic.
+
+00:05:26.000 --> 00:05:30.560
+The 99th percentile of flow duration, flow size,
+
+00:05:30.560 --> 00:05:32.000
+and flow rate.
+
+00:05:32.000 --> 00:05:37.100
+We analyzed the evolution of such 99th percentiles
+
+00:05:37.100 --> 00:05:38.000
+over time.
+
+00:05:38.000 --> 00:05:44.000
+As you can see plotted here on the right, let me
+
+00:05:44.000 --> 00:05:44.000
+point out two major findings.
+
+00:05:44.000 --> 00:05:48.190
+Regarding the 99th percentile of flow duration,
+
+00:05:48.190 --> 00:05:50.000
+here on top of the plot,
+
+00:05:50.000 --> 00:05:52.770
+we observe that there is only little increase
+
+00:05:52.770 --> 00:05:56.000
+during the years 2008 until 2013.
+
+00:05:56.000 --> 00:05:59.240
+But afterwards, we observe an increase by factor
+
+00:05:59.240 --> 00:06:05.000
+1.5 between June 2013 and March 2016.
+
+00:06:05.000 --> 00:06:08.410
+A further major finding of that analysis is the
+
+00:06:08.410 --> 00:06:12.000
+increase of the 99th percentile of flow rates,
+
+00:06:12.000 --> 00:06:16.000
+which refers to the bottom plot here.
+
+00:06:16.000 --> 00:06:21.450
+Here we observe a clear trend towards larger flow
+
+00:06:21.450 --> 00:06:23.000
+rates in the 99th percentile,
+
+00:06:23.000 --> 00:06:30.620
+i.e. an increase from around 400 kbps up to 800 kbps
+
+00:06:30.620 --> 00:06:33.000
+in 2015.
+
+00:06:33.000 --> 00:06:37.630
+Next, we were interested in the relevance of such
+
+00:06:37.630 --> 00:06:40.000
+heavy hitter traffic.
+
+00:06:40.000 --> 00:06:43.550
+Therefore, we calculated the share of transmitted
+
+00:06:43.550 --> 00:06:47.020
+bytes by such flows within the 99th percentile
+
+00:06:47.020 --> 00:06:49.000
+for each flow characteristic.
+
+00:06:49.000 --> 00:06:52.210
+We did not find a specific trend over time, so
+
+00:06:52.210 --> 00:06:55.840
+here the table shows the average across all
+
+00:06:55.840 --> 00:06:58.000
+traces taken in Chicago.
+
+00:06:58.000 --> 00:07:01.640
+In the second column, in the right column, we see
+
+00:07:01.640 --> 00:07:05.080
+the share of bytes transmitted by different
+
+00:07:05.080 --> 00:07:06.000
+percentiles.
+
+00:07:06.000 --> 00:07:12.490
+Especially the flows within the 99th percentile
+
+00:07:12.490 --> 00:07:17.710
+of flow size represent a large share of totally
+
+00:07:17.710 --> 00:07:19.000
+transmitted bytes
+
+00:07:19.000 --> 00:07:24.600
+with nearly 90% of all TCP bytes transmitted by
+
+00:07:24.600 --> 00:07:27.000
+such 1% of flows.
+
+00:07:27.000 --> 00:07:30.620
+Further, we had a look at so-called big fast
+
+00:07:30.620 --> 00:07:31.000
+flows.
+
+00:07:31.000 --> 00:07:35.070
+Zhang et al. introduced a 2-2 taxonomy based on
+
+00:07:35.070 --> 00:07:39.990
+two threshold values to group flows regarding
+
+00:07:39.990 --> 00:07:43.000
+their size and their flow rate.
+
+00:07:43.000 --> 00:07:47.000
+We had a closer look at the relevance of such big
+
+00:07:47.000 --> 00:07:50.880
+fast flows, which are represented by only a small
+
+00:07:50.880 --> 00:07:52.000
+share of flows,
+
+00:07:52.000 --> 00:07:55.090
+but as we will see, have a large relevance
+
+00:07:55.090 --> 00:07:59.000
+regarding the share of bytes that they transmit.
+
+00:07:59.000 --> 00:08:03.000
+We defined three threshold pairs.
+
+00:08:03.000 --> 00:08:06.760
+The first pair refers to the original threshold
+
+00:08:06.760 --> 00:08:10.690
+values from Zhang et al., i.e. 100 kbps regarding
+
+00:08:10.690 --> 00:08:14.000
+size and 10 kbps for flow rate.
+
+00:08:14.000 --> 00:08:18.470
+Then we increased the thresholds by one magnitude
+
+00:08:18.470 --> 00:08:21.000
+for pair 2 and pair 3.
+
+00:08:21.000 --> 00:08:24.860
+Let me highlight the increase of the share of
+
+00:08:24.860 --> 00:08:29.050
+bytes transmitted by the second threshold pair
+
+00:08:29.050 --> 00:08:31.000
+illustrated in green.
+
+00:08:31.000 --> 00:08:35.470
+Here we observe an increase of bytes transmitted
+
+00:08:35.470 --> 00:08:40.120
+by big fast flows between 20 and 30% for traces
+
+00:08:40.120 --> 00:08:44.000
+in 2018 until 2010,
+
+00:08:44.000 --> 00:08:49.950
+up to between 40 and 50% of all bytes transmitted
+
+00:08:49.950 --> 00:08:51.000
+by TCP.
+
+00:08:51.000 --> 00:08:54.480
+For more recent traces taken in Chicago, the
+
+00:08:54.480 --> 00:08:58.000
+values for the New York dataset are smaller,
+
+00:08:58.000 --> 00:09:01.450
+which can be traced back to a larger share of
+
+00:09:01.450 --> 00:09:04.000
+small flows for such traces.
+
+00:09:04.000 --> 00:09:08.550
+To conclude my talk, let me summarize our
+
+00:09:08.550 --> 00:09:10.000
+findings.
+
+00:09:10.000 --> 00:09:13.650
+As we have seen here in the talk, we observe a
+
+00:09:13.650 --> 00:09:16.510
+significant increase of the 99th percentile of
+
+00:09:16.510 --> 00:09:18.000
+flow duration and rate.
+
+00:09:18.000 --> 00:09:21.590
+We find a large significance of heavy hitters
+
+00:09:21.590 --> 00:09:25.000
+regarding the share of transmitted bytes.
+
+00:09:25.000 --> 00:09:29.440
+We observe an increase regarding the relevance of
+
+00:09:29.440 --> 00:09:33.000
+big fast flows during the past years.
+
+00:09:33.000 --> 00:09:36.610
+Further, and not included in the talk, but in our
+
+00:09:36.610 --> 00:09:39.220
+paper, you will find an analysis of the
+
+00:09:39.220 --> 00:09:41.000
+distribution of flow characteristics over time
+
+00:09:41.000 --> 00:09:44.870
+and a study of correlation coefficients between
+
+00:09:44.870 --> 00:09:47.000
+the flow characteristics,
+
+00:09:47.000 --> 00:09:50.000
+where we can confirm findings of previous studies,
+
+00:09:50.000 --> 00:09:52.730
+especially regarding a strong positive
+
+00:09:52.730 --> 00:09:56.000
+correlation between flow rate and flow size.
+
+00:09:56.000 --> 00:09:59.590
+That's it from my side. Now I'm happy and looking
+
+00:09:59.590 --> 00:10:02.000
+forward to answer your questions.
+

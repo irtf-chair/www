@@ -1,0 +1,755 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:05.590
+Hi, my name is Austin Hounsell, and I'm a PhD
+
+00:00:05.590 --> 00:00:08.280
+student at Princeton University.
+
+00:00:08.280 --> 00:00:09.760
+And I'm going to be presenting some work today
+
+00:00:09.760 --> 00:00:12.240
+about distributing DNS queries across recursive
+
+00:00:12.240 --> 00:00:14.240
+resolvers to reduce centralization.
+
+00:00:14.240 --> 00:00:17.460
+This work was done in collaboration with Paul
+
+00:00:17.460 --> 00:00:20.800
+Schmidt, Kevin Borgolta, and Nick Feimster.
+
+00:00:20.800 --> 00:00:23.160
+So essentially, we are presenting the design and
+
+00:00:23.160 --> 00:00:25.240
+prototype implementation of a refactored
+
+00:00:25.240 --> 00:00:28.350
+stub resolver that allows for decentralized
+
+00:00:28.350 --> 00:00:30.440
+encrypted DNS resolution.
+
+00:00:30.440 --> 00:00:32.180
+We then perform a preliminary evaluation of the
+
+00:00:32.180 --> 00:00:33.880
+stub resolver's performance and utilize
+
+00:00:33.880 --> 00:00:36.160
+a real-world dataset to evaluate how various
+
+00:00:36.160 --> 00:00:38.840
+query distribution strategies, such as random,
+
+00:00:38.840 --> 00:00:41.160
+round-robin, and hash-based strategies, affect
+
+00:00:41.160 --> 00:00:43.360
+the amount of queries that are seen by recursive
+
+00:00:43.360 --> 00:00:46.040
+resolvers.
+
+00:00:46.040 --> 00:00:48.160
+So as we know, DNS privacy has become a
+
+00:00:48.160 --> 00:00:51.040
+significant concern within the past few years.
+
+00:00:51.040 --> 00:00:53.230
+We know that on-path network observers can infer
+
+00:00:53.230 --> 00:00:55.140
+which websites you are visiting by looking
+
+00:00:55.140 --> 00:00:57.600
+at your plain text DNS queries.
+
+00:00:57.600 --> 00:00:59.860
+This kind of interference can occur within
+
+00:00:59.860 --> 00:01:02.240
+governments or in coffee shop networks, and
+
+00:01:02.240 --> 00:01:03.240
+etc.
+
+00:01:03.240 --> 00:01:05.190
+So two protocols have been proposed to encrypt
+
+00:01:05.190 --> 00:01:05.880
+DNS traffic.
+
+00:01:05.880 --> 00:01:09.840
+One is DNS over TLS or DOT, and the other is DNS
+
+00:01:09.840 --> 00:01:11.680
+over HTTPS or DOE.
+
+00:01:11.680 --> 00:01:15.110
+And we're seeing that increasingly, DOE is being
+
+00:01:15.110 --> 00:01:17.600
+rolled out by various browser vendors
+
+00:01:17.600 --> 00:01:19.080
+and other software developers.
+
+00:01:19.080 --> 00:01:22.470
+In fact, we're seeing that Firefox now uses DOE
+
+00:01:22.470 --> 00:01:25.440
+as the default DNS protocol for US users,
+
+00:01:25.440 --> 00:01:27.640
+which you know, encryption is a great thing.
+
+00:01:27.640 --> 00:01:29.390
+It's great that encrypted DNS is being
+
+00:01:29.390 --> 00:01:30.680
+increasingly deployed.
+
+00:01:30.680 --> 00:01:33.370
+However, with it, some users are growing
+
+00:01:33.370 --> 00:01:36.140
+concerned about ways in which the DNS may be
+
+00:01:36.140 --> 00:01:36.920
+centralized
+
+00:01:36.920 --> 00:01:39.920
+into a handful of large operators.
+
+00:01:39.920 --> 00:01:42.060
+And so we stand to ask, well, is there a way we
+
+00:01:42.060 --> 00:01:44.100
+can get encrypted DNS resolution while
+
+00:01:44.100 --> 00:01:46.880
+distributing our queries across multiple
+
+00:01:46.880 --> 00:01:50.090
+operators instead of centralizing into a small
+
+00:01:50.090 --> 00:01:50.520
+set?
+
+00:01:50.520 --> 00:01:53.250
+So first we want to ask, well, is decentralization
+
+00:01:53.250 --> 00:01:55.380
+even worth doing in the first place?
+
+00:01:55.380 --> 00:01:57.810
+What might be the theoretical reasons why you may
+
+00:01:57.810 --> 00:01:59.520
+or may not want to distribute your
+
+00:01:59.520 --> 00:02:01.520
+queries across multiple resolvers?
+
+00:02:01.520 --> 00:02:04.020
+However, we're not going to be answering that in
+
+00:02:04.020 --> 00:02:04.760
+this talk.
+
+00:02:04.760 --> 00:02:06.730
+Instead we're focusing on, well, is it even
+
+00:02:06.730 --> 00:02:09.000
+technically possible or feasible to distribute
+
+00:02:09.000 --> 00:02:10.340
+queries across resolvers?
+
+00:02:10.340 --> 00:02:14.540
+And what forms could this decentralization take?
+
+00:02:14.540 --> 00:02:16.240
+So the architecture we have in mind goes
+
+00:02:16.240 --> 00:02:17.360
+something like this.
+
+00:02:17.360 --> 00:02:20.000
+In step one, the stub resolver discovers various
+
+00:02:20.000 --> 00:02:22.280
+upstream resolvers that support DOE along
+
+00:02:22.280 --> 00:02:24.370
+with the characteristics of these resolvers, such
+
+00:02:24.370 --> 00:02:25.520
+as geographic location.
+
+00:02:25.520 --> 00:02:28.030
+The user can specify these requirements such as
+
+00:02:28.030 --> 00:02:29.800
+within a configuration file.
+
+00:02:29.800 --> 00:02:32.040
+And then the stub resolver then selects of this
+
+00:02:32.040 --> 00:02:34.040
+pool, a set of DOE resolvers that match
+
+00:02:34.040 --> 00:02:36.480
+the characteristics the user desires.
+
+00:02:36.480 --> 00:02:38.600
+The stub resolver then as it receives queries,
+
+00:02:38.600 --> 00:02:40.880
+distributes them across multiple resolvers,
+
+00:02:40.880 --> 00:02:42.800
+according to some user specified strategy.
+
+00:02:42.800 --> 00:02:48.120
+So it was a random model or a round robin model.
+
+00:02:48.120 --> 00:02:51.410
+To prototype this, we forked DNS script proxy,
+
+00:02:51.410 --> 00:02:54.000
+which supports DOE and DNS script.
+
+00:02:54.000 --> 00:02:56.280
+And we got it support for the hash and round robin
+
+00:02:56.280 --> 00:02:56.820
+model.
+
+00:02:56.820 --> 00:02:59.550
+And we also evaluated some existing code that was
+
+00:02:59.550 --> 00:03:02.400
+within the proxy for random query distribution.
+
+00:03:02.400 --> 00:03:04.520
+We evaluated the performance of this.
+
+00:03:04.520 --> 00:03:06.380
+We know that the proxy can not only run on host
+
+00:03:06.380 --> 00:03:07.880
+devices, but also on routers.
+
+00:03:07.880 --> 00:03:11.360
+And so maybe it will support shooting queries for
+
+00:03:11.360 --> 00:03:14.840
+a given strategy for an entire local network.
+
+00:03:14.840 --> 00:03:17.320
+So this is just a quick example of what it looks
+
+00:03:17.320 --> 00:03:19.200
+like to use a hash based model that
+
+00:03:19.200 --> 00:03:20.600
+we implemented.
+
+00:03:20.600 --> 00:03:23.400
+So for example, if the stub resolver sends out a
+
+00:03:23.400 --> 00:03:25.880
+query for example.com, or receives it
+
+00:03:25.880 --> 00:03:28.430
+rather, it may then forward it to Cloudflare's
+
+00:03:28.430 --> 00:03:30.760
+upstream DOE resolver based on hashing of
+
+00:03:30.760 --> 00:03:32.940
+the second level domain name.
+
+00:03:32.940 --> 00:03:35.670
+For images.example.com, it would also get hashed
+
+00:03:35.670 --> 00:03:37.480
+to Cloudflare's resolver because it
+
+00:03:37.480 --> 00:03:40.140
+shares the same second level domain name with
+
+00:03:40.140 --> 00:03:41.280
+example.com.
+
+00:03:41.280 --> 00:03:44.280
+Similarly, New York Times might get mapped to
+
+00:03:44.280 --> 00:03:45.040
+Google.
+
+00:03:45.040 --> 00:03:46.840
+And then if the client queries it again, it gets
+
+00:03:46.840 --> 00:03:48.520
+mapped to Google once again, same domain
+
+00:03:48.520 --> 00:03:51.200
+name, and then the Washington Post goes to Quad9.
+
+00:03:51.200 --> 00:03:53.040
+So we're seeing that the DNS queries are no
+
+00:03:53.040 --> 00:03:55.200
+longer just going to a single DOE resolver,
+
+00:03:55.200 --> 00:03:58.320
+but being distributed across multiple of them.
+
+00:03:58.320 --> 00:04:01.050
+Similarly, the round robin model behaves as you
+
+00:04:01.050 --> 00:04:02.000
+might expect.
+
+00:04:02.000 --> 00:04:04.220
+First query goes to the first resolver, second
+
+00:04:04.220 --> 00:04:06.120
+query goes to the second resolver, third
+
+00:04:06.120 --> 00:04:09.640
+to the third, and so on and so forth.
+
+00:04:09.640 --> 00:04:11.870
+And lastly, in the random model also might behave
+
+00:04:11.870 --> 00:04:12.960
+as you might expect.
+
+00:04:12.960 --> 00:04:16.840
+The queries go to various resolvers without a
+
+00:04:16.840 --> 00:04:18.780
+particular order.
+
+00:04:18.780 --> 00:04:21.430
+So we wanted to evaluate these strategies and see
+
+00:04:21.430 --> 00:04:23.460
+what's the effect of a stub resolver
+
+00:04:23.460 --> 00:04:26.260
+that implements these strategies on both page
+
+00:04:26.260 --> 00:04:28.820
+load times, CD and localization, and the
+
+00:04:28.820 --> 00:04:29.640
+percentage
+
+00:04:29.640 --> 00:04:32.390
+of unique domain names that are seen by various
+
+00:04:32.390 --> 00:04:34.280
+resolvers from each client.
+
+00:04:34.280 --> 00:04:37.730
+So we're going to be answering these questions in
+
+00:04:37.730 --> 00:04:38.280
+turn.
+
+00:04:38.280 --> 00:04:41.720
+So first we turn to CD and localization, right?
+
+00:04:41.720 --> 00:04:44.040
+And what we're particularly concerned about here
+
+00:04:44.040 --> 00:04:45.820
+is what is the effect of using various
+
+00:04:45.820 --> 00:04:49.570
+recursive resolvers on how far away the CDN
+
+00:04:49.570 --> 00:04:53.100
+content is that you resolve, right?
+
+00:04:53.100 --> 00:04:56.620
+So if we look at this figure, which is a CDF of
+
+00:04:56.620 --> 00:04:59.860
+TCP and TLS setup times for CDN content,
+
+00:04:59.860 --> 00:05:01.920
+we can read the legend in this way.
+
+00:05:01.920 --> 00:05:05.080
+If you look at the Cloudflare-Google line, what
+
+00:05:05.080 --> 00:05:07.500
+we're seeing there is that these are
+
+00:05:07.500 --> 00:05:10.780
+the, this is the CDF of TCP and TLS setup times
+
+00:05:10.780 --> 00:05:13.860
+when you use Cloudflare's DOE resolver
+
+00:05:13.860 --> 00:05:17.220
+to resolve Google CDN content.
+
+00:05:17.220 --> 00:05:19.200
+And essentially what we're seeing here is that
+
+00:05:19.200 --> 00:05:20.700
+there really isn't too much of a difference
+
+00:05:20.700 --> 00:05:23.030
+that's being made in terms of using one
+
+00:05:23.030 --> 00:05:25.800
+particular resolver to host, to resolve CDN
+
+00:05:25.800 --> 00:05:26.660
+content.
+
+00:05:26.660 --> 00:05:28.730
+In other words, you could use Cloudflare's
+
+00:05:28.730 --> 00:05:30.860
+resolver and get Google content just fine,
+
+00:05:30.860 --> 00:05:33.980
+just as you can use Google's resolver to get
+
+00:05:33.980 --> 00:05:36.500
+Cloudflare content just fine.
+
+00:05:36.500 --> 00:05:38.980
+Similarly in terms of page load times, we're
+
+00:05:38.980 --> 00:05:40.980
+seeing that no single strategy seems to have
+
+00:05:40.980 --> 00:05:44.690
+the best or worst effect on performance for page
+
+00:05:44.690 --> 00:05:45.860
+load times.
+
+00:05:45.860 --> 00:05:48.020
+So these are measurements that were taken from
+
+00:05:48.020 --> 00:05:50.020
+four Amazon EC2 vantage points in which
+
+00:05:50.020 --> 00:05:52.600
+we perform page loads using a instrumented
+
+00:05:52.600 --> 00:05:55.540
+instance of Firefox with Selenium in a headless
+
+00:05:55.540 --> 00:05:56.820
+browser.
+
+00:05:56.820 --> 00:05:59.770
+And we perform measurements with three different
+
+00:05:59.770 --> 00:06:01.940
+query distribution strategies.
+
+00:06:01.940 --> 00:06:04.060
+And so what we're seeing is that no single
+
+00:06:04.060 --> 00:06:06.500
+resolver, once again, or rather no single
+
+00:06:06.500 --> 00:06:08.850
+model seems to perform the best or the worst
+
+00:06:08.850 --> 00:06:10.900
+across different vantage points.
+
+00:06:10.900 --> 00:06:12.830
+We're seeing slightly different effects on page
+
+00:06:12.830 --> 00:06:14.500
+load times, but everything looks about
+
+00:06:14.500 --> 00:06:16.780
+roughly the same.
+
+00:06:16.780 --> 00:06:19.910
+And then when you turn to a comparison of using a
+
+00:06:19.910 --> 00:06:22.580
+single resolver for all your queries,
+
+00:06:22.580 --> 00:06:24.960
+we're seeing a similar story where each resolver
+
+00:06:24.960 --> 00:06:27.300
+seems to perform somewhat similarly in terms
+
+00:06:27.300 --> 00:06:29.460
+of its effect on page load times, whereas in
+
+00:06:29.460 --> 00:06:31.560
+certain vantage points, you're seeing maybe
+
+00:06:31.560 --> 00:06:35.340
+a slightly higher effect than in other ones.
+
+00:06:35.340 --> 00:06:37.980
+So for example, if you look at Oregon, you might
+
+00:06:37.980 --> 00:06:39.820
+see that there's a much more pronounced
+
+00:06:39.820 --> 00:06:45.260
+difference in page load times with certain resolvers.
+
+00:06:45.260 --> 00:06:47.790
+And then lastly, we look at the effect of how
+
+00:06:47.790 --> 00:06:50.020
+many unique domain names are seen by DNS
+
+00:06:50.020 --> 00:06:52.780
+resolvers whenever you use query distribution
+
+00:06:52.780 --> 00:06:53.540
+strategies.
+
+00:06:53.540 --> 00:06:56.020
+So we utilize a real world dataset from Allman et
+
+00:06:56.020 --> 00:06:58.540
+al of 100 homes in Cleveland, Ohio that
+
+00:06:58.540 --> 00:07:01.180
+were connected to a fiber to the home network.
+
+00:07:01.180 --> 00:07:03.650
+We utilize this traffic to perform our query
+
+00:07:03.650 --> 00:07:06.260
+distribution strategies after the fact, so
+
+00:07:06.260 --> 00:07:08.610
+to say, to kind of simulate what would this
+
+00:07:08.610 --> 00:07:10.940
+traffic look like that is sent to various
+
+00:07:10.940 --> 00:07:12.870
+resolvers if we were to use our query
+
+00:07:12.870 --> 00:07:15.540
+distribution strategies in the first place.
+
+00:07:15.540 --> 00:07:17.860
+And so what we're seeing here, if you look at
+
+00:07:17.860 --> 00:07:20.420
+figure A with the hash distribution strategy,
+
+00:07:20.420 --> 00:07:23.640
+is that if you use two resolvers, four resolvers,
+
+00:07:23.640 --> 00:07:26.620
+or six resolvers, there's a kind of flat line
+
+00:07:26.620 --> 00:07:29.140
+in terms of how many unique domain names from a
+
+00:07:29.140 --> 00:07:31.620
+given client's queries are seen by various
+
+00:07:31.620 --> 00:07:34.380
+resolvers on average.
+
+00:07:34.380 --> 00:07:36.300
+And this is fairly intuitive to understand,
+
+00:07:36.300 --> 00:07:38.300
+because if you think about it, in a hash-based
+
+00:07:38.300 --> 00:07:40.410
+model, queries for the same domain name should
+
+00:07:40.410 --> 00:07:42.020
+always go to the same resolvers.
+
+00:07:42.020 --> 00:07:44.910
+It shouldn't be the case that two resolvers ever
+
+00:07:44.910 --> 00:07:47.620
+receive a query for the same domain name.
+
+00:07:47.620 --> 00:07:49.620
+Whereas if you look at the round-robin model,
+
+00:07:49.620 --> 00:07:51.540
+within the first couple of weeks, we see that
+
+00:07:51.540 --> 00:07:54.270
+each resolver starts to gain access to more and
+
+00:07:54.270 --> 00:07:56.500
+more unique domain names from a given
+
+00:07:56.500 --> 00:07:57.500
+client.
+
+00:07:57.500 --> 00:08:00.160
+And this makes sense, because the round-robin
+
+00:08:00.160 --> 00:08:02.140
+model doesn't have a fixed mapping between
+
+00:08:02.140 --> 00:08:04.580
+domain names and resolvers.
+
+00:08:04.580 --> 00:08:07.470
+Nonetheless, it is interesting to see that the
+
+00:08:07.470 --> 00:08:09.940
+percentage of unique domain names does
+
+00:08:09.940 --> 00:08:11.460
+kind of taper out over time.
+
+00:08:11.460 --> 00:08:14.010
+And we think this is because in the traffic data,
+
+00:08:14.010 --> 00:08:15.980
+there's a lot of queries for popular
+
+00:08:15.980 --> 00:08:20.410
+domain names and fewer queries for less popular
+
+00:08:20.410 --> 00:08:22.380
+domain names.
+
+00:08:22.380 --> 00:08:24.310
+So in summary, we presented the design and
+
+00:08:24.310 --> 00:08:26.540
+prototype implementation of a refactored stub
+
+00:08:26.540 --> 00:08:28.560
+resolver architecture that allows for
+
+00:08:28.560 --> 00:08:30.960
+decentralized encrypted DNS resolution.
+
+00:08:30.960 --> 00:08:33.060
+We performed a preliminary evaluation of the stub
+
+00:08:33.060 --> 00:08:34.720
+resolver's performance and utilized
+
+00:08:34.720 --> 00:08:36.860
+the real-world dataset to evaluate how do
+
+00:08:36.860 --> 00:08:39.060
+different query distribution strategies affect
+
+00:08:39.060 --> 00:08:43.040
+how many queries are seen by recursive resolvers.
+
+00:08:43.040 --> 00:08:45.720
+Our goal in this work is, again, not to suggest
+
+00:08:45.720 --> 00:08:48.240
+that we necessarily should be using query
+
+00:08:48.240 --> 00:08:50.400
+distribution strategies everywhere, or that we
+
+00:08:50.400 --> 00:08:52.160
+should be using these exact strategies
+
+00:08:52.160 --> 00:08:54.920
+or in a particular manner, but rather to explore
+
+00:08:54.920 --> 00:08:57.520
+what is the feasibility of a distributed DNS
+
+00:08:57.520 --> 00:08:59.810
+architecture in which we don't just send
+
+00:08:59.810 --> 00:09:02.510
+encrypted DNS queries to a single resolver or
+
+00:09:02.510 --> 00:09:02.800
+maybe
+
+00:09:02.800 --> 00:09:05.310
+a small set of resolvers, but rather distribute
+
+00:09:05.310 --> 00:09:07.480
+them across a larger set of resolvers.
+
+00:09:07.480 --> 00:09:09.350
+And we're planning on doing some follow-up work
+
+00:09:09.350 --> 00:09:10.960
+to see what does your performance look
+
+00:09:10.960 --> 00:09:13.420
+like if you use a lot of resolvers, resolvers
+
+00:09:13.420 --> 00:09:16.040
+that are in different geographic locations,
+
+00:09:16.040 --> 00:09:18.070
+and how does this affect a client's privacy in a
+
+00:09:18.070 --> 00:09:19.880
+formal way rather than the preliminary
+
+00:09:19.880 --> 00:09:21.400
+evaluation that we've done?
+
+00:09:21.400 --> 00:09:24.160
+Is there a way that we can formalize the privacy
+
+00:09:24.160 --> 00:09:26.880
+costs and benefits of using different query
+
+00:09:26.880 --> 00:09:29.080
+distribution strategies?
+
+00:09:29.080 --> 00:09:31.700
+So I want to thank you all for listening to this
+
+00:09:31.700 --> 00:09:34.000
+talk, and you are more than welcome to
+
+00:09:34.000 --> 00:09:36.770
+contact me at the email above, and I'd be happy
+
+00:09:36.770 --> 00:09:38.480
+to answer any questions.
+
+00:09:38.480 --> 00:09:40.680
+So I want to thank my collaborators.
+
+00:09:40.680 --> 00:09:43.000
+I want to thank the audience for listening, and
+
+00:09:43.000 --> 00:09:44.560
+yeah, thank you very much.
+
+00:09:44.560 --> 00:09:46.560
+[END]
+

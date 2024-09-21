@@ -1,0 +1,500 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:05.240
+Hello everyone, welcome to my presentation. I'm
+
+00:00:05.240 --> 00:00:07.920
+Saeed and today I am going to present
+
+00:00:07.920 --> 00:00:11.520
+our work on detecting consumer IoT devices
+
+00:00:11.520 --> 00:00:14.640
+through the lens of an ISP. Consumer IoT devices
+
+00:00:14.640 --> 00:00:17.530
+have grown extremely popular recently and it has
+
+00:00:17.530 --> 00:00:19.960
+been projected that the number of deployed
+
+00:00:19.960 --> 00:00:24.800
+IoT devices will surpass 17 billion by 2023.
+
+00:00:24.800 --> 00:00:27.840
+These devices provide a wide range of services
+
+00:00:27.840 --> 00:00:32.050
+from smart speakers to smart appliances, TVs and
+
+00:00:32.050 --> 00:00:36.080
+surveillance cameras. However, it has
+
+00:00:36.080 --> 00:00:39.040
+been shown that these devices can be exploited
+
+00:00:39.040 --> 00:00:41.840
+and one notable example is the Mirai attack
+
+00:00:41.840 --> 00:00:46.180
+where millions of exploited devices participated
+
+00:00:46.180 --> 00:00:49.760
+in launching one of the largest scale DDoS
+
+00:00:49.760 --> 00:00:51.920
+attacks at critical parts of the internet and
+
+00:00:51.920 --> 00:00:54.800
+service providers. Moreover, these devices
+
+00:00:54.800 --> 00:00:57.410
+can be exploited to exfiltrate private user
+
+00:00:57.410 --> 00:01:01.040
+information without users' knowledge or consent.
+
+00:01:01.040 --> 00:01:04.120
+These problems brings us to the question for us
+
+00:01:04.120 --> 00:01:07.160
+as network operators, can we identify and
+
+00:01:07.160 --> 00:01:10.390
+locate IoT devices that are connected to our
+
+00:01:10.390 --> 00:01:12.640
+networks? These problems can be studied in
+
+00:01:12.640 --> 00:01:16.260
+different networks from small office to campus
+
+00:01:16.260 --> 00:01:19.960
+networks, even to large service providers.
+
+00:01:19.960 --> 00:01:23.170
+We collaborated with an ISP of 15 million
+
+00:01:23.170 --> 00:01:26.320
+customers and we wanted to study this problem
+
+00:01:26.320 --> 00:01:30.460
+at the scale of an ISP. However, detecting IoT
+
+00:01:30.460 --> 00:01:33.240
+devices at the provider level is not an
+
+00:01:33.240 --> 00:01:36.110
+easy task. The reason is that traffic patterns
+
+00:01:36.110 --> 00:01:41.400
+across IoT devices are diverse. There has
+
+00:01:41.400 --> 00:01:44.020
+been some recent work that suggested that we can
+
+00:01:44.020 --> 00:01:46.160
+deploy some agent inside the premise
+
+00:01:46.160 --> 00:01:49.720
+of a customer, however, it's not scalable and it
+
+00:01:49.720 --> 00:01:52.480
+is privacy intrusive as well and active
+
+00:01:52.480 --> 00:01:56.110
+measurement approaches that won't work if the
+
+00:01:56.110 --> 00:02:00.680
+devices are located behind the net. Moreover,
+
+00:02:00.680 --> 00:02:03.990
+if we want to do deep packet inspection, we will
+
+00:02:03.990 --> 00:02:06.600
+face serious privacy concerns among the
+
+00:02:06.600 --> 00:02:10.860
+customers of an ISP. One of the readily available
+
+00:02:10.860 --> 00:02:13.640
+data sources are flow capture utilities such
+
+00:02:13.640 --> 00:02:17.020
+as NetFlow and IPfix. These data sources are
+
+00:02:17.020 --> 00:02:20.000
+already collected by service providers for
+
+00:02:20.000 --> 00:02:25.300
+their other operational purposes. These data sets
+
+00:02:25.300 --> 00:02:28.640
+are sampled and they don't contain any
+
+00:02:28.640 --> 00:02:31.650
+payload which means that they contain only
+
+00:02:31.650 --> 00:02:34.310
+headers of the packets like source IP,
+
+00:02:34.310 --> 00:02:35.280
+destination
+
+00:02:35.280 --> 00:02:38.940
+IP and so on. This brings us to the question of
+
+00:02:38.940 --> 00:02:41.920
+whether we can detect IoT devices using
+
+00:02:41.920 --> 00:02:45.820
+this limited passive and sparsely sampled flow
+
+00:02:45.820 --> 00:02:48.760
+data in the wild and if yes, at what
+
+00:02:48.760 --> 00:02:52.470
+granularities can we detect them and how fast can
+
+00:02:52.470 --> 00:02:55.400
+we detect them and how are IoT devices
+
+00:02:55.400 --> 00:03:00.200
+deployed today as observed in flow data. The key
+
+00:03:00.200 --> 00:03:02.280
+insight of our work is that devices that
+
+00:03:02.280 --> 00:03:05.130
+we've studied have shown repeating patterns of
+
+00:03:05.130 --> 00:03:08.000
+communication that appeared even in sparsely
+
+00:03:08.000 --> 00:03:14.160
+sampled data. We generated detection rules using
+
+00:03:14.160 --> 00:03:17.640
+extremely limited packet fields and
+
+00:03:17.640 --> 00:03:20.910
+we were able to detect devices or generate rules
+
+00:03:20.910 --> 00:03:23.760
+for detection of devices from 77% of
+
+00:03:23.760 --> 00:03:27.200
+the study manufacturers and we detected devices
+
+00:03:27.200 --> 00:03:30.280
+in a data set from an ISP from within minutes
+
+00:03:30.280 --> 00:03:35.110
+to hours. We leverage the fact that IoT devices
+
+00:03:35.110 --> 00:03:37.280
+in order to provide their services, they have
+
+00:03:37.280 --> 00:03:41.230
+to communicate with certain backend infrastructures
+
+00:03:41.230 --> 00:03:44.560
+and if we focus on the destinations contacted
+
+00:03:44.560 --> 00:03:48.310
+by these devices, can we find out which of the
+
+00:03:48.310 --> 00:03:51.040
+subscribers of this ISP have which type
+
+00:03:51.040 --> 00:03:57.430
+of IoT device. Our methodology has five steps.
+
+00:03:57.430 --> 00:04:01.880
+First, we generated a round-trip IoT traffic.
+
+00:04:01.880 --> 00:04:04.420
+Second, we checked whether we can see traffic
+
+00:04:04.420 --> 00:04:06.780
+from a single device from a single vantage
+
+00:04:06.780 --> 00:04:10.490
+point at ISP, the data sets from an ISP. And
+
+00:04:10.490 --> 00:04:14.240
+third, we identified which domains, IPs and
+
+00:04:14.240 --> 00:04:17.640
+port numbers can be used to generate detection
+
+00:04:17.640 --> 00:04:21.240
+rules for different devices. And then, of
+
+00:04:21.240 --> 00:04:24.780
+course, we cross-checked our detection rules and
+
+00:04:24.780 --> 00:04:27.680
+finally, we applied our methodology on
+
+00:04:27.680 --> 00:04:34.440
+a data set from a large European ISP. Next, we
+
+00:04:34.440 --> 00:04:38.000
+generate ground-truth IoT traffic. How
+
+00:04:38.000 --> 00:04:41.650
+we do it? We set up two testbeds containing 56
+
+00:04:41.650 --> 00:04:44.780
+unique IoT products from 40 vendors in
+
+00:04:44.780 --> 00:04:48.840
+these six different categories. We trigger
+
+00:04:48.840 --> 00:04:52.560
+devices to generate IoT traffic and next,
+
+00:04:52.560 --> 00:04:57.100
+we connect our testbeds to a home vantage point
+
+00:04:57.100 --> 00:05:00.960
+inside the premise of ISP and push back
+
+00:05:00.960 --> 00:05:03.840
+the IoT traffic to the internet and capture the
+
+00:05:03.840 --> 00:05:06.500
+IoT traffic at these different locations
+
+00:05:06.500 --> 00:05:13.130
+as shown in the figure. We observe IoT activity
+
+00:05:13.130 --> 00:05:17.700
+from more than 64% of devices in our testbed
+
+00:05:17.700 --> 00:05:21.720
+in the ISP data set. The next step is to
+
+00:05:21.720 --> 00:05:25.760
+basically identify which domains, IP addresses
+
+00:05:25.760 --> 00:05:26.300
+and port
+
+00:05:26.300 --> 00:05:29.920
+numbers that we have generated in the ground-truth
+
+00:05:29.920 --> 00:05:32.460
+traffic can be used to generate detection
+
+00:05:32.460 --> 00:05:36.980
+rules for finding IoT devices. As it's an
+
+00:05:36.980 --> 00:05:41.380
+involved process, I'm not going into the details,
+
+00:05:41.380 --> 00:05:45.750
+but as an overview, we have generated detection
+
+00:05:45.750 --> 00:05:50.540
+rules for three different levels of granularity.
+
+00:05:50.540 --> 00:05:53.290
+The finest one is the product level where we can
+
+00:05:53.290 --> 00:05:55.500
+say what type of product it is. For
+
+00:05:55.500 --> 00:05:58.200
+example, if it's an Amazon Echo or not. And the
+
+00:05:58.200 --> 00:06:00.860
+next level of granularity is the manufacturer
+
+00:06:00.860 --> 00:06:03.450
+level where we could only say it's a Samsung
+
+00:06:03.450 --> 00:06:06.820
+device. We could only say what's manufactured.
+
+00:06:06.820 --> 00:06:09.900
+And the worst one is the platform level where we
+
+00:06:09.900 --> 00:06:12.500
+could only say it's an IoT device, but
+
+00:06:12.500 --> 00:06:15.140
+we couldn't say what product or which
+
+00:06:15.140 --> 00:06:18.510
+manufacturer it is. The generated rules account
+
+00:06:18.510 --> 00:06:19.460
+for 77%
+
+00:06:19.460 --> 00:06:23.780
+of the manufacturers in our testbeds. Next, we
+
+00:06:23.780 --> 00:06:27.460
+apply our methodology on a data set from
+
+00:06:27.460 --> 00:06:32.440
+a large unit DNIS. This ISP has more than 15
+
+00:06:32.440 --> 00:06:36.460
+million customers. In this figure, we see
+
+00:06:36.460 --> 00:06:38.760
+the duration of the data set that we have
+
+00:06:38.760 --> 00:06:43.060
+observed. And in the y-axis, we see the number
+
+00:06:43.060 --> 00:06:51.750
+of unique subscribers per hour that had the inferred
+
+00:06:51.750 --> 00:06:54.860
+IoT device. What we see here, we
+
+00:06:54.860 --> 00:06:57.480
+were able to detect more than 1 million
+
+00:06:57.480 --> 00:07:00.900
+subscribers with Alexa-enabled devices. Alexa-enabled
+
+00:07:00.900 --> 00:07:03.230
+device is a name device that responds to Amazon
+
+00:07:03.230 --> 00:07:06.180
+Alexa voice service commands. We also observed
+
+00:07:06.180 --> 00:07:10.210
+some journal patterns for Alexa and Samsung IoT
+
+00:07:10.210 --> 00:07:13.820
+devices. The next question is that, what
+
+00:07:13.820 --> 00:07:17.620
+happens if we increase our observation period?
+
+00:07:17.620 --> 00:07:20.860
+Here, we see the same plot as previous plot,
+
+00:07:20.860 --> 00:07:26.350
+but with a 24-hour observation period. We see
+
+00:07:26.350 --> 00:07:28.900
+here that increasing observation period
+
+00:07:28.900 --> 00:07:32.440
+helped detecting even more IoT devices. Next
+
+00:07:32.440 --> 00:07:34.700
+takeaway is that we see that the number of
+
+00:07:34.700 --> 00:07:39.440
+detected devices are stable. And there is not a
+
+00:07:39.440 --> 00:07:41.940
+lot of fluctuations in the number of
+
+00:07:41.940 --> 00:07:48.700
+devices. In general, we detected IoT activity for
+
+00:07:48.700 --> 00:07:52.580
+20% of the subscribers of the ISP. Now,
+
+00:07:52.580 --> 00:07:57.950
+if we zoom in on this 32 IoT device type, we will
+
+00:07:57.950 --> 00:08:02.700
+have this plot. Here, in the left
+
+00:08:02.700 --> 00:08:07.540
+part, in the y-axis, we see each individual
+
+00:08:07.540 --> 00:08:12.180
+device. In the x-axis, again, number of devices
+
+00:08:12.180 --> 00:08:17.860
+per day, 24 hours. And they are also categorized
+
+00:08:17.860 --> 00:08:22.620
+according to their ranking in the Amazon ranking
+
+00:08:22.620 --> 00:08:25.420
+in the country of ISP. For the ones that we didn't
+
+00:08:25.420 --> 00:08:27.700
+find a ranking, they are put into other
+
+00:08:27.700 --> 00:08:31.360
+category. What we see here is that device
+
+00:08:31.360 --> 00:08:37.100
+popularity in the Amazon and ISP look correlated.
+
+00:08:37.100 --> 00:08:41.270
+Our methodology has its own limitations. First,
+
+00:08:41.270 --> 00:08:44.180
+generating rules requires studying a range
+
+00:08:44.180 --> 00:08:48.390
+of manufacturers' products. And if the domains
+
+00:08:48.390 --> 00:08:52.580
+and IP addresses that devices are using change,
+
+00:08:52.580 --> 00:08:55.740
+then we have to also update the rules. And if the
+
+00:08:55.740 --> 00:08:57.980
+devices do not show or do not have
+
+00:08:57.980 --> 00:09:02.270
+enough activity, it will be challenging to
+
+00:09:02.270 --> 00:09:06.660
+observe them in the sample flow data sets.
+
+00:09:06.660 --> 00:09:09.830
+In conclusion, we have shown a methodology to
+
+00:09:09.830 --> 00:09:12.820
+detect IoT devices based on limited sample
+
+00:09:12.820 --> 00:09:17.010
+flow data. We detected devices from more than 77%
+
+00:09:17.010 --> 00:09:19.860
+of studied IoT manufacturers in a large
+
+00:09:19.860 --> 00:09:28.880
+ISP by considering minutes to hours of data, and
+
+00:09:28.880 --> 00:09:36.500
+both popular and not so popular. In future,
+
+00:09:36.500 --> 00:09:40.590
+we want to identify non-essential traffic
+
+00:09:40.590 --> 00:09:43.700
+generated by IoT devices at the scale of an
+
+00:09:43.700 --> 00:09:47.740
+ISP. If you are interested in the domains and
+
+00:09:47.740 --> 00:09:50.380
+signatures that we have generated to detect
+
+00:09:50.380 --> 00:09:54.680
+these devices, you can either scan this QR code
+
+00:09:54.680 --> 00:09:57.780
+or visit the following URL. Thank you
+
+00:09:57.780 --> 00:09:58.540
+for your attention.
+
