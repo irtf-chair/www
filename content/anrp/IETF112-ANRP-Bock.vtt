@@ -1,0 +1,1790 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.660
+Hey everyone, my name is Kevin Bock from the
+
+00:00:03.660 --> 00:00:05.520
+University of Maryland. Before I get started,
+
+00:00:05.520 --> 00:00:08.250
+I wanted to give a huge shout out to all the IETF
+
+00:00:08.250 --> 00:00:10.320
+organizers for making this event possible,
+
+00:00:10.320 --> 00:00:12.690
+doing all this remote organization, and I wanted
+
+00:00:12.690 --> 00:00:14.720
+to give a big thank you to all the collaborators
+
+00:00:14.720 --> 00:00:16.710
+on this project. It's really taken a village to
+
+00:00:16.710 --> 00:00:19.280
+get this going. Now I'm going to be talking about
+
+00:00:19.280 --> 00:00:21.820
+censorship today, and specifically a new form of
+
+00:00:21.820 --> 00:00:24.000
+censorship evasion we've been working on,
+
+00:00:24.000 --> 00:00:26.240
+server-side evasion. Before I get into that
+
+00:00:26.240 --> 00:00:28.230
+though, I wanted to give you all a brief
+
+00:00:28.230 --> 00:00:28.640
+background of
+
+00:00:28.640 --> 00:00:30.700
+what nation-state censorship looks like nowadays
+
+00:00:30.700 --> 00:00:32.800
+to motivate some of the approaches we've taken.
+
+00:00:32.800 --> 00:00:35.590
+Now there are many types of censorship that
+
+00:00:35.590 --> 00:00:37.680
+operate around the world today,
+
+00:00:37.680 --> 00:00:39.880
+and today I'm going to be talking specifically
+
+00:00:39.880 --> 00:00:42.160
+about the automated in-network censorship that
+
+00:00:42.160 --> 00:00:44.810
+operates in the network by nation-states. Now
+
+00:00:44.810 --> 00:00:48.080
+some nation-states operate censorship as in-path
+
+00:00:48.080 --> 00:00:49.720
+sensors, like this one, with the sensor
+
+00:00:49.720 --> 00:00:51.680
+physically sitting inside the network path.
+
+00:00:51.680 --> 00:00:54.660
+Other sensors operate censorship like this.
+
+00:00:54.660 --> 00:00:57.600
+Instead of being in the path, they're on the path,
+
+00:00:57.600 --> 00:00:59.580
+so if the client makes a forbidden request, you
+
+00:00:59.580 --> 00:01:02.720
+can see this request moving through the network.
+
+00:01:02.720 --> 00:01:04.520
+Now the server will get the packet, and the
+
+00:01:04.520 --> 00:01:07.450
+sensor will too. If the sensor wants to sensor
+
+00:01:07.450 --> 00:01:07.520
+this
+
+00:01:07.520 --> 00:01:09.280
+connection though, it can't drop it anymore
+
+00:01:09.280 --> 00:01:12.160
+because it's no longer in the path. So instead,
+
+00:01:12.160 --> 00:01:14.270
+it performs deep packet inspection on this packet,
+
+00:01:14.270 --> 00:01:16.560
+and if the packet contains something it disallows,
+
+00:01:16.560 --> 00:01:19.110
+what it will do is it will inject its own packets
+
+00:01:19.110 --> 00:01:22.720
+into the connection. Specifically, it will inject
+
+00:01:22.720 --> 00:01:25.830
+spoofed TCP reset, or teardown packets. These are
+
+00:01:25.830 --> 00:01:28.480
+normal packets our computers send all the time,
+
+00:01:28.480 --> 00:01:30.780
+these just exist to tell the other side, "stop
+
+00:01:30.780 --> 00:01:33.280
+talking to me immediately." It's going to send
+
+00:01:33.280 --> 00:01:35.600
+one of these packets to the client, pretending to
+
+00:01:35.600 --> 00:01:37.760
+be the server, and one of these packets to the
+
+00:01:37.760 --> 00:01:40.120
+server, pretending to be the client. Now when
+
+00:01:40.120 --> 00:01:42.570
+these packets arrive, the client thinks the
+
+00:01:42.570 --> 00:01:42.800
+server
+
+00:01:42.800 --> 00:01:44.810
+terminated the connection, and the server thinks
+
+00:01:44.810 --> 00:01:47.760
+the client terminated the connection. Immediately,
+
+00:01:47.760 --> 00:01:49.680
+both of these sides stop talking to each other,
+
+00:01:49.680 --> 00:01:51.680
+and just like that, censorship has been achieved.
+
+00:01:52.640 --> 00:01:54.270
+Now in order to pull off this attack of injecting
+
+00:01:54.270 --> 00:01:57.040
+teardown packets, the sensor needs to have some
+
+00:01:57.040 --> 00:01:58.990
+information about the connection. It needs to
+
+00:01:58.990 --> 00:02:00.640
+know the port numbers, the sequence of
+
+00:02:00.640 --> 00:02:03.800
+acknowledgement numbers. What this means is that
+
+00:02:03.800 --> 00:02:06.750
+the sensor requires per flow state, and that
+
+00:02:06.750 --> 00:02:06.960
+means
+
+00:02:06.960 --> 00:02:09.280
+that these sensors have to be tracking the full
+
+00:02:09.280 --> 00:02:11.520
+state of every TCP connection coming into and out
+
+00:02:11.520 --> 00:02:13.860
+of their country. And if you're trying to track
+
+00:02:13.860 --> 00:02:16.400
+every single connection into and out of a country,
+
+00:02:16.400 --> 00:02:18.320
+at a country the scale of something like China,
+
+00:02:18.320 --> 00:02:20.400
+you're going to necessarily have to start taking
+
+00:02:20.400 --> 00:02:22.630
+some shortcuts. And we as evaders can take
+
+00:02:22.630 --> 00:02:25.920
+advantage of some of those shortcuts. So let me
+
+00:02:25.920 --> 00:02:27.610
+give you an example from prior work of how
+
+00:02:27.610 --> 00:02:29.680
+researchers were able to take advantage of these
+
+00:02:29.680 --> 00:02:33.460
+ideas to evade censorship. Now once again, our
+
+00:02:33.460 --> 00:02:36.320
+client is about to generate a forbidden request
+
+00:02:36.320 --> 00:02:38.970
+to this resource, but this time we're going to
+
+00:02:38.970 --> 00:02:42.320
+inject a TCP reset packet of our own. We're going
+
+00:02:42.320 --> 00:02:45.070
+to set it in such a way that the TTL, or time to
+
+00:02:45.070 --> 00:02:48.400
+live, this is a field in these packets that
+
+00:02:49.360 --> 00:02:51.360
+will tell the network how long it should survive
+
+00:02:51.360 --> 00:02:53.360
+in the network, and it decrements once per hop.
+
+00:02:53.360 --> 00:02:55.870
+We're going to set the TTL high enough such that
+
+00:02:55.870 --> 00:02:56.960
+we reach the sensor,
+
+00:02:56.960 --> 00:02:59.050
+but not so high that we reach the server. So
+
+00:02:59.050 --> 00:03:01.360
+watch what happens when we send this packet.
+
+00:03:01.360 --> 00:03:04.450
+Now just like before, the sensor will get a copy
+
+00:03:04.450 --> 00:03:06.480
+of the packet, but the packet's not going to
+
+00:03:06.480 --> 00:03:06.640
+reach
+
+00:03:06.640 --> 00:03:08.730
+the server. It's going to get dropped along the
+
+00:03:08.730 --> 00:03:11.040
+way. Now the server never saw this packet, but
+
+00:03:11.040 --> 00:03:13.250
+the sensor has, and the sensor says, "Well, it
+
+00:03:13.250 --> 00:03:15.360
+looks like the client just terminated this
+
+00:03:15.360 --> 00:03:16.080
+connection,
+
+00:03:16.080 --> 00:03:18.760
+so I can stop tracking the connection now," and
+
+00:03:18.760 --> 00:03:20.800
+it throws away the state it's been maintaining
+
+00:03:20.800 --> 00:03:23.470
+about the connection. Now for the rest of this
+
+00:03:23.470 --> 00:03:25.680
+flow, the client and server are free to
+
+00:03:25.680 --> 00:03:26.480
+communicate.
+
+00:03:26.480 --> 00:03:28.510
+The sensor has no state with which to censor us,
+
+00:03:28.510 --> 00:03:30.410
+and the server has no idea we pulled off this
+
+00:03:30.410 --> 00:03:30.720
+trick.
+
+00:03:30.720 --> 00:03:33.300
+Now this is just one example of these strategies
+
+00:03:33.300 --> 00:03:35.520
+that have been developed and discovered over the
+
+00:03:35.520 --> 00:03:38.350
+last 10 plus years, and the one thing they all
+
+00:03:38.350 --> 00:03:40.880
+have in common is that evasion has always
+
+00:03:40.880 --> 00:03:41.520
+involved
+
+00:03:41.520 --> 00:03:44.290
+the client, and that statement is true even
+
+00:03:44.290 --> 00:03:47.600
+beyond ways and mechanisms of evading censorship
+
+00:03:47.600 --> 00:03:47.920
+that do
+
+00:03:47.920 --> 00:03:51.370
+not rely on manipulating your packet stream.
+
+00:03:51.370 --> 00:03:54.800
+Consider Tor or VPNs or proxies. All of these
+
+00:03:54.800 --> 00:03:57.330
+things require the client to install some
+
+00:03:57.330 --> 00:04:00.100
+software on their system or take some direct
+
+00:04:00.100 --> 00:04:00.560
+action to make
+
+00:04:00.560 --> 00:04:03.190
+them happen. This has always posed a significant
+
+00:04:03.190 --> 00:04:05.920
+barrier to deployment, though. Installing the
+
+00:04:05.920 --> 00:04:08.410
+software can pose significant risk to the user in
+
+00:04:08.410 --> 00:04:10.880
+the first place, and beyond that, it can help
+
+00:04:10.880 --> 00:04:13.030
+users who either don't have the technical know-how
+
+00:04:13.030 --> 00:04:15.120
+to set these tools up, aren't comfortable doing
+
+00:04:15.120 --> 00:04:15.760
+so,
+
+00:04:15.760 --> 00:04:17.880
+or even those users who don't even know they are
+
+00:04:17.880 --> 00:04:20.160
+experiencing censorship in the first place.
+
+00:04:20.160 --> 00:04:24.880
+Now ideally, servers would be able to help.
+
+00:04:24.880 --> 00:04:28.080
+Instead of deploying software at the client,
+
+00:04:28.080 --> 00:04:31.160
+instead we would deploy it at the server, and if
+
+00:04:31.160 --> 00:04:33.360
+such a thing were possible, then the server
+
+00:04:33.360 --> 00:04:36.210
+could subvert censorship on the user's behalf
+
+00:04:36.210 --> 00:04:38.720
+without clients needing to deploy anything at all.
+
+00:04:39.760 --> 00:04:42.000
+And just think about the benefits of this. This
+
+00:04:42.000 --> 00:04:44.240
+would immediately broaden reachability
+
+00:04:44.240 --> 00:04:46.700
+and accessibility for these resources without
+
+00:04:46.700 --> 00:04:48.960
+clients needing to do anything. Many clients
+
+00:04:48.960 --> 00:04:51.390
+connect to one server, clients no longer need any
+
+00:04:51.390 --> 00:04:54.000
+technical expertise or to download anything,
+
+00:04:54.000 --> 00:04:56.460
+every client immediately gets plausible deniability,
+
+00:04:56.460 --> 00:04:58.160
+and it helps all those users
+
+00:04:58.160 --> 00:04:59.850
+who don't have technical expertise or don't know
+
+00:04:59.850 --> 00:05:01.360
+they're being censored in the first place.
+
+00:05:01.360 --> 00:05:05.230
+So this sounds amazing. The problem is it shouldn't
+
+00:05:05.230 --> 00:05:06.880
+work, and it shouldn't be possible.
+
+00:05:07.840 --> 00:05:10.150
+And to see why this is, let's consider the
+
+00:05:10.150 --> 00:05:13.120
+waterfall diagram of packets that are exchanged
+
+00:05:13.120 --> 00:05:16.310
+leading up to some censored query. Client's going
+
+00:05:16.310 --> 00:05:18.560
+to send a SYN to which the server responds with
+
+00:05:18.560 --> 00:05:20.950
+a SYNACK, the client completes it through a handshake,
+
+00:05:20.950 --> 00:05:22.560
+and then the censored keyword is sent.
+
+00:05:22.560 --> 00:05:25.020
+From the server's perspective though, there's
+
+00:05:25.020 --> 00:05:27.280
+very little it can do before the censored keyword
+
+00:05:27.280 --> 00:05:27.360
+is
+
+00:05:27.360 --> 00:05:29.710
+sent. In fact, the server can't influence this
+
+00:05:29.710 --> 00:05:32.800
+connection past the SYNACK at all. Underscoring
+
+00:05:32.800 --> 00:05:35.320
+the difficulty in this space, there's been no
+
+00:05:35.320 --> 00:05:38.240
+prior work on evading censorship from the server.
+
+00:05:38.240 --> 00:05:42.110
+Now, I'm thrilled to tell you that server-side evasion
+
+00:05:42.110 --> 00:05:44.320
+is indeed possible. In the rest of this
+
+00:05:44.320 --> 00:05:46.130
+talk, I'm going to talk about how we discovered
+
+00:05:46.130 --> 00:05:48.720
+these server-side techniques and our results
+
+00:05:48.720 --> 00:05:50.950
+across multiple different countries and protocols.
+
+00:05:50.950 --> 00:05:52.960
+And then I'm going to talk about the insights we
+
+00:05:52.960 --> 00:05:56.500
+glean from the sensors in these experiments.
+
+00:05:56.500 --> 00:05:59.200
+Before I jump in to discovering server-side
+
+00:05:59.200 --> 00:06:01.550
+evasion techniques, I wanted to first give you a
+
+00:06:01.550 --> 00:06:04.240
+little bit of background on the tool we used and
+
+00:06:04.240 --> 00:06:06.870
+modified to discover these strategies and get
+
+00:06:06.870 --> 00:06:10.320
+some insight into this idea. Now, this tool is
+
+00:06:10.320 --> 00:06:10.880
+Geneva.
+
+00:06:10.880 --> 00:06:15.000
+Geneva is an open source, originally client-side
+
+00:06:15.000 --> 00:06:17.360
+tool that my team built a few years ago for
+
+00:06:17.360 --> 00:06:19.420
+automatically discovering censorship evasion
+
+00:06:19.420 --> 00:06:21.600
+strategies. This was originally published by
+
+00:06:21.600 --> 00:06:24.650
+my team in 2019. Geneva runs strictly one side of
+
+00:06:24.650 --> 00:06:26.960
+the connection. We originally designed it for the
+
+00:06:26.960 --> 00:06:30.540
+client side. And the way it works is it manipulates
+
+00:06:30.540 --> 00:06:33.840
+packets as they enter and leave the system. Now,
+
+00:06:33.840 --> 00:06:36.310
+Geneva is a genetic algorithm. So in fact, it
+
+00:06:36.310 --> 00:06:38.720
+learns how it should manipulate packets.
+
+00:06:38.720 --> 00:06:42.230
+Specifically, the way it can manipulate packets
+
+00:06:42.230 --> 00:06:45.040
+is it can do that with just four actions.
+
+00:06:45.040 --> 00:06:46.870
+That's duplicate, you take one packet, you get
+
+00:06:46.870 --> 00:06:49.760
+two packets. Tamper, you take a packet,
+
+00:06:49.760 --> 00:06:52.040
+you change it in some way. Fragment, take a
+
+00:06:52.040 --> 00:06:55.760
+packet, break it in half. Or drop, take a packet,
+
+00:06:55.760 --> 00:06:58.080
+you drop it on the floor. Now, I'll call out two
+
+00:06:58.080 --> 00:07:01.040
+things specifically here. The first is that
+
+00:07:01.040 --> 00:07:04.090
+tamper is allowed to alter or corrupt any TCP/IP
+
+00:07:04.090 --> 00:07:07.120
+header fields. Importantly, we don't give it any
+
+00:07:07.120 --> 00:07:09.740
+semantic understanding of what these fields mean.
+
+00:07:09.740 --> 00:07:11.840
+We give it syntax, but not semantics.
+
+00:07:11.840 --> 00:07:14.000
+What this means is that it can access the TCP
+
+00:07:14.000 --> 00:07:16.800
+flags fields. It can change the flags fields.
+
+00:07:16.800 --> 00:07:19.030
+But it has no knowledge that if I set the flags
+
+00:07:19.030 --> 00:07:20.820
+field to sin, that means the start of a
+
+00:07:20.820 --> 00:07:21.280
+connection.
+
+00:07:21.920 --> 00:07:25.750
+So syntax, no semantics. Also call that fragment
+
+00:07:25.750 --> 00:07:27.840
+here, it does a bit of double duty.
+
+00:07:27.840 --> 00:07:30.660
+The IP layer does fragmentation, but it can also
+
+00:07:30.660 --> 00:07:32.800
+do segmentation of the TCP layer.
+
+00:07:32.800 --> 00:07:35.420
+So let me show you what it looks like when Geneva
+
+00:07:35.420 --> 00:07:37.120
+puts these actions together.
+
+00:07:37.120 --> 00:07:39.730
+Because Geneva actually composes these things
+
+00:07:39.730 --> 00:07:42.960
+into trees. And these trees look something like
+
+00:07:42.960 --> 00:07:43.200
+this.
+
+00:07:43.200 --> 00:07:46.480
+At the top, we have some sort of match or trigger.
+
+00:07:46.480 --> 00:07:49.840
+And then associated with that match,
+
+00:07:49.840 --> 00:07:52.740
+we have an action. These are match action pairs.
+
+00:07:52.740 --> 00:07:54.720
+And a strategy is comprised of some
+
+00:07:54.720 --> 00:07:57.050
+combination of these match action pairs. So for
+
+00:07:57.050 --> 00:07:59.200
+this specific strategy,
+
+00:07:59.200 --> 00:08:02.370
+the trigger is outbound TCP packets, where the
+
+00:08:02.370 --> 00:08:06.560
+flags set to ACK. When that match happens,
+
+00:08:06.560 --> 00:08:08.890
+when a packet matches that trigger, it gets
+
+00:08:08.890 --> 00:08:11.520
+pulled into the tree. And then the tree decides
+
+00:08:11.520 --> 00:08:11.840
+how that
+
+00:08:11.840 --> 00:08:14.280
+packet should be modified. The duplicate action
+
+00:08:14.280 --> 00:08:16.240
+makes two copies. And you can see different
+
+00:08:16.240 --> 00:08:19.260
+things happen to each copy. Then we do an in-order
+
+00:08:19.260 --> 00:08:20.880
+traversal of the leaves,
+
+00:08:20.880 --> 00:08:22.990
+and we send the packets that emerge. So let me
+
+00:08:22.990 --> 00:08:24.800
+show you what this looks like on the wire.
+
+00:08:24.800 --> 00:08:27.630
+Once again, our client has just finished the
+
+00:08:27.630 --> 00:08:30.080
+three-way handshake, or they're about to finish
+
+00:08:30.080 --> 00:08:32.110
+the three-way handshake. And they're about to
+
+00:08:32.110 --> 00:08:33.840
+make a request to this forbidden resource.
+
+00:08:33.840 --> 00:08:37.150
+We're going to generate our ACK packet, which
+
+00:08:37.150 --> 00:08:39.920
+matches the trigger. Geneva pulls it into the
+
+00:08:39.920 --> 00:08:43.030
+tree, duplicates the packet. The left child is
+
+00:08:43.030 --> 00:08:46.160
+done. The right child, the flags are changed to
+
+00:08:46.160 --> 00:08:49.230
+reset. The TTL is changed to two. And then in-order
+
+00:08:49.230 --> 00:08:51.680
+traversal of the leaves, and we send the packets.
+
+00:08:51.680 --> 00:08:55.570
+And if you'll notice, this tree exactly implements
+
+00:08:55.570 --> 00:08:56.960
+the censorship evasion strategy
+
+00:08:56.960 --> 00:08:58.690
+that I opened this talk with. This is the TTL
+
+00:08:58.690 --> 00:08:59.360
+limited reset.
+
+00:08:59.360 --> 00:09:02.720
+Now for this work specifically, we modified
+
+00:09:02.720 --> 00:09:05.920
+Geneva so that it could run on the server side.
+
+00:09:05.920 --> 00:09:07.720
+Then we deployed it against real-world sensors.
+
+00:09:07.720 --> 00:09:10.400
+In our previous work, and a lot of other previous
+
+00:09:10.400 --> 00:09:13.360
+work in this space, we've tended to focus on HTTP.
+
+00:09:13.360 --> 00:09:15.840
+In this work, we've brought in the protocols that
+
+00:09:15.840 --> 00:09:18.270
+we try and subvert censorship for. So
+
+00:09:18.270 --> 00:09:24.250
+specifically, we look for HTTP, HTTPS, DNS, FTP,
+
+00:09:24.250 --> 00:09:25.280
+and also SMTP
+
+00:09:25.280 --> 00:09:28.330
+censorship. Now triggering censorship for these
+
+00:09:28.330 --> 00:09:31.120
+protocols largely involves making requests or
+
+00:09:31.120 --> 00:09:34.810
+queries with forbidden keywords and domains. SMTP
+
+00:09:34.810 --> 00:09:37.760
+is a bit of a special case. For SMTP, you can
+
+00:09:37.760 --> 00:09:37.920
+just
+
+00:09:37.920 --> 00:09:40.920
+send an email to this email address. This is censored
+
+00:09:40.920 --> 00:09:43.200
+in China. And for context, this email
+
+00:09:43.200 --> 00:09:45.670
+address is an old mechanism by which how bridge
+
+00:09:45.670 --> 00:09:48.560
+nodes used to be distributed in China. So the
+
+00:09:48.560 --> 00:09:51.350
+email is censored. To show how this could be
+
+00:09:51.350 --> 00:09:54.400
+applied broadly, in addition to the diversity
+
+00:09:54.400 --> 00:09:56.530
+of protocols, we also tested against the
+
+00:09:56.530 --> 00:09:59.240
+diversity of sensors, and both how these sensors
+
+00:09:59.240 --> 00:09:59.760
+operate
+
+00:09:59.760 --> 00:10:03.230
+and where they're located. So we tested in China,
+
+00:10:03.230 --> 00:10:06.160
+Iran, Kazakhstan, and India across all of these
+
+00:10:06.160 --> 00:10:08.670
+different protocols. Now I do want to note there's
+
+00:10:08.670 --> 00:10:11.220
+a small asterisk on the slide. This refers to
+
+00:10:11.220 --> 00:10:11.440
+that
+
+00:10:11.440 --> 00:10:14.820
+although Iran censors DNS over UDP, at the time
+
+00:10:14.820 --> 00:10:17.750
+of our testing, DNS over TCP was not censored
+
+00:10:17.750 --> 00:10:17.920
+from
+
+00:10:17.920 --> 00:10:21.810
+any of our vantage points. Now recall that server-side
+
+00:10:21.810 --> 00:10:24.880
+evasion shouldn't be possible in any
+
+00:10:24.880 --> 00:10:27.120
+of these cases, because the server can't really
+
+00:10:27.120 --> 00:10:29.200
+influence the connection past the SYN act.
+
+00:10:29.200 --> 00:10:30.960
+But Geneva was able to find ways to do it, and I
+
+00:10:30.960 --> 00:10:32.720
+would love to show you what some of those things
+
+00:10:32.720 --> 00:10:36.360
+look like. So this is one successful server-side
+
+00:10:36.360 --> 00:10:40.320
+evasion strategy that works in China. Now there's
+
+00:10:40.320 --> 00:10:42.910
+a lot going on here, so let me break this down.
+
+00:10:42.910 --> 00:10:45.680
+The client starts off just like normal by sending
+
+00:10:45.680 --> 00:10:48.270
+a SYN packet. Now instead of the server
+
+00:10:48.270 --> 00:10:51.090
+responding with a SYN act, it doesn't respond
+
+00:10:51.090 --> 00:10:51.440
+with the SYN
+
+00:10:51.440 --> 00:10:54.470
+act anymore. Instead it responds with two SYN
+
+00:10:54.470 --> 00:10:57.520
+packets. The first is a normal SYN packet.
+
+00:10:57.520 --> 00:11:00.070
+The second is a SYN packet containing a payload.
+
+00:11:00.070 --> 00:11:04.640
+Now this amazingly is legal. The first SYN packet
+
+00:11:04.640 --> 00:11:07.600
+serves to trigger a TCP simultaneous open. This
+
+00:11:07.600 --> 00:11:09.840
+is an archaic feature of TCP that's still
+
+00:11:09.840 --> 00:11:10.160
+supported
+
+00:11:10.160 --> 00:11:12.690
+by every major platform, and this was originally
+
+00:11:12.690 --> 00:11:14.960
+written to handle the case of what happens if two
+
+00:11:14.960 --> 00:11:17.720
+computers send a SYN packet to each other at the
+
+00:11:17.720 --> 00:11:20.720
+exact same time. Now when the client receives the
+
+00:11:20.720 --> 00:11:23.830
+SYN packet, the client now sends a SYN act. And
+
+00:11:23.830 --> 00:11:26.880
+it's actually this combination of the client
+
+00:11:26.880 --> 00:11:30.720
+sending a SYN back, the client sending a SYN act,
+
+00:11:30.720 --> 00:11:33.520
+immediately preceded by a SYN packet containing a
+
+00:11:33.520 --> 00:11:36.000
+payload that causes the Great Firewall of China
+
+00:11:36.000 --> 00:11:39.360
+to desynchronize from the connection. And for the
+
+00:11:39.360 --> 00:11:41.870
+rest of this flow, the client and server can now
+
+00:11:41.870 --> 00:11:45.920
+communicate censorship-free. Now this seems crazy,
+
+00:11:45.920 --> 00:11:48.520
+but this actually works with varying degrees of
+
+00:11:48.520 --> 00:11:51.360
+success across all the protocols we tested. And
+
+00:11:51.360 --> 00:11:53.690
+for context, the baseline success rate if you do
+
+00:11:53.690 --> 00:11:56.240
+nothing at all for evading censorship is about 2%.
+
+00:11:57.200 --> 00:11:59.080
+And this is one successful strategy, but it's
+
+00:11:59.080 --> 00:12:02.320
+actually just one of many. Altogether, we found
+
+00:12:02.320 --> 00:12:05.210
+11 different strategies at the time we did this
+
+00:12:05.210 --> 00:12:07.840
+work. We discovered eight in China, one in Iran
+
+00:12:07.840 --> 00:12:10.420
+and India, and another three in Kazakhstan. Now
+
+00:12:10.420 --> 00:12:12.880
+our paper goes into detail across all of these,
+
+00:12:12.880 --> 00:12:14.940
+and unfortunately, as much as I would love to, I
+
+00:12:14.940 --> 00:12:16.880
+don't have time to go through them all now.
+
+00:12:16.880 --> 00:12:19.340
+But I would love to show you just one or two more.
+
+00:12:19.340 --> 00:12:21.280
+The next one I want to talk about takes
+
+00:12:21.280 --> 00:12:25.420
+place in Kazakhstan. This is the null TCP flags
+
+00:12:25.420 --> 00:12:28.880
+server-side evasion strategy. You'll notice it
+
+00:12:28.880 --> 00:12:31.150
+starts off just like all of them do, the client
+
+00:12:31.150 --> 00:12:33.440
+sends a SYN. But the server, instead of
+
+00:12:33.440 --> 00:12:33.440
+responding
+
+00:12:33.440 --> 00:12:35.510
+with the SYN act, instead of what it responds
+
+00:12:35.510 --> 00:12:38.740
+with, is a packet with no flags at all. Now the
+
+00:12:38.740 --> 00:12:39.040
+client,
+
+00:12:39.040 --> 00:12:40.700
+when it sees a packet with no flags, it has no
+
+00:12:40.700 --> 00:12:42.720
+idea what to do with it, so it just drops it and
+
+00:12:42.720 --> 00:12:46.280
+ignores it. But when the sensor sees a packet
+
+00:12:46.280 --> 00:12:49.280
+with no TCP flag set at all, the sensor can't
+
+00:12:49.280 --> 00:12:49.440
+handle
+
+00:12:49.440 --> 00:12:51.300
+it and assumes there's something wrong with the
+
+00:12:51.300 --> 00:12:53.200
+connection and immediately stops tracking the
+
+00:12:53.200 --> 00:12:57.670
+connection. And just like that, the server has
+
+00:12:57.670 --> 00:13:00.800
+helped uncensor the client. Now one of the big
+
+00:13:00.800 --> 00:13:02.760
+takeaways from this is that it really has helped
+
+00:13:02.760 --> 00:13:04.640
+motivate why we should be using automated
+
+00:13:04.640 --> 00:13:06.960
+techniques to discover this. This is likely a bug
+
+00:13:06.960 --> 00:13:08.880
+in the sensor that it may have been difficult for
+
+00:13:08.880 --> 00:13:11.370
+a human to discover. Now here's another example I
+
+00:13:11.370 --> 00:13:13.600
+wanted to show you, also in Kazakhstan.
+
+00:13:14.880 --> 00:13:18.260
+Now in this one, during the three-way handshake,
+
+00:13:18.260 --> 00:13:21.200
+instead of the server sending one SYN act,
+
+00:13:21.200 --> 00:13:23.880
+it actually sends two SYN acts, and it includes
+
+00:13:23.880 --> 00:13:26.480
+payloads on those SYN acts. Specifically,
+
+00:13:26.480 --> 00:13:28.880
+the payloads it includes are two uncensored GET
+
+00:13:28.880 --> 00:13:31.280
+requests, GET requests for something like
+
+00:13:31.280 --> 00:13:34.390
+example.com or something innocuous. Now of course,
+
+00:13:34.390 --> 00:13:36.960
+the client is just going to ignore these payloads,
+
+00:13:36.960 --> 00:13:40.350
+but when the sensor sees these well-formed HTTP
+
+00:13:40.350 --> 00:13:42.560
+GET requests on these SYN acts,
+
+00:13:42.560 --> 00:13:45.560
+the sensor confuses the connection direction. It
+
+00:13:45.560 --> 00:13:48.640
+says, "Whoa, the server is sending this data.
+
+00:13:48.640 --> 00:13:50.700
+I must have had this mixed up. The server must
+
+00:13:50.700 --> 00:13:52.000
+actually be the client."
+
+00:13:52.000 --> 00:13:54.680
+And it reverses the roles of client and server in
+
+00:13:54.680 --> 00:13:56.160
+the mind of the sensor.
+
+00:13:56.160 --> 00:13:58.930
+As a consequence of this, because it treats
+
+00:13:58.930 --> 00:14:02.240
+packets differently from the client and server,
+
+00:14:02.240 --> 00:14:04.930
+when they begin communicating again, and when the
+
+00:14:04.930 --> 00:14:06.720
+client issues the real censored query,
+
+00:14:06.720 --> 00:14:09.230
+they can now communicate scot-free, because the
+
+00:14:09.230 --> 00:14:10.960
+sensor is now communicating with the client.
+
+00:14:10.960 --> 00:14:16.720
+And this works with 100% success rate in
+
+00:14:16.720 --> 00:14:18.720
+Kazakhstan.
+
+00:14:18.720 --> 00:14:22.610
+Now at this point, we've seen a lot of different
+
+00:14:22.610 --> 00:14:24.800
+types of bugs and sensors,
+
+00:14:24.800 --> 00:14:28.240
+not handling esoteric features in TCP correctly,
+
+00:14:28.240 --> 00:14:31.200
+error cases, or just confusing the logic
+
+00:14:31.200 --> 00:14:34.020
+altogether. For more details for any of these, I'll
+
+00:14:34.020 --> 00:14:35.840
+refer you to the paper, but it will note
+
+00:14:35.840 --> 00:14:38.600
+that all of these do not require any client
+
+00:14:38.600 --> 00:14:41.600
+behavior whatsoever. They may induce some
+
+00:14:41.600 --> 00:14:44.230
+behavior from the client, but no software changes
+
+00:14:44.230 --> 00:14:47.520
+is needed. And we tested this across a wide range
+
+00:14:47.520 --> 00:14:50.410
+of diverse clients. And in fact, we found only
+
+00:14:50.410 --> 00:14:53.040
+one case of a strategy that relied on platform
+
+00:14:53.040 --> 00:14:55.280
+dependent behavior. We were able to very quickly
+
+00:14:55.280 --> 00:14:57.600
+rewrite that strategy to make it platform agnostic.
+
+00:14:57.600 --> 00:15:00.000
+And all of these really teach us more about how
+
+00:15:00.000 --> 00:15:00.960
+sensors work.
+
+00:15:04.320 --> 00:15:06.420
+Next, I'd like to talk a little bit more about
+
+00:15:06.420 --> 00:15:08.800
+the insights this work has helped provide us with.
+
+00:15:08.800 --> 00:15:11.230
+The first thing I'm going to talk about is
+
+00:15:11.230 --> 00:15:14.160
+something called the resynchronization state.
+
+00:15:14.160 --> 00:15:16.530
+This is a feature of the Great Firewall of China
+
+00:15:16.530 --> 00:15:19.120
+that allows it to be more tolerant to packet loss.
+
+00:15:19.120 --> 00:15:21.970
+So specifically the way this works is let's say
+
+00:15:21.970 --> 00:15:23.680
+the sensor misses a packet.
+
+00:15:23.680 --> 00:15:26.960
+The idea is simple. It can just resynchronize its
+
+00:15:26.960 --> 00:15:29.120
+state on a later packet in the connection.
+
+00:15:30.000 --> 00:15:32.590
+Now the exact dynamics of the resynchronization
+
+00:15:32.590 --> 00:15:34.960
+state are constantly evolving over time.
+
+00:15:34.960 --> 00:15:37.480
+And understanding how the resynchronization state
+
+00:15:37.480 --> 00:15:39.040
+operates allows us to build better
+
+00:15:39.040 --> 00:15:41.760
+sensor-driven evasion tools. So looking at the
+
+00:15:41.760 --> 00:15:44.080
+resynchronization state gives us
+
+00:15:44.080 --> 00:15:46.300
+some more insight as to why that first strategy I
+
+00:15:46.300 --> 00:15:47.760
+showed you actually works.
+
+00:15:47.760 --> 00:15:51.830
+So once again, here's that strategy. And I'm
+
+00:15:51.830 --> 00:15:53.780
+going to focus right now on the second SYN packet
+
+00:15:53.780 --> 00:15:53.840
+we
+
+00:15:53.840 --> 00:15:56.150
+sent from the server. If you recall, we sent this
+
+00:15:56.150 --> 00:15:58.800
+SYN packet, again, we sent it from the server,
+
+00:15:58.800 --> 00:16:00.700
+but we sent the SYN packet including a random
+
+00:16:00.700 --> 00:16:04.080
+payload. We notice here is that this payload
+
+00:16:04.080 --> 00:16:06.450
+actually triggers the Great Firewall's resynchronization
+
+00:16:06.450 --> 00:16:08.160
+state. It tells the Great
+
+00:16:08.160 --> 00:16:10.310
+Firewall, hey, you may have missed something. Go
+
+00:16:10.310 --> 00:16:13.680
+resynchronize on the next packet. The next packet
+
+00:16:13.680 --> 00:16:16.820
+that it resynchronizes on is the SYNACK packet
+
+00:16:16.820 --> 00:16:19.920
+from the client. But because we force a TCP
+
+00:16:19.920 --> 00:16:23.120
+simultaneous open, when you do a TCP simultaneous
+
+00:16:23.120 --> 00:16:25.760
+open, the mechanism by which sequence numbers are
+
+00:16:25.760 --> 00:16:27.930
+incremented during the three-way handshake
+
+00:16:27.930 --> 00:16:30.800
+changes. And the Great Firewall is not properly
+
+00:16:30.800 --> 00:16:33.730
+incrementing its initial sequence number while it's
+
+00:16:33.730 --> 00:16:37.360
+resynchronizing. What this effectively means
+
+00:16:37.360 --> 00:16:39.790
+is that this is an off-by-one bug in the Great
+
+00:16:39.790 --> 00:16:42.400
+Firewall of China. The sensor is not properly
+
+00:16:42.400 --> 00:16:44.700
+incrementing its ISN, making it desynchronized
+
+00:16:44.700 --> 00:16:46.800
+from the rest of the connection because of the
+
+00:16:46.800 --> 00:16:50.380
+presence of this payload. Now, strangely, the
+
+00:16:50.380 --> 00:16:53.200
+success rate of this varies greatly by protocol.
+
+00:16:53.920 --> 00:16:56.280
+And in fact, we found that the Great Firewall
+
+00:16:56.280 --> 00:16:58.800
+itself has a different resynchronization state
+
+00:16:58.800 --> 00:17:00.990
+depending on the protocol itself, which is
+
+00:17:00.990 --> 00:17:04.240
+strange. And this is just the first example
+
+00:17:04.240 --> 00:17:05.930
+of protocol variability we found in the Great
+
+00:17:05.930 --> 00:17:07.600
+Firewall. And I'm going to talk about that a
+
+00:17:07.600 --> 00:17:12.000
+little bit more next. Now, all of our server-side
+
+00:17:12.000 --> 00:17:15.360
+strategies operate strictly during the three-way
+
+00:17:15.360 --> 00:17:18.340
+handshake, which means they happen before there's
+
+00:17:18.340 --> 00:17:21.280
+any application layer-specific data going on.
+
+00:17:22.960 --> 00:17:25.000
+We realized, though, when we started looking at
+
+00:17:25.000 --> 00:17:26.720
+the success rates of these strategies,
+
+00:17:26.720 --> 00:17:29.220
+is that they didn't always work the same way with
+
+00:17:29.220 --> 00:17:30.880
+the same degree of success.
+
+00:17:30.880 --> 00:17:34.500
+This led us to raise the question, why are
+
+00:17:34.500 --> 00:17:37.360
+different applications affected differently
+
+00:17:37.360 --> 00:17:40.830
+in China if the only actions a server takes are
+
+00:17:40.830 --> 00:17:43.600
+done before there is any application layer data
+
+00:17:43.600 --> 00:17:47.630
+exchanged? What this has led us to think about is
+
+00:17:47.630 --> 00:17:50.480
+a new model of how the Great Firewall of China
+
+00:17:50.480 --> 00:17:53.130
+works. Because in the past, we've kind of tacitly
+
+00:17:53.130 --> 00:17:56.000
+assumed that the Great Firewall works with this
+
+00:17:56.000 --> 00:17:58.940
+kind of very sane network model, where it sanely
+
+00:17:58.940 --> 00:18:01.680
+separates application layer from transport layer
+
+00:18:01.680 --> 00:18:04.500
+protocols. It looks something like this. But what's
+
+00:18:04.500 --> 00:18:06.400
+going on here is that we're finding different
+
+00:18:06.400 --> 00:18:09.690
+TCP layer bugs for each protocol, which means
+
+00:18:09.690 --> 00:18:12.320
+that each protocol censorship must have its own
+
+00:18:12.320 --> 00:18:15.540
+TCP/IP stack. And this strongly suggests that the
+
+00:18:15.540 --> 00:18:18.400
+Great Firewall is actually running multiple
+
+00:18:18.400 --> 00:18:20.760
+censoring middle boxes in parallel. It's not just
+
+00:18:20.760 --> 00:18:21.840
+one set of machines.
+
+00:18:21.840 --> 00:18:27.180
+So let's see what this looks like. Instead of
+
+00:18:27.180 --> 00:18:28.800
+just one monolithic sensor,
+
+00:18:28.800 --> 00:18:31.320
+instead we think there are multiple censoring
+
+00:18:31.320 --> 00:18:33.040
+middle boxes, and each of these are running
+
+00:18:33.040 --> 00:18:36.640
+in parallel. Now, this begs the question, how
+
+00:18:36.640 --> 00:18:39.680
+does the Great Firewall know which middle box
+
+00:18:39.680 --> 00:18:42.140
+to apply to a connection? Now, you may look at
+
+00:18:42.140 --> 00:18:43.920
+this and be like, well, it's obvious. It's just
+
+00:18:43.920 --> 00:18:45.910
+got to be using the port number. But it's
+
+00:18:45.910 --> 00:18:48.160
+actually not relying on port number. The Great
+
+00:18:48.160 --> 00:18:48.720
+Firewall,
+
+00:18:48.720 --> 00:18:51.440
+all these protocols, can censor effectively on
+
+00:18:51.440 --> 00:18:53.920
+any port. If you try and make an HTTP request
+
+00:18:53.920 --> 00:18:56.920
+for some forbidden content on 80 or 8,000 or a
+
+00:18:56.920 --> 00:18:59.680
+random port, it will still censor you the same.
+
+00:18:59.680 --> 00:19:03.050
+So it's not using port number. What we think is
+
+00:19:03.050 --> 00:19:05.520
+going on is that, how does it know which middle
+
+00:19:05.520 --> 00:19:08.330
+box to apply? We think it doesn't. And we think
+
+00:19:08.330 --> 00:19:11.200
+that every single little box gets a copy of every
+
+00:19:11.200 --> 00:19:13.930
+packet independently. And then every middle box
+
+00:19:13.930 --> 00:19:18.560
+applies protocol fingerprinting. Every middle box
+
+00:19:18.560 --> 00:19:20.660
+checks, hey, is this something I can censor? Does
+
+00:19:20.660 --> 00:19:23.280
+this belong to me? Does this belong to me? And
+
+00:19:23.280 --> 00:19:24.940
+then if it discovers, hey, this is something I
+
+00:19:24.940 --> 00:19:27.360
+should be taking action against, then that
+
+00:19:27.360 --> 00:19:27.840
+specific
+
+00:19:27.840 --> 00:19:30.510
+middle box will take action. This raises the
+
+00:19:30.510 --> 00:19:32.720
+question, where are these guys located? Are they
+
+00:19:32.720 --> 00:19:35.240
+nearby? Are they far away? So what we did was we
+
+00:19:35.240 --> 00:19:37.680
+used TTL-limited probes. We sent forbidden
+
+00:19:37.680 --> 00:19:38.080
+queries
+
+00:19:38.720 --> 00:19:41.300
+for different protocols with different TTL limits.
+
+00:19:41.300 --> 00:19:43.280
+And we tried to see, are these located in the
+
+00:19:43.280 --> 00:19:43.600
+same
+
+00:19:43.600 --> 00:19:46.620
+spot in the network, or are they located far away?
+
+00:19:46.620 --> 00:19:48.160
+What we find is that largely, they're
+
+00:19:48.160 --> 00:19:50.210
+co-located at the network level. They don't seem
+
+00:19:50.210 --> 00:19:51.760
+to be located at different locations.
+
+00:19:51.760 --> 00:19:55.850
+Now next, I want to shift gears a little bit. And
+
+00:19:55.850 --> 00:19:58.240
+I want to talk about where we've taken these
+
+00:19:58.240 --> 00:19:58.960
+ideas
+
+00:19:58.960 --> 00:20:01.990
+since we wrote this paper. Now the first thing I
+
+00:20:01.990 --> 00:20:04.560
+want to talk about is how this idea of service
+
+00:20:04.560 --> 00:20:07.630
+idevation and this idea of an automated approach
+
+00:20:07.630 --> 00:20:10.320
+to service idevation has allowed us to be highly
+
+00:20:10.320 --> 00:20:14.230
+responsive to new forms of censorship. Back in
+
+00:20:14.230 --> 00:20:17.680
+February of 2020, Iran launched a new form of
+
+00:20:17.680 --> 00:20:20.590
+censorship called a protocol filter. The way this
+
+00:20:20.590 --> 00:20:22.960
+works was that it monitored all protocols
+
+00:20:22.960 --> 00:20:25.520
+entering and exiting the country on certain ports.
+
+00:20:25.520 --> 00:20:28.400
+And it only allowed certain of those protocols to
+
+00:20:28.400 --> 00:20:31.020
+happen. It performed protocol fingerprinting
+
+00:20:31.020 --> 00:20:33.600
+across all of these. And protocols that didn't
+
+00:20:33.600 --> 00:20:34.080
+match
+
+00:20:34.080 --> 00:20:36.520
+were then subject to censorship, which means if
+
+00:20:36.520 --> 00:20:38.640
+you tried to use a protocol they didn't approve
+
+00:20:38.640 --> 00:20:39.280
+of,
+
+00:20:39.280 --> 00:20:41.340
+regardless of what you were doing as innocuous,
+
+00:20:41.340 --> 00:20:43.120
+they would take that connection down.
+
+00:20:43.120 --> 00:20:46.900
+In fact, the only connections they did allow were
+
+00:20:46.900 --> 00:20:49.680
+those that were able to be filtered by their
+
+00:20:49.680 --> 00:20:52.270
+standard censorship system. So within a small
+
+00:20:52.270 --> 00:20:54.800
+amount of time of this censorship system being
+
+00:20:54.800 --> 00:20:57.630
+deployed, we threw Geneva at this problem. And we
+
+00:20:57.630 --> 00:21:00.000
+were able to discover four strategies to evade
+
+00:21:00.000 --> 00:21:02.940
+this filter, four from the server side. So this
+
+00:21:02.940 --> 00:21:05.120
+means that as soon as Iran rolled this out, we
+
+00:21:05.120 --> 00:21:07.640
+were able to defeat this thing and help roll out
+
+00:21:07.640 --> 00:21:10.000
+those evasion tactics to those in Iran.
+
+00:21:10.000 --> 00:21:14.080
+Another example of new censorship events that
+
+00:21:14.080 --> 00:21:16.960
+occurred is last summer, China began censoring
+
+00:21:16.960 --> 00:21:20.200
+the use of encrypted SNI. This is a new feature
+
+00:21:20.200 --> 00:21:23.760
+in newer versions of TLS, whereby the SNI, or
+
+00:21:23.760 --> 00:21:26.580
+server name indication fields inside TLS is
+
+00:21:26.580 --> 00:21:29.920
+encrypted. Now the SNI field is revealed in TLS
+
+00:21:29.920 --> 00:21:33.300
+1.2, where when a client connects to a server,
+
+00:21:33.300 --> 00:21:36.240
+the client announces in plain text, the domain it's
+
+00:21:36.240 --> 00:21:39.390
+trying to get to. SNI is clearly a privacy leak,
+
+00:21:39.390 --> 00:21:43.120
+and the TLS developers are working on fixing that.
+
+00:21:43.120 --> 00:21:47.170
+But SNI is how censors have been censoring HTTPS
+
+00:21:47.170 --> 00:21:49.200
+for quite some time.
+
+00:21:50.160 --> 00:21:52.520
+ESNI, people have been looking forward to, is a
+
+00:21:52.520 --> 00:21:55.120
+mechanism by which they can protect themselves
+
+00:21:55.120 --> 00:21:57.520
+from SNI-based censorship. And unfortunately,
+
+00:21:57.520 --> 00:21:59.600
+last summer, China decided to ban the use of
+
+00:21:59.600 --> 00:22:02.470
+ESNI completely. So if you try and encrypt your
+
+00:22:02.470 --> 00:22:04.960
+SNI field in any connections, China will take
+
+00:22:04.960 --> 00:22:07.010
+action against that connection, even if you're
+
+00:22:07.010 --> 00:22:08.880
+talking to something innocuous. And it's
+
+00:22:08.880 --> 00:22:09.440
+effectively
+
+00:22:09.440 --> 00:22:11.820
+stopped the rollout of ESNI within the country.
+
+00:22:11.820 --> 00:22:14.320
+Now, within 24 hours of China rolling out the
+
+00:22:14.320 --> 00:22:17.140
+system, Geneva had discovered six strategies to
+
+00:22:17.140 --> 00:22:19.600
+evade it, six from the client and four from the
+
+00:22:19.600 --> 00:22:22.320
+server. So this is very exciting, and it really
+
+00:22:22.320 --> 00:22:25.200
+allows us to be highly responsive and dynamic as
+
+00:22:25.200 --> 00:22:29.530
+new censorship events occur. Now, the other
+
+00:22:29.530 --> 00:22:31.920
+exciting direction we've been able to explore
+
+00:22:31.920 --> 00:22:34.100
+since this work has been a real-world deployment
+
+00:22:34.100 --> 00:22:36.160
+of this system. And we've been working with a
+
+00:22:36.160 --> 00:22:38.780
+number of anti-censorship groups to integrate our
+
+00:22:38.780 --> 00:22:41.360
+software and our findings into their systems.
+
+00:22:41.360 --> 00:22:44.120
+And we're starting to see success with this. We've
+
+00:22:44.120 --> 00:22:46.080
+been using Geneva to help really in two
+
+00:22:46.080 --> 00:22:48.500
+regards. The first is in bootstrapping initial
+
+00:22:48.500 --> 00:22:50.720
+connections. So let's say you're something like
+
+00:22:50.720 --> 00:22:53.640
+a VPN, and you really want to help users get
+
+00:22:53.640 --> 00:22:56.720
+connected initially. And the weak spot in a lot
+
+00:22:56.720 --> 00:22:58.970
+of these protocols is that initial connection, is
+
+00:22:58.970 --> 00:23:01.040
+those API calls, that initial reaching out.
+
+00:23:01.040 --> 00:23:04.200
+Now, what we can do is use Geneva to help protect
+
+00:23:04.200 --> 00:23:06.800
+those initial bootstrapping and assist in
+
+00:23:06.800 --> 00:23:09.130
+bootstrapping clients from a weaker protocol to a
+
+00:23:09.130 --> 00:23:12.480
+more secure protocol. The second thing we've
+
+00:23:12.480 --> 00:23:15.500
+been able to help with is in hardening existing
+
+00:23:15.500 --> 00:23:19.120
+evasion protocols. Evasion protocols that censors
+
+00:23:19.120 --> 00:23:21.380
+may be working on harassing or taking action
+
+00:23:21.380 --> 00:23:23.920
+against, use Geneva on top of those and deploy
+
+00:23:23.920 --> 00:23:26.430
+these server-side strategies to protect those in
+
+00:23:26.430 --> 00:23:28.640
+use and make it harder for censors to take action
+
+00:23:28.640 --> 00:23:30.720
+against these. And we're very excited about these
+
+00:23:30.720 --> 00:23:35.040
+new directions. I want to conclude here to talk
+
+00:23:35.040 --> 00:23:37.290
+about new directions that this work has opened up
+
+00:23:37.290 --> 00:23:39.440
+for us, and really how it's changed the way
+
+00:23:39.440 --> 00:23:41.930
+we conceptualize middle boxes. Because these
+
+00:23:41.930 --> 00:23:43.410
+middle boxes are really creating new
+
+00:23:43.410 --> 00:23:44.400
+possibilities in the
+
+00:23:44.400 --> 00:23:47.410
+network. It's good because this has opened up the
+
+00:23:47.410 --> 00:23:50.560
+ability to do censorship evasion to more people,
+
+00:23:50.560 --> 00:23:52.890
+even those who don't know they're being censored.
+
+00:23:52.890 --> 00:23:55.190
+Now, this is made possible though by the ugly
+
+00:23:55.190 --> 00:23:55.520
+fact
+
+00:23:55.520 --> 00:23:58.490
+that middle boxes have bugs and bad assumptions
+
+00:23:58.490 --> 00:24:00.000
+that can be exploited.
+
+00:24:00.000 --> 00:24:02.170
+And unfortunately, this can also lead to some
+
+00:24:02.170 --> 00:24:04.980
+very bad directions. In another recent piece of
+
+00:24:04.980 --> 00:24:05.360
+work,
+
+00:24:05.360 --> 00:24:08.080
+we show that middle boxes can be actually weaponized
+
+00:24:08.080 --> 00:24:09.760
+by attackers to launch attacks that
+
+00:24:09.760 --> 00:24:12.520
+were long thought impossible. Ultimately, this
+
+00:24:12.520 --> 00:24:14.880
+leads us to conclude that to really make sense
+
+00:24:14.880 --> 00:24:16.830
+about what these new additions to the internet
+
+00:24:16.830 --> 00:24:18.880
+are doing, we really need to keep investing in
+
+00:24:18.880 --> 00:24:21.470
+automated tools like Geneva to understand what
+
+00:24:21.470 --> 00:24:23.520
+new things these middle boxes enable,
+
+00:24:23.520 --> 00:24:25.930
+and how they change the landscape of the network
+
+00:24:25.930 --> 00:24:27.440
+and networking research.
+
+00:24:27.440 --> 00:24:31.000
+Now, I'm going to wrap up here. Today, I've
+
+00:24:31.000 --> 00:24:33.520
+talked about Geneva and specifically how we've
+
+00:24:33.520 --> 00:24:36.040
+applied it to make server-side evasion possible.
+
+00:24:36.040 --> 00:24:37.840
+If you want to learn more, our website is
+
+00:24:37.840 --> 00:24:38.160
+available
+
+00:24:38.160 --> 00:24:42.050
+here at the slide. It's geneva.cs.umd.edu. Thank
+
+00:24:42.050 --> 00:24:43.200
+you all very much.
+

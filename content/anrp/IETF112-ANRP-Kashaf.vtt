@@ -1,0 +1,1235 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:06.480
+Hi, this is Aqsa. I'm a PhD student at CMU and I'm
+
+00:00:06.480 --> 00:00:08.600
+going to present my work on analyzing
+
+00:00:08.600 --> 00:00:12.320
+third-party dependencies in modern web services.
+
+00:00:12.320 --> 00:00:14.480
+This is a collaborative work with my advisors,
+
+00:00:14.480 --> 00:00:18.660
+Pyaar Sekar and Yuvraj Agarwal. The study is
+
+00:00:18.660 --> 00:00:20.720
+motivated by a DDoS attack that happened
+
+00:00:20.720 --> 00:00:25.560
+in 2016 on a DNS provider named Dyne. There are a
+
+00:00:25.560 --> 00:00:27.400
+lot of lessons to be learned from this
+
+00:00:27.400 --> 00:00:30.860
+attack, particularly its root cause, and as I
+
+00:00:30.860 --> 00:00:34.000
+show in this talk, we can expect more Dynelike
+
+00:00:34.000 --> 00:00:39.840
+attacks in the future. During this attack in 2016,
+
+00:00:39.840 --> 00:00:41.840
+a lot of popular websites such as
+
+00:00:41.840 --> 00:00:46.750
+GitHub, Spotify, and Twitter were inaccessible to
+
+00:00:46.750 --> 00:00:49.600
+users for many hours. Here is an outage
+
+00:00:49.600 --> 00:00:54.060
+map of the attack. In total, 178,000 domains went
+
+00:00:54.060 --> 00:00:56.520
+offline and tens of millions of users
+
+00:00:56.520 --> 00:01:01.170
+were affected. The list of websites that went
+
+00:01:01.170 --> 00:01:04.000
+down goes on. It includes almost all the popular
+
+00:01:04.000 --> 00:01:07.980
+services we know. So how were the attackers able
+
+00:01:07.980 --> 00:01:12.160
+to bring all of these down? This was
+
+00:01:12.160 --> 00:01:15.420
+possible because all these websites, such as
+
+00:01:15.420 --> 00:01:18.440
+Netflix, exclusively relied on Dyne, a
+
+00:01:18.440 --> 00:01:22.090
+third-party DNS provider that acted as their
+
+00:01:22.090 --> 00:01:26.000
+authoritative name server. As a result, when
+
+00:01:26.000 --> 00:01:28.780
+the authoritative name server was down, a lot of
+
+00:01:28.780 --> 00:01:31.240
+websites were inaccessible to millions
+
+00:01:31.240 --> 00:01:39.360
+of users. Attacks like these raise many questions
+
+00:01:39.360 --> 00:01:41.840
+about the resilience of the internet. How
+
+00:01:41.840 --> 00:01:44.640
+easy is it to bring down the internet?
+
+00:01:44.640 --> 00:01:47.260
+Particularly, we need to understand how prevalent
+
+00:01:47.260 --> 00:01:47.680
+these
+
+00:01:47.680 --> 00:01:51.120
+kind of third-party dependencies are. For example,
+
+00:01:51.120 --> 00:01:53.320
+how many other websites are at risk
+
+00:01:53.320 --> 00:01:56.720
+of Dynelike attacks? Are there other hidden
+
+00:01:56.720 --> 00:02:00.360
+dependencies that we also need to know about?
+
+00:02:00.360 --> 00:02:03.550
+There might be inter-service dependencies which
+
+00:02:03.550 --> 00:02:07.920
+indirectly affect a website. And finally,
+
+00:02:07.920 --> 00:02:10.320
+since Dyne attack had such a huge impact, it is
+
+00:02:10.320 --> 00:02:12.080
+natural to think that websites would
+
+00:02:12.080 --> 00:02:15.320
+adapt as a result. How has the world changed in
+
+00:02:15.320 --> 00:02:18.320
+using third-party services as a consequence
+
+00:02:18.320 --> 00:02:21.450
+of the Dyne attack? For example, did websites
+
+00:02:21.450 --> 00:02:24.640
+stop using Dyne or did they start using multiple
+
+00:02:24.640 --> 00:02:29.410
+providers? To answer these questions, we analyzed
+
+00:02:29.410 --> 00:02:34.040
+top 100,000 websites, Alexa websites. Alexa
+
+00:02:34.040 --> 00:02:36.860
+is an external service that ranks websites by
+
+00:02:36.860 --> 00:02:39.760
+popularity. Alexa rank is calculated from
+
+00:02:39.760 --> 00:02:44.090
+a combination of daily visitors and page views on
+
+00:02:44.090 --> 00:02:46.880
+a website. To see how the world changed
+
+00:02:46.880 --> 00:02:48.820
+in response to the Dyne attack, we look at the
+
+00:02:48.820 --> 00:02:51.400
+dependencies of top 100,000 websites in
+
+00:02:51.400 --> 00:02:58.420
+2016 and 2020. In this talk, I'll first describe
+
+00:02:58.420 --> 00:03:01.600
+our measurement methodology to measure the
+
+00:03:01.600 --> 00:03:04.960
+third-party dependencies of websites and then
+
+00:03:04.960 --> 00:03:08.480
+explain our main findings. Then, after the
+
+00:03:08.480 --> 00:03:10.300
+findings, I will also present some
+
+00:03:10.300 --> 00:03:12.700
+recommendations in light of our findings and
+
+00:03:12.700 --> 00:03:13.520
+finally, some
+
+00:03:13.520 --> 00:03:17.880
+limitations of our work. To start with the
+
+00:03:17.880 --> 00:03:20.680
+measurement methodology, we first need to
+
+00:03:20.680 --> 00:03:24.060
+identify the services which are crucial for a
+
+00:03:24.060 --> 00:03:26.960
+user's access to the website. To do this,
+
+00:03:26.960 --> 00:03:30.270
+we look at the lifecycle of a web request. When a
+
+00:03:30.270 --> 00:03:32.840
+user makes a request to a website,
+
+00:03:32.840 --> 00:03:36.640
+it first goes to the authoritative DNS server,
+
+00:03:36.640 --> 00:03:40.840
+which provides the IP resolution of the website.
+
+00:03:40.840 --> 00:03:43.540
+After the IP resolution of the website, user
+
+00:03:43.540 --> 00:03:45.880
+starts a TCP handshake followed by an SSL
+
+00:03:45.880 --> 00:03:49.550
+handshake if the website supports HTTPS. If yes,
+
+00:03:49.550 --> 00:03:52.720
+then the website provides a certificate,
+
+00:03:52.720 --> 00:03:55.950
+which is verified for revocation by the user by
+
+00:03:55.950 --> 00:03:59.080
+contacting the OCSP server or CRL distribution
+
+00:03:59.080 --> 00:04:03.520
+points set up by the certifying authority.
+
+00:04:03.520 --> 00:04:06.360
+Finally, if the certificate is valid, the
+
+00:04:06.360 --> 00:04:10.210
+user requests the content of the website page. If
+
+00:04:10.210 --> 00:04:13.000
+the website is using a CDN, then CDN will
+
+00:04:13.000 --> 00:04:16.140
+serve this content. Based on this, we identify
+
+00:04:16.140 --> 00:04:19.040
+three services. The first one is DNS, the
+
+00:04:19.040 --> 00:04:21.680
+second one is certificate validation by
+
+00:04:21.680 --> 00:04:25.080
+certificate authority, and the third one is CDN.
+
+00:04:25.080 --> 00:04:25.200
+Note
+
+00:04:25.200 --> 00:04:28.780
+that these by no means are the only services that
+
+00:04:28.780 --> 00:04:31.640
+a web request encounters, but we just
+
+00:04:31.640 --> 00:04:35.810
+identify these three services and define the
+
+00:04:35.810 --> 00:04:38.640
+scope of our work. Given these services and
+
+00:04:38.640 --> 00:04:42.030
+websites, we need to identify what exactly we
+
+00:04:42.030 --> 00:04:45.280
+want to measure. So we are interested in
+
+00:04:45.280 --> 00:04:48.010
+third party dependency of a website. For example,
+
+00:04:48.010 --> 00:04:51.000
+here, the website Techradar uses another entity,
+
+00:04:51.000 --> 00:04:54.850
+Let's Encrypt, as its certificate authority. Next,
+
+00:04:54.850 --> 00:04:57.560
+there might be indirect dependency between
+
+00:04:57.560 --> 00:05:01.120
+websites and service providers. For example, here,
+
+00:05:01.120 --> 00:05:03.320
+Let's Encrypt uses Cloudflare as its
+
+00:05:03.320 --> 00:05:06.680
+authoritative name server, and hence Techradar
+
+00:05:06.680 --> 00:05:09.800
+has an indirect dependency on Cloudflare.
+
+00:05:09.800 --> 00:05:12.620
+We are also interested in critical dependencies
+
+00:05:12.620 --> 00:05:15.320
+which exist if a service provider is integral
+
+00:05:15.320 --> 00:05:19.890
+for a given service. For example, here, if Cloudflare
+
+00:05:19.890 --> 00:05:22.400
+is down, OCSP servers of Let's
+
+00:05:22.400 --> 00:05:26.620
+Encrypt will not be accessible. Hence, Let's Encrypt
+
+00:05:26.620 --> 00:05:30.040
+has a critical dependency on Cloudflare.
+
+00:05:30.040 --> 00:05:32.400
+In case of DNS and CDN, we compute critical
+
+00:05:32.400 --> 00:05:34.800
+dependency by measuring if the website is
+
+00:05:34.800 --> 00:05:39.030
+redundantly provisioned, which means that the
+
+00:05:39.030 --> 00:05:43.480
+website is using multiple DNS or CDN providers.
+
+00:05:43.480 --> 00:05:45.590
+And in case of certificate authorities, we
+
+00:05:45.590 --> 00:05:47.520
+compute it by measuring if the website has
+
+00:05:47.520 --> 00:05:52.570
+enabled OCSP stapling. Here, Techradar does not
+
+00:05:52.570 --> 00:05:55.800
+support OCSP stapling, and hence Techradar
+
+00:05:55.800 --> 00:05:59.340
+has a critical dependency on Let's Encrypt as
+
+00:05:59.340 --> 00:06:02.600
+well as Cloudflare. If OCSP stapling is
+
+00:06:02.600 --> 00:06:05.610
+enabled, the user doesn't have to contact the OCSP
+
+00:06:05.610 --> 00:06:07.840
+server for certificate validation,
+
+00:06:07.840 --> 00:06:12.650
+so Let's Encrypt will not be contacted here. But
+
+00:06:12.650 --> 00:06:16.440
+if OCSP stapling is not enabled, then
+
+00:06:16.440 --> 00:06:20.270
+users of Techradar will have to contact the Let's
+
+00:06:20.270 --> 00:06:22.640
+Encrypt OCSP servers to validate the
+
+00:06:22.640 --> 00:06:23.640
+certificate.
+
+00:06:23.640 --> 00:06:27.690
+Now, given this, we first describe our
+
+00:06:27.690 --> 00:06:31.740
+measurement methodology for DNS. What we
+
+00:06:31.740 --> 00:06:32.520
+essentially want
+
+00:06:32.520 --> 00:06:35.140
+is to find the authoritative name server of each
+
+00:06:35.140 --> 00:06:37.600
+website. This can easily be done by looking
+
+00:06:37.600 --> 00:06:42.080
+at the name server's resource record of a website.
+
+00:06:42.080 --> 00:06:44.120
+Then we want to identify if this
+
+00:06:44.120 --> 00:06:49.530
+name server is private or a third party. I would
+
+00:06:49.530 --> 00:06:51.200
+go into details for this in the next
+
+00:06:51.200 --> 00:06:54.190
+slide that how do we actually identify if it's a
+
+00:06:54.190 --> 00:06:56.600
+private or a third party. And finally,
+
+00:06:56.600 --> 00:06:58.840
+for a website and its name server, we want to
+
+00:06:58.840 --> 00:07:01.200
+identify which of these name servers belong
+
+00:07:01.200 --> 00:07:04.800
+to the same entity. For instance, here, Azure DNS
+
+00:07:04.800 --> 00:07:08.520
+and O365 filtering both belong to Microsoft.
+
+00:07:08.520 --> 00:07:12.010
+So since live.com is using these two which belong
+
+00:07:12.010 --> 00:07:14.440
+to the same entity, it is actually
+
+00:07:14.440 --> 00:07:19.680
+not redundantly provisioned.
+
+00:07:19.680 --> 00:07:22.530
+To identify third party name servers, prior work
+
+00:07:22.530 --> 00:07:25.240
+looks at second level and top level domains
+
+00:07:25.240 --> 00:07:28.620
+of the name server and the website. If they match,
+
+00:07:28.620 --> 00:07:31.560
+then the name server is private, otherwise
+
+00:07:31.560 --> 00:07:35.750
+third party. For example, here in case of Google,
+
+00:07:35.750 --> 00:07:38.040
+its name server also has the same
+
+00:07:38.040 --> 00:07:41.960
+second and top level domain, google.com. Hence,
+
+00:07:41.960 --> 00:07:46.200
+it gets correctly classified as private. However,
+
+00:07:46.200 --> 00:07:48.590
+this fails in case of YouTube, where the name
+
+00:07:48.590 --> 00:07:50.920
+server gets classified as third party when
+
+00:07:50.920 --> 00:07:55.200
+in fact it is not.
+
+00:07:55.200 --> 00:07:58.000
+Other approaches look at the start of authority
+
+00:07:58.000 --> 00:08:00.720
+DNS records, which contain administrative
+
+00:08:00.720 --> 00:08:03.930
+information about the DNS zone. If the start of
+
+00:08:03.930 --> 00:08:06.400
+authority record of the website and name
+
+00:08:06.400 --> 00:08:10.100
+server are the same, then it's private, otherwise
+
+00:08:10.100 --> 00:08:13.840
+third party. This works in case of YouTube,
+
+00:08:13.840 --> 00:08:17.250
+but it fails for instances in case of Twitter,
+
+00:08:17.250 --> 00:08:20.440
+where it is using a third party name server
+
+00:08:20.440 --> 00:08:24.510
+and its start of authority is also that third
+
+00:08:24.510 --> 00:08:28.480
+party. For instance, here Twitter is using
+
+00:08:28.480 --> 00:08:31.600
+dynic.net, which actually belongs to Dyn.
+
+00:08:31.600 --> 00:08:37.970
+To cope with these issues, we add a few more heuristics.
+
+00:08:37.970 --> 00:08:39.480
+So for all website and name server
+
+00:08:39.480 --> 00:08:42.840
+peers, we classify the name server as private if
+
+00:08:42.840 --> 00:08:45.680
+the second level domain and top level domain
+
+00:08:45.680 --> 00:08:49.600
+match for the website and the name server, or if
+
+00:08:49.600 --> 00:08:53.040
+the name server is present in the subject
+
+00:08:53.040 --> 00:08:57.290
+alternate name list of that website. SAN list is
+
+00:08:57.290 --> 00:09:00.040
+present on the HTTPS certificate of a website,
+
+00:09:00.040 --> 00:09:02.600
+which tells that this certificate will also work
+
+00:09:02.600 --> 00:09:04.960
+for the domains present in the SAN list.
+
+00:09:04.960 --> 00:09:11.430
+Hence, it's a good way to know if a given domain
+
+00:09:11.430 --> 00:09:14.360
+is private or not.
+
+00:09:14.360 --> 00:09:17.500
+If the start of authority do not match, we
+
+00:09:17.500 --> 00:09:20.360
+classify it as third. And finally, if the
+
+00:09:20.360 --> 00:09:24.400
+name server serves more than 50 websites, then we
+
+00:09:24.400 --> 00:09:31.240
+say that it's more likely third party.
+
+00:09:31.240 --> 00:09:35.760
+In general, we identify approximately 10,000
+
+00:09:35.760 --> 00:09:38.880
+third party DNS providers in our data. For
+
+00:09:38.880 --> 00:09:42.080
+measuring CDNs, we fetch the web page of the
+
+00:09:42.080 --> 00:09:45.440
+website that we want to measure the CDN of,
+
+00:09:45.440 --> 00:09:48.790
+and then we extract all the resources in the web
+
+00:09:48.790 --> 00:09:51.520
+page and identify the resources which
+
+00:09:51.520 --> 00:09:56.720
+are internal. For example, for reddit.com, this
+
+00:09:56.720 --> 00:10:00.000
+resource that comes from redditmedia.com
+
+00:10:00.000 --> 00:10:03.930
+is an internal resource. We use TLD matching,
+
+00:10:03.930 --> 00:10:06.480
+start of authority, and subject alternate
+
+00:10:06.480 --> 00:10:10.670
+name lists here as well to identify internal and
+
+00:10:10.670 --> 00:10:13.840
+external resources. We do this because
+
+00:10:13.840 --> 00:10:16.420
+internal resources, if they come from a CDN, then
+
+00:10:16.420 --> 00:10:18.320
+it means that the website is actually
+
+00:10:18.320 --> 00:10:23.470
+using a CDN. For all the internal resources, we
+
+00:10:23.470 --> 00:10:27.200
+fetch their CNAME records. If the website
+
+00:10:27.200 --> 00:10:30.130
+is using a CDN, then these CNAMEs will point to
+
+00:10:30.130 --> 00:10:33.240
+the CDN. For instance, here, the CNAME
+
+00:10:33.240 --> 00:10:39.050
+actually points to Fastly. We input this CNAME to
+
+00:10:39.050 --> 00:10:42.360
+our CNAME to CDN map, which will
+
+00:10:42.360 --> 00:10:47.380
+output Fastly here. We manually build this map by
+
+00:10:47.380 --> 00:10:49.640
+taking help from available CNAMEs on
+
+00:10:49.640 --> 00:10:53.420
+the internet, on the CDNs' websites, and also in
+
+00:10:53.420 --> 00:10:55.920
+public suffix lists. After we have
+
+00:10:55.920 --> 00:10:58.890
+identified the CDN being used by a website, we
+
+00:10:58.890 --> 00:11:01.280
+also need to see if the CDN is private
+
+00:11:01.280 --> 00:11:05.000
+or a third party. To do that, we again use TLD,
+
+00:11:05.000 --> 00:11:07.920
+start of authority, and sans list to
+
+00:11:07.920 --> 00:11:12.830
+see if the CDN is private or third party. In
+
+00:11:12.830 --> 00:11:14.960
+general, we identify a total of 86 third
+
+00:11:14.960 --> 00:11:20.500
+party CDNs in our data. For certificate authority
+
+00:11:20.500 --> 00:11:22.840
+dependency, we just fetch the certificate
+
+00:11:22.840 --> 00:11:26.520
+of a website, and from that, extract the links
+
+00:11:26.520 --> 00:11:29.960
+for the OCSP servers and the CRL distribution
+
+00:11:29.960 --> 00:11:33.800
+points. And we use the same techniques, which are
+
+00:11:33.800 --> 00:11:37.280
+TLD matching, start of authority, non-matching,
+
+00:11:37.280 --> 00:11:41.450
+and sans list to identify if these are third
+
+00:11:41.450 --> 00:11:45.760
+party certificate authorities or not. In our
+
+00:11:45.760 --> 00:11:51.690
+data, we identify a total of 59 third party
+
+00:11:51.690 --> 00:11:56.280
+certificate authorities. Now we present our
+
+00:11:56.280 --> 00:12:02.420
+main findings. I will start by answering the
+
+00:12:02.420 --> 00:12:04.960
+question, how prevalent third party dependencies
+
+00:12:04.960 --> 00:12:09.670
+are and how concentrated different third party
+
+00:12:09.670 --> 00:12:16.280
+providers are. Overall, we find that 89% of
+
+00:12:16.280 --> 00:12:23.690
+the top 100,000 websites use third party DNS, 32%
+
+00:12:23.690 --> 00:12:28.440
+use a third party CDN, and 76.8% use a
+
+00:12:28.440 --> 00:12:33.610
+third party certificate authority. Moreover, 85%
+
+00:12:33.610 --> 00:12:37.680
+critically depend on a third party DNS
+
+00:12:37.680 --> 00:12:42.540
+certificate, 28% critically depend on a CDN
+
+00:12:42.540 --> 00:12:47.840
+provider, and 59.5% critically depend on a
+
+00:12:47.840 --> 00:12:52.080
+certificate authority. For DNS and CDN, it means
+
+00:12:52.080 --> 00:12:55.080
+that they're using just a single DNS
+
+00:12:55.080 --> 00:12:58.030
+or CDN provider, and for C, it means that they do
+
+00:12:58.030 --> 00:13:02.240
+not support OCSP stapling. All in
+
+00:13:02.240 --> 00:13:07.950
+all, we found that 89% of the top 100,000
+
+00:13:07.950 --> 00:13:11.680
+websites critically depend on a DNS, CDN,
+
+00:13:11.680 --> 00:13:17.400
+or CA provider. In addition to this, we also
+
+00:13:17.400 --> 00:13:21.160
+found that critical dependencies are higher
+
+00:13:21.160 --> 00:13:24.980
+for less popular websites. For example, we
+
+00:13:24.980 --> 00:13:29.440
+observed that 49% use a third party DNS provider
+
+00:13:29.440 --> 00:13:34.890
+in the top 100 websites, and 89% in the top 1,000
+
+00:13:34.890 --> 00:13:37.200
+websites. Same is the case for critical
+
+00:13:37.200 --> 00:13:41.160
+dependencies. For instance, 27.9% critically
+
+00:13:41.160 --> 00:13:45.040
+depend in the top 100, while 84.8% in the
+
+00:13:45.040 --> 00:13:50.270
+top 100,000. This means that more popular
+
+00:13:50.270 --> 00:13:55.200
+websites care more about availability. Now,
+
+00:13:55.200 --> 00:13:57.760
+since third party dependencies are very prevalent,
+
+00:13:57.760 --> 00:13:59.880
+it raises the question of how concentrated
+
+00:13:59.880 --> 00:14:03.490
+various providers are. The greater the
+
+00:14:03.490 --> 00:14:07.920
+concentration, greater will be the single points
+
+00:14:07.920 --> 00:14:09.240
+of failure.
+
+00:14:09.240 --> 00:14:12.280
+This is a dependency graph of website to DNS
+
+00:14:12.280 --> 00:14:16.000
+dependency, where each edge shows the dependency
+
+00:14:16.000 --> 00:14:19.420
+of a website on a third party DNS provider. The
+
+00:14:19.420 --> 00:14:22.240
+size of each node here is proportional
+
+00:14:22.240 --> 00:14:25.440
+to its n-degree, which in the case of DNS
+
+00:14:25.440 --> 00:14:29.240
+provider is the number of websites using it.
+
+00:14:29.240 --> 00:14:33.180
+We observed that the top most DNS provider, Cloudflare,
+
+00:14:33.180 --> 00:14:37.000
+alone serves 23% of the top 100,000
+
+00:14:37.000 --> 00:14:41.220
+websites. In general, we observed that only top 3
+
+00:14:41.220 --> 00:14:44.720
+serve almost 40% of the websites, when
+
+00:14:44.720 --> 00:14:49.820
+the total DNS providers we observed are almost 10,000.
+
+00:14:49.820 --> 00:14:53.360
+This indicates that DNS space is highly,
+
+00:14:53.360 --> 00:15:00.210
+highly concentrated. We see similar trends in CDN,
+
+00:15:00.210 --> 00:15:02.680
+where the top most CDN provider, Amazon
+
+00:15:02.680 --> 00:15:07.260
+Cloudfront, alone serves 26% of the websites that
+
+00:15:07.260 --> 00:15:10.960
+use CDN. Particularly, we observed that
+
+00:15:10.960 --> 00:15:15.080
+only 3 CDNs serve almost 60% of the websites that
+
+00:15:15.080 --> 00:15:18.280
+use CDN, which are Cloudfront, Akamai,
+
+00:15:18.280 --> 00:15:25.340
+and Cloudflare. The situation for certificate
+
+00:15:25.340 --> 00:15:26.040
+validation is
+
+00:15:26.040 --> 00:15:30.540
+also similar. DigiCert alone serves 28% of the
+
+00:15:30.540 --> 00:15:35.280
+websites that support HTTPS. Particularly,
+
+00:15:35.280 --> 00:15:38.760
+only 3 certificate authorities, DigiCert, Let's
+
+00:15:38.760 --> 00:15:42.000
+Encrypt, and Sectigo, serve 60% of the
+
+00:15:42.000 --> 00:15:46.940
+HTTPS supporting websites, out of the total 59
+
+00:15:46.940 --> 00:15:50.960
+certificate authorities we observed.
+
+00:15:50.960 --> 00:15:53.550
+To summarize, our main findings were that third
+
+00:15:53.550 --> 00:15:55.800
+party critical dependencies are highly
+
+00:15:55.800 --> 00:15:59.500
+prevalent and third party services are very
+
+00:15:59.500 --> 00:16:04.080
+concentrated. A direct implication of this
+
+00:16:04.080 --> 00:16:10.780
+is that 89% of the websites are vulnerable to Dyn-like
+
+00:16:10.780 --> 00:16:13.760
+incidents. A single provider can
+
+00:16:13.760 --> 00:16:20.360
+affect as much as 25% of the top 100,000 websites.
+
+00:16:20.360 --> 00:16:22.920
+Now the question is, if this is the complete
+
+00:16:22.920 --> 00:16:26.690
+picture or do we need to take indirect
+
+00:16:26.690 --> 00:16:30.520
+dependencies into account as well?
+
+00:16:30.520 --> 00:16:32.920
+And this brings us to our second question which
+
+00:16:32.920 --> 00:16:35.200
+is, are there any indirect dependencies
+
+00:16:35.200 --> 00:16:39.560
+between websites and their third party providers?
+
+00:16:39.560 --> 00:16:42.200
+To do this, we first need to analyze inter-service
+
+00:16:42.200 --> 00:16:49.520
+dependencies between DNS, CDN, and CA providers.
+
+00:16:49.520 --> 00:16:52.600
+In case of CA to DNS dependency, we found
+
+00:16:52.600 --> 00:16:58.030
+that out of the 59 CAs that we observed, 48% of
+
+00:16:58.030 --> 00:17:01.640
+them use a third party DNS provider. In
+
+00:17:01.640 --> 00:17:05.840
+case of CA to CDN dependency, 36% used a third
+
+00:17:05.840 --> 00:17:10.000
+party CDN provider. Moreover, out of the 86
+
+00:17:10.000 --> 00:17:14.000
+CDNs that we observed, we found that 36% use a
+
+00:17:14.000 --> 00:17:18.280
+third party DNS provider. Hence, third party
+
+00:17:18.280 --> 00:17:22.560
+dependencies are also prevalent among service
+
+00:17:22.560 --> 00:17:23.880
+providers.
+
+00:17:23.880 --> 00:17:26.470
+In case of critical dependencies, we found that
+
+00:17:26.470 --> 00:17:28.760
+31% of certificate authorities relied
+
+00:17:28.760 --> 00:17:33.560
+on a single third party DNS provider, 36% relied
+
+00:17:33.560 --> 00:17:36.760
+on a third party CDN provider, and
+
+00:17:36.760 --> 00:17:41.680
+17% CDNs relied on a single third party DNS
+
+00:17:41.680 --> 00:17:44.640
+provider. These critical dependencies between
+
+00:17:44.640 --> 00:17:47.470
+service providers give rise to indirect
+
+00:17:47.470 --> 00:17:50.780
+dependency. But why should we care about indirect
+
+00:17:50.780 --> 00:17:51.880
+dependencies?
+
+00:17:51.880 --> 00:17:57.340
+I mean, okay, sure, they exist, but what's the
+
+00:17:57.340 --> 00:18:00.040
+harm? Turns out that as a result of indirect
+
+00:18:00.040 --> 00:18:03.230
+dependencies, we see huge amplification in the
+
+00:18:03.230 --> 00:18:06.000
+impact of a given provider. For example,
+
+00:18:06.000 --> 00:18:09.230
+in case of CA to DNS dependency, Cloudflare now
+
+00:18:09.230 --> 00:18:13.360
+critically serves 37% of the top 100,000
+
+00:18:13.360 --> 00:18:20.360
+certificates as compared to 24% before. And in
+
+00:18:20.360 --> 00:18:23.560
+case of DNS Made Easy, the impact goes
+
+00:18:23.560 --> 00:18:34.920
+from 1% to 23%. Hence, because of these indirect
+
+00:18:34.920 --> 00:18:39.560
+dependencies, we see amplification of provider
+
+00:18:39.560 --> 00:18:44.620
+concentration. To summarize, critical
+
+00:18:44.620 --> 00:18:45.440
+dependencies are also
+
+00:18:45.440 --> 00:18:49.580
+widespread among service providers. And these
+
+00:18:49.580 --> 00:18:51.480
+dependencies can amplify the concentration
+
+00:18:51.480 --> 00:18:54.950
+of service providers. Which means that the effect
+
+00:18:54.950 --> 00:18:56.760
+of single points of failures in the
+
+00:18:56.760 --> 00:19:00.700
+internet is amplified. And a single provider can
+
+00:19:00.700 --> 00:19:08.920
+now impact 37% of the top 100,000 websites.
+
+00:19:08.920 --> 00:19:11.680
+This is what we observed for our data in 2020.
+
+00:19:11.680 --> 00:19:13.680
+Now we see how the world changed after the
+
+00:19:13.680 --> 00:19:16.790
+Dyn incident by comparing 2016 dependency data
+
+00:19:16.790 --> 00:19:19.200
+with 2020 data. Which brings us to our
+
+00:19:19.200 --> 00:19:22.460
+third question, which is, how did the world
+
+00:19:22.460 --> 00:19:25.240
+change after the Dyn incident? Did websites
+
+00:19:25.240 --> 00:19:28.030
+try to reduce their third party dependency on
+
+00:19:28.030 --> 00:19:30.760
+service providers? Did the concentration
+
+00:19:30.760 --> 00:19:35.050
+among providers decrease? We observed that
+
+00:19:35.050 --> 00:19:39.280
+critical dependency in DNS increased. With
+
+00:19:39.280 --> 00:19:43.060
+respect to CDN and CA, we see no significant
+
+00:19:43.060 --> 00:19:46.440
+change in the critical dependency.
+
+00:19:46.440 --> 00:19:51.210
+Similarly, in case of inter-service dependencies,
+
+00:19:51.210 --> 00:19:55.760
+we observe an 8% decrease in critical dependency
+
+00:19:55.760 --> 00:20:00.190
+in CA to DNS dependency, and a 4% decrease in CDN
+
+00:20:00.190 --> 00:20:03.480
+to DNS dependency. So overall, in terms
+
+00:20:03.480 --> 00:20:06.540
+of provider to DNS dependency, we see a
+
+00:20:06.540 --> 00:20:10.200
+decreasing trend, which is encouraging.
+
+00:20:10.200 --> 00:20:12.630
+Now let us look at the change in concentration of
+
+00:20:12.630 --> 00:20:17.280
+service providers. According to this figure,
+
+00:20:17.280 --> 00:20:22.800
+in 2016, 2700 DNS providers served 80% of the
+
+00:20:22.800 --> 00:20:27.760
+websites, while in 2020, only 54 providers
+
+00:20:27.760 --> 00:20:31.770
+served 80% of the websites. This means that we
+
+00:20:31.770 --> 00:20:35.920
+are in general moving towards more concentration.
+
+00:20:35.920 --> 00:20:37.670
+This is not an encouraging result because it
+
+00:20:37.670 --> 00:20:39.560
+means that single points of failure actually
+
+00:20:39.560 --> 00:20:43.840
+got bigger. And we see similar trends in CA
+
+00:20:43.840 --> 00:20:46.320
+providers while concentration decreased in
+
+00:20:46.320 --> 00:20:52.920
+CDNs.
+
+00:20:52.920 --> 00:20:55.490
+To summarize, we see no significant change in the
+
+00:20:55.490 --> 00:20:57.480
+third party dependency trends among
+
+00:20:57.480 --> 00:21:00.720
+websites. We do observe a decline in third party
+
+00:21:00.720 --> 00:21:04.880
+dependency among service providers.
+
+00:21:04.880 --> 00:21:07.690
+We also observed that services became more
+
+00:21:07.690 --> 00:21:11.960
+concentrated in 2020 as compared to 2016.
+
+00:21:11.960 --> 00:21:15.610
+All in all, we do not see an increasing trend in
+
+00:21:15.610 --> 00:21:18.560
+redundancy. We did observe that websites
+
+00:21:18.560 --> 00:21:21.770
+using Dyn were more redundantly provisioned in
+
+00:21:21.770 --> 00:21:26.120
+2020 as compared to 2016. But in general,
+
+00:21:26.120 --> 00:21:32.480
+there was no significant trend towards redundancy.
+
+00:21:32.480 --> 00:21:34.320
+And because the concentration of providers
+
+00:21:34.320 --> 00:21:37.920
+increased in 2020, single points of failure
+
+00:21:37.920 --> 00:21:39.560
+actually got bigger.
+
+00:21:39.560 --> 00:21:49.030
+Now, based on these findings, we make some
+
+00:21:49.030 --> 00:21:49.120
+recommendations.
+
+00:21:49.120 --> 00:21:51.580
+For websites, they should consider redundancy
+
+00:21:51.580 --> 00:21:54.840
+while using a third party provider. Moreover,
+
+00:21:54.840 --> 00:21:56.770
+they should try to understand their indirect
+
+00:21:56.770 --> 00:21:58.720
+dependency arising from the inter-service
+
+00:21:58.720 --> 00:22:02.970
+dependencies of the providers that they are using.
+
+00:22:02.970 --> 00:22:04.720
+Similarly, for service providers, they
+
+00:22:04.720 --> 00:22:08.700
+should make it easy for websites to be redundantly
+
+00:22:08.700 --> 00:22:11.840
+provisioned. As we observed that many DNS
+
+00:22:11.840 --> 00:22:15.610
+providers do not support redundancy. And also,
+
+00:22:15.610 --> 00:22:17.760
+service providers should try for redundancy
+
+00:22:17.760 --> 00:22:21.650
+in their inter-service dependencies. Finally,
+
+00:22:21.650 --> 00:22:24.080
+service providers should also try to be more
+
+00:22:24.080 --> 00:22:30.000
+transparent about attacks on their infrastructure.
+
+00:22:30.000 --> 00:22:34.160
+To highlight some of the limitations of our work,
+
+00:22:34.160 --> 00:22:35.880
+our measurements are from a single vantage
+
+00:22:35.880 --> 00:22:40.440
+point only. And hence, we may miss region-specific
+
+00:22:40.440 --> 00:22:43.560
+dependencies. We analyze dependencies only
+
+00:22:43.560 --> 00:22:46.140
+on the landing page of a website. Hence, we may
+
+00:22:46.140 --> 00:22:48.680
+miss dependencies that manifest deeper
+
+00:22:48.680 --> 00:22:51.660
+in the content hierarchy. A direct consequence of
+
+00:22:51.660 --> 00:22:53.920
+this could be that we may miss certain
+
+00:22:53.920 --> 00:22:58.960
+CDNs used by a website because their landing page
+
+00:22:58.960 --> 00:23:02.560
+didn't access any resource from a CDN.
+
+00:23:02.560 --> 00:23:05.150
+Finally, we also did not look at the physical and
+
+00:23:05.150 --> 00:23:07.440
+networking infrastructure dependencies
+
+00:23:07.440 --> 00:23:11.490
+such as routing and hosting, mainly because it's
+
+00:23:11.490 --> 00:23:13.920
+not the scope of this work.
+
+00:23:13.920 --> 00:23:16.880
+To summarize, the DDoS attack on Dyn in 2016
+
+00:23:16.880 --> 00:23:19.440
+raised some questions about the resilience
+
+00:23:19.440 --> 00:23:22.760
+of the internet. In our paper, we try to answer
+
+00:23:22.760 --> 00:23:26.000
+some of these questions, particularly about
+
+00:23:26.000 --> 00:23:29.140
+the prevalence of third-party dependencies and
+
+00:23:29.140 --> 00:23:31.760
+their impact. To do so, we analyzed top
+
+00:23:31.760 --> 00:23:34.770
+100,000 popular websites. We also look at their
+
+00:23:34.770 --> 00:23:36.600
+inter-service dependencies to get a
+
+00:23:36.600 --> 00:23:40.080
+holistic view. And we identify the potential
+
+00:23:40.080 --> 00:23:43.080
+single points of failure in the internet.
+
+00:23:43.080 --> 00:23:46.650
+We see that third-party dependencies are highly
+
+00:23:46.650 --> 00:23:49.840
+prevalent. Indirect dependencies amplify
+
+00:23:49.840 --> 00:23:53.930
+provider concentration. And we do not see a move
+
+00:23:53.930 --> 00:23:57.360
+away from third-party dependency after
+
+00:23:57.360 --> 00:24:01.950
+Dyn incident. The code and data used in this
+
+00:24:01.950 --> 00:24:05.160
+paper is actually also available online. Thank
+
+00:24:05.160 --> 00:24:05.880
+you so much.
+

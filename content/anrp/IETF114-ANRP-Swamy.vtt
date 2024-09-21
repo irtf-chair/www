@@ -1,0 +1,470 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:05.000
+Hi, I'm Tushar Swamy, and at the IRTF Open
+
+00:00:05.000 --> 00:00:08.960
+Meeting on Monday, July 25th, I'll be presenting
+
+00:00:08.960 --> 00:00:13.210
+our work on TORUS, a data plane architecture for
+
+00:00:13.210 --> 00:00:16.040
+per packet machine learning.
+
+00:00:16.040 --> 00:00:21.700
+So, this here is a quote from a 2015 Google blog,
+
+00:00:21.700 --> 00:00:25.180
+and at that time Google was already
+
+00:00:25.180 --> 00:00:28.120
+dealing with more than one petabit per second of
+
+00:00:28.120 --> 00:00:30.800
+bisection bandwidth, and their networks
+
+00:00:30.800 --> 00:00:33.740
+have only continued to grow since.
+
+00:00:33.740 --> 00:00:36.530
+As a result, they're getting harder and harder to
+
+00:00:36.530 --> 00:00:39.020
+manage, and these networks require more
+
+00:00:39.020 --> 00:00:41.800
+and more complex management, but without
+
+00:00:41.800 --> 00:00:43.780
+sacrificing performance.
+
+00:00:43.780 --> 00:00:48.770
+So the time is ripe to look for new solutions
+
+00:00:48.770 --> 00:00:49.500
+here.
+
+00:00:49.500 --> 00:00:53.660
+And one potential solution is machine learning.
+
+00:00:53.660 --> 00:00:56.380
+Machine learning actually serves as a good system
+
+00:00:56.380 --> 00:00:58.860
+to scale complex management in networks.
+
+00:00:58.860 --> 00:01:02.160
+An ML model can take in data and train a model to
+
+00:01:02.160 --> 00:01:05.380
+make progressively more and more accurate
+
+00:01:05.380 --> 00:01:08.070
+decisions, and they can approximate network
+
+00:01:08.070 --> 00:01:10.700
+functions where the analytical solution is
+
+00:01:10.700 --> 00:01:13.820
+too complex or slow.
+
+00:01:13.820 --> 00:01:16.820
+And furthermore, machine learning will customize
+
+00:01:16.820 --> 00:01:19.420
+its function to the data it sees, and in turn
+
+00:01:19.420 --> 00:01:22.770
+customize itself to the network in which it
+
+00:01:22.770 --> 00:01:23.860
+operates.
+
+00:01:23.860 --> 00:01:26.260
+So both of these things are already happening
+
+00:01:26.260 --> 00:01:28.660
+with network functions to some extent in the
+
+00:01:28.660 --> 00:01:32.210
+form of hand-tuned heuristics, like hashing and
+
+00:01:32.210 --> 00:01:35.540
+load balancing, and TCP congestion control
+
+00:01:35.540 --> 00:01:39.160
+algorithms with operator-tuned parameters.
+
+00:01:39.160 --> 00:01:44.100
+So why not scale the process by automating it
+
+00:01:44.100 --> 00:01:47.180
+with machine learning?
+
+00:01:47.180 --> 00:01:51.420
+So if we're committing to machine learning, then
+
+00:01:51.420 --> 00:01:54.660
+the natural next question is, where and
+
+00:01:54.660 --> 00:01:57.180
+how does machine learning happen?
+
+00:01:57.180 --> 00:01:59.850
+And the core tenet of TORUS is that machine
+
+00:01:59.850 --> 00:02:03.060
+learning inference must happen on a per-packet
+
+00:02:03.060 --> 00:02:06.100
+scale in the network data plane.
+
+00:02:06.100 --> 00:02:08.910
+Per packet because we want to have the finest
+
+00:02:08.910 --> 00:02:11.780
+granularity of operation, and the network
+
+00:02:11.780 --> 00:02:18.220
+data plane is simply where the packets are.
+
+00:02:18.220 --> 00:02:21.340
+So in this diagram here, I have on the left a
+
+00:02:21.340 --> 00:02:24.980
+picture of a typical software-defined network
+
+00:02:24.980 --> 00:02:27.850
+with a split control plane and data plane, and on
+
+00:02:27.850 --> 00:02:30.140
+the right, I have a software-defined
+
+00:02:30.140 --> 00:02:33.780
+network modified to work with TORUS.
+
+00:02:33.780 --> 00:02:37.080
+And TORUS is all about introducing ML to network
+
+00:02:37.080 --> 00:02:38.500
+for management.
+
+00:02:38.500 --> 00:02:41.570
+In a TORUS network, the control plane at the top
+
+00:02:41.570 --> 00:02:44.580
+here is going to create policies by training
+
+00:02:44.580 --> 00:02:47.530
+machine learning models in addition to flow rules,
+
+00:02:47.530 --> 00:02:49.500
+and then it will install the model
+
+00:02:49.500 --> 00:02:52.820
+weights along with flow rules into the data plane.
+
+00:02:52.820 --> 00:02:55.300
+And in the data plane, we're actually performing
+
+00:02:55.300 --> 00:02:58.300
+machine learning inference, which is the decision-making
+
+00:02:58.300 --> 00:02:59.940
+process.
+
+00:02:59.940 --> 00:03:04.080
+And so this split is not arbitrary.
+
+00:03:04.080 --> 00:03:06.990
+Machine learning training is left in the control
+
+00:03:06.990 --> 00:03:10.180
+plane because it's not a critical path operation.
+
+00:03:10.180 --> 00:03:13.110
+It's not going to be done on a per-packet basis,
+
+00:03:13.110 --> 00:03:14.980
+and it's not going to happen in the
+
+00:03:14.980 --> 00:03:17.350
+middle of the network as traffic is moving
+
+00:03:17.350 --> 00:03:18.260
+through it.
+
+00:03:18.260 --> 00:03:21.040
+Instead, we leave it in the control plane where
+
+00:03:21.040 --> 00:03:23.060
+we can use the latest and greatest ML
+
+00:03:23.060 --> 00:03:29.740
+accelerators to essentially optimize that process.
+
+00:03:29.740 --> 00:03:32.270
+And in the data plane, we're going to be
+
+00:03:32.270 --> 00:03:35.220
+executing just inference to enact to learn
+
+00:03:35.220 --> 00:03:37.020
+decisions.
+
+00:03:37.020 --> 00:03:40.970
+And the next question here is, how exactly do we
+
+00:03:40.970 --> 00:03:43.640
+enable a data plane to do this?
+
+00:03:43.640 --> 00:03:46.560
+We can use accelerators and typical servers for
+
+00:03:46.560 --> 00:03:49.060
+the control plane training, but there
+
+00:03:49.060 --> 00:03:53.420
+isn't a good platform to do machine learning
+
+00:03:53.420 --> 00:03:56.700
+inference in the data plane.
+
+00:03:56.700 --> 00:04:00.060
+So this is exactly what TORUS is built to do.
+
+00:04:00.060 --> 00:04:05.040
+TORUS is a swish-level architecture for per-packet
+
+00:04:05.040 --> 00:04:09.840
+machine learning inference in the data plane.
+
+00:04:09.840 --> 00:04:13.700
+So once we decided we wanted to tackle this
+
+00:04:13.700 --> 00:04:17.620
+problem of an ML-capable data plane, we started
+
+00:04:17.620 --> 00:04:20.160
+with a discussion of what kind of abstraction
+
+00:04:20.160 --> 00:04:22.780
+would be appropriate, because this would in
+
+00:04:22.780 --> 00:04:26.380
+turn dictate what kind of hardware we have to add
+
+00:04:26.380 --> 00:04:28.420
+into a switch pipeline.
+
+00:04:28.420 --> 00:04:31.900
+And in TORUS, we use the map and reduce patterns.
+
+00:04:31.900 --> 00:04:34.430
+Map reduces is a commonly used abstraction for ML
+
+00:04:34.430 --> 00:04:36.740
+because it supports common linear algebra
+
+00:04:36.740 --> 00:04:39.870
+operations found in a variety of ML algorithms,
+
+00:04:39.870 --> 00:04:43.380
+such as neural networks, support vector machines,
+
+00:04:43.380 --> 00:04:44.940
+and k-means.
+
+00:04:44.940 --> 00:04:47.180
+And in addition, it's a SIMD pattern, so it
+
+00:04:47.180 --> 00:04:49.500
+allows for a lot of parallelism with minimal
+
+00:04:49.500 --> 00:04:51.140
+logic.
+
+00:04:51.140 --> 00:04:54.120
+And in the picture here, we show how a single
+
+00:04:54.120 --> 00:04:56.620
+neuron in a deep neural network can be
+
+00:04:56.620 --> 00:04:57.900
+implemented.
+
+00:04:57.900 --> 00:04:59.900
+Map can be used to perform element-wise
+
+00:04:59.900 --> 00:05:02.580
+multiplication between inputs and weights, while
+
+00:05:02.580 --> 00:05:03.500
+reduce combines
+
+00:05:03.500 --> 00:05:06.670
+elements of the resulting vector along with the
+
+00:05:06.670 --> 00:05:09.500
+bias into a scalar value through addition
+
+00:05:09.500 --> 00:05:13.080
+before applying an activation function at the end.
+
+00:05:13.080 --> 00:05:16.870
+And so you can stack this pattern ad nauseum for
+
+00:05:16.870 --> 00:05:20.700
+multiple neurons in a layer and then multiple
+
+00:05:20.700 --> 00:05:21.700
+layers.
+
+00:05:21.700 --> 00:05:26.640
+And in that way, you can build an entire DNN, for
+
+00:05:26.640 --> 00:05:30.740
+example, using just map and reduce.
+
+00:05:30.740 --> 00:05:33.940
+So now that we decided we want to use map reduce,
+
+00:05:33.940 --> 00:05:36.260
+we went ahead and added map reduce
+
+00:05:36.260 --> 00:05:40.900
+hardware into the programmable switch pipeline.
+
+00:05:40.900 --> 00:05:43.000
+So we actually keep the majority of a typical
+
+00:05:43.000 --> 00:05:45.260
+switch pipeline with packet parsers, match
+
+00:05:45.260 --> 00:05:48.740
+action tables, and traffic managers.
+
+00:05:48.740 --> 00:05:51.590
+But we split the match action tables into two
+
+00:05:51.590 --> 00:05:54.140
+blocks and insert this map reduce unit
+
+00:05:54.140 --> 00:05:55.180
+in the middle.
+
+00:05:55.180 --> 00:05:57.980
+And so the match action tables are split into two
+
+00:05:57.980 --> 00:06:00.380
+blocks for pre- and post-processing of
+
+00:06:00.380 --> 00:06:04.350
+ML inputs and outputs, while the packet parser is
+
+00:06:04.350 --> 00:06:07.140
+used for ML feature extraction.
+
+00:06:07.140 --> 00:06:09.850
+And we wanted to design our map reduce units so
+
+00:06:09.850 --> 00:06:12.700
+that it's reconfigurable, so you can program
+
+00:06:12.700 --> 00:06:16.090
+it, it meets line rate, and it has minimal area
+
+00:06:16.090 --> 00:06:17.860
+and power overheads.
+
+00:06:17.860 --> 00:06:21.550
+And so you can see the full evaluation of these
+
+00:06:21.550 --> 00:06:24.380
+in the talk and also in more detail
+
+00:06:24.380 --> 00:06:29.140
+in the actual paper.
+
+00:06:29.140 --> 00:06:32.930
+In addition to an ASIC evaluation, we also wanted
+
+00:06:32.930 --> 00:06:37.300
+to provide an open source FPGA testbed.
+
+00:06:37.300 --> 00:06:39.620
+We don't want people to wait for some sort of Taurus
+
+00:06:39.620 --> 00:06:41.140
+ASIC to be mass produced before
+
+00:06:41.140 --> 00:06:44.540
+writing their own ML data plane applications.
+
+00:06:44.540 --> 00:06:47.740
+And so we've made this testbed to allow people to
+
+00:06:47.740 --> 00:06:50.500
+try their own ML for networking apps.
+
+00:06:50.500 --> 00:06:53.170
+We use an FPGA here to emulate the map reduce
+
+00:06:53.170 --> 00:06:55.980
+block, while a Tofino-based switch serves
+
+00:06:55.980 --> 00:06:59.270
+as the programmable switch elements of the
+
+00:06:59.270 --> 00:07:00.300
+pipeline.
+
+00:07:00.300 --> 00:07:03.270
+And in our repository, we also have code for
+
+00:07:03.270 --> 00:07:05.980
+applications like anomaly detection to help
+
+00:07:05.980 --> 00:07:07.420
+people get started.
+
+00:07:07.420 --> 00:07:13.420
+So we hope people can make use of this.
+
+00:07:13.420 --> 00:07:17.490
+So please come see the talk at the IRTF open
+
+00:07:17.490 --> 00:07:20.820
+meeting if you have any interest in this.
+
+00:07:20.820 --> 00:07:24.830
+I'll be going over the ASIC evaluations and FPGA
+
+00:07:24.830 --> 00:07:28.260
+prototype evaluations in more detail,
+
+00:07:28.260 --> 00:07:31.820
+along with discussion of some applications.
+
+00:07:31.820 --> 00:07:35.040
+And of course, I have the link here for the full
+
+00:07:35.040 --> 00:07:37.780
+paper if you want all of the details.
+
+00:07:37.780 --> 00:07:41.350
+And finally, there's a link here to our GitLab
+
+00:07:41.350 --> 00:07:45.140
+repository if you'd like to actually try out
+
+00:07:45.140 --> 00:07:48.610
+ML for networking apps using a Taurus
+
+00:07:48.610 --> 00:07:50.380
+architecture.
+
+00:07:50.380 --> 00:07:51.500
+So I look forward to seeing you there.
+

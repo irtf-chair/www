@@ -1,0 +1,1433 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:05.360
+Hi everyone, I'm Sangeetha Abdu-Jyothi. I'm an
+
+00:00:05.360 --> 00:00:07.240
+assistant professor at the University of
+
+00:00:07.240 --> 00:00:09.960
+California, Irvine and an affiliated researcher
+
+00:00:09.960 --> 00:00:12.840
+at VMware Research. Today I'll be presenting
+
+00:00:12.840 --> 00:00:16.320
+my work on understanding the impact of a cosmic
+
+00:00:16.320 --> 00:00:18.680
+phenomenon that is capable of taking down
+
+00:00:18.680 --> 00:00:23.980
+the internet, which is solar super storms. What
+
+00:00:23.980 --> 00:00:26.400
+are the impacts of losing internet connectivity?
+
+00:00:26.400 --> 00:00:28.960
+We know that it can affect our professional and
+
+00:00:28.960 --> 00:00:31.360
+social lives significantly, especially
+
+00:00:31.360 --> 00:00:34.930
+now during the pandemic. For large businesses,
+
+00:00:34.930 --> 00:00:37.840
+the impact can be devastating. The revenue
+
+00:00:37.840 --> 00:00:41.060
+loss per hour for some of the large companies are
+
+00:00:41.060 --> 00:00:43.720
+estimated to be tens of millions of dollars.
+
+00:00:43.720 --> 00:00:47.690
+And at the scale of countries, it can be hundreds
+
+00:00:47.690 --> 00:00:52.400
+of millions per hour or in billions per day.
+
+00:00:52.400 --> 00:00:55.310
+And it's not just the economic impact. Many of
+
+00:00:55.310 --> 00:00:57.760
+the other critical infrastructure, such
+
+00:00:57.760 --> 00:01:01.670
+as healthcare, that depend on the internet will
+
+00:01:01.670 --> 00:01:05.040
+be severely affected as well. Now, what
+
+00:01:05.040 --> 00:01:08.690
+if we have an internet outage lasting weeks or
+
+00:01:08.690 --> 00:01:11.880
+months and spanning large areas across
+
+00:01:11.880 --> 00:01:17.080
+the globe? One might think that such a global outage
+
+00:01:17.080 --> 00:01:19.240
+is never going to happen because the
+
+00:01:19.240 --> 00:01:22.600
+internet is a resilient distributed system, which
+
+00:01:22.600 --> 00:01:24.800
+successfully withstood several natural
+
+00:01:24.800 --> 00:01:29.050
+disasters and man-made attacks in the past.
+
+00:01:29.050 --> 00:01:31.960
+Unfortunately, this is a worst case scenario
+
+00:01:31.960 --> 00:01:37.130
+that could happen in our lifetime. The next once
+
+00:01:37.130 --> 00:01:39.200
+in a hundred year disaster after this
+
+00:01:39.200 --> 00:01:41.860
+pandemic could be a solar super storm that is
+
+00:01:41.860 --> 00:01:44.400
+capable of taking down large parts of the
+
+00:01:44.400 --> 00:01:47.350
+internet. Today, network researchers and
+
+00:01:47.350 --> 00:01:50.820
+operators overlook this threat while building our
+
+00:01:50.820 --> 00:01:52.600
+infrastructure.
+
+00:01:52.600 --> 00:01:56.170
+In this talk, I present a deeper view of this
+
+00:01:56.170 --> 00:01:59.720
+natural disaster and its impact on various
+
+00:01:59.720 --> 00:02:03.970
+internet infrastructure components. There are two
+
+00:02:03.970 --> 00:02:07.720
+types of solar events that are popularly
+
+00:02:07.720 --> 00:02:12.540
+known as solar storms, solar flares and coronal
+
+00:02:12.540 --> 00:02:18.200
+mass ejections or CMEs. Their impact on global
+
+00:02:18.200 --> 00:02:22.170
+infrastructure varies widely. So solar flares
+
+00:02:22.170 --> 00:02:26.000
+involve large amounts of emitted energy as
+
+00:02:26.000 --> 00:02:29.390
+electromagnetic radiation. These are essentially
+
+00:02:29.390 --> 00:02:32.200
+flashes of light and they reach the earth
+
+00:02:32.200 --> 00:02:36.610
+in just eight minutes based on the speed of light.
+
+00:02:36.610 --> 00:02:39.920
+Fortunately, they mostly affect only
+
+00:02:39.920 --> 00:02:42.910
+the upper layers of the atmosphere and do not
+
+00:02:42.910 --> 00:02:47.920
+cause any damages to terrestrial infrastructure,
+
+00:02:47.920 --> 00:02:52.120
+but they do affect satellite communication. Coronal
+
+00:02:52.120 --> 00:02:55.720
+mass ejections or CMEs involve the
+
+00:02:55.720 --> 00:02:59.890
+emission of electrically charged solar matter and
+
+00:02:59.890 --> 00:03:03.840
+the accompanying magnetic field into space.
+
+00:03:03.840 --> 00:03:07.420
+And once these are emitted from the sun, they can
+
+00:03:07.420 --> 00:03:10.840
+take anywhere from 13 hours to five days
+
+00:03:10.840 --> 00:03:15.400
+to reach the earth based on their speed. And
+
+00:03:15.400 --> 00:03:18.240
+these CMEs are capable of causing significant
+
+00:03:18.240 --> 00:03:20.980
+damages to terrestrial infrastructure. Now CMEs
+
+00:03:20.980 --> 00:03:24.040
+are the focus of this talk and we'll
+
+00:03:24.040 --> 00:03:28.620
+discuss the impact more closely soon. Both solar
+
+00:03:28.620 --> 00:03:32.360
+flares and CMEs originate near sunspots,
+
+00:03:32.360 --> 00:03:35.640
+which are temporary dark spots on the sun caused
+
+00:03:35.640 --> 00:03:38.160
+by concentration of magnetic field
+
+00:03:38.160 --> 00:03:41.400
+flux. And when the number of sunspots increases,
+
+00:03:41.400 --> 00:03:44.160
+there is a higher probability of both solar
+
+00:03:44.160 --> 00:03:51.140
+flares and CMEs occurring. Now how do CMEs affect
+
+00:03:51.140 --> 00:03:54.360
+us? The magnetized emissions of coronal
+
+00:03:54.360 --> 00:03:58.210
+mass ejections are highly directional. And when
+
+00:03:58.210 --> 00:04:01.560
+the earth is in the direct path of a
+
+00:04:01.560 --> 00:04:05.070
+CME, it interacts with the earth's magnetic field
+
+00:04:05.070 --> 00:04:07.880
+and large electric fields are produced
+
+00:04:07.880 --> 00:04:12.970
+on the earth's surface through electromagnetic
+
+00:04:12.970 --> 00:04:15.360
+induction. And this induced electric field
+
+00:04:15.360 --> 00:04:18.780
+can cause geomagnetically induced currents to
+
+00:04:18.780 --> 00:04:21.600
+flow through long cables like internet
+
+00:04:21.600 --> 00:04:24.630
+cables or power transmission lines that have
+
+00:04:24.630 --> 00:04:27.400
+ground connections that are located far apart
+
+00:04:27.400 --> 00:04:29.990
+on the earth's crust. And these currents can
+
+00:04:29.990 --> 00:04:32.960
+cause significant damages to these long distance
+
+00:04:32.960 --> 00:04:36.600
+cables. And we know that cable repair, especially
+
+00:04:36.600 --> 00:04:39.310
+in the ocean on submarine cables is very
+
+00:04:39.310 --> 00:04:40.080
+expensive
+
+00:04:40.080 --> 00:04:42.730
+and time consuming. Now what are some of the
+
+00:04:42.730 --> 00:04:47.800
+characteristics of these induced currents?
+
+00:04:47.800 --> 00:04:50.260
+So here due to the orientation of the earth's
+
+00:04:50.260 --> 00:04:52.760
+magnetic field, higher latitudes are at a
+
+00:04:52.760 --> 00:04:55.490
+significantly higher risk. This is because the
+
+00:04:55.490 --> 00:04:57.920
+earth's magnetic poles are located closer
+
+00:04:57.920 --> 00:05:02.430
+to the geographic poles as well. And it's for the
+
+00:05:02.430 --> 00:05:05.320
+same reason that auroras are common
+
+00:05:05.320 --> 00:05:10.320
+closer to the poles than the equator. Now since
+
+00:05:10.320 --> 00:05:12.760
+the impact is caused by interaction
+
+00:05:12.760 --> 00:05:15.900
+with the earth's magnetic field, the induced
+
+00:05:15.900 --> 00:05:18.880
+currents can affect wide areas and they're
+
+00:05:18.880 --> 00:05:23.840
+not restricted to the portion of the earth that
+
+00:05:23.840 --> 00:05:26.800
+is facing the sun. And geomagnetically
+
+00:05:26.800 --> 00:05:30.080
+induced currents are only induced in cables with
+
+00:05:30.080 --> 00:05:32.800
+ground connections that are separated
+
+00:05:32.800 --> 00:05:36.870
+by large distances and have an electrical
+
+00:05:36.870 --> 00:05:41.360
+conductor that runs across that distance.
+
+00:05:41.360 --> 00:05:43.310
+Another interesting thing is that conductors
+
+00:05:43.310 --> 00:05:45.120
+along different orientations on earth are
+
+00:05:45.120 --> 00:05:47.750
+at equal risk. In other words, the north, south
+
+00:05:47.750 --> 00:05:49.840
+or east, west orientation of the cable
+
+00:05:49.840 --> 00:05:53.000
+does not influence the induced current. The
+
+00:05:53.000 --> 00:05:56.600
+induced electric fields can be in any direction.
+
+00:05:56.600 --> 00:05:59.530
+Now the most important question is when will a
+
+00:05:59.530 --> 00:06:02.480
+large event that actually affects us happen
+
+00:06:02.480 --> 00:06:07.480
+next? Solar events are extremely hard to predict,
+
+00:06:07.480 --> 00:06:09.840
+just like earthquakes or any other natural
+
+00:06:09.840 --> 00:06:13.350
+disasters. And small scale solar storms happen
+
+00:06:13.350 --> 00:06:16.720
+all the time. What we are more interested
+
+00:06:16.720 --> 00:06:20.500
+in are solar super storms that can have a
+
+00:06:20.500 --> 00:06:24.680
+significant impact on our lives. The largest
+
+00:06:24.680 --> 00:06:29.790
+solar events on record occurred in 1859 and 1921,
+
+00:06:29.790 --> 00:06:33.160
+long before the advent of modern technology
+
+00:06:33.160 --> 00:06:37.440
+and the modern internet. The 1859 event in
+
+00:06:37.440 --> 00:06:39.960
+particular is popularly known as the Carrington
+
+00:06:39.960 --> 00:06:43.970
+event. And both these events triggered extensive
+
+00:06:43.970 --> 00:06:47.600
+power outages across the globe and also caused
+
+00:06:47.600 --> 00:06:50.300
+significant damages to the communication network
+
+00:06:50.300 --> 00:06:54.400
+of that time, which was the telegraph network.
+
+00:06:54.400 --> 00:06:59.350
+A Carrington scale event missed the earth by just
+
+00:06:59.350 --> 00:07:03.640
+one week back in 2012. And the estimates
+
+00:07:03.640 --> 00:07:05.720
+for probability of occurrence of such extreme
+
+00:07:05.720 --> 00:07:07.840
+space weather, like the Carrington event of
+
+00:07:07.840 --> 00:07:13.400
+the 1921 event, that directly impact the earth,
+
+00:07:13.400 --> 00:07:18.560
+ranges from 1.6% to 12% per decade. But that's
+
+00:07:18.560 --> 00:07:22.040
+not all. The risk is not uniform because the
+
+00:07:22.040 --> 00:07:25.480
+solar activity goes through cycles. So here
+
+00:07:25.480 --> 00:07:29.020
+we have the variation in the number of sunspots
+
+00:07:29.020 --> 00:07:32.440
+across years. And so on the y-axis, we have
+
+00:07:32.440 --> 00:07:35.450
+the number of sunspots and we have different
+
+00:07:35.450 --> 00:07:39.680
+years from 1700 to 2020. And here we can see
+
+00:07:39.680 --> 00:07:43.970
+that solar activity waxes and wanes in cycles of
+
+00:07:43.970 --> 00:07:48.320
+period length approximately 11 years. And
+
+00:07:48.320 --> 00:07:52.050
+during solar maxima, there's an increase in the
+
+00:07:52.050 --> 00:07:54.400
+frequency of CMEs. In addition to the
+
+00:07:54.400 --> 00:07:57.750
+11 year cycle, the solar activity also goes
+
+00:07:57.750 --> 00:08:00.920
+through a longer term cycle of approximately
+
+00:08:00.920 --> 00:08:03.860
+80 to 100 years. And this is called Gleisberg
+
+00:08:03.860 --> 00:08:07.960
+cycle. And the peak solar activity, the peak
+
+00:08:07.960 --> 00:08:11.680
+across these different solar cycles can vary
+
+00:08:11.680 --> 00:08:16.760
+across the 100 year period. And this causes
+
+00:08:16.760 --> 00:08:20.420
+the frequency of CMEs to vary by a factor of four
+
+00:08:20.420 --> 00:08:23.280
+across the strongest and the weakest
+
+00:08:23.280 --> 00:08:29.040
+cycles in a 100 year cycle. Now, if we look
+
+00:08:29.040 --> 00:08:31.800
+closely at this plot, we can see that the
+
+00:08:31.800 --> 00:08:35.020
+last three decades, where modern technological
+
+00:08:35.020 --> 00:08:38.160
+advancement happened, and most of the internet
+
+00:08:38.160 --> 00:08:42.890
+infrastructure was laid down, coincided with the
+
+00:08:42.890 --> 00:08:46.120
+period of weak solar activity. In the
+
+00:08:46.120 --> 00:08:49.100
+last three decades. Now we are at the beginning
+
+00:08:49.100 --> 00:08:52.480
+of solar cycle 25, and the sun is expected
+
+00:08:52.480 --> 00:08:56.930
+to become more active in the near future. And due
+
+00:08:56.930 --> 00:08:59.880
+to the absence of extreme activity
+
+00:08:59.880 --> 00:09:03.240
+in the recent past, we have overlooked the impact
+
+00:09:03.240 --> 00:09:06.760
+of these events on the internet infrastructure.
+
+00:09:06.760 --> 00:09:09.470
+So the bottom line here is that a large event
+
+00:09:09.470 --> 00:09:12.560
+could happen sometime during our lifetime.
+
+00:09:12.560 --> 00:09:15.810
+And the impact is big enough that we should
+
+00:09:15.810 --> 00:09:20.560
+prepare our infrastructure for it. Now, the
+
+00:09:20.560 --> 00:09:24.300
+next interesting question is how are various
+
+00:09:24.300 --> 00:09:27.720
+internet components affected? So let's start
+
+00:09:27.720 --> 00:09:30.340
+with wired infrastructure. Localized
+
+00:09:30.340 --> 00:09:32.890
+infrastructure such as data centers can be
+
+00:09:32.890 --> 00:09:33.920
+protected from
+
+00:09:33.920 --> 00:09:36.970
+voltage surges caused by these CMEs using
+
+00:09:36.970 --> 00:09:40.240
+transient voltage surge suppressors. And they
+
+00:09:40.240 --> 00:09:43.550
+are relatively inexpensive. So if your
+
+00:09:43.550 --> 00:09:47.630
+infrastructure is localized in some area, then it
+
+00:09:47.630 --> 00:09:48.160
+can be
+
+00:09:48.160 --> 00:09:52.120
+relatively easily protected. Long distance cables
+
+00:09:52.120 --> 00:09:55.280
+constitute the most vulnerable components
+
+00:09:55.280 --> 00:09:59.480
+in the internet infrastructure. So as we all know,
+
+00:09:59.480 --> 00:10:01.600
+today's long distance LAN and sub mini
+
+00:10:01.600 --> 00:10:05.640
+cables carry signals in optical fibers. And the
+
+00:10:05.640 --> 00:10:08.880
+optical fiber itself is immune to these
+
+00:10:08.880 --> 00:10:12.490
+geomagnetically induced currents because they
+
+00:10:12.490 --> 00:10:15.960
+carry light and not electricity. But very
+
+00:10:15.960 --> 00:10:20.470
+long cables have repeaters at 50 to 150 kilometer
+
+00:10:20.470 --> 00:10:24.040
+intervals, which are connected in series and
+
+00:10:24.040 --> 00:10:27.320
+powered by a conductor that runs along the length
+
+00:10:27.320 --> 00:10:30.000
+of the cable. And this conductor is
+
+00:10:30.000 --> 00:10:34.370
+susceptible to damages from induced currents. And
+
+00:10:34.370 --> 00:10:37.280
+today, we don't have good failure models
+
+00:10:37.280 --> 00:10:41.550
+to model the failure characteristics of long
+
+00:10:41.550 --> 00:10:44.880
+cables. But the induced voltage across these
+
+00:10:44.880 --> 00:10:48.400
+cables could be several magnitudes higher than
+
+00:10:48.400 --> 00:10:51.320
+what the power system associated with
+
+00:10:51.320 --> 00:10:55.280
+these cables are designed to handle. And today,
+
+00:10:55.280 --> 00:10:57.360
+submarine cables have not been stress tested
+
+00:10:57.360 --> 00:11:01.380
+under such large variations. So our long distance
+
+00:11:01.380 --> 00:11:04.880
+cables are vulnerable. Internet routers, just
+
+00:11:04.880 --> 00:11:07.740
+like data centers, can be protected from direct
+
+00:11:07.740 --> 00:11:10.520
+voltage surges using voltage suppressors.
+
+00:11:10.520 --> 00:11:15.100
+So they are safe. Now moving on to wireless
+
+00:11:15.100 --> 00:11:18.440
+infrastructure, satellites at high altitudes
+
+00:11:18.440 --> 00:11:22.810
+are directly exposed to these solar storms.
+
+00:11:22.810 --> 00:11:27.560
+Typically, they generally have radiation shielding
+
+00:11:27.560 --> 00:11:30.880
+for protection from high energy electrons.
+
+00:11:30.880 --> 00:11:33.800
+However, very strong storms can cause electrons
+
+00:11:33.800 --> 00:11:37.640
+to penetrate deep into the interior regions of a
+
+00:11:37.640 --> 00:11:41.240
+satellite and damage its electronic components.
+
+00:11:41.240 --> 00:11:44.350
+Solar storms can also cause drag on satellites,
+
+00:11:44.350 --> 00:11:47.080
+which can lead to satellites losing their
+
+00:11:47.080 --> 00:11:51.090
+orbit and re-entering the atmosphere and burning
+
+00:11:51.090 --> 00:11:54.160
+up. So very recently, in February 2022, we
+
+00:11:54.160 --> 00:11:58.020
+saw the news that 40 Starlink satellites were
+
+00:11:58.020 --> 00:12:01.800
+lost to a geomagnetic storm. When a small
+
+00:12:01.800 --> 00:12:04.480
+scale storm hit while the satellites were at
+
+00:12:04.480 --> 00:12:06.680
+lower altitudes, while they were being
+
+00:12:06.680 --> 00:12:11.110
+launched and before they were installed in their
+
+00:12:11.110 --> 00:12:14.400
+high altitude orbits. So satellites
+
+00:12:14.400 --> 00:12:18.140
+are known to be vulnerable to geomagnetic storms.
+
+00:12:18.140 --> 00:12:22.880
+Cell towers are located at the ground
+
+00:12:22.880 --> 00:12:26.670
+level and are protected from direct exposure by
+
+00:12:26.670 --> 00:12:29.920
+the atmosphere. Similarly, personal devices
+
+00:12:29.920 --> 00:12:33.800
+such as laptops and mobile phones are also safe.
+
+00:12:33.800 --> 00:12:36.680
+So to summarize, long distance cables
+
+00:12:36.680 --> 00:12:40.220
+and satellites are the most vulnerable components
+
+00:12:40.220 --> 00:12:42.560
+of the internet. Other components could suffer
+
+00:12:42.560 --> 00:12:48.330
+from power outages, but they're not susceptible
+
+00:12:48.330 --> 00:12:52.680
+to direct damages. To understand the impact
+
+00:12:52.680 --> 00:12:55.610
+on internet infrastructure, I looked at a broad
+
+00:12:55.610 --> 00:12:57.960
+set of data sets comprising of various
+
+00:12:57.960 --> 00:13:01.230
+internet components. The submarine cable map
+
+00:13:01.230 --> 00:13:04.200
+consists of submarine cables across the globe.
+
+00:13:04.200 --> 00:13:06.980
+The ITU cable map consists of land cable
+
+00:13:06.980 --> 00:13:10.310
+information from across the globe collected by
+
+00:13:10.310 --> 00:13:10.880
+various
+
+00:13:10.880 --> 00:13:14.720
+regional entities. The InterTubes data set
+
+00:13:14.720 --> 00:13:17.480
+includes long haul fiber cables in the United
+
+00:13:17.480 --> 00:13:21.290
+States. And I also look at publicly available
+
+00:13:21.290 --> 00:13:24.280
+internet exchange point location information
+
+00:13:24.280 --> 00:13:28.120
+and DNS root server locations. And finally,
+
+00:13:28.120 --> 00:13:31.800
+router locations with autonomous system mapping
+
+00:13:31.800 --> 00:13:36.600
+obtained from Kaida was also analyzed. So now let's
+
+00:13:36.600 --> 00:13:39.360
+look at some of the results. So
+
+00:13:39.360 --> 00:13:42.860
+we know that higher latitudes are more vulnerable
+
+00:13:42.860 --> 00:13:46.480
+to induced currents, particularly above 40
+
+00:13:46.480 --> 00:13:50.810
+degree threshold. So we evaluate the distribution
+
+00:13:50.810 --> 00:13:54.200
+of infrastructure components in this vulnerable
+
+00:13:54.200 --> 00:13:58.140
+latitude region. So here we have the probability
+
+00:13:58.140 --> 00:14:01.040
+density function across various latitudes
+
+00:14:01.040 --> 00:14:03.580
+plotted on the x-axis. And we look at the
+
+00:14:03.580 --> 00:14:06.720
+distribution of population as well as submarine
+
+00:14:06.720 --> 00:14:10.790
+cable endpoints. So here we see that the
+
+00:14:10.790 --> 00:14:14.920
+population is more concentrated on lower latitudes,
+
+00:14:14.920 --> 00:14:15.080
+while
+
+00:14:15.080 --> 00:14:18.750
+the infrastructure distribution is concentrated
+
+00:14:18.750 --> 00:14:22.840
+at higher latitudes. And this shows that the
+
+00:14:22.840 --> 00:14:26.210
+submarine cable endpoints, especially between the
+
+00:14:26.210 --> 00:14:28.840
+US and Europe, are highly concentrated
+
+00:14:28.840 --> 00:14:33.680
+at higher latitudes, which are more vulnerable.
+
+00:14:33.680 --> 00:14:35.880
+And next we look at a variety of other internet
+
+00:14:35.880 --> 00:14:39.280
+infrastructure components. So here we have again
+
+00:14:39.280 --> 00:14:42.640
+the distribution across various latitudes.
+
+00:14:42.640 --> 00:14:46.540
+On the x-axis, we have a latitude threshold. And
+
+00:14:46.540 --> 00:14:49.480
+on the y-axis, we have concentration of
+
+00:14:49.480 --> 00:14:53.800
+the infrastructure component above that threshold.
+
+00:14:53.800 --> 00:14:56.600
+So here we look at internet routers, IXPs,
+
+00:14:56.600 --> 00:15:00.930
+DNS root servers, and also the population. So the
+
+00:15:00.930 --> 00:15:05.080
+most vulnerable region, again, is above
+
+00:15:05.080 --> 00:15:08.830
+the 40 degree threshold. So that's towards the
+
+00:15:08.830 --> 00:15:11.560
+left of the dotted line at 40. And here
+
+00:15:11.560 --> 00:15:14.740
+we see that only about 16% of the world
+
+00:15:14.740 --> 00:15:19.410
+population is in this region, but about 35% to 45%
+
+00:15:19.410 --> 00:15:19.440
+of
+
+00:15:19.440 --> 00:15:23.190
+the various internet infrastructure components is
+
+00:15:23.190 --> 00:15:26.200
+in this vulnerable region. And this holds
+
+00:15:26.200 --> 00:15:29.190
+for other components as well. You can find more
+
+00:15:29.190 --> 00:15:31.440
+details in my paper. But the key takeaway
+
+00:15:31.440 --> 00:15:34.620
+is that the internet infrastructure is skewed
+
+00:15:34.620 --> 00:15:37.840
+towards more vulnerable regions when we consider
+
+00:15:37.840 --> 00:15:44.280
+the threat of solar solar storms. Next, we look
+
+00:15:44.280 --> 00:15:47.440
+at the cable length distribution. So
+
+00:15:47.440 --> 00:15:50.960
+here on the x-axis, we have cable length in
+
+00:15:50.960 --> 00:15:55.320
+kilometers in log scale. And this is a comparison
+
+00:15:55.320 --> 00:16:00.730
+of CDFs of lengths of land cables and submarine
+
+00:16:00.730 --> 00:16:03.640
+cables. And here the submarine data set is
+
+00:16:03.640 --> 00:16:07.550
+complete. It consists of all existing submarine
+
+00:16:07.550 --> 00:16:10.760
+cables that are currently active. The land
+
+00:16:10.760 --> 00:16:13.180
+cables obtained from the ITU data set is not
+
+00:16:13.180 --> 00:16:15.920
+complete, but it is the largest data set that
+
+00:16:15.920 --> 00:16:20.510
+was publicly available. And here, only cables
+
+00:16:20.510 --> 00:16:24.640
+that are longer than 150 kilometers needs
+
+00:16:24.640 --> 00:16:27.510
+repeaters and hence need the conductor along the
+
+00:16:27.510 --> 00:16:30.000
+length of the cable, which is vulnerable
+
+00:16:30.000 --> 00:16:35.740
+to failures. So here we observe that more than 70%
+
+00:16:35.740 --> 00:16:38.120
+of the cables on land don't need
+
+00:16:38.120 --> 00:16:42.290
+repeaters and hence are not vulnerable to the
+
+00:16:42.290 --> 00:16:45.320
+threat of induced currents. But only about
+
+00:16:45.320 --> 00:16:49.490
+20% of submarine cables are shorter than this
+
+00:16:49.490 --> 00:16:52.400
+threshold. So this means that nearly
+
+00:16:52.400 --> 00:16:56.220
+80% of submarine cables need repeaters and hence
+
+00:16:56.220 --> 00:16:59.200
+are susceptible to damages from induced
+
+00:16:59.200 --> 00:17:02.560
+currents. In short, submarine cables are more
+
+00:17:02.560 --> 00:17:08.600
+vulnerable than land cables under this threat.
+
+00:17:08.600 --> 00:17:12.570
+I also conducted a repeater failure analysis
+
+00:17:12.570 --> 00:17:16.480
+based on latitude-based failure models. So
+
+00:17:16.480 --> 00:17:20.180
+there are several interesting observations. The
+
+00:17:20.180 --> 00:17:22.920
+US faces a high risk of losing connectivity
+
+00:17:22.920 --> 00:17:25.820
+to Europe during a solar superstorm. This is
+
+00:17:25.820 --> 00:17:28.360
+because in the East Coast, most cables
+
+00:17:28.360 --> 00:17:31.830
+between the US and Europe are concentrated
+
+00:17:31.830 --> 00:17:35.160
+between the Northeast of the US and the UK,
+
+00:17:35.160 --> 00:17:37.840
+which is most likely done for low latency. And
+
+00:17:37.840 --> 00:17:39.680
+there are no connections from Florida
+
+00:17:39.680 --> 00:17:42.420
+to Southern Europe, which would be less
+
+00:17:42.420 --> 00:17:46.840
+vulnerable region. Fortunately, the cables
+
+00:17:46.840 --> 00:17:48.440
+between Brazil
+
+00:17:48.440 --> 00:17:52.100
+and Europe are less vulnerable. And it was also
+
+00:17:52.100 --> 00:17:54.760
+surprising to find that the cable between
+
+00:17:54.760 --> 00:17:58.030
+Brazil and Southern Europe is shorter than all
+
+00:17:58.030 --> 00:18:00.880
+the cables between the US and Europe.
+
+00:18:00.880 --> 00:18:04.580
+It's also located in the less vulnerable region
+
+00:18:04.580 --> 00:18:06.640
+closer to the equator.
+
+00:18:06.640 --> 00:18:09.670
+Looking at Asia, Singapore has a high chance of
+
+00:18:09.670 --> 00:18:13.320
+retaining connectivity to neighboring countries,
+
+00:18:13.320 --> 00:18:16.160
+even under severe storms. This is because the
+
+00:18:16.160 --> 00:18:18.600
+cables are much shorter and also located
+
+00:18:18.600 --> 00:18:24.290
+at lower latitudes, which are less vulnerable. So
+
+00:18:24.290 --> 00:18:25.840
+this is the country-level connectivity
+
+00:18:25.840 --> 00:18:30.500
+analysis. Next, we look at locations of public
+
+00:18:30.500 --> 00:18:31.000
+data
+
+00:18:31.000 --> 00:18:34.330
+centers across the globe. Here, red shows a
+
+00:18:34.330 --> 00:18:37.080
+higher density, followed by orange, and
+
+00:18:37.080 --> 00:18:40.090
+finally blue. We observe that data centers are
+
+00:18:40.090 --> 00:18:42.480
+concentrated in vulnerable high-latitude
+
+00:18:42.480 --> 00:18:46.040
+regions. And this observation also holds for hyperscale
+
+00:18:46.040 --> 00:18:48.720
+providers such as Google, Facebook,
+
+00:18:48.720 --> 00:18:52.830
+and Twitter. While these localized infrastructures
+
+00:18:52.830 --> 00:18:56.640
+won't suffer direct damages, access to these
+
+00:18:56.640 --> 00:19:02.720
+data centers can be affected. I also looked at
+
+00:19:02.720 --> 00:19:04.240
+other internet infrastructure
+
+00:19:04.240 --> 00:19:07.600
+components like domain name system. And with DNS,
+
+00:19:07.600 --> 00:19:10.160
+root servers are highly distributed and
+
+00:19:10.160 --> 00:19:14.560
+hence not vulnerable. And then autonomous systems,
+
+00:19:14.560 --> 00:19:17.280
+a large fraction of autonomous systems
+
+00:19:17.280 --> 00:19:21.900
+have a presence in vulnerable regions. But the
+
+00:19:21.900 --> 00:19:26.480
+vast majority of ASS have a small spread.
+
+00:19:26.480 --> 00:19:29.850
+And in the case of DNS servers, we only looked at
+
+00:19:29.850 --> 00:19:32.400
+root servers. Location data of top-level
+
+00:19:32.400 --> 00:19:36.990
+domain servers and other authoritative servers
+
+00:19:36.990 --> 00:19:39.080
+was not available.
+
+00:19:39.080 --> 00:19:42.420
+So these are some of the preliminary findings.
+
+00:19:42.420 --> 00:19:45.440
+And so this work leaves more questions than
+
+00:19:45.440 --> 00:19:51.920
+answers. So there is a lot of ongoing and future
+
+00:19:51.920 --> 00:19:52.400
+work.
+
+00:19:52.400 --> 00:19:55.160
+So this paper primarily looked at internet
+
+00:19:55.160 --> 00:19:58.000
+partitioning based on submarine cables alone.
+
+00:19:58.000 --> 00:20:00.740
+Now, understanding the impact on end-to-end
+
+00:20:00.740 --> 00:20:03.320
+behavior of applications remained an open
+
+00:20:03.320 --> 00:20:06.320
+challenge. So this needs to take into account
+
+00:20:06.320 --> 00:20:10.240
+both land and submarine cables.
+
+00:20:10.240 --> 00:20:12.570
+The primary analysis only looked at DNS root
+
+00:20:12.570 --> 00:20:14.800
+servers. To understand availability, we need
+
+00:20:14.800 --> 00:20:16.970
+to understand the distribution of the entire DNS
+
+00:20:16.970 --> 00:20:19.000
+infrastructure, including the top-level
+
+00:20:19.000 --> 00:20:21.530
+domain servers and authoritative servers, the
+
+00:20:21.530 --> 00:20:23.760
+extent of caching in these servers, and
+
+00:20:23.760 --> 00:20:30.110
+many other factors. Another interesting question
+
+00:20:30.110 --> 00:20:31.160
+is, how will
+
+00:20:31.160 --> 00:20:34.710
+AS level connectivity be affected by large-scale
+
+00:20:34.710 --> 00:20:40.120
+network partitioning? And this needs AS level
+
+00:20:40.120 --> 00:20:46.840
+connectivity analysis. Next, we need to, so in
+
+00:20:46.840 --> 00:20:48.040
+order to robustify
+
+00:20:48.040 --> 00:20:50.910
+the internet infrastructure, we need to devise
+
+00:20:50.910 --> 00:20:53.720
+solutions for improving long-term resilience
+
+00:20:53.720 --> 00:20:57.190
+of the infrastructure. So for example, this could
+
+00:20:57.190 --> 00:20:59.960
+involve adding new cables in locations
+
+00:20:59.960 --> 00:21:03.070
+that are less vulnerable. For example, between
+
+00:21:03.070 --> 00:21:05.720
+the US and Europe, do we need a cable that's
+
+00:21:05.720 --> 00:21:11.200
+further south to ensure resiliency? Another
+
+00:21:11.200 --> 00:21:13.120
+interesting direction is design of
+
+00:21:13.120 --> 00:21:17.060
+new inter-domain protocols that will improve path
+
+00:21:17.060 --> 00:21:20.360
+diversity in the wide area network during
+
+00:21:20.360 --> 00:21:26.570
+a disaster like a solar superstorm. Another very
+
+00:21:26.570 --> 00:21:30.920
+useful feature of CMEs is that
+
+00:21:30.920 --> 00:21:35.260
+it will reach the earth only 13 hours to 5 days
+
+00:21:35.260 --> 00:21:38.120
+after it originates at the sun. So this
+
+00:21:38.120 --> 00:21:40.620
+gives us a short interval to prepare for an
+
+00:21:40.620 --> 00:21:44.080
+impact. And this is unlike disasters like,
+
+00:21:44.080 --> 00:21:47.240
+for example, earthquake, where we have little to
+
+00:21:47.240 --> 00:21:52.280
+no warning. This CMEs will give us 13 hours
+
+00:21:52.280 --> 00:21:55.500
+to 5 days lead time. Now, how can we use this
+
+00:21:55.500 --> 00:21:57.400
+lead time effectively?
+
+00:21:57.400 --> 00:22:00.010
+We need to develop plans that will allow us to
+
+00:22:00.010 --> 00:22:02.200
+prepare for an impact. How should data
+
+00:22:02.200 --> 00:22:04.870
+centers react? What should internet services
+
+00:22:04.870 --> 00:22:08.320
+service providers do? Do we need to increase
+
+00:22:08.320 --> 00:22:11.690
+cache time of DNS entries? How should content
+
+00:22:11.690 --> 00:22:14.440
+providers distribute data across different
+
+00:22:14.440 --> 00:22:16.820
+data centers? If we know, if we have rough
+
+00:22:16.820 --> 00:22:21.480
+estimates of probability of network partitioning.
+
+00:22:21.480 --> 00:22:24.920
+And more broadly, we also need to rethink our
+
+00:22:24.920 --> 00:22:28.120
+models of failure analysis. Current best
+
+00:22:28.120 --> 00:22:31.020
+practices on fault tolerance and resilience
+
+00:22:31.020 --> 00:22:34.000
+evaluation in software systems rely on failure
+
+00:22:34.000 --> 00:22:38.200
+models that consider a limited number of failures.
+
+00:22:38.200 --> 00:22:40.720
+We need to test our systems under large scale
+
+00:22:40.720 --> 00:22:45.250
+failures and understand the behavior of our
+
+00:22:45.250 --> 00:22:50.800
+protocols under large scale network partitioning.
+
+00:22:50.800 --> 00:22:53.420
+Next, another interesting future direction is
+
+00:22:53.420 --> 00:22:56.280
+related to reconnecting a partitioned internet.
+
+00:22:56.280 --> 00:22:58.780
+After a solar superstorm, the internet may be
+
+00:22:58.780 --> 00:23:01.360
+partitioned due to failures in long distance
+
+00:23:01.360 --> 00:23:05.780
+cables or due to power outages in some regions
+
+00:23:05.780 --> 00:23:08.920
+that could last days or weeks. So we need
+
+00:23:08.920 --> 00:23:12.800
+to prepare with alternative solutions that can
+
+00:23:12.800 --> 00:23:16.920
+provide temporary connectivity after impact.
+
+00:23:16.920 --> 00:23:19.890
+So some examples could be internet connected
+
+00:23:19.890 --> 00:23:22.920
+balloons or high altitude platform stations
+
+00:23:22.920 --> 00:23:25.440
+that are mobile and typically deployed in the
+
+00:23:25.440 --> 00:23:28.640
+stratosphere at heights of about 20 kilometers.
+
+00:23:28.640 --> 00:23:31.260
+Ideally, they should rely on renewable power
+
+00:23:31.260 --> 00:23:33.680
+sources such as solar energy to guarantee
+
+00:23:33.680 --> 00:23:36.870
+connectivity even during power outages. So there
+
+00:23:36.870 --> 00:23:38.880
+is some research in these areas, but
+
+00:23:38.880 --> 00:23:44.220
+these are avenues that are worth exploring. And
+
+00:23:44.220 --> 00:23:48.600
+finally, another very important factor
+
+00:23:48.600 --> 00:23:52.050
+that we typically overlook today is the interdependence
+
+00:23:52.050 --> 00:23:55.280
+of the internet with power grids. Now, both
+
+00:23:55.280 --> 00:23:59.030
+internet and power grids are designated as
+
+00:23:59.030 --> 00:24:02.400
+uniquely critical because all other critical
+
+00:24:02.400 --> 00:24:06.340
+sectors rely on them. They are also interdependent
+
+00:24:06.340 --> 00:24:09.440
+on each other and both are susceptible to
+
+00:24:09.440 --> 00:24:12.840
+failures from solar superstorms. Hence, we need
+
+00:24:12.840 --> 00:24:15.800
+to study the joint failure characteristics
+
+00:24:15.800 --> 00:24:19.080
+on this complex interdependent system under solar
+
+00:24:19.080 --> 00:24:21.360
+storms as well as other large scale
+
+00:24:21.360 --> 00:24:26.080
+disasters. There are some interesting features
+
+00:24:26.080 --> 00:24:29.480
+here because they have very different failure
+
+00:24:29.480 --> 00:24:33.050
+characteristics. For example, in the US, there
+
+00:24:33.050 --> 00:24:36.720
+are three regional power grids, the Eastern
+
+00:24:36.720 --> 00:24:38.600
+Interconnection, Western Interconnection and the
+
+00:24:38.600 --> 00:24:41.480
+Texas Interconnection. Now, if the power
+
+00:24:41.480 --> 00:24:46.150
+grid in New York fails, it will only affect the
+
+00:24:46.150 --> 00:24:49.920
+Eastern region and will not cause any
+
+00:24:49.920 --> 00:24:52.380
+effects on the power grid in say, California,
+
+00:24:52.380 --> 00:24:55.640
+which is on the west. The northeast will be
+
+00:24:55.640 --> 00:24:58.200
+without power, but it's not possible to transfer
+
+00:24:58.200 --> 00:25:00.600
+electricity from the west to the east because
+
+00:25:00.600 --> 00:25:04.240
+these power grids are disconnected. Now, on the
+
+00:25:04.240 --> 00:25:07.680
+other hand, if you look at internet connections,
+
+00:25:07.680 --> 00:25:10.970
+if all internet connection to the east coast
+
+00:25:10.970 --> 00:25:15.000
+fails, there'll be significant shifts in BDB
+
+00:25:15.000 --> 00:25:19.650
+paths across the globe and potential overload in
+
+00:25:19.650 --> 00:25:23.400
+network cables on the west coast. So, in
+
+00:25:23.400 --> 00:25:26.440
+short, the internet is more global compared to
+
+00:25:26.440 --> 00:25:28.960
+power grids and even regional failures
+
+00:25:28.960 --> 00:25:33.220
+can result in significant consequences and churn
+
+00:25:33.220 --> 00:25:36.680
+across the broader internet. So, understanding
+
+00:25:36.680 --> 00:25:40.200
+their interdependency is an open question. So,
+
+00:25:40.200 --> 00:25:42.760
+these are just a few of the open problems.
+
+00:25:42.760 --> 00:25:46.700
+There are many, many more. So, with that, I'll
+
+00:25:46.700 --> 00:25:51.440
+end the talk with a summary. So, space
+
+00:25:51.440 --> 00:25:55.170
+weather, particularly coronal mass ejections from
+
+00:25:55.170 --> 00:25:57.720
+the sun, poses significant risk to our
+
+00:25:57.720 --> 00:26:00.780
+internet infrastructure. And the current
+
+00:26:00.780 --> 00:26:04.540
+infrastructure has not been stress tested under
+
+00:26:04.540 --> 00:26:05.280
+strong solar
+
+00:26:05.280 --> 00:26:08.670
+events because modern technological advancement
+
+00:26:08.670 --> 00:26:11.640
+coincided with the period of weak solar activity.
+
+00:26:11.640 --> 00:26:14.920
+So, the complete extent of threat is yet to be
+
+00:26:14.920 --> 00:26:18.000
+estimated. This is just the first work
+
+00:26:18.000 --> 00:26:22.970
+in that direction. Internet infrastructure
+
+00:26:22.970 --> 00:26:25.400
+components are currently skewed towards highly
+
+00:26:25.400 --> 00:26:29.420
+vulnerable regions in the higher latitudes. So,
+
+00:26:29.420 --> 00:26:32.840
+we need to think about improving the overall
+
+00:26:32.840 --> 00:26:35.840
+end-to-end resilience. And at a high level, we
+
+00:26:35.840 --> 00:26:38.480
+need to work towards better understanding
+
+00:26:38.480 --> 00:26:42.410
+and improving the resilience of the global
+
+00:26:42.410 --> 00:26:45.480
+internet infrastructure. Thank you. Thanks
+
+00:26:45.480 --> 00:26:47.820
+for listening to my talk. And I'll be happy to
+
+00:26:47.820 --> 00:26:49.400
+take questions after this.
+

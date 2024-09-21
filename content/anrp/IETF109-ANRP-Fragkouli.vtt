@@ -1,0 +1,1256 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:04.320
+Hello, today I will present to you our work on
+
+00:00:04.320 --> 00:00:06.960
+reconciling anonymity with internet performance
+
+00:00:06.960 --> 00:00:09.680
+transparency. This is joint work with my
+
+00:00:09.680 --> 00:00:13.320
+supervisors at EPFL, Katerina Alkiraki and Brian
+
+00:00:13.320 --> 00:00:15.240
+Hoon.
+
+00:00:15.240 --> 00:00:17.750
+In today's internet, when packets are lost or
+
+00:00:17.750 --> 00:00:20.040
+delayed beyond expectation, there is no
+
+00:00:20.040 --> 00:00:23.010
+systematic way to identify the network where the
+
+00:00:23.010 --> 00:00:25.200
+problem has occurred. This has important
+
+00:00:25.200 --> 00:00:28.200
+implications to network users. First, users
+
+00:00:28.200 --> 00:00:31.320
+cannot check whether internet service providers
+
+00:00:31.320 --> 00:00:35.340
+meet service level agreements. For example, if an
+
+00:00:35.340 --> 00:00:38.000
+ISP honors a less than 1% packet loss
+
+00:00:38.000 --> 00:00:41.360
+promise. Second, users cannot check ISP
+
+00:00:41.360 --> 00:00:45.060
+compliance with neutrality regulations. Consider
+
+00:00:45.060 --> 00:00:45.080
+the
+
+00:00:45.080 --> 00:00:47.930
+scenario on this slide where a broadband ISP
+
+00:00:47.930 --> 00:00:51.120
+receives all traffic, this is video streaming
+
+00:00:51.120 --> 00:00:54.670
+traffic originating at Netflix and other traffic
+
+00:00:54.670 --> 00:00:57.040
+through the same inter-domain link. At some
+
+00:00:57.040 --> 00:01:00.140
+point, Netflix streaming quality deteriorates due
+
+00:01:00.140 --> 00:01:02.480
+to large delays, begging the question
+
+00:01:02.480 --> 00:01:06.400
+why exactly? This results in a peering dispute
+
+00:01:06.400 --> 00:01:09.960
+similar to the one between Netflix and Verizon.
+
+00:01:09.960 --> 00:01:13.710
+Netflix blames the ISP for discriminating against
+
+00:01:13.710 --> 00:01:16.240
+Netflix traffic while the ISP says
+
+00:01:16.240 --> 00:01:19.540
+I am doing nothing wrong, it just so happens that
+
+00:01:19.540 --> 00:01:22.320
+the inter-domain link is congested. The
+
+00:01:22.320 --> 00:01:25.090
+result is an ongoing dispute during which Netflix
+
+00:01:25.090 --> 00:01:27.280
+users experience bad video streaming
+
+00:01:27.280 --> 00:01:30.350
+quality. So what we need is more internet
+
+00:01:30.350 --> 00:01:33.720
+performance transparency. In other words,
+
+00:01:33.720 --> 00:01:36.350
+we need more visibility into the performance of
+
+00:01:36.350 --> 00:01:39.200
+the various networks that make up the internet.
+
+00:01:39.200 --> 00:01:41.530
+Having more transparency would enable network
+
+00:01:41.530 --> 00:01:44.080
+users to trivially check service level agreements
+
+00:01:44.080 --> 00:01:48.540
+and neutrality regulations. However, transparency
+
+00:01:48.540 --> 00:01:52.240
+comes at the cost of anonymity. In particular,
+
+00:01:52.240 --> 00:01:54.420
+popular non-limiting networks like Tor
+
+00:01:54.420 --> 00:01:56.630
+fundamentally rely on limited internet
+
+00:01:56.630 --> 00:01:58.200
+performance transparency
+
+00:01:58.200 --> 00:02:01.080
+in order to achieve their non-limited goals. And
+
+00:02:01.080 --> 00:02:03.720
+this is because at a higher level, anonymity
+
+00:02:03.720 --> 00:02:06.230
+relies on hiding the communication patterns of
+
+00:02:06.230 --> 00:02:08.560
+users while transparency brings them into
+
+00:02:08.560 --> 00:02:11.690
+light. Hence, the goal of this work is to
+
+00:02:11.690 --> 00:02:15.160
+reconcile both transparency and anonymity.
+
+00:02:15.160 --> 00:02:18.360
+But first, let me recap the properties of Tor
+
+00:02:18.360 --> 00:02:21.160
+that are relevant to this talk. Imagine
+
+00:02:21.160 --> 00:02:23.910
+two users, Alice and Bob, that use Tor to
+
+00:02:23.910 --> 00:02:26.680
+communicate with each other. And they do so
+
+00:02:26.680 --> 00:02:29.780
+by exchanging a series of packet counts we call a
+
+00:02:29.780 --> 00:02:32.440
+flow. For example, here Alice talks
+
+00:02:32.440 --> 00:02:35.110
+to Bob by sending to him a certain number of
+
+00:02:35.110 --> 00:02:37.920
+packets during the first time unit, then
+
+00:02:37.920 --> 00:02:41.380
+fewer packets during the second time unit, and it
+
+00:02:41.380 --> 00:02:44.520
+continues like that. Tor is these three
+
+00:02:44.520 --> 00:02:47.280
+relay nodes in the middle, or equivalently this
+
+00:02:47.280 --> 00:02:50.840
+onion, that provides the following property.
+
+00:02:50.840 --> 00:02:53.580
+An adversary sitting at either position 1 or
+
+00:02:53.580 --> 00:02:56.400
+position 2 cannot tell that Alice is talking
+
+00:02:56.400 --> 00:03:00.140
+to Bob. However, prior work shows that given
+
+00:03:00.140 --> 00:03:02.960
+enough location diversity of the adversary,
+
+00:03:02.960 --> 00:03:06.130
+she can de-anonymise traffic. In this example, if
+
+00:03:06.130 --> 00:03:08.520
+Eve, the adversary, is present at both
+
+00:03:08.520 --> 00:03:11.120
+locations 1 and 2, she can potentially tell with
+
+00:03:11.120 --> 00:03:13.080
+high confidence that Alice is talking
+
+00:03:13.080 --> 00:03:16.170
+to Bob. This is true when Eve sees independent
+
+00:03:16.170 --> 00:03:19.080
+downsampled versions of the actual packet
+
+00:03:19.080 --> 00:03:22.030
+flow at the two locations, but it is also true if
+
+00:03:22.030 --> 00:03:24.160
+Eve does not observe a single flow
+
+00:03:24.160 --> 00:03:26.880
+at location 2, but instead an aggregate which is
+
+00:03:26.880 --> 00:03:29.080
+a composite of flows, the red and green
+
+00:03:29.080 --> 00:03:32.520
+one here. The good news is that in today's
+
+00:03:32.520 --> 00:03:35.000
+Internet, that operates in the absence of
+
+00:03:35.000 --> 00:03:37.760
+any transparency system, it is still reasonable
+
+00:03:37.760 --> 00:03:40.400
+to assume that such a global passive adversary
+
+00:03:40.400 --> 00:03:45.810
+is rare. Let us take a step back. Tor is an
+
+00:03:45.810 --> 00:03:46.560
+overlay
+
+00:03:46.560 --> 00:03:48.950
+over the network of ISPs that make up the
+
+00:03:48.950 --> 00:03:52.080
+Internet. We argued that we need more Internet
+
+00:03:52.080 --> 00:03:54.960
+performance transparency, so let us explain what
+
+00:03:54.960 --> 00:03:57.040
+is a transparency system and what are
+
+00:03:57.040 --> 00:04:01.360
+its implications on anonymity. Building
+
+00:04:01.360 --> 00:04:04.070
+transparency into the Internet fabric boils down
+
+00:04:04.070 --> 00:04:05.080
+to networks
+
+00:04:05.080 --> 00:04:07.740
+like ISPs that publish information about the
+
+00:04:07.740 --> 00:04:10.360
+traffic they observe at their boundaries,
+
+00:04:10.360 --> 00:04:12.890
+and then Internet users, regulators, and the
+
+00:04:12.890 --> 00:04:15.400
+networks themselves that use this published
+
+00:04:15.400 --> 00:04:18.840
+information to analyse its others' performance.
+
+00:04:18.840 --> 00:04:21.230
+In particular, if an ISP joins such a
+
+00:04:21.230 --> 00:04:22.320
+transparency
+
+00:04:22.320 --> 00:04:25.410
+system, it would have to deploy special witness
+
+00:04:25.410 --> 00:04:29.520
+logic where traffic enters and exits the domain.
+
+00:04:29.520 --> 00:04:33.440
+You can see that as the orange nodes on the slide.
+
+00:04:33.440 --> 00:04:35.560
+Witnesses observe traffic and periodically
+
+00:04:35.560 --> 00:04:38.120
+send packet reports on traffic aggregates to a
+
+00:04:38.120 --> 00:04:40.200
+logically centralised entity we call
+
+00:04:40.200 --> 00:04:44.210
+the ledger. Upon having all these reports, the
+
+00:04:44.210 --> 00:04:46.960
+ledger and anyone who has access to it
+
+00:04:46.960 --> 00:04:49.580
+can trace problematic behaviour to specific areas
+
+00:04:49.580 --> 00:04:51.680
+and check for compliance with service
+
+00:04:51.680 --> 00:04:55.610
+level agreements and neutrality. However, as you
+
+00:04:55.610 --> 00:04:57.960
+might have guessed, by deploying a
+
+00:04:57.960 --> 00:05:00.690
+hidden transparency system, we are essentially
+
+00:05:00.690 --> 00:05:04.880
+introducing a powerful global passive adversary.
+
+00:05:04.880 --> 00:05:07.680
+So this talk is about assessing what this new
+
+00:05:07.680 --> 00:05:10.720
+powerful adversary could do to anonymity,
+
+00:05:10.720 --> 00:05:14.300
+and then given the risk, reconciling the need for
+
+00:05:14.300 --> 00:05:17.040
+both transparency and anonymity. Here
+
+00:05:17.040 --> 00:05:20.110
+is the roadmap of this talk. After describing the
+
+00:05:20.110 --> 00:05:22.920
+metric we used to quantify anonymity,
+
+00:05:22.920 --> 00:05:25.830
+we will assess the risk that a basic transparency
+
+00:05:25.830 --> 00:05:28.840
+system would pose to anonymity. Then, to strike
+
+00:05:28.840 --> 00:05:31.870
+a good balance between anonymity and transparency,
+
+00:05:31.870 --> 00:05:34.160
+we will continue with our solution, which
+
+00:05:34.160 --> 00:05:38.400
+is adjusting the time granularity of the reports.
+
+00:05:38.400 --> 00:05:41.440
+We will conclude with some experimental results
+
+00:05:41.440 --> 00:05:44.960
+and future work. We are considering an adversary
+
+00:05:44.960 --> 00:05:47.600
+who aims to trace the target flow, for example
+
+00:05:47.600 --> 00:05:50.520
+this one that Alice is using to communicate with
+
+00:05:50.520 --> 00:05:53.080
+Bob. Let's assume that this flow is
+
+00:05:53.080 --> 00:05:57.280
+truly contained in the red and green aggregate.
+
+00:05:57.280 --> 00:05:59.600
+Now, suppose that concurrent to this aggregate,
+
+00:05:59.600 --> 00:06:02.600
+the transparency system publishes two more aggregates,
+
+00:06:02.600 --> 00:06:05.040
+the black ones on the slide. Then,
+
+00:06:05.040 --> 00:06:07.850
+the adversary's goal reduced to determining which
+
+00:06:07.850 --> 00:06:09.880
+of these aggregates are more likely
+
+00:06:09.880 --> 00:06:13.070
+to contain the target flow. The adversary has the
+
+00:06:13.070 --> 00:06:15.360
+following information. She sees the
+
+00:06:15.360 --> 00:06:17.930
+flow's pattern, as well as the pattern of each of
+
+00:06:17.930 --> 00:06:20.440
+the aggregates published by the transparency
+
+00:06:20.440 --> 00:06:24.370
+system within the given time interval. What we
+
+00:06:24.370 --> 00:06:26.720
+are searching for is an anonymity metric
+
+00:06:26.720 --> 00:06:29.420
+that has the following properties. If the
+
+00:06:29.420 --> 00:06:32.480
+adversary has no information, or equivalently
+
+00:06:32.480 --> 00:06:34.780
+if she believes that all three aggregates are
+
+00:06:34.780 --> 00:06:38.040
+equally likely to contain the target flow,
+
+00:06:38.040 --> 00:06:41.220
+anonymity should be high. If, however, Eve is
+
+00:06:41.220 --> 00:06:44.240
+sure that the flow is the correct aggregate,
+
+00:06:44.240 --> 00:06:46.590
+anonymity should be low. If Eve has some
+
+00:06:46.590 --> 00:06:49.630
+information, anonymity should lie somewhere in
+
+00:06:49.630 --> 00:06:50.200
+between
+
+00:06:50.200 --> 00:06:53.900
+these two anonymity points. So far, from what I
+
+00:06:53.900 --> 00:06:56.360
+have told you, it seems that the traditional
+
+00:06:56.360 --> 00:06:59.600
+anonymity set size is the metric we are seeking.
+
+00:06:59.600 --> 00:07:02.440
+This is true, except for when the adversary
+
+00:07:02.440 --> 00:07:05.910
+has misleading information. For example, if Eve
+
+00:07:05.910 --> 00:07:08.320
+is pretty sure that an incorrect aggregate
+
+00:07:08.320 --> 00:07:11.670
+includes the target flow, for example the bottom
+
+00:07:11.670 --> 00:07:14.080
+one on the slide. In this case, the
+
+00:07:14.080 --> 00:07:16.540
+traditional anonymity set size would give us low
+
+00:07:16.540 --> 00:07:19.520
+anonymity, the red point on the slide,
+
+00:07:19.520 --> 00:07:22.190
+but we argue that anonymity should be high, being
+
+00:07:22.190 --> 00:07:24.240
+the blue point on the slide, because
+
+00:07:24.240 --> 00:07:27.810
+in this case, misleading information is as if no
+
+00:07:27.810 --> 00:07:30.480
+information. Our metric, which we call
+
+00:07:30.480 --> 00:07:33.610
+the T-anonymity set size, addresses all this. You
+
+00:07:33.610 --> 00:07:35.800
+can find more information about it in
+
+00:07:35.800 --> 00:07:39.760
+our paper. Now it's time to assess the risk that
+
+00:07:39.760 --> 00:07:40.000
+the
+
+00:07:40.000 --> 00:07:43.100
+basic transparency system would pose anonymity.
+
+00:07:43.100 --> 00:07:46.080
+This experiment, as well as any other experiment
+
+00:07:46.080 --> 00:07:48.920
+I am presenting today, considers serial internet
+
+00:07:48.920 --> 00:07:51.440
+traffic traces obtained and made available
+
+00:07:51.440 --> 00:07:56.380
+by CAIDA in 2018. Here we have 50 target flows,
+
+00:07:56.380 --> 00:07:58.680
+each of them being contained in a separate
+
+00:07:58.680 --> 00:08:02.130
+aggregate out of 50 counted ones. The aggregates
+
+00:08:02.130 --> 00:08:04.440
+are dense in the sense that each of them is
+
+00:08:04.440 --> 00:08:09.270
+a composite of many flows, 512 here. The
+
+00:08:09.270 --> 00:08:12.160
+intuition is that dense aggregates are highly
+
+00:08:12.160 --> 00:08:12.640
+likely
+
+00:08:12.640 --> 00:08:15.550
+to hide the patterns of the individual flows
+
+00:08:15.550 --> 00:08:18.340
+because they simply contain many of them.
+
+00:08:18.340 --> 00:08:21.350
+The basic transparency system we are examining
+
+00:08:21.350 --> 00:08:24.440
+here reports packet counts on aggregates every
+
+00:08:24.440 --> 00:08:30.040
+1 ms. Let us now switch to the graph. On the y-axis,
+
+00:08:30.040 --> 00:08:32.970
+we see the cumulative distribution function, or
+
+00:08:32.970 --> 00:08:35.480
+simply CDF, and on the x-axis, we see our
+
+00:08:35.480 --> 00:08:39.000
+metric, the T-anonymity set size. A T-anonymity
+
+00:08:39.000 --> 00:08:41.720
+set size of 1 is the best-case scenario for
+
+00:08:41.720 --> 00:08:44.300
+the attacker, who successfully traces the target
+
+00:08:44.300 --> 00:08:46.200
+flow to the correct aggregate. On the
+
+00:08:46.200 --> 00:08:49.370
+other hand, a T-anonymity set size of 50 reflects
+
+00:08:49.370 --> 00:08:52.000
+the worst-case scenario for the attacker,
+
+00:08:52.000 --> 00:08:54.330
+because he thinks that all 50 aggregates are
+
+00:08:54.330 --> 00:08:56.560
+equally likely to contain the target flow.
+
+00:08:56.560 --> 00:08:59.470
+As a result, the attacker would like for the CDF
+
+00:08:59.470 --> 00:09:02.160
+of the T-anonymity set size to lie towards
+
+00:09:02.160 --> 00:09:06.360
+the left-hand side, while we aim for the opposite.
+
+00:09:06.360 --> 00:09:09.240
+The orange curve shows the CDF of the T-anonymity
+
+00:09:09.240 --> 00:09:11.880
+set size for the case of 1 second observation
+
+00:09:11.880 --> 00:09:15.320
+time interval. This is simply the time window
+
+00:09:15.320 --> 00:09:18.260
+during which the adversary knows the pattern of
+
+00:09:18.260 --> 00:09:21.040
+the target flow and all counted aggregates.
+
+00:09:21.040 --> 00:09:23.890
+As you can see, for the case of 1 second, things
+
+00:09:23.890 --> 00:09:26.280
+are pretty bad for the adversary, because
+
+00:09:26.280 --> 00:09:29.970
+now only a few flows have a fairly low T-anonymity
+
+00:09:29.970 --> 00:09:33.480
+set size. However, things change as we increase
+
+00:09:33.480 --> 00:09:36.750
+the observation time interval, from 1 second to
+
+00:09:36.750 --> 00:09:40.560
+10 seconds, 1 minute, and finally 10 minutes,
+
+00:09:40.560 --> 00:09:43.430
+because now we can see that the adversary can
+
+00:09:43.430 --> 00:09:46.040
+more and more reliably trace flows. In
+
+00:09:46.040 --> 00:09:48.690
+particular, for the case of 10 minutes, which
+
+00:09:48.690 --> 00:09:51.000
+corresponds to the green curve here, there
+
+00:09:51.000 --> 00:09:53.570
+are about 20% of the flows that are uniquely
+
+00:09:53.570 --> 00:09:57.560
+identifiable. Also, there are about 60% of
+
+00:09:57.560 --> 00:10:00.470
+the flows that are up to 5 anonymous, meaning
+
+00:10:00.470 --> 00:10:03.280
+that the adversary traces them to fewer than
+
+00:10:03.280 --> 00:10:07.090
+6 aggregates. To sum up, long observation time
+
+00:10:07.090 --> 00:10:10.000
+intervals can result in low anonymity
+
+00:10:10.000 --> 00:10:14.420
+for a number of flows, even in the case of dense
+
+00:10:14.420 --> 00:10:15.800
+aggregates.
+
+00:10:15.800 --> 00:10:17.620
+This brings us to the anonymity transparency
+
+00:10:17.620 --> 00:10:21.680
+trade-off. Today, we have TOR, and if we deploy
+
+00:10:21.680 --> 00:10:24.120
+a basic transparency system, we would have
+
+00:10:24.120 --> 00:10:26.800
+perfect transparency, as shown on this point
+
+00:10:26.800 --> 00:10:30.010
+here. This is because our transparency system can
+
+00:10:30.010 --> 00:10:32.480
+essentially report whatever we like at
+
+00:10:32.480 --> 00:10:36.180
+an arbitrary precision. However, anonymity can be
+
+00:10:36.180 --> 00:10:39.520
+bad, as I have just showed you. Adding
+
+00:10:39.520 --> 00:10:43.050
+differential privacy noise would be one approach.
+
+00:10:43.050 --> 00:10:46.440
+However, we would end up on this left corner,
+
+00:10:46.440 --> 00:10:48.360
+which essentially tells us that the rigorous
+
+00:10:48.360 --> 00:10:50.360
+differential privacy guarantees come at the
+
+00:10:50.360 --> 00:10:53.830
+cost of no transparency. You can find more
+
+00:10:53.830 --> 00:10:55.880
+information in the paper that shows that the
+
+00:10:55.880 --> 00:10:58.940
+straightforward application of differential
+
+00:10:58.940 --> 00:11:01.200
+privacy would not work in our context. And
+
+00:11:01.200 --> 00:11:03.430
+this is not surprising, because differential
+
+00:11:03.430 --> 00:11:05.560
+privacy is not meant to be used for verifying
+
+00:11:05.560 --> 00:11:09.440
+service level agreements or neutrality. Hence,
+
+00:11:09.440 --> 00:11:11.600
+the focus for the rest of this talk is how
+
+00:11:11.600 --> 00:11:14.790
+to strike a good balance between anonymity and
+
+00:11:14.790 --> 00:11:16.080
+transparency.
+
+00:11:16.080 --> 00:11:19.280
+However, improving anonymity is not easy, as our
+
+00:11:19.280 --> 00:11:21.440
+solution must take into account two
+
+00:11:21.440 --> 00:11:24.790
+more constraints. First, the TIE SPs must hide
+
+00:11:24.790 --> 00:11:27.360
+all flows, because any of them could
+
+00:11:27.360 --> 00:11:30.270
+be a possible target. For example, for this
+
+00:11:30.270 --> 00:11:32.800
+aggregate shown on the slide, we don't know
+
+00:11:32.800 --> 00:11:36.200
+a priori which of the flows will be targeted. It
+
+00:11:36.200 --> 00:11:39.280
+could be either the red or the green flow.
+
+00:11:39.280 --> 00:11:42.460
+Second, ISPs must make local decisions, because
+
+00:11:42.460 --> 00:11:44.960
+we would like for them to avoid any kind of
+
+00:11:44.960 --> 00:11:49.520
+coordination, because these are different
+
+00:11:49.520 --> 00:11:50.680
+administrative domains.
+
+00:11:50.680 --> 00:11:52.370
+We've seen that if we add performance
+
+00:11:52.370 --> 00:11:54.450
+transparency to the Internet, and without
+
+00:11:54.450 --> 00:11:55.080
+thinking much
+
+00:11:55.080 --> 00:11:58.760
+about it, there is indeed a damage to anonymity.
+
+00:11:58.760 --> 00:12:01.600
+To alleviate this damage, we propose that ISPs
+
+00:12:01.600 --> 00:12:04.380
+caution the time granularity of the packet
+
+00:12:04.380 --> 00:12:07.560
+reports before publishing them to the ledger.
+
+00:12:07.560 --> 00:12:10.840
+Intuitively what that means is that coarser time
+
+00:12:10.840 --> 00:12:14.120
+granularity better hides the flow patterns,
+
+00:12:14.120 --> 00:12:16.380
+because it results in the loss of fine-grained
+
+00:12:16.380 --> 00:12:18.600
+information that would enable a good pattern
+
+00:12:18.600 --> 00:12:21.830
+matching between flows and aggregates. However,
+
+00:12:21.830 --> 00:12:25.040
+it is the very same loss of detail that impacts
+
+00:12:25.040 --> 00:12:28.350
+report utility, because the ledger may now not be
+
+00:12:28.350 --> 00:12:30.600
+able to precisely localise in time
+
+00:12:30.600 --> 00:12:34.640
+certain events, for example bursts of packet loss.
+
+00:12:34.640 --> 00:12:37.540
+Still, compared to additive noise methods like
+
+00:12:37.540 --> 00:12:40.080
+differential privacy, the advantage of
+
+00:12:40.080 --> 00:12:43.800
+our method lies on the reliability of the reports
+
+00:12:43.800 --> 00:12:46.280
+it produces. Packet loss rates computed
+
+00:12:46.280 --> 00:12:49.280
+from accurate yet coarser reports will also be
+
+00:12:49.280 --> 00:12:52.240
+perfectly accurate, albeit averaged over
+
+00:12:52.240 --> 00:12:55.590
+longer time intervals. Let me show you how our
+
+00:12:55.590 --> 00:12:57.560
+algorithm operates.
+
+00:12:57.560 --> 00:13:00.680
+On the right, we see the input of the algorithm.
+
+00:13:00.680 --> 00:13:03.400
+This is packet counts over time for the red
+
+00:13:03.400 --> 00:13:07.370
+and green flow that make up an aggregate. Observe
+
+00:13:07.370 --> 00:13:09.280
+here that each packet count refers
+
+00:13:09.280 --> 00:13:13.580
+to a single time unit. Now, on the lower part, we
+
+00:13:13.580 --> 00:13:15.720
+see the output of the algorithm. We see
+
+00:13:15.720 --> 00:13:18.300
+again the same aggregate, namely packet counts
+
+00:13:18.300 --> 00:13:20.920
+over time, but now observe that the granularity
+
+00:13:20.920 --> 00:13:23.710
+for some of the reports is coarser than a single
+
+00:13:23.710 --> 00:13:26.280
+time unit. For example, for the first
+
+00:13:26.280 --> 00:13:29.480
+packet count, we see that it refers to both the
+
+00:13:29.480 --> 00:13:32.120
+first and the second time unit merged.
+
+00:13:32.120 --> 00:13:34.160
+The same happens to the next packet count, but
+
+00:13:34.160 --> 00:13:35.960
+then you can see that for the last packet
+
+00:13:35.960 --> 00:13:40.030
+count, it refers to a single time unit. Of course,
+
+00:13:40.030 --> 00:13:41.560
+the question here is how coarse
+
+00:13:41.560 --> 00:13:45.130
+to make the bins. For example, bins that last one
+
+00:13:45.130 --> 00:13:47.600
+year may not be so useful in the context
+
+00:13:47.600 --> 00:13:51.290
+of many applications. Given the coarsest granularity
+
+00:13:51.290 --> 00:13:53.880
+we would be willing to tolerate, say two time
+
+00:13:53.880 --> 00:13:58.400
+units, the next thing to do would be uniform binning.
+
+00:13:58.400 --> 00:14:01.120
+Under uniform binning, ISPs statically
+
+00:14:01.120 --> 00:14:04.540
+merge packet counts every two time units. However,
+
+00:14:04.540 --> 00:14:06.920
+this static binning might not always
+
+00:14:06.920 --> 00:14:09.750
+be the one that hides the most of flow patterns,
+
+00:14:09.750 --> 00:14:12.520
+in which case it also introduces unnecessary
+
+00:14:12.520 --> 00:14:18.480
+noise. What we propose instead is adaptive binning.
+
+00:14:18.480 --> 00:14:22.200
+When an upper acceptable time granularity, its ISP,
+
+00:14:22.200 --> 00:14:24.640
+dynamically decides how coarse or
+
+00:14:24.640 --> 00:14:27.840
+fine-grained the reported bins of an aggregate
+
+00:14:27.840 --> 00:14:30.880
+should be, so as to hide the worst of flow.
+
+00:14:30.880 --> 00:14:33.350
+You can think of this flow as a virtual flow,
+
+00:14:33.350 --> 00:14:35.920
+namely a composite of real flows, which has
+
+00:14:35.920 --> 00:14:39.720
+a property that leaks the most across real flows
+
+00:14:39.720 --> 00:14:41.600
+for a given binning.
+
+00:14:41.600 --> 00:14:44.010
+To better explain what I mean, let's go back to
+
+00:14:44.010 --> 00:14:46.000
+the previous example. On the right,
+
+00:14:46.000 --> 00:14:48.500
+we see again packet counts over time for an
+
+00:14:48.500 --> 00:14:50.560
+aggregate that consists of the red and green
+
+00:14:50.560 --> 00:14:53.680
+flow. On the left, we see the leakage for each of
+
+00:14:53.680 --> 00:14:56.680
+these flows. The goal of the adaptive
+
+00:14:56.680 --> 00:14:59.480
+binning technique is to improve the leakage for
+
+00:14:59.480 --> 00:15:01.960
+each flow, and this leakage captures the
+
+00:15:01.960 --> 00:15:05.260
+likelihood that the respective flow belongs to
+
+00:15:05.260 --> 00:15:07.160
+the correct aggregate.
+
+00:15:07.160 --> 00:15:10.000
+Here we have at least two options with respect to
+
+00:15:10.000 --> 00:15:12.160
+binning. We could bin with the red or the
+
+00:15:12.160 --> 00:15:15.420
+green flow in mind. When binning according to the
+
+00:15:15.420 --> 00:15:17.680
+red flow, our goal translates to hiding
+
+00:15:17.680 --> 00:15:20.750
+the vulnerable part of this flow, which is this
+
+00:15:20.750 --> 00:15:23.200
+packet burst that occurs in the first
+
+00:15:23.200 --> 00:15:27.480
+half of the observation window. One binning that
+
+00:15:27.480 --> 00:15:30.320
+accomplishes this goal is this one. In
+
+00:15:30.320 --> 00:15:32.840
+that case, the leakage for the red flow you can
+
+00:15:32.840 --> 00:15:35.040
+see that it improves, however this is
+
+00:15:35.040 --> 00:15:37.490
+not the case for the green flow, for which the
+
+00:15:37.490 --> 00:15:40.000
+leakage may stay the same or even increase,
+
+00:15:40.000 --> 00:15:45.000
+as is the case here. If we bin now according to
+
+00:15:45.000 --> 00:15:48.520
+the green flow, we would get similar results.
+
+00:15:48.520 --> 00:15:51.500
+The takeaway here is that we must co-optimize for
+
+00:15:51.500 --> 00:15:54.600
+both flows, because optimizing independently
+
+00:15:54.600 --> 00:15:58.000
+for each of them may result in some flow left
+
+00:15:58.000 --> 00:16:00.640
+exposed. And this is exactly what we do through
+
+00:16:00.640 --> 00:16:05.030
+the virtual flow construct. The purple binning
+
+00:16:05.030 --> 00:16:08.080
+shows the binning that minimizes the leakage
+
+00:16:08.080 --> 00:16:11.290
+for the virtual flow, which is this one here, and
+
+00:16:11.290 --> 00:16:13.440
+this flow upper bounds the leakage for
+
+00:16:13.440 --> 00:16:16.070
+both the red and the green flow. As a result, if
+
+00:16:16.070 --> 00:16:18.400
+you look at this purple point, both flows'
+
+00:16:18.400 --> 00:16:23.480
+leakage benefit from this binning. Now that I
+
+00:16:23.480 --> 00:16:25.320
+have presented to you our solution,
+
+00:16:25.320 --> 00:16:28.850
+it is time to evaluate how this solution improves
+
+00:16:28.850 --> 00:16:31.480
+flow anonymity. The experimental setup stays
+
+00:16:31.480 --> 00:16:34.900
+the same as before. The focus is on the 10-minute
+
+00:16:34.900 --> 00:16:37.640
+observation case that proved to be challenging
+
+00:16:37.640 --> 00:16:41.150
+before, because the attacker could de-anonymize a
+
+00:16:41.150 --> 00:16:44.240
+large number of flows. The graph shows again
+
+00:16:44.240 --> 00:16:47.950
+the CTF of the 10-unlimited set size. The green
+
+00:16:47.950 --> 00:16:50.520
+curve corresponds to the basic transparency
+
+00:16:50.520 --> 00:16:53.420
+system we have examined before, and the blue one
+
+00:16:53.420 --> 00:16:56.400
+corresponds to our adaptive binning solution,
+
+00:16:56.400 --> 00:16:59.260
+subject to the constraint that no bin can be
+
+00:16:59.260 --> 00:17:00.960
+larger than 64 ms.
+
+00:17:00.960 --> 00:17:04.280
+There are a few important things we can observe
+
+00:17:04.280 --> 00:17:08.080
+here. First, with our solution, uniquely identifiable
+
+00:17:08.080 --> 00:17:11.880
+flows no longer exist. Second, our solution achieves
+
+00:17:11.880 --> 00:17:15.360
+approximately a 4.4 times improvement
+
+00:17:15.360 --> 00:17:18.590
+for up to 5 anonymous flows, because you can see
+
+00:17:18.590 --> 00:17:21.120
+that there were around 60% of the flows
+
+00:17:21.120 --> 00:17:24.360
+that were up to 5 anonymous before, and we have
+
+00:17:24.360 --> 00:17:26.760
+managed to bring that down to less than
+
+00:17:26.760 --> 00:17:30.270
+2. But most importantly, these improvements are
+
+00:17:30.270 --> 00:17:33.000
+achieved at a sub-second granularity.
+
+00:17:33.000 --> 00:17:36.970
+Remember that here the coarse-spec bin is 64 ms.
+
+00:17:36.970 --> 00:17:38.520
+That means that many applications can
+
+00:17:38.520 --> 00:17:42.060
+benefit from the packet loss rates that our
+
+00:17:42.060 --> 00:17:43.760
+system exposes.
+
+00:17:43.760 --> 00:17:45.760
+In the paper, you can find an extensive
+
+00:17:45.760 --> 00:17:48.240
+evaluation of our algorithm that includes other
+
+00:17:48.240 --> 00:17:49.040
+experimental
+
+00:17:49.040 --> 00:17:51.980
+setups like sparse aggregates, Poisson traffic,
+
+00:17:51.980 --> 00:17:54.480
+and another special type of traffic we call
+
+00:17:54.480 --> 00:17:57.660
+ONO. The results I have presented to you today
+
+00:17:57.660 --> 00:18:00.680
+are representative of these other setups.
+
+00:18:00.680 --> 00:18:03.360
+Also, in the paper we examined the cost of
+
+00:18:03.360 --> 00:18:06.360
+differential privacy to report utility, and
+
+00:18:06.360 --> 00:18:09.050
+we also show that differential privacy noise
+
+00:18:09.050 --> 00:18:11.440
+would result in packet loss estimates that
+
+00:18:11.440 --> 00:18:14.900
+differ from the actual ones by tens of percentage
+
+00:18:14.900 --> 00:18:15.720
+points.
+
+00:18:15.720 --> 00:18:19.530
+Finally, you can see how our algorithm scales,
+
+00:18:19.530 --> 00:18:23.160
+meaning that our algorithm is deployable.
+
+00:18:23.160 --> 00:18:25.830
+To conclude, if not carefully thought,
+
+00:18:25.830 --> 00:18:29.320
+transparency can greatly damage the anonymity. We
+
+00:18:29.320 --> 00:18:29.560
+also
+
+00:18:29.560 --> 00:18:32.080
+find that adding noise to the traffic reports
+
+00:18:32.080 --> 00:18:34.600
+shows to ensure differential privacy would
+
+00:18:34.600 --> 00:18:37.210
+make the reports unusable in the context of a
+
+00:18:37.210 --> 00:18:39.920
+transparency system. Instead, we propose
+
+00:18:39.920 --> 00:18:43.420
+Morphit, an algorithm that courses the time-granularity
+
+00:18:43.420 --> 00:18:45.960
+of traffic reports in order to hide the flow
+
+00:18:45.960 --> 00:18:49.760
+patterns that are most vulnerable to tracing. Our
+
+00:18:49.760 --> 00:18:52.040
+solution navigates the anonymity-transparency
+
+00:18:52.040 --> 00:18:55.060
+trade-off in an intuitive way and proves to be
+
+00:18:55.060 --> 00:18:57.640
+useful in many realistic scenarios.
+
+00:18:57.640 --> 00:18:59.700
+Of course, there are many other aspects of
+
+00:18:59.700 --> 00:19:02.280
+interim performance transparency we are currently
+
+00:19:02.280 --> 00:19:05.030
+working on or we are interested to address in
+
+00:19:05.030 --> 00:19:07.960
+future work. For example, whether an alternative
+
+00:19:07.960 --> 00:19:10.810
+solution that leverages ISP coordination would
+
+00:19:10.810 --> 00:19:13.160
+achieve a better trade-off still remains an
+
+00:19:13.160 --> 00:19:16.790
+open question. Also, our ongoing work focuses on
+
+00:19:16.790 --> 00:19:20.240
+the trustworthiness of performance metrics,
+
+00:19:20.240 --> 00:19:22.900
+because to improve their competitiveness,
+
+00:19:22.900 --> 00:19:25.360
+networks may have an incentive to lie and
+
+00:19:25.360 --> 00:19:29.150
+claim better than the true performance. Another
+
+00:19:29.150 --> 00:19:31.640
+aspect of interim transparency also pertains
+
+00:19:31.640 --> 00:19:34.670
+to privacy. However, this time the focus is not
+
+00:19:34.670 --> 00:19:38.160
+users but networks themselves. Specifically,
+
+00:19:38.160 --> 00:19:40.440
+we are interested in hiding the topology of
+
+00:19:40.440 --> 00:19:43.200
+networks because it is possible to reverse-engineer
+
+00:19:43.200 --> 00:19:46.400
+a topology given intra-network path delays trivially
+
+00:19:46.400 --> 00:19:48.640
+exposed by transparency systems.
+
+00:19:48.640 --> 00:19:51.610
+With that, I would like to thank you and I am now
+
+00:19:51.610 --> 00:19:53.840
+ready to take any questions that you
+
+00:19:53.840 --> 00:19:54.240
+may have.
+

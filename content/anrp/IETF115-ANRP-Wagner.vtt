@@ -1,0 +1,146 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.500
+Hello everyone, my name is Daniel Wagner and I am
+
+00:00:03.500 --> 00:00:05.280
+one of the authors of the paper titled
+
+00:00:05.280 --> 00:00:07.280
+"United We Stand - Collaborative Detection and
+
+00:00:07.280 --> 00:00:09.840
+Mitigation of Amplification DDoS Attacks at Scale".
+
+00:00:09.840 --> 00:00:12.210
+DDoS attacks are a type of networking attack that
+
+00:00:12.210 --> 00:00:14.480
+can cause service downtime of anything that is
+
+00:00:14.480 --> 00:00:17.020
+hosted online, for example financial services or
+
+00:00:17.020 --> 00:00:19.200
+the health sector and so forth. The press
+
+00:00:19.200 --> 00:00:21.630
+keeps reporting about ever-growing amplification
+
+00:00:21.630 --> 00:00:24.000
+DDoS attacks, so they still pose a serious threat
+
+00:00:24.000 --> 00:00:27.040
+to the internet. An attacker sends requests
+
+00:00:27.040 --> 00:00:30.080
+towards a set of globally distributed machines,
+
+00:00:30.080 --> 00:00:32.670
+which will then in turn generate responses much
+
+00:00:32.670 --> 00:00:35.440
+larger than the initial request. By spoofing the
+
+00:00:35.440 --> 00:00:38.050
+source IP address field of the request, the
+
+00:00:38.050 --> 00:00:40.800
+attacker can steer the reflectors responses
+
+00:00:40.800 --> 00:00:43.310
+towards any target at will. Traditionally, in
+
+00:00:43.310 --> 00:00:45.360
+order to mitigate such attacks, a local
+
+00:00:45.360 --> 00:00:48.460
+scrubbing service is deployed close to the target,
+
+00:00:48.460 --> 00:00:50.400
+where they have the consolidated and
+
+00:00:50.400 --> 00:00:52.980
+sophisticated view about the ongoing attack and
+
+00:00:52.980 --> 00:00:55.440
+drop all the traffic. But the traffic needs to
+
+00:00:55.440 --> 00:00:58.500
+travel there and pollutes with unwanted packets
+
+00:00:58.500 --> 00:01:01.920
+the infrastructures in between. So we propose
+
+00:01:01.920 --> 00:01:03.690
+to drop the traffic early in the core of the
+
+00:01:03.690 --> 00:01:06.160
+internet, where infrastructures like the IXPs
+
+00:01:06.160 --> 00:01:08.370
+are located, in order to make them have the
+
+00:01:08.370 --> 00:01:10.560
+global view some kind of collaboration is
+
+00:01:10.560 --> 00:01:11.120
+necessary in
+
+00:01:11.120 --> 00:01:15.550
+between of them. In order to underline the
+
+00:01:15.550 --> 00:01:18.400
+beneficial position of the IXPs, we partnered
+
+00:01:18.400 --> 00:01:21.620
+with 11 IXPs and assessed the difference the
+
+00:01:21.620 --> 00:01:24.880
+distance between the reflectors origin and the
+
+00:01:24.880 --> 00:01:28.160
+IXP. We found that more than 40% of the attack
+
+00:01:28.160 --> 00:01:31.280
+traffic is actually originated by a direct IXP
+
+00:01:31.280 --> 00:01:33.470
+member, strongly underlining that they have a
+
+00:01:33.470 --> 00:01:35.920
+beneficial position within the internet topology.
+
+00:01:35.920 --> 00:01:38.690
+We further conducted other measurements in order
+
+00:01:38.690 --> 00:01:41.680
+to quantify the origin distribution, we quantified
+
+00:01:41.680 --> 00:01:44.450
+the collaboration benefit for the individual IXPs,
+
+00:01:44.450 --> 00:01:46.640
+we put emphasis on the IXPs critical role
+
+00:01:46.640 --> 00:01:48.970
+for DDoS mitigation just by the plain position in
+
+00:01:48.970 --> 00:01:52.000
+the internet topology. And we also in order to
+
+00:01:52.000 --> 00:01:54.820
+enable the collaboration proposed a platform for
+
+00:01:54.820 --> 00:01:57.760
+exchanging information about ongoing DDoS attacks
+
+00:01:57.760 --> 00:01:59.820
+and evaluated their effectiveness. If you're
+
+00:01:59.820 --> 00:02:02.000
+further interested in the paper, you're happily
+
+00:02:02.000 --> 00:02:04.480
+invited to read it or attend the full talk.
+

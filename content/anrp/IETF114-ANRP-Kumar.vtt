@@ -1,0 +1,734 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:04.250
+I'm Sam Kumar, a PhD student at UC Berkeley, and
+
+00:00:04.250 --> 00:00:05.760
+I'll tell you about our research on
+
+00:00:05.760 --> 00:00:09.540
+performance TCP for low-power wireless networks.
+
+00:00:09.540 --> 00:00:12.060
+This work was published at NSDI 2020, and it's in
+
+00:00:12.060 --> 00:00:14.000
+collaboration with Michael Anderson,
+
+00:00:14.000 --> 00:00:16.680
+Youngsun Kim, and David Culler.
+
+00:00:16.680 --> 00:00:18.840
+In this preview talk, I'll give an overview of
+
+00:00:18.840 --> 00:00:20.840
+our main results and provide the context
+
+00:00:20.840 --> 00:00:23.400
+to understand why they're important.
+
+00:00:23.400 --> 00:00:25.670
+At the IRTF meeting next week, I'll give a longer
+
+00:00:25.670 --> 00:00:27.680
+talk where I'll explain our experiments
+
+00:00:27.680 --> 00:00:30.520
+and results in more depth.
+
+00:00:30.520 --> 00:00:32.670
+I'm going to begin by giving a brief history of
+
+00:00:32.670 --> 00:00:35.000
+research in low-pans, or low-power wireless
+
+00:00:35.000 --> 00:00:38.890
+personal area networks, to put our work in
+
+00:00:38.890 --> 00:00:39.240
+context.
+
+00:00:39.240 --> 00:00:41.980
+Low-pan research began in the late 1990s, and at
+
+00:00:41.980 --> 00:00:44.320
+this point in time, researchers deliberately
+
+00:00:44.320 --> 00:00:46.860
+cast away the internet architecture based on the
+
+00:00:46.860 --> 00:00:49.080
+idea that low-pans might be too different
+
+00:00:49.080 --> 00:00:52.570
+from regular networks or too extreme for it to
+
+00:00:52.570 --> 00:00:54.160
+directly apply.
+
+00:00:54.160 --> 00:00:56.390
+This allowed the early protocols and systems in
+
+00:00:56.390 --> 00:00:58.240
+this space to tackle the challenges of
+
+00:00:58.240 --> 00:01:01.410
+low-pans directly, without being constrained by
+
+00:01:01.410 --> 00:01:03.400
+the internet architecture.
+
+00:01:03.400 --> 00:01:06.300
+About a decade later, IP, the internet protocol,
+
+00:01:06.300 --> 00:01:08.960
+was introduced in low-pans, largely enabled
+
+00:01:08.960 --> 00:01:11.960
+by the 6-low-pan adaptation layer.
+
+00:01:11.960 --> 00:01:14.270
+What happened here is that researchers found ways
+
+00:01:14.270 --> 00:01:16.360
+to take techniques developed in the earlier
+
+00:01:16.360 --> 00:01:18.610
+networks that didn't conform to any particular
+
+00:01:18.610 --> 00:01:20.840
+standard or architecture, and make them work
+
+00:01:20.840 --> 00:01:23.720
+within an IP-based architecture.
+
+00:01:23.720 --> 00:01:26.330
+This caught on, and in a few years, IP became
+
+00:01:26.330 --> 00:01:27.920
+standard in this space.
+
+00:01:27.920 --> 00:01:31.590
+But surprisingly, the adoption of IP did not
+
+00:01:31.590 --> 00:01:32.920
+include TCP.
+
+00:01:32.920 --> 00:01:35.850
+For example, OpenThread, an open-source low-pan
+
+00:01:35.850 --> 00:01:38.320
+stack released by Nest and used in the smart
+
+00:01:38.320 --> 00:01:42.760
+home space, didn't even support TCP.
+
+00:01:42.760 --> 00:01:44.990
+And instead, the community went in the direction
+
+00:01:44.990 --> 00:01:47.280
+of developing application-specific UDP-based
+
+00:01:47.280 --> 00:01:49.520
+protocols such as CoAP.
+
+00:01:49.520 --> 00:01:52.020
+Now, low-pans still have not achieved the same
+
+00:01:52.020 --> 00:01:54.160
+kind of widespread adoption that we've
+
+00:01:54.160 --> 00:01:57.240
+seen in other wireless protocols, like Wi-Fi.
+
+00:01:57.240 --> 00:01:59.380
+And a natural question is whether the next step
+
+00:01:59.380 --> 00:02:01.480
+towards getting that kind of broad adoption
+
+00:02:01.480 --> 00:02:05.180
+is to use not only IP, but also TCP and the
+
+00:02:05.180 --> 00:02:08.560
+broader set of IP-based protocols.
+
+00:02:08.560 --> 00:02:10.860
+In that context, our work completes the
+
+00:02:10.860 --> 00:02:12.980
+transition of low-pans to an IP-based
+
+00:02:12.980 --> 00:02:14.120
+architecture by
+
+00:02:14.120 --> 00:02:17.470
+showing how to make TCP work well in low-pans,
+
+00:02:17.470 --> 00:02:20.560
+and a research artifact is TCP-LP, a performant
+
+00:02:20.560 --> 00:02:23.480
+TCP stack for low-pans.
+
+00:02:23.480 --> 00:02:25.240
+So what do I mean by performant?
+
+00:02:25.240 --> 00:02:27.450
+Well, one metric is goodput, which is the amount
+
+00:02:27.450 --> 00:02:29.160
+of bandwidth that an application is
+
+00:02:29.160 --> 00:02:31.560
+able to get over a TCP connection.
+
+00:02:31.560 --> 00:02:34.060
+There have been a few prior attempts to use TCP
+
+00:02:34.060 --> 00:02:36.560
+in this space, usually based on simplified
+
+00:02:36.560 --> 00:02:38.680
+embedded TCP stacks.
+
+00:02:38.680 --> 00:02:42.110
+And in contrast, our work, TCP-LP, achieves
+
+00:02:42.110 --> 00:02:44.680
+significantly higher goodput.
+
+00:02:44.680 --> 00:02:46.900
+In fact, we can calculate a theoretical upper
+
+00:02:46.900 --> 00:02:49.040
+bound on goodput based on how fast the radio
+
+00:02:49.040 --> 00:02:52.140
+can send out packets and the overhead of headers
+
+00:02:52.140 --> 00:02:53.520
+and ACKs and so on.
+
+00:02:53.520 --> 00:02:57.270
+And our work comes quite close to this upper
+
+00:02:57.270 --> 00:02:58.160
+bound.
+
+00:02:58.160 --> 00:03:00.760
+Since we published our work, OpenThread, the open-source
+
+00:03:00.760 --> 00:03:02.280
+low-pan stack I mentioned earlier
+
+00:03:02.280 --> 00:03:05.500
+that's used in some smart home products, recently
+
+00:03:05.500 --> 00:03:07.940
+added support for TCP, directly based
+
+00:03:07.940 --> 00:03:08.940
+on our research.
+
+00:03:08.940 --> 00:03:12.270
+In fact, it uses TCP-LP as its TCP implementation,
+
+00:03:12.270 --> 00:03:15.160
+and our research significantly influenced
+
+00:03:15.160 --> 00:03:18.680
+the Thread Network Standard, which OpenThread implements.
+
+00:03:18.680 --> 00:03:20.530
+I was fortunate to have been involved in this
+
+00:03:20.530 --> 00:03:22.400
+process, and I am hopeful that the adoption
+
+00:03:22.400 --> 00:03:26.780
+of TCP will help low-pan technology gain more
+
+00:03:26.780 --> 00:03:28.120
+adoption.
+
+00:03:28.120 --> 00:03:30.130
+Now that I've given that brief preview, I'm going
+
+00:03:30.130 --> 00:03:31.520
+to take a step back and give some more
+
+00:03:31.520 --> 00:03:34.560
+background on what low-pans exactly are.
+
+00:03:34.560 --> 00:03:36.420
+And I'll do that by comparing low-pans with other
+
+00:03:36.420 --> 00:03:38.040
+networks that you might be more familiar
+
+00:03:38.040 --> 00:03:39.040
+with.
+
+00:03:39.040 --> 00:03:42.380
+Wi-Fi provides a host with internet connectivity
+
+00:03:42.380 --> 00:03:43.760
+via an access point.
+
+00:03:43.760 --> 00:03:46.970
+Bluetooth is like a cable replacement channel, a
+
+00:03:46.970 --> 00:03:48.660
+wireless USB of sorts.
+
+00:03:48.660 --> 00:03:50.550
+In contrast, a low-pan aims to provide
+
+00:03:50.550 --> 00:03:53.300
+connectivity to various embedded devices at the
+
+00:03:53.300 --> 00:03:54.260
+same level
+
+00:03:54.260 --> 00:03:57.510
+as, for example, Wi-Fi, while operating within
+
+00:03:57.510 --> 00:04:00.120
+the constraints of low power, for example,
+
+00:04:00.120 --> 00:04:02.500
+having to transmit data over multiple wireless
+
+00:04:02.500 --> 00:04:04.720
+hops to achieve connectivity over a large
+
+00:04:04.720 --> 00:04:05.720
+area.
+
+00:04:05.720 --> 00:04:08.840
+Low-pans are useful for a variety of applications,
+
+00:04:08.840 --> 00:04:11.440
+for example, scientific applications like
+
+00:04:11.440 --> 00:04:14.900
+environmental monitoring, structural monitoring,
+
+00:04:14.900 --> 00:04:17.720
+and it's also been used in the indoor space.
+
+00:04:17.720 --> 00:04:20.370
+And recently, there's been a push to apply it to
+
+00:04:20.370 --> 00:04:22.200
+the smart home and IoT space.
+
+00:04:22.200 --> 00:04:24.930
+Now while low-pans are useful, they also come
+
+00:04:24.930 --> 00:04:26.560
+with a set of challenges.
+
+00:04:26.560 --> 00:04:28.530
+One set of challenges comes from the resource
+
+00:04:28.530 --> 00:04:30.720
+constraints of the embedded hosts that typically
+
+00:04:30.720 --> 00:04:32.840
+have limited CPU and RAM.
+
+00:04:32.840 --> 00:04:34.770
+For example, they might run on a Cortex-M
+
+00:04:34.770 --> 00:04:37.040
+processor and have only a few tens of kilobytes
+
+00:04:37.040 --> 00:04:38.040
+of RAM.
+
+00:04:38.040 --> 00:04:40.840
+What that means is that you cannot use something
+
+00:04:40.840 --> 00:04:42.720
+like Linux on these devices.
+
+00:04:42.720 --> 00:04:44.770
+Instead, you have to use an embedded operating
+
+00:04:44.770 --> 00:04:46.840
+system that's specialized to work within those
+
+00:04:46.840 --> 00:04:49.280
+resource constraints.
+
+00:04:49.280 --> 00:04:51.280
+Another set of challenges comes from the link
+
+00:04:51.280 --> 00:04:51.760
+layer.
+
+00:04:51.760 --> 00:04:56.080
+For example, IEEE 8.2.15.4, an example of a low-pan
+
+00:04:56.080 --> 00:04:57.880
+link layer, has an MTU of only a
+
+00:04:57.880 --> 00:04:59.600
+few hundred bytes.
+
+00:04:59.600 --> 00:05:01.610
+In order to achieve connectivity over a large
+
+00:05:01.610 --> 00:05:03.600
+area, you need to transmit data over multiple
+
+00:05:03.600 --> 00:05:05.360
+wireless hops.
+
+00:05:05.360 --> 00:05:08.320
+Finally, the energy constraints bring forth
+
+00:05:08.320 --> 00:05:10.260
+another set of challenges.
+
+00:05:10.260 --> 00:05:12.660
+In order to achieve a long battery life on these
+
+00:05:12.660 --> 00:05:14.600
+devices, you have to duty cycle the
+
+00:05:14.600 --> 00:05:15.840
+radio.
+
+00:05:15.840 --> 00:05:19.030
+That means that your radio is typically off for
+
+00:05:19.030 --> 00:05:20.640
+99% of the time.
+
+00:05:20.640 --> 00:05:22.900
+And then, say 1% of the time, you turn on your
+
+00:05:22.900 --> 00:05:25.240
+radio and only then can you receive packets.
+
+00:05:25.240 --> 00:05:27.520
+Now, to provide an obvious unillusion, we need
+
+00:05:27.520 --> 00:05:29.560
+some careful scheduling at the link layer
+
+00:05:29.560 --> 00:05:33.110
+in order to make sure that a packet is only sent
+
+00:05:33.110 --> 00:05:35.800
+to a device when its radio is on.
+
+00:05:35.800 --> 00:05:38.380
+So as I mentioned earlier, the adoption of IP in
+
+00:05:38.380 --> 00:05:40.400
+this space did not include TCP, and
+
+00:05:40.400 --> 00:05:42.080
+that's no accident.
+
+00:05:42.080 --> 00:05:44.660
+It's because researchers expected that TCP would
+
+00:05:44.660 --> 00:05:46.640
+perform poorly due to the challenges
+
+00:05:46.640 --> 00:05:47.640
+of low-pans.
+
+00:05:47.640 --> 00:05:50.000
+In particular, there's a perception that TCP is
+
+00:05:50.000 --> 00:05:52.080
+too heavy to operate within the resource
+
+00:05:52.080 --> 00:05:54.640
+constraints of the embedded hosts.
+
+00:05:54.640 --> 00:05:56.710
+There's a perception that TCP's features, in
+
+00:05:56.710 --> 00:05:59.600
+particular its connection-orientedness,
+
+00:05:59.600 --> 00:06:01.910
+aren't necessary and just bring additional
+
+00:06:01.910 --> 00:06:04.000
+overhead for low-pan applications.
+
+00:06:04.000 --> 00:06:06.580
+And finally, there's the wireless-TCP problem,
+
+00:06:06.580 --> 00:06:09.080
+the idea that TCP may interpret wireless losses
+
+00:06:09.080 --> 00:06:12.160
+as congestion and therefore back off and perform
+
+00:06:12.160 --> 00:06:12.880
+poorly.
+
+00:06:12.880 --> 00:06:16.020
+Now, central to our research was understanding
+
+00:06:16.020 --> 00:06:18.820
+TCP's performance, so we investigated these
+
+00:06:18.820 --> 00:06:21.840
+issues by actually running TCP in a low-pan and
+
+00:06:21.840 --> 00:06:23.920
+studying its performance.
+
+00:06:23.920 --> 00:06:27.720
+We found that out of the box, TCP indeed performs
+
+00:06:27.720 --> 00:06:31.720
+poorly, but not due to these expected reasons.
+
+00:06:31.720 --> 00:06:34.480
+The actual reasons were different.
+
+00:06:34.480 --> 00:06:36.860
+One reason was that low-pans have a small MTU,
+
+00:06:36.860 --> 00:06:39.080
+which results in high header overhead,
+
+00:06:39.080 --> 00:06:41.400
+which eats away at your good button.
+
+00:06:41.400 --> 00:06:43.810
+Second, we found that hidden terminals are a
+
+00:06:43.810 --> 00:06:46.140
+serious problem for TCP when running over
+
+00:06:46.140 --> 00:06:48.800
+multiple wireless hops.
+
+00:06:48.800 --> 00:06:50.650
+And we found that the link-leer scheduling
+
+00:06:50.650 --> 00:06:52.760
+designed to allow low-pans to run at a low-duty
+
+00:06:52.760 --> 00:06:56.360
+cycle interacted poorly with TCP.
+
+00:06:56.360 --> 00:06:58.780
+Now there's a big difference between the issues
+
+00:06:58.780 --> 00:07:00.740
+on the left and the issues on the right.
+
+00:07:00.740 --> 00:07:02.980
+The issues on the left, if they were to exist,
+
+00:07:02.980 --> 00:07:04.280
+would be fundamental.
+
+00:07:04.280 --> 00:07:08.120
+There's no direct way to adapt TCP to overcome
+
+00:07:08.120 --> 00:07:09.640
+those issues.
+
+00:07:09.640 --> 00:07:12.420
+In contrast, the issues on the right are fixable
+
+00:07:12.420 --> 00:07:14.560
+within the paradigm of TCP via fairly
+
+00:07:14.560 --> 00:07:15.320
+straightforward
+
+00:07:15.320 --> 00:07:16.680
+techniques.
+
+00:07:16.680 --> 00:07:19.490
+So in our research, we show why the reasons on
+
+00:07:19.490 --> 00:07:21.640
+the left don't actually apply, we show
+
+00:07:21.640 --> 00:07:24.150
+how to address the actual reasons for poor
+
+00:07:24.150 --> 00:07:26.200
+performance on the right, and our overall
+
+00:07:26.200 --> 00:07:30.240
+conclusion is that TCP can perform well in low-pans
+
+00:07:30.240 --> 00:07:31.340
+after all.
+
+00:07:31.340 --> 00:07:34.090
+To say a little more about our observations about
+
+00:07:34.090 --> 00:07:36.400
+why the expected reasons don't apply,
+
+00:07:36.400 --> 00:07:39.500
+what we found is that the connection state of TCP
+
+00:07:39.500 --> 00:07:41.880
+uses much less memory than the data
+
+00:07:41.880 --> 00:07:44.250
+buffers, and you need the data buffers in order
+
+00:07:44.250 --> 00:07:46.520
+to support any high-bandwidth bulk transfer
+
+00:07:46.520 --> 00:07:47.740
+protocol.
+
+00:07:47.740 --> 00:07:50.020
+So the complexity of TCP as a protocol does not
+
+00:07:50.020 --> 00:07:52.160
+actually contribute much to the resource
+
+00:07:52.160 --> 00:07:53.160
+overheads.
+
+00:07:53.160 --> 00:07:55.970
+Second, we found that many of the overheads of
+
+00:07:55.970 --> 00:07:58.920
+TCP, for example, the overheads of connection
+
+00:07:58.920 --> 00:08:00.850
+setup, can be mitigated by a fairly
+
+00:08:00.850 --> 00:08:03.880
+straightforward technique such as using long-lived
+
+00:08:03.880 --> 00:08:04.560
+connections
+
+00:08:04.560 --> 00:08:08.520
+and batching data into large batches when you
+
+00:08:08.520 --> 00:08:09.840
+send it out.
+
+00:08:09.840 --> 00:08:12.390
+And perhaps most interestingly, we found that the
+
+00:08:12.390 --> 00:08:14.400
+wireless TCP problem doesn't actually
+
+00:08:14.400 --> 00:08:16.860
+cause a huge issue in this space, and the reason
+
+00:08:16.860 --> 00:08:18.720
+is because the low bandwidth of the
+
+00:08:18.720 --> 00:08:20.900
+network means that you have a small bandwidth
+
+00:08:20.900 --> 00:08:23.360
+delay product, which means that you can transmit
+
+00:08:23.360 --> 00:08:25.970
+data at full speed even with a small congestion
+
+00:08:25.970 --> 00:08:26.720
+window.
+
+00:08:26.720 --> 00:08:29.400
+And as a result, TCP can recover to a full window
+
+00:08:29.400 --> 00:08:31.440
+quickly after a packet loss, and in
+
+00:08:31.440 --> 00:08:34.620
+fact can operate at a full congestion window most
+
+00:08:34.620 --> 00:08:35.640
+of the time.
+
+00:08:35.640 --> 00:08:38.770
+Now, to address the actual challenges that cause
+
+00:08:38.770 --> 00:08:41.240
+poor performance, we developed a set
+
+00:08:41.240 --> 00:08:43.790
+of techniques that directly address the three
+
+00:08:43.790 --> 00:08:46.740
+challenges of low-bands that I outlined earlier.
+
+00:08:46.740 --> 00:08:48.390
+Some of these techniques have to do with
+
+00:08:48.390 --> 00:08:50.540
+implementation, others have to do with the actual
+
+00:08:50.540 --> 00:08:51.000
+operation
+
+00:08:51.000 --> 00:08:53.280
+of TCP over the network.
+
+00:08:53.280 --> 00:08:55.380
+In this preview talk, I'm not going to go in-depth
+
+00:08:55.380 --> 00:08:56.960
+into these techniques, but in the
+
+00:08:56.960 --> 00:08:59.220
+longer talk I'll give next week at the IRTF
+
+00:08:59.220 --> 00:09:01.760
+meeting, I'll give more details on exactly
+
+00:09:01.760 --> 00:09:04.790
+what these techniques are and what they mean for
+
+00:09:04.790 --> 00:09:06.280
+TCP over low-bands.
+
+00:09:06.280 --> 00:09:10.010
+In summary, we implemented TCP-LP, a full-scale
+
+00:09:10.010 --> 00:09:12.640
+TCP stack for low-band devices.
+
+00:09:12.640 --> 00:09:15.170
+We explained why the expected reasons for poor
+
+00:09:15.170 --> 00:09:16.640
+performance don't apply.
+
+00:09:16.640 --> 00:09:19.350
+We show how to address the actual reasons for
+
+00:09:19.350 --> 00:09:20.960
+poor TCP performance.
+
+00:09:20.960 --> 00:09:22.870
+And we showed that, once these issues are
+
+00:09:22.870 --> 00:09:25.200
+resolved, TCP performs comparably to low-band
+
+00:09:25.200 --> 00:09:27.600
+specialized protocols.
+
+00:09:27.600 --> 00:09:28.400
+Thank you for listening.
+

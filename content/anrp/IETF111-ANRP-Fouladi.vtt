@@ -1,0 +1,1103 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.640
+Hello everyone, my name is Sadjad Fouladi and I'm
+
+00:00:03.640 --> 00:00:06.000
+a PhD student at Stanford University.
+
+00:00:06.000 --> 00:00:09.090
+Today I'm very excited to tell you about Salsify,
+
+00:00:09.090 --> 00:00:11.080
+a new architecture that we built for real-time
+
+00:00:11.080 --> 00:00:12.000
+video systems.
+
+00:00:12.000 --> 00:00:14.590
+So real-time video is a category of internet
+
+00:00:14.590 --> 00:00:17.330
+video delivery systems, and in this setting we
+
+00:00:17.330 --> 00:00:20.220
+have a sender that has a camera and it wants to
+
+00:00:20.220 --> 00:00:22.210
+transmit the video feed over the internet to a
+
+00:00:22.210 --> 00:00:23.000
+receiver.
+
+00:00:23.000 --> 00:00:26.080
+What makes real-time video special is its latency
+
+00:00:26.080 --> 00:00:29.130
+target. We want the video to be delivered as fast
+
+00:00:29.130 --> 00:00:30.000
+as possible.
+
+00:00:30.000 --> 00:00:33.190
+So if something happens at the sender side, we
+
+00:00:33.190 --> 00:00:36.150
+want to see the video of that at the receiver
+
+00:00:36.150 --> 00:00:38.000
+side almost immediately.
+
+00:00:38.000 --> 00:00:40.600
+And we care about this latency so much because
+
+00:00:40.600 --> 00:00:42.860
+usually there is an interaction going on in the
+
+00:00:42.860 --> 00:00:45.490
+opposite direction that relies on the timely
+
+00:00:45.490 --> 00:00:48.100
+delivery of that video from the sender to the
+
+00:00:48.100 --> 00:00:49.000
+receiver.
+
+00:00:49.000 --> 00:00:51.610
+One good example is called video gaming, where
+
+00:00:51.610 --> 00:00:53.990
+the game instead of on the local machine is
+
+00:00:53.990 --> 00:00:56.800
+actually running on a remote server and the
+
+00:00:56.800 --> 00:00:59.690
+player sees a video stream of that video that is
+
+00:00:59.690 --> 00:01:02.000
+delivered over the internet.
+
+00:01:02.000 --> 00:01:05.280
+Another example is the collaboration of robots or
+
+00:01:05.280 --> 00:01:08.540
+remote surgery, where the surgeon is relying on a
+
+00:01:08.540 --> 00:01:11.170
+video feed to do the surgery from a remote
+
+00:01:11.170 --> 00:01:12.000
+location.
+
+00:01:12.000 --> 00:01:14.520
+And of course, the most prominent application of
+
+00:01:14.520 --> 00:01:17.170
+real-time video system, video conferencing,
+
+00:01:17.170 --> 00:01:19.670
+something that has been a big part of our lives
+
+00:01:19.670 --> 00:01:21.000
+over the past year.
+
+00:01:21.000 --> 00:01:24.290
+So the problem that we tackled in Solstice was
+
+00:01:24.290 --> 00:01:27.060
+how these systems react to variations in the
+
+00:01:27.060 --> 00:01:28.000
+network.
+
+00:01:28.000 --> 00:01:30.330
+So here I'm going to show you one example. We are
+
+00:01:30.330 --> 00:01:32.700
+doing a video call with this very nice guy at
+
+00:01:32.700 --> 00:01:35.440
+NASA using one of these real-time video systems,
+
+00:01:35.440 --> 00:01:36.000
+WebRTC.
+
+00:01:36.000 --> 00:01:39.000
+And here you can see the network throughput graph.
+
+00:01:39.000 --> 00:01:42.250
+That shaded region shows the network capacity and
+
+00:01:42.250 --> 00:01:45.050
+the line shows the amount of data that the
+
+00:01:45.050 --> 00:01:48.000
+program tries to send over the network.
+
+00:01:48.000 --> 00:01:50.420
+In this scenario, the capacity is slowly going to
+
+00:01:50.420 --> 00:01:54.220
+go down. It reaches zero for a second and then it
+
+00:01:54.220 --> 00:01:56.000
+will go back up again.
+
+00:01:56.000 --> 00:02:10.000
+Let's see how WebRTC reacts.
+
+00:02:10.000 --> 00:02:14.110
+Let's look at the video again. The capacity is
+
+00:02:14.110 --> 00:02:17.250
+slowly going down and it reaches zero and the
+
+00:02:17.250 --> 00:02:20.000
+video freezes, understandably.
+
+00:02:20.000 --> 00:02:24.810
+But now the network is back, but it takes WebRTC
+
+00:02:24.810 --> 00:02:29.000
+several seconds to recover the video.
+
+00:02:29.000 --> 00:02:32.110
+So if we look at this part of the graph, you can
+
+00:02:32.110 --> 00:02:35.340
+see WebRTC actually tried to send more than the
+
+00:02:35.340 --> 00:02:37.000
+network can handle.
+
+00:02:37.000 --> 00:02:39.000
+You know, those packets are either going to be
+
+00:02:39.000 --> 00:02:41.320
+dropped or queued. Both will cause stalls and
+
+00:02:41.320 --> 00:02:42.000
+glitches.
+
+00:02:42.000 --> 00:02:44.770
+And then it had to spend several seconds to
+
+00:02:44.770 --> 00:02:48.000
+recover from the mistake that it made earlier.
+
+00:02:48.000 --> 00:02:51.390
+You know, a one second outage here caused WebRTC
+
+00:02:51.390 --> 00:02:55.000
+to spend several seconds recovering the video.
+
+00:02:55.000 --> 00:02:57.990
+So in Salsophy, we explored a different design.
+
+00:02:57.990 --> 00:03:00.100
+In Salsophy, we are tightly integrating a
+
+00:03:00.100 --> 00:03:03.550
+transport protocol and a video codec that allows
+
+00:03:03.550 --> 00:03:07.720
+the system to respond quickly to the changes that
+
+00:03:07.720 --> 00:03:11.000
+happen in the network condition.
+
+00:03:11.000 --> 00:03:13.630
+Okay, before I get to Salsophy's architecture,
+
+00:03:13.630 --> 00:03:15.520
+let me tell you a little bit about the
+
+00:03:15.520 --> 00:03:17.000
+conventional design.
+
+00:03:17.000 --> 00:03:19.230
+So the current systems, they have two important
+
+00:03:19.230 --> 00:03:22.490
+components. One is a video codec responsible for
+
+00:03:22.490 --> 00:03:24.000
+compressing the video,
+
+00:03:24.000 --> 00:03:26.780
+and one is the transport protocol responsible for
+
+00:03:26.780 --> 00:03:29.000
+sending that video over the network.
+
+00:03:29.000 --> 00:03:31.700
+And these two components talk to each other
+
+00:03:31.700 --> 00:03:34.000
+through a very narrow interface.
+
+00:03:34.000 --> 00:03:36.580
+You know, the transport protocol has some notion
+
+00:03:36.580 --> 00:03:40.000
+of the network capacity, like a target bit rate,
+
+00:03:40.000 --> 00:03:43.130
+and it communicates that information to the video
+
+00:03:43.130 --> 00:03:46.240
+codec occasionally, like every second or every
+
+00:03:46.240 --> 00:03:47.000
+two seconds.
+
+00:03:47.000 --> 00:03:49.920
+And the video codec adjusts its internal
+
+00:03:49.920 --> 00:03:53.490
+parameters, tries to target the bit rate that it
+
+00:03:53.490 --> 00:03:56.740
+received from the transport protocol by setting
+
+00:03:56.740 --> 00:03:59.000
+things like quality and frame rate.
+
+00:03:59.000 --> 00:04:01.820
+And it produces frames that the transport
+
+00:04:01.820 --> 00:04:04.710
+protocol has to send over the network to the
+
+00:04:04.710 --> 00:04:06.000
+receiver side.
+
+00:04:06.000 --> 00:04:08.240
+And you know, there has been decades of research
+
+00:04:08.240 --> 00:04:10.000
+and development on these components.
+
+00:04:10.000 --> 00:04:14.270
+We have all these video codecs, you know, that
+
+00:04:14.270 --> 00:04:16.000
+offer better and better compression ratios.
+
+00:04:16.000 --> 00:04:18.470
+And we have all these different transport
+
+00:04:18.470 --> 00:04:21.000
+protocols built for different targets and
+
+00:04:21.000 --> 00:04:23.000
+different types of networks.
+
+00:04:23.000 --> 00:04:26.030
+And every time that we want to go and build a
+
+00:04:26.030 --> 00:04:29.330
+better real-time video system, we go and improve
+
+00:04:29.330 --> 00:04:32.000
+these individual components.
+
+00:04:32.000 --> 00:04:36.470
+Let me give you one example. Researchers actually
+
+00:04:36.470 --> 00:04:38.830
+knew about this problem that I showed you in the
+
+00:04:38.830 --> 00:04:40.000
+beginning.
+
+00:04:40.000 --> 00:04:42.560
+They studied Skype and saw that Skype, in the
+
+00:04:42.560 --> 00:04:45.340
+face of network variability, doesn't really do
+
+00:04:45.340 --> 00:04:46.000
+well.
+
+00:04:46.000 --> 00:04:49.330
+Here, Skype tried to send more data than the
+
+00:04:49.330 --> 00:04:52.560
+network can handle, similar to WebRTC, and it
+
+00:04:52.560 --> 00:04:56.000
+caused a very huge spike in delay.
+
+00:04:56.000 --> 00:04:58.620
+So they said, "Okay, it seems that Skype has a
+
+00:04:58.620 --> 00:05:02.000
+problem predicting the variable network capacity."
+
+00:05:02.000 --> 00:05:04.560
+So they built a better transport protocol that
+
+00:05:04.560 --> 00:05:07.070
+accurately can match these variable network
+
+00:05:07.070 --> 00:05:08.000
+capacities.
+
+00:05:08.000 --> 00:05:12.000
+Great. But unfortunately, just improving the
+
+00:05:12.000 --> 00:05:15.000
+network components didn't save the day.
+
+00:05:15.000 --> 00:05:18.060
+Because we totally forgot about the video codec.
+
+00:05:18.060 --> 00:05:21.000
+You know, and the video codec has a very big flaw.
+
+00:05:21.000 --> 00:05:24.760
+And that's the fact that the codec can only
+
+00:05:24.760 --> 00:05:28.000
+achieve that bitrate on average.
+
+00:05:28.000 --> 00:05:31.820
+You know, like here, we asked the VPX encoder to
+
+00:05:31.820 --> 00:05:34.000
+target 2 megabits per second.
+
+00:05:34.000 --> 00:05:37.230
+And it produced a video that on average is at 2
+
+00:05:37.230 --> 00:05:39.000
+megabits per second.
+
+00:05:39.000 --> 00:05:41.630
+But when you look at the size of individual
+
+00:05:41.630 --> 00:05:44.000
+frames, they are all over the place.
+
+00:05:44.000 --> 00:05:46.710
+And even a frame like this that is over the
+
+00:05:46.710 --> 00:05:49.970
+network capacity can still cause packet loss and
+
+00:05:49.970 --> 00:05:52.000
+congestion in the network.
+
+00:05:52.000 --> 00:05:55.290
+So the problem is that we have a codec that can
+
+00:05:55.290 --> 00:05:58.890
+only respond to changes in the target bitrate
+
+00:05:58.890 --> 00:06:01.000
+over coarse time intervals.
+
+00:06:01.000 --> 00:06:04.010
+So even if we have a transport protocol that can
+
+00:06:04.010 --> 00:06:07.840
+have a very accurate estimate at any point in
+
+00:06:07.840 --> 00:06:08.000
+time,
+
+00:06:08.000 --> 00:06:11.200
+we don't have a codec that can respond to that
+
+00:06:11.200 --> 00:06:15.000
+high resolution prediction from the transport.
+
+00:06:15.000 --> 00:06:17.710
+So in Salsophy, we explored a more tightly
+
+00:06:17.710 --> 00:06:20.070
+integrated design where the transport protocol
+
+00:06:20.070 --> 00:06:23.680
+and the video codec work together within the same
+
+00:06:23.680 --> 00:06:25.000
+control.
+
+00:06:25.000 --> 00:06:27.120
+So I'm going to start by telling you about the
+
+00:06:27.120 --> 00:06:29.000
+transport protocol in Salsophy.
+
+00:06:29.000 --> 00:06:31.870
+The transport protocol in Salsophy only answers
+
+00:06:31.870 --> 00:06:33.000
+to one question.
+
+00:06:33.000 --> 00:06:35.000
+What should be the size of the next frame?
+
+00:06:35.000 --> 00:06:37.450
+So there is no notion of average bitrate or
+
+00:06:37.450 --> 00:06:39.000
+network capacity here.
+
+00:06:39.000 --> 00:06:42.680
+The transport tells me if you want to hit your
+
+00:06:42.680 --> 00:06:46.570
+target latency, your next frame should not be
+
+00:06:46.570 --> 00:06:48.000
+over a certain size,
+
+00:06:48.000 --> 00:06:50.740
+like 10 kilobytes or 50 kilobytes, based on the
+
+00:06:50.740 --> 00:06:52.000
+network conditions.
+
+00:06:52.000 --> 00:06:54.510
+So now the codec, the video codec, might be able
+
+00:06:54.510 --> 00:06:56.000
+to use that information.
+
+00:06:56.000 --> 00:06:59.960
+But as I told you, the codec has trouble hitting
+
+00:06:59.960 --> 00:07:03.000
+a certain size for a single frame.
+
+00:07:03.000 --> 00:07:06.000
+It tends to overshoot or undershoot that target.
+
+00:07:06.000 --> 00:07:08.770
+You know, the transport tells me the network can
+
+00:07:08.770 --> 00:07:12.000
+handle a frame of maximum 10 kilobytes right now,
+
+00:07:12.000 --> 00:07:14.730
+but the codec may produce a frame that is larger
+
+00:07:14.730 --> 00:07:17.000
+or smaller than 10 kilobytes.
+
+00:07:17.000 --> 00:07:20.820
+So what can we do here? One solution might be
+
+00:07:20.820 --> 00:07:22.000
+just doing trial and error.
+
+00:07:22.000 --> 00:07:25.840
+You know, we encode the single frame at different
+
+00:07:25.840 --> 00:07:28.920
+quality levels and just pick the one that fits
+
+00:07:28.920 --> 00:07:30.000
+the network.
+
+00:07:30.000 --> 00:07:32.740
+Sounds like a good idea, but unfortunately with
+
+00:07:32.740 --> 00:07:35.000
+the current codecs, it doesn't work.
+
+00:07:35.000 --> 00:07:38.000
+So when we look at the video encoder, you know,
+
+00:07:38.000 --> 00:07:41.000
+the program responsible for compressing the video,
+
+00:07:41.000 --> 00:07:44.050
+it receives frames and produces the compressed
+
+00:07:44.050 --> 00:07:45.000
+bit stream.
+
+00:07:45.000 --> 00:07:48.890
+When we look inside that black box, it's actually
+
+00:07:48.890 --> 00:07:50.000
+stateful.
+
+00:07:50.000 --> 00:07:53.100
+So when you encode a frame, the encoder goes
+
+00:07:53.100 --> 00:07:55.000
+through a state transition.
+
+00:07:55.000 --> 00:07:58.000
+And that frame becomes a part of the video stream.
+
+00:07:58.000 --> 00:08:00.760
+And now it has to be sent over the network and
+
+00:08:00.760 --> 00:08:04.200
+has to be received by the receiver because the
+
+00:08:04.200 --> 00:08:07.500
+future frames are going to be dependent on the
+
+00:08:07.500 --> 00:08:11.000
+state that is produced by that frame.
+
+00:08:11.000 --> 00:08:13.250
+And when we look at the interface that we get
+
+00:08:13.250 --> 00:08:16.260
+from the current video codecs, we see that there
+
+00:08:16.260 --> 00:08:19.000
+is no way to undo an encoded frame.
+
+00:08:19.000 --> 00:08:22.070
+The state is completely internal to this encode
+
+00:08:22.070 --> 00:08:25.020
+function and there is no way to save or restore
+
+00:08:25.020 --> 00:08:26.000
+that state.
+
+00:08:26.000 --> 00:08:29.070
+So in Salsify, we built a functional video codec
+
+00:08:29.070 --> 00:08:32.090
+for the VP8 format that makes that state object
+
+00:08:32.090 --> 00:08:33.000
+explicit.
+
+00:08:33.000 --> 00:08:36.290
+Now, if you encode a frame and you don't like the
+
+00:08:36.290 --> 00:08:38.860
+result, like if it's too big, you can just
+
+00:08:38.860 --> 00:08:42.260
+discard that, go back to the previous state and
+
+00:08:42.260 --> 00:08:44.000
+encode a new version.
+
+00:08:44.000 --> 00:08:46.410
+So using this, Salsify can explore different
+
+00:08:46.410 --> 00:08:49.000
+execution paths without committing to them.
+
+00:08:49.000 --> 00:08:52.520
+So for every frame in the video, Salsify produces
+
+00:08:52.520 --> 00:08:55.980
+a version with a slightly higher quality than the
+
+00:08:55.980 --> 00:09:00.090
+previous one, one with a slightly lower quality
+
+00:09:00.090 --> 00:09:02.000
+and thus smaller size.
+
+00:09:02.000 --> 00:09:04.660
+And it also gives the transport the option to
+
+00:09:04.660 --> 00:09:06.000
+discard the frame.
+
+00:09:06.000 --> 00:09:09.150
+If the transport doesn't like that frame, the
+
+00:09:09.150 --> 00:09:12.270
+codec can silently just go back to the previous
+
+00:09:12.270 --> 00:09:13.000
+state.
+
+00:09:13.000 --> 00:09:16.470
+So this is how these components come together in
+
+00:09:16.470 --> 00:09:18.000
+a single control.
+
+00:09:18.000 --> 00:09:20.860
+The transport has some estimate for what the
+
+00:09:20.860 --> 00:09:23.000
+network can handle right now.
+
+00:09:23.000 --> 00:09:24.990
+It says the network can handle 30 kilobytes.
+
+00:09:24.990 --> 00:09:26.000
+Great.
+
+00:09:26.000 --> 00:09:29.370
+And the codec gives transports two options, one
+
+00:09:29.370 --> 00:09:31.970
+with a slightly better quality, one with a
+
+00:09:31.970 --> 00:09:35.000
+slightly worse quality than the previous frame.
+
+00:09:35.000 --> 00:09:38.370
+And the transport picks the one that doesn't go
+
+00:09:38.370 --> 00:09:40.000
+above that estimate.
+
+00:09:40.000 --> 00:09:42.660
+And it tells the codec, this is the option that I
+
+00:09:42.660 --> 00:09:43.000
+picked.
+
+00:09:43.000 --> 00:09:46.310
+And the codec will base the next frame based on
+
+00:09:46.310 --> 00:09:48.000
+that existing state.
+
+00:09:48.000 --> 00:09:52.000
+Now the transport repeats the same thing.
+
+00:09:52.000 --> 00:09:55.120
+And sometimes the situation is that none of the
+
+00:09:55.120 --> 00:09:57.000
+options fit the network.
+
+00:09:57.000 --> 00:09:59.730
+Like here, the target is 5 kilobytes and the
+
+00:09:59.730 --> 00:10:03.000
+options are 70 kilobytes and 50 kilobytes.
+
+00:10:03.000 --> 00:10:06.860
+So the transport tells the codec, just discard
+
+00:10:06.860 --> 00:10:09.620
+those frames and base the next frame on that
+
+00:10:09.620 --> 00:10:11.000
+existing state.
+
+00:10:11.000 --> 00:10:14.120
+So the frames are discarded and now the codec
+
+00:10:14.120 --> 00:10:16.840
+moves on to the next frame and the cycle
+
+00:10:16.840 --> 00:10:18.000
+continues.
+
+00:10:18.000 --> 00:10:21.370
+So as you can see, there is no notion of frame
+
+00:10:21.370 --> 00:10:22.000
+rate.
+
+00:10:22.000 --> 00:10:25.230
+We are not committed to sending like 30 or 40 or
+
+00:10:25.230 --> 00:10:27.000
+60 frames per second.
+
+00:10:27.000 --> 00:10:30.510
+We only send the frames over the network when we
+
+00:10:30.510 --> 00:10:34.380
+know the network can handle them and they can be
+
+00:10:34.380 --> 00:10:39.000
+received in a timely manner at the receiver side.
+
+00:10:39.000 --> 00:10:41.000
+OK, let's take a look at the results.
+
+00:10:41.000 --> 00:10:44.710
+And before I go any further, let me show you a
+
+00:10:44.710 --> 00:10:48.280
+comparison between Salsify and WebRTC in the
+
+00:10:48.280 --> 00:10:50.470
+video that I showed you in the beginning of this
+
+00:10:50.470 --> 00:10:51.000
+talk.
+
+00:10:51.000 --> 00:10:54.450
+So same situation for both. The capacity is going
+
+00:10:54.450 --> 00:10:57.000
+to go down and then go back up again.
+
+00:10:57.000 --> 00:11:00.120
+That's how Salsify reacts. So on the left side,
+
+00:11:00.120 --> 00:11:04.000
+you see Salsify. On the right side, you see WebRTC.
+
+00:11:04.000 --> 00:11:09.000
+So the network is out. And now it's back.
+
+00:11:09.000 --> 00:11:12.000
+And you see Salsify has quickly recovered.
+
+00:11:12.000 --> 00:11:16.310
+And if you look at the throughput graph in Salsify,
+
+00:11:16.310 --> 00:11:21.000
+you can see that it gracefully tries to match the
+
+00:11:21.000 --> 00:11:26.180
+network capacity while WebRTC has trouble keeping
+
+00:11:26.180 --> 00:11:27.000
+up.
+
+00:11:27.000 --> 00:11:30.240
+In the second demo, I'm going to show you how Salsify
+
+00:11:30.240 --> 00:11:33.000
+reacts to occasional network outages.
+
+00:11:33.000 --> 00:11:35.920
+So at different points in time, the network is
+
+00:11:35.920 --> 00:11:38.000
+going to be out for one second.
+
+00:11:38.000 --> 00:11:41.750
+Let's see how WebRTC and Salsify react in this
+
+00:11:41.750 --> 00:11:43.000
+situation.
+
+00:11:43.000 --> 00:11:49.000
+Left side, Salsify. Right side, WebRTC.
+
+00:11:49.000 --> 00:11:56.000
+The network is out. Salsify has recovered.
+
+00:11:56.000 --> 00:11:58.000
+And now WebRTC.
+
+00:11:58.000 --> 00:12:02.000
+Again, the network is out. Salsify has recovered.
+
+00:12:02.000 --> 00:12:06.000
+And now WebRTC.
+
+00:12:06.000 --> 00:12:10.000
+Network is out. Salsify has recovered.
+
+00:12:10.000 --> 00:12:13.230
+And again, it takes WebRTC several seconds to
+
+00:12:13.230 --> 00:12:16.000
+recover from that one second outage.
+
+00:12:16.000 --> 00:12:18.070
+And when we look at the network throughput graph,
+
+00:12:18.070 --> 00:12:21.810
+we see that WebRTC basically disregarded whatever
+
+00:12:21.810 --> 00:12:26.480
+was happening in the network and just kept
+
+00:12:26.480 --> 00:12:30.000
+sending data at the old rate.
+
+00:12:30.000 --> 00:12:32.350
+In order to evaluate Salsify, we built a
+
+00:12:32.350 --> 00:12:35.270
+measurement testbed that is capable of basically
+
+00:12:35.270 --> 00:12:38.120
+testing any real-time video system as a black box
+
+00:12:38.120 --> 00:12:41.000
+without requiring any modification to that.
+
+00:12:41.000 --> 00:12:43.970
+You can read all about this measurement testbed
+
+00:12:43.970 --> 00:12:45.000
+in our paper.
+
+00:12:45.000 --> 00:12:47.680
+Just one thing I want to mention is that this
+
+00:12:47.680 --> 00:12:51.000
+measurement testbed uses a barcoded input video.
+
+00:12:51.000 --> 00:12:54.750
+Each frame in this input video has a unique barcode,
+
+00:12:54.750 --> 00:12:57.890
+and using this barcode, we can actually match
+
+00:12:57.890 --> 00:13:01.410
+frames at the sender and the receiver side, and
+
+00:13:01.410 --> 00:13:03.500
+we can see what was the change in the frame
+
+00:13:03.500 --> 00:13:06.660
+quality, and how long did the frame take to reach
+
+00:13:06.660 --> 00:13:09.000
+from the sender side to the receiver side.
+
+00:13:09.000 --> 00:13:13.970
+So we are capable of measuring delay and quality
+
+00:13:13.970 --> 00:13:17.000
+on a per-frame basis here.
+
+00:13:17.000 --> 00:13:20.240
+Using this measurement testbed, we compare Salsify
+
+00:13:20.240 --> 00:13:24.000
+performance to Skype, WebRTC, FaceTime, and Hangouts.
+
+00:13:24.000 --> 00:13:27.630
+Here on the y-axis, you can see the video quality,
+
+00:13:27.630 --> 00:13:31.000
+and on the x-axis, you can see video delay.
+
+00:13:31.000 --> 00:13:34.270
+So the x-axis is flipped, better is up and to the
+
+00:13:34.270 --> 00:13:35.000
+right.
+
+00:13:35.000 --> 00:13:38.540
+We wanted to see how the ideas that we had in Salsify
+
+00:13:38.540 --> 00:13:42.000
+actually contributed to the final results.
+
+00:13:42.000 --> 00:13:44.830
+So we started by implementing a real-time video
+
+00:13:44.830 --> 00:13:46.610
+system that works very similar to the
+
+00:13:46.610 --> 00:13:49.970
+conventional design, and it ended up kind of
+
+00:13:49.970 --> 00:13:52.000
+close to the other systems.
+
+00:13:52.000 --> 00:13:54.950
+Then, in the conventional design, we went and
+
+00:13:54.950 --> 00:13:57.920
+just replaced the transport protocol with this
+
+00:13:57.920 --> 00:14:01.110
+video-aware transport protocol that tries to take
+
+00:14:01.110 --> 00:14:04.000
+control of the video on a per-frame basis.
+
+00:14:04.000 --> 00:14:07.070
+We still have a conventional codec, it has to
+
+00:14:07.070 --> 00:14:10.420
+come up with the right parameters up front, but
+
+00:14:10.420 --> 00:14:13.560
+now the transport tries to set a size for each
+
+00:14:13.560 --> 00:14:14.000
+frame.
+
+00:14:14.000 --> 00:14:17.680
+As you can see, the delay was improved, but the
+
+00:14:17.680 --> 00:14:21.000
+quality, it actually dropped a little bit.
+
+00:14:21.000 --> 00:14:23.730
+But now, in the full version of Salsify, when we
+
+00:14:23.730 --> 00:14:27.130
+put together all these components, you know, the
+
+00:14:27.130 --> 00:14:31.360
+video-aware transport protocol and the functional
+
+00:14:31.360 --> 00:14:34.310
+codec, that's when we can achieve better delay
+
+00:14:34.310 --> 00:14:37.000
+and better quality than the other systems.
+
+00:14:37.000 --> 00:14:41.000
+So these are the results on Verizon LTE Trace.
+
+00:14:41.000 --> 00:14:44.800
+Here we have the results on AT&T LTE Trace, where
+
+00:14:44.800 --> 00:14:48.500
+again, Salsify achieves better delay and better
+
+00:14:48.500 --> 00:14:51.000
+quality than other systems.
+
+00:14:51.000 --> 00:14:54.250
+And here we have the T-Mobile UMTS Trace, which
+
+00:14:54.250 --> 00:14:56.000
+is a very troubled link.
+
+00:14:56.000 --> 00:14:58.000
+You can see delays up to 18 seconds.
+
+00:14:58.000 --> 00:15:01.460
+And again, Salsify achieves lower delay and
+
+00:15:01.460 --> 00:15:05.000
+higher quality compared to other systems.
+
+00:15:05.000 --> 00:15:07.300
+And of course, there are situations where Salsify
+
+00:15:07.300 --> 00:15:09.340
+doesn't really offer an advantage over other
+
+00:15:09.340 --> 00:15:10.000
+systems.
+
+00:15:10.000 --> 00:15:12.870
+One case is that when you have no variations in
+
+00:15:12.870 --> 00:15:14.000
+your network.
+
+00:15:14.000 --> 00:15:17.620
+Here you can see the results when we ran Salsify
+
+00:15:17.620 --> 00:15:21.210
+on a network with constant capacity and very low
+
+00:15:21.210 --> 00:15:23.000
+rate of packet loss.
+
+00:15:23.000 --> 00:15:26.000
+Let's just take a step back and see what happens.
+
+00:15:26.000 --> 00:15:29.280
+So the individual components that we have in Salsify,
+
+00:15:29.280 --> 00:15:31.000
+they're not exactly new.
+
+00:15:31.000 --> 00:15:33.780
+Like the transport protocol is a very dumbed down
+
+00:15:33.780 --> 00:15:36.000
+version of PacketBear and Sprout.
+
+00:15:36.000 --> 00:15:39.280
+The video format that we are using is like 13
+
+00:15:39.280 --> 00:15:40.000
+years old.
+
+00:15:40.000 --> 00:15:42.080
+And the functional video codec that I told you
+
+00:15:42.080 --> 00:15:44.800
+about was built for a different purpose, you know,
+
+00:15:44.800 --> 00:15:47.540
+and because it was built by one person in three
+
+00:15:47.540 --> 00:15:48.000
+months,
+
+00:15:48.000 --> 00:15:51.200
+its compression efficiency and speed is way lower
+
+00:15:51.200 --> 00:15:53.000
+than commercial codecs.
+
+00:15:53.000 --> 00:15:56.290
+What's new in Salsify is the architecture, the
+
+00:15:56.290 --> 00:15:59.000
+way that we put these components together,
+
+00:15:59.000 --> 00:16:02.570
+that allows the system to jointly control the
+
+00:16:02.570 --> 00:16:05.700
+codec and the transport and respond faster to the
+
+00:16:05.700 --> 00:16:08.000
+variations in the network.
+
+00:16:08.000 --> 00:16:10.500
+We believe that in the context of real time video
+
+00:16:10.500 --> 00:16:13.450
+systems, you know, going and making better video
+
+00:16:13.450 --> 00:16:17.000
+codecs probably won't give us that much.
+
+00:16:17.000 --> 00:16:19.300
+But if we go and start making changes to the
+
+00:16:19.300 --> 00:16:22.330
+overall architecture of these video systems, we
+
+00:16:22.330 --> 00:16:26.000
+can still yield significant benefits.
+
+00:16:26.000 --> 00:16:28.760
+So Salsify is a new architecture for real time
+
+00:16:28.760 --> 00:16:30.000
+internet video.
+
+00:16:30.000 --> 00:16:33.170
+It tightly integrates a video over transport
+
+00:16:33.170 --> 00:16:36.000
+protocol with a functional video codec,
+
+00:16:36.000 --> 00:16:38.130
+allowing the system to respond quickly to the
+
+00:16:38.130 --> 00:16:40.000
+changes in the network conditions.
+
+00:16:40.000 --> 00:16:43.540
+Salsify achieves lower delay and higher quality
+
+00:16:43.540 --> 00:16:47.220
+when compared to FaceTime, Hangouts, Skype, and
+
+00:16:47.220 --> 00:16:48.000
+WebRTC.
+
+00:16:48.000 --> 00:16:49.000
+Thank you.
+

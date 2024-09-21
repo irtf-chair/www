@@ -1,0 +1,1352 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.400
+- Hello, welcome everybody.
+
+00:00:03.400 --> 00:00:05.720
+I'm Ingmar Poese and I'll be talking about
+
+00:00:05.720 --> 00:00:08.870
+our CoNEXT-19 paper, Steering Hypergiants, Traffic
+
+00:00:08.870 --> 00:00:09.600
+at Scale.
+
+00:00:09.600 --> 00:00:12.440
+This is joined work together with Enric Pujol,
+
+00:00:12.440 --> 00:00:15.760
+Johanna Stavros, George Smaragdakis and Anja Feldman.
+
+00:00:15.760 --> 00:00:18.640
+And with that, I'm simply going to start.
+
+00:00:18.640 --> 00:00:20.600
+So when we're talking about hypergiants,
+
+00:00:20.600 --> 00:00:22.520
+the first thing we need to know
+
+00:00:22.520 --> 00:00:24.560
+is what actually is a hypergiant.
+
+00:00:24.560 --> 00:00:28.740
+Hypergiants are, there are multiple definitions
+
+00:00:28.740 --> 00:00:29.240
+for it,
+
+00:00:29.240 --> 00:00:31.600
+but the ones that we have chosen is
+
+00:00:31.600 --> 00:00:34.320
+they are large networks that provide services
+
+00:00:34.320 --> 00:00:36.380
+mostly to end users.
+
+00:00:36.380 --> 00:00:39.080
+They run global distributed infrastructures
+
+00:00:39.080 --> 00:00:41.560
+and they generate enormous amounts of traffic,
+
+00:00:41.560 --> 00:00:44.520
+which means they are the ones that are dominating
+
+00:00:44.520 --> 00:00:46.480
+the traffic on the internet.
+
+00:00:46.480 --> 00:00:50.720
+When we're talking about traffic,
+
+00:00:50.720 --> 00:00:54.520
+this is a statistic from one of the networks
+
+00:00:54.520 --> 00:00:58.920
+that we were fortunate enough to have information
+
+00:00:58.920 --> 00:00:59.320
+about.
+
+00:00:59.320 --> 00:01:01.680
+The blue line is the traffic share
+
+00:01:01.680 --> 00:01:05.320
+of the top 10 hypergiants that we have tracked
+
+00:01:05.320 --> 00:01:08.440
+over the last, now in this case, two years.
+
+00:01:08.440 --> 00:01:12.720
+You can see that it's sort of steadily between 70
+
+00:01:12.720 --> 00:01:14.120
+and 80%.
+
+00:01:14.120 --> 00:01:16.200
+And at the same time, in the background,
+
+00:01:16.200 --> 00:01:19.000
+the gray area is the traffic increase
+
+00:01:19.000 --> 00:01:21.560
+normalized to the start of the period.
+
+00:01:23.080 --> 00:01:25.960
+You can see that over the course of the two years,
+
+00:01:25.960 --> 00:01:28.920
+we have quite the traffic increase.
+
+00:01:28.920 --> 00:01:31.800
+Now, the ISP that we're looking at
+
+00:01:31.800 --> 00:01:33.940
+has about 50 million customers,
+
+00:01:33.940 --> 00:01:37.120
+generates about 50 petabytes of data daily
+
+00:01:37.120 --> 00:01:39.640
+and runs more than 10 large pods.
+
+00:01:39.640 --> 00:01:45.560
+The annual traffic growth is around 30% per year
+
+00:01:45.560 --> 00:01:49.480
+and the top 10 hypergiants have a traffic share
+
+00:01:49.480 --> 00:01:53.440
+of more than 75% over this period of time.
+
+00:01:53.440 --> 00:01:58.680
+But also, we wanna steer traffic.
+
+00:01:58.680 --> 00:02:01.560
+And here's a very, very simple example
+
+00:02:01.560 --> 00:02:05.200
+what we mean when it comes to steering traffic.
+
+00:02:05.200 --> 00:02:08.000
+Let's assume we have our little network here.
+
+00:02:08.000 --> 00:02:10.860
+We have our hypergiant clusters called HG
+
+00:02:10.860 --> 00:02:11.480
+clusters.
+
+00:02:11.480 --> 00:02:13.520
+In this case, there is three interconnection
+
+00:02:13.520 --> 00:02:14.060
+points.
+
+00:02:14.060 --> 00:02:15.920
+Whether these clusters are directly connected
+
+00:02:15.920 --> 00:02:17.240
+or come through a third party
+
+00:02:17.240 --> 00:02:18.560
+doesn't really matter at this point
+
+00:02:18.560 --> 00:02:21.720
+since we're focusing on the ISP here itself.
+
+00:02:21.720 --> 00:02:24.340
+And we're assuming that traffic is being
+
+00:02:24.340 --> 00:02:24.840
+delivered
+
+00:02:24.840 --> 00:02:26.280
+by the middle cluster at the moment,
+
+00:02:26.280 --> 00:02:30.680
+which means we have two bytes per byte
+
+00:02:30.680 --> 00:02:32.140
+generated from the cluster
+
+00:02:32.140 --> 00:02:34.000
+or we're running over two links,
+
+00:02:34.000 --> 00:02:36.480
+which means we need twice the capacity to be
+
+00:02:36.480 --> 00:02:37.200
+installed
+
+00:02:37.200 --> 00:02:43.000
+as what the cluster is pushing out.
+
+00:02:43.000 --> 00:02:46.160
+Now, if we switch over to the cluster on the left,
+
+00:02:46.160 --> 00:02:47.400
+that would be a bad mapping
+
+00:02:47.400 --> 00:02:50.520
+since we have even more capacity that we're
+
+00:02:50.520 --> 00:02:50.840
+burning
+
+00:02:50.840 --> 00:02:55.720
+in order to get to the sort of smiling users over
+
+00:02:55.720 --> 00:02:55.760
+there.
+
+00:02:55.760 --> 00:02:58.040
+And a good mapping would be
+
+00:02:58.040 --> 00:02:59.880
+if we go to the cluster on the right,
+
+00:02:59.880 --> 00:03:01.760
+which would only be one internal hop.
+
+00:03:01.760 --> 00:03:03.840
+And in this extreme scenario,
+
+00:03:03.840 --> 00:03:06.390
+would be a 50% reduction on the traffic in the
+
+00:03:06.390 --> 00:03:07.040
+backbone.
+
+00:03:07.040 --> 00:03:10.240
+Keep in mind, this is just an example,
+
+00:03:10.240 --> 00:03:12.320
+but that's basically what it's all about,
+
+00:03:12.320 --> 00:03:16.030
+trying to minimize distance or the hops inside
+
+00:03:16.030 --> 00:03:16.840
+the network
+
+00:03:16.840 --> 00:03:19.880
+while also keeping everybody else happy.
+
+00:03:19.880 --> 00:03:23.300
+Now, this, some of you may say this sounds
+
+00:03:23.300 --> 00:03:23.720
+familiar
+
+00:03:23.720 --> 00:03:25.400
+and you've seen this before.
+
+00:03:25.400 --> 00:03:28.690
+And yes, actually, we have already done this
+
+00:03:28.690 --> 00:03:29.200
+research
+
+00:03:29.200 --> 00:03:30.600
+about 10 years ago.
+
+00:03:30.600 --> 00:03:34.360
+Back then, we introduced the system PADIS.
+
+00:03:34.360 --> 00:03:38.530
+And today, we're actually talking about the same
+
+00:03:38.530 --> 00:03:39.360
+thing.
+
+00:03:39.360 --> 00:03:40.440
+It's, as you can see,
+
+00:03:40.440 --> 00:03:42.650
+there's also a fair amount of the same people in
+
+00:03:42.650 --> 00:03:43.100
+this.
+
+00:03:43.100 --> 00:03:44.520
+So the question is, what's new?
+
+00:03:44.520 --> 00:03:48.800
+What has changed between 10 years ago and now?
+
+00:03:48.800 --> 00:03:51.600
+Why are we revisiting this topic?
+
+00:03:51.600 --> 00:03:54.200
+Well, first of all, the mapping problem
+
+00:03:54.200 --> 00:03:58.780
+that we talked about 10 years ago is still valid
+
+00:03:58.780 --> 00:04:00.200
+and it is still an important issue
+
+00:04:00.200 --> 00:04:02.040
+and it can still cause a lot of headaches
+
+00:04:02.040 --> 00:04:03.640
+and cause a lot of work.
+
+00:04:03.640 --> 00:04:08.040
+Second thing is we initially proposed
+
+00:04:08.040 --> 00:04:09.840
+the PADIS infrastructure.
+
+00:04:09.840 --> 00:04:13.080
+And we here show the differences
+
+00:04:13.080 --> 00:04:15.000
+from having a research project,
+
+00:04:15.000 --> 00:04:18.360
+this called, in this case, PADIS,
+
+00:04:18.360 --> 00:04:21.200
+go into a fully-fledged production environment
+
+00:04:21.200 --> 00:04:22.680
+called the flow director
+
+00:04:22.680 --> 00:04:25.910
+and what needed to be changed to the initial
+
+00:04:25.910 --> 00:04:26.280
+system,
+
+00:04:26.280 --> 00:04:27.480
+what we didn't think about,
+
+00:04:27.480 --> 00:04:29.440
+what needed to be added in order for this to
+
+00:04:29.440 --> 00:04:30.720
+actually work.
+
+00:04:30.720 --> 00:04:33.230
+And thirdly, the flow director is actually
+
+00:04:33.230 --> 00:04:34.280
+operational.
+
+00:04:34.280 --> 00:04:36.600
+We have more, we have two years,
+
+00:04:36.600 --> 00:04:38.440
+well, by now, almost three years
+
+00:04:38.440 --> 00:04:41.800
+of operational experience of steering hypergiant.
+
+00:04:41.800 --> 00:04:44.120
+So we also wanna report on how this actually
+
+00:04:44.120 --> 00:04:44.480
+works
+
+00:04:44.480 --> 00:04:45.520
+in the real world.
+
+00:04:45.520 --> 00:04:50.920
+First of all, we're going to go into the
+
+00:04:50.920 --> 00:04:54.480
+user-to-server mapping issue a little bit further.
+
+00:04:54.480 --> 00:04:56.460
+So what does that actually mean?
+
+00:04:56.460 --> 00:04:59.880
+This is over the past two years,
+
+00:04:59.880 --> 00:05:03.480
+we have looked at the hypergiant traffic
+
+00:05:03.480 --> 00:05:06.500
+and we have looked at the optimal mapping
+
+00:05:06.500 --> 00:05:09.220
+and how this evolves over time.
+
+00:05:09.220 --> 00:05:13.540
+This basically takes the traffic
+
+00:05:13.540 --> 00:05:15.840
+that the hypergiant produce
+
+00:05:15.840 --> 00:05:18.160
+and checks whether it matches
+
+00:05:18.160 --> 00:05:20.820
+the current network configuration
+
+00:05:20.820 --> 00:05:24.460
+to see if the mapping was done optimally
+
+00:05:24.460 --> 00:05:28.780
+in terms of the mapping function that was chosen.
+
+00:05:28.780 --> 00:05:31.100
+In this case, the mapping function that we chose
+
+00:05:31.100 --> 00:05:33.260
+is a combination of hops and distance.
+
+00:05:33.260 --> 00:05:38.220
+Hops, in order to reduce the load on the ISP,
+
+00:05:38.220 --> 00:05:41.100
+distance in order to reduce the latency
+
+00:05:41.100 --> 00:05:45.540
+as shorter links tend to have lower TTL.
+
+00:05:45.540 --> 00:05:48.100
+So as you can see over time here,
+
+00:05:48.100 --> 00:05:52.370
+we're steadily around 70 to 60% of optimally
+
+00:05:52.370 --> 00:05:53.100
+mapped traffic.
+
+00:05:53.100 --> 00:05:57.190
+So there is a huge potential of actually
+
+00:05:57.190 --> 00:05:58.220
+optimizing things.
+
+00:05:58.220 --> 00:06:00.780
+Also keep in mind that this does not tell you
+
+00:06:00.780 --> 00:06:02.900
+how badly mismatched this is.
+
+00:06:02.900 --> 00:06:05.070
+This is just a binary decision, is it mismatched
+
+00:06:05.070 --> 00:06:05.500
+or not?
+
+00:06:05.500 --> 00:06:09.030
+So the potential for actually reducing or
+
+00:06:09.030 --> 00:06:10.500
+optimizing traffic
+
+00:06:10.500 --> 00:06:14.140
+is possibly greater than just this.
+
+00:06:14.140 --> 00:06:16.260
+And what you can also see,
+
+00:06:16.260 --> 00:06:19.740
+there is sort of a slow but steady negative trend,
+
+00:06:19.740 --> 00:06:22.210
+which means as the infrastructures get more
+
+00:06:22.210 --> 00:06:22.700
+complex,
+
+00:06:22.700 --> 00:06:24.540
+mapping is getting harder and harder.
+
+00:06:24.540 --> 00:06:29.140
+Now we're going to go into the individual hypergiants
+
+00:06:29.140 --> 00:06:29.980
+that we tracked.
+
+00:06:29.980 --> 00:06:31.500
+Like I said, we tracked 10 hypergiants
+
+00:06:31.500 --> 00:06:33.420
+over the period of two years.
+
+00:06:33.420 --> 00:06:36.480
+And we're just going to focus on hypergiant six
+
+00:06:36.480 --> 00:06:36.820
+here,
+
+00:06:36.820 --> 00:06:39.540
+which used to run one single interconnect
+
+00:06:39.540 --> 00:06:43.850
+with the ISP in question that we got the
+
+00:06:43.850 --> 00:06:44.540
+information from.
+
+00:06:44.540 --> 00:06:48.280
+They then decided to open a second point
+
+00:06:48.280 --> 00:06:53.100
+and that reduced the mapping compliance to 50%,
+
+00:06:53.100 --> 00:06:55.220
+which means this was basically a round robin
+
+00:06:55.220 --> 00:06:59.980
+and 50% got it right, 50% got it wrong.
+
+00:06:59.980 --> 00:07:03.700
+So when you actually do the peering at a new
+
+00:07:03.700 --> 00:07:04.620
+location,
+
+00:07:04.620 --> 00:07:07.420
+it needs to be communicated how the mapping
+
+00:07:07.420 --> 00:07:08.660
+actually works.
+
+00:07:08.660 --> 00:07:11.220
+And if you do not have a mapping system in place
+
+00:07:11.220 --> 00:07:13.150
+as a hypergiant, you might want to think about
+
+00:07:13.150 --> 00:07:13.600
+getting one,
+
+00:07:13.600 --> 00:07:15.920
+otherwise this can happen.
+
+00:07:15.920 --> 00:07:18.000
+Secondly, there are those hypergiants
+
+00:07:18.000 --> 00:07:19.580
+that have no direct incentive
+
+00:07:19.580 --> 00:07:21.860
+to actually do the mapping right.
+
+00:07:21.860 --> 00:07:24.220
+They just go round robin all the time.
+
+00:07:24.220 --> 00:07:29.220
+And, or basically they just don't care
+
+00:07:29.700 --> 00:07:31.940
+or don't have any incentive to do this.
+
+00:07:31.940 --> 00:07:36.300
+And thirdly, there are those that do try in here,
+
+00:07:36.300 --> 00:07:40.780
+but they still sort of at the,
+
+00:07:40.780 --> 00:07:45.780
+none of them ever gets really over the 80%.
+
+00:07:45.780 --> 00:07:51.000
+So why is it so hard to actually get the mapping
+
+00:07:51.000 --> 00:07:51.460
+right
+
+00:07:51.460 --> 00:07:53.420
+if you have more than one ingress point
+
+00:07:53.420 --> 00:07:56.140
+or more than one interconnection point with an ISP?
+
+00:07:56.140 --> 00:07:58.920
+It doesn't feel like it,
+
+00:07:58.920 --> 00:08:00.980
+but this is actually a fairly hard problem.
+
+00:08:00.980 --> 00:08:03.920
+So let me go into, not detail,
+
+00:08:03.920 --> 00:08:08.040
+but a few things that have to be taken into
+
+00:08:08.040 --> 00:08:08.920
+consideration
+
+00:08:08.920 --> 00:08:12.180
+when doing the mapping decision.
+
+00:08:12.180 --> 00:08:15.170
+First of all, and I'm gonna start at the top left
+
+00:08:15.170 --> 00:08:15.700
+here,
+
+00:08:15.700 --> 00:08:18.780
+we have to think about how many number of POPs
+
+00:08:18.780 --> 00:08:20.460
+am I actually in.
+
+00:08:20.460 --> 00:08:23.300
+So how many different mapping,
+
+00:08:23.300 --> 00:08:25.900
+how many different positions am I ingressing in?
+
+00:08:25.900 --> 00:08:29.090
+That changes over time, as you can see in the
+
+00:08:29.090 --> 00:08:30.100
+graph.
+
+00:08:30.100 --> 00:08:32.580
+More POPs get connected, mapping gets harder,
+
+00:08:32.580 --> 00:08:33.840
+changes over time.
+
+00:08:33.840 --> 00:08:35.060
+Next is top right.
+
+00:08:35.060 --> 00:08:37.680
+The capacity changes.
+
+00:08:37.680 --> 00:08:41.180
+So just because the configuration was good in a
+
+00:08:41.180 --> 00:08:42.680
+month
+
+00:08:42.680 --> 00:08:45.840
+doesn't mean it is good in the next month.
+
+00:08:45.840 --> 00:08:47.960
+In this case, we're talking about the capacity
+
+00:08:47.960 --> 00:08:50.180
+of the hypergiant that increases.
+
+00:08:50.180 --> 00:08:53.290
+So this capacity has to be installed at the right
+
+00:08:53.290 --> 00:08:53.600
+place
+
+00:08:53.600 --> 00:08:55.760
+or has to be mapped from the right place.
+
+00:08:55.760 --> 00:08:58.120
+This is also something that needs to be taken
+
+00:08:58.120 --> 00:08:58.500
+care of.
+
+00:08:58.500 --> 00:08:59.980
+Next is the middle left.
+
+00:08:59.980 --> 00:09:03.760
+This is internal routing changes.
+
+00:09:03.760 --> 00:09:07.790
+So this basically shows when internal routing
+
+00:09:07.790 --> 00:09:08.600
+changes occur
+
+00:09:08.600 --> 00:09:12.740
+or how often internal routing changes
+
+00:09:12.740 --> 00:09:15.440
+actually affect the mapping decision
+
+00:09:15.440 --> 00:09:18.860
+or the mapping of hypergiant inside the backbone.
+
+00:09:18.860 --> 00:09:22.520
+Next is the middle right.
+
+00:09:22.520 --> 00:09:27.520
+This is the number of events on the internal
+
+00:09:27.520 --> 00:09:27.520
+backbone
+
+00:09:27.520 --> 00:09:34.800
+in terms of routing that will give you the,
+
+00:09:34.800 --> 00:09:39.560
+that will affect the hypergiant
+
+00:09:39.560 --> 00:09:41.980
+or the number of hypergiants are affected by.
+
+00:09:41.980 --> 00:09:45.840
+So again, internal routing changes within
+
+00:09:45.840 --> 00:09:49.320
+that have an effect on the mapping.
+
+00:09:50.180 --> 00:09:53.480
+Last, I will go into the bottom left,
+
+00:09:53.480 --> 00:09:56.120
+which is the churn in the IP space.
+
+00:09:56.120 --> 00:09:59.960
+So reassignment of IP space inside the ISP.
+
+00:09:59.960 --> 00:10:03.240
+And the same thing as distribution on the top,
+
+00:10:03.240 --> 00:10:05.160
+on the bottom right,
+
+00:10:05.160 --> 00:10:08.680
+where you can see what the probabilities are
+
+00:10:08.680 --> 00:10:11.380
+that within a certain amount of time,
+
+00:10:11.380 --> 00:10:15.000
+IP address space will be reassigned inside the ISP.
+
+00:10:15.000 --> 00:10:17.600
+All of these issues that you've seen here
+
+00:10:17.600 --> 00:10:21.400
+are interesting and hard to get from the outside.
+
+00:10:21.400 --> 00:10:26.400
+So there needs to be information that is provided
+
+00:10:26.400 --> 00:10:32.720
+from the end user, from the ISP towards the CDN
+
+00:10:32.720 --> 00:10:35.120
+or hypergiant in this case.
+
+00:10:35.120 --> 00:10:37.620
+Of course, there are also unknown factors,
+
+00:10:37.620 --> 00:10:39.780
+server loads, maintenance, content availability,
+
+00:10:39.780 --> 00:10:42.990
+cross traffic, and I can only refer you to the
+
+00:10:42.990 --> 00:10:43.240
+paper
+
+00:10:43.240 --> 00:10:45.800
+at this point as I am already running out of time
+
+00:10:46.840 --> 00:10:49.440
+to if you're interested more why mapping is an
+
+00:10:49.440 --> 00:10:50.160
+hard issue.
+
+00:10:50.160 --> 00:10:54.310
+But collaboration can clear this lack of
+
+00:10:54.310 --> 00:10:55.520
+visibility.
+
+00:10:55.520 --> 00:10:58.500
+So what have we done here?
+
+00:10:58.500 --> 00:11:01.320
+The flow director is in a nutshell,
+
+00:11:01.320 --> 00:11:04.560
+it collects data from the internal state of the
+
+00:11:04.560 --> 00:11:04.760
+ISP.
+
+00:11:04.760 --> 00:11:08.640
+It builds an inventory and map of the forwarding
+
+00:11:08.640 --> 00:11:12.800
+and control plane of the internet.
+
+00:11:12.800 --> 00:11:15.700
+And it regularly does inventory checks.
+
+00:11:15.700 --> 00:11:19.280
+It computes the best mapping and compiles that
+
+00:11:19.280 --> 00:11:23.820
+into an easily accessible database.
+
+00:11:23.820 --> 00:11:26.400
+And it communicates this to the hypergiant
+
+00:11:26.400 --> 00:11:29.120
+that wants to collaborate in near real time.
+
+00:11:29.120 --> 00:11:32.160
+And by near real time, I mean, maximum 60 seconds
+
+00:11:32.160 --> 00:11:34.480
+via multiple protocols.
+
+00:11:34.480 --> 00:11:37.340
+Alto is one of them, but we also support other
+
+00:11:37.340 --> 00:11:37.600
+things
+
+00:11:37.600 --> 00:11:40.120
+like out of band BGP, email, XML, JSON,
+
+00:11:40.120 --> 00:11:41.280
+and so on and so forth.
+
+00:11:41.280 --> 00:11:45.080
+A little bit of the history on this.
+
+00:11:45.080 --> 00:11:50.040
+It took us actually about 10 years in research,
+
+00:11:50.040 --> 00:11:55.040
+about seven years with the company
+
+00:11:55.040 --> 00:11:58.020
+to get to the point where we are now
+
+00:11:58.020 --> 00:12:01.800
+between the first evaluation
+
+00:12:01.800 --> 00:12:05.480
+and the actually going live in five years.
+
+00:12:05.480 --> 00:12:07.400
+And as you can see on this timeline,
+
+00:12:07.400 --> 00:12:08.720
+there is a lot of things in here
+
+00:12:08.720 --> 00:12:10.380
+that you wouldn't actually be thinking
+
+00:12:10.380 --> 00:12:12.960
+of needing to implement or needing to do
+
+00:12:12.960 --> 00:12:13.460
+something
+
+00:12:13.460 --> 00:12:16.280
+about when you're doing something like this.
+
+00:12:16.280 --> 00:12:21.280
+All components are adhering to RFCs.
+
+00:12:21.280 --> 00:12:24.360
+And we also built this horizontally scalable
+
+00:12:24.360 --> 00:12:27.480
+so we can pretty much take on any network
+
+00:12:27.480 --> 00:12:28.840
+that we connect to.
+
+00:12:28.840 --> 00:12:34.830
+Currently, we do run this in a fairly large
+
+00:12:34.830 --> 00:12:35.280
+environment
+
+00:12:35.280 --> 00:12:38.120
+just so you get a sort of feeling.
+
+00:12:38.120 --> 00:12:40.520
+We see over one gigabit per second of net flow
+
+00:12:40.520 --> 00:12:43.460
+at a low sampling rate.
+
+00:12:43.460 --> 00:12:46.940
+And we hold about 600 BGP sessions
+
+00:12:46.940 --> 00:12:49.500
+and we have about a 60 second reaction time.
+
+00:12:49.500 --> 00:12:56.060
+The architecture itself is split into three parts.
+
+00:12:56.060 --> 00:12:57.970
+We have the southbound that does all the data
+
+00:12:57.970 --> 00:12:58.380
+collection
+
+00:12:58.380 --> 00:12:59.220
+and aggregation.
+
+00:12:59.220 --> 00:13:01.820
+We have the core engine which does all the model
+
+00:13:01.820 --> 00:13:02.460
+building
+
+00:13:02.460 --> 00:13:03.560
+and calculations.
+
+00:13:03.560 --> 00:13:07.150
+And we have the northbound which does all the
+
+00:13:07.150 --> 00:13:07.780
+communication
+
+00:13:07.780 --> 00:13:12.480
+towards the CDN so that the path ranker,
+
+00:13:12.480 --> 00:13:14.680
+so the mapping decision can actually be
+
+00:13:14.680 --> 00:13:15.640
+communicated.
+
+00:13:15.640 --> 00:13:17.600
+Again, due to time restrictions,
+
+00:13:17.600 --> 00:13:21.080
+I can only refer you to the paper at this point
+
+00:13:21.080 --> 00:13:22.920
+if you want to know more about this.
+
+00:13:22.920 --> 00:13:27.210
+Now, let's go into the operational experience
+
+00:13:27.210 --> 00:13:28.020
+here.
+
+00:13:28.020 --> 00:13:34.000
+First of all, we have a collaboration
+
+00:13:37.440 --> 00:13:41.400
+with one hypergiant for this ISP.
+
+00:13:41.400 --> 00:13:44.320
+So this, at this point, was a one-on-one
+
+00:13:44.320 --> 00:13:45.360
+relationship.
+
+00:13:45.360 --> 00:13:50.610
+This hypergiant had more than 10% of the total
+
+00:13:50.610 --> 00:13:50.980
+traffic
+
+00:13:50.980 --> 00:13:53.320
+inside the ISP's network.
+
+00:13:53.320 --> 00:13:58.320
+There were two KPIs that we wanted to adhere to.
+
+00:13:58.320 --> 00:14:00.650
+For the ISP, we wanted to reduce the long haul
+
+00:14:00.650 --> 00:14:01.120
+traffic.
+
+00:14:01.120 --> 00:14:03.180
+For the hypergiant, we wanted to reduce the
+
+00:14:03.180 --> 00:14:03.560
+latency,
+
+00:14:03.560 --> 00:14:06.600
+i.e. bring the server closer to the user,
+
+00:14:06.600 --> 00:14:10.320
+which boiled down into a mapping function
+
+00:14:10.320 --> 00:14:15.320
+or path ranker function that is a combination
+
+00:14:15.320 --> 00:14:17.720
+of the path length and the distance.
+
+00:14:17.720 --> 00:14:21.840
+Also keep in mind that the flow director,
+
+00:14:21.840 --> 00:14:25.980
+when it gives the path ranking, is a suggestion
+
+00:14:25.980 --> 00:14:28.120
+and it can be ignored by the hypergiant.
+
+00:14:28.120 --> 00:14:29.880
+So we do not enforce this.
+
+00:14:29.880 --> 00:14:32.720
+We put this really on collaboration.
+
+00:14:32.720 --> 00:14:34.640
+And in the trial run, we actually did this
+
+00:14:34.640 --> 00:14:36.160
+as a progressive rollout.
+
+00:14:36.160 --> 00:14:39.000
+So we didn't turn it on all the way,
+
+00:14:39.000 --> 00:14:42.200
+but we did this in a progressive manner.
+
+00:14:42.200 --> 00:14:46.040
+Now, first of all, I would like to talk a little
+
+00:14:46.040 --> 00:14:46.200
+bit
+
+00:14:46.200 --> 00:14:48.960
+about the benefits for the ISP.
+
+00:14:48.960 --> 00:14:55.080
+What you see here is over the time
+
+00:14:55.080 --> 00:14:59.400
+from mid-2017 to mid-2019,
+
+00:14:59.400 --> 00:15:03.480
+the traffic of the hypergiant
+
+00:15:05.480 --> 00:15:10.280
+on the backbone, and what you can also see
+
+00:15:10.280 --> 00:15:14.400
+is the traffic on the long haul links.
+
+00:15:14.400 --> 00:15:17.800
+There is a steady downward trend.
+
+00:15:17.800 --> 00:15:21.520
+We've put this into five phases,
+
+00:15:21.520 --> 00:15:24.060
+denoted by the colors that you can see here.
+
+00:15:24.060 --> 00:15:27.560
+The most interesting bit is the hold phase in the
+
+00:15:27.560 --> 00:15:28.100
+middle.
+
+00:15:28.100 --> 00:15:33.120
+That was a sort of misconfiguration in the system
+
+00:15:33.120 --> 00:15:36.600
+where the mapping was actually reset to random.
+
+00:15:36.600 --> 00:15:40.840
+And you can nicely see that when this happens,
+
+00:15:40.840 --> 00:15:43.520
+that the traffic, especially on the long haul
+
+00:15:43.520 --> 00:15:43.840
+links,
+
+00:15:43.840 --> 00:15:47.160
+increases quite drastically.
+
+00:15:47.160 --> 00:15:53.990
+But then with re-enabling the system, it all went
+
+00:15:53.990 --> 00:15:54.200
+down.
+
+00:15:54.200 --> 00:15:58.420
+And in the end, we have quite a significant
+
+00:15:58.420 --> 00:15:59.320
+reduction,
+
+00:15:59.320 --> 00:16:01.560
+especially on the long haul links,
+
+00:16:01.560 --> 00:16:06.320
+which are the expensive ones for this ISP.
+
+00:16:06.320 --> 00:16:10.090
+At the same time, we can also look at the overall
+
+00:16:10.090 --> 00:16:10.760
+traffic
+
+00:16:10.760 --> 00:16:15.190
+produced by this hypergiant inside the ISP's
+
+00:16:15.190 --> 00:16:15.760
+network.
+
+00:16:15.760 --> 00:16:19.120
+And also what you can see here
+
+00:16:19.120 --> 00:16:23.080
+is that we reduce the overall traffic while not,
+
+00:16:23.080 --> 00:16:25.760
+so this is important,
+
+00:16:25.760 --> 00:16:28.760
+we do not move away any traffic from the end
+
+00:16:28.760 --> 00:16:29.240
+users.
+
+00:16:29.240 --> 00:16:32.360
+So the traffic still increases throughout the
+
+00:16:32.360 --> 00:16:32.360
+time,
+
+00:16:32.360 --> 00:16:36.300
+but the traffic on the long haul links gets
+
+00:16:36.300 --> 00:16:37.120
+reduced.
+
+00:16:37.120 --> 00:16:39.380
+So which means we localize the traffic more,
+
+00:16:39.380 --> 00:16:41.680
+we take traffic load off of the long haul links
+
+00:16:41.680 --> 00:16:44.920
+and use the infrastructure of the hypergiant
+
+00:16:44.920 --> 00:16:47.920
+more efficiently, mapping the users closer
+
+00:16:47.920 --> 00:16:53.200
+to the points where the service actually are.
+
+00:16:53.200 --> 00:16:57.600
+That's the benefits for the ISP.
+
+00:16:57.600 --> 00:17:00.120
+Next is the benefits for the hypergiants.
+
+00:17:00.120 --> 00:17:01.760
+And as I said before,
+
+00:17:01.760 --> 00:17:04.880
+we use the distance as a proxy for latency.
+
+00:17:04.880 --> 00:17:10.960
+And in terms of distance, we reduced the gap,
+
+00:17:10.960 --> 00:17:16.040
+so the distance between the server and the client
+
+00:17:16.040 --> 00:17:20.400
+or the end user by about 40%,
+
+00:17:20.400 --> 00:17:22.720
+which means we heavily localized traffic.
+
+00:17:22.720 --> 00:17:25.480
+Again, you can see here that in the whole phase,
+
+00:17:26.360 --> 00:17:29.710
+this goes up really, really high as the mapping
+
+00:17:29.710 --> 00:17:30.680
+got broken.
+
+00:17:30.680 --> 00:17:36.420
+Lastly, we did a what-if analysis
+
+00:17:36.420 --> 00:17:39.500
+on what could be achieved.
+
+00:17:39.500 --> 00:17:42.900
+So what you basically see here is the potential
+
+00:17:42.900 --> 00:17:47.900
+for the 10 hypergiants that we identified
+
+00:17:47.900 --> 00:17:50.120
+in the ISPs network.
+
+00:17:50.120 --> 00:17:54.680
+And if all of them would actually go onto perfect
+
+00:17:54.680 --> 00:17:55.120
+mapping,
+
+00:17:55.760 --> 00:18:00.760
+so follow the flow director 100%,
+
+00:18:00.760 --> 00:18:05.470
+there is a huge potential for reducing backbone
+
+00:18:05.470 --> 00:18:06.040
+traffic
+
+00:18:06.040 --> 00:18:09.840
+and optimizing the network.
+
+00:18:09.840 --> 00:18:11.900
+Now, there is one point in here.
+
+00:18:11.900 --> 00:18:14.200
+We do not assume new server locations.
+
+00:18:14.200 --> 00:18:16.810
+New server locations can have an even greater
+
+00:18:16.810 --> 00:18:17.320
+effect.
+
+00:18:17.320 --> 00:18:20.920
+So there will still always be some long haul
+
+00:18:20.920 --> 00:18:22.340
+traffic left.
+
+00:18:22.340 --> 00:18:24.420
+The only thing we assume is that those,
+
+00:18:24.420 --> 00:18:26.320
+that the infrastructure as it existed
+
+00:18:26.320 --> 00:18:29.920
+at this in this point of time with the routing
+
+00:18:29.920 --> 00:18:32.240
+or the network configuration as it existed,
+
+00:18:32.240 --> 00:18:34.360
+we calculated the potential what would happen
+
+00:18:34.360 --> 00:18:37.120
+if we remapped according to the flow director.
+
+00:18:37.120 --> 00:18:40.000
+Across the board, if you take all of this
+
+00:18:40.000 --> 00:18:40.640
+together,
+
+00:18:40.640 --> 00:18:45.680
+we see a potential of about 20% overall
+
+00:18:45.680 --> 00:18:48.280
+long haul traffic reduction for the ISP.
+
+00:18:48.280 --> 00:18:54.000
+And with that, I am at the end of this talk.
+
+00:18:54.000 --> 00:18:57.680
+So I just wanna reiterate these points here.
+
+00:18:57.680 --> 00:19:01.280
+There is an opportunity to operate networks
+
+00:19:01.280 --> 00:19:04.140
+more efficiently through collaboration.
+
+00:19:04.140 --> 00:19:06.960
+We've just shown you how this collaboration works.
+
+00:19:06.960 --> 00:19:09.220
+This is a system that is actually deployed
+
+00:19:09.220 --> 00:19:10.700
+and it is fully automated.
+
+00:19:10.700 --> 00:19:15.070
+And we have been running it for multiple years
+
+00:19:15.070 --> 00:19:15.540
+now.
+
+00:19:15.540 --> 00:19:18.400
+Nevertheless, there's always a lot of engineering
+
+00:19:18.400 --> 00:19:20.160
+and a lot of diplomacy involved.
+
+00:19:20.160 --> 00:19:22.730
+So there's a lot of layer one through nine in
+
+00:19:22.730 --> 00:19:23.020
+there,
+
+00:19:23.020 --> 00:19:26.190
+although layer one and two are usually not that
+
+00:19:26.190 --> 00:19:27.320
+important.
+
+00:19:27.320 --> 00:19:30.480
+And mostly it works not only for the ISP,
+
+00:19:30.480 --> 00:19:31.880
+not only for the hypergiant,
+
+00:19:31.880 --> 00:19:33.860
+but it works for both at the same time.
+
+00:19:33.860 --> 00:19:38.840
+We're also interested in going into further
+
+00:19:38.840 --> 00:19:39.720
+directions here.
+
+00:19:39.720 --> 00:19:43.280
+First of all, we wanna see what happens
+
+00:19:43.280 --> 00:19:45.280
+if we use different optimization functions,
+
+00:19:45.280 --> 00:19:47.040
+especially for different types of content
+
+00:19:47.040 --> 00:19:48.520
+with different optimization functions
+
+00:19:48.520 --> 00:19:49.860
+from the same hypergiant,
+
+00:19:49.860 --> 00:19:52.560
+but also optimizing multiple hypergiants
+
+00:19:52.560 --> 00:19:56.520
+at the same, in the same network.
+
+00:19:56.520 --> 00:19:59.900
+And secondly, we would like to do a federated
+
+00:19:59.900 --> 00:20:00.600
+flow director,
+
+00:20:00.600 --> 00:20:03.450
+which means we do a multi-ISP hypergiant
+
+00:20:03.450 --> 00:20:04.880
+collaboration.
+
+00:20:04.880 --> 00:20:07.240
+And with that, I am at the end of this talk.
+
+00:20:07.240 --> 00:20:09.520
+Thank you for your attention.
+
+00:20:09.520 --> 00:20:12.740
+And I think I will take questions now,
+
+00:20:12.740 --> 00:20:14.200
+but I'm not quite sure.
+

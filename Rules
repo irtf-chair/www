@@ -51,6 +51,6 @@ route "/security.txt" do
 end
 
 passthrough "/bootstrap-*/**/*"
-passthrough "/**/*.{eot,ttf,woff,woff2,css,js,php,html,png,jpg,svg,json,cls,doc,docx,pdf,txt,pptx,key,m4v}"
+passthrough "/**/*.{eot,ttf,woff,woff2,css,js,php,html,png,jpg,svg,json,cls,doc,docx,pdf,txt,pptx,key,m4v,vtt}"
 
 layout "/**/*", :haml, :format => :html5

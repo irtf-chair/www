@@ -1,0 +1,1358 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:06.080
+Hello. So today I'm really excited to talk about
+
+00:00:06.080 --> 00:00:10.200
+this joint work with Matt, who's now at Nafeli,
+
+00:00:10.200 --> 00:00:13.770
+and Justine Sherry, who are my advisors at
+
+00:00:13.770 --> 00:00:15.000
+Carnegie Mellon.
+
+00:00:15.000 --> 00:00:19.520
+And my name is Ranysha Ware. So today I'm going
+
+00:00:19.520 --> 00:00:23.110
+to talk to you about this work on congestion
+
+00:00:23.110 --> 00:00:25.000
+control deployment.
+
+00:00:25.000 --> 00:00:29.180
+So let me start by motivating why we care about
+
+00:00:29.180 --> 00:00:32.000
+this and why you should too.
+
+00:00:32.000 --> 00:00:34.270
+So we want to answer the seemingly simple
+
+00:00:34.270 --> 00:00:38.000
+question, if you design a new congestion control
+
+00:00:38.000 --> 00:00:40.680
+algorithm, TACO, how do you show that TACO is
+
+00:00:40.680 --> 00:00:46.000
+reasonable to deploy in the Internet today?
+
+00:00:46.000 --> 00:00:49.190
+Well, typically we try to say a new algorithm TACO
+
+00:00:49.190 --> 00:00:52.010
+is reasonable to deploy in the Internet if it
+
+00:00:52.010 --> 00:00:54.770
+fairly shares with widely deployed legacy
+
+00:00:54.770 --> 00:00:56.000
+algorithms PAIR.
+
+00:00:56.000 --> 00:00:58.520
+For example, here are a bunch of graphs and
+
+00:00:58.520 --> 00:01:01.120
+tables all trying to use fairness to make the
+
+00:01:01.120 --> 00:01:03.720
+argument that their algorithm won't be too
+
+00:01:03.720 --> 00:01:07.440
+aggressive towards the status quo, which today is
+
+00:01:07.440 --> 00:01:11.000
+typically regarded to be cubic.
+
+00:01:11.000 --> 00:01:13.700
+But here's the thing. Everyone falls short of
+
+00:01:13.700 --> 00:01:16.000
+actually achieving fair outcomes.
+
+00:01:16.000 --> 00:01:18.230
+But everyone still has to try to make these
+
+00:01:18.230 --> 00:01:21.000
+arguments that their algorithm is deployable.
+
+00:01:21.000 --> 00:01:23.530
+So let's look at some examples of what these
+
+00:01:23.530 --> 00:01:25.000
+arguments look like.
+
+00:01:25.000 --> 00:01:27.120
+So I don't want to dig into the graphs here. I
+
+00:01:27.120 --> 00:01:29.000
+just want to draw your attention to the arguments.
+
+00:01:29.000 --> 00:01:31.990
+So in the cubic paper, they show results where
+
+00:01:31.990 --> 00:01:34.900
+cubic is unfair to Reno, but argue that this is
+
+00:01:34.900 --> 00:01:38.170
+outside of the TCP friendly region and that this
+
+00:01:38.170 --> 00:01:41.210
+doesn't highly impact Reno's performance,
+
+00:01:41.210 --> 00:01:43.000
+whatever that means.
+
+00:01:43.000 --> 00:01:46.570
+And in early presentations on BBR, Google showed
+
+00:01:46.570 --> 00:01:49.700
+that BBR v1 was unfair to cubic and shallow
+
+00:01:49.700 --> 00:01:53.160
+buffer networks and basically said they'll fix it
+
+00:01:53.160 --> 00:01:55.850
+in later versions of BBR by modeling those
+
+00:01:55.850 --> 00:01:58.000
+shallow buffer situations.
+
+00:01:58.000 --> 00:02:00.410
+PCC Vivace also showed it could be unfair to
+
+00:02:00.410 --> 00:02:03.510
+cubic, but argued that as the number of cubic
+
+00:02:03.510 --> 00:02:06.860
+senders increases, it achieves the best fairness
+
+00:02:06.860 --> 00:02:09.000
+among new generation algorithms.
+
+00:02:09.000 --> 00:02:12.070
+And COPA makes a similar argument that it's much
+
+00:02:12.070 --> 00:02:15.210
+more fair than BBR and PCC, and it uses bandwidth
+
+00:02:15.210 --> 00:02:18.000
+that cubic wasn't going to use anyway.
+
+00:02:18.000 --> 00:02:20.590
+So I highlight all of these arguments here to
+
+00:02:20.590 --> 00:02:23.860
+drive home this point that in practice, we rarely
+
+00:02:23.860 --> 00:02:27.180
+can or even want to achieve fair outcomes,
+
+00:02:27.180 --> 00:02:30.460
+because it turns out fairness is either too
+
+00:02:30.460 --> 00:02:33.000
+restrictive or impractical.
+
+00:02:33.000 --> 00:02:35.390
+Consequently, everyone ends up just sort of
+
+00:02:35.390 --> 00:02:37.740
+having to make these excuses about why their
+
+00:02:37.740 --> 00:02:40.350
+algorithm is still reasonable to deploy despite
+
+00:02:40.350 --> 00:02:42.000
+having unfair outcomes.
+
+00:02:42.000 --> 00:02:46.000
+And it's really unclear if these excuses are okay.
+
+00:02:46.000 --> 00:02:48.370
+So the problem is we're basically left with no
+
+00:02:48.370 --> 00:02:50.500
+real bar or threshold for what makes a new
+
+00:02:50.500 --> 00:02:52.880
+algorithm safe or reasonable to deploy in the
+
+00:02:52.880 --> 00:02:54.000
+internet today.
+
+00:02:54.000 --> 00:02:57.170
+So in this paper, in our paper, and in this talk,
+
+00:02:57.170 --> 00:03:00.210
+we argue for the need for a practical deployment
+
+00:03:00.210 --> 00:03:01.000
+threshold.
+
+00:03:01.000 --> 00:03:03.230
+That is a bound on how aggressive any new
+
+00:03:03.230 --> 00:03:06.210
+algorithm, which I'll refer to as taco throughout
+
+00:03:06.210 --> 00:03:09.450
+this talk, can be to any legacy status quo widely
+
+00:03:09.450 --> 00:03:12.870
+deployed algorithm, which I'll refer to as pair
+
+00:03:12.870 --> 00:03:14.000
+in this talk.
+
+00:03:14.000 --> 00:03:17.000
+So the outline for this talk is as follows.
+
+00:03:17.000 --> 00:03:19.450
+First, I want to describe for you the desirable
+
+00:03:19.450 --> 00:03:22.000
+properties for a good deployment threshold.
+
+00:03:22.000 --> 00:03:24.050
+Then I'm going to define a new deployment
+
+00:03:24.050 --> 00:03:26.790
+threshold based on harm, which, unlike fairness,
+
+00:03:26.790 --> 00:03:29.000
+has all of these desirable properties.
+
+00:03:29.000 --> 00:03:30.910
+So let's jump right in and start by discussing
+
+00:03:30.910 --> 00:03:32.780
+what are the desirable properties for a good
+
+00:03:32.780 --> 00:03:34.000
+deployment threshold?
+
+00:03:34.000 --> 00:03:36.920
+Well, in our paper, we identify five such
+
+00:03:36.920 --> 00:03:38.000
+properties.
+
+00:03:38.000 --> 00:03:40.680
+We say a good deployment threshold to be
+
+00:03:40.680 --> 00:03:44.110
+practical, multi metric status quo bias, demand
+
+00:03:44.110 --> 00:03:46.000
+aware and future proof.
+
+00:03:46.000 --> 00:03:47.840
+So those are just a bunch of words that don't
+
+00:03:47.840 --> 00:03:49.000
+mean anything to you yet.
+
+00:03:49.000 --> 00:03:51.900
+So let's start by defining what we mean by
+
+00:03:51.900 --> 00:03:53.000
+practical.
+
+00:03:53.000 --> 00:03:55.570
+So we've already seen that a threshold based on
+
+00:03:55.570 --> 00:03:58.480
+fairness just is not practical, right, because no
+
+00:03:58.480 --> 00:04:01.000
+one can actually achieve fair outcomes.
+
+00:04:01.000 --> 00:04:03.780
+Therefore, a good deployment threshold needs to
+
+00:04:03.780 --> 00:04:06.100
+be practical in that it should actually be
+
+00:04:06.100 --> 00:04:08.860
+feasible in practice for a new congestion control
+
+00:04:08.860 --> 00:04:11.000
+algorithm to meet the threshold.
+
+00:04:11.000 --> 00:04:13.000
+So that's what we mean by practical.
+
+00:04:13.000 --> 00:04:15.180
+Next, we say a deployment threshold needs to be
+
+00:04:15.180 --> 00:04:16.000
+multi metric.
+
+00:04:16.000 --> 00:04:19.300
+So let's illustrate what we mean by multi metric
+
+00:04:19.300 --> 00:04:21.000
+through an example.
+
+00:04:21.000 --> 00:04:25.000
+So assume.
+
+00:04:25.000 --> 00:04:27.680
+So consider the scenario where, let's say,
+
+00:04:27.680 --> 00:04:29.000
+Beyonce is at home.
+
+00:04:29.000 --> 00:04:33.000
+She's trying to talk to her daughter, Blue Ivy,
+
+00:04:33.000 --> 00:04:37.000
+over Skype and over her home Wi-Fi access link.
+
+00:04:37.000 --> 00:04:39.880
+And let's say her access to the Internet is
+
+00:04:39.880 --> 00:04:41.000
+really slow.
+
+00:04:41.000 --> 00:04:45.000
+So her access link is a slow bottleneck link here.
+
+00:04:45.000 --> 00:04:50.000
+And let's say it's using some new algorithm pair.
+
+00:04:50.000 --> 00:04:53.940
+Some, sorry, let's say it's using some old legacy
+
+00:04:53.940 --> 00:04:57.000
+congestion control algorithm pair.
+
+00:04:57.000 --> 00:05:00.560
+Now, let's say base connection using pair is able
+
+00:05:00.560 --> 00:05:03.750
+to achieve about five megabit per second
+
+00:05:03.750 --> 00:05:07.000
+throughput and a good low latency.
+
+00:05:07.000 --> 00:05:08.640
+So this is when it's not sharing the bottleneck
+
+00:05:08.640 --> 00:05:09.000
+here.
+
+00:05:09.000 --> 00:05:10.000
+It's just alone.
+
+00:05:10.000 --> 00:05:12.660
+But now let's say her husband Jay-Z comes home
+
+00:05:12.660 --> 00:05:15.420
+and he wants to download the Windows operating
+
+00:05:15.420 --> 00:05:17.000
+system for some reason.
+
+00:05:17.000 --> 00:05:19.220
+So this is going to be a large, long running
+
+00:05:19.220 --> 00:05:20.000
+download.
+
+00:05:20.000 --> 00:05:22.180
+And the server he's downloading from is using
+
+00:05:22.180 --> 00:05:25.000
+some brand new congestion control algorithm, Taco.
+
+00:05:25.000 --> 00:05:27.430
+Now, let's say Taco is able to use the rest of
+
+00:05:27.430 --> 00:05:30.620
+the available bandwidth, but that this comes at a
+
+00:05:30.620 --> 00:05:31.000
+cost.
+
+00:05:31.000 --> 00:05:33.000
+And base latency is going to go way up.
+
+00:05:33.000 --> 00:05:36.000
+So maybe now her video quality is terrible.
+
+00:05:36.000 --> 00:05:38.470
+So the impact on latency matters here as to
+
+00:05:38.470 --> 00:05:41.160
+whether or not we would say it's acceptable to
+
+00:05:41.160 --> 00:05:44.720
+deploy Taco in an Internet with a ton of latency
+
+00:05:44.720 --> 00:05:48.000
+sensitive applications using pair.
+
+00:05:48.000 --> 00:05:50.230
+Therefore, it's important that a deployment
+
+00:05:50.230 --> 00:05:52.180
+threshold be able to consider a variety of
+
+00:05:52.180 --> 00:05:54.000
+metrics beyond just throughput.
+
+00:05:54.000 --> 00:05:56.500
+So metrics beyond just throughput are becoming
+
+00:05:56.500 --> 00:05:59.270
+increasingly important in the Internet today when
+
+00:05:59.270 --> 00:06:01.600
+we have more and more applications that care
+
+00:06:01.600 --> 00:06:04.000
+about things like latency or jitter or loss rate.
+
+00:06:04.000 --> 00:06:06.950
+However, we can never really talk about anything
+
+00:06:06.950 --> 00:06:09.760
+other than throughput when we're stuck talking
+
+00:06:09.760 --> 00:06:11.000
+about fairness.
+
+00:06:11.000 --> 00:06:13.610
+So we're used to thinking about deploying
+
+00:06:13.610 --> 00:06:16.510
+algorithms as if the network is a pie that we're
+
+00:06:16.510 --> 00:06:18.000
+cutting up to share.
+
+00:06:18.000 --> 00:06:20.020
+But that doesn't make sense for performance
+
+00:06:20.020 --> 00:06:22.000
+metrics like latency, loss or jitter.
+
+00:06:22.000 --> 00:06:25.000
+So that's what we mean by multi metric.
+
+00:06:25.000 --> 00:06:27.810
+Now let's walk through an example to illustrate
+
+00:06:27.810 --> 00:06:30.000
+what we mean by status quo biased.
+
+00:06:30.000 --> 00:06:33.070
+Now, let's say Beyonce is downloading the Linux
+
+00:06:33.070 --> 00:06:36.230
+operating system from a server using some popular
+
+00:06:36.230 --> 00:06:38.000
+legacy algorithm pair.
+
+00:06:38.000 --> 00:06:40.340
+So this algorithm, let's say it works well in Wi-Fi
+
+00:06:40.340 --> 00:06:41.000
+networks.
+
+00:06:41.000 --> 00:06:44.110
+So her download speed is just using all of the
+
+00:06:44.110 --> 00:06:46.000
+available bandwidth.
+
+00:06:46.000 --> 00:06:49.500
+Jay-Z comes home, he's still downloading Windows
+
+00:06:49.500 --> 00:06:52.600
+and he's hit the server he's using is using some
+
+00:06:52.600 --> 00:06:54.000
+new algorithm, Taco.
+
+00:06:54.000 --> 00:06:56.820
+Now, let's say unfortunately, this time pair is
+
+00:06:56.820 --> 00:06:58.000
+too aggressive.
+
+00:06:58.000 --> 00:07:01.570
+And so Taco is only able to get one megabit per
+
+00:07:01.570 --> 00:07:06.000
+second throughput while Beyonce still gets nine.
+
+00:07:06.000 --> 00:07:08.070
+So in this case, though, there is imbalance, I
+
+00:07:08.070 --> 00:07:11.070
+would actually say it's perfectly acceptable to
+
+00:07:11.070 --> 00:07:13.000
+deploy Taco alongside pair.
+
+00:07:13.000 --> 00:07:15.910
+Right. This is because the currently deployed
+
+00:07:15.910 --> 00:07:18.000
+legacy algorithm pair is the one being too
+
+00:07:18.000 --> 00:07:20.930
+aggressive towards the new algorithm Taco, not
+
+00:07:20.930 --> 00:07:22.000
+the other way around.
+
+00:07:22.000 --> 00:07:24.480
+So when it comes to deployability, we don't
+
+00:07:24.480 --> 00:07:26.980
+actually care if the new algorithm is the one
+
+00:07:26.980 --> 00:07:28.000
+being hurt.
+
+00:07:28.000 --> 00:07:30.270
+Thus, a deployment threshold needs to be status
+
+00:07:30.270 --> 00:07:31.000
+quo biased.
+
+00:07:31.000 --> 00:07:35.050
+It should only be based on the impact that Taco
+
+00:07:35.050 --> 00:07:38.000
+has on pair and not vice versa.
+
+00:07:38.000 --> 00:07:41.150
+As an example, James Fairness Index is not status
+
+00:07:41.150 --> 00:07:42.000
+quo biased, right?
+
+00:07:42.000 --> 00:07:44.980
+James Fairness Index would assign the same score
+
+00:07:44.980 --> 00:07:47.290
+if the new algorithm was one being harmed as if
+
+00:07:47.290 --> 00:07:50.000
+the old algorithm is the one being harmed.
+
+00:07:50.000 --> 00:07:51.440
+So it can't distinguish between these two
+
+00:07:51.440 --> 00:07:55.000
+scenarios. So it's not status quo biased.
+
+00:07:55.000 --> 00:07:57.150
+So next we say deployment threshold should be
+
+00:07:57.150 --> 00:08:00.020
+demand aware. Let's illustrate demand awareness
+
+00:08:00.020 --> 00:08:03.000
+through what? An example.
+
+00:08:03.000 --> 00:08:06.140
+So now let's say again, Beyonce is trying to
+
+00:08:06.140 --> 00:08:08.000
+download this large file.
+
+00:08:08.000 --> 00:08:12.000
+And the server uses some legacy algorithm pair.
+
+00:08:12.000 --> 00:08:13.970
+But now let's say pair really sucks at fully
+
+00:08:13.970 --> 00:08:16.330
+utilizing all of the available bandwidth in a Wi-Fi
+
+00:08:16.330 --> 00:08:17.000
+network.
+
+00:08:17.000 --> 00:08:19.590
+So she's only getting a download speed of three
+
+00:08:19.590 --> 00:08:21.000
+megabits per second.
+
+00:08:21.000 --> 00:08:24.620
+So now Jay-Z comes along trying to download that
+
+00:08:24.620 --> 00:08:28.280
+Windows OS still using some fancy new algorithm
+
+00:08:28.280 --> 00:08:29.000
+Taco.
+
+00:08:29.000 --> 00:08:31.400
+Now, let's say Taco is much better at utilizing
+
+00:08:31.400 --> 00:08:34.000
+the available bandwidth in this Wi-Fi network.
+
+00:08:34.000 --> 00:08:36.980
+So but it's able to do that without hurting Bay's
+
+00:08:36.980 --> 00:08:38.000
+connection.
+
+00:08:38.000 --> 00:08:39.890
+So it's able to just use the rest of the
+
+00:08:39.890 --> 00:08:42.340
+available bandwidth and get seven megabits per
+
+00:08:42.340 --> 00:08:43.000
+second.
+
+00:08:43.000 --> 00:08:45.720
+So here again, it's perfectly reasonable to
+
+00:08:45.720 --> 00:08:48.600
+deploy Taco because it's not hurting Beyonce's
+
+00:08:48.600 --> 00:08:50.000
+connection at all.
+
+00:08:50.000 --> 00:08:53.210
+Although they're not equally sharing, Taco is
+
+00:08:53.210 --> 00:08:56.160
+only using bandwidth that pair wasn't using
+
+00:08:56.160 --> 00:08:57.000
+anyway.
+
+00:08:57.000 --> 00:08:59.530
+So this is what so a good deployment threshold
+
+00:08:59.530 --> 00:09:02.160
+should not penalize Taco when pair already has
+
+00:09:02.160 --> 00:09:04.000
+inherently poor performance.
+
+00:09:04.000 --> 00:09:08.000
+This is what we mean by demand aware. For example,
+
+00:09:08.000 --> 00:09:10.650
+maximum fairness, which accounts for the demand
+
+00:09:10.650 --> 00:09:12.000
+of a flow is demand aware.
+
+00:09:12.000 --> 00:09:15.800
+But equal rate fairness, which just says each
+
+00:09:15.800 --> 00:09:19.000
+flow should get the same rate is not.
+
+00:09:19.000 --> 00:09:22.530
+So let's lastly, we say deployment threshold to
+
+00:09:22.530 --> 00:09:24.000
+be future proof.
+
+00:09:24.000 --> 00:09:26.030
+So by future proof, we just mean that a good
+
+00:09:26.030 --> 00:09:28.510
+deployment threshold should be useful on a future
+
+00:09:28.510 --> 00:09:31.000
+Internet where none of today's current congestion
+
+00:09:31.000 --> 00:09:32.000
+control algorithms are deployed.
+
+00:09:32.000 --> 00:09:34.400
+So we care about this property because many
+
+00:09:34.400 --> 00:09:36.870
+discussions around new TCP is considered
+
+00:09:36.870 --> 00:09:39.000
+something called TCP friendliness.
+
+00:09:39.000 --> 00:09:43.010
+So TCP friendliness focuses on behaving just like
+
+00:09:43.010 --> 00:09:46.190
+Reno to be fair to Reno, even though very few
+
+00:09:46.190 --> 00:09:48.990
+centers on the Internet probably even still use
+
+00:09:48.990 --> 00:09:50.000
+Reno anymore.
+
+00:09:50.000 --> 00:09:52.230
+So I'm going to give you a little silly toy
+
+00:09:52.230 --> 00:09:54.890
+example that explains why it's really silly for
+
+00:09:54.890 --> 00:09:57.000
+us to keep buying ourselves Reno.
+
+00:09:57.000 --> 00:10:00.080
+So consider this example where in the past Skype
+
+00:10:00.080 --> 00:10:02.990
+and a bunch of other services use some algorithm,
+
+00:10:02.990 --> 00:10:05.000
+Taco, Tomato.
+
+00:10:05.000 --> 00:10:08.000
+But let's say Tomato was terribly inefficient.
+
+00:10:08.000 --> 00:10:11.280
+So today, Skype, along with many other services,
+
+00:10:11.280 --> 00:10:14.350
+switched to using a much better algorithm, and
+
+00:10:14.350 --> 00:10:16.000
+they're now using pair.
+
+00:10:16.000 --> 00:10:19.880
+Now, when Taco comes along, does Taco need to be
+
+00:10:19.880 --> 00:10:23.000
+nice to pair and Tomato or just pair?
+
+00:10:23.000 --> 00:10:26.220
+Well, if no one uses Tomato anymore, new
+
+00:10:26.220 --> 00:10:29.140
+algorithms only need to be nice to pair whatever
+
+00:10:29.140 --> 00:10:31.000
+the current status quo is.
+
+00:10:31.000 --> 00:10:33.390
+So this is what we mean by future proof, that a
+
+00:10:33.390 --> 00:10:36.650
+future proof threshold would only require Taco be
+
+00:10:36.650 --> 00:10:40.000
+nice to pair whatever the current status quo is.
+
+00:10:40.000 --> 00:10:42.330
+So I say all this to make this point that
+
+00:10:42.330 --> 00:10:44.950
+traditional notions of TCP friendliness are just
+
+00:10:44.950 --> 00:10:46.000
+not future proof.
+
+00:10:46.000 --> 00:10:48.160
+In a future where no one uses Reno at all, we
+
+00:10:48.160 --> 00:10:51.680
+should not be relying on thresholds bound to Reno
+
+00:10:51.680 --> 00:10:55.000
+or any other particular algorithms behavior.
+
+00:10:55.000 --> 00:10:59.810
+So these are the five properties of a good
+
+00:10:59.810 --> 00:11:03.000
+deployment threshold.
+
+00:11:03.000 --> 00:11:05.340
+So next, I want to define a new deployment
+
+00:11:05.340 --> 00:11:08.000
+threshold based on something we call harm.
+
+00:11:08.000 --> 00:11:11.000
+So let's begin by motivating this.
+
+00:11:11.000 --> 00:11:14.160
+So when we're trying to show deployability, we
+
+00:11:14.160 --> 00:11:17.440
+typically run experiments where we have pair,
+
+00:11:17.440 --> 00:11:20.000
+whatever the current status quo is, versus Taco,
+
+00:11:20.000 --> 00:11:22.190
+our new algorithm, and we want to measure
+
+00:11:22.190 --> 00:11:23.000
+performance.
+
+00:11:23.000 --> 00:11:25.380
+So if we care about something like throughput,
+
+00:11:25.380 --> 00:11:27.000
+that might look like this, right?
+
+00:11:27.000 --> 00:11:28.980
+So we have pairs performance, we have Tacos
+
+00:11:28.980 --> 00:11:31.330
+performance, and fairness would say compare these
+
+00:11:31.330 --> 00:11:32.000
+two bars.
+
+00:11:32.000 --> 00:11:37.000
+So you want to say, is this outcome fair or not?
+
+00:11:37.000 --> 00:11:39.490
+But remember, because of status quo bias, we don't
+
+00:11:39.490 --> 00:11:41.750
+actually care what happens to Tacos performance
+
+00:11:41.750 --> 00:11:43.000
+when the two compete.
+
+00:11:43.000 --> 00:11:45.790
+We only care about what happens to pairs
+
+00:11:45.790 --> 00:11:47.000
+performance.
+
+00:11:47.000 --> 00:11:51.190
+In particular, if this was pairs performance
+
+00:11:51.190 --> 00:11:54.120
+alone, we care about how pairs performance has
+
+00:11:54.120 --> 00:11:56.910
+changed now that it's competing, when it's
+
+00:11:56.910 --> 00:11:59.000
+competing with Taco.
+
+00:11:59.000 --> 00:12:03.000
+So comparing this red and green bar.
+
+00:12:03.000 --> 00:12:05.890
+So this leads to the proposal in our work, which
+
+00:12:05.890 --> 00:12:08.840
+is that a deployment threshold should be based on
+
+00:12:08.840 --> 00:12:11.000
+how much harm Taco does to pair.
+
+00:12:11.000 --> 00:12:13.350
+So let me illustrate what we mean by harm with an
+
+00:12:13.350 --> 00:12:14.000
+example.
+
+00:12:14.000 --> 00:12:17.670
+So again, here, Bay's trying to do her video
+
+00:12:17.670 --> 00:12:19.000
+conference.
+
+00:12:19.000 --> 00:12:21.880
+And let's say that pair is able to use all of the
+
+00:12:21.880 --> 00:12:24.850
+available bandwidth and gets low latency when
+
+00:12:24.850 --> 00:12:26.000
+pair is alone.
+
+00:12:26.000 --> 00:12:31.110
+But now, when Jay-Z comes along with his Taco
+
+00:12:31.110 --> 00:12:35.370
+flow, Beyoncé's throughput goes down and our
+
+00:12:35.370 --> 00:12:37.000
+latency goes up.
+
+00:12:37.000 --> 00:12:39.710
+So here we would say that Jay's connection has
+
+00:12:39.710 --> 00:12:41.000
+harmed Beyoncé.
+
+00:12:41.000 --> 00:12:43.450
+So let's be more sort of formal about our
+
+00:12:43.450 --> 00:12:45.000
+definition for harm.
+
+00:12:45.000 --> 00:12:48.530
+So harm is measured between 0 and 1, and like
+
+00:12:48.530 --> 00:12:51.690
+Jane's fairness index, sorry, it's measured
+
+00:12:51.690 --> 00:12:54.000
+between 0 and 1 like Jane's fairness index.
+
+00:12:54.000 --> 00:12:58.000
+Where 0 is harmless and 1 is maximally harmful.
+
+00:12:58.000 --> 00:13:00.000
+So our harm function takes two inputs.
+
+00:13:00.000 --> 00:13:02.680
+The first is x, where x is pair's solo
+
+00:13:02.680 --> 00:13:04.000
+performance.
+
+00:13:04.000 --> 00:13:06.000
+So this is pair's demand.
+
+00:13:06.000 --> 00:13:09.420
+And it takes y, where y is pair's performance
+
+00:13:09.420 --> 00:13:12.000
+when it's competing with Taco.
+
+00:13:12.000 --> 00:13:14.870
+Thus, to compute harm for more is better metrics
+
+00:13:14.870 --> 00:13:18.000
+like throughput, harm is x minus y over x.
+
+00:13:18.000 --> 00:13:22.250
+And for less is better metrics like latency, harm
+
+00:13:22.250 --> 00:13:24.000
+is y minus x over y.
+
+00:13:24.000 --> 00:13:27.460
+So in this example, then, Taco causes 0.5
+
+00:13:27.460 --> 00:13:31.240
+throughput harm to pair and Taco causes 0.95
+
+00:13:31.240 --> 00:13:33.000
+latency harm to pair.
+
+00:13:33.000 --> 00:13:35.460
+So you should be able to see that harm is multimetric,
+
+00:13:35.460 --> 00:13:36.000
+right?
+
+00:13:36.000 --> 00:13:38.760
+I can compute throughput harm, latency harm, jitter
+
+00:13:38.760 --> 00:13:41.100
+harm, loss rate harm, whatever other kind of
+
+00:13:41.100 --> 00:13:42.000
+metric I want.
+
+00:13:42.000 --> 00:13:44.000
+It's also status quo biased.
+
+00:13:44.000 --> 00:13:46.170
+So the two numbers in our harm calculation are
+
+00:13:46.170 --> 00:13:48.000
+only based on pair's performance.
+
+00:13:48.000 --> 00:13:51.000
+I don't care what pair's performance is here.
+
+00:13:51.000 --> 00:13:53.000
+And it's also demand aware.
+
+00:13:53.000 --> 00:13:55.110
+So here we define the demand as pair's solo
+
+00:13:55.110 --> 00:13:56.000
+performance.
+
+00:13:56.000 --> 00:13:58.720
+So harm gives us a way to talk about Taco's
+
+00:13:58.720 --> 00:14:01.000
+impact on pair's performance.
+
+00:14:01.000 --> 00:14:04.000
+But I haven't said how much harm is okay.
+
+00:14:04.000 --> 00:14:07.000
+So for this, we need a harm-based deployment
+
+00:14:07.000 --> 00:14:08.000
+threshold.
+
+00:14:08.000 --> 00:14:13.020
+And our key proposal in our work is that a harm-based
+
+00:14:13.020 --> 00:14:15.000
+threshold should be the following.
+
+00:14:15.000 --> 00:14:17.870
+Taco should not harm pair much more than pair
+
+00:14:17.870 --> 00:14:19.000
+harms itself.
+
+00:14:19.000 --> 00:14:22.540
+So that is, any new CCA shouldn't harm the status
+
+00:14:22.540 --> 00:14:25.000
+quo more than it harms itself.
+
+00:14:25.000 --> 00:14:28.000
+So what do we mean by much more than?
+
+00:14:28.000 --> 00:14:31.140
+Well, so far we've computed the harm that Taco
+
+00:14:31.140 --> 00:14:32.000
+does to pair.
+
+00:14:32.000 --> 00:14:35.610
+And now we want to compare the harm Taco does to
+
+00:14:35.610 --> 00:14:38.000
+pair to the harm pair does to itself.
+
+00:14:38.000 --> 00:14:41.000
+And say, how do we compare these two things?
+
+00:14:41.000 --> 00:14:44.670
+So in the paper, we discussed three possible ways
+
+00:14:44.670 --> 00:14:46.000
+to compare these.
+
+00:14:46.000 --> 00:14:49.870
+But today, I just want to discuss one possible
+
+00:14:49.870 --> 00:14:53.000
+threshold, which we call equivalent bounded harm.
+
+00:14:53.000 --> 00:14:56.020
+And equivalent bounded harm, just like its name,
+
+00:14:56.020 --> 00:14:58.000
+says these two things should be equal.
+
+00:14:58.000 --> 00:15:01.060
+So the harm Taco does to pair should be equal to
+
+00:15:01.060 --> 00:15:03.000
+the harm pair does to itself.
+
+00:15:03.000 --> 00:15:07.790
+So returning to our previous example, we looked
+
+00:15:07.790 --> 00:15:11.000
+at what happens when Taco competes with pair and
+
+00:15:11.000 --> 00:15:13.000
+can see a certain performance.
+
+00:15:13.000 --> 00:15:16.170
+And we compare that to pair's solo performance to
+
+00:15:16.170 --> 00:15:19.000
+compute the harm that Taco does to pair.
+
+00:15:19.000 --> 00:15:22.780
+And now we have the same scenario, but with pair
+
+00:15:22.780 --> 00:15:25.400
+versus pair, and we get certain performance
+
+00:15:25.400 --> 00:15:26.000
+outcomes.
+
+00:15:26.000 --> 00:15:29.030
+And we want to say, what's the harm that pair
+
+00:15:29.030 --> 00:15:30.000
+does to pair?
+
+00:15:30.000 --> 00:15:32.150
+So let's go back to our harm calculations to
+
+00:15:32.150 --> 00:15:33.000
+compute this.
+
+00:15:33.000 --> 00:15:36.380
+So before, this is what the harm that Taco did to
+
+00:15:36.380 --> 00:15:37.000
+pair.
+
+00:15:37.000 --> 00:15:40.480
+And now we want to add in what's the harm that
+
+00:15:40.480 --> 00:15:42.000
+pair does to pair.
+
+00:15:42.000 --> 00:15:45.280
+So here, you should see that the throughput harm
+
+00:15:45.280 --> 00:15:48.000
+is the same, because I get the same throughput
+
+00:15:48.000 --> 00:15:51.630
+for pair when pair competes with Taco, when pair
+
+00:15:51.630 --> 00:15:53.000
+competes with itself.
+
+00:15:53.000 --> 00:15:57.220
+So under equivalent bounded harm, Taco would be
+
+00:15:57.220 --> 00:15:58.000
+okay.
+
+00:15:58.000 --> 00:16:00.610
+But if we look at latency harm, it's clear that
+
+00:16:00.610 --> 00:16:03.240
+Taco is much more harmful to pair than pair is to
+
+00:16:03.240 --> 00:16:04.000
+itself.
+
+00:16:04.000 --> 00:16:07.030
+So under equivalent bounded harm, we would not
+
+00:16:07.030 --> 00:16:09.000
+consider Taco deployable.
+
+00:16:09.000 --> 00:16:11.000
+So a harm-based threshold is practical.
+
+00:16:11.000 --> 00:16:13.670
+We can already see that pair can achieve certain
+
+00:16:13.670 --> 00:16:16.440
+performance when it's competing in practice with
+
+00:16:16.440 --> 00:16:17.000
+pair.
+
+00:16:17.000 --> 00:16:19.620
+So it should also be possible for Taco in
+
+00:16:19.620 --> 00:16:23.000
+practice to get similar performance outcomes.
+
+00:16:23.000 --> 00:16:26.000
+Certainly, if pair can do it, then so can Taco.
+
+00:16:26.000 --> 00:16:28.000
+And it's future-proof, right?
+
+00:16:28.000 --> 00:16:29.000
+There's no baggage here.
+
+00:16:29.000 --> 00:16:31.490
+There's no tomato here that I'm trying to behave
+
+00:16:31.490 --> 00:16:32.000
+like.
+
+00:16:32.000 --> 00:16:34.610
+The only thing that matters is what is the status
+
+00:16:34.610 --> 00:16:37.000
+quo and how does it compete with itself.
+
+00:16:37.000 --> 00:16:40.110
+So if tomorrow the status quo is banana, then
+
+00:16:40.110 --> 00:16:43.000
+that's what we would compare against.
+
+00:16:43.000 --> 00:16:45.550
+So is equivalent bounded harm like the perfect
+
+00:16:45.550 --> 00:16:47.000
+deployment threshold?
+
+00:16:47.000 --> 00:16:50.190
+Well, it certainly meets all of our criteria, as
+
+00:16:50.190 --> 00:16:53.000
+we previously discussed, while alternative
+
+00:16:53.000 --> 00:16:56.000
+thresholds based on fairness or TUTP friendliness
+
+00:16:56.000 --> 00:16:57.000
+certainly do not.
+
+00:16:57.000 --> 00:16:59.000
+So it's better than what we had before.
+
+00:16:59.000 --> 00:17:01.160
+But we do have some concerns about equivalent
+
+00:17:01.160 --> 00:17:02.000
+bounded harm.
+
+00:17:02.000 --> 00:17:05.000
+So let me show you a little example.
+
+00:17:05.000 --> 00:17:09.880
+So here I'm illustrating an issue with equivalent
+
+00:17:09.880 --> 00:17:13.620
+bounded harm where, let's say, when pair competes
+
+00:17:13.620 --> 00:17:16.330
+with pair for two long-running downloads, one
+
+00:17:16.330 --> 00:17:19.000
+flow gets 7 Mbps and the other only gets 3.
+
+00:17:19.000 --> 00:17:21.590
+So there's significant imbalance here when pair
+
+00:17:21.590 --> 00:17:23.000
+competes with itself.
+
+00:17:23.000 --> 00:17:26.830
+And under equivalent bounded harm, any new Taco
+
+00:17:26.830 --> 00:17:30.280
+algorithm couldn't improve this imbalance, which
+
+00:17:30.280 --> 00:17:32.000
+seems problematic.
+
+00:17:32.000 --> 00:17:34.970
+So this is a hotness paper, and it's an open
+
+00:17:34.970 --> 00:17:38.000
+question what's exactly the right harm-based
+
+00:17:38.000 --> 00:17:39.000
+threshold.
+
+00:17:39.000 --> 00:17:41.330
+And in the paper, we define two other thresholds
+
+00:17:41.330 --> 00:17:43.210
+that allow Taco to take a little bit more
+
+00:17:43.210 --> 00:17:44.000
+bandwidth.
+
+00:17:44.000 --> 00:17:46.280
+But we're not sure what exactly is the right
+
+00:17:46.280 --> 00:17:47.000
+threshold.
+
+00:17:47.000 --> 00:17:51.000
+And there are other open questions in the paper.
+
+00:17:51.000 --> 00:17:53.160
+For example, when you run performance experiments,
+
+00:17:53.160 --> 00:17:55.100
+there are, of course, going to be a distribution
+
+00:17:55.100 --> 00:17:56.000
+of these results.
+
+00:17:56.000 --> 00:17:58.950
+So should we care about the average worst case
+
+00:17:58.950 --> 00:18:01.000
+results or something else?
+
+00:18:01.000 --> 00:18:03.960
+Also, we can't possibly measure the performance
+
+00:18:03.960 --> 00:18:07.000
+of pair versus Taco in every possible scenario.
+
+00:18:07.000 --> 00:18:09.370
+So we ask, what are the right workloads and
+
+00:18:09.370 --> 00:18:12.000
+networks we want to test for deployability?
+
+00:18:12.000 --> 00:18:15.470
+And even if we have a threshold, can we really
+
+00:18:15.470 --> 00:18:17.000
+even enforce it?
+
+00:18:17.000 --> 00:18:20.150
+So while we haven't exactly settled on the
+
+00:18:20.150 --> 00:18:24.000
+perfect threshold, here is what we do believe.
+
+00:18:24.000 --> 00:18:26.000
+Fairness is wrong.
+
+00:18:26.000 --> 00:18:30.000
+It's not working as a practical threshold.
+
+00:18:30.000 --> 00:18:32.740
+And thus, we need to stop making excuses for why
+
+00:18:32.740 --> 00:18:35.550
+our new algorithms are not reading an unrealistic
+
+00:18:35.550 --> 00:18:37.000
+goal like fairness.
+
+00:18:37.000 --> 00:18:40.200
+And lastly, reasoning about harm is the right way
+
+00:18:40.200 --> 00:18:41.000
+forward.
+
+00:18:41.000 --> 00:18:44.320
+And it's going to give algorithm designers a much
+
+00:18:44.320 --> 00:18:46.000
+more realistic goal.
+
+00:18:46.000 --> 00:18:49.000
+So that concludes this talk.
+
+00:18:49.000 --> 00:18:52.100
+Please look at the description box for a link to
+
+00:18:52.100 --> 00:18:53.000
+the paper.
+
+00:18:53.000 --> 00:18:56.810
+And if you have any questions, please shoot me an
+
+00:18:56.810 --> 00:19:00.000
+email or ask me a question on Twitter.
+
+00:19:00.000 --> 00:19:04.000
+And thanks for listening.
+

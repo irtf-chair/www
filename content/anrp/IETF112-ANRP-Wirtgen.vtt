@@ -1,0 +1,881 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:02.420
+Hello everyone, my name is Thomas and I will
+
+00:00:02.420 --> 00:00:05.440
+explain you XBGP, a new way to add flexibility
+
+00:00:05.440 --> 00:00:08.470
+inside a routing protocol. So why is it needed to
+
+00:00:08.470 --> 00:00:11.200
+bring programmability to a routing protocol?
+
+00:00:11.200 --> 00:00:13.520
+Imagine yourself as being a maintainer of an
+
+00:00:13.520 --> 00:00:16.080
+autonomous system. The current best practice
+
+00:00:16.080 --> 00:00:19.630
+today is to have routers from different vendors.
+
+00:00:19.630 --> 00:00:22.400
+But the problem is that you don't have a unified
+
+00:00:22.400 --> 00:00:24.690
+interface to configure your routers. And the
+
+00:00:24.690 --> 00:00:26.960
+second problem is that if you would like to add
+
+00:00:26.960 --> 00:00:30.280
+a new functionality inside your network, then all
+
+00:00:30.280 --> 00:00:33.520
+the routers must implement the functionality.
+
+00:00:33.520 --> 00:00:35.750
+But all other routers do not implement the same
+
+00:00:35.750 --> 00:00:38.240
+set of functionality and this is a problem.
+
+00:00:38.240 --> 00:00:40.150
+And the other problem is that if you would like
+
+00:00:40.150 --> 00:00:41.920
+to add a new functionality which is not
+
+00:00:41.920 --> 00:00:42.880
+standardized
+
+00:00:42.880 --> 00:00:46.670
+or implemented to the routers, then you need to
+
+00:00:46.670 --> 00:00:50.160
+pass through a standardization step by the IETF.
+
+00:00:50.160 --> 00:00:53.680
+In average for BGP, it takes 3.5 years. On the
+
+00:00:53.680 --> 00:00:57.120
+slide, you can see the standardization delay of
+
+00:00:57.120 --> 00:01:01.140
+all BGP features. So we measure the time since it
+
+00:01:01.140 --> 00:01:04.480
+is released as a draft to the moment it is
+
+00:01:04.480 --> 00:01:07.500
+released as an RFC. This is not an isolated case,
+
+00:01:07.500 --> 00:01:10.480
+other routing protocols suffer from the same
+
+00:01:10.480 --> 00:01:13.680
+delay, but studies have shown that this is also
+
+00:01:13.680 --> 00:01:16.720
+the case for other RFCs. Next, you need to
+
+00:01:16.720 --> 00:01:19.500
+implement your feature to the operating system
+
+00:01:19.500 --> 00:01:22.480
+vendors and finally the routers must be updated.
+
+00:01:22.480 --> 00:01:25.440
+But if you are a small network such as Belknet,
+
+00:01:25.440 --> 00:01:28.560
+you cannot easily influence step 1 and step 2
+
+00:01:28.560 --> 00:01:31.880
+because you don't have enough impact to actually
+
+00:01:31.880 --> 00:01:35.760
+convince router vendors and the IETF from your
+
+00:01:35.760 --> 00:01:39.300
+new feature. Because of those problems, we
+
+00:01:39.300 --> 00:01:42.320
+introduced XBGP that is designed to bring
+
+00:01:42.320 --> 00:01:45.570
+back innovation to the network operator. We would
+
+00:01:45.570 --> 00:01:48.080
+like to open the BGP box so that the network
+
+00:01:48.080 --> 00:01:51.240
+operator can actually modify the protocol. I will
+
+00:01:51.240 --> 00:01:53.600
+explain you how XBGP works in practice.
+
+00:01:53.600 --> 00:01:57.080
+We start from BGP which is considered as the
+
+00:01:57.080 --> 00:02:00.880
+black box. You can configure BGP with multiple
+
+00:02:00.880 --> 00:02:04.430
+interfaces, for example CLI, Netconf, or SNMP to
+
+00:02:04.430 --> 00:02:07.760
+make some monitoring. So those are the main
+
+00:02:07.760 --> 00:02:10.890
+interfaces to configure, but you don't have any
+
+00:02:10.890 --> 00:02:14.080
+way to modify the protocol new as being a network
+
+00:02:14.080 --> 00:02:16.840
+operator. XBGP will open the lid and will expose
+
+00:02:16.840 --> 00:02:19.600
+the protocol and the protocol memory. Inside the
+
+00:02:19.600 --> 00:02:22.930
+protocol you can add a new state, you can modify
+
+00:02:22.930 --> 00:02:26.160
+existing states, and also you can modify the
+
+00:02:26.160 --> 00:02:28.270
+transition between two states. Concerning the
+
+00:02:28.270 --> 00:02:30.320
+protocol memory, you can access to the routing
+
+00:02:30.320 --> 00:02:33.580
+table, you can also access to other internal data
+
+00:02:33.580 --> 00:02:36.960
+structures. Now, the operator, thanks to the
+
+00:02:36.960 --> 00:02:39.710
+interface of XBGP, can now add extension code to
+
+00:02:39.710 --> 00:02:43.040
+their router. So they write the extension code
+
+00:02:43.040 --> 00:02:45.980
+once, it will compile to a bytecode, and this
+
+00:02:45.980 --> 00:02:48.800
+bytecode will be executed to all the routers
+
+00:02:48.800 --> 00:02:53.190
+which are XBGP compatible. Now, actually, XBGP is
+
+00:02:53.190 --> 00:02:57.280
+added on the top of operating system vendors. Now,
+
+00:02:57.280 --> 00:03:00.920
+the routers can be seen as a kernel where you can
+
+00:03:00.920 --> 00:03:04.080
+actually run some extension which is a
+
+00:03:04.080 --> 00:03:07.560
+modification to your BGP protocol. Now, I will
+
+00:03:07.560 --> 00:03:10.880
+explain you how XBGP works inside BGP, but before
+
+00:03:10.880 --> 00:03:13.590
+I will take an example of a new feature which is
+
+00:03:13.590 --> 00:03:16.560
+not standardized by the ITF and not implemented
+
+00:03:16.560 --> 00:03:19.680
+inside any operating system. So what we would
+
+00:03:19.680 --> 00:03:22.880
+like is to add the geographical localization of
+
+00:03:22.880 --> 00:03:25.870
+the router who received the BGP update to make
+
+00:03:25.870 --> 00:03:29.440
+some, for example, filtering or some analysis.
+
+00:03:29.440 --> 00:03:32.590
+This information about the geographical localization
+
+00:03:32.590 --> 00:03:34.320
+will be added to the BGP update
+
+00:03:34.320 --> 00:03:36.840
+that will be spread to other routers of your
+
+00:03:36.840 --> 00:03:40.480
+network, and so that other routers can use your
+
+00:03:40.480 --> 00:03:43.530
+functionality that you have implemented. And then,
+
+00:03:43.530 --> 00:03:46.000
+in order to not spoil the other neighbor,
+
+00:03:46.000 --> 00:03:49.050
+you will remove your geographical localization
+
+00:03:49.050 --> 00:03:52.880
+from the BGP update. If you would like to add
+
+00:03:52.880 --> 00:03:55.900
+this new feature inside the BGP protocol, then
+
+00:03:55.900 --> 00:03:58.720
+you need to think about how BGP implementation
+
+00:03:58.720 --> 00:04:02.410
+works. Normally, all the BGP implementation
+
+00:04:02.410 --> 00:04:07.760
+follows the RFC 4271, and inside the RFC 4271,
+
+00:04:07.760 --> 00:04:10.690
+it explains the BGP workflow. First, you have BGP
+
+00:04:10.690 --> 00:04:13.840
+messages that come from your peers. It will pass
+
+00:04:13.840 --> 00:04:16.390
+to the Hedge Ribbon, then inside the import
+
+00:04:16.390 --> 00:04:19.280
+filter. When it passes the import filter, it goes
+
+00:04:19.280 --> 00:04:19.600
+to the
+
+00:04:19.600 --> 00:04:22.670
+local rib. All the acceptable routes inside the
+
+00:04:22.670 --> 00:04:25.680
+local rib will be taken to the BGP process to
+
+00:04:25.680 --> 00:04:28.150
+take only one best route that will be pushed to
+
+00:04:28.150 --> 00:04:30.640
+the forwarding table of the routers, and then
+
+00:04:30.640 --> 00:04:34.060
+putting inside the export filter to check whether
+
+00:04:34.060 --> 00:04:36.800
+or not the route can be exported to other
+
+00:04:36.800 --> 00:04:37.440
+neighbors.
+
+00:04:37.440 --> 00:04:40.200
+And if it is the case, it will be stored to the Hedge
+
+00:04:40.200 --> 00:04:42.640
+Ribbon, and finally, the message will be
+
+00:04:42.640 --> 00:04:46.290
+generated. If I take back my geographical localization
+
+00:04:46.290 --> 00:04:48.800
+extension, you need to modify
+
+00:04:48.800 --> 00:04:51.780
+multiple steps of the BGP protocol, and those are
+
+00:04:51.780 --> 00:04:53.760
+represented by the blue arrows.
+
+00:04:54.480 --> 00:04:57.870
+With XBGP, it is possible to modify the protocol
+
+00:04:57.870 --> 00:05:00.960
+thanks to the introduction of insertion points.
+
+00:05:00.960 --> 00:05:04.600
+Insertion points are a way to execute arbitrary
+
+00:05:04.600 --> 00:05:08.400
+code, and so if I take up my geographical
+
+00:05:08.400 --> 00:05:11.250
+localization, it is composed of multiple subparts,
+
+00:05:11.250 --> 00:05:13.600
+and those subparts will be added to the right
+
+00:05:13.600 --> 00:05:17.340
+insertion point. But that's not all, because our
+
+00:05:17.340 --> 00:05:20.320
+extension must talk to the protocol memory to
+
+00:05:20.320 --> 00:05:23.700
+retrieve the geographical localization, and this
+
+00:05:23.700 --> 00:05:26.400
+is done via the XBGP API. And this is something
+
+00:05:26.400 --> 00:05:29.320
+that makes the interaction between the plugin and
+
+00:05:29.320 --> 00:05:32.080
+the protocol memory. Now I will explain you
+
+00:05:32.080 --> 00:05:35.320
+the XBGP API. This is a way to communicate with
+
+00:05:35.320 --> 00:05:38.320
+the BGP implementation, and all the extension
+
+00:05:38.320 --> 00:05:41.440
+code or plugins must use this API to retrieve or
+
+00:05:41.440 --> 00:05:45.280
+send some protocol memory. Why? First, because
+
+00:05:45.280 --> 00:05:48.600
+it ensures the isolation of the plugin and the BGP
+
+00:05:48.600 --> 00:05:52.160
+implementation, and second, it is a unified way
+
+00:05:52.160 --> 00:05:52.320
+to
+
+00:05:52.320 --> 00:05:55.540
+access the memory. Remember that XBGP must
+
+00:05:55.540 --> 00:05:59.770
+support multiple BGP implementations. The XBGP
+
+00:05:59.770 --> 00:06:00.160
+API
+
+00:06:00.160 --> 00:06:03.070
+contains multiple functions, such as functions to
+
+00:06:03.070 --> 00:06:06.320
+send and read BGP messages, also functions to get
+
+00:06:06.320 --> 00:06:08.900
+or set some memory inside the protocol memory.
+
+00:06:08.900 --> 00:06:11.600
+For example, for the geographical localization,
+
+00:06:11.600 --> 00:06:14.670
+you must access to the geographical localization
+
+00:06:14.670 --> 00:06:17.200
+of the router, then you use a getter function.
+
+00:06:17.200 --> 00:06:19.910
+You have also functions to access to the routing
+
+00:06:19.910 --> 00:06:22.720
+table and other utility functions to manipulate
+
+00:06:22.720 --> 00:06:26.650
+the memory or doing simple math functions. So now
+
+00:06:26.650 --> 00:06:29.760
+we have the big picture of XBGP, and I will show
+
+00:06:29.760 --> 00:06:33.060
+you some use cases that you can do with XBGP. But
+
+00:06:33.060 --> 00:06:36.160
+before, you need to adapt some BGP implementations
+
+00:06:36.160 --> 00:06:39.420
+to make them XBGP compliant. We have frouting and
+
+00:06:39.420 --> 00:06:42.720
+burn in our case. In the slide, I've put an array
+
+00:06:42.720 --> 00:06:45.630
+with all the lines of code that you need to
+
+00:06:45.630 --> 00:06:49.760
+modify or add to make the BGP implementation XBGP
+
+00:06:49.760 --> 00:06:52.610
+compatible. The first use case is a simple one,
+
+00:06:52.610 --> 00:06:55.280
+this is the monitoring, and what we would like
+
+00:06:55.280 --> 00:06:58.320
+to do is to monitor the length of the ISPath.
+
+00:06:58.320 --> 00:07:01.520
+Actually, it is difficult to achieve it with
+
+00:07:01.520 --> 00:07:04.670
+traditional interface, but with XBGP, you have an
+
+00:07:04.670 --> 00:07:07.280
+interface that is easier. Why we would like to
+
+00:07:07.280 --> 00:07:10.460
+monitor the ISPath? For example, you would like
+
+00:07:10.460 --> 00:07:13.520
+to monitor it to filter out large ISPath or make
+
+00:07:13.520 --> 00:07:17.020
+analysis afterwards. So now I will explain you a
+
+00:07:17.020 --> 00:07:20.320
+complete example of C code that represents the
+
+00:07:20.320 --> 00:07:23.060
+XBGP expansion. First, you need to retrieve the
+
+00:07:23.060 --> 00:07:26.000
+data from the host implementation. This is known
+
+00:07:26.000 --> 00:07:29.110
+through get_arc() function. So this is a function
+
+00:07:29.110 --> 00:07:31.920
+of the API. Then you will do your computation.
+
+00:07:31.920 --> 00:07:34.460
+So here you will pass the ISPath attribute and
+
+00:07:34.460 --> 00:07:37.280
+count the number of autonomous systems contained
+
+00:07:37.280 --> 00:07:40.960
+inside the path. And then you will use another
+
+00:07:40.960 --> 00:07:44.800
+function to actually log the number of AS you
+
+00:07:44.800 --> 00:07:47.470
+computed. This extension code will be added to
+
+00:07:47.470 --> 00:07:51.600
+the import filters. The second use case is
+
+00:07:51.600 --> 00:07:52.240
+related to
+
+00:07:52.240 --> 00:07:55.760
+the use of BGP inside datacenter. In datacenter,
+
+00:07:55.760 --> 00:07:58.960
+you use BGP to make your internal routing. All
+
+00:07:58.960 --> 00:08:02.580
+the best practice concerning the use of BGP in a
+
+00:08:02.580 --> 00:08:06.880
+datacenter is stated in RFC 7938. Inside this
+
+00:08:06.880 --> 00:08:09.770
+document, there is a constraint. You don't have
+
+00:08:09.770 --> 00:08:12.560
+any zigzag path. So for example, to go from level
+
+00:08:12.560 --> 00:08:16.350
+2 to level 0, you must go to level 1 and level 0.
+
+00:08:16.350 --> 00:08:19.420
+But you cannot make some zigzag path between
+
+00:08:19.420 --> 00:08:19.680
+level
+
+00:08:19.680 --> 00:08:23.450
+2 and level 1, for example. And to avoid this zigzag
+
+00:08:23.450 --> 00:08:26.000
+path, you must have the same autonomous
+
+00:08:26.000 --> 00:08:29.540
+system number for all routers of the same level.
+
+00:08:29.540 --> 00:08:33.840
+So here, level 0, all routers have the AS1 number.
+
+00:08:33.840 --> 00:08:38.810
+But these constraints make debugging difficult.
+
+00:08:38.810 --> 00:08:41.840
+If you would like to check where the routes are
+
+00:08:41.840 --> 00:08:44.760
+sourced from, you cannot because all the paths
+
+00:08:44.760 --> 00:08:48.080
+have the same autonomous system for the same
+
+00:08:48.080 --> 00:08:48.400
+level.
+
+00:08:48.400 --> 00:08:50.890
+And so you cannot decide if the packet goes
+
+00:08:50.890 --> 00:08:53.840
+through the left part of the datacenter or the
+
+00:08:53.840 --> 00:08:54.400
+right part.
+
+00:08:54.400 --> 00:08:57.850
+But now, with XBGP, you can get rid of this
+
+00:08:57.850 --> 00:09:01.280
+constraint and put a different autonomous
+
+00:09:01.280 --> 00:09:04.480
+system number for the routers of the same level.
+
+00:09:04.480 --> 00:09:07.460
+To do so, you must first design your XBGP
+
+00:09:07.460 --> 00:09:07.920
+extension
+
+00:09:07.920 --> 00:09:12.510
+and pass them a datacenter topology configuration.
+
+00:09:12.510 --> 00:09:15.680
+So that you can actually check if there is any
+
+00:09:15.680 --> 00:09:20.060
+zigzag path to your datacenter. This extension
+
+00:09:20.060 --> 00:09:23.440
+will also be put on the insertion point related
+
+00:09:23.440 --> 00:09:25.870
+to the import filters. The third use case is
+
+00:09:25.870 --> 00:09:29.440
+related to the route selection. So in this slide,
+
+00:09:29.440 --> 00:09:32.390
+we consider a stub network to the source network
+
+00:09:32.390 --> 00:09:35.820
+connected to several transit, transit 1 and
+
+00:09:35.820 --> 00:09:36.000
+transit
+
+00:09:36.000 --> 00:09:39.620
+2. And to reach the network destination, XBGP
+
+00:09:39.620 --> 00:09:43.200
+must advertise a route to the source. The source
+
+00:09:43.200 --> 00:09:46.320
+will directly receive the green route via transit
+
+00:09:46.320 --> 00:09:49.610
+1 and another one from transit 2. According to
+
+00:09:49.610 --> 00:09:49.680
+the
+
+00:09:49.680 --> 00:09:53.470
+local transit 2 policy, it will either announce
+
+00:09:53.470 --> 00:09:57.040
+the blue or the yellow path. Maybe transit 2
+
+00:09:57.040 --> 00:09:59.980
+choose the path for its security properties, but
+
+00:09:59.980 --> 00:10:03.360
+the source prefers the path with a lower latency.
+
+00:10:03.360 --> 00:10:06.250
+And so the ranking of the source and the transit
+
+00:10:06.250 --> 00:10:09.920
+does not match. XBGP can solve the problem to
+
+00:10:09.920 --> 00:10:13.530
+execute a plugin that will choose the route on
+
+00:10:13.530 --> 00:10:17.360
+the edge router of transit 2 according to the
+
+00:10:17.360 --> 00:10:20.710
+source ranking network. And so transit 2 choose
+
+00:10:20.710 --> 00:10:24.240
+the route the source prefers. This path selection
+
+00:10:24.240 --> 00:10:26.900
+service will be added to the decision process
+
+00:10:26.900 --> 00:10:31.360
+insertion point. The last use case is about
+
+00:10:31.360 --> 00:10:34.740
+detecting BGP zombies. If you know a prefix P,
+
+00:10:34.740 --> 00:10:38.560
+then your router will announce that it can reach
+
+00:10:38.560 --> 00:10:41.840
+in the prefix P. And the other router will do the
+
+00:10:41.840 --> 00:10:45.680
+same by advertising to the neighbor the prefix P.
+
+00:10:45.680 --> 00:10:48.780
+And so all the routers can reach P. But now
+
+00:10:48.780 --> 00:10:51.440
+consider prefix P is no longer reachable. So
+
+00:10:51.440 --> 00:10:54.730
+the router will send a withdrawal to the neighbor,
+
+00:10:54.730 --> 00:10:58.640
+but for whatever reason, due to a software bug or
+
+00:10:58.640 --> 00:11:01.560
+misconfiguration, the router cannot process the
+
+00:11:01.560 --> 00:11:05.200
+withdrawal. And so it fails to send a withdrawal
+
+00:11:05.200 --> 00:11:08.450
+to the other neighbor. The upstream router will
+
+00:11:08.450 --> 00:11:11.680
+still have the prefix P in their forwarding table.
+
+00:11:11.680 --> 00:11:14.240
+This is something we don't want because it may
+
+00:11:14.240 --> 00:11:17.040
+lead to some black hole or traffic. And this is
+
+00:11:17.040 --> 00:11:20.360
+a BGP zombie. This is a route that is still in
+
+00:11:20.360 --> 00:11:23.920
+the theme of some routers, but no longer reachable
+
+00:11:23.920 --> 00:11:28.300
+anymore. With XBGP, you can actually detect those
+
+00:11:28.300 --> 00:11:32.320
+BGP zombie routes. You need to write a plugin
+
+00:11:32.320 --> 00:11:32.480
+that
+
+00:11:32.480 --> 00:11:35.370
+will analyze the routing table and flag all the
+
+00:11:35.370 --> 00:11:38.560
+routes that are older than the given threshold.
+
+00:11:38.560 --> 00:11:42.350
+Then for all those prefix, it will ask to the
+
+00:11:42.350 --> 00:11:45.680
+upstream router to confirm if the route is still
+
+00:11:45.680 --> 00:11:48.570
+valid or not. There are some mechanisms in BGP
+
+00:11:48.570 --> 00:11:51.280
+such as graceful restart that can actually
+
+00:11:51.280 --> 00:11:54.230
+reload all the entire routing table of the
+
+00:11:54.230 --> 00:11:59.040
+neighbor. But since BGP zombie is concerning
+
+00:11:59.040 --> 00:12:02.070
+a small fraction of prefix, according to some
+
+00:12:02.070 --> 00:12:06.080
+measurements inside the internet, it is not
+
+00:12:06.080 --> 00:12:09.060
+really necessary to reload all the entire routing
+
+00:12:09.060 --> 00:12:11.840
+table. So we designed a prototype
+
+00:12:11.840 --> 00:12:15.160
+that only asks for those BGP zombies that we
+
+00:12:15.160 --> 00:12:16.240
+detected.
+
+00:12:16.240 --> 00:12:20.320
+This extension code will be added to the
+
+00:12:20.320 --> 00:12:25.590
+background task insertion pod, which acts like a
+
+00:12:25.590 --> 00:12:26.880
+front job.
+
+00:12:26.880 --> 00:12:30.330
+For each unit of time, you will execute this
+
+00:12:30.330 --> 00:12:34.480
+plugin. So now we've seen some use cases that
+
+00:12:34.480 --> 00:12:37.270
+you can do with XBGP, but the code that is
+
+00:12:37.270 --> 00:12:40.240
+executed is untrusted. And we can ask the
+
+00:12:40.240 --> 00:12:44.850
+following question, could it break XBGP? Well, we
+
+00:12:44.850 --> 00:12:49.200
+need to have an automated way to verify some
+
+00:12:49.200 --> 00:12:53.860
+properties before injecting it to the routers.
+
+00:12:53.860 --> 00:12:57.920
+With XBGP, we make the following approach.
+
+00:12:57.920 --> 00:13:00.630
+First, you start from the extension source code
+
+00:13:00.630 --> 00:13:03.920
+that you will annotate, then it will be passed
+
+00:13:03.920 --> 00:13:07.090
+to the software verification tools. And if the
+
+00:13:07.090 --> 00:13:10.720
+verification tool says, okay, the code can be
+
+00:13:10.720 --> 00:13:14.090
+trusted, it will be compiled to the bytecode and
+
+00:13:14.090 --> 00:13:17.520
+then injected to the protocol. Now I will explain
+
+00:13:17.520 --> 00:13:20.980
+you some properties that we defined that all the
+
+00:13:20.980 --> 00:13:24.240
+plugins must satisfy before being injected to the
+
+00:13:24.240 --> 00:13:26.830
+routers. The first one is the termination
+
+00:13:26.830 --> 00:13:29.650
+properties. We do not want that a need-fill-it
+
+00:13:29.650 --> 00:13:30.000
+loop, for
+
+00:13:30.000 --> 00:13:33.580
+example, breaks the protocol. Another property is
+
+00:13:33.580 --> 00:13:36.640
+related to the memory isolation of the plugin.
+
+00:13:36.640 --> 00:13:40.220
+All plugins must not modify memory that are not
+
+00:13:40.220 --> 00:13:44.240
+authorized to modify. We also restrict some
+
+00:13:44.240 --> 00:13:47.410
+API functions to some extension code. For example,
+
+00:13:47.410 --> 00:13:50.720
+for the monitoring, they do not have the right to
+
+00:13:50.720 --> 00:13:55.200
+modify the protocol. Finally, we use CR, another
+
+00:13:55.200 --> 00:13:59.680
+verification tool, to verify properties related
+
+00:13:59.680 --> 00:14:03.040
+to the BGP syntax. As an example, we will verify
+
+00:14:03.040 --> 00:14:06.880
+the syntax of the geographic coordinate extension.
+
+00:14:06.880 --> 00:14:10.150
+So this geographic coordinate extension is
+
+00:14:10.150 --> 00:14:13.280
+defined on a graph and it must follow
+
+00:14:13.280 --> 00:14:16.180
+the format specified on this graph. And those
+
+00:14:16.180 --> 00:14:19.760
+properties I've defined on the slide are those
+
+00:14:19.760 --> 00:14:24.380
+that must be followed by the plugin. We write all
+
+00:14:24.380 --> 00:14:28.640
+the properties and we annotate the plugin.
+
+00:14:28.640 --> 00:14:31.110
+And then this annotated plugin will be passed to
+
+00:14:31.110 --> 00:14:34.480
+the verification tool server that will say yes or
+
+00:14:34.480 --> 00:14:38.090
+no. And if it says yes, then we are guaranteed
+
+00:14:38.090 --> 00:14:41.760
+that all execution of the plugin will satisfy
+
+00:14:41.760 --> 00:14:45.600
+the constraint. To conclude, with XBGP, you can
+
+00:14:45.600 --> 00:14:49.680
+make XBGP implementation truly extensible.
+
+00:14:49.680 --> 00:14:52.160
+If you want more details, you can read the paper
+
+00:14:52.160 --> 00:14:56.400
+related to this presentation. We have also a
+
+00:14:56.400 --> 00:15:00.220
+website that connects all the source code of XBGP.
+
+00:15:00.220 --> 00:15:03.440
+We designed a methodology for BGP, but
+
+00:15:03.440 --> 00:15:06.720
+the methodology could be also applied to other
+
+00:15:06.720 --> 00:15:08.720
+routing protocols. Thank you.
+

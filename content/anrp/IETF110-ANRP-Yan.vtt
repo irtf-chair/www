@@ -1,0 +1,1199 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:04.410
+Hello everyone, I'm Francis from Microsoft
+
+00:00:04.410 --> 00:00:05.000
+Research.
+
+00:00:05.000 --> 00:00:08.280
+My research has focused on practical machine
+
+00:00:08.280 --> 00:00:11.000
+learning algorithms for networked systems.
+
+00:00:11.000 --> 00:00:14.230
+It's my pleasure today to talk about Puffer, a
+
+00:00:14.230 --> 00:00:18.000
+video streaming platform we built to run a
+
+00:00:18.000 --> 00:00:20.000
+randomized experiment on real users
+
+00:00:20.000 --> 00:00:23.760
+and a learning-based adaptive bit rate algorithm
+
+00:00:23.760 --> 00:00:26.000
+that works on the wild Internet.
+
+00:00:26.000 --> 00:00:29.980
+This work was completed back at Stanford, advised
+
+00:00:29.980 --> 00:00:33.290
+by my former PhD advisors Keith Weinstein and
+
+00:00:33.290 --> 00:00:34.000
+Phil Levis.
+
+00:00:34.000 --> 00:00:38.000
+Now let's get started.
+
+00:00:38.000 --> 00:00:41.950
+The problem we're tackling here is adaptive bit
+
+00:00:41.950 --> 00:00:44.000
+rate streaming, or ABR,
+
+00:00:44.000 --> 00:00:47.120
+which is a critical algorithm used to carry a
+
+00:00:47.120 --> 00:00:50.220
+large portion of the video traffic on today's
+
+00:00:50.220 --> 00:00:51.000
+Internet.
+
+00:00:51.000 --> 00:00:55.490
+At a high level, ABR aims to improve the user's
+
+00:00:55.490 --> 00:00:59.000
+quality of experience, or QoE,
+
+00:00:59.000 --> 00:01:03.000
+that basically consists of two primary goals,
+
+00:01:03.000 --> 00:01:08.000
+higher video quality and fewer rebuffering events.
+
+00:01:08.000 --> 00:01:11.210
+Although it seems to have been well studied in
+
+00:01:11.210 --> 00:01:12.000
+the past,
+
+00:01:12.000 --> 00:01:16.090
+ABR still remains a challenge because its two
+
+00:01:16.090 --> 00:01:21.000
+primary goals naturally conflict with each other.
+
+00:01:21.000 --> 00:01:24.000
+Let me show you how ABR works.
+
+00:01:24.000 --> 00:01:28.000
+An ABR server divides the video into chunks.
+
+00:01:28.000 --> 00:01:33.000
+Each chunk is usually 2 to 6 seconds.
+
+00:01:33.000 --> 00:01:36.600
+Then each of those chunks is pre-encoded into a
+
+00:01:36.600 --> 00:01:41.200
+couple of compressed versions at different sizes
+
+00:01:41.200 --> 00:01:44.000
+and video qualities.
+
+00:01:44.000 --> 00:01:47.730
+The objective of ABR is to react to the varying
+
+00:01:47.730 --> 00:01:50.000
+network conditions over time
+
+00:01:50.000 --> 00:01:54.240
+and decide which version of each chunk to send,
+
+00:01:54.240 --> 00:01:59.000
+so as to optimize the total QoE of the client.
+
+00:01:59.000 --> 00:02:03.330
+This problem is non-trivial because, let's say, ABR
+
+00:02:03.330 --> 00:02:06.000
+believes it's okay to send 1080p all the time,
+
+00:02:06.000 --> 00:02:09.000
+which gives the highest video quality.
+
+00:02:09.000 --> 00:02:12.350
+But what if the network capacity suddenly drops
+
+00:02:12.350 --> 00:02:17.000
+to a level that's unable to deliver 1080p anymore?
+
+00:02:17.000 --> 00:02:20.720
+From that moment on, the playback buffer in a
+
+00:02:20.720 --> 00:02:24.000
+client's player will be drained slowly,
+
+00:02:24.000 --> 00:02:28.000
+eventually resulting in video freezes.
+
+00:02:28.000 --> 00:02:31.000
+This talk will be in three parts.
+
+00:02:31.000 --> 00:02:34.420
+First, I'll describe Puffer, a live streaming
+
+00:02:34.420 --> 00:02:38.000
+platform for video streaming research.
+
+00:02:38.000 --> 00:02:40.970
+Then I'll show a surprising finding from a
+
+00:02:40.970 --> 00:02:44.000
+randomized experiment we performed on Puffer.
+
+00:02:44.000 --> 00:02:47.440
+That is, the confidence intervals on the
+
+00:02:47.440 --> 00:02:51.460
+performance of ABR algorithms are much bigger
+
+00:02:51.460 --> 00:02:53.000
+than we realized.
+
+00:02:53.000 --> 00:02:57.750
+Lastly, I'll introduce Fugu, a machine-learning-based
+
+00:02:57.750 --> 00:03:02.000
+ABR algorithm that was learned in situ,
+
+00:03:02.000 --> 00:03:05.150
+meaning in place on the actual deployment
+
+00:03:05.150 --> 00:03:07.000
+environment Puffer.
+
+00:03:07.000 --> 00:03:12.000
+Okay, let's move on to Puffer.
+
+00:03:12.000 --> 00:03:15.950
+To study video streaming and test ABR schemes in
+
+00:03:15.950 --> 00:03:19.000
+real life, ideally on real users,
+
+00:03:19.000 --> 00:03:23.070
+we built our own video streaming platform called
+
+00:03:23.070 --> 00:03:24.000
+Puffer.
+
+00:03:24.000 --> 00:03:27.110
+It's a live TV streaming website, open to public
+
+00:03:27.110 --> 00:03:29.000
+in late 2018,
+
+00:03:29.000 --> 00:03:33.000
+allowing users to watch six TV channels for free.
+
+00:03:33.000 --> 00:03:37.310
+Our goal was to create a realistic testbed and a
+
+00:03:37.310 --> 00:03:40.000
+learning environment for the community
+
+00:03:40.000 --> 00:03:44.000
+to investigate video streaming algorithms.
+
+00:03:44.000 --> 00:03:49.100
+We operate Puffer also as a randomized experiment
+
+00:03:49.100 --> 00:03:51.000
+of ABR schemes.
+
+00:03:51.000 --> 00:03:56.000
+So each time you visit our website, puffer.stanford.edu,
+
+00:03:56.000 --> 00:03:59.330
+you'll be randomly assigned to one of the ABR
+
+00:03:59.330 --> 00:04:01.000
+schemes being tested,
+
+00:04:01.000 --> 00:04:04.150
+including those in a prior work and our own
+
+00:04:04.150 --> 00:04:08.000
+algorithm that I'm going to introduce later.
+
+00:04:08.000 --> 00:04:12.000
+But you won't be aware of this assignment.
+
+00:04:12.000 --> 00:04:14.940
+While you are watching TV on Puffer, our server
+
+00:04:14.940 --> 00:04:18.000
+will record which ABR algorithm is used,
+
+00:04:18.000 --> 00:04:21.370
+along with some other client telemetry on video
+
+00:04:21.370 --> 00:04:25.470
+quality and a playback buffer for analysis
+
+00:04:25.470 --> 00:04:27.000
+purposes.
+
+00:04:27.000 --> 00:04:31.410
+To recruit users, we purchased ads on Google and
+
+00:04:31.410 --> 00:04:35.000
+Reddit for keywords like "live TV."
+
+00:04:35.000 --> 00:04:38.040
+The other users we attracted came from the press
+
+00:04:38.040 --> 00:04:40.000
+articles covering Puffer.
+
+00:04:40.000 --> 00:04:44.600
+For example, New York Times recommended Puffer to
+
+00:04:44.600 --> 00:04:47.690
+those who need free TV to watch at home during
+
+00:04:47.690 --> 00:04:49.000
+the pandemic.
+
+00:04:49.000 --> 00:04:54.050
+As of today, we've had more than 130,000 real
+
+00:04:54.050 --> 00:04:56.000
+users across the US.
+
+00:04:56.000 --> 00:05:00.920
+Puffer's web page may look simple, but you can
+
+00:05:00.920 --> 00:05:04.100
+think of it as a small YouTube TV built from
+
+00:05:04.100 --> 00:05:05.000
+scratch.
+
+00:05:05.000 --> 00:05:08.640
+It's actually a lot more challenging to support
+
+00:05:08.640 --> 00:05:14.000
+130,000 users than building a research prototype.
+
+00:05:14.000 --> 00:05:18.000
+This picture shows Puffer's architecture.
+
+00:05:18.000 --> 00:05:22.990
+We receive TV signals with an antenna at Stanford,
+
+00:05:22.990 --> 00:05:26.590
+decode the signals and encode video into multiple
+
+00:05:26.590 --> 00:05:27.000
+versions,
+
+00:05:27.000 --> 00:05:30.500
+and then serve them using different ABR
+
+00:05:30.500 --> 00:05:33.000
+algorithms to our users.
+
+00:05:33.000 --> 00:05:36.660
+We've also built a monitoring system to monitor
+
+00:05:36.660 --> 00:05:40.240
+the system state and send an alert to my phone if
+
+00:05:40.240 --> 00:05:42.000
+anything goes wrong.
+
+00:05:42.000 --> 00:05:46.900
+We wrote more than 30,000 lines of code for Puffer
+
+00:05:46.900 --> 00:05:50.880
+and have used it to stream 60 years of video to
+
+00:05:50.880 --> 00:05:54.000
+130,000 real users.
+
+00:05:54.000 --> 00:06:01.000
+Not only are our results in the paper reproducible,
+
+00:06:01.000 --> 00:06:04.480
+all the user data collected on Puffer is being
+
+00:06:04.480 --> 00:06:07.980
+automatically posted to the website every day
+
+00:06:07.980 --> 00:06:10.000
+after anonymization.
+
+00:06:10.000 --> 00:06:13.330
+You could select any data and view the algorithm
+
+00:06:13.330 --> 00:06:16.000
+performance we plotted in figures,
+
+00:06:16.000 --> 00:06:19.060
+but you could also download the data and do the
+
+00:06:19.060 --> 00:06:22.000
+analysis using our scripts by yourself.
+
+00:06:22.000 --> 00:06:25.370
+Additionally, we're opening Puffer to the
+
+00:06:25.370 --> 00:06:29.020
+research community to train and test novel ABR
+
+00:06:29.020 --> 00:06:30.000
+algorithms,
+
+00:06:30.000 --> 00:06:33.240
+and more generally speaking, also congestion
+
+00:06:33.240 --> 00:06:37.000
+control and bandwidth prediction algorithms.
+
+00:06:37.000 --> 00:06:43.210
+And after building Puffer, we then run a long
+
+00:06:43.210 --> 00:06:46.750
+randomized experiment on video streaming in real
+
+00:06:46.750 --> 00:06:49.000
+life on real users.
+
+00:06:49.000 --> 00:06:52.880
+It's worth noting that the existing ABR
+
+00:06:52.880 --> 00:06:57.000
+algorithms did real experiments as well,
+
+00:06:57.000 --> 00:07:00.830
+but those experiments often ran between a few
+
+00:07:00.830 --> 00:07:05.000
+network nodes and lasted for only hours or days.
+
+00:07:05.000 --> 00:07:09.410
+What we have found is measuring ABR performance
+
+00:07:09.410 --> 00:07:13.040
+on a wild internet is much harder than we
+
+00:07:13.040 --> 00:07:15.000
+realized before.
+
+00:07:15.000 --> 00:07:18.230
+You may need two years of data per scheme to
+
+00:07:18.230 --> 00:07:22.000
+reliably measure a difference like 20%.
+
+00:07:22.000 --> 00:07:25.870
+I'll demonstrate the surprising finding using the
+
+00:07:25.870 --> 00:07:29.030
+experimental results comparing five ABR
+
+00:07:29.030 --> 00:07:30.000
+algorithms.
+
+00:07:30.000 --> 00:07:34.490
+This figure shows the algorithm performance using
+
+00:07:34.490 --> 00:07:38.350
+the data collected on a single day in January
+
+00:07:38.350 --> 00:07:40.000
+2019.
+
+00:07:40.000 --> 00:07:44.060
+Puffer streamed more than 17 days of video to
+
+00:07:44.060 --> 00:07:48.000
+about 600 users watching TV on that day.
+
+00:07:49.000 --> 00:07:51.870
+Since I'm going to present this type of figure
+
+00:07:51.870 --> 00:07:55.000
+several times, let's take a closer look first.
+
+00:07:55.000 --> 00:07:59.000
+On the y-axis, it shows the video quality
+
+00:07:59.000 --> 00:08:03.930
+measured by a standard metric as seen. Higher is
+
+00:08:03.930 --> 00:08:05.000
+better.
+
+00:08:05.000 --> 00:08:10.000
+On the x-axis, it displays the re-buffering ratio,
+
+00:08:10.000 --> 00:08:14.620
+but we have reversed the axis, so the better is
+
+00:08:14.620 --> 00:08:16.000
+to the right.
+
+00:08:16.000 --> 00:08:21.000
+Overall, the better QE is up and to the right.
+
+00:08:21.000 --> 00:08:24.930
+For now, let's ignore the individual performance
+
+00:08:24.930 --> 00:08:29.300
+of each scheme and focus on those 95% confidence
+
+00:08:29.300 --> 00:08:32.000
+intervals around each point.
+
+00:08:32.000 --> 00:08:36.000
+You see, even after streaming 17 days of video,
+
+00:08:36.000 --> 00:08:38.870
+the confidence intervals are still huge and
+
+00:08:38.870 --> 00:08:41.000
+overlapping with each other.
+
+00:08:42.000 --> 00:08:45.640
+As a result, most schemes are still indistinguishable
+
+00:08:45.640 --> 00:08:47.000
+from each other.
+
+00:08:47.000 --> 00:08:52.070
+This tells us if you perform an experiment that
+
+00:08:52.070 --> 00:08:57.370
+only streams 17 days of video, you can't really
+
+00:08:57.370 --> 00:09:00.000
+measure any benefits reliably.
+
+00:09:00.000 --> 00:09:03.430
+Any improvements you found could just be
+
+00:09:03.430 --> 00:09:06.840
+statistical noise if you don't collect enough
+
+00:09:06.840 --> 00:09:10.000
+data or consider the confidence intervals.
+
+00:09:11.000 --> 00:09:14.620
+So, we left the experiment running for a week and
+
+00:09:14.620 --> 00:09:18.000
+collected 42 days of video.
+
+00:09:18.000 --> 00:09:22.220
+Now the confidence intervals became smaller, but
+
+00:09:22.220 --> 00:09:24.000
+not actually enough.
+
+00:09:24.000 --> 00:09:28.000
+For instance, let's look at the scheme MPC-HM.
+
+00:09:29.000 --> 00:09:34.880
+Its mean style ratio is about 0.4%, but the
+
+00:09:34.880 --> 00:09:41.460
+confidence interval ranges from 0.1% to 0.9%,
+
+00:09:41.460 --> 00:09:44.000
+twice as large as the mean value.
+
+00:09:44.000 --> 00:09:48.000
+So we continue the experiment.
+
+00:09:48.000 --> 00:09:51.580
+After a month, about half a year of video were
+
+00:09:51.580 --> 00:09:55.610
+streamed and now the confidence intervals became
+
+00:09:55.610 --> 00:09:57.000
+much smaller.
+
+00:09:57.000 --> 00:10:00.180
+However, we are still unable to distinguish some
+
+00:10:00.180 --> 00:10:01.000
+schemes.
+
+00:10:01.000 --> 00:10:07.050
+For example, MPC-HM and BBA have almost identical
+
+00:10:07.050 --> 00:10:09.000
+performance.
+
+00:10:09.000 --> 00:10:12.000
+But is that a reliable result?
+
+00:10:12.000 --> 00:10:17.220
+After running the experiment for 8 months, we
+
+00:10:17.220 --> 00:10:22.500
+ended up streaming more than 13 years of video to
+
+00:10:22.500 --> 00:10:26.000
+about 55,000 user IPs.
+
+00:10:26.000 --> 00:10:30.000
+And finally, let's zoom in on this figure.
+
+00:10:30.000 --> 00:10:33.510
+We are now able to narrow the confidence
+
+00:10:33.510 --> 00:10:37.000
+intervals down to 20% of the mean value.
+
+00:10:37.000 --> 00:10:40.140
+But remember, this is only possible after
+
+00:10:40.140 --> 00:10:44.000
+streaming at least 2 years of video per scheme.
+
+00:10:44.000 --> 00:10:48.280
+The reason for such large uncertainty is because
+
+00:10:48.280 --> 00:10:52.530
+the internet is way more noisy and heavy-tailed
+
+00:10:52.530 --> 00:10:54.000
+than without.
+
+00:10:55.000 --> 00:11:01.000
+Among the 600,000 streams, only 4% of them had
+
+00:11:01.000 --> 00:11:06.000
+any stalls, meaning the other 96% never stalled.
+
+00:11:06.000 --> 00:11:09.750
+Stall events are so rare in practice, which is
+
+00:11:09.750 --> 00:11:13.230
+why you need a huge amount of data to measure
+
+00:11:13.230 --> 00:11:14.000
+them.
+
+00:11:16.000 --> 00:11:19.510
+Additionally, we have results in the paper to
+
+00:11:19.510 --> 00:11:23.020
+show that the distributions of watch time and
+
+00:11:23.020 --> 00:11:26.000
+throughput are also super-skilled.
+
+00:11:26.000 --> 00:11:30.870
+In the final part, I'll describe how we leverage
+
+00:11:30.870 --> 00:11:35.200
+machine learning to train an ABR algorithm in
+
+00:11:35.200 --> 00:11:39.000
+situ, meaning in place on Puffer.
+
+00:11:41.000 --> 00:11:43.990
+The first step we took was to understand the
+
+00:11:43.990 --> 00:11:46.000
+system dynamics better.
+
+00:11:46.000 --> 00:11:49.600
+We can plot how the playback buffer changes over
+
+00:11:49.600 --> 00:11:50.000
+time.
+
+00:11:50.000 --> 00:11:54.610
+For instance, it drains 1 second per second while
+
+00:11:54.610 --> 00:11:57.000
+waiting for the next chunk.
+
+00:11:57.000 --> 00:12:00.050
+And once the chunk is received and appended to
+
+00:12:00.050 --> 00:12:03.610
+the buffer, its buffer size increases by the
+
+00:12:03.610 --> 00:12:05.000
+chunk length.
+
+00:12:06.000 --> 00:12:09.860
+You'll see the only uncertainty in ABR is the
+
+00:12:09.860 --> 00:12:13.000
+transmission time of a video chunk.
+
+00:12:13.000 --> 00:12:16.440
+That is simply how long it takes for a client to
+
+00:12:16.440 --> 00:12:20.220
+receive a video chunk since the chunk leaves the
+
+00:12:20.220 --> 00:12:21.000
+sender.
+
+00:12:21.000 --> 00:12:27.000
+The algorithm we proposed is called Fugue.
+
+00:12:27.000 --> 00:12:30.890
+At its core, it uses a neural network to predict
+
+00:12:30.890 --> 00:12:34.000
+the transmission time of each chunk.
+
+00:12:35.000 --> 00:12:38.670
+The transmission time predictor, TTP, takes as
+
+00:12:38.670 --> 00:12:42.490
+input the sizes and transmission times of past
+
+00:12:42.490 --> 00:12:46.000
+chunks, and also the size of the chunk to send.
+
+00:12:46.000 --> 00:12:49.850
+I'd like to emphasize that we don't predict
+
+00:12:49.850 --> 00:12:54.170
+throughput, because a throughput predictor wouldn't
+
+00:12:54.170 --> 00:12:57.000
+consider the size of the chunk to send,
+
+00:12:57.000 --> 00:13:00.070
+and would have ignored a well-known fact in
+
+00:13:00.070 --> 00:13:04.130
+networking that the observed throughput actually
+
+00:13:04.130 --> 00:13:07.000
+varies with the file size to send.
+
+00:13:07.000 --> 00:13:12.690
+Another uncommon feature of the input is low-level
+
+00:13:12.690 --> 00:13:17.480
+TCP statistics from the kernel, such as RTT and
+
+00:13:17.480 --> 00:13:20.000
+congestion window size.
+
+00:13:20.000 --> 00:13:23.410
+This is weakly crossing layers, with information
+
+00:13:23.410 --> 00:13:27.000
+flowing from transport layer to application layer.
+
+00:13:27.000 --> 00:13:33.000
+The output of TTP is unusual too.
+
+00:13:33.000 --> 00:13:36.440
+Instead of a point estimate, it outputs a
+
+00:13:36.440 --> 00:13:40.210
+probability distribution over transmission times,
+
+00:13:40.210 --> 00:13:44.410
+and we found it to be useful when maximizing the
+
+00:13:44.410 --> 00:13:46.000
+expected QoE.
+
+00:13:47.000 --> 00:13:51.950
+In sum, TTP has several uncommon features in the
+
+00:13:51.950 --> 00:13:55.620
+design, and our ablation study found each of
+
+00:13:55.620 --> 00:13:58.650
+these features to be necessary to Fugue's
+
+00:13:58.650 --> 00:14:00.000
+performance.
+
+00:14:00.000 --> 00:14:06.800
+TTP's design enables it to be trained in situ,
+
+00:14:06.800 --> 00:14:10.300
+meaning in place on real data from the deployment
+
+00:14:10.300 --> 00:14:12.000
+environment buffer.
+
+00:14:13.000 --> 00:14:16.700
+The training data are sampled and fed into TTP as
+
+00:14:16.700 --> 00:14:19.000
+individual user streams.
+
+00:14:19.000 --> 00:14:23.000
+Each user stream contains a chunk-by-chunk series,
+
+00:14:23.000 --> 00:14:26.900
+including the size and actual transmission time
+
+00:14:26.900 --> 00:14:31.560
+of each chunk, and the required TCP statistics on
+
+00:14:31.560 --> 00:14:33.000
+the server.
+
+00:14:34.000 --> 00:14:37.890
+We use standard supervised learning to train TTP
+
+00:14:37.890 --> 00:14:41.080
+to minimize the difference between its
+
+00:14:41.080 --> 00:14:45.020
+predictions and the actual transmission times of
+
+00:14:45.020 --> 00:14:46.000
+chunks.
+
+00:14:46.000 --> 00:14:50.680
+Note that learning in situ does not require any
+
+00:14:50.680 --> 00:14:55.060
+network simulators or replay any recorded
+
+00:14:55.060 --> 00:14:57.000
+throughput traces.
+
+00:14:58.000 --> 00:15:01.720
+Because if an algorithm is learned in simulation
+
+00:15:01.720 --> 00:15:05.190
+and evaluated in the real world, the gap between
+
+00:15:05.190 --> 00:15:09.060
+simulation and reality may cause generalization
+
+00:15:09.060 --> 00:15:12.000
+issues, which we'd like to avoid.
+
+00:15:12.000 --> 00:15:18.820
+Once the only system uncertainty is approximated
+
+00:15:18.820 --> 00:15:22.910
+by TTP, the remaining question is how to actually
+
+00:15:22.910 --> 00:15:26.000
+select the version for each video chunk.
+
+00:15:27.000 --> 00:15:31.560
+What Fugue does is to look five chunks ahead and
+
+00:15:31.560 --> 00:15:36.000
+optimize the total QoE in a look-ahead horizon.
+
+00:15:36.000 --> 00:15:39.590
+Roughly speaking, the QoE function includes
+
+00:15:39.590 --> 00:15:43.570
+higher video quality, lower quality variation,
+
+00:15:43.570 --> 00:15:46.000
+and less rebuffering time.
+
+00:15:48.000 --> 00:15:52.400
+Given TTP, this optimization problem of maximizing
+
+00:15:52.400 --> 00:15:56.290
+QoE can be solved with a well-known technique in
+
+00:15:56.290 --> 00:16:01.000
+Markov decision process, called value iteration.
+
+00:16:01.000 --> 00:16:04.720
+We don't need to look into the formula because it's
+
+00:16:04.720 --> 00:16:08.080
+basically dynamic programming, which can be
+
+00:16:08.080 --> 00:16:10.000
+computed in real time.
+
+00:16:10.000 --> 00:16:14.210
+Its behavior is also interpretable because we
+
+00:16:14.210 --> 00:16:17.000
+know exactly what's going on.
+
+00:16:18.000 --> 00:16:22.440
+After the optimal plan is computed, Fugue only
+
+00:16:22.440 --> 00:16:27.560
+takes the first step and then replans for the
+
+00:16:27.560 --> 00:16:30.000
+next five chunks.
+
+00:16:30.000 --> 00:16:33.350
+This is also a classical technique in control
+
+00:16:33.350 --> 00:16:37.670
+theory, called model predictive control, which
+
+00:16:37.670 --> 00:16:41.000
+proves to mitigate the accumulation of errors.
+
+00:16:43.000 --> 00:16:47.960
+Putting everything together, including the Puffer
+
+00:16:47.960 --> 00:16:53.000
+video server, the model-based controller, and TTP,
+
+00:16:53.000 --> 00:16:56.690
+Fugue falls into a class of reinforcement
+
+00:16:56.690 --> 00:17:01.000
+learning, or RL, algorithms called model-based RL.
+
+00:17:02.000 --> 00:17:05.830
+We first deploy a version of Fugue on Puffer's
+
+00:17:05.830 --> 00:17:09.820
+video server, and Fugue's model-based controller
+
+00:17:09.820 --> 00:17:13.450
+will plan ahead and select a bit rate when it
+
+00:17:13.450 --> 00:17:16.450
+receives necessary information from the video
+
+00:17:16.450 --> 00:17:17.000
+server.
+
+00:17:18.000 --> 00:17:21.190
+The optimal plan of chunk qualities is computed
+
+00:17:21.190 --> 00:17:24.550
+in real time with dynamic programming, during
+
+00:17:24.550 --> 00:17:28.160
+which TTP is queried to predict transmission
+
+00:17:28.160 --> 00:17:32.000
+times repeatedly for the chunks of our interest.
+
+00:17:32.000 --> 00:17:36.490
+After new data is collected and aggregated, we
+
+00:17:36.490 --> 00:17:41.110
+retrain TTP offline using supervised learning,
+
+00:17:41.110 --> 00:17:44.420
+and deploy the new version of Fugue on the next
+
+00:17:44.420 --> 00:17:45.000
+day.
+
+00:17:46.000 --> 00:17:49.370
+This paradigm I just described is model-based
+
+00:17:49.370 --> 00:17:53.170
+reinforcement learning, but its core component is
+
+00:17:53.170 --> 00:17:57.000
+really the TTP, which is learned in situ.
+
+00:18:01.000 --> 00:18:05.240
+Once again, let's come back to this figure that
+
+00:18:05.240 --> 00:18:09.220
+shows average video quality on the y-axis and
+
+00:18:09.220 --> 00:18:14.360
+style reissue on the reversed x-axis. The better
+
+00:18:14.360 --> 00:18:17.000
+QE is up and to the right.
+
+00:18:17.000 --> 00:18:21.360
+These results are obtained by analyzing 13 years
+
+00:18:21.360 --> 00:18:26.540
+of video data, sent in more than 600,000 video
+
+00:18:26.540 --> 00:18:28.000
+streams from Puffer.
+
+00:18:29.000 --> 00:18:32.000
+Here are four state-of-the-art ABR algorithms.
+
+00:18:32.000 --> 00:18:36.120
+BBA is a simple buffer-based ABR algorithm
+
+00:18:36.120 --> 00:18:41.770
+published at SIGCOMM 2014. It selects video bit
+
+00:18:41.770 --> 00:18:46.000
+rate based only on users' playback buffer level.
+
+00:18:47.000 --> 00:18:52.580
+MPC-HM and robust MPC-HM are two variants of an ABR
+
+00:18:52.580 --> 00:18:58.300
+scheme from SIGCOMM 2015. It leverages the
+
+00:18:58.300 --> 00:19:03.040
+classical model predictive model, same as in Fugue's
+
+00:19:03.040 --> 00:19:06.000
+model-based controller.
+
+00:19:06.000 --> 00:19:08.710
+However, it tries to predict the future
+
+00:19:08.710 --> 00:19:11.920
+throughput using the harmonic mean of some past
+
+00:19:11.920 --> 00:19:14.000
+throughput measurements.
+
+00:19:15.000 --> 00:19:18.740
+The last ABR in this figure is PAN-SIEV from SIGCOMM
+
+00:19:18.740 --> 00:19:23.700
+2017, which is also based on reinforcement
+
+00:19:23.700 --> 00:19:25.000
+learning.
+
+00:19:26.000 --> 00:19:29.190
+Different from learning in situ, PAN-SIEV
+
+00:19:29.190 --> 00:19:33.340
+requires training in network simulators. Although
+
+00:19:33.340 --> 00:19:36.790
+their paper reports near optimal performance in
+
+00:19:36.790 --> 00:19:40.610
+simulation, unfortunately its performance did not
+
+00:19:40.610 --> 00:19:44.000
+generalize from simulation to the real Internet.
+
+00:19:45.000 --> 00:19:50.770
+For instance, although its re-buffering ratio is
+
+00:19:50.770 --> 00:19:55.910
+lower than BBA and MPC-HM, its average video
+
+00:19:55.910 --> 00:19:59.000
+quality is worse than them.
+
+00:20:00.000 --> 00:20:04.690
+In this figure, Fugue is here. It achieves the
+
+00:20:04.690 --> 00:20:09.290
+highest video quality and lowest style ratio,
+
+00:20:09.290 --> 00:20:14.420
+except robust MPC has a lower style ratio than Fugue,
+
+00:20:14.420 --> 00:20:20.000
+but that comes at a great cost of video quality.
+
+00:20:22.000 --> 00:20:26.170
+This table contains the raw performance numbers
+
+00:20:26.170 --> 00:20:31.000
+of the same experiment, where the first row is Fugue.
+
+00:20:31.000 --> 00:20:35.740
+We can see Fugue's mean style ratio in the first
+
+00:20:35.740 --> 00:20:41.140
+column is only 0.01% higher than the lowest
+
+00:20:41.140 --> 00:20:42.000
+scheme.
+
+00:20:43.000 --> 00:20:47.550
+And Fugue is the best on the other dimensions,
+
+00:20:47.550 --> 00:20:52.000
+including the mean SM we saw in the last slide.
+
+00:20:52.000 --> 00:20:55.500
+In the third column, we see Fugue's quality
+
+00:20:55.500 --> 00:20:59.580
+variation is also the lowest, meaning that the
+
+00:20:59.580 --> 00:21:03.410
+video delivered by Fugue is more smooth than the
+
+00:21:03.410 --> 00:21:05.000
+other schemes.
+
+00:21:06.000 --> 00:21:10.000
+The last column shows an interesting performance
+
+00:21:10.000 --> 00:21:14.000
+metric, time on site, or session durations.
+
+00:21:14.000 --> 00:21:17.850
+Recall that Puffer users are blinded to the
+
+00:21:17.850 --> 00:21:21.000
+assignment of ABR algorithms.
+
+00:21:22.000 --> 00:21:26.350
+Under this randomized setting, users whose
+
+00:21:26.350 --> 00:21:30.940
+sessions were assigned to Fugue chose to remain
+
+00:21:30.940 --> 00:21:35.610
+on the Puffer video player about 1-3 minutes
+
+00:21:35.610 --> 00:21:40.000
+longer than those assigned to other schemes.
+
+00:21:44.000 --> 00:21:47.980
+Let's now move on to their cold start performance,
+
+00:21:47.980 --> 00:21:51.600
+that is, how well they perform in new sessions
+
+00:21:51.600 --> 00:21:55.000
+which they hadn't streamed any video to.
+
+00:21:55.000 --> 00:22:00.640
+We plot the average video quality of the first
+
+00:22:00.640 --> 00:22:06.430
+chunk served in such new sessions on the y-axis,
+
+00:22:06.430 --> 00:22:10.000
+and the startup delay on the reversed x-axis.
+
+00:22:11.000 --> 00:22:15.230
+On a cold start to a new session, Firework argues
+
+00:22:15.230 --> 00:22:18.890
+that since the ABR algorithm knows nothing about
+
+00:22:18.890 --> 00:22:22.000
+the network conditions of the new session,
+
+00:22:22.000 --> 00:22:25.180
+it needs some session clustering algorithm to
+
+00:22:25.180 --> 00:22:28.340
+determine the initial chunk quality based on
+
+00:22:28.340 --> 00:22:30.000
+other similar sessions.
+
+00:22:31.000 --> 00:22:35.080
+Otherwise, ABR algorithms will have to choose the
+
+00:22:35.080 --> 00:22:38.340
+first chunk blindly, which could be too
+
+00:22:38.340 --> 00:22:41.000
+conservative or aggressive.
+
+00:22:41.000 --> 00:22:46.000
+By contrast, Fugue provides an alternative option.
+
+00:22:47.000 --> 00:22:51.800
+Recall that one of the input features of Fugue's
+
+00:22:51.800 --> 00:22:57.050
+TTP is TCP statistics, such as RTT measurements,
+
+00:22:57.050 --> 00:23:00.960
+which are actually available as soon as the
+
+00:23:00.960 --> 00:23:06.000
+underlying HTTP/TLS/TCP connection is established.
+
+00:23:07.000 --> 00:23:11.760
+And knowing this information turns out to allow Fugue
+
+00:23:11.760 --> 00:23:15.990
+to begin safely at a higher first chunk quality
+
+00:23:15.990 --> 00:23:20.290
+than the other schemes, while maintaining roughly
+
+00:23:20.290 --> 00:23:23.000
+the same level of startup delay.
+
+00:23:27.000 --> 00:23:30.990
+To conclude today's presentation, I introduce Puffer,
+
+00:23:30.990 --> 00:23:34.600
+a video streaming platform that we built for the
+
+00:23:34.600 --> 00:23:37.790
+research community to train and test novel
+
+00:23:37.790 --> 00:23:39.000
+algorithms.
+
+00:23:39.000 --> 00:23:43.710
+It has 130,000 real users now and has streamed
+
+00:23:43.710 --> 00:23:46.000
+more than 60 years of video.
+
+00:23:46.000 --> 00:23:50.510
+Using the data, we had a surprising finding that
+
+00:23:50.510 --> 00:23:55.000
+the internet is way more noisy than expected.
+
+00:23:56.000 --> 00:23:59.700
+You may need as much as two years of data per
+
+00:23:59.700 --> 00:24:04.000
+scheme to reliably measure a 20% precision.
+
+00:24:04.000 --> 00:24:07.720
+We outperformed existing ABR algorithms
+
+00:24:07.720 --> 00:24:12.190
+consistently in the real world through the design
+
+00:24:12.190 --> 00:24:13.000
+of Fugue.
+
+00:24:13.000 --> 00:24:17.290
+And Fugue's core component is a neural network TTP
+
+00:24:17.290 --> 00:24:22.000
+that predicts the transmission time of each chunk.
+
+00:24:23.000 --> 00:24:26.960
+TTP is trained in situ, meaning on real data from
+
+00:24:26.960 --> 00:24:30.000
+the deployment environment Puffer.
+
+00:24:30.000 --> 00:24:33.630
+That's all for today and I'm happy to take
+
+00:24:33.630 --> 00:24:36.000
+questions. Thank you.
+
+00:24:36.000 --> 00:24:36.840
+Thank you.
+

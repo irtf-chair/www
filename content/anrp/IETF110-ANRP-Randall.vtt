@@ -1,0 +1,2510 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.480
+Hey everyone, my name is Audrey Randall.
+
+00:00:03.480 --> 00:00:05.870
+I am a PhD student at the University of
+
+00:00:05.870 --> 00:00:07.560
+California, San Diego.
+
+00:00:07.560 --> 00:00:10.220
+I'd like to talk to you today about our paper Truffle
+
+00:00:10.220 --> 00:00:10.700
+Hunter,
+
+00:00:10.700 --> 00:00:14.190
+cash snooping rare domains at large public DNS
+
+00:00:14.190 --> 00:00:15.320
+resolvers.
+
+00:00:15.320 --> 00:00:18.470
+When you think about abusive behavior on the
+
+00:00:18.470 --> 00:00:19.600
+Internet today,
+
+00:00:19.600 --> 00:00:21.960
+you might first think about the more common types
+
+00:00:21.960 --> 00:00:23.360
+such as spam emails,
+
+00:00:23.360 --> 00:00:25.400
+or botnets, or malware,
+
+00:00:25.400 --> 00:00:27.240
+all of that stuff is everywhere.
+
+00:00:27.240 --> 00:00:30.170
+The thing about it is it's easy to find in the
+
+00:00:30.170 --> 00:00:32.760
+wild simply because it is so common.
+
+00:00:32.760 --> 00:00:36.140
+But there's another type of abuse which is much
+
+00:00:36.140 --> 00:00:38.180
+harder to find because of its rarity,
+
+00:00:38.180 --> 00:00:40.440
+and that includes things like typo squatting,
+
+00:00:40.440 --> 00:00:42.000
+hack for hire services,
+
+00:00:42.000 --> 00:00:45.080
+stock aware services, where we really don't know
+
+00:00:45.080 --> 00:00:45.920
+how many people are
+
+00:00:45.920 --> 00:00:48.380
+affected by it because it's hard to find in the
+
+00:00:48.380 --> 00:00:49.960
+wild for whatever reason.
+
+00:00:49.960 --> 00:00:52.230
+That's the type of abuse that we are really
+
+00:00:52.230 --> 00:00:54.320
+interested in studying.
+
+00:00:54.320 --> 00:00:57.090
+We've made the observation that all of these
+
+00:00:57.090 --> 00:00:57.840
+types of
+
+00:00:57.840 --> 00:01:00.480
+rare harmful behavior have something in common,
+
+00:01:00.480 --> 00:01:02.320
+which is that they all need to make
+
+00:01:02.320 --> 00:01:05.410
+DNS requests to the servers they require to
+
+00:01:05.410 --> 00:01:06.400
+function.
+
+00:01:06.400 --> 00:01:10.280
+If you could observe enough DNS requests,
+
+00:01:10.280 --> 00:01:12.340
+you could presumably study these types of harm in
+
+00:01:12.340 --> 00:01:13.040
+more detail.
+
+00:01:13.040 --> 00:01:15.000
+You could figure out how prevalent they are,
+
+00:01:15.000 --> 00:01:17.960
+where they occur, how frequently they occur.
+
+00:01:17.960 --> 00:01:20.360
+But to do that,
+
+00:01:20.360 --> 00:01:21.960
+you're going to need to observe a lot of
+
+00:01:21.960 --> 00:01:23.990
+DNS requests because you're looking for the
+
+00:01:23.990 --> 00:01:25.160
+needle in the haystack.
+
+00:01:25.160 --> 00:01:27.190
+You're looking for a very small amount of signal
+
+00:01:27.190 --> 00:01:29.040
+and a large amount of noise.
+
+00:01:29.040 --> 00:01:32.870
+Fortunately, we're entering this new era in DNS
+
+00:01:32.870 --> 00:01:33.560
+right now,
+
+00:01:33.560 --> 00:01:36.340
+and that's because these public DNS resolvers are
+
+00:01:36.340 --> 00:01:38.280
+starting to gain more popularity.
+
+00:01:38.280 --> 00:01:41.270
+It used to be that it was only power users and
+
+00:01:41.270 --> 00:01:42.840
+people who were really tech savvy,
+
+00:01:42.840 --> 00:01:44.800
+who would be using public resolvers,
+
+00:01:44.800 --> 00:01:47.270
+but we're starting to see them get hard-coded by
+
+00:01:47.270 --> 00:01:47.960
+default.
+
+00:01:47.960 --> 00:01:51.380
+For example, Google Home routers all use Google's
+
+00:01:51.380 --> 00:01:53.080
+Quad 8 service by default,
+
+00:01:53.080 --> 00:01:56.640
+and Firefox routes all their DNS queries to Cloudflare.
+
+00:01:56.640 --> 00:02:00.290
+We even see that New York City's entire public Wi-Fi
+
+00:02:00.290 --> 00:02:02.360
+network now uses Quad 9.
+
+00:02:02.360 --> 00:02:04.040
+Of course, we are not Google,
+
+00:02:04.040 --> 00:02:06.280
+we are not Quad 9, we are not Cloudflare.
+
+00:02:06.280 --> 00:02:09.880
+But can we, as third-party observers,
+
+00:02:09.880 --> 00:02:12.900
+still use these services to observe the kind of
+
+00:02:12.900 --> 00:02:15.360
+rare behavior we want to study?
+
+00:02:15.760 --> 00:02:18.600
+Well, of course, the answer is yes.
+
+00:02:18.600 --> 00:02:20.480
+There is a well-known technique that's been
+
+00:02:20.480 --> 00:02:23.880
+around since at least 2004 called DNS cache snooping.
+
+00:02:23.880 --> 00:02:25.480
+But in the past,
+
+00:02:25.480 --> 00:02:27.230
+it's been presented as an attack and it's
+
+00:02:27.230 --> 00:02:29.680
+considered a privacy threat and for good reason.
+
+00:02:29.680 --> 00:02:31.760
+Most of the time, what researchers were doing
+
+00:02:31.760 --> 00:02:33.120
+when they did cache snooping,
+
+00:02:33.120 --> 00:02:35.200
+was they would scan the whole Internet and they
+
+00:02:35.200 --> 00:02:35.840
+would try and
+
+00:02:35.840 --> 00:02:39.720
+see which devices would answer a DNS request.
+
+00:02:39.720 --> 00:02:42.720
+The problem was, most of those devices were
+
+00:02:42.720 --> 00:02:44.240
+misconfigured home routers,
+
+00:02:44.240 --> 00:02:46.480
+so they've only got a few users behind them.
+
+00:02:46.480 --> 00:02:51.120
+If you find some domain on them that might be
+
+00:02:51.120 --> 00:02:52.400
+invasive of privacy,
+
+00:02:52.400 --> 00:02:55.120
+it's not too difficult to figure out which actual
+
+00:02:55.120 --> 00:02:56.320
+user put it there.
+
+00:02:56.320 --> 00:02:59.240
+Public DNS resolvers, on the other hand,
+
+00:02:59.240 --> 00:03:02.030
+allow you to preserve privacy because so many
+
+00:03:02.030 --> 00:03:03.200
+people use them,
+
+00:03:03.200 --> 00:03:05.440
+it's almost impossible to de-anonymize them.
+
+00:03:05.440 --> 00:03:08.000
+It's almost impossible to figure out just based
+
+00:03:08.000 --> 00:03:08.560
+on the fact that
+
+00:03:08.560 --> 00:03:11.920
+a domain is in cache, who put it there.
+
+00:03:11.920 --> 00:03:14.960
+That's great. We can use cache snooping as
+
+00:03:14.960 --> 00:03:17.490
+a measurement technique instead of a privacy
+
+00:03:17.490 --> 00:03:19.280
+threat on public resolvers.
+
+00:03:19.280 --> 00:03:21.120
+But public resolvers are also more
+
+00:03:21.120 --> 00:03:23.640
+challenging because they've got complicated caching
+
+00:03:23.640 --> 00:03:24.240
+strategies,
+
+00:03:24.240 --> 00:03:26.480
+and that's why they're of interest to the IETF,
+
+00:03:26.480 --> 00:03:30.320
+because this does lead to some protocol non-compliance.
+
+00:03:30.320 --> 00:03:33.120
+For the remainder of this talk,
+
+00:03:33.120 --> 00:03:35.240
+I'm first going to go over some brief background
+
+00:03:35.240 --> 00:03:35.360
+on
+
+00:03:35.360 --> 00:03:37.110
+cache snooping for anyone who hasn't seen the
+
+00:03:37.110 --> 00:03:38.360
+details in a while.
+
+00:03:38.360 --> 00:03:40.790
+Then I'm going to talk about how to do it on
+
+00:03:40.790 --> 00:03:42.200
+public resolvers.
+
+00:03:42.200 --> 00:03:44.950
+To do that, you need to understand their caching
+
+00:03:44.950 --> 00:03:45.720
+strategies.
+
+00:03:45.720 --> 00:03:47.800
+We as researchers had to reverse engineer
+
+00:03:47.800 --> 00:03:51.080
+the caching strategies of four large public resolvers.
+
+00:03:51.080 --> 00:03:53.200
+Next, I'm going to talk about our tool,
+
+00:03:53.200 --> 00:03:54.640
+which is called Truffle Hunter,
+
+00:03:54.640 --> 00:03:57.120
+and how we used it to measure certain case
+
+00:03:57.120 --> 00:03:58.480
+studies,
+
+00:03:58.480 --> 00:04:00.520
+and learn a little bit more about
+
+00:04:00.520 --> 00:04:03.090
+these types of rare abuse that we're interested
+
+00:04:03.090 --> 00:04:04.040
+in measuring.
+
+00:04:04.360 --> 00:04:08.920
+So I'll get started on background of cache snooping.
+
+00:04:08.920 --> 00:04:14.680
+If somebody were to make a request for example.com
+
+00:04:14.680 --> 00:04:16.440
+to their local DNS resolver,
+
+00:04:16.440 --> 00:04:19.330
+that resolver would have to look at its cache and
+
+00:04:19.330 --> 00:04:19.520
+say,
+
+00:04:19.520 --> 00:04:21.320
+"All right, is example.com present?"
+
+00:04:21.320 --> 00:04:23.370
+If so, they can return the response quickly to
+
+00:04:23.370 --> 00:04:23.960
+the user.
+
+00:04:23.960 --> 00:04:26.790
+If not, they have to go to the authoritative name
+
+00:04:26.790 --> 00:04:27.640
+server.
+
+00:04:27.640 --> 00:04:31.900
+What you can do if you are a snooper is make a
+
+00:04:31.900 --> 00:04:33.520
+request for example.com,
+
+00:04:33.520 --> 00:04:36.080
+but set a flag that tells the resolver it is not
+
+00:04:36.080 --> 00:04:38.600
+allowed to check the authoritative name server.
+
+00:04:38.600 --> 00:04:42.320
+That way, if you get a valid response back with a
+
+00:04:42.320 --> 00:04:44.160
+valid IP and a valid TTL,
+
+00:04:44.160 --> 00:04:45.520
+or time to live value,
+
+00:04:45.520 --> 00:04:47.800
+then you know that the domain was cached.
+
+00:04:47.800 --> 00:04:49.950
+I should note that all of the resolvers we've
+
+00:04:49.950 --> 00:04:51.040
+been using this on do
+
+00:04:51.040 --> 00:04:53.710
+respect the recursion desired flag with one
+
+00:04:53.710 --> 00:04:54.560
+slight exception,
+
+00:04:54.560 --> 00:04:56.560
+which I'll get into later.
+
+00:04:56.560 --> 00:04:59.850
+But the thing about cache snooping as a
+
+00:04:59.850 --> 00:05:01.880
+measurement technique is that it only
+
+00:05:01.880 --> 00:05:04.560
+provides a lower bound on the number of users
+
+00:05:04.560 --> 00:05:06.360
+that are accessing a domain.
+
+00:05:06.360 --> 00:05:09.640
+If multiple users have hit the same cache for
+
+00:05:09.640 --> 00:05:12.460
+the same domain before that TTL expires and the
+
+00:05:12.460 --> 00:05:13.760
+record is removed from cache,
+
+00:05:13.760 --> 00:05:15.360
+you won't be able to observe them.
+
+00:05:15.360 --> 00:05:18.820
+You can observe a maximum of one user per cache
+
+00:05:18.820 --> 00:05:19.720
+per TTL.
+
+00:05:19.720 --> 00:05:23.040
+But that's okay for our purposes because we're
+
+00:05:23.040 --> 00:05:23.560
+looking for
+
+00:05:23.560 --> 00:05:26.340
+the types of phenomena where nobody knows how
+
+00:05:26.340 --> 00:05:27.440
+frequent they are,
+
+00:05:27.440 --> 00:05:29.600
+how frequently they occur in the wild,
+
+00:05:29.600 --> 00:05:32.320
+and it's valuable even just to get that lower
+
+00:05:32.320 --> 00:05:32.760
+bound
+
+00:05:32.760 --> 00:05:35.910
+because seeing any of them is actually really bad
+
+00:05:35.910 --> 00:05:36.520
+news.
+
+00:05:36.520 --> 00:05:40.150
+But cache snooping on a single resolver is
+
+00:05:40.150 --> 00:05:42.240
+actually reasonably straightforward.
+
+00:05:42.240 --> 00:05:44.200
+In order to do it on a public resolver,
+
+00:05:44.200 --> 00:05:46.200
+things get significantly more complicated.
+
+00:05:46.200 --> 00:05:48.720
+Let me talk next about how public resolvers work
+
+00:05:48.720 --> 00:05:49.560
+in broad terms,
+
+00:05:49.560 --> 00:05:53.520
+and then how they work in more specific terms.
+
+00:05:53.520 --> 00:05:58.010
+When a user wants to send a request to a public
+
+00:05:58.010 --> 00:05:59.080
+resolver,
+
+00:05:59.080 --> 00:06:02.120
+that query is first routed using IP anycast to
+
+00:06:02.120 --> 00:06:05.090
+the first available or the closest point of
+
+00:06:05.090 --> 00:06:06.480
+presence or POP.
+
+00:06:06.480 --> 00:06:09.360
+Once there, it can be routed to one of any number
+
+00:06:09.360 --> 00:06:10.600
+of front-end caches.
+
+00:06:10.600 --> 00:06:12.000
+There are a lot of these.
+
+00:06:12.000 --> 00:06:14.280
+If it misses in those front-end caches,
+
+00:06:14.280 --> 00:06:17.560
+it will be sent to one of usually several back-end
+
+00:06:17.560 --> 00:06:18.560
+resolvers.
+
+00:06:18.560 --> 00:06:21.680
+That's good for us in some ways because each of
+
+00:06:21.680 --> 00:06:24.270
+those caches represents another possibility of
+
+00:06:24.270 --> 00:06:26.280
+observing a user in the wild.
+
+00:06:26.280 --> 00:06:28.440
+But of course, these complicated caching
+
+00:06:28.440 --> 00:06:30.000
+techniques make our job a little bit
+
+00:06:30.000 --> 00:06:33.220
+harder because we need to be able to count how
+
+00:06:33.220 --> 00:06:35.120
+many caches our queries have hit,
+
+00:06:35.120 --> 00:06:37.160
+and we need to be able to differentiate between
+
+00:06:37.160 --> 00:06:37.320
+them
+
+00:06:37.320 --> 00:06:40.080
+so that we don't double-count full caches.
+
+00:06:40.080 --> 00:06:43.200
+This challenge is exacerbated by the fact that
+
+00:06:43.200 --> 00:06:43.600
+each of
+
+00:06:43.600 --> 00:06:46.000
+these public resolvers implements their caching
+
+00:06:46.000 --> 00:06:47.040
+differently.
+
+00:06:47.040 --> 00:06:50.120
+We have found that that inconsistency could cause
+
+00:06:50.120 --> 00:06:51.640
+potential problems.
+
+00:06:51.640 --> 00:06:53.740
+While some of the resolvers we've looked at
+
+00:06:53.740 --> 00:06:55.040
+always do seem to serve
+
+00:06:55.040 --> 00:06:57.200
+records with correct TTLs,
+
+00:06:57.200 --> 00:07:00.020
+we have found some that can either serve records
+
+00:07:00.020 --> 00:07:00.200
+with
+
+00:07:00.200 --> 00:07:03.650
+incorrect TTLs or will serve records after the TTL
+
+00:07:03.650 --> 00:07:05.400
+should have expired.
+
+00:07:05.400 --> 00:07:08.080
+In a few slides, I'll go into more details on
+
+00:07:08.080 --> 00:07:08.680
+that.
+
+00:07:08.680 --> 00:07:11.280
+I've mentioned that in order to do our
+
+00:07:11.280 --> 00:07:12.280
+measurement study,
+
+00:07:12.280 --> 00:07:14.680
+we need to count how many caches have been filled
+
+00:07:14.680 --> 00:07:15.660
+with the domain,
+
+00:07:15.660 --> 00:07:18.170
+and that means we need to be able to identify
+
+00:07:18.170 --> 00:07:20.720
+which caches our queries have hit.
+
+00:07:20.720 --> 00:07:24.200
+We had to understand the caching strategy of each
+
+00:07:24.200 --> 00:07:26.560
+of these four public resolvers.
+
+00:07:26.560 --> 00:07:30.040
+To do that, we only have access to the TTL and
+
+00:07:30.040 --> 00:07:32.200
+the timestamp of the DNS queries that we
+
+00:07:32.200 --> 00:07:34.630
+were sending which made reverse engineering these
+
+00:07:34.630 --> 00:07:36.280
+things challenging.
+
+00:07:36.280 --> 00:07:39.320
+I'll go over now how we did that.
+
+00:07:39.320 --> 00:07:44.430
+We ran an experiment where from a single central
+
+00:07:44.430 --> 00:07:45.000
+location,
+
+00:07:45.000 --> 00:07:47.630
+we would repeatedly query a resolver and try and
+
+00:07:47.630 --> 00:07:48.680
+fill its caches.
+
+00:07:48.680 --> 00:07:51.360
+Then we looked at the query responses that came
+
+00:07:51.360 --> 00:07:52.240
+back and we looked at
+
+00:07:52.240 --> 00:07:54.910
+their TTLs and their timestamps to try and figure
+
+00:07:54.910 --> 00:07:56.440
+out how the caches worked.
+
+00:07:56.440 --> 00:07:58.960
+At this point, I have to introduce the concept of
+
+00:07:58.960 --> 00:08:00.040
+a TTL line,
+
+00:08:00.040 --> 00:08:02.940
+which is just our model of how a TTL decreases in
+
+00:08:02.940 --> 00:08:03.680
+a cache.
+
+00:08:03.680 --> 00:08:06.850
+A TTL in a cache ought to decrease by about one
+
+00:08:06.850 --> 00:08:08.520
+second per second.
+
+00:08:08.520 --> 00:08:10.810
+If you plot a bunch of measurements that have all
+
+00:08:10.810 --> 00:08:12.060
+hit the same cache,
+
+00:08:12.060 --> 00:08:14.840
+you ought to see if you plot their timestamp
+
+00:08:14.840 --> 00:08:16.420
+against their TTLs,
+
+00:08:16.420 --> 00:08:19.120
+that that decreases by one second per second.
+
+00:08:19.120 --> 00:08:21.120
+That's this green line in the figure here.
+
+00:08:21.120 --> 00:08:23.940
+That's our model of what the TTL should be doing
+
+00:08:23.940 --> 00:08:25.000
+in the cache.
+
+00:08:25.000 --> 00:08:29.430
+When we do that against real resolvers, in this
+
+00:08:29.430 --> 00:08:29.800
+case,
+
+00:08:29.800 --> 00:08:32.860
+OpenDNS and Quad9, we get something like this.
+
+00:08:32.860 --> 00:08:35.400
+It looks like about what you would expect.
+
+00:08:35.400 --> 00:08:38.090
+Now, note that this plot is zoomed in on the
+
+00:08:38.090 --> 00:08:40.400
+first 50 seconds just to show detail.
+
+00:08:40.400 --> 00:08:42.570
+The TTL lines aren't shown going all the way to
+
+00:08:42.570 --> 00:08:42.920
+zero,
+
+00:08:42.920 --> 00:08:45.250
+but of course, we expect them to do that
+
+00:08:45.250 --> 00:08:46.280
+eventually.
+
+00:08:46.900 --> 00:08:49.280
+The first thing that you might notice is this row
+
+00:08:49.280 --> 00:08:51.460
+of measurements across the top,
+
+00:08:51.460 --> 00:08:53.900
+which came back with the maximum TTL value for
+
+00:08:53.900 --> 00:08:55.100
+the domain we used.
+
+00:08:55.100 --> 00:08:57.020
+They're circled in red.
+
+00:08:57.020 --> 00:08:59.490
+We assume that each of these measurements filled
+
+00:08:59.490 --> 00:09:00.100
+a new cache
+
+00:09:00.100 --> 00:09:03.060
+because they came back with the maximum TTL value.
+
+00:09:03.060 --> 00:09:04.660
+And we were able to confirm this
+
+00:09:04.660 --> 00:09:07.050
+because we controlled the authoritative name
+
+00:09:07.050 --> 00:09:07.460
+server
+
+00:09:07.460 --> 00:09:09.460
+for the domain that we were querying.
+
+00:09:09.460 --> 00:09:12.520
+So we confirmed that every time our authoritative
+
+00:09:12.520 --> 00:09:14.500
+name server got a new request,
+
+00:09:14.500 --> 00:09:17.010
+we got a measurement back at our measurement
+
+00:09:17.010 --> 00:09:17.540
+source
+
+00:09:17.540 --> 00:09:20.020
+with a maximum TTL value.
+
+00:09:20.020 --> 00:09:23.820
+You'll also notice that all of the measurements
+
+00:09:23.820 --> 00:09:27.420
+that are not one of the top row of circled dots
+
+00:09:27.420 --> 00:09:29.060
+lie on one of the TTL lines.
+
+00:09:29.060 --> 00:09:31.260
+So they look like they came from one of the caches
+
+00:09:31.260 --> 00:09:32.980
+that we observed to be filled.
+
+00:09:32.980 --> 00:09:35.380
+So that's great.
+
+00:09:35.380 --> 00:09:37.770
+That means that OpenDNS and Quad9's caching
+
+00:09:37.770 --> 00:09:38.380
+architecture
+
+00:09:38.380 --> 00:09:40.420
+is reasonably straightforward.
+
+00:09:40.420 --> 00:09:43.220
+Requests can hit any of several independent front-end
+
+00:09:43.220 --> 00:09:43.660
+caches.
+
+00:09:43.660 --> 00:09:46.060
+And if they miss, they're sent to a group of
+
+00:09:46.060 --> 00:09:48.180
+independent back-end caches.
+
+00:09:48.180 --> 00:09:50.620
+And we can just count the TTL lines that we see
+
+00:09:50.620 --> 00:09:53.460
+and assume that that's the number of filled caches.
+
+00:09:53.460 --> 00:09:57.420
+When we ran this experiment on Cloudflare,
+
+00:09:57.420 --> 00:09:59.780
+we got a very different looking graph.
+
+00:09:59.780 --> 00:10:03.060
+So we do get a first measurement,
+
+00:10:03.060 --> 00:10:05.420
+which came back with the maximum TTL.
+
+00:10:05.420 --> 00:10:07.180
+But all of the measurements after that
+
+00:10:07.180 --> 00:10:09.380
+look like they came from the same cache,
+
+00:10:09.380 --> 00:10:10.940
+which we would have thought would be unusual
+
+00:10:10.940 --> 00:10:13.300
+in a resolver of Cloudflare's size.
+
+00:10:13.820 --> 00:10:16.260
+You can also see that for a while,
+
+00:10:16.260 --> 00:10:18.230
+the measurements look like they're exactly on the
+
+00:10:18.230 --> 00:10:18.660
+TTL line,
+
+00:10:18.660 --> 00:10:20.700
+but then they start to drift over time.
+
+00:10:20.700 --> 00:10:22.850
+And we noticed that they would always drift
+
+00:10:22.850 --> 00:10:23.460
+upward.
+
+00:10:23.460 --> 00:10:25.140
+So what we think is happening
+
+00:10:25.140 --> 00:10:28.340
+is that Cloudflare has a shared front-end cache,
+
+00:10:28.340 --> 00:10:29.820
+shared and distributed.
+
+00:10:29.820 --> 00:10:32.020
+As soon as a measurement arrives in one cache,
+
+00:10:32.020 --> 00:10:34.460
+it is shared with all of the others.
+
+00:10:34.460 --> 00:10:36.300
+So that's a little bit disappointing for our
+
+00:10:36.300 --> 00:10:36.820
+purposes,
+
+00:10:36.820 --> 00:10:38.380
+because at the whole POP,
+
+00:10:38.380 --> 00:10:41.300
+we can only see one cache get filled.
+
+00:10:41.300 --> 00:10:44.460
+So we can only measure one user per POP on Cloudflare.
+
+00:10:44.460 --> 00:10:49.660
+There is a question with Cloudflare's strategy
+
+00:10:49.660 --> 00:10:52.540
+of whether or not it is completely compliant
+
+00:10:52.540 --> 00:10:56.220
+with the DNS RFC for TTLs.
+
+00:10:56.220 --> 00:10:57.860
+The maximum drift that we saw
+
+00:10:57.860 --> 00:11:03.340
+away from the true TTL value was about 80 seconds.
+
+00:11:03.340 --> 00:11:06.460
+So we were using a domain at the time
+
+00:11:06.460 --> 00:11:08.300
+with a TTL of about three hours,
+
+00:11:08.420 --> 00:11:11.610
+and we saw that there were still measurements in
+
+00:11:11.610 --> 00:11:12.060
+cache
+
+00:11:12.060 --> 00:11:13.820
+whose TTLs hadn't yet expired
+
+00:11:13.820 --> 00:11:16.430
+for about 80 seconds after they should have
+
+00:11:16.430 --> 00:11:17.140
+expired.
+
+00:11:17.140 --> 00:11:19.140
+Now, it's important to note
+
+00:11:19.140 --> 00:11:22.100
+that the drift scales with the maximum TTL.
+
+00:11:22.100 --> 00:11:25.540
+So probably, even if you have a 60-second TTL,
+
+00:11:25.540 --> 00:11:27.210
+you're only going to have a drift of a few
+
+00:11:27.210 --> 00:11:27.740
+seconds,
+
+00:11:27.740 --> 00:11:29.960
+and that's probably not going to be an issue for
+
+00:11:29.960 --> 00:11:30.300
+you,
+
+00:11:30.300 --> 00:11:32.020
+even if you have such a short TTL.
+
+00:11:32.020 --> 00:11:33.580
+And if you have a long TTL,
+
+00:11:33.580 --> 00:11:35.820
+you're probably tolerant of more drift.
+
+00:11:35.820 --> 00:11:38.020
+So we concluded that the actual problems here
+
+00:11:38.020 --> 00:11:39.540
+are likely to be very small.
+
+00:11:39.540 --> 00:11:45.340
+And then finally, we looked at Google DNS,
+
+00:11:45.340 --> 00:11:48.290
+which is the resolver where the caches fill
+
+00:11:48.290 --> 00:11:49.460
+themselves.
+
+00:11:49.460 --> 00:11:51.540
+This actually isn't just our observation.
+
+00:11:51.540 --> 00:11:53.850
+There's been prior work that has observed this as
+
+00:11:53.850 --> 00:11:54.300
+well.
+
+00:11:54.300 --> 00:11:57.990
+Schaumbet et al found that they could make
+
+00:11:57.990 --> 00:11:58.460
+requests
+
+00:11:58.460 --> 00:12:02.310
+and get a accurate TTL back on the original
+
+00:12:02.310 --> 00:12:03.460
+requests,
+
+00:12:03.460 --> 00:12:05.620
+but then they would keep making requests
+
+00:12:05.620 --> 00:12:08.020
+and they would find subsequent TTLs to be wrong
+
+00:12:08.020 --> 00:12:10.000
+because it looked like those TTLs were coming
+
+00:12:10.000 --> 00:12:10.540
+from caches
+
+00:12:10.540 --> 00:12:12.380
+that had never been filled.
+
+00:12:12.380 --> 00:12:16.100
+And then Rapimardo et al noticed the same effect
+
+00:12:16.100 --> 00:12:18.780
+and called these mystery caches ghost caches,
+
+00:12:18.780 --> 00:12:20.900
+which we thought was a great name for them.
+
+00:12:20.900 --> 00:12:24.380
+So why on earth are these caches getting filled
+
+00:12:24.380 --> 00:12:26.500
+without being queried?
+
+00:12:26.500 --> 00:12:28.380
+I'll show you what we mean here.
+
+00:12:28.380 --> 00:12:30.620
+If you look at all of these blue lines,
+
+00:12:30.620 --> 00:12:32.900
+you will notice that there is no measurement
+
+00:12:32.900 --> 00:12:36.000
+at the start of these blue TTL lines, these
+
+00:12:36.000 --> 00:12:37.020
+mystery caches.
+
+00:12:37.020 --> 00:12:39.580
+According to our theory,
+
+00:12:39.580 --> 00:12:41.770
+every filled cache should correspond to two
+
+00:12:41.770 --> 00:12:42.340
+things.
+
+00:12:42.340 --> 00:12:45.060
+A, a measurement that we made with a maximum TTL
+
+00:12:45.060 --> 00:12:46.140
+at its start,
+
+00:12:46.140 --> 00:12:48.980
+and B, a request to our authoritative name server.
+
+00:12:48.980 --> 00:12:50.980
+And we didn't see either of those here.
+
+00:12:50.980 --> 00:12:55.460
+What we eventually noticed is that every light
+
+00:12:55.460 --> 00:12:56.140
+blue cache
+
+00:12:56.140 --> 00:12:58.340
+does appear to get filled at the same time
+
+00:12:58.340 --> 00:13:00.740
+as one of our measurements was made.
+
+00:13:00.740 --> 00:13:02.300
+You can see that the dotted lines
+
+00:13:02.300 --> 00:13:04.420
+that descend from the start of each cache line
+
+00:13:04.420 --> 00:13:06.420
+each pass through a measurement.
+
+00:13:06.420 --> 00:13:10.180
+So what we think is happening is this.
+
+00:13:10.180 --> 00:13:13.520
+Google is using what we call a dynamic caching
+
+00:13:13.520 --> 00:13:14.300
+strategy.
+
+00:13:14.300 --> 00:13:16.180
+When a request comes into Google
+
+00:13:16.180 --> 00:13:17.860
+and it misses in a front-end cache,
+
+00:13:17.860 --> 00:13:21.380
+that's this light blue cache here,
+
+00:13:21.380 --> 00:13:23.310
+then it's going to get forwarded to a backend
+
+00:13:23.310 --> 00:13:23.660
+cache.
+
+00:13:23.660 --> 00:13:25.330
+And let's assume that that backend cache is
+
+00:13:25.330 --> 00:13:25.980
+already full
+
+00:13:25.980 --> 00:13:28.940
+and it has a TTL less than the maximum value.
+
+00:13:30.940 --> 00:13:34.520
+The first time that TTL, less than the maximum
+
+00:13:34.520 --> 00:13:34.780
+value,
+
+00:13:34.780 --> 00:13:36.780
+let's say 550 seconds,
+
+00:13:36.780 --> 00:13:39.500
+is going to get sent back to the user.
+
+00:13:39.500 --> 00:13:41.300
+But at the same time,
+
+00:13:41.300 --> 00:13:44.140
+the front-end cache is going to store the record
+
+00:13:44.140 --> 00:13:46.460
+and it's going to store the maximum TTL,
+
+00:13:46.460 --> 00:13:49.580
+which in this case, let's say it's 600 seconds.
+
+00:13:49.580 --> 00:13:52.380
+So you can think of it like this.
+
+00:13:52.380 --> 00:13:55.260
+Every request that comes into Google DNS
+
+00:13:55.260 --> 00:13:57.580
+has a chance to spawn a new cache
+
+00:13:57.580 --> 00:13:59.740
+that is visible to cache snooping.
+
+00:13:59.740 --> 00:14:01.180
+So that's great news for us
+
+00:14:01.180 --> 00:14:03.260
+as researchers running a measurement study
+
+00:14:03.260 --> 00:14:05.980
+because we will see a much greater percentage
+
+00:14:05.980 --> 00:14:08.360
+of unique queries on Google than we will anywhere
+
+00:14:08.360 --> 00:14:08.860
+else.
+
+00:14:08.860 --> 00:14:14.960
+But you do have the question of whether this
+
+00:14:14.960 --> 00:14:15.380
+strategy
+
+00:14:15.380 --> 00:14:18.220
+is going to lead to inaccurate TTLs.
+
+00:14:18.220 --> 00:14:22.180
+Now, we did observe that if we queried a domain
+
+00:14:22.180 --> 00:14:23.540
+that we had placed in cache
+
+00:14:23.540 --> 00:14:26.140
+and we queried it all the way until it's TTL
+
+00:14:26.140 --> 00:14:26.740
+expired,
+
+00:14:26.740 --> 00:14:29.420
+these ghost caches or these front-end caches
+
+00:14:29.420 --> 00:14:31.420
+that we filled ourselves,
+
+00:14:31.420 --> 00:14:35.310
+they did expire even if the TTL had not reached
+
+00:14:35.310 --> 00:14:35.940
+zero yet
+
+00:14:35.940 --> 00:14:38.660
+when the original back-end cache expired.
+
+00:14:38.660 --> 00:14:39.860
+So that's good.
+
+00:14:39.860 --> 00:14:43.140
+But we noticed that a user could make a request
+
+00:14:43.140 --> 00:14:46.540
+just before the TTL of the back-end cache expires
+
+00:14:46.540 --> 00:14:50.860
+and get a cache that had just been filled.
+
+00:14:50.860 --> 00:14:52.940
+And that could lead to extending the TTL
+
+00:14:52.940 --> 00:14:55.300
+to twice as long as it should be.
+
+00:14:55.300 --> 00:14:58.420
+So the maximum drift is just twice as long
+
+00:14:58.420 --> 00:15:00.300
+as whatever the maximum TTL is.
+
+00:15:00.300 --> 00:15:04.060
+Whether or not this is actually a problem
+
+00:15:04.060 --> 00:15:05.980
+is not up for us to decide.
+
+00:15:05.980 --> 00:15:07.380
+We couldn't think of a use case
+
+00:15:07.380 --> 00:15:10.020
+where it would be super problematic.
+
+00:15:10.020 --> 00:15:11.980
+But we do have a question of
+
+00:15:11.980 --> 00:15:14.740
+why would this be a useful strategy?
+
+00:15:14.740 --> 00:15:17.660
+Why store the maximum TTL in the front-end caches
+
+00:15:17.660 --> 00:15:20.560
+rather than just copying the TTL from the back-end
+
+00:15:20.560 --> 00:15:21.300
+caches?
+
+00:15:21.300 --> 00:15:23.100
+Now, it's great that Google did this from our
+
+00:15:23.100 --> 00:15:23.620
+point of view
+
+00:15:23.620 --> 00:15:25.780
+because it really enabled our measurement study,
+
+00:15:25.780 --> 00:15:27.460
+but we couldn't come up with a reason
+
+00:15:27.460 --> 00:15:29.860
+why it would be more efficient or more performant
+
+00:15:29.860 --> 00:15:30.740
+to do that.
+
+00:15:30.740 --> 00:15:32.300
+So if anyone is here from Google
+
+00:15:32.300 --> 00:15:33.660
+or if anybody wants to weigh in,
+
+00:15:33.660 --> 00:15:35.300
+I would love to get somebody's thoughts on that
+
+00:15:35.300 --> 00:15:36.740
+when I'm done with this talk.
+
+00:15:36.740 --> 00:15:41.780
+So to summarize, OpenDNS and Quad9
+
+00:15:41.780 --> 00:15:44.290
+appear to have a pretty straightforward caching
+
+00:15:44.290 --> 00:15:44.820
+strategy.
+
+00:15:44.820 --> 00:15:47.340
+And we don't think that that caching strategy
+
+00:15:47.340 --> 00:15:50.780
+ever manipulates the TTLs of the responses at all.
+
+00:15:50.780 --> 00:15:53.690
+Cloudflare has this shared and distributed front-end
+
+00:15:53.690 --> 00:15:54.060
+cache.
+
+00:15:54.060 --> 00:15:56.570
+And we do notice that the TTLs are affected
+
+00:15:56.570 --> 00:15:57.460
+slightly by it,
+
+00:15:57.460 --> 00:15:59.670
+but we don't think that's likely to be too much
+
+00:15:59.670 --> 00:16:00.300
+of an issue
+
+00:16:00.300 --> 00:16:01.820
+because the drift is so small
+
+00:16:01.820 --> 00:16:04.380
+compared to the length of the maximum TTL.
+
+00:16:04.380 --> 00:16:08.140
+And Google has what we call a dynamic caching
+
+00:16:08.140 --> 00:16:09.020
+strategy.
+
+00:16:09.020 --> 00:16:12.930
+And that can result in a TTL received by the
+
+00:16:12.930 --> 00:16:13.500
+client
+
+00:16:13.500 --> 00:16:15.380
+being about twice as long as it should be
+
+00:16:15.380 --> 00:16:17.700
+because you could receive a maximum TTL
+
+00:16:17.700 --> 00:16:20.340
+right before the back-end caches TTL was set to
+
+00:16:20.340 --> 00:16:20.900
+expire.
+
+00:16:20.900 --> 00:16:23.340
+So you should have been receiving a very small TTL
+
+00:16:23.340 --> 00:16:25.780
+and you receive one that's closer to the maximum.
+
+00:16:25.780 --> 00:16:32.740
+Now that we've talked about how to use cache snooping
+
+00:16:32.740 --> 00:16:35.380
+on public resolvers by counting the caches
+
+00:16:35.380 --> 00:16:37.980
+that your queries hit, let's talk about our tool,
+
+00:16:37.980 --> 00:16:39.940
+which we have nicknamed Truffle Hunter.
+
+00:16:39.940 --> 00:16:42.820
+It's our distributed measurement tool,
+
+00:16:42.820 --> 00:16:45.080
+which we've deployed on KEDA's Archipelago
+
+00:16:45.080 --> 00:16:45.580
+project.
+
+00:16:45.580 --> 00:16:48.500
+That means it's on 46 different measurement nodes
+
+00:16:48.500 --> 00:16:51.300
+scattered across the United States.
+
+00:16:51.300 --> 00:16:54.060
+All that it does is send continuous DNS queries
+
+00:16:54.060 --> 00:16:56.340
+across the US for the domains that we're
+
+00:16:56.340 --> 00:16:57.420
+interested in.
+
+00:16:57.420 --> 00:16:58.900
+When it gets the responses back,
+
+00:16:58.900 --> 00:17:00.700
+it interprets them according to our models
+
+00:17:00.700 --> 00:17:03.860
+to try and figure out how many caches were filled.
+
+00:17:03.860 --> 00:17:05.870
+And we go from there to estimating counts of
+
+00:17:05.870 --> 00:17:06.300
+users
+
+00:17:06.300 --> 00:17:08.300
+in some cases.
+
+00:17:08.300 --> 00:17:09.540
+We have three months of data
+
+00:17:09.540 --> 00:17:11.300
+or data at the time we wrote this paper
+
+00:17:11.300 --> 00:17:13.740
+from March to May in 2020.
+
+00:17:13.740 --> 00:17:17.980
+Truffle Hunter is of course not perfect.
+
+00:17:17.980 --> 00:17:20.640
+And the first big question that we had when we
+
+00:17:20.640 --> 00:17:21.340
+deployed it
+
+00:17:21.340 --> 00:17:24.040
+was how accurate it was at estimating the number
+
+00:17:24.040 --> 00:17:24.540
+of caches
+
+00:17:24.540 --> 00:17:25.740
+that were filled.
+
+00:17:25.740 --> 00:17:27.390
+Because we know that our models of cache
+
+00:17:27.390 --> 00:17:28.060
+architecture
+
+00:17:28.060 --> 00:17:30.020
+might not be 100% accurate.
+
+00:17:30.020 --> 00:17:32.220
+So we ran an experiment
+
+00:17:32.220 --> 00:17:36.220
+where from 900 different ripe Atlas probes,
+
+00:17:36.220 --> 00:17:37.980
+we placed a domain we controlled
+
+00:17:37.980 --> 00:17:40.580
+into the caches of public resolvers.
+
+00:17:40.580 --> 00:17:42.540
+The idea was just to put it there
+
+00:17:42.540 --> 00:17:45.700
+as if people across the US had done it naturally.
+
+00:17:46.540 --> 00:17:49.060
+Then we use Truffle Hunter to try and observe it
+
+00:17:49.060 --> 00:17:51.900
+in those public resolver caches.
+
+00:17:51.900 --> 00:17:53.780
+Because it's a domain we control,
+
+00:17:53.780 --> 00:17:55.940
+we could conclude that the number of requests
+
+00:17:55.940 --> 00:17:58.340
+that came into our authoritative name server
+
+00:17:58.340 --> 00:18:01.460
+should be the true number of filled caches,
+
+00:18:01.460 --> 00:18:02.620
+except in the case of Google,
+
+00:18:02.620 --> 00:18:04.540
+which of course does its own thing.
+
+00:18:04.540 --> 00:18:09.000
+We found that we performed best on OpenDNS and
+
+00:18:09.000 --> 00:18:10.020
+CloudFlare,
+
+00:18:10.020 --> 00:18:12.320
+except in the case of one particular CloudFlare
+
+00:18:12.320 --> 00:18:12.580
+pop
+
+00:18:12.580 --> 00:18:14.500
+where we think there was some routing going on
+
+00:18:14.500 --> 00:18:16.940
+that we didn't account for during our experiment.
+
+00:18:16.940 --> 00:18:21.380
+On GPDNS, it turned out to be difficult
+
+00:18:21.380 --> 00:18:23.860
+to accurately remove all of the front end caches
+
+00:18:23.860 --> 00:18:25.820
+that have been filled by our own probes.
+
+00:18:25.820 --> 00:18:28.740
+So we conservatively removed more
+
+00:18:28.740 --> 00:18:30.180
+than we had actually created
+
+00:18:30.180 --> 00:18:32.820
+in order to ensure we never over counted.
+
+00:18:32.820 --> 00:18:34.140
+That's consistent with our goal
+
+00:18:34.140 --> 00:18:35.900
+of always providing an underestimate
+
+00:18:35.900 --> 00:18:39.220
+rather than an overestimate of the number of caches
+
+00:18:39.220 --> 00:18:40.060
+that have been filled
+
+00:18:40.060 --> 00:18:41.690
+and therefore the number of people that are
+
+00:18:41.690 --> 00:18:42.980
+filling them.
+
+00:18:42.980 --> 00:18:45.380
+And then Quad9 was very interesting.
+
+00:18:45.380 --> 00:18:48.020
+It had the same architecture as OpenDNS,
+
+00:18:48.020 --> 00:18:51.740
+so you would expect it to be just as easy to snoop.
+
+00:18:51.740 --> 00:18:52.860
+But as it turns out,
+
+00:18:52.860 --> 00:18:55.820
+Quad9 runs two types of software at each of their
+
+00:18:55.820 --> 00:18:56.420
+backends.
+
+00:18:56.420 --> 00:18:59.410
+And one of them refuses to respond to non-recursive
+
+00:18:59.410 --> 00:18:59.860
+queries,
+
+00:18:59.860 --> 00:19:01.300
+that's Unbound.
+
+00:19:01.300 --> 00:19:04.380
+So if it turned out to be that Unbound
+
+00:19:04.380 --> 00:19:06.820
+was the software that had cached our domain,
+
+00:19:06.820 --> 00:19:09.820
+that record essentially became invisible to us.
+
+00:19:09.820 --> 00:19:11.460
+So it does mean we can't observe
+
+00:19:11.460 --> 00:19:14.620
+about half of the filled caches at any Quad9 pop.
+
+00:19:14.620 --> 00:19:17.900
+The takeaways here are,
+
+00:19:17.900 --> 00:19:20.260
+first, we were able to tune our algorithm
+
+00:19:20.260 --> 00:19:22.780
+so that we almost always underestimate,
+
+00:19:22.780 --> 00:19:24.220
+which is good because our goal
+
+00:19:24.220 --> 00:19:26.730
+is to provide these lower bounded estimates of
+
+00:19:26.730 --> 00:19:27.620
+prevalence.
+
+00:19:27.620 --> 00:19:30.310
+And second, even on the resolvers where we have
+
+00:19:30.310 --> 00:19:30.980
+high error,
+
+00:19:30.980 --> 00:19:33.740
+we do see at least half of the filled caches.
+
+00:19:33.740 --> 00:19:39.780
+The next limitation that TroubleHunter has
+
+00:19:39.780 --> 00:19:42.460
+is inherent to cache snooping as a measurement
+
+00:19:42.460 --> 00:19:43.020
+technique.
+
+00:19:43.020 --> 00:19:45.900
+And that is that you can only observe one user
+
+00:19:45.900 --> 00:19:47.260
+per cache.
+
+00:19:47.260 --> 00:19:50.220
+So we looked at how many caches were visible
+
+00:19:50.220 --> 00:19:53.540
+on each of these resolvers at any one time.
+
+00:19:53.540 --> 00:19:56.380
+We found that Google had a great many of them
+
+00:19:56.380 --> 00:19:57.860
+that were visible to us
+
+00:19:57.860 --> 00:20:00.180
+because of their dynamic caching strategy,
+
+00:20:00.180 --> 00:20:04.140
+about 100 times more than either OpenDNS or Quad9.
+
+00:20:04.140 --> 00:20:06.480
+Cloudflare, of course, only has one visible cache
+
+00:20:06.480 --> 00:20:06.860
+per pop,
+
+00:20:06.860 --> 00:20:09.020
+so its graph is omitted here.
+
+00:20:09.020 --> 00:20:11.300
+OpenDNS and Quad9, you might notice
+
+00:20:11.300 --> 00:20:14.300
+that some of the larger pops like NYC and IAD
+
+00:20:14.300 --> 00:20:16.550
+have a lot more visible caches than the smaller
+
+00:20:16.550 --> 00:20:16.980
+ones.
+
+00:20:16.980 --> 00:20:23.100
+So that's TroubleHunter in a nutshell.
+
+00:20:23.100 --> 00:20:24.540
+Now, the interesting bit
+
+00:20:24.540 --> 00:20:27.420
+is what we actually use TroubleHunter to study,
+
+00:20:27.420 --> 00:20:29.390
+and that's our case studies, which I'll talk
+
+00:20:29.390 --> 00:20:30.220
+about next.
+
+00:20:30.220 --> 00:20:32.900
+We ran four of these.
+
+00:20:32.900 --> 00:20:35.580
+I'm only going to talk about three of them here.
+
+00:20:35.580 --> 00:20:39.540
+And these were stalkerware, contract cheating,
+
+00:20:39.540 --> 00:20:42.660
+and very old typosquatting domains.
+
+00:20:42.660 --> 00:20:44.780
+We didn't expect to see very much of any of this
+
+00:20:44.780 --> 00:20:45.060
+stuff
+
+00:20:45.060 --> 00:20:46.620
+for various reasons.
+
+00:20:46.620 --> 00:20:48.900
+And previously, all of these things
+
+00:20:48.900 --> 00:20:50.340
+were kind of difficult to measure,
+
+00:20:50.340 --> 00:20:52.060
+maybe typosquatting not so much,
+
+00:20:52.060 --> 00:20:53.980
+but certainly contract cheating and stalkerware
+
+00:20:53.980 --> 00:20:56.780
+have been very difficult to observe in the wild.
+
+00:20:56.780 --> 00:20:59.470
+And nobody really had any data about how
+
+00:20:59.470 --> 00:21:00.660
+prevalent they were.
+
+00:21:03.700 --> 00:21:06.300
+First of all, let's talk about stalkerware.
+
+00:21:06.300 --> 00:21:07.940
+If you haven't heard the term before,
+
+00:21:07.940 --> 00:21:10.580
+it's kind of this emerging spyware thread.
+
+00:21:10.580 --> 00:21:12.380
+It's this software that can be installed
+
+00:21:12.380 --> 00:21:14.460
+on a target's device, either a phone,
+
+00:21:14.460 --> 00:21:17.280
+usually a phone or a desktop computer, and it
+
+00:21:17.280 --> 00:21:18.060
+tracks them.
+
+00:21:18.060 --> 00:21:19.620
+It can record location.
+
+00:21:19.620 --> 00:21:23.380
+It often has key loggers to record texts,
+
+00:21:23.380 --> 00:21:27.260
+social media, browsing history, things like that.
+
+00:21:27.260 --> 00:21:30.340
+And oftentimes it can record ambient sound
+
+00:21:30.340 --> 00:21:32.780
+and video of the device as well.
+
+00:21:32.780 --> 00:21:34.580
+And it can hide its presence on the device.
+
+00:21:34.580 --> 00:21:37.440
+So even if you are downloading it on an Android
+
+00:21:37.440 --> 00:21:37.740
+phone,
+
+00:21:37.740 --> 00:21:40.060
+which ought to tell you how many apps
+
+00:21:40.060 --> 00:21:42.500
+and what types are installed on it,
+
+00:21:42.500 --> 00:21:44.710
+it can hide its icon so that you can't tell it's
+
+00:21:44.710 --> 00:21:45.260
+there.
+
+00:21:45.260 --> 00:21:50.220
+So we downloaded and profiled 24 of these apps
+
+00:21:50.220 --> 00:21:51.980
+to try and get their network signatures
+
+00:21:51.980 --> 00:21:53.140
+so that we could figure out
+
+00:21:53.140 --> 00:21:55.220
+what DNS requests they were making.
+
+00:21:55.220 --> 00:21:59.370
+Six of these apps were what previous work calls
+
+00:21:59.370 --> 00:22:00.260
+dual use.
+
+00:22:00.260 --> 00:22:02.700
+Those are apps that have a legitimate purpose,
+
+00:22:02.700 --> 00:22:04.660
+which is separate from their ability to stalk
+
+00:22:04.660 --> 00:22:05.420
+somebody,
+
+00:22:05.420 --> 00:22:09.420
+but they can be repurposed to act as stalkerware.
+
+00:22:09.420 --> 00:22:12.620
+The line between dual use and overt apps
+
+00:22:12.620 --> 00:22:13.660
+is a little bit blurry,
+
+00:22:13.660 --> 00:22:15.700
+but dual use apps tend to be marketed
+
+00:22:15.700 --> 00:22:18.500
+for parental control or employee surveillance
+
+00:22:18.500 --> 00:22:21.020
+or things like finding a lost phone or backing up
+
+00:22:21.020 --> 00:22:21.660
+your data
+
+00:22:21.660 --> 00:22:23.710
+rather than for spying on a spouse or a
+
+00:22:23.710 --> 00:22:24.660
+girlfriend.
+
+00:22:24.660 --> 00:22:28.410
+Overt apps, on the other hand, are marketed as
+
+00:22:28.410 --> 00:22:29.580
+undetectable
+
+00:22:29.580 --> 00:22:31.860
+and marketed specifically for,
+
+00:22:31.860 --> 00:22:34.930
+or at least often marketed specifically for spying
+
+00:22:34.930 --> 00:22:35.460
+on a spouse
+
+00:22:35.460 --> 00:22:38.860
+or a girlfriend or a husband or what have you.
+
+00:22:38.860 --> 00:22:41.060
+So they tend to be the more dangerous ones.
+
+00:22:41.060 --> 00:22:46.500
+The prevalence of overt stalkerware
+
+00:22:46.500 --> 00:22:48.620
+is hard to estimate by any other means
+
+00:22:48.620 --> 00:22:51.500
+because it's very difficult to observe it in the
+
+00:22:51.500 --> 00:22:52.100
+wild.
+
+00:22:52.100 --> 00:22:53.260
+Prior work in this space
+
+00:22:53.260 --> 00:22:55.660
+has mostly been conducted in clinical settings.
+
+00:22:55.660 --> 00:22:57.500
+So researchers will conduct
+
+00:22:57.500 --> 00:23:00.340
+individual one-on-one interviews with targets.
+
+00:23:00.340 --> 00:23:03.740
+And unfortunately that gives them a low sample
+
+00:23:03.740 --> 00:23:03.740
+size.
+
+00:23:03.740 --> 00:23:04.900
+During these interviews,
+
+00:23:04.900 --> 00:23:08.840
+they found few to zero of these overt apps in the
+
+00:23:08.840 --> 00:23:08.860
+wild,
+
+00:23:08.860 --> 00:23:12.100
+but a simple Google query will turn up dozens of
+
+00:23:12.100 --> 00:23:12.340
+them
+
+00:23:12.340 --> 00:23:13.940
+and there are ads all over the place.
+
+00:23:13.940 --> 00:23:15.700
+So it really does beg the question
+
+00:23:15.700 --> 00:23:18.050
+of how much of this overt stalkerware is out
+
+00:23:18.050 --> 00:23:18.620
+there.
+
+00:23:18.620 --> 00:23:21.460
+Additionally, by the time a target
+
+00:23:21.460 --> 00:23:23.340
+has come in to talk to a professional,
+
+00:23:23.340 --> 00:23:25.940
+they have often already reset their devices.
+
+00:23:25.940 --> 00:23:27.780
+So it's difficult for a clinic to tell
+
+00:23:27.780 --> 00:23:30.580
+which apps were on there before the reset.
+
+00:23:30.580 --> 00:23:33.430
+And finally, clinics often lack technical
+
+00:23:33.430 --> 00:23:34.340
+expertise.
+
+00:23:34.340 --> 00:23:36.300
+So if they aren't working with someone
+
+00:23:36.300 --> 00:23:38.100
+who does have expertise in this space,
+
+00:23:38.100 --> 00:23:40.020
+it can be very difficult for them to tell
+
+00:23:40.020 --> 00:23:42.220
+if a device has stalkerware installed.
+
+00:23:42.220 --> 00:23:44.540
+Up until this point,
+
+00:23:44.540 --> 00:23:47.500
+we've only been talking about counting filled caches,
+
+00:23:47.500 --> 00:23:49.140
+not counting the number of devices
+
+00:23:49.140 --> 00:23:50.820
+that have made the requests.
+
+00:23:50.820 --> 00:23:52.980
+And we haven't made any attempt to differentiate
+
+00:23:52.980 --> 00:23:55.790
+between a single device that is making multiple
+
+00:23:55.790 --> 00:23:56.380
+requests
+
+00:23:56.380 --> 00:23:58.560
+and multiple devices that are each making a
+
+00:23:58.560 --> 00:23:59.500
+single request.
+
+00:23:59.500 --> 00:24:02.980
+Stalkerware is a really good app to use,
+
+00:24:02.980 --> 00:24:05.860
+really good use case to use for figuring this out
+
+00:24:05.860 --> 00:24:08.820
+because it's supposed to be often installed
+
+00:24:08.820 --> 00:24:10.940
+without the user's knowledge.
+
+00:24:10.940 --> 00:24:13.460
+So it has to make its DNS requests automatically
+
+00:24:13.460 --> 00:24:15.380
+without any user interaction.
+
+00:24:15.380 --> 00:24:16.820
+And that means it often makes them
+
+00:24:16.820 --> 00:24:19.420
+at regular predictable intervals.
+
+00:24:19.420 --> 00:24:21.220
+So if you want to know how many devices
+
+00:24:21.220 --> 00:24:22.820
+have stalkerware installed,
+
+00:24:22.820 --> 00:24:26.060
+all you have to do is measure that request rate
+
+00:24:26.060 --> 00:24:28.240
+and then divide the number of filled caches you
+
+00:24:28.240 --> 00:24:28.500
+see
+
+00:24:28.500 --> 00:24:30.300
+by the request rate of the app.
+
+00:24:30.300 --> 00:24:33.660
+That's the technique that we use
+
+00:24:33.660 --> 00:24:35.580
+to come up with this figure here.
+
+00:24:35.580 --> 00:24:37.860
+This graph shows the maximum targets
+
+00:24:37.860 --> 00:24:40.460
+that we ever observed with stalkerware installed
+
+00:24:40.460 --> 00:24:43.380
+at any one time across the United States.
+
+00:24:43.380 --> 00:24:45.920
+We found that nearly 6,000 people are being
+
+00:24:45.920 --> 00:24:46.300
+targeted
+
+00:24:46.300 --> 00:24:48.660
+by overt stalkerware in the US today.
+
+00:24:48.660 --> 00:24:51.220
+And recall that that's a strict lower bound.
+
+00:24:51.220 --> 00:24:52.780
+The number may very well be higher,
+
+00:24:52.780 --> 00:24:54.380
+but we suspect it's not lower.
+
+00:24:54.380 --> 00:24:57.580
+The two most interesting apps that we found
+
+00:24:57.580 --> 00:24:59.980
+were called Mobile Tracker Free and Spy to Mobile.
+
+00:24:59.980 --> 00:25:01.220
+Those are the two most frequent
+
+00:25:01.220 --> 00:25:03.780
+that you can see at the top of this chart.
+
+00:25:03.780 --> 00:25:06.260
+Mobile Tracker Free, we suspect is so popular
+
+00:25:06.260 --> 00:25:08.780
+because out of all the overt apps we studied,
+
+00:25:08.780 --> 00:25:11.260
+it was the only one that wasn't subscription-based.
+
+00:25:11.260 --> 00:25:13.420
+It was free to install, free to use.
+
+00:25:13.420 --> 00:25:17.100
+And Spy to Mobile, while not being free,
+
+00:25:17.100 --> 00:25:18.860
+was the only one of the overt apps
+
+00:25:18.860 --> 00:25:21.460
+that was available on the Google Play Store
+
+00:25:21.460 --> 00:25:24.780
+because it has a habit of changing its developer
+
+00:25:24.780 --> 00:25:25.020
+name
+
+00:25:25.020 --> 00:25:28.560
+and its name and re-uploading itself multiple
+
+00:25:28.560 --> 00:25:28.860
+times
+
+00:25:28.860 --> 00:25:31.340
+to evade Google's rules.
+
+00:25:31.340 --> 00:25:39.060
+We also looked at the dashboards for stalkerware.
+
+00:25:39.060 --> 00:25:40.820
+And when I say a dashboard,
+
+00:25:40.820 --> 00:25:43.540
+I mean the website that an attacker will go to
+
+00:25:43.540 --> 00:25:45.100
+when they want to view the data
+
+00:25:45.100 --> 00:25:46.860
+that has been collected by the app.
+
+00:25:46.860 --> 00:25:49.500
+We again see that Mobile Tracker Free
+
+00:25:49.500 --> 00:25:51.900
+is the one that was visited most frequently,
+
+00:25:51.900 --> 00:25:53.660
+but Spy to Mobile has fallen down
+
+00:25:53.660 --> 00:25:55.780
+in the rankings a little bit.
+
+00:25:55.780 --> 00:25:58.170
+So clearly it is the case that the popularity of
+
+00:25:58.170 --> 00:25:58.580
+the app
+
+00:25:58.580 --> 00:26:00.580
+does not necessarily correspond
+
+00:26:00.580 --> 00:26:03.490
+to how many times somebody is checking the
+
+00:26:03.490 --> 00:26:04.540
+dashboard.
+
+00:26:04.540 --> 00:26:05.700
+We theorized that might be
+
+00:26:05.700 --> 00:26:07.540
+because of differing app capabilities.
+
+00:26:07.540 --> 00:26:09.740
+Mobile Tracker Free has a lot more features
+
+00:26:09.740 --> 00:26:10.820
+than Spy to Mobile.
+
+00:26:10.820 --> 00:26:13.460
+Spy to Mobile is mostly good at tracking location.
+
+00:26:13.460 --> 00:26:19.260
+And the next case study that we looked at
+
+00:26:19.260 --> 00:26:20.580
+was contract cheating,
+
+00:26:20.580 --> 00:26:22.540
+which is the new form of plagiarism
+
+00:26:22.540 --> 00:26:24.700
+that the kids are using these days.
+
+00:26:24.700 --> 00:26:26.580
+So in case you haven't heard of this,
+
+00:26:26.580 --> 00:26:29.100
+these are services that you can buy as a student
+
+00:26:29.100 --> 00:26:31.900
+to complete your homework or your projects
+
+00:26:31.900 --> 00:26:33.940
+or even entire classes for you.
+
+00:26:33.940 --> 00:26:35.500
+I've even seen a few that are offering
+
+00:26:35.500 --> 00:26:37.620
+to get entire online degrees.
+
+00:26:37.620 --> 00:26:40.260
+It's pretty hard to detect when a student is
+
+00:26:40.260 --> 00:26:41.020
+using this
+
+00:26:41.020 --> 00:26:43.060
+because they're not actually plagiarizing.
+
+00:26:43.060 --> 00:26:45.580
+They're not copying work that exists already.
+
+00:26:45.580 --> 00:26:48.220
+They're hiring someone to create original content
+
+00:26:48.220 --> 00:26:48.980
+for them.
+
+00:26:48.980 --> 00:26:50.380
+Of course, your mileage may vary.
+
+00:26:50.380 --> 00:26:52.380
+Some of these services are better than others,
+
+00:26:52.380 --> 00:26:55.260
+but there are a few that are good enough to get A's
+
+00:26:55.260 --> 00:26:57.820
+in most cases, even including college
+
+00:26:57.820 --> 00:26:59.460
+and sometimes graduate classes.
+
+00:26:59.460 --> 00:27:04.780
+So it's of course hard to observe in the wild
+
+00:27:04.780 --> 00:27:07.300
+because students aren't going to just admit
+
+00:27:07.300 --> 00:27:09.400
+that they have done cheating, even on anonymous
+
+00:27:09.400 --> 00:27:09.900
+surveys,
+
+00:27:09.900 --> 00:27:11.940
+which is how a lot of this work has been done in
+
+00:27:11.940 --> 00:27:12.740
+the past.
+
+00:27:12.740 --> 00:27:14.700
+So we had Trouble Hunter look for it
+
+00:27:14.700 --> 00:27:16.900
+and we observed that yes,
+
+00:27:16.900 --> 00:27:18.460
+you see a lot of requests per day
+
+00:27:18.460 --> 00:27:21.060
+to these contract cheating websites.
+
+00:27:21.060 --> 00:27:23.860
+Now, of course, a request made for the website
+
+00:27:23.860 --> 00:27:26.130
+doesn't necessarily mean that a student bought
+
+00:27:26.130 --> 00:27:26.620
+anything,
+
+00:27:26.620 --> 00:27:29.820
+but it's still an interesting number to observe.
+
+00:27:29.820 --> 00:27:33.020
+We saw that some of these services,
+
+00:27:33.020 --> 00:27:34.940
+which we measured over the last couple of weeks
+
+00:27:34.940 --> 00:27:35.780
+of May,
+
+00:27:35.780 --> 00:27:37.900
+were decreasing over time,
+
+00:27:37.900 --> 00:27:39.020
+which we thought was interesting
+
+00:27:39.020 --> 00:27:40.660
+and might indicate that schools are letting out
+
+00:27:40.660 --> 00:27:43.000
+for summer break, so demand for cheating is going
+
+00:27:43.000 --> 00:27:43.460
+down.
+
+00:27:46.060 --> 00:27:48.380
+And then finally, because we had some of these
+
+00:27:48.380 --> 00:27:48.780
+domains,
+
+00:27:48.780 --> 00:27:50.620
+we looked for typosquatting.
+
+00:27:50.620 --> 00:27:52.580
+These domains are pretty old.
+
+00:27:52.580 --> 00:27:54.940
+We don't expect that they are being used
+
+00:27:54.940 --> 00:27:56.500
+to phish anybody anymore
+
+00:27:56.500 --> 00:27:59.020
+because received wisdom and prior work
+
+00:27:59.020 --> 00:28:01.140
+says that phishing domains and typosquatting
+
+00:28:01.140 --> 00:28:01.500
+domains
+
+00:28:01.500 --> 00:28:03.620
+usually roll over very quickly.
+
+00:28:03.620 --> 00:28:04.700
+They get blacklisted
+
+00:28:04.700 --> 00:28:08.080
+and then the miscreants move on to other domains.
+
+00:28:08.080 --> 00:28:09.580
+So you wouldn't expect that any of these
+
+00:28:09.580 --> 00:28:11.940
+would still be receiving DNS requests,
+
+00:28:11.940 --> 00:28:13.340
+but we saw that yes,
+
+00:28:13.340 --> 00:28:15.540
+they are still getting a few requests per day,
+
+00:28:15.540 --> 00:28:16.740
+which is interesting.
+
+00:28:16.740 --> 00:28:21.420
+So the takeaway from our point of view
+
+00:28:21.420 --> 00:28:24.680
+is that cash snooping on public resolvers
+
+00:28:24.680 --> 00:28:27.020
+shouldn't actually be gotten rid of yet.
+
+00:28:27.020 --> 00:28:29.540
+We argue that there are minimal privacy concerns
+
+00:28:29.540 --> 00:28:31.340
+when you're cash snooping on public resolvers
+
+00:28:31.340 --> 00:28:33.020
+because there are too many users
+
+00:28:33.020 --> 00:28:36.160
+to figure out which user put a domain into cash.
+
+00:28:36.160 --> 00:28:39.440
+And if you allow cash snooping on these resolvers,
+
+00:28:39.440 --> 00:28:41.400
+then you can measure types of harm
+
+00:28:41.400 --> 00:28:44.220
+that are otherwise very difficult to study.
+
+00:28:44.220 --> 00:28:46.300
+In particular, for stalkerware,
+
+00:28:46.300 --> 00:28:47.940
+it's very difficult to figure out
+
+00:28:47.940 --> 00:28:49.860
+how much of this stuff exists in the wild
+
+00:28:49.860 --> 00:28:51.420
+and each instance of stalkerware
+
+00:28:51.420 --> 00:28:53.730
+represents a significant amount of harm being
+
+00:28:53.730 --> 00:28:54.180
+done.
+
+00:28:54.180 --> 00:28:57.360
+Furthermore, contract cheating is difficult to
+
+00:28:57.360 --> 00:28:57.740
+study
+
+00:28:57.740 --> 00:28:59.300
+because students are just not honest
+
+00:28:59.300 --> 00:29:02.300
+about whether or not they've bought cheating
+
+00:29:02.300 --> 00:29:02.300
+software.
+
+00:29:02.300 --> 00:29:03.660
+And then there's other phenomena,
+
+00:29:03.660 --> 00:29:06.200
+which we didn't get a chance to measure very well,
+
+00:29:06.200 --> 00:29:08.680
+which we would like to look into more in the
+
+00:29:08.680 --> 00:29:08.680
+future,
+
+00:29:08.680 --> 00:29:11.460
+such as these new hack for hire services
+
+00:29:11.460 --> 00:29:14.160
+and phishing, which by all accounts is quite
+
+00:29:14.160 --> 00:29:14.580
+common,
+
+00:29:14.580 --> 00:29:16.260
+but we would like to see how much of it is
+
+00:29:16.260 --> 00:29:16.660
+happening
+
+00:29:16.660 --> 00:29:18.460
+in various places around the world.
+
+00:29:18.460 --> 00:29:25.820
+To conclude, we found that public DNS resolvers
+
+00:29:25.820 --> 00:29:27.560
+enable us to use cash snooping
+
+00:29:27.560 --> 00:29:29.940
+as a privacy preserving measurement technique
+
+00:29:29.940 --> 00:29:31.820
+rather than an attack.
+
+00:29:31.820 --> 00:29:33.820
+We think this is a valuable measurement technique
+
+00:29:33.820 --> 00:29:35.200
+that should not be disabled
+
+00:29:35.200 --> 00:29:38.660
+on specifically public DNS resolvers.
+
+00:29:38.660 --> 00:29:40.740
+We also found that to use cash snooping
+
+00:29:40.740 --> 00:29:41.940
+on public resolvers,
+
+00:29:41.940 --> 00:29:43.980
+you have to understand their cash architecture,
+
+00:29:43.980 --> 00:29:45.480
+which is quite complex.
+
+00:29:45.480 --> 00:29:48.180
+So we reverse engineered four of these resolver
+
+00:29:48.180 --> 00:29:48.860
+strategies
+
+00:29:48.860 --> 00:29:51.460
+and we did find that Cloudflare and Google
+
+00:29:51.460 --> 00:29:54.500
+caused some minor TTL noncompliance.
+
+00:29:54.500 --> 00:29:56.200
+Whether that's an actual issue or not
+
+00:29:56.200 --> 00:29:57.460
+is not up for us to decide,
+
+00:29:57.460 --> 00:29:59.820
+but we suspect it's not that much of a problem.
+
+00:29:59.820 --> 00:30:02.540
+And then finally, we used our tool
+
+00:30:02.540 --> 00:30:04.480
+to find non-trivial lower bounds
+
+00:30:04.480 --> 00:30:06.140
+of the prevalence of internet phenomena
+
+00:30:06.140 --> 00:30:08.380
+that were previously very difficult to study.
+
+00:30:09.300 --> 00:30:10.820
+So Travel Hunter is open source.
+
+00:30:10.820 --> 00:30:12.400
+If you want to try it out for yourself
+
+00:30:12.400 --> 00:30:13.500
+from a single location,
+
+00:30:13.500 --> 00:30:15.940
+you can go to this GitHub link at the bottom of
+
+00:30:15.940 --> 00:30:16.440
+the slide.
+
+00:30:16.440 --> 00:30:18.420
+And I'd like to thank you for your attention
+
+00:30:18.420 --> 00:30:20.020
+and take questions at this time.
+

@@ -1,0 +1,779 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:03.040
+Hi, my name is Bruce and today I will be
+
+00:00:03.040 --> 00:00:05.000
+presenting our work on running experiments in
+
+00:00:05.000 --> 00:00:06.000
+congested networks.
+
+00:00:06.000 --> 00:00:07.710
+This is joint work with some awesome
+
+00:00:07.710 --> 00:00:10.000
+collaborators from Netflix and from Stanford.
+
+00:00:10.000 --> 00:00:12.650
+So when we do networking research, we want to
+
+00:00:12.650 --> 00:00:14.720
+know whether or not a new algorithm will work
+
+00:00:14.720 --> 00:00:16.000
+well in practice.
+
+00:00:16.000 --> 00:00:19.080
+And in order to do this, we want to run A/B tests
+
+00:00:19.080 --> 00:00:21.430
+or randomized experiments where we run this new
+
+00:00:21.430 --> 00:00:23.000
+algorithm on live traffic
+
+00:00:23.000 --> 00:00:24.950
+and see if it actually works better or not when
+
+00:00:24.950 --> 00:00:27.010
+it encounters all the weird stuff that goes on in
+
+00:00:27.010 --> 00:00:28.000
+the actual internet.
+
+00:00:28.000 --> 00:00:31.290
+These are just a few of the many papers published
+
+00:00:31.290 --> 00:00:34.000
+over the last decade that use A/B tests.
+
+00:00:34.000 --> 00:00:36.000
+There are many more unpublished tests.
+
+00:00:36.000 --> 00:00:38.810
+For instance, Netflix runs an A/B test for almost
+
+00:00:38.810 --> 00:00:41.390
+every single change it makes to its production
+
+00:00:41.390 --> 00:00:42.000
+network.
+
+00:00:42.000 --> 00:00:44.000
+So what is an A/B test?
+
+00:00:44.000 --> 00:00:46.310
+In an A/B test, we have some new treatment
+
+00:00:46.310 --> 00:00:48.580
+algorithm and we want to compare this treatment
+
+00:00:48.580 --> 00:00:51.000
+algorithm to some existing control algorithm.
+
+00:00:51.000 --> 00:00:53.890
+In order to do this, we split up the traffic into
+
+00:00:53.890 --> 00:00:56.150
+two groups randomly, a treatment group and a
+
+00:00:56.150 --> 00:00:57.000
+control group.
+
+00:00:57.000 --> 00:00:59.000
+We apply the new algorithm to the treatment group.
+
+00:00:59.000 --> 00:01:02.200
+We run it for a while to collect some data, and
+
+00:01:02.200 --> 00:01:04.000
+then we look at what happens.
+
+00:01:04.000 --> 00:01:06.010
+In this case, the treatment algorithm would get
+
+00:01:06.010 --> 00:01:08.000
+better performance than the control algorithm.
+
+00:01:08.000 --> 00:01:10.390
+And so we would say that the new algorithm
+
+00:01:10.390 --> 00:01:12.000
+improves performance.
+
+00:01:12.000 --> 00:01:14.230
+This statement that an algorithm improves
+
+00:01:14.230 --> 00:01:16.000
+performance is a generalization.
+
+00:01:16.000 --> 00:01:18.480
+We're using the results of a small A/B test to
+
+00:01:18.480 --> 00:01:20.870
+decide what would happen if we were to go and we
+
+00:01:20.870 --> 00:01:23.000
+were to deploy this algorithm everywhere.
+
+00:01:23.000 --> 00:01:25.660
+This is a fine generalization to make, but it
+
+00:01:25.660 --> 00:01:27.000
+requires assumptions.
+
+00:01:27.000 --> 00:01:28.700
+And one of the big assumptions is that the
+
+00:01:28.700 --> 00:01:30.840
+outcome of one unit in the test doesn't depend on
+
+00:01:30.840 --> 00:01:33.000
+the outcome of the other units in the test.
+
+00:01:33.000 --> 00:01:36.000
+This assumption is called interference.
+
+00:01:36.000 --> 00:01:38.400
+If we think about it for a while, it's clear that
+
+00:01:38.400 --> 00:01:41.000
+interference must exist in congested networks.
+
+00:01:41.000 --> 00:01:43.290
+We have treatment algorithms and control
+
+00:01:43.290 --> 00:01:45.000
+algorithms, and they use the same networks.
+
+00:01:45.000 --> 00:01:47.160
+And they use the same queues, and they use the
+
+00:01:47.160 --> 00:01:49.000
+same links inside these networks.
+
+00:01:49.000 --> 00:01:51.500
+We know from decades of research on, for instance,
+
+00:01:51.500 --> 00:01:53.740
+congestion control fairness, that there are
+
+00:01:53.740 --> 00:01:56.340
+things the treatment algorithm can do to impact
+
+00:01:56.340 --> 00:01:57.000
+the control algorithm.
+
+00:01:57.000 --> 00:01:59.070
+For instance, if the treatment algorithm uses
+
+00:01:59.070 --> 00:02:01.100
+more bandwidth, there will be less bandwidth
+
+00:02:01.100 --> 00:02:03.000
+available for the control algorithm.
+
+00:02:03.000 --> 00:02:05.360
+And if the treatment algorithm does something
+
+00:02:05.360 --> 00:02:07.640
+that decreases queue lengths, then the control
+
+00:02:07.640 --> 00:02:09.570
+algorithm will also experience improved queuing
+
+00:02:09.570 --> 00:02:10.000
+delay.
+
+00:02:10.000 --> 00:02:13.280
+This is clearly interference, but we still use A/B
+
+00:02:13.280 --> 00:02:16.030
+tests to evaluate algorithms in congested
+
+00:02:16.030 --> 00:02:17.000
+networks.
+
+00:02:17.000 --> 00:02:20.000
+So this interference raises two questions.
+
+00:02:20.000 --> 00:02:23.000
+One, does this interference matter?
+
+00:02:23.000 --> 00:02:25.340
+Does it matter enough that it would affect the
+
+00:02:25.340 --> 00:02:28.000
+decisions we make and the algorithms we deploy?
+
+00:02:28.000 --> 00:02:31.460
+And two, if it does matter, what can we do about
+
+00:02:31.460 --> 00:02:32.000
+it?
+
+00:02:32.000 --> 00:02:34.210
+Our goal in this paper is to answer both of these
+
+00:02:34.210 --> 00:02:35.000
+questions.
+
+00:02:35.000 --> 00:02:38.000
+And we start with describing an A/B test we ran
+
+00:02:38.000 --> 00:02:40.760
+that shows that interference can really make the
+
+00:02:40.760 --> 00:02:43.000
+result of A/B tests very misleading.
+
+00:02:43.000 --> 00:02:47.000
+The treatment for this experiment was bitrate capping.
+
+00:02:47.000 --> 00:02:49.590
+In response to COVID-19, Netflix and most other
+
+00:02:49.590 --> 00:02:52.130
+large video services worked with governments to
+
+00:02:52.130 --> 00:02:53.620
+reduce load on the Internet and make the Internet
+
+00:02:53.620 --> 00:02:57.000
+more stable when people started working from home.
+
+00:02:57.000 --> 00:02:59.390
+Video is typically encoded at a number of
+
+00:02:59.390 --> 00:03:02.000
+different quality levels, and with bitrate capping,
+
+00:03:02.000 --> 00:03:03.940
+we took the highest qualities, the ones that also
+
+00:03:03.940 --> 00:03:06.510
+tend to be the largest, and just stopped serving
+
+00:03:06.510 --> 00:03:07.000
+them.
+
+00:03:07.000 --> 00:03:08.990
+So let's imagine what would happen if we ran an A/B
+
+00:03:08.990 --> 00:03:11.000
+test to measure the effects of bitrate capping.
+
+00:03:11.000 --> 00:03:13.040
+And let's imagine that all of the traffic is
+
+00:03:13.040 --> 00:03:15.480
+running on the same network over the same congested
+
+00:03:15.480 --> 00:03:16.000
+link.
+
+00:03:16.000 --> 00:03:18.910
+With bitrate capping, we would send less data
+
+00:03:18.910 --> 00:03:21.050
+into the network, and because this link is
+
+00:03:21.050 --> 00:03:22.800
+congested, maybe with bitrate capping the link
+
+00:03:22.800 --> 00:03:24.000
+would become uncongested.
+
+00:03:24.000 --> 00:03:26.480
+So there would be two effects of bitrate capping
+
+00:03:26.480 --> 00:03:27.000
+here.
+
+00:03:27.000 --> 00:03:29.100
+The first effect is that we're sending less data
+
+00:03:29.100 --> 00:03:31.410
+into the network, and the second effect is that
+
+00:03:31.410 --> 00:03:33.000
+this causes less congestion.
+
+00:03:33.000 --> 00:03:36.120
+Now let's imagine what would happen if we ran an
+
+00:03:36.120 --> 00:03:37.000
+A/B test.
+
+00:03:37.000 --> 00:03:39.740
+We would cap some fraction of the traffic to this
+
+00:03:39.740 --> 00:03:42.480
+link, and let's imagine that the control traffic
+
+00:03:42.480 --> 00:03:44.000
+wouldn't be affected.
+
+00:03:44.000 --> 00:03:46.210
+So if this were the case, we would correctly see
+
+00:03:46.210 --> 00:03:48.350
+that the capped traffic uses less bandwidth in
+
+00:03:48.350 --> 00:03:51.060
+our A/B test, because here the capped traffic is
+
+00:03:51.060 --> 00:03:54.000
+using half of the traffic of the control traffic.
+
+00:03:54.000 --> 00:03:56.630
+But what we would not see in an A/B test is this
+
+00:03:56.630 --> 00:03:59.750
+effect on congestion, because both the capped and
+
+00:03:59.750 --> 00:04:02.420
+the control traffic are using the same link,
+
+00:04:02.420 --> 00:04:04.000
+which is not congested.
+
+00:04:04.000 --> 00:04:06.090
+Another possibility is that the control traffic
+
+00:04:06.090 --> 00:04:07.940
+would notice that there's now a little bit of
+
+00:04:07.940 --> 00:04:10.040
+free space on this link, and it would start
+
+00:04:10.040 --> 00:04:11.610
+sending faster, it would start sending higher
+
+00:04:11.610 --> 00:04:13.930
+quality video, and it would fill up the link and
+
+00:04:13.930 --> 00:04:15.000
+recongest it.
+
+00:04:15.000 --> 00:04:17.160
+If this were to happen, we would again see that
+
+00:04:17.160 --> 00:04:19.080
+the capped traffic uses less bandwidth than the
+
+00:04:19.080 --> 00:04:21.070
+control traffic, but now it looks like it uses
+
+00:04:21.070 --> 00:04:22.000
+way less bandwidth.
+
+00:04:22.000 --> 00:04:24.550
+It uses like a third of the bandwidth instead of
+
+00:04:24.550 --> 00:04:26.000
+half of the bandwidth.
+
+00:04:26.000 --> 00:04:28.000
+And again, we would miss this impact on
+
+00:04:28.000 --> 00:04:30.600
+congestion, because here both the capped and the
+
+00:04:30.600 --> 00:04:32.990
+uncapped traffic are using the same link, which
+
+00:04:32.990 --> 00:04:34.000
+is congested.
+
+00:04:34.000 --> 00:04:36.250
+So in both of these A/B tests, we haven't really
+
+00:04:36.250 --> 00:04:39.000
+figured out what happens when we do bit rate capping.
+
+00:04:39.000 --> 00:04:40.740
+We've like totally missed the impact of
+
+00:04:40.740 --> 00:04:42.550
+congestion, and this is because of the
+
+00:04:42.550 --> 00:04:45.000
+interference between the treatment and control.
+
+00:04:45.000 --> 00:04:47.200
+But we do want to measure what happens when we
+
+00:04:47.200 --> 00:04:49.380
+cap traffic, so now let's introduce a bit of
+
+00:04:49.380 --> 00:04:51.000
+formalism to help with this.
+
+00:04:51.000 --> 00:04:53.270
+So let's imagine we're back in this setting where
+
+00:04:53.270 --> 00:04:55.350
+the control traffic is going to use up whatever
+
+00:04:55.350 --> 00:04:57.370
+free bandwidth is available from the capped
+
+00:04:57.370 --> 00:04:58.000
+traffic.
+
+00:04:58.000 --> 00:05:00.000
+This is what the bandwidth usage would look like.
+
+00:05:00.000 --> 00:05:02.060
+On the x-axis, we have the fraction of traffic
+
+00:05:02.060 --> 00:05:03.000
+which is capped.
+
+00:05:03.000 --> 00:05:06.150
+On the y-axis, we have the bandwidth used. This
+
+00:05:06.150 --> 00:05:07.580
+pink line is the bandwidth used by the control
+
+00:05:07.580 --> 00:05:09.640
+traffic, and this purple line is the bandwidth
+
+00:05:09.640 --> 00:05:11.000
+used by the capped traffic.
+
+00:05:11.000 --> 00:05:13.990
+What we want to measure is the effect of capping,
+
+00:05:13.990 --> 00:05:16.430
+which is the difference between when 100% of
+
+00:05:16.430 --> 00:05:18.860
+traffic is capped and when 100% of traffic is
+
+00:05:18.860 --> 00:05:20.000
+using the control.
+
+00:05:20.000 --> 00:05:22.230
+This is called the total treatment effect in
+
+00:05:22.230 --> 00:05:24.340
+causal inference, and it's the effect of
+
+00:05:24.340 --> 00:05:26.000
+deploying bit rate capping.
+
+00:05:26.000 --> 00:05:29.000
+When we run an A/B test, we don't measure this.
+
+00:05:29.000 --> 00:05:31.000
+What we measure is one point on this graph.
+
+00:05:31.000 --> 00:05:33.580
+We pick some point on the x-axis, and we compare
+
+00:05:33.580 --> 00:05:36.000
+the treatment and control at that point.
+
+00:05:36.000 --> 00:05:38.470
+This is not necessarily the same thing as the
+
+00:05:38.470 --> 00:05:41.190
+total treatment effect, and this is why A/B test
+
+00:05:41.190 --> 00:05:44.000
+results are biased when there's interference.
+
+00:05:44.000 --> 00:05:46.830
+But if we do want to measure the total treatment
+
+00:05:46.830 --> 00:05:50.000
+effect, we need multiple points on this graph.
+
+00:05:50.000 --> 00:05:52.530
+If we were somehow able to run two simultaneous A/B
+
+00:05:52.530 --> 00:05:55.550
+tests, for instance, an A/B test with 5% traffic
+
+00:05:55.550 --> 00:05:58.000
+capped and 95% of traffic capped,
+
+00:05:58.000 --> 00:06:00.320
+then we could compare these two points, compare
+
+00:06:00.320 --> 00:06:02.580
+these two experiments, and use them to estimate
+
+00:06:02.580 --> 00:06:04.000
+total treatment effects.
+
+00:06:04.000 --> 00:06:06.150
+The problem is that typically this is hard.
+
+00:06:06.150 --> 00:06:07.670
+Typically, we don't have isolation between A/B
+
+00:06:07.670 --> 00:06:10.340
+tests, and so we can't run two A/B tests at the
+
+00:06:10.340 --> 00:06:13.000
+same time without impacting each other.
+
+00:06:13.000 --> 00:06:15.250
+However, we got very lucky, and we found a very
+
+00:06:15.250 --> 00:06:17.420
+special location at Netflix which allowed us to
+
+00:06:17.420 --> 00:06:18.000
+do this.
+
+00:06:18.000 --> 00:06:21.100
+This location had a pair of very reliably congested
+
+00:06:21.100 --> 00:06:23.600
+peering links, where every night during the peak
+
+00:06:23.600 --> 00:06:26.000
+hours, these links would become congested.
+
+00:06:26.000 --> 00:06:28.480
+The traffic between these two links was also very
+
+00:06:28.480 --> 00:06:30.910
+well balanced, and we were able to run separate
+
+00:06:30.910 --> 00:06:33.000
+experiments on each of these links.
+
+00:06:33.000 --> 00:06:36.440
+What we did, we ran a 95% A/B test on one link, a
+
+00:06:36.440 --> 00:06:39.650
+5% A/B test on the other link, and we compared
+
+00:06:39.650 --> 00:06:41.000
+the two results.
+
+00:06:41.000 --> 00:06:42.630
+We found that bit rate capping improves
+
+00:06:42.630 --> 00:06:44.550
+throughput, and that A/B tests did not measure
+
+00:06:44.550 --> 00:06:45.000
+this.
+
+00:06:45.000 --> 00:06:47.840
+In each A/B test, bit rate capping appeared to
+
+00:06:47.840 --> 00:06:50.000
+decrease throughput by about 5%.
+
+00:06:50.000 --> 00:06:51.460
+But when we compared the two links, when we
+
+00:06:51.460 --> 00:06:53.480
+calculated the total treatment effect, we saw
+
+00:06:53.480 --> 00:06:55.610
+that bit rate capping actually improved
+
+00:06:55.610 --> 00:06:57.000
+throughput overall.
+
+00:06:57.000 --> 00:07:00.570
+We saw similar behavior for RTT. Capping
+
+00:07:00.570 --> 00:07:03.630
+increased RTTs in both A/B tests, but when we
+
+00:07:03.630 --> 00:07:06.570
+calculated the total treatment effect, we saw
+
+00:07:06.570 --> 00:07:10.000
+that capping actually improved RTTs overall.
+
+00:07:10.000 --> 00:07:12.000
+This experiment shows that A/B tests can be
+
+00:07:12.000 --> 00:07:14.000
+biased when running congested networks.
+
+00:07:14.000 --> 00:07:17.390
+And this should be really concerning. We make
+
+00:07:17.390 --> 00:07:19.590
+really important decisions based on the results
+
+00:07:19.590 --> 00:07:21.000
+of A/B tests all of the time.
+
+00:07:21.000 --> 00:07:22.920
+We make decisions about whether or not an
+
+00:07:22.920 --> 00:07:25.090
+algorithm works well, and whether or not it's
+
+00:07:25.090 --> 00:07:27.280
+worthwhile to invest time and money in deploying
+
+00:07:27.280 --> 00:07:28.000
+the algorithm,
+
+00:07:28.000 --> 00:07:29.990
+and maybe invest time and money in doing follow-up
+
+00:07:29.990 --> 00:07:31.000
+work on that algorithm.
+
+00:07:31.000 --> 00:07:34.120
+If we had made a choice based on this bit rate capping
+
+00:07:34.120 --> 00:07:36.850
+A/B test we just described, we might have been
+
+00:07:36.850 --> 00:07:38.320
+totally misled by this test and made poor
+
+00:07:38.320 --> 00:07:39.000
+decisions.
+
+00:07:39.000 --> 00:07:42.340
+But another thing we just saw is that we can run
+
+00:07:42.340 --> 00:07:45.000
+experiments which remove this bias.
+
+00:07:45.000 --> 00:07:47.190
+In our paper, we talk more about this sort of
+
+00:07:47.190 --> 00:07:48.000
+experiment.
+
+00:07:48.000 --> 00:07:50.410
+One type of experiment we can run is an event
+
+00:07:50.410 --> 00:07:51.000
+study.
+
+00:07:51.000 --> 00:07:53.900
+In an event study, we switch from running 100% of
+
+00:07:53.900 --> 00:07:57.170
+control to 100% of treatment, and compare before
+
+00:07:57.170 --> 00:07:58.000
+and after.
+
+00:07:58.000 --> 00:08:01.400
+We can also run switchback experiments, where we
+
+00:08:01.400 --> 00:08:03.550
+switch back and forth between treatment and
+
+00:08:03.550 --> 00:08:05.310
+control, and compare the treatment periods to the
+
+00:08:05.310 --> 00:08:06.000
+control periods.
+
+00:08:06.000 --> 00:08:08.530
+Both of these let us get better estimates of
+
+00:08:08.530 --> 00:08:10.540
+total treatment effect, and we talk more about
+
+00:08:10.540 --> 00:08:11.000
+them in the paper,
+
+00:08:11.000 --> 00:08:13.230
+and we also talk about how to integrate them into
+
+00:08:13.230 --> 00:08:15.000
+existing deployment workflows.
+
+00:08:15.000 --> 00:08:18.360
+Any A/B test which we run in a congested network
+
+00:08:18.360 --> 00:08:21.000
+has the possibility of being biased,
+
+00:08:21.000 --> 00:08:23.210
+and we would encourage you to run more
+
+00:08:23.210 --> 00:08:26.090
+experiments to see if this bias matters for your
+
+00:08:26.090 --> 00:08:27.000
+A/B tests.
+
+00:08:27.000 --> 00:08:29.180
+We would also encourage new proposals for new
+
+00:08:29.180 --> 00:08:31.260
+algorithms to include the results of these
+
+00:08:31.260 --> 00:08:32.000
+experiments,
+
+00:08:32.000 --> 00:08:34.070
+and measure things like the total treatment
+
+00:08:34.070 --> 00:08:35.840
+effect so we get a better sense of how the
+
+00:08:35.840 --> 00:08:38.000
+algorithm will work when it is deployed.
+
+00:08:38.000 --> 00:08:40.210
+We also think this paper really highlights the
+
+00:08:40.210 --> 00:08:42.320
+need for better experiment methodology for
+
+00:08:42.320 --> 00:08:43.000
+networks.
+
+00:08:43.000 --> 00:08:46.280
+We've proposed a few new experiments, but we
+
+00:08:46.280 --> 00:08:48.470
+haven't used that much information about networks
+
+00:08:48.470 --> 00:08:50.180
+and how they work in order to design these
+
+00:08:50.180 --> 00:08:51.000
+experiments.
+
+00:08:51.000 --> 00:08:52.780
+We wanted to call this area to the attention of
+
+00:08:52.780 --> 00:08:54.670
+the community in the hopes that we could improve
+
+00:08:54.670 --> 00:08:56.000
+this methodology together.
+
+00:08:56.000 --> 00:08:59.170
+In conclusion, there's a lot more work we can do
+
+00:08:59.170 --> 00:09:02.000
+with designing experiments for networks,
+
+00:09:02.000 --> 00:09:03.960
+and I'm really excited to see the sort of
+
+00:09:03.960 --> 00:09:05.740
+experiments we can run, the sort of algorithms we
+
+00:09:05.740 --> 00:09:08.000
+can build by using these experiments.
+
+00:09:08.000 --> 00:09:09.000
+Thank you.
+

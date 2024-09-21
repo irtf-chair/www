@@ -1,0 +1,788 @@
+WEBVTT
+
+00:00:00.001 --> 00:00:05.400
+Hello everyone, I am Bano and I am excited to
+
+00:00:05.400 --> 00:00:07.300
+present our work Scanning the Internet
+
+00:00:07.300 --> 00:00:09.580
+for Liveness, which was carried out in
+
+00:00:09.580 --> 00:00:14.580
+collaboration with Philip, Mupin, Srikant, Zakir,
+
+00:00:14.580 --> 00:00:15.420
+Stephen,
+
+00:00:15.420 --> 00:00:20.560
+Richard and Wern.
+
+00:00:20.560 --> 00:00:23.100
+Internet scanning is a key technique to measure
+
+00:00:23.100 --> 00:00:25.060
+the Internet at scale, and it has diverse
+
+00:00:25.060 --> 00:00:28.670
+applications such as address-based utilization,
+
+00:00:28.670 --> 00:00:32.680
+host reachability, topology, service availability,
+
+00:00:32.680 --> 00:00:40.140
+security vulnerabilities, and application layer
+
+00:00:40.140 --> 00:00:40.360
+discrimination.
+
+00:00:40.360 --> 00:00:43.490
+The key concept of IPLiveness is to check whether
+
+00:00:43.490 --> 00:00:45.640
+a target IP address responds to a
+
+00:00:45.640 --> 00:00:47.400
+probe packet.
+
+00:00:47.400 --> 00:00:50.550
+Now this seems pretty straightforward, but
+
+00:00:50.550 --> 00:00:52.100
+actually it's not.
+
+00:00:52.100 --> 00:00:54.520
+There are a few questions for which we don't have
+
+00:00:54.520 --> 00:00:55.420
+a good answer.
+
+00:00:55.420 --> 00:00:58.130
+For example, what type of probe packets should we
+
+00:00:58.130 --> 00:01:00.460
+send if we want to maximize the responding
+
+00:01:00.460 --> 00:01:04.660
+host population?
+
+00:01:04.660 --> 00:01:08.480
+What type of responses can we expect and which
+
+00:01:08.480 --> 00:01:11.780
+factors determine such responses?
+
+00:01:11.780 --> 00:01:14.550
+What degree of consistency can we expect when
+
+00:01:14.550 --> 00:01:16.740
+probing the same host with different probe
+
+00:01:16.740 --> 00:01:22.260
+packets?
+
+00:01:22.260 --> 00:01:24.320
+What we are essentially missing here is a
+
+00:01:24.320 --> 00:01:27.020
+systematic framework that allows us to understand
+
+00:01:27.020 --> 00:01:31.740
+IPLiveness and how it manifests in the form of
+
+00:01:31.740 --> 00:01:35.420
+host replies to active probing.
+
+00:01:35.420 --> 00:01:38.780
+Now this depends on multiple factors, such as how
+
+00:01:38.780 --> 00:01:41.900
+the scan was conducted, how different
+
+00:01:41.900 --> 00:01:46.770
+protocols interact, filtering policies near the
+
+00:01:46.770 --> 00:01:50.940
+target IP address, and temporal patterns
+
+00:01:50.940 --> 00:01:57.740
+in IP responsiveness.
+
+00:01:57.740 --> 00:02:00.750
+Our work makes three key contributions to fill
+
+00:02:00.750 --> 00:02:01.580
+this gap.
+
+00:02:01.580 --> 00:02:04.500
+The first is a taxonomy of liveness.
+
+00:02:04.500 --> 00:02:07.100
+The second is a methodology for systematically
+
+00:02:07.100 --> 00:02:09.900
+inferring IPLiveness by performing Internet-wide
+
+00:02:09.900 --> 00:02:13.220
+scans concurrently across a set of different
+
+00:02:13.220 --> 00:02:17.380
+protocols at various layers, i.e. ICMP, TCP,
+
+00:02:17.380 --> 00:02:19.420
+and UDP.
+
+00:02:19.420 --> 00:02:25.650
+And then we perform an analysis of gathered data
+
+00:02:25.650 --> 00:02:31.340
+to present an in-depth view of liveness.
+
+00:02:31.340 --> 00:02:34.350
+So in the rest of this presentation, we will dive
+
+00:02:34.350 --> 00:02:37.180
+deeper into each of these contributions.
+
+00:02:37.180 --> 00:02:43.300
+We will begin with the taxonomy, focusing on each
+
+00:02:43.300 --> 00:02:45.580
+layer at a time.
+
+00:02:45.580 --> 00:02:48.660
+So we begin with the network layer.
+
+00:02:48.660 --> 00:02:52.630
+When we send a probe packet, we first check if
+
+00:02:52.630 --> 00:02:54.360
+there is a reply.
+
+00:02:54.360 --> 00:02:57.970
+If there is no reply, then we say that the target
+
+00:02:57.970 --> 00:03:01.100
+IP address is dark at the network layer.
+
+00:03:01.100 --> 00:03:04.700
+So in this example, IP1 is dark at the network
+
+00:03:04.700 --> 00:03:07.960
+layer because it does not send any response
+
+00:03:07.960 --> 00:03:16.940
+to our TCP SYN on port 80.
+
+00:03:16.940 --> 00:03:21.490
+If there is a reply, then we check what is the IP
+
+00:03:21.490 --> 00:03:25.260
+address from which the reply came.
+
+00:03:25.260 --> 00:03:28.510
+If the reply came from a different IP address
+
+00:03:28.510 --> 00:03:31.620
+than the one that we probed, then we flag
+
+00:03:31.620 --> 00:03:35.970
+the responding IP address as network layer alive
+
+00:03:35.970 --> 00:03:39.380
+and we label the target IP address as
+
+00:03:39.380 --> 00:03:42.580
+dark at the network layer.
+
+00:03:42.580 --> 00:03:46.940
+So in this example, we send TCP SYN on port 80 to
+
+00:03:46.940 --> 00:03:50.540
+IP1, but we receive an ICMP error from
+
+00:03:50.540 --> 00:03:54.060
+some other IP address, IP2, which we label as
+
+00:03:54.060 --> 00:03:57.260
+network layer alive, but the original target
+
+00:03:57.260 --> 00:04:00.160
+IP address that was probed, because it did not
+
+00:04:00.160 --> 00:04:02.620
+respond, we label it as network layer
+
+00:04:02.620 --> 00:04:11.020
+dark.
+
+00:04:11.020 --> 00:04:14.550
+And if we do receive a reply from the probed IP
+
+00:04:14.550 --> 00:04:17.820
+address, then we say that it is alive at
+
+00:04:17.820 --> 00:04:24.740
+the network layer.
+
+00:04:24.740 --> 00:04:27.790
+So moving on to the transport layer, which is
+
+00:04:27.790 --> 00:04:30.460
+only relevant to TCP because as we know
+
+00:04:30.460 --> 00:04:34.050
+UDP is one short communication protocol where the
+
+00:04:34.050 --> 00:04:37.020
+application layer payload is part of the
+
+00:04:37.020 --> 00:04:40.480
+original probe and there's no transport layer as
+
+00:04:40.480 --> 00:04:41.020
+such.
+
+00:04:41.020 --> 00:04:45.260
+So for TCP, we check if there is a TCP reply, if
+
+00:04:45.260 --> 00:04:48.940
+the reply is a TCP reset, we say that the
+
+00:04:48.940 --> 00:04:55.800
+target IP address is active at the transport
+
+00:04:55.800 --> 00:04:57.340
+layer.
+
+00:04:57.340 --> 00:05:00.160
+If the response is a TCP SYNAC, we say that the
+
+00:05:00.160 --> 00:05:02.940
+target IP address is alive at the transport
+
+00:05:02.940 --> 00:05:08.180
+layer.
+
+00:05:08.180 --> 00:05:11.500
+Moving on to the application layer, which applies
+
+00:05:11.500 --> 00:05:13.980
+to both TCP and UDP, we check if there
+
+00:05:13.980 --> 00:05:16.460
+is an application layer reply.
+
+00:05:16.460 --> 00:05:21.270
+If there is one, then we say that the target IP
+
+00:05:21.270 --> 00:05:26.660
+address is active at the application layer.
+
+00:05:26.660 --> 00:05:29.370
+Next we check if the reply is well formed in the
+
+00:05:29.370 --> 00:05:31.900
+sense that it complies with the expected
+
+00:05:31.900 --> 00:05:35.340
+syntax of the protocol that was scanned.
+
+00:05:35.340 --> 00:05:40.140
+And if it does, then we say that the target IP
+
+00:05:40.140 --> 00:05:45.140
+address is alive at the application layer.
+
+00:05:45.140 --> 00:05:49.300
+So this was the taxonomy.
+
+00:05:49.300 --> 00:05:53.470
+Next we shift our focus to the methodology that
+
+00:05:53.470 --> 00:05:55.980
+we use to perform our scans.
+
+00:05:55.980 --> 00:06:01.140
+We carried out eight concurrent scans, one ICMP
+
+00:06:01.140 --> 00:06:05.260
+echo scan, five TCP SYN scans on ports
+
+00:06:05.260 --> 00:06:13.500
+corresponding to SSH, Telnet, HTTP, HTTPS, and CWMP.
+
+00:06:13.500 --> 00:06:16.600
+And this choice was made on the basis of
+
+00:06:16.600 --> 00:06:20.310
+selecting protocols that represent at least
+
+00:06:20.310 --> 00:06:21.260
+partially
+
+00:06:21.260 --> 00:06:26.560
+service level protocols as well as client-side
+
+00:06:26.560 --> 00:06:28.220
+protocols.
+
+00:06:28.220 --> 00:06:31.860
+And then we also scanned to UDP-based
+
+00:06:31.860 --> 00:06:35.740
+applications, that is DNS and NTP.
+
+00:06:35.740 --> 00:06:39.990
+All of our scans were conducted using ZMap and we
+
+00:06:39.990 --> 00:06:43.940
+performed the data analysis using Cilk.
+
+00:06:43.940 --> 00:06:48.280
+We employed a few considerations to ensure the
+
+00:06:48.280 --> 00:06:51.540
+soundness of our measurements.
+
+00:06:51.540 --> 00:06:55.030
+The first one of which relates to temporal churn
+
+00:06:55.030 --> 00:06:57.820
+due to IP addresses legitimately coming
+
+00:06:57.820 --> 00:07:01.180
+online and offline or because of dynamic IP
+
+00:07:01.180 --> 00:07:03.300
+assignment practices.
+
+00:07:03.300 --> 00:07:06.320
+So to mitigate the effects of temporal churn, we
+
+00:07:06.320 --> 00:07:09.140
+carried out scans for all the eight protocols
+
+00:07:09.140 --> 00:07:15.330
+that were mentioned on the previous slide
+
+00:07:15.330 --> 00:07:18.380
+simultaneously.
+
+00:07:18.380 --> 00:07:21.900
+Next to ensure that we capture a comprehensive
+
+00:07:21.900 --> 00:07:25.740
+view of liveness, we recorded negative responses
+
+00:07:25.740 --> 00:07:32.260
+in addition to positive responses.
+
+00:07:32.260 --> 00:07:34.700
+And finally, because we carried out eight
+
+00:07:34.700 --> 00:07:37.380
+concurrent scans on shared hardware, the
+
+00:07:37.380 --> 00:07:38.020
+probability
+
+00:07:38.020 --> 00:07:41.220
+of packet loss is high, especially close to the
+
+00:07:41.220 --> 00:07:43.740
+host and also due to transient network
+
+00:07:43.740 --> 00:07:44.740
+issues.
+
+00:07:44.740 --> 00:07:48.700
+So to account for that, we sent redundant probes.
+
+00:07:48.700 --> 00:07:51.800
+However, because network losses usually take
+
+00:07:51.800 --> 00:07:54.700
+place in bursts, we used an approach which
+
+00:07:54.700 --> 00:07:58.110
+we call delayed retransmissions, which means that
+
+00:07:58.110 --> 00:08:00.700
+instead of sending the original probe
+
+00:08:00.700 --> 00:08:04.010
+and the retransmission to a target IP address
+
+00:08:04.010 --> 00:08:07.340
+back to back, we instead scanned an entire
+
+00:08:07.340 --> 00:08:08.380
+block.
+
+00:08:08.380 --> 00:08:12.020
+So in this example, we have IP block one.
+
+00:08:12.020 --> 00:08:14.930
+And once we finished with that block, say in 30
+
+00:08:14.930 --> 00:08:17.380
+minutes, then we sent retransmissions
+
+00:08:17.380 --> 00:08:20.240
+to the same block before moving on to the next
+
+00:08:20.240 --> 00:08:22.580
+block, which is IP block two in this
+
+00:08:22.580 --> 00:08:24.060
+example.
+
+00:08:24.060 --> 00:08:27.880
+And then we sent retransmissions to IP block two
+
+00:08:27.880 --> 00:08:29.200
+and so forth.
+
+00:08:29.200 --> 00:08:32.590
+So we did a block by block scanning, sending
+
+00:08:32.590 --> 00:08:37.020
+original probes to a block followed by retransmissions
+
+00:08:37.020 --> 00:08:41.660
+and so forth.
+
+00:08:41.660 --> 00:08:44.360
+So in summary, we carried out eight concurrent
+
+00:08:44.360 --> 00:08:47.180
+scans, which finished in about 24 hours,
+
+00:08:47.180 --> 00:08:47.300
+generating
+
+00:08:47.300 --> 00:08:50.300
+about 2.3 terabytes of data.
+
+00:08:50.300 --> 00:08:54.120
+And overall, our scans recorded 487 million
+
+00:08:54.120 --> 00:08:57.620
+network alive IP addresses out of the 3.6
+
+00:08:57.620 --> 00:09:02.360
+billion IP addresses that were probed, which we
+
+00:09:02.360 --> 00:09:03.820
+call IP all.
+
+00:09:03.820 --> 00:09:08.890
+In the remaining slides, I will present main
+
+00:09:08.890 --> 00:09:13.660
+results from our study in the context of IP
+
+00:09:13.660 --> 00:09:17.340
+all.
+
+00:09:17.340 --> 00:09:20.550
+So finally, presenting the interesting part of
+
+00:09:20.550 --> 00:09:23.300
+this presentation, that is key results
+
+00:09:23.300 --> 00:09:28.780
+from characterization of IP liveness.
+
+00:09:28.780 --> 00:09:32.380
+Let's start with the network layer.
+
+00:09:32.380 --> 00:09:34.970
+So the first question we ask is that what is the
+
+00:09:34.970 --> 00:09:37.200
+coverage of different probe types?
+
+00:09:37.200 --> 00:09:40.680
+So here's the breakdown of IP all covered by
+
+00:09:40.680 --> 00:09:44.260
+different probe types, that is ICMP, TCP
+
+00:09:44.260 --> 00:09:48.940
+scans, UDP scans, and then union corresponds to
+
+00:09:48.940 --> 00:09:52.700
+the union of these three probe types.
+
+00:09:52.700 --> 00:09:56.780
+We find that ICMP echo probes are most effective
+
+00:09:56.780 --> 00:10:00.980
+in discovering network active IP addresses,
+
+00:10:00.980 --> 00:10:08.820
+capturing 79% of IP all, followed by TCP probes.
+
+00:10:08.820 --> 00:10:12.250
+But interestingly, 16% of IP all can only
+
+00:10:12.250 --> 00:10:15.540
+exclusively be discovered through TCP, and
+
+00:10:15.540 --> 00:10:19.290
+2% can only be discovered through UDP probes,
+
+00:10:19.290 --> 00:10:22.540
+which implies that studies that infer liveness
+
+00:10:22.540 --> 00:10:27.170
+only by means of ICMP probes will miss out on
+
+00:10:27.170 --> 00:10:31.500
+about 16% of IP all, which can only be
+
+00:10:31.500 --> 00:10:40.180
+viewed through TCP and UDP.
+
+00:10:40.180 --> 00:10:44.000
+Here is the same graph, except instead of looking
+
+00:10:44.000 --> 00:10:46.820
+at it through the lens of individual
+
+00:10:46.820 --> 00:10:50.970
+IP addresses, we look at it at the granularity of
+
+00:10:50.970 --> 00:10:52.700
+/24 blocks.
+
+00:10:52.700 --> 00:10:55.310
+And as we can see, the variation in liveness
+
+00:10:55.310 --> 00:10:58.140
+viewed through different probe types is much
+
+00:10:58.140 --> 00:11:01.340
+less pronounced.
+
+00:11:01.340 --> 00:11:05.100
+But overall, TCP scans show the highest coverage
+
+00:11:05.100 --> 00:11:08.340
+discovering about 5 million active /24 blocks,
+
+00:11:08.340 --> 00:11:17.980
+about 3% more than ICMP echo.
+
+00:11:17.980 --> 00:11:20.810
+Next we look at the coverage of different probe
+
+00:11:20.810 --> 00:11:22.220
+responses.
+
+00:11:22.220 --> 00:11:26.540
+So here we break down our previous graph by
+
+00:11:26.540 --> 00:11:27.460
+response type.
+
+00:11:27.460 --> 00:11:30.170
+So here is ICMP scan, and here is the coverage
+
+00:11:30.170 --> 00:11:33.060
+that we get when we capture different response
+
+00:11:33.060 --> 00:11:34.060
+types.
+
+00:11:34.060 --> 00:11:37.640
+So here is echo reply, ICMP error, both, and here
+
+00:11:37.640 --> 00:11:40.260
+TCP reply, ICMP error, and both,
+
+00:11:40.260 --> 00:11:46.860
+and for UDP, UDP reply, ICMP error, and both.
+
+00:11:46.860 --> 00:11:51.150
+We find that 2.3% of IP all are discoverable only
+
+00:11:51.150 --> 00:11:54.140
+through ICMP error responses, which means
+
+00:11:54.140 --> 00:11:57.710
+that studies that infer IP liveness through only
+
+00:11:57.710 --> 00:12:01.180
+successful responses will miss 2.3% of
+
+00:12:01.180 --> 00:12:09.030
+IP all if they do not capture error responses or
+
+00:12:09.030 --> 00:12:13.140
+negative responses.
+
+00:12:13.140 --> 00:12:16.830
+Next we look at key results from our
+
+00:12:16.830 --> 00:12:21.810
+characterization of IP liveness by transport
+
+00:12:21.810 --> 00:12:22.980
+layer.
+
+00:12:22.980 --> 00:12:26.170
+We ask how does the probed port affect the
+
+00:12:26.170 --> 00:12:28.420
+responsive population.
+
+00:12:28.420 --> 00:12:32.020
+Now this wouldn't be a relevant question if an IP
+
+00:12:32.020 --> 00:12:35.860
+address responded to all ports consistently,
+
+00:12:35.860 --> 00:12:40.300
+but we found that's not the case.
+
+00:12:40.300 --> 00:12:44.350
+Only 24% of active hosts respond to probe packets
+
+00:12:44.350 --> 00:12:46.420
+on all 5 ports, which highlights the
+
+00:12:46.420 --> 00:12:50.550
+potential effect of firewalling or filtering
+
+00:12:50.550 --> 00:12:54.460
+practices on IP liveness as viewed through
+
+00:12:54.460 --> 00:13:04.380
+different probes on different ports.
+
+00:13:04.380 --> 00:13:09.420
+Next we look at what is the coverage by probe
+
+00:13:09.420 --> 00:13:11.140
+response type.
+
+00:13:11.140 --> 00:13:15.830
+And we find that 11.5% of all TCP activity can
+
+00:13:15.830 --> 00:13:19.300
+exclusively be found through CWMP.
+
+00:13:19.300 --> 00:13:26.810
+In comparison, SSH, HTTP, and HTTPS provide
+
+00:13:26.810 --> 00:13:33.580
+unique coverage of 3-6% of active IPs.
+
+00:13:33.580 --> 00:13:41.580
+Now finally let's take a look at a cross-protocol
+
+00:13:41.580 --> 00:13:44.840
+view of IP liveness.
+
+00:13:44.840 --> 00:13:50.060
+So this map shows that given that IP is alive or
+
+00:13:50.060 --> 00:13:54.700
+active for a protocol along the X-axis,
+
+00:13:54.700 --> 00:13:57.490
+what is the likelihood that it would also be
+
+00:13:57.490 --> 00:14:00.180
+alive or active for a protocol along the
+
+00:14:00.180 --> 00:14:02.560
+Y-axis?
+
+00:14:02.560 --> 00:14:07.710
+So for example, if we focus on this box, what
+
+00:14:07.710 --> 00:14:12.160
+this means is that if or given that an IP
+
+00:14:12.160 --> 00:14:18.970
+is active for SSH, the probability that it is
+
+00:14:18.970 --> 00:14:24.660
+also active for HTTP is 0.68.
+
+00:14:24.660 --> 00:14:28.070
+So some of the highlights from this map are that
+
+00:14:28.070 --> 00:14:31.440
+a significant fraction of transport active
+
+00:14:31.440 --> 00:14:35.560
+hosts, that is 26% on average for TCP services,
+
+00:14:35.560 --> 00:14:39.440
+and 12% for UDP cannot be discovered through
+
+00:14:39.440 --> 00:14:45.040
+ICMP.
+
+00:14:45.040 --> 00:14:48.360
+Another observation is that if a given host is
+
+00:14:48.360 --> 00:14:51.960
+active for 10-net, then with high probability
+
+00:14:51.960 --> 00:15:01.560
+it is active for SSH and HTTPS.
+
+00:15:01.560 --> 00:15:05.270
+And for CWMP, only 56% of active hosts respond to
+
+00:15:05.270 --> 00:15:08.980
+HTTP probes, indicating an underlying filtering
+
+00:15:08.980 --> 00:15:17.200
+pattern of the CWMP active population.
+
+00:15:17.200 --> 00:15:21.320
+So to conclude, this work presented a methodology
+
+00:15:21.320 --> 00:15:25.240
+to capture a comprehensive and minimally noisy
+
+00:15:25.240 --> 00:15:31.040
+picture of the state of Internet liveness.
+
+00:15:31.040 --> 00:15:33.220
+And this taxonomy can serve as a basis for
+
+00:15:33.220 --> 00:15:35.640
+designing and executing future measurement
+
+00:15:35.640 --> 00:15:38.160
+studies when it comes to decisions such as what
+
+00:15:38.160 --> 00:15:41.960
+type of probe packets should be employed,
+
+00:15:41.960 --> 00:15:46.250
+what type of responses should be captured, how
+
+00:15:46.250 --> 00:15:49.880
+those responses should be interpreted,
+
+00:15:49.880 --> 00:15:54.650
+and whether it is appropriate to use the output
+
+00:15:54.650 --> 00:15:59.720
+of one scan as input for subsequent measurements.
+
+00:15:59.720 --> 00:16:02.330
+On that note, I conclude, and I look forward to
+
+00:16:02.330 --> 00:16:03.280
+your questions.
+
