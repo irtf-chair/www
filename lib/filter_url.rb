@@ -179,6 +179,7 @@ class URLFilter < Nanoc::Filter
     "ISI" => "https://www.isi.edu/",
     "ISOC" => "https://www.internetsociety.org/",
     "ITU-T" => "https://www.itu.int/en/ITU-T/",
+    "IPinfo" => "https://ipinfo.io/",
     "Jacobs University Bremen" => "https://www.jacobs-university.de/", # www is needed
     "Juniper" => "https://juniper.net/",
     "Kaloom" => "https://www.kaloom.com/",
