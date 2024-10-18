@@ -487,7 +487,7 @@ module IRTF
     "Thing-to-Thing",
     "t2trg@irtf.org",
     nil,
-    "https://github.com/t2trg",
+    "https://t2trg.github.io/",
     [ bormann, keranen ],
     nil,
     "2015-12-02",
