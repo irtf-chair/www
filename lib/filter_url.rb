@@ -24,6 +24,7 @@ class URLFilter < Nanoc::Filter
     "Grenville Armitage"       => "http://gja.space4me.com",
     "Vaibhav Bajpai"           => "https://vaibhavbajpai.com",
     "Aruna Balasubramanian"    => "https://www3.cs.stonybrook.edu/~arunab/",
+    "Ryan Beckett"             => "https://www.microsoft.com/en-us/research/people/rybecket/",
     "Ali C. Begen"             => "https://ali.begen.net",
     "Benjamin Beurdouche"      => "https://scholar.google.fr/citations?user=rh47X8QAAAAJ&hl=en", 
     "Debopam Bhattacherjee"    => "https://bdebopam.github.io",
