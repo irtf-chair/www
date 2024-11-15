@@ -19,6 +19,7 @@ class URLFilter < Nanoc::Filter
     "Sangeetha Abdu Jyothi"    => "https://www.ics.uci.edu/~sabdujyo/",
     "Gautam Akiwate"           => "https://cseweb.ucsd.edu/~gakiwate/",
     "Venkat Arun"              => "https://www.cs.utexas.edu/~venkatar/",
+    "Mina Tahmasbi Arashloo"   => "https://mina.arashloo.net",
     "Mark Allman"              => "https://www.icir.org/mallman/",
     "Johanna Amann"            => "https://www.icir.org/johanna/",
     "Grenville Armitage"       => "http://gja.space4me.com",
