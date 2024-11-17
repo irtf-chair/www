@@ -79,7 +79,7 @@ class URLFilter < Nanoc::Filter
     "Yevheniya Nosyk"          => "https://www.linkedin.com/in/yevheniya-nosyk/",
     "Harjasleen Malvai"        => "https://jasleenmalvai.com/",
     "Allison Mankin"           => "https://datatracker.ietf.org/person/Allison%20Mankin",
-    "Stephen McQuistin"        => "https://smcquistin.uk",
+    "Stephen McQuistin"        => "https://www.smcquistin.uk",
     "Zili Meng"                => "https://zilimeng.com",
     "Nitinder Mohan"           => "https://www.nitindermohan.com",
     "Alexa Morris"             => "https://datatracker.ietf.org/person/Alexa%20Morris",
