@@ -32,6 +32,10 @@ compile %r{/raim-2015-papers/irtf_raim-(.+)\..*} do |id|
   write "/raim-2015-papers/raim-2015-#{id[0]}" + "." + item.identifier.ext
 end
 
+compile "/atproto-did" do
+  write "/.well-known/atproto-did"
+end
+
 compile "/htaccess" do
   write "/.htaccess"
 end
