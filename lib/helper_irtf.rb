@@ -359,14 +359,14 @@ module IRTF
   # PEARG
   dickinson = Person.new("Sara", "Dickinson", "sara@sinodun.com", nil, nil)
   sahib = Person.new("Shivan", "Sahib", "ssahib@salesforce.com", "https://shivankaul.com/", nil)
-  wood  = Person.new("Christopher", "Wood", "caw@heapingbits.net", "https://caw.fyi", nil)
+  mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
   pearg = RG.new(
     "pearg",
     "Privacy Enhancements and Assessments",
     "pearg@irtf.org",
     nil,
     "https://pearg.org/",
-    [ dickinson, sahib ],
+    [ dickinson, sahib, mankin ],
     nil,
     "2018-00-19",
     nil
@@ -603,12 +603,11 @@ module IRTF
   # nordmark = Person.new("Erik", "Nordmark", "nordmark@sonic.net", "https://www.linkedin.com/pub/erik-nordmark/10/243/771", nil)
   # feamster = Person.new("Nick", "Feamster", "feamster@cs.princeton.edu", "https://www.cs.princeton.edu/~feamster/", nil)
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
-  mankin = Person.new("Allison", "Mankin", "allison.mankin@gmail.com", "https://datatracker.ietf.org/person/Allison%20Mankin", nil)
   shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
   iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://github.com/janaiyengar", nil)
   $perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://csperkins.org/", nil)
   $chair = $perkins
-  $atlarge = [ ford, eggert, mankin, falk, dawkins, shore, iyengar ]
+  $atlarge = [ ford, eggert, falk, dawkins, shore, iyengar ]
 
   def atlarge_contacts
     result = "irsg\n" +
