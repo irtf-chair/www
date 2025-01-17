@@ -465,7 +465,6 @@ module IRTF
   )
 
   rezaki = Person.new("Ali", "Rezaki", "ali.rezaki@nokia.com", "https://datatracker.ietf.org/person/ali.rezaki@nokia.com", nil)
-  schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", "http://eveschooler.com", nil)
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://folk.universitetetioslo.no/michawe/", nil)
 
   sustain = RG.new(
