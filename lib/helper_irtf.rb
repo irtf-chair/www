@@ -212,7 +212,6 @@ module IRTF
   )
 
   # ICCRG
-  # welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://heim.ifi.uio.no/michawe/", 1515901207)
   ferlin = Person.new("Simone", "Ferlin", "simoneferlin@gmail.com", "https://ferlin.io", nil)
   enghardt = Person.new("Reese", "Enghardt", "ietf@tenghardt.net", "https://tenghardt.net", nil)
   goel = Person.new("Vidhi", "Goel", "vidhi_goel@apple.com", "https://datatracker.ietf.org/person/vidhi_goel@apple.com", nil)
@@ -465,6 +464,23 @@ module IRTF
     "2017-01-06"
   )
 
+  rezaki = Person.new("Ali", "Rezaki", "ali.rezaki@nokia.com", "https://datatracker.ietf.org/person/ali.rezaki@nokia.com", nil)
+  schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", "http://eveschooler.com", nil)
+  welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://folk.universitetetioslo.no/michawe/", nil)
+
+  sustain = RG.new(
+    "sustain",
+    "Sustainability and the Internet Proposed",
+    "sustain@irtf.org",
+    nil,
+    nil,
+    [ rezaki, schooler, welzl ],
+    nil,
+    "2025-01-17",
+    nil
+  )
+
+
   # TMRG
   andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "http://caia.swin.edu.au/cv/landrew/", nil)
   tmrg = RG.new(
@@ -539,6 +555,7 @@ module IRTF
     "pearg" => pearg,
     "qirg" => qirg,
     "rasprg" => rasprg,
+    "sustain" => sustain,
     "t2trg" => t2trg,
     "ufmrg" => ufmrg
   }
