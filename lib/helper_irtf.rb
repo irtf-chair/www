@@ -116,7 +116,7 @@ module IRTF
     nil
   )
 
-  # COINRG
+#  COINRG
   he = Person.new("Jeffrey", "He", "jefhe@foxmail.com", nil, nil)
   montpetit = Person.new("Marie-José", "Montpetit", "marie@mjmontpetit.com", nil, nil)
   schooler = Person.new("Eve", "Schooler", "eve.m.schooler@intel.com", "http://eveschooler.com", nil)
@@ -334,7 +334,8 @@ module IRTF
     "nmrg@irtf.org",
     nil,
     "https://wiki.ietf.org/group/nmrg",
-    [ ciavaglia, francois ],
+    #   [ ciavaglia, francois ],
+       [ francois ],
     nil,
     "1999-03-14",
     nil
@@ -542,7 +543,6 @@ module IRTF
   # Active RGs
   $rgs = {
     "cfrg"  => cfrg,
-    "coinrg" => coinrg,
     "dinrg" => dinrg,
     "gaia" => gaia,
     "hrpc" => hrpc,
@@ -598,6 +598,8 @@ module IRTF
   $oldrgs["sdnrg"] = sdnrg;
   $oldrgs["nfvrg"] = nfvrg;
   $oldrgs["nwcrg"] = nwcrg;
+  $oldrgs["coinrg"] = coinrg;
+  
 
   # RG pattern
   $rgpat = Regexp.new('\b(' + $rgs.keys.compact.join("|") + ')\b', true);
@@ -621,9 +623,11 @@ module IRTF
   # teixeira = Person.new("Renata", "Cruz Teixeira", "renata.teixeira@inria.fr", "https://who.rocq.inria.fr/Renata.Teixeira/", nil)
   shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
   iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://github.com/janaiyengar", nil)
-  $perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://csperkins.org/", nil)
-  $chair = $perkins
-  $atlarge = [ ford, eggert, falk, dawkins, shore, iyengar ]
+  perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://csperkins.org/", nil)
+  #  $chair = $perkins
+  $chair = kutscher
+  #   $atlarge = [ ford, eggert, falk, dawkins, shore, iyengar ]
+  $atlarge = [ ford, eggert, perkins] 
 
   def atlarge_contacts
     result = "irsg\n" +
