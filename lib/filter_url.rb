@@ -15,6 +15,7 @@ class URLFilter < Nanoc::Filter
     "Arthur Selle Jacobs"      => "https://asjacobs92.github.io/",
     "Ram Sundara Raman"        => "https://ramakrishnansr.com/",
     # People:
+    "Dirk Kutscher"            => "https://dirk-kutscher.info",
     "Maria Apostolaki"         => "https://ece.princeton.edu/people/maria-apostolaki",
     "Sangeetha Abdu Jyothi"    => "https://www.ics.uci.edu/~sabdujyo/",
     "Saksham Agarwal"          => "https://saksham.web.illinois.edu",
@@ -172,6 +173,7 @@ class URLFilter < Nanoc::Filter
     "Hebrew University of Jerusalem" => "https://new.huji.ac.il/en",
     "HIIT" => "https://hiit.fi/",
     "Hochschule Augsburg" => "https://www.hs-augsburg.de/",
+    "Hong Kong University of Science and Technology (Guangzhou)" => "https://www.hkust-gz.edu.cn/en",
     "Huawei" => "https://www.huawei.com/",
     "IAB" => "https://iab.org/",
     "ICIR" => "https://icir.org/",
