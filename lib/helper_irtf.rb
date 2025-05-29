@@ -624,10 +624,11 @@ module IRTF
   shore = Person.new("Melinda", "Shore", "melinda.shore@nomountain.net", "https://www.linkedin.com/in/melindashore/", nil)
   iyengar = Person.new("Jana", "Iyengar", "jri.ietf@gmail.com", "https://github.com/janaiyengar", nil)
   perkins = Person.new("Colin", "Perkins", "csp@csperkins.org", "https://csperkins.org/", nil)
+  huang = Person.new("Te-Yuan", "Huang", "thuang@netflix.com", "https://yuba.stanford.edu/~huangty/", nil)
   #  $chair = $perkins
   $chair = kutscher
   #   $atlarge = [ ford, eggert, falk, dawkins, shore, iyengar ]
-  $atlarge = [ ford, eggert, perkins] 
+  $atlarge = [ ford, eggert, perkins, huang] 
 
   def atlarge_contacts
     result = "irsg\n" +
