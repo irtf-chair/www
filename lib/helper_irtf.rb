@@ -465,6 +465,8 @@ module IRTF
     "2017-01-06"
   )
 
+
+  # SUSTAIN
   rezaki = Person.new("Ali", "Rezaki", "ali.rezaki@nokia.com", "https://datatracker.ietf.org/person/ali.rezaki@nokia.com", nil)
   welzl = Person.new("Michael", "Welzl", "michawe@ifi.uio.no", "https://folk.universitetetioslo.no/michawe/", nil)
 
@@ -480,7 +482,22 @@ module IRTF
     nil
   )
 
+  # SPACERG
+  ott = Person.new("Jörg", "Ott", "ott@in.tum.de", "https://www.net.in.tum.de/en/people/joerg-ott/", nil)
+  fraire = Person.new("Juan A.", "Fraire", "<juanfraire@gmail.com", "https://depend.cs.uni-saarland.de/~jfraire/", nil)
+  spacerg = RG.new(
+    "spacerg",
+    "Systems and Protocol Aspects for Circumstellar Environments",
+    "space@irtf.org",
+    nil,
+    nil,
+    [ ott, fraire ],
+    nil,
+    "2025-01-01",
+    nil
+  )
 
+  
   # TMRG
   andrew = Person.new("Lachlan", "Andrew", "lachlan.andrew@gmail.com", "http://caia.swin.edu.au/cv/landrew/", nil)
   tmrg = RG.new(
@@ -554,6 +571,7 @@ module IRTF
     "pearg" => pearg,
     "qirg" => qirg,
     "rasprg" => rasprg,
+    "spacerg" => spacerg,
     "sustain" => sustain,
     "t2trg" => t2trg,
     "ufmrg" => ufmrg
