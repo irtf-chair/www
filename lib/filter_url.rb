@@ -7,6 +7,14 @@ class URLFilter < Nanoc::Filter
   type :text
 
   @@urls = {
+    # ANRP 2026 winners:
+    "Tianyi Gao"               => "https://tianyigao.net/",
+    "Michio Honda"             => "https://micchie.net/",
+    "Xiangjie Huang"           => "https://scholar.google.com/citations?user=sWEp26wAAAAJ&hl=zh-CN",
+    "Rumaisa Habib"            => "https://rumaisahabib.com/",
+    "Diwen Xue"                => "https://diwenx.com/",
+    "Protick Bhowmick"         => "https://scholar.google.com/citations?user=kS_jdTsAAAAJ&hl=en",
+    "Mona Wang"                => "https://m0na.net/",
     # ANRP 2023 winners:
     "Simon Scherrer"           => "https://netsec.ethz.ch/people/simon/",
     "Boris Pismenny"           => "https://borispis.github.io/",
