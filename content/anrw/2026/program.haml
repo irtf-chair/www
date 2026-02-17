@@ -1,0 +1,615 @@
+---
+title: ANRW&nbsp;’25 Program
+menu: Program
+---
+
+%h1 Workshop Program
+
+%p= render "/anrw/2025/place_.*"
+
+%h2 Program
+
+%p
+  Times are given in CEST (Madrid) time zone.
+
+%table.table.table-striped.no-urlify
+  %thead
+    %tr
+      %th
+        Time
+      %th
+        Session
+
+  %tbody
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 09:30-10:30
+      %td
+        %h4.text-danger Welcome and Keynote
+        %p
+          %a{ name: "welcome"}
+          %b
+            Welcome and Opening Remarks
+          %br
+          Anna Brunström (Karlstad University), Ryan Becket (Microsoft)
+          %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-00.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=45"}
+            video
+
+          %p
+          %a{ name: "keynote"}
+          %b
+            Keynote: Verifying configurations was the easy part: my ongoing quest toward correct network operations and musings about how AI could help
+          %br
+          %a{ :href => "https://www.vanbever.eu/"} Laurent Vanbever (ETH Zürich)
+
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-01.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=280"}
+            video
+
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 10:30-11:00
+      %td
+        %h4.text-danger Video & CDN
+
+        %p
+          %a{ name: "p01"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744774",
+                :referrerpolicy => "no-referrer-when-downgrade"} 
+              Carbon-Intelligent Content Scheduling in CDNs
+            
+          %br
+          S. El-Zahr,
+          W. Nathan,
+          and
+          N. Zilberman
+        %div.mb-3
+          -#%a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-02.pdf"}
+            slides
+          -#%a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=4239"}
+            video
+
+        %p
+          %a{ name: "p02"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744784",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              End-to-End 360º Video Streaming over HTTP/3: Architecture and Implementation
+          %br
+          F. Rosa,
+          S. Ferlin,
+          A. Brunstrom,
+          and
+          B. Kimura
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 11:30-12:15
+      %td
+        %h4.text-danger Standards, Protocols & RFCs
+
+        %p
+          %a{ name: "p03"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744757",
+                :referrerpolicy => "no-referrer-when-downgrade"} 
+              Two Decades of IETF Affiliations: Evolution and Impact
+            
+          %br
+          Y. Zhang,
+          S. McQuistin,
+          V. Karan,
+          H. Ramirez-Centeno,
+          C. Perkins,
+          G. Tyson,
+          and
+          I. Castro
+        %div.mb-3
+          -#%a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-02.pdf"}
+            slides
+          -#%a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=4239"}
+            video
+
+        %p
+          %a{ name: "p04"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744761",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Empowering IETF Collaboration with NLP Search Innovations and LLM-Enhanced RFC Writing
+          %br
+          J. Bian
+          and
+          M. Welzl
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p05"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744763",
+                :referrerpolicy => "no-referrer-when-downgrade"}
+              Large Language Model Driven Automated Network Protocol Testing
+          %br
+          Y. Wei,
+          K. Chi,
+          S. Du,
+          X. Xie,
+          Z. Geng,
+          Y. Han,
+          Z. Li,
+          Z. Li,
+          and
+          Y. Cui
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 12:15-13:00
+      %td
+        %h4.text-danger Emulation & Diagnosis
+
+        %p
+          %a{ name: "p06"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744758",
+                :referrerpolicy => "no-referrer-when-downgrade"} 
+              PhantomLink: Emulating Virtual End-to-End Links on Ground and in Orbit
+            
+          %br
+          R. Ohs,
+          G. Stock,
+          J. Fraire,
+          H. Hermanns,
+          and
+          A. Schmidt
+        %div.mb-3
+          -#%a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-02.pdf"}
+            slides
+          -#%a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=4239"}
+            video
+
+        %p
+          %a{ name: "p07"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744759",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              BrowsEm: Model-based Web Site Loading Emulation
+          %br
+          K. Holzinger,
+          F. Klein,
+          D. Petri,
+          S. Lachnit,
+          S. Gallenmüller,
+          and
+          G. Carle
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p08"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744769",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Using Explicit (Host-to-Network) Flow Measurements for Network Tomography
+          %br
+          I. Kunze,
+          C. Sander,
+          A. Ruhrmann,
+          N. Rieken,
+          and
+          K. Wehrle
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 14:30-15:45
+      %td
+        %h4.text-danger Transport
+
+        %p
+          %a{ name: "p09"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744766",
+                :referrerpolicy => "no-referrer-when-downgrade"} 
+              Getting up to Speed with Neqo and Careful Resume
+            
+          %br
+          N. Fischer,
+          M. Hofstätter,
+          J. Deutschmann,
+          and
+          R. German
+        %div.mb-3
+          -#%a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-02.pdf"}
+            slides
+          -#%a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=4239"}
+            video
+
+        %p
+          %a{ name: "p10"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744760",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              TCP Congestion Control Performance over Starlink
+          %br
+          J. Garcia,
+          S. Sundberg,
+          and
+          A. Brunstrom
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p11"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744780",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Understanding QUIC's Throughput Speedbumps
+          %br
+          S. Mukherjee,
+          D. Lei,
+          M. Ammar,
+          and
+          A. Saeed
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p12"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744773",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Cascades of Nested Acknowledgments in Multi-Hop MASQUE
+          %br
+          K. Elmenhorst,
+          M. Kühlewind,
+          I. Kunze,
+          C. Sander,
+          and
+          K. Wehrle
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p13"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744770",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Reproducing and Solving a Fallback Issue in TCP Prague
+          %br
+          L. Hagen
+          and
+          A. Brunstrom
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 15:45-16:30
+      %td
+        %h4.text-danger Lightning Talks / Poster Session
+
+        %p
+          %a{ name: "p14"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744768",
+                :referrerpolicy => "no-referrer-when-downgrade"} 
+              Towards Comprehensive Mapping of Africa’s Internet Infrastructure
+            
+          %br
+          N. Anya
+          and
+          T. Benson
+        %div.mb-3
+          -#%a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-02.pdf"}
+            slides
+          -#%a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=4239"}
+            video
+
+        %p
+          %a{ name: "p15"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744764",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Towards Operational and Security Best Practices for DNS in the Internet of Things
+          %br
+          A. Losty,
+          A. Mishra,
+          M. Cunche,
+          and
+          A. Mandalari
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p16"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744771",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Towards switched-homing for Internet access
+          %br
+          P. Van Ouytsel,
+          M. Baerts,
+          and
+          O. Bonaventure
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p17"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744778",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Identifying Roadblocks in Building Decentralized Apps
+          %br
+          T. Yu,
+          A. Thieme,
+          and
+          L. Zhang
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p18"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744782",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Straggler-Aware Observability for Flow Scheduling
+          %br
+          M. Maulana,
+          H. Mostafaei,
+          and
+          N. Meratnia
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p19"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744765",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Towards Understanding Middlebox Deployments in Dutch ASes: Impact of IP Sampling Size
+          %br
+          B. Ulukapi,
+          A. Sperotto,
+          and
+          R. Holz
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p20"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744777",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Non-Standard Large TTLs in DNS Query Responses
+          %br
+          Y. Shavitt
+          and
+          O. Shreibstein
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 17:00-18:00
+      %td
+        %h4.text-danger Optimization, Routing & IP
+
+        %p
+          %a{ name: "p21"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744783",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Locating and Enumerating anycast: a Comparison of Two Approaches
+          %br
+          R. Hendriks,
+          T. Betzer,
+          B. Du,
+          R. Sommese,
+          M. Jonker,
+          and
+          R. van Rijswijk-Deij
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p22"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744779",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Stack Management for MPLS Network Actions: Integration of Nodes with Limited Hardware Capabilities
+          %br
+          F. Ihle
+          and
+          M. Menth
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p23"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744762",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              On the Benefits of Predictable Traffic in Virtual Switches: A Case Study
+          %br
+          E. Ståhl,
+          S. Ferlin,
+          E. Chaudron,
+          and
+          M. Chiesa
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+
+        %p
+          %a{ name: "p24"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744776",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Analyzing Internet background radiation with reflective network telescopes
+          %br
+          E. Chan,
+          R. Mok,
+          E. Chan,
+          and
+          X. Luo
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+      
+    %tr
+      %td{ :style => "width: 10em" }
+        %b 18:00-19:00
+      %td
+        %h4.text-danger Security
+
+        %p
+          %a{ name: "p21"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744781",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              Secure Deployment of eBPF Programs Made Manifest
+          %br
+          B. Gbadamosi,
+          T. Pulls,
+          and
+          T. Høiland-Jørgensen
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p22"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744772",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              MAY is not enough! QUIC servers SHOULD skip packet numbers
+          %br
+          L. Navarre
+          and
+          O. Bonaventure
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+        %p
+          %a{ name: "p23"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744767",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              PQC for DNSSEC: a format size analysis on Falcon signatures
+          %br
+          G. Fabrizio,
+          R. Koning,
+          E. Lastdrager,
+          C. Schutijser,
+          A. Sperotto,
+          and
+          R. van Rijswijk-Deij
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+
+        %p
+          %a{ name: "p24"}
+          %b
+            %a{ :href => "https://dl.acm.org/doi/10.1145/3744200.3744775",
+                :referrerpolicy => "no-referrer-when-downgrade"}               
+              A Framework for Secure Autonomic IoT Device Management in Constrained Networks
+          %br
+          M. Hatami,
+          S. Céspedes,
+          and
+          J. Atwood
+        %div.mb-3
+          -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
+            slides
+          -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
+            video
+
+
+
+%h2 Proceedings
+%p
+  %a{ :href => "https://dl.acm.org/doi/proceedings/10.1145/3744200", 
+      :referrerpolicy => "no-referrer-when-downgrade"  }
+    Proceedings of the Applied Networking Research Workshop 2025
+  are available from the ACM Digital Library.
+
