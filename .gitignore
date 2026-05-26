@@ -1,0 +1,7 @@
+.DS_Store
+output/
+tmp/
+*.haml~
+*.lock.old
+# macOS/Finder duplicate copies
+* copy.*
