@@ -26,21 +26,19 @@ menu: Program
         %b 09:00-10:00
       %td
         %h4.text-danger Welcome and Keynote
-        
         %p
           %a{ name: "welcome"}
           %b
             Welcome and Opening Remarks
           %br
           Thomas Schmidt (HAW Hamburg), Suresh Krishnan (Cisco)
-        
-        %div.mb-3
+          %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-00.pdf"}
             slides
           -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=45"}
             video
 
-        %p
+          %p
           %a{ name: "keynote"}
           %b
             Keynote: The Internet - A Critical Infrastructure
@@ -62,10 +60,9 @@ menu: Program
         %p
           %a{ name: "p01"}
           %b
-            BoostState: Low-Latency State Transfer in Edge Cloud Using Programmable Data Planes
+              BoostState: Low-Latency State Transfer in Edge Cloud Using Programmable Data Planes
           %br
           -# T.V. Doan et al.
-        
         %div.mb-3
           -#%a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-02.pdf"}
             slides
@@ -75,10 +72,9 @@ menu: Program
         %p
           %a{ name: "p02"}
           %b
-            Unified Network Abstraction Layer via Knowledge Graph
+              Unified Network Abstraction Layer via Knowledge Graph
           %br
           -# F. Thomas et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
@@ -88,10 +84,9 @@ menu: Program
         %p
           %a{ name: "p03"}
           %b
-            Small Packets, Big Difference: L4S Congestion Control at Low Bandwidth
+              Small Packets, Big Difference: L4S Congestion Control at Low Bandwidth
           %br
           -# D. Zeynali et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
@@ -101,10 +96,9 @@ menu: Program
         %p
           %a{ name: "p04"}
           %b
-            Towards encrypted zero-copy L7 load balancing
+              Towards encrypted zero-copy L7 load balancing
           %br
           -# M.P. Podles et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
@@ -114,15 +108,15 @@ menu: Program
         %p
           %a{ name: "p05"}
           %b
-            PINOCCHIO: Queueing-Onset Prediction in Mobile Edge Networks Using Reservoir Computing
+              PINOCCHIO: Queueing-Onset Prediction in Mobile Edge Networks Using Reservoir Computing
           %br
           -# A. Karnam et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
           -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
             video
+
 
     %tr
       %td{ :style => "width: 10em" }
@@ -133,10 +127,10 @@ menu: Program
         %p
           %a{ name: "p06"}
           %b
-            Unequal Cover: Measuring Privacy Disparities in Proxy Infrastructure
+              Unequal Cover: Measuring Privacy Disparities in Proxy Infrastructure
+            
           %br
           -# T.V. Doan et al.
-        
         %div.mb-3
           -#%a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-02.pdf"}
             slides
@@ -146,10 +140,9 @@ menu: Program
         %p
           %a{ name: "p07"}
           %b
-            Zero-Shot IoT Device Type Labeling from Passive Network Telemetry
+              Zero-Shot IoT Device Type Labeling from Passive Network Telemetry
           %br
           -# B. Meyuhas et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
@@ -159,10 +152,9 @@ menu: Program
         %p
           %a{ name: "p08"}
           %b
-            An Algebraic Framework for Source Address Validation
+              An Algebraic Framework for Source Address Validation
           %br
           -# L. Chen et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
@@ -172,10 +164,9 @@ menu: Program
         %p
           %a{ name: "p09"}
           %b
-            QUIC Meets Reality: Deployment and Performance of Encrypted DNS in Indian Access Networks
+              QUIC Meets Reality: Deployment and Performance of Encrypted DNS in Indian Access Networks
           %br
           -# L. Kadiyala et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
@@ -185,17 +176,19 @@ menu: Program
         %p
           %a{ name: "p10"}
           %b
-            The Illusion of DDR Deployment
+              The Illusion of DDR Deployment
           %br
           -# Y. Nosyk et al.
-        
         %div.mb-3
           -# %a.btn.btn-secondary{ :href => "/anrw/2024/slides-120-anrw-03.pdf"}
             slides
           -# %a.btn.btn-secondary{ :href => "https://www.youtube.com/watch?v=UV86d6g6J5s&t=5651"}
             video
 
+
 %h2 Proceedings
 %p
-  -# %a{ :href => "https://dl.acm.org/doi/proceedings/10.1145/3744200", :referrerpolicy => "no-referrer-when-downgrade" }
+  -#% a{ :href => "https://dl.acm.org/doi/proceedings/10.1145/3744200", 
+      :referrerpolicy => "no-referrer-when-downgrade"  }
     Proceedings of the Applied Networking Research Workshop 2025 will be available from the ACM Digital Library.
+
