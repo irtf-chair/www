@@ -27,7 +27,7 @@
 %h2 Datatracker
 %p
   Documents and meeting materials for the #{acronym} can be found on the
-  %a{ :href => "https://datatracker.ietf.org/rg/#{acronym.downcase}/about/" } IETF datatracker.
+  %a{ :href => "https://datatracker.ietf.org/rg/#{item[:datatracker_group] || acronym.downcase}/about/" } IETF datatracker.
 
 
 - if rg.web then
