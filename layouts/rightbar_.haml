@@ -22,7 +22,7 @@
   The #{acronym} mailing list is
   = link_to(rg.list, "mailto:#{rg.list}") + "."
   To subscribe or access the list archives, visit the
-  = link_to("mailman page", rg.listweb) + "."
+  = link_to("mailman page", item[:mailing_list_url] || rg.listweb) + "."
 
 %h2 Datatracker
 %p

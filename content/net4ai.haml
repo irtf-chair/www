@@ -1,0 +1,62 @@
+---
+mailing_list_url: https://mailman3.irtf.org/mailman3/lists/net4ai.irtf.org/
+---
+
+-# convenience shortcuts
+- rg = $rgs[item.identifier.without_ext.tr("/", "")]
+- acronym = rg.acronym.upcase
+
+%h2 Goal
+
+%p
+  The proposed Networking for AI Research Group (NET4AI) brings together
+  researchers and the Internet community to investigate the networking
+  foundations of distributed AI systems spanning multiple stakeholders.
+  It provides a forum for long-term architectural research beyond the
+  immediate requirements addressed by IETF working groups.
+
+%h2 Scope
+
+%p
+  NET4AI explores Internet support for autonomous agents, decentralized
+  AI systems, and communication architectures for AI ecosystems. Its scope
+  extends beyond individual datacenters to the challenges of operating AI
+  workloads across networks and administrative domains.
+
+%h2 Background
+
+%p
+  Generative and agentic AI have prompted new protocol discussions in the
+  IETF and growing research interest in networking for training, inference,
+  and large language model serving. NET4AI complements these activities by
+  examining longer-term questions about Internet architecture, decentralization,
+  and support for networked AI systems.
+
+%h2 Research areas
+
+%ul
+  %li Adapting Internet protocols to support AI workloads.
+  %li Testbeds and benchmarks for research on agentic network management.
+  %li Communication protocols tailored to agents beyond human-readable, real-time interactions.
+  %li Caching and content distribution for AI, including key-value cache distribution for inference beyond a single datacenter.
+  %li Agent identity, naming, and addressing across domains, including decentralized approaches to trustworthy agent communication.
+  %li Security requirements introduced by agentic AI.
+
+%h2 Mode of Operation
+
+%p
+  NET4AI will assess and develop experimental tools, including simulators
+  and testbeds, and collect and share datasets for reproducible experiments.
+  The group will encourage research on networked AI systems, new architectures
+  such as key-value-cache-centric and mixture-of-experts systems, inter-datacenter
+  communication, and security. It will also explore principled approaches to
+  communication among agents.
+
+%p
+  The proposed charter and current group information are available on the
+  %a{ :href => "https://datatracker.ietf.org/rg/net4ai/about/" } IETF Datatracker.
+
+%h2 Membership
+
+%p
+  Membership in the #{acronym} is open to all interested parties.

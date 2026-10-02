@@ -323,6 +323,20 @@ module IRTF
     "2023-08-02"
   )
 
+  # NET4AI
+  fressancourt = Person.new("Antoine", "Fressancourt", "ietf@aft.network", "https://datatracker.ietf.org/person/ietf@aft.network", nil)
+  net4ai = RG.new(
+    "net4ai",
+    "Networking for AI Proposed",
+    "net4ai@irtf.org",
+    nil,
+    nil,
+    [ fressancourt, kutscher ],
+    nil,
+    nil,
+    nil
+  )
+
   # NMRG
   #granville = Person.new("Lisandro", "Granville", "granville@inf.ufrgs.br", "https://inf.ufrgs.br/~granville/", nil)
   # festor = Person.new("Olivier", "Festor", "Olivier.Festor@inria.fr", "https://www.loria.fr/~festor/Site/Welcome.html", nil) # www is needed
@@ -566,6 +580,7 @@ module IRTF
     "iccrg" => iccrg,
     "icnrg" => icnrg,
     "maprg" => maprg,
+    "net4ai" => net4ai,
     "nmrg"  => nmrg,
     "panrg" => panrg,
     "pearg" => pearg,
